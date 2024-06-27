@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lennartwittkuhn.com/repro-book/index.html</loc>
-    <lastmod>2024-06-27T13:38:58.975Z</lastmod>
+    <lastmod>2024-06-27T13:48:21.446Z</lastmod>
   </url>
   <url>
-    <loc>https://lennartwittkuhn.com/repro-book/intro.html</loc>
-    <lastmod>2024-06-27T13:38:58.975Z</lastmod>
+    <loc>https://lennartwittkuhn.com/repro-book/contents.html</loc>
+    <lastmod>2024-06-27T13:48:21.446Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lennartwittkuhn.com/repro-book/chapters/intro.html</loc>
+    <lastmod>2024-06-27T13:48:21.442Z</lastmod>
   </url>
   <url>
     <loc>https://lennartwittkuhn.com/repro-book/summary.html</loc>
-    <lastmod>2024-06-27T13:38:58.975Z</lastmod>
+    <lastmod>2024-06-27T13:48:21.446Z</lastmod>
   </url>
   <url>
     <loc>https://lennartwittkuhn.com/repro-book/references.html</loc>
-    <lastmod>2024-06-27T13:38:58.975Z</lastmod>
+    <lastmod>2024-06-27T13:48:21.446Z</lastmod>
   </url>
   <url>
     <loc>https://lennartwittkuhn.com/repro-book/acknowledgements.html</loc>
-    <lastmod>2024-06-27T13:38:58.975Z</lastmod>
+    <lastmod>2024-06-27T13:48:21.442Z</lastmod>
   </url>
 </urlset>

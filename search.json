@@ -10,8 +10,18 @@
     ]
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
+    "objectID": "contents.html",
+    "href": "contents.html",
+    "title": "Contents",
+    "section": "",
+    "text": "The estimate of the reading time for each chapter is computed by counting the words in the chapter and assuming a reading speed of 200 words per minute.\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Modified - Oldest\n        \n         \n          Modified - Newest\n        \n         \n          Reading Time (Low to High)\n        \n         \n          Reading Time (High to Low)\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nIntroduction\n\n\n\n\n\n\n\n\n\n\n\n1 min\n\n\nJune 27, 2024\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Contents"
+    ]
+  },
+  {
+    "objectID": "chapters/intro.html",
+    "href": "chapters/intro.html",
     "title": "1  Introduction",
     "section": "",
     "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
