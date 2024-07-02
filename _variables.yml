@@ -5,7 +5,7 @@ project:
   description: "The Repro Book - A Guide to Reproducible Research"
   email: "lennart.wittkuhn@uni-hamburg.de"
   mailto: "mailto:{{< var project.email >}}"
-  site-url: "https://lennartwittkuhn.com/{{< var project.name >}}"
+  site-url: "https://lennartwittkuhn.com/repro-book"
   repo-host: "GitHub"
   repo-url: "https://github.com/lnnrtwttkhn/repro-book"
   issue-url: "{{< var project.repo-url >}}/issues"
