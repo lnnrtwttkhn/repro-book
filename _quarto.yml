@@ -27,6 +27,7 @@ book:
     - index.qmd
     - contents.qmd
     - chapters/intro.qmd
+    - chapters/naming-things.qmd
     - summary.qmd
     - references.qmd
     - acknowledgements.qmd
