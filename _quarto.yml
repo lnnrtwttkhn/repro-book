@@ -81,6 +81,7 @@ citation-location: document
 citeproc: true
 from: markdown+emoji
 license: CC BY
+abstract-title: "Summary"
 metadata-files:
   - _images.yml
 
