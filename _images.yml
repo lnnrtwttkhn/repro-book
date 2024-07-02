@@ -1,0 +1,11 @@
+xkcd-iso-8601:
+  title: "ISO 8601"
+  author: "xkcd.com (Randall Munroe)"
+  author-url: "https://xkcd.com/"
+  image-file: "xkcd-iso-8601.png"
+  image-url: "https://xkcd.com/1179/"
+  license: "CC BY-NC 2.5"
+  license-url: "https://creativecommons.org/licenses/by-nc/2.5/"
+  license-reference: "https://xkcd.com/license.html"
+  comments: "reused without modifications"
+  alt-text: ""
