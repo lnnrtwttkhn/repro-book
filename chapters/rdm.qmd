@@ -94,6 +94,17 @@ cat(make_figure("remi-gau-data-readme"))
 
 :::
 
+## FAIR principles
+
+@wilkinson2016
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("nlm-nih-fair"))
+```
+
 ## Acknowledgements
 
 [Dr. Maike Kleemeyer](https://orcid.org/0000-0002-9388-5535) and the Research Data Management and Open Science working group at the [Max Planck Institute for Human Development, Berlin]({{< links.mpib >}}).
