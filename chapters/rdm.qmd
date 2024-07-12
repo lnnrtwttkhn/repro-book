@@ -105,6 +105,23 @@ cat(make_figure("remi-gau-data-readme"))
 cat(make_figure("nlm-nih-fair"))
 ```
 
+## Data organization
+
+### Data standards
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("xkcd-standards"))
+```
+
+Questions to ask yourself:
+
+1. What data are you working with?
+1. Which analysis pipelines are you working with?
+1. **Is there a community standard?**
+
 ## Acknowledgements
 
 [Dr. Maike Kleemeyer](https://orcid.org/0000-0002-9388-5535) and the Research Data Management and Open Science working group at the [Max Planck Institute for Human Development, Berlin]({{< links.mpib >}}).

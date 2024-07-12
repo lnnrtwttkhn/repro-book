@@ -9,6 +9,17 @@ xkcd-iso-8601:
   license-reference: "https://xkcd.com/license.html"
   comments: "reused without modifications"
   alt-text: ""
+xkcd-standards:
+  title: "Standards"
+  author: "xkcd.com (Randall Munroe)"
+  author-url: "https://xkcd.com/"
+  image-file: "xkcd-standards.png"
+  image-url: "https://xkcd.com/927/"
+  license: "CC BY-NC 2.5"
+  license-url: "https://creativecommons.org/licenses/by-nc/2.5/"
+  license-reference: "https://xkcd.com/license.html"
+  comments: "reused without modifications"
+  alt-text: ""
 remi-gau-data-derivative:
   title: "Derivative data (Research Data Management explained with Pasta)"
   author: "Remi Gau"
