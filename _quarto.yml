@@ -27,6 +27,7 @@ book:
     - index.qmd
     - contents.qmd
     - chapters/intro.qmd
+    - chapters/docker-renv.qmd
     - summary.qmd
     - references.qmd
     - acknowledgements.qmd
