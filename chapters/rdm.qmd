@@ -30,3 +30,20 @@ Reused without modifications.
 
 See @vid-rdm-snafu ...
 
+## Benefits of research data management
+
+Managing data well throughout the research process is crucial for successful research outcomes, including:
+
+- Upholding research integrity and reproducibility
+- Improving research productivity
+- Ensuring the accuracy, completeness, authenticity, and reliability of research data and records
+- Saving time and resources in the future
+- Strengthening data security and reducing the likelihood of data loss
+- Avoiding redundant work by facilitating data sharing
+- Meeting the grant requirements of funding bodies
+- Adhering to industry and commerce practices.
+
+## Acknowledgements
+
+[Dr. Maike Kleemeyer](https://orcid.org/0000-0002-9388-5535) and the Research Data Management and Open Science working group at the [Max Planck Institute for Human Development, Berlin]({{< links.mpib >}}).
+
