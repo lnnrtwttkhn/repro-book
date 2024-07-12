@@ -99,3 +99,8 @@ format:
     link-external-newwindow: true
     footnotes-hover: true
     include-after-body: plausible.html
+    crossref:
+      custom:
+        - kind: float
+          reference-prefix: Video
+          key: vid

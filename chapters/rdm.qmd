@@ -9,3 +9,24 @@ categories: [intermediate]
 abstract: |
   In this chapter you will learn the basics of research data management.
 ---
+
+## Introduction
+
+::: {#vid-rdm-snafu}
+
+{{< video https://www.youtube.com/watch?v=N2zK3sAtr-4?cc_load_policy=1&cc_lang_pref=en >}}
+
+**"Data Sharing and Management Snafu in 3 Short Acts".**
+The video by @hanson2019 from NYU Health Sciences Library features a cute animated panda researcher making a data sharing request to a bear researcher.
+It does not go well.
+The video aims to communicate some of the common and avoidable pitfalls of research data management in a light-hearted format.
+Topics include storage, documentation, and file formats.
+The video was produced using a tool called Xtranormal (now "nawmal") and the characters are strangely expressive while talking in robotic text-to-speech voices with a limited range of movement.
+It was created and uploaded to YouTube by librarians at NYU School of Medicine in 2012 to be used for research data management education and has been included in numerous research data management courses and presentations.
+License: Creative Commons Attribution 4.0 International ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
+Reused without modifications.
+
+:::
+
+See @vid-rdm-snafu ...
+
