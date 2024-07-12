@@ -122,8 +122,21 @@ Questions to ask yourself:
 1. Which analysis pipelines are you working with?
 1. **Is there a community standard?**
 
+#### Example: Brain Imaging Data Structure (BIDS)
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("bids-dataset"))
+```
+
+@gorgolewski2016
+
 ## Acknowledgements
 
 [Dr. Maike Kleemeyer](https://orcid.org/0000-0002-9388-5535) and the Research Data Management and Open Science working group at the [Max Planck Institute for Human Development, Berlin]({{< links.mpib >}}).
 
 @gau2022
+
+@gorgolewski2016

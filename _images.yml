@@ -1,3 +1,14 @@
+bids-dataset:
+  title: "Illustration of a BIDS structured dataset"
+  author: "@gorgolewski2016"
+  author-url: "https://doi.org/10.1038/sdata.2016.44"
+  image-file: "bids-dataset.png"
+  image-url: "https://www.nature.com/articles/sdata201644/figures/1"
+  license: "CC BY 4.0"
+  license-url: "https://creativecommons.org/licenses/by/4.0/"
+  license-reference: "https://www.nature.com/articles/sdata201644"
+  comments: "reused without modifications"
+  alt-text: ""
 xkcd-iso-8601:
   title: "ISO 8601"
   author: "xkcd.com (Randall Munroe)"
