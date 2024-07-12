@@ -27,6 +27,7 @@ book:
     - index.qmd
     - contents.qmd
     - chapters/intro.qmd
+    - chapters/rdm.qmd
     - summary.qmd
     - references.qmd
     - acknowledgements.qmd

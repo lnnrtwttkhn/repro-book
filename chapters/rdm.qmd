@@ -1,0 +1,11 @@
+---
+title: "Research Data Management"
+engine: knitr
+execute:
+  eval: false
+  warning: false
+  message: false
+categories: [intermediate]
+abstract: |
+  In this chapter you will learn the basics of research data management.
+---
