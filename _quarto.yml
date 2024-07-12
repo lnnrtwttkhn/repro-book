@@ -95,6 +95,7 @@ format:
     code-copy: true
     code-link: false
     code-tools: false
+    code-annotations: below
     link-external-newwindow: true
     footnotes-hover: true
     include-after-body: plausible.html
