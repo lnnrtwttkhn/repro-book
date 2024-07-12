@@ -43,7 +43,59 @@ Managing data well throughout the research process is crucial for successful res
 - Meeting the grant requirements of funding bodies
 - Adhering to industry and commerce practices.
 
+## Motivation
+
+### Modularity of research data
+
+What we expect the data to look like ...
+
+::: {layout-ncol=3}
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("remi-gau-data-source"))
+```
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("remi-gau-data-raw"))
+```
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("remi-gau-data-derivative"))
+```
+
+:::
+
+What the dataset actually looks like ...
+
+::: {layout-ncol=3}
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("remi-gau-data-shared"))
+```
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("remi-gau-data-readme"))
+```
+
+:::
+
 ## Acknowledgements
 
 [Dr. Maike Kleemeyer](https://orcid.org/0000-0002-9388-5535) and the Research Data Management and Open Science working group at the [Max Planck Institute for Human Development, Berlin]({{< links.mpib >}}).
 
+@gau2022
