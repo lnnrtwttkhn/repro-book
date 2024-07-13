@@ -1,0 +1,408 @@
+---
+title: "Naming things"
+engine: knitr
+execute:
+  eval: false
+  warning: false
+  message: false
+categories: [beginner, basics]
+abstract: |
+  In this chapter you will learn how to name things.
+---
+
+## Examples
+
+### Bad names
+
+```{zsh filename="Output"}
+#| code-copy: false
+myabstract.docx
+Joe’s Filenames Use Spaces and Punctuation.xlsx
+figure 1.png
+fig 2.png
+JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt
+```
+
+### Better names
+
+```{zsh filename="Output"}
+#| code-copy: false
+2014-06-08_abstract-for-sla.docx
+joes-filenames-are-getting-better.xlsx
+fig01_scatterplot-talk-length-vs-interest.png
+fig02_histogram-talk-attendance.png
+1986-01-28_raw-data-from-challenger-o-rings.txt
+```
+
+::: {.callout-caution title="Exercise: What is bad or good about these file names?" collapse="false"}
+Pause for a moment an think about what exactly makes the file names above bad or better?
+Discuss with a learning partner.
+:::
+
+## Three principles for (file) names
+
+1. [Machine readable](#machine-readable)
+1. [Human readable]((#human-readable))
+1. Plays well with default ordering
+
+## Machine readable
+
+A file is machine-readable if information is formatted in a way that a computer can easily read and understand it without needing a human to interpret or manually enter the data.
+This often involves using standardized data formats like CSV, XML, or JSON, which are structured so that computer programs can process the information quickly and accurately.
+
+### Regular expression and globbing friendly
+
+A **regular expression**, often called a "regex", is a sequence of characters that defines a search pattern.
+It's used to find or match specific combinations of characters within text.
+You can think of it as a tool for searching text in a very precise and flexible way.
+
+**Globbing** is a way to use special characters (called "wildcards") to match multiple files or directories in command-line interfaces or scripts.
+It helps you select groups of files without typing every single name.
+
+Common wildcards in globbing:
+
+- `*` (asterisk): Matches any number of characters.
+For example, `*.txt` matches all files ending with `.txt`.
+- `?` (question mark): Matches exactly one character.
+For example, `file?.txt` matches `file1.txt` and `file2.txt`, but not `file10.txt`.
+
+So, if you wanted to list all text files in a directory, you could use the pattern `*.txt`, and it would match all files with the `.txt` extension.
+
+Both regular expression and globbing are concepts that help make working with files and data more efficient for automation and scripting tasks.
+
+To make file names regex and globing friendly, avoid:
+
+- spaces
+- punctuation
+- accented characters
+- case sensitivity
+
+::: {.callout-tip title="Find out more: What are regular expressions?" collapse="true"}
+
+A regular expression is a special sequence of characters that helps you to search for patterns in text.
+It allows you to find specific words or phrases within a larger body of text.
+For example, imagine you have a text document and you want to find all email addresses mentioned in it.
+You can use the following regular expression to search for email addresses:
+
+```{zsh filename="Code"}
+\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b
+```
+
+This pattern will match any text that looks like an email address, such as `example@email.com`.
+Imagine that you have a text like the following:
+
+> Please contact me at john.doe@email.com for any inquiries.
+You can also reach out to jane.smith@example.com for more information.
+
+You can see regular expression in action with this example:
+
+```{zsh filename="Code"}
+echo "Please contact me at john.doe@email.com for any inquiries. You can also reach out to jane.smith@example.com for more information." | grep -Eo "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b"
+```
+
+Here is what happens with this command:
+
+- `echo` is used to display the sample text.
+- The pipe (`|`) sends the output of `echo` as input to `grep`.
+- `grep -Eo` enables extended regular expressions and prints only the matching part of the line.
+- The regular expression `\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b` is used to identify email addresses in the text output by `echo`.
+
+You can also paste the example text into a text file, for example called `example.txt` and then apply the same command to the text file:
+
+```{zsh filename="Code"}
+grep -Eo "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b" example.txt
+```
+
+:::
+
+::: {.callout-tip title="Find out more: What is globbing?" collapse="true"}
+
+Globbing refers to the use of wildcard characters (like `*` and `?`) to match multiple files or directories in command-line interfaces and scripting.
+Being globbing friendly means file names or paths are structured in a way that makes them easy to match using these wildcards.
+
+For example, let's assume that you have two files like `report_2023_10_01.txt` and `report_2023_10_02.txt`.
+You can use a glob pattern like `report_2023_10_*.txt` to match all of them.
+
+:::
+
+#### Example
+
+Excerpt of complete file listing:
+
+```{zsh filename="Output"}
+#| code-copy: false
+2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H01.csv
+2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H02.csv
+2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H03.csv
+2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A01.csv
+2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A02.csv
+2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A03.csv
+2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A04.csv
+```
+
+::: {.panel-tabset}
+
+## {{< fa terminal >}} Bash
+
+```{zsh filename="Code"}
+ls *Plasmid*
+```
+
+```{zsh filename="Output"}
+#| code-copy: false
+2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H01.csv
+2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H02.csv
+2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H03.csv
+```
+
+## {{< fa brands apple >}} macOS
+
+Put image of macOS screenshot here
+
+## {{< fa brands r-project >}}
+
+```{zsh filename="Code"}
+list.files(pattern = "Plasmid") |> head
+```
+
+```{r filename="Output"}
+#| code-copy: false
+[1] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_A01.csv"
+[2] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_A02.csv"
+[3] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_A03.csv"
+[4] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_B01.csv"
+[5] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_B02.csv"
+[6] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_B03.csv
+```
+
+
+:::
+
+### Recover meta data from file names
+
+Deliberate use of underscores (`_`) and hyphens (`-`) allows us to recover metadata from file names.
+
+- Use underscores (`_`) to delimit units of metadata
+- Use hyphens (`-`) to delimit words to improve human readability
+
+::: {.panel-tabset}
+
+## {{< fa brands r-project >}}
+
+```{r filename="Code"}
+flist <- list.files(pattern = "Plasmid") %>% head
+stringr::str_split_fixed(flist, "[_\\.]", 5)
+```
+
+```{r filename="Output"}
+#| code-copy: false
+# date assay sampleset well
+[1,] "2013-06-26" "BRAFWTNEGASSAY" "Plasmid-Cellline-100-1MutantFraction" "A01" "csv"
+[2,] "2013-06-26" "BRAFWTNEGASSAY" "Plasmid-Cellline-100-1MutantFraction" "A02" "csv"
+[3,] "2013-06-26" "BRAFWTNEGASSAY" "Plasmid-Cellline-100-1MutantFraction" "A03" "csv"
+[4,] "2013-06-26" "BRAFWTNEGASSAY" "Plasmid-Cellline-100-1MutantFraction" "B01" "csv"
+[5,] "2013-06-26" "BRAFWTNEGASSAY" "Plasmid-Cellline-100-1MutantFraction" "B02" "csv"
+[6,] "2013-06-26" "BRAFWTNEGASSAY" "Plasmid-Cellline-100-1MutantFraction" "B03" "csv"
+```
+
+
+:::
+
+### Summary
+
+Names are more easily machine readable if it is
+
+1. easy to search for files later
+1. easy to narrow file lists based on names
+1. easy to extract information from file names, for example by splitting
+
+## Human readable
+
+Names of files and folders should contain **information about its content**.
+It should make it easy to figure out what something is based on the file name.
+This idea connects to the concept of a slug from semantic urls.
+
+::: {.callout-tip title="Find out more: What is a slug in a URL?" collapse="true"}
+
+A slug is a part of a URL that is easy to read and understand.
+It usually comes after the main website address and describes the content of the page in simple words.
+Slugs are important for both humans and search engines because they give a clear idea of what the page is about.
+
+For example:
+
+- The full URL might be: `https://www.example.com/blog/how-to-cook-pasta`
+- The slug in this URL is: `how-to-cook-pasta`
+
+Good slugs are short, descriptive, and use hyphens to separate words.
+This makes the URL more user-friendly and helps search engines understand the page content.
+
+:::
+
+Find the slug in the following file names:
+
+```{zsh filename="Output"}
+#| code-copy: false
+01_marshal-data.r
+02_pre-dea-filtering.r
+03_dea-with-limma-voom.r
+04_explore-dea-results.r
+90_limma-model-term-name-fiasco.r
+helper01_load-counts.r
+helper02_load-exp-des.r
+helper03_load-focus-statinf.r
+helper04_extract-and-tidy.r
+```
+
+Which filenames make it easier to understand their content?
+
+```{zsh filename="Output"}
+#| code-copy: false
+01_marshal-data.md
+01_marshal-data.r
+02_pre-dea-filtering.md
+02_pre-dea-filtering.r
+03_dea-with-limma-voom.md
+03_dea-with-limma-voom.r
+04_explore-dea-results.md
+04_explore-dea-results.r
+90_limma-model-term-name-fiasco.md
+90_limma-model-term-name-fiasco.r
+Makefile
+figure
+helper01_load-counts.r
+helper02_load-exp-des.r
+helper03_load-focus-statinf.r
+helper04_extract-and-tidy.r
+tmp.txt
+```
+
+```{zsh filename="Output"}
+#| code-copy: false
+01.md
+01.r
+02.md
+02.r
+03.md
+03.r
+04.md
+04.r
+90.md
+90.r
+Makefile
+figure
+helper01.r
+helper02.r
+helper03.r
+helper04.r
+tmp.txt
+```
+
+## Play well with default ordering
+
+### Put something numeric first
+
+#### Chronological order
+
+```{zsh filename="Output"}
+#| code-copy: false
+2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H01.csv
+2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H02.csv
+2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H03.csv
+2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A01.csv
+2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A02.csv
+2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A03.csv
+2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A04.csv
+```
+
+#### Logical order
+
+```{zsh}
+01_marshal-data.r
+02_pre-dea-filtering.r
+03_dea-with-limma-voom.r
+04_explore-dea-results.r
+90_limma-model-term-name-fiasco.r
+helper01_load-counts.r
+helper02_load-exp-des.r
+helper03_load-focus-statinf.r
+helper04_extract-and-tidy.r
+```
+
+#### Use the ISO 8601 standard for dates
+
+`YYYY-MM-DD`
+
+```{zsh filename="Output"}
+#| code-copy: false
+2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H01.csv
+2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H02.csv
+2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H03.csv
+2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A01.csv
+2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A02.csv
+2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A03.csv
+2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A04.csv
+```
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("xkcd-iso-8601"))
+```
+
+#### Consider the output:
+
+Files that are later turned into HTML should be exclusively delimited by hyphens (`-`).
+
+### Left-pad numbers with zeros
+
+Left-padding of numbers refers to the practice of adding zeros to the left of a number to make it reach a certain length.
+This can be useful, for example, when dealing with numerical data that needs to be formatted in a specific way for presentation or computational purposes.
+By left-padding numbers, you can ensure that they all have the same length and are easier to compare or work with in a numerical context.
+
+```{zsh filename="Output"}
+#| code-copy: false
+01_marshal-data.r
+02_pre-dea-filtering.r
+03_dea-with-limma-voom.r
+04_explore-dea-results.r
+90_limma-model-term-name-fiasco.r
+helper01_load-counts.r
+helper02_load-exp-des.r
+helper03_load-focus-statinf.r
+helper04_extract-and-tidy.r
+```
+
+If you don't left pad numbers, you get this:
+
+```{zsh filename="Output"}
+#| code-copy: false
+10_final-figs-for-publication.R
+1_data-cleaning.R
+2_fit-model.R
+```
+
+## Summary
+
+### Machine readable
+
+1. File names are regular expression and globbing friendly
+1. File names allow to recover meta data
+
+### Human readable
+
+Add scss code to disable the code-copy button on selected code chunks
+
+1. File names contain info on content
+
+### Plays well with default ordering
+
+1. Put something numeric first
+1. Use the ISO 8601 standard for dates: `YYYY-MM-DD`
+1. Left pad other numbers with zeros
+
+## References
+
+@bryan2015
+
+<https://speakerdeck.com/jennybc/how-to-name-files>
