@@ -27,3 +27,4 @@ links:
   funding-info: "https://stiftung-hochschullehre.de/projekt/ddlitlab/"
   plausible: "https://plausible.io/"
   quarto: "https://quarto.org/"
+  docker-renv: "https://rstudio.github.io/renv/articles/docker.html#creating-docker-images-with-renv"

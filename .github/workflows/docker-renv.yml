@@ -1,0 +1,43 @@
+name: Build and Push Docker Image from renv
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'renv.lock'
+      - 'DESCRIPTION'
+      - 'Dockerfile'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Ensure the full history is fetched so the commit hash is available
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Get short commit hash
+        id: vars
+        run: echo "hash=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Build Docker image
+        run: |
+          docker build -t lnnrtwttkhn/docker-renv:${{ steps.vars.outputs.hash }} .
+
+      - name: Push Docker image
+        run: |
+          docker push lnnrtwttkhn/docker-renv:${{ steps.vars.outputs.hash }}
+          docker tag lnnrtwttkhn/docker-renv:${{ steps.vars.outputs.hash }} lnnrtwttkhn/docker-renv:latest
+          docker push lnnrtwttkhn/docker-renv:latest
