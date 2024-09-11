@@ -9,3 +9,11 @@ authors:
     orcid: 0000-0003-2966-6888
     affiliations:
       - ref: uhh-psych
+  - id: reihs
+    name:
+      given: Justus Johannes
+      family: Reihs
+      literal: Justus Johannes Reihs
+    email: justus.reihs@studium.uni-hamburg.de
+    affiliations:
+      - ref: uhh-psych
