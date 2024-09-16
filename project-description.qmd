@@ -1,3 +1,23 @@
 # Purpose
 
 This file contains the project information about the repro book, which will be published at www.uni-hamburg.de.
+As template we use the project description from a previously developed similar project, that is a [Version Control Book](https://lennartwittkuhn.com/version-control-book/).
+
+# Template
+
+Focus of the project
+ 
+Digital objects on our computers, especially in science, are constantly changing. Manuscripts, programming code and research data are continuously and collaboratively modified. The systematic documentation of these changes is essential for reproducible and transparent science and effective collaboration.
+Despite the importance of data and code, researchers often deal with digital objects in a chaotic manner. Questions such as "Which version did I use?" or "What did I change?" are common, compromising reproducibility and trustworthiness and leading to frustration and loss of time.
+Researchers can learn from software development practices, particularly through the Git version control system. Git enables the tracking and organisation of the development of digital objects and their sharing via platforms such as GitHub.
+ 
+Review and results
+ 
+Against the backdrop of the replication crisis, there is a great need for methods to improve scientific practice. A key outcome of the teaching project was to teach course participants version control in a scientific context through the practical application of Git and the use of platforms such as GitHub.
+A significant achievement is the creation of an open source learning resource for the effective use of Git in a scientific environment. This resource promotes the dissemination of knowledge about version control and supports transparent scientific practice.
+Another outcome was the transparent development of teaching materials on GitHub, which promotes open and reproducible science and enables collaborative development. The course participants used this transparency to point out necessary additions.
+Overall, the results achieved have deepened the understanding of version control and created valuable resources for the community, contributing to the data literacy of participants and promoting the principles of openness and collaboration in the scientific environment.
+Tips from lecturers for lecturers
+ 
+The central element of digital skills development was the fully transparent, public and collaborative development of teaching resources using Git and GitHub. From conception to the final report, all elements of the teaching project were created in collaborative cooperation between the teacher, the student assistant and the tutor. The teaching content (version control of code and data with Git and GitHub) was applied to the creation of the teaching content. This approach also follows good scientific principles of transparency, openness and reproducibility in the creation of teaching materials (further information can be found here).
+The teaching project also contributed to the development of teachers' didactic skills. Various didactic methods were trialled as part of the teaching project: from partner and group work to quizzes, demonstrations and exercises. A deliberate focus was always placed on creating plenty of time and space for implementation, in which the participants were able to apply what they had learnt using concrete exercises and examples.
