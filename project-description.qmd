@@ -7,10 +7,10 @@ As template we use the project description from a previously developed similar p
 
 Focus of the project
  
-Digital objects on our computers, especially in science, are constantly changing. Manuscripts, programming code and research data are continuously and collaboratively modified. The systematic documentation of these changes is essential for reproducible and transparent science and effective collaboration.
-Despite the importance of data and code, researchers often deal with digital objects in a chaotic manner. Questions such as "Which version did I use?" or "What did I change?" are common, compromising reproducibility and trustworthiness and leading to frustration and loss of time.
-Researchers can learn from software development practices, particularly through the Git version control system. Git enables the tracking and organisation of the development of digital objects and their sharing via platforms such as GitHub.
- 
+Scientific practices are constantly developing, not only because of the replication crisis among various scientific disciplines. Questions as "How did they analyse it?", "Where do I find the code of the data?", "Why do I get different results when I run their analyses?" can be frustrating and time-consuming. 
+In this course, we aim to empower students to independently reproduce results from previous open science research. Second, we aim to empower them to conduct research that can be easily reproduced by other scientific participants.
+To do so, we give hands-on practices for students based on FAIR principles and all materials of the course can be easily accessed open source.
+
 Review and results
  
 Against the backdrop of the replication crisis, there is a great need for methods to improve scientific practice. A key outcome of the teaching project was to teach course participants version control in a scientific context through the practical application of Git and the use of platforms such as GitHub.
