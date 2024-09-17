@@ -1,6 +1,6 @@
 # Purpose
 
-This file contains the project information about the repro book, which will be published at www.uni-hamburg.de.
+This file contains the project information about the seminar course "reproducible research", which will be held at University of Hamburg.
 As template we use the project description from a previously developed similar project, that is a [Version Control Book](https://lennartwittkuhn.com/version-control-book/).
 
 # Template
