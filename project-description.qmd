@@ -11,12 +11,12 @@ Scientific practices are constantly developing, not only because of the replicat
 In this course, we aim to empower students to independently reproduce results from previous open science research. Second, we aim to empower them to conduct research that can be easily reproduced by other scientific participants.
 To do so, we give hands-on practices for students based on FAIR principles and all materials of the course can be easily accessed open source.
 
-Review and results
+Review and aims
  
-Against the backdrop of the replication crisis, there is a great need for methods to improve scientific practice. A key outcome of the teaching project was to teach course participants version control in a scientific context through the practical application of Git and the use of platforms such as GitHub.
-A significant achievement is the creation of an open source learning resource for the effective use of Git in a scientific environment. This resource promotes the dissemination of knowledge about version control and supports transparent scientific practice.
+A key outcome of the teaching project is to teach course participants how to do reproducible research through the delivery of practical tips as how to name files and folders, how to structure a research project, how to create docker containers, etc.
+A significant achievement is the creation of an open source learning resource for the effective planning and conduction of reproducible research. This resource promotes the dissemination of knowledge about reproducibility and supports transparent scientific practice.
 Another outcome was the transparent development of teaching materials on GitHub, which promotes open and reproducible science and enables collaborative development. The course participants used this transparency to point out necessary additions.
-Overall, the results achieved have deepened the understanding of version control and created valuable resources for the community, contributing to the data literacy of participants and promoting the principles of openness and collaboration in the scientific environment.
+Overall, the seminar aims to deepen the understanding of reproducible research and create a valuable resources for the community, contributing to the data literacy of participants and promoting the principles of openness and collaboration in the scientific environment.
 Tips from lecturers for lecturers
  
 The central element of digital skills development was the fully transparent, public and collaborative development of teaching resources using Git and GitHub. From conception to the final report, all elements of the teaching project were created in collaborative cooperation between the teacher, the student assistant and the tutor. The teaching content (version control of code and data with Git and GitHub) was applied to the creation of the teaching content. This approach also follows good scientific principles of transparency, openness and reproducibility in the creation of teaching materials (further information can be found here).
