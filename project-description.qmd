@@ -14,7 +14,7 @@ To do so, we give hands-on practices for students based on FAIR principles and a
 Review and aims
  
 A key outcome of the teaching project is to teach course participants how to do reproducible research through the delivery of practical tips as how to name files and folders, how to structure a research project, how to create docker containers, etc.
-A significant achievement is the creation of an open source learning resource for the effective planning and conduction of reproducible research. This resource promotes the dissemination of knowledge about reproducibility and supports transparent scientific practice.
+A significant achievement is the creation of an [open source learning resource](https://lennartwittkuhn.com/repro-book/) for the effective planning and conduction of reproducible research. This resource promotes the dissemination of knowledge about reproducibility and supports transparent scientific practice.
 Another outcome was the transparent development of teaching materials on GitHub, which promotes open and reproducible science and enables collaborative development. The course participants used this transparency to point out necessary additions.
 Overall, the seminar aims to deepen the understanding of reproducible research and create a valuable resources for the community, contributing to the data literacy of participants and promoting the principles of openness and collaboration in the scientific environment.
 
