@@ -7,7 +7,9 @@ editor: visual
 
 In the last chapters, you have learned how to make your data and code findable, accessible, interoperable, and reusable. In this chapter, you will learn good coding practices to help other researchers and future you with the code you used for your analysis.
 
-To make this more clear, let's think of an example. Consider yourself in a research project where you want to examine the robustness of the finding that women show higher neuroticism values than men. You have found a lot of papers examining this relationship, usually finding that indeed women show higher values than men. Now you are sitting in front of a paper from Wittkuhn et al. (2024). You want to check if the convenient finding of the authors is due to an error in the code of actually correct. Compare the following two examples of code. Which one would you prefer when you want to rerun analyses and why?
+## Code Style {#sec-codestyle}
+
+One important aspect that fosters understandability of code is the code style. To make this more clear, let's think of an example. Consider yourself in a research project where you want to examine the robustness of the finding that women show higher neuroticism values than men. You have found a lot of papers examining this relationship, usually finding that indeed women show higher values than men. Now you are sitting in front of a paper from Wittkuhn et al. (2024). You want to check if the convenient finding of the authors is due to an error in the code of actually correct. Compare the following two examples of code. Which one would you prefer when you want to rerun analyses and why?
 
 ```{r}
 #| label: bad-code-example
