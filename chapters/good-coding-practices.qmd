@@ -114,3 +114,17 @@ ggplot(
     )
   )
 ```
+
+## Tidy Data
+
+As you might have noticed when you worked through the @sec-codestyle section, the dataset `bfi` was organized well. That does not always hold true, when you work with datasets. In fact, most of the time you are facing datasets, you will spend more time organizing your data than running real analysis. A helpful concept is **tidy data**, which is a common guideline for datasets to be organized. Following tidy data guidelines will help you running analyses and getting the most out of your data.
+
+::: callout-important
+## Tidy Data
+
+Tidy datasets follow three basic rules:
+
+1.  Each variable is a column; each column is a variable.
+2.  Each observation is a row; each row is an observation.
+3.  Each value is a cell; each cell is a value.
+:::
