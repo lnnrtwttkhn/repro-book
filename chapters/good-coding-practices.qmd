@@ -2,3 +2,113 @@
 title: "good-coding-practices"
 editor: visual
 ---
+
+# Good coding practices
+
+In the last chapters, you have learned how to make your data and code findable, accessible, interoperable, and reusable. In this chapter, you will learn good coding practices to help other researchers and future you with the code you used for your analysis.
+
+To make this more clear, let's think of an example. Consider yourself in a research project where you want to examine the robustness of the finding that women show higher neuroticism values than men. You have found a lot of papers examining this relationship, usually finding that indeed women show higher values than men. Now you are sitting in front of a paper from Wittkuhn et al. (2024). You want to check if the convenient finding of the authors is due to an error in the code of actually correct. Compare the following two examples of code. Which one would you prefer when you want to rerun analyses and why?
+
+```{r}
+#| label: bad-code-example
+#| eval: FALSE
+#| code-line-numbers: true
+
+library(package=tidyverse)
+library(psych)#load packages
+#get data
+DATA<-bfi
+#get means of neuroticism-items by gender
+DATA$N <- rowMeans(DATA[16:20], na.rm=TRUE)
+describeBy(DATA$N, DATA$gender)
+
+#Result: women have higher neuroticism values then men (descriptively)
+t.test(N ~gender, data, alternative= "l")#confirmation
+#Plot Result in Boxplot
+DATA$gender <- factor(DATA$gender, levels= c(1,2), labels =c("male","female"))
+ggplot(DATA)+
+  geom_boxplot(aes(gender, N, group = gender, fill = gender),show.legend = F)+
+  scale_fill_manual(values = c("lightblue", "pink"))
+#Done
+```
+
+```{r}
+#| label: good-code-example
+#| eval: false
+#| code-line-numbers: true
+
+## Investigating the relationship of neuroticism and gender ##
+## Hypothesis: Women show higher values on a neuroticism-scale than men ##
+
+# load required packages
+library(psych) #for statistical computations, also contains data
+library(tidyverse) #for data wrangling and visualization
+
+# get dataset
+data <- bfi #Big Five Inventory
+
+# familiarize with dataset
+str(data)
+head(data)
+print(bfi.dictionary) #getting itemformulations
+?bfi #more background information about the data
+
+# create scale variable that contains the means of all N-items of each person
+data$N <- rowMeans(
+  data[16:20], #select corresponding Neuroticism-Items
+  na.rm=TRUE #remove missing values
+  )
+
+# get labels for gender values
+print(bfi.dictionary) #males = 1, females = 2
+data$gender <- factor(
+  data$gender,
+  levels = c(1, 2),
+  labels = c("male", "female")
+)
+
+# check correct labels
+str(data$gender)
+
+# get descriptive differences
+describeBy(
+  x = data$N,
+  group = data$gender #group values by gender
+)
+      # Result:
+        # Males:    M = 2.95, SD = 1.14
+        # Females:  M = 3.27, SD = 1.21
+      # Descriptive Statistics congruent to hypothesis.
+
+# check for significant differences
+t.test(
+  N ~ gender,
+  data = data,
+  alternative = "less" #assume that men show lower values than women
+)
+      # Result: Women show significantly higher values in neuroticism-scale than men. 
+        # t = 6.727, p < .001
+      # Significance testing also congruent to hypothesis
+
+# plot results as a boxplot
+ggplot(
+  data = data,
+  mapping = aes(
+    x = gender,
+    y = N
+    )
+  )+
+  geom_boxplot(
+    mapping = aes(
+      group = gender, #two separate boxplots for each gender
+      fill = gender #two separate colors for each gender
+    ), 
+    show.legend = FALSE
+  )+
+  scale_fill_manual( #set up different colors manually
+    values = c(
+      "lightblue",
+      "pink"
+    )
+  )
+```
