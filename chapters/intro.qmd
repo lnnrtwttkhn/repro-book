@@ -14,10 +14,28 @@ We will use this conceptualization of reproducibility throughout the book. Note,
 
 ## Why do reproducible research?
 
-## Current state of reproducible art
+## Current state of reproducibility
 
 ## What you can expect from this book
 
 ## What this book is not about
 
+Open Science is a huge movement with many aspects, that we cannot cover completely in this book. Reproducibility is one important aspect for striving to open science, but many topics are still left.
+
+### Qustionable Research Practices (QRPs)
+
+Questionable research practices (QRPs) have gained increasing attention since a popular article by John et al. (2012). We acknowledge the variety of QRPs and the need to face the issues raised by John et al. (2012), but that topic can fill another full book. If you feel engaged to learn more about QRPs, we recommend the [article](https://doi.org/10.1177/0956797611430953) by John et al. (2012), and other links <!--# Links will be inserted soon -->.
+
+### Pre-registration
+
+Pre-registrations have become popular as one answer to QRPs. However, even pre-registered studies can be irreproducible when data and code is not findable, accessible or understandable. In turn, a full reproducible research project does not necessarily have to be pre-registered. Both contribute in its own way to open science. If you want to find to pre-register your study, we recommend <https://aspredicted.org> or <https://osf.io>. If you want to learn more about pre-registration, we recommend the [website](https://www.cos.io/initiatives/prereg) of the Center for Open Science.
+
+### Statistics
+
+Many aspects of this book will deal with [R](https://www.r-project.org) and [RStudio](https://posit.co/download/rstudio-desktop/), which are powerful tools for statistical programming. However, this book requires almost no statistical knowledge. You might find some t-tests or something similar in code-examples (see Section tidy data). The purpose of the book is not to increase your statistical knowledge and skills; the purpose of the book is to make your research more reproducible. If you want to learn more about statistics, we recommend [this free E-book](https://learningstatisticswithr.com/lsr-0.6.pdf) by Danielle Navarro. If you prefer an analogous book, we recommend [Discovering statistics using R](https://uk.sagepub.com/en-gb/eur/discovering-statistics-using-r/book236067) by Andy Field.
+
 ## How you get the most out of this book
+
+## References
+
+John, L. K., Loewenstein, G., & Prelec, D. (2012). Measuring the prevalence of questionable research practices with incentives for truth telling. *Psychological science*, *23*(5), 524-532. <https://doi.org/10.1177/0956797611430953>
