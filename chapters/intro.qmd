@@ -14,7 +14,7 @@ We will use this conceptualization of reproducibility throughout the book. Note,
 
 ### Process-based reproducibility vs. outcome-based reproducibility
 
-As a researcher who wants to reproduce a result from a different reserch project, there are two main reasons why reproducibility might fail (Nosek et al., 2022). First, you may not be able to repeat the analysis that had been done before, because of data or code unavailability or the lack of information or software to recreate code. This is called an process-based reproducibility failure. Second, your reanalysis yield different results than the original report. This is called an outcome-based reproducibility failure and can happen due to an error either in the original or the reproduction study (Nosek et al., 2022).
+As a researcher who wants to reproduce a result from a different research project, there are two main reasons why reproducibility might fail (Nosek et al., 2022). First, you may not be able to repeat the analysis that had been done before, because of data or code unavailability or the lack of information or software to recreate code. This is called an process-based reproducibility failure. Second, your reanalysis yield different results than the original report. This is called an outcome-based reproducibility failure and can happen due to an error either in the original or the reproduction study (Nosek et al., 2022).
 
 ## Why do reproducible research?
 
