@@ -13,3 +13,11 @@ Reproducibility
 We will use this conceptualization of reproducibility throughout the book. Note, that reproducibility and *replicability* are two different terms. Replicability is achieved when the same analysis produce similar answers among *different* datasets, whereas reproducibility when the same analysis produce the same answer in the *same* dataset. That makes reproducibility the lowest common denominator in research.
 
 ## Why do reproducible research?
+
+## Current state of reproducible art
+
+## What you can expect from this book
+
+## What this book is not about
+
+## How you get the most out of this book
