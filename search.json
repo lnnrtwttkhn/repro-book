@@ -14,7 +14,7 @@
     "href": "contents.html",
     "title": "Contents",
     "section": "",
-    "text": "The estimate of the reading time for each chapter is computed by counting the words in the chapter and assuming a reading speed of 200 words per minute.\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Modified - Oldest\n        \n         \n          Modified - Newest\n        \n         \n          Reading Time (Low to High)\n        \n         \n          Reading Time (High to Low)\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nIntroduction\n\n\n\n\n\n\n\n\n\n\n\n1 min\n\n\nSeptember 30, 2024\n\n\n\n\n\n\nNo matching items",
+    "text": "The estimate of the reading time for each chapter is computed by counting the words in the chapter and assuming a reading speed of 200 words per minute.\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Modified - Oldest\n        \n         \n          Modified - Newest\n        \n         \n          Reading Time (Low to High)\n        \n         \n          Reading Time (High to Low)\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nIntroduction\n\n\n\n\n\n\n\n\n\n\n\n4 min\n\n\nOctober 1, 2024\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Contents"
     ]
@@ -24,7 +24,77 @@
     "href": "chapters/intro.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "1.1 What is reproducibility?\nA good definition of reproducibility is given by The Turing Way Company:\nWe will use this conceptualization of reproducibility throughout the book. Note, that reproducibility and replicability are two different terms. Replicability is achieved when the same analysis produce similar answers among different datasets, whereas reproducibility when the same analysis produce the same answer in the same dataset. That makes reproducibility the lowest common denominator in research.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/intro.html#what-is-reproducibility",
+    "href": "chapters/intro.html#what-is-reproducibility",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "Reproducibility\n\n“At The Turing Way , we define reproducible research as work that can be independently recreated from the same data and the same code that the original team used. Reproducible is distinct from replicable, robust and generalisable as described in the figure below.”\n\n\n\n\n\n\n\n\n\n1.1.1 Process-based reproducibility vs. outcome-based reproducibility\nAs a researcher who wants to reproduce a result from a different reserch project, there are two main reasons why reproducibility might fail (Nosek et al., 2022). First, you may not be able to repeat the analysis that had been done before, because of data or code unavailability or the lack of information or software to recreate code. This is called an process-based reproducibility failure. Second, your reanalysis yield different results than the original report. This is called an outcome-based reproducibility failure and can happen due to an error either in the original or the reproduction study (Nosek et al., 2022).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/intro.html#why-do-reproducible-research",
+    "href": "chapters/intro.html#why-do-reproducible-research",
+    "title": "1  Introduction",
+    "section": "1.2 Why do reproducible research?",
+    "text": "1.2 Why do reproducible research?\nDuring the book you might feel overwhelmed of what one can think about to turn a research project into a more reproducible project. You might start to wonder if its even worth the time you spend on it. We believe it is, and here are some arguments why",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/intro.html#current-state-of-reproducibility",
+    "href": "chapters/intro.html#current-state-of-reproducibility",
+    "title": "1  Introduction",
+    "section": "1.3 Current state of reproducibility",
+    "text": "1.3 Current state of reproducibility",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/intro.html#what-you-can-expect-from-this-book",
+    "href": "chapters/intro.html#what-you-can-expect-from-this-book",
+    "title": "1  Introduction",
+    "section": "1.4 What you can expect from this book",
+    "text": "1.4 What you can expect from this book",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/intro.html#what-this-book-is-not-about",
+    "href": "chapters/intro.html#what-this-book-is-not-about",
+    "title": "1  Introduction",
+    "section": "1.5 What this book is not about",
+    "text": "1.5 What this book is not about\nOpen Science is a huge movement with many aspects, that we cannot cover completely in this book. Reproducibility is one important aspect for striving to open science, but many topics are still left.\n\n1.5.1 Qustionable Research Practices (QRPs)\nQuestionable research practices (QRPs) have gained increasing attention since a popular article by John et al. (2012). We acknowledge the variety of QRPs and the need to face the issues raised by John et al. (2012), but that topic can fill another full book. If you feel engaged to learn more about QRPs, we recommend the article by John et al. (2012), and other links .\n\n\n1.5.2 Pre-registration\nPre-registrations have become popular as one answer to QRPs. However, even pre-registered studies can be irreproducible when data and code is not findable, accessible or understandable. In turn, a full reproducible research project does not necessarily have to be pre-registered. Both contribute in its own way to open science. If you want to find to pre-register your study, we recommend https://aspredicted.org or https://osf.io. If you want to learn more about pre-registration, we recommend the website of the Center for Open Science.\n\n\n1.5.3 Statistics\nMany aspects of this book will deal with R and RStudio, which are powerful tools for statistical programming. However, this book requires almost no statistical knowledge. You might find some t-tests or something similar in code-examples (see Section tidy data). The purpose of the book is not to increase your statistical knowledge and skills; the purpose of the book is to make your research more reproducible. If you want to learn more about statistics, we recommend this free E-book by Danielle Navarro. If you prefer an analogous book, we recommend Discovering statistics using R by Andy Field.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/intro.html#how-you-get-the-most-out-of-this-book",
+    "href": "chapters/intro.html#how-you-get-the-most-out-of-this-book",
+    "title": "1  Introduction",
+    "section": "1.6 How you get the most out of this book",
+    "text": "1.6 How you get the most out of this book",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/intro.html#references",
+    "href": "chapters/intro.html#references",
+    "title": "1  Introduction",
+    "section": "1.7 References",
+    "text": "1.7 References\nJohn, L. K., Loewenstein, G., & Prelec, D. (2012). Measuring the prevalence of questionable research practices with incentives for truth telling. Psychological science, 23(5), 524-532. https://doi.org/10.1177/0956797611430953\nNosek, B. A., Hardwicke, T. E., Moshontz, H., Allard, A., Corker, K. S., Dreber, A., Fidler, F., Hilgard, J., Kline Struhl, M., Nuijten, M. B., Rohrer, J. M., Romero, F., Scheel, A. M., Scherer, L. D., Schönbrodt, F. D. & Vazire, S. (2022). Replicability, robustness, and reproducibility in psychological science. Annual review of psychology, 73(1), 719-748. https://doi.org/10.1146/annurev-psych-020821-114157",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
     ]
@@ -37,16 +107,6 @@
     "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
-    ]
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
-    "crumbs": [
-      "References"
     ]
   },
   {
