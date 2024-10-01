@@ -1,0 +1,36 @@
+# About
+
+- **Project title:** (as per implementation agreement)
+- **Type:** Seminar
+
+## Team
+
+- [Dr. Lennart Wittkuhn]({{< var links.lennartwittkuhn >}}), Research Scientist
+- Justus Johannes Reihs, Student Research Assistant & Tutor
+
+## Focus of the project
+
+Research should be reproducible.
+The same analysis of the same data should reproduce the same result.
+While this sounds obvious at first, many investigations show that a large portion of the scientific literature across disciplines is actually not reproducible.
+Research data and analysis code are often not readily shared so there is effectively no way for other researchers to independently verify published scientific findings.
+In several cases, not even the scientists who conducted the research are able to reproduce their own results not long after publication of the paper.
+The public's return on investment into a specific research study in many cases, only an, often paywalled, article as a PDF on a for-profit publisher's website.
+
+Conducting research reproducibly is critically aggregatved by (at least) two factors:
+First, incentives in academic research are not conducive, as the quantity of publications and the impact factor of journals that they are published is still often given more attention in hiring and promotion than the quality, robustness and reproduciblity of the work.
+Second, making research reproducible is actually hard and (aspiring) often do not receive targeted and comprehensive training in relevant practices and tools
+Reproducing the same results on another computer is often not a trivial problem.
+For example, it not only requires for all code and data to be avaiable in an accessible format, but also that the same software (or computational environment) can be recreated.
+More broadly, managing research in a reproducible and transparent way along the entire research life cylce, from initial idea to publicaiton and beyond, is a considerable challenge.
+Fortunately, scientists can learn about practices and tools from other disciplines, particularly software engineering, that have significantly professionalized collaborative work on digital objects like code and data.
+Among several things, this involves tracking changes in digital objects using version control systems  like Git, good practies fro code and data management, as well as creating stable and transportabke computational environments using software containers like Docker.
+This is what the course will be about: An introduction to tools and practices that allow aspiring scientits to conduct their research reproducibly.
+For more effective work and better science.
+
+## Implementation outline
+
+Following the successfull approach of our previous course on "Version Control of Code and Data with Git", we will focus on the development of an online learning resource, with the prelimairy title "The Repro Book" (made available here: https://lennartwittkuhn.com/repro-book/), modeled after our "Version Control Book" (https://lennartwittkuhn.com/version-control-book/).
+This online guide will be adjusted to the structure of the seminar and serve as the course's textbook.
+During the course, participants will be introduced to a new concept in each session and then implement the newly learned tool or practice with hands-on exercises.
+These exercises will focus on working on a a small scale research project from conception to dissemination, using the methods for reproducible research introduced in the course.
