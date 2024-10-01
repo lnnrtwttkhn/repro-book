@@ -1,9 +1,15 @@
 # Introduction
 
-This is a book created from markdown and executable code.
+## What is reproducibility?
 
-See @knuth84 for additional discussion of literate programming.
+A good definition of reproducibility is given by The Turing Way Company:
 
-```{r}
-1 + 1
-```
+Reproducibility
+
+:   "At *The Turing Way* , we define **reproducible research** as work that can be independently recreated from the same data and the same code that the original team used. Reproducible is distinct from replicable, robust and generalisable as described in the figure below."
+
+![](/images/reproducible-matrix.jpg){fig-align="center"}
+
+We will use this conceptualization of reproducibility throughout the book. Note, that reproducibility and *replicability* are two different terms. Replicability is achieved when the same analysis produce similar answers among *different* datasets, whereas reproducibility when the same analysis produce the same answer in the *same* dataset. That makes reproducibility the lowest common denominator in research.
+
+## Why do reproducible research?
