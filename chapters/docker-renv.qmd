@@ -1,0 +1,154 @@
+---
+title: "Renv into Docker"
+engine: knitr
+execute:
+  eval: false
+  warning: false
+  message: false
+categories: [advanced, docker, renv]
+abstract: |
+  In this chapter you will learn how to turn your `renv` environment into a Docker container.
+---
+
+## Introduction
+
+In the chapter about Docker you learned about Docker and in the chapter about `renv` you learned about `renv`.
+
+Why is `renv` not enough?
+With `renv` you have the right package versions, but what if you open your project on a computer with a different version R version?
+Or what if you share it with someone using a different operating system?
+Just having the correct package versions isn't enough; you also need the correct R version.
+This is where Docker helps.
+
+## Building the image
+
+We want our Docker image to start with the same basic R version we use on our computer for developing the project.
+Then, we want to install all the R packages listed in the `renv.lock` file.
+Finally, we can choose to have the image either start R immediately or open a terminal.
+
+### Determining the R version
+
+To get started, we can find our R version by running `R --version` in the terminal.
+For example, this book was built using `r R.version$version.string`.
+
+```{zsh filename="Code (Terminal)"}
+#| class-output: markdown
+#| eval: true
+R --version
+```
+
+We can also use R code to find the installed R version:
+
+```{r filename="Code (R)"}
+#| class-output: R
+#| eval: true
+R.version$version.string
+```
+
+### Determining the `renv` version
+
+Next, we need to know our `renv` version as well.
+You can find this information in the `renv.lock` file by searching for `"renv"`.
+For the full `renv.lock` file of this project, see @tip-renv-lock.
+
+::: {#tip-renv-lock .callout-tip title="View the full `renv.lock` of this project" collapse="true"}
+```{json, filename="Code (renv.lock)"}
+#| eval: false
+#| file: renv.lock
+#| code-line-numbers: true
+```
+:::
+
+We can also use R code to find the installed `renv` version (this project uses `renv` version `r packageVersion("renv")`):
+
+```{r filename="Code (R)"}
+#| class-output: R
+#| eval: true
+packageVersion("renv")
+```
+
+With the R version and `renv` version, we can create a Dockerfile.
+
+:::{.column-page-inset}
+```{Dockerfile, filename="Code (Dockerfile)"}
+#| eval: false
+#| file: .docker/docker-renv/Dockerfile
+#| code-line-numbers: true
+```
+1. **Choose the base image.**
+Choose the same basic R version that you use on your computer for developing the project.
+2. **Set the working directory.**
+3. **Disable `renv` autoloader.**
+4. **Update package list.**
+`apt-get update` updates the package lists on your system to get information on the newest versions of packages and their dependencies. 
+This ensures that you can install the latest available versions of packages.
+5. **Install external dependencies.**
+6. Chaos
+7. **Set the `renv` version.**
+We want to install the specific `renv` version that we use on our computer for developing the project.
+8. **Install the `remotes` R package.**
+Following the [`renv` documentation]({{< links.docker-renv >}}), we run R (inside the container) to install the `remotes` R package which we will use to install the specific version of `renv` inside the Docker container.
+9. **Install the specific `renv` version.** 
+We use the `remotes` R package to install the specific version of `renv` version that we set before.
+10. **Copy `renv.lock`.**
+We copy the `renv.lock` file into the container.
+11. **Tell `renv` which library paths to use.**
+We copy the `renv` auto-loader tools into the container so that a project-local library can be automatically provisioned and used when R is launched.
+12. **Restore packages.**
+Finally, we run `renv::restore()` inside the container to restore the R packages specified in the `renv.lock` lockfile.
+
+:::
+
+### Build the image
+
+To build the image and make it runnable, use the following terminal command:
+
+```{zsh filename="Code (Terminal)"}
+docker build -t repro-book . # <1>
+```
+1. Replace `repro-book` with the name of your project.
+
+The command above is the minimal version of this `docker build` command.
+You can also specify a version of your container (see @tip-docker-version), specify a path to your `Dockerfile` (see @tip-docker-path), specify the build platform (@tip-docker-platform), specify your Docker Hub username (@tip-docker-user) and, finally, provide all these information as variables to the `docker build` command (@tip-docker-variables).
+
+::: {#tip-docker-version .callout-tip title="How can I specify a version of my container?" collapse="true"}
+```{zsh filename="Code (Terminal)"}
+docker build -t repro-book:latest . # <1>
+```
+1. Replace `latest` with the version name of your container.
+:::
+
+::: {#tip-docker-path .callout-tip title="How can I specify the path to the `Dockerfile`?" collapse="true"}
+```{zsh filename="Code (Terminal)"}
+docker build -t repro-book:latest -f .docker/docker-renv/Dockerfile . # <1>
+```
+1. Replace `.docker/docker-renv/Dockerfile` with the path to your Dockefile.
+:::
+
+::: {#tip-docker-platform .callout-tip title="How can I specify the build platform?" collapse="true"}
+```{zsh filename="Code (Terminal)"}
+docker build --platform linux/amd64 -t repro-book:latest -f .docker/docker-renv/Dockerfile . # <1>
+```
+1. Replace `linux/amd64` with your desired build platform.
+:::
+
+::: {#tip-docker-user .callout-tip title="How can I specify my Docker Hub username?" collapse="true"}
+```{zsh filename="Code (Terminal)"}
+docker build --platform linux/amd64 -t lnnrtwttkhn/repro-book:latest -f .docker/docker-renv/Dockerfile . # <1>
+```
+1. Replace `lnnrtwttkhn` with your Docker Hub username.
+:::
+
+::: {#tip-docker-variables .callout-tip title="How can I specify all settings as variables?" collapse="true"}
+```{zsh filename="Code (Terminal)"}
+DOCKER_NAME=lnnrtwttkhn/repro-book
+DOCKER_PATH=.docker/docker-renv/Dockerfile
+DOCKER_VERSION=latest
+DOCKER_PLATFORM=linux/amd64
+docker build --platform $DOCKER_PLATFORM -t $DOCKER_NAME:$DOCKER_VERSION -f $DOCKER_PATH .
+```
+:::
+
+### Linux libraries
+
+[Add section on adding external Linux libraries]
