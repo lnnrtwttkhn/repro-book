@@ -30,7 +30,7 @@ Open Science is a huge movement with many aspects, that we cannot cover complete
 
 ### Qustionable Research Practices (QRPs)
 
-Questionable research practices (QRPs) have gained increasing attention since a popular article by John et al. (2012). We acknowledge the variety of QRPs and the need to face the issues raised by John et al. (2012), but that topic can fill another full book. If you feel engaged to learn more about QRPs, we recommend the [article](https://doi.org/10.1177/0956797611430953) by John et al. (2012), and other links <!--# Links will be inserted soon -->.
+Questionable research practices (QRPs) have gained increasing attention since a popular article by John et al. (2012). We acknowledge the variety of QRPs and the need to face the issues raised by John et al. (2012), but that topic can fill another full book. If you feel engaged to learn more about QRPs, we recommend the [article](https://doi.org/10.1177/0956797611430953) by @john2012, and other links <!--# Links will be inserted soon -->.
 
 ### Pre-registration
 
