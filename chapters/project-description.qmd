@@ -1,0 +1,24 @@
+# Purpose
+
+This file contains the project information about the seminar course "reproducible research", which will be held at University of Hamburg.
+As template we use the project description from a previously developed similar project, that is a [Version Control Book](https://lennartwittkuhn.com/version-control-book/).
+
+# Template
+
+Focus of the project
+ 
+Scientific practices are constantly developing, not only because of the replication crisis among various scientific disciplines. Questions as "How did they analyse it?", "Where do I find the code of the data?", "Why do I get different results when I run their analyses?" can be frustrating and time-consuming. 
+In this course, we aim to empower students to independently reproduce results from previous open science research. Second, we aim to empower them to conduct research that can be easily reproduced by other scientific participants.
+To do so, we give hands-on practices for students based on FAIR principles and all materials of the course can be easily accessed open source.
+
+Review and aims
+ 
+A key outcome of the teaching project is to teach course participants how to do reproducible research through the delivery of practical tips as how to name files and folders, how to structure a research project, how to create docker containers, etc.
+A significant achievement is the creation of an [open source learning resource](https://lennartwittkuhn.com/repro-book/) for the effective planning and conduction of reproducible research. This resource promotes the dissemination of knowledge about reproducibility and supports transparent scientific practice.
+Another outcome was the transparent development of teaching materials on GitHub, which promotes open and reproducible science and enables collaborative development. The course participants used this transparency to point out necessary additions.
+Overall, the seminar aims to deepen the understanding of reproducible research and create a valuable resources for the community, contributing to the data literacy of participants and promoting the principles of openness and collaboration in the scientific environment.
+
+Tips from lecturers for lecturers
+ 
+The central element of digital skills development was the fully transparent, public and collaborative development of teaching resources using Git and GitHub. From conception to the final report, all elements of the teaching project were created in collaborative cooperation between the teacher, the student assistant and the tutor. The teaching content (reproducible research) was applied to the creation of the teaching content. This approach also follows good scientific principles of transparency, openness and reproducibility in the creation of teaching materials (further information can be found [here](https://lennartwittkuhn.com/dra-fair-teaching/#/title-slide)).
+The teaching project also contributed to the development of teachers' didactic skills. Various didactic methods were trialled as part of the teaching project: from partner and group work to quizzes, demonstrations and exercises. A deliberate focus was always placed on creating plenty of time and space for implementation, in which the participants were able to apply what they had learnt using concrete exercises and examples.
