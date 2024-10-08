@@ -2,7 +2,7 @@
 
 Reproducibility is a big topic, we spent a lot of work and time in writing a book about it and you will probably spend a lot time learning about it.
 If you are asking the question "What for? Why should I do reproducible research?", that's completely reasonable.
-We decided to dedicate a whole chapter to this question, because of 2 reasons:
+We decided to dedicate a whole chapter to this question, because it is very important to us describing different facets of the topic reproducibility. 
 
-1.  We want you to be convinced that reproducibility is a goal worth achieving. When you share this opinion with us, your learning will be greater than when you don't know why you have to do reproducible research.
-2.  If you are so convinced of the topics we deal with in this book, that you think your team, your organisation or anyone else can benefit from reproducible research, this chapter could give you a comprehensive debating foundation to convince your supervisor or principal investigator or leaders.
+
+## Reproducibility: Simple and unneccesary?
