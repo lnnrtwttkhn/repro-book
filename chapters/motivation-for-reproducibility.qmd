@@ -12,12 +12,18 @@ Just to ruin your day, you can search for a paper with public code and data and 
 While you are doing this (or wisely not) you may also start to figure out that many problems can occur when trying to reproduce scientific results.
 The amount of time spending on making your research reproducible and eventually prepare solutions for many different problems that can occur, can give you a headache.
 Or you think that your time spending on making your research reproducible is simply not worth it.
-When you want to succeed as a researcher (PhD, Post-doc) and get a professorship at a university you need to get published in journals with high impact factors, significant results to get published in such journals and receive a lot of citations from other researchers.
+When you want to succeed as a researcher (PhD, Post-doc) and get a professorship at a university you need to get published in journals with high impact factors, significant results to get published in such journals and receive a lot of citations from other researchers (see @nte-abele-brehm2016).
 Where is the time for reproducibility?
 Isn't the reward system of science directly against good research practices?
 If you do not publish your code you can (un)intentionally and undetectedly make code errors that might confirm your hypthesized results.
 You can selectively report outcomes that confirm your hypotheses and climb the career ladder.
 Making your research reproducible and spend time with this learning resource is not valuable for your research career.
+
+::: {#nte-abele-brehm2016 title="Evaluation of selection criteria in appointment procedures in psychology" .callout-note collapse="false"}
+In a study by @abele-brehm2016, about 1,450 researchers in Psychology (members of the German Psychological Association) answered an online questionnaire, in which they rated the desired relevance of 41 selection criteria as well as their actual relevance in hiring procedures in psychology (66% of the respondents were actually members of a professorship hiring committee at least once).
+While some qualitative indicators like the fit of research profile to the appointing institute (Rank 2) and the quality of the research presentation (Rank 3)" were also deemed relevant, several of the actually relevant indicators were quantitative and considered the number of peer-reviewed publications (Rank 1), the number of publications (Rank 4), the volume of third-party funding acquired to date (Rank 5) as well as the number of first-author publications (Rank 6).
+Also notably, "indicators of research transparency" took the *last* rank of 41 selection criteria.
+:::
 
 But there is also a different narrative:
 
