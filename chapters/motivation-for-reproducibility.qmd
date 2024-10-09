@@ -2,21 +2,20 @@
 
 Reproducibility is a big topic, we spent a lot of work and time in writing a book about it and you will probably spend a lot time learning about it.
 If you are asking the question "What for? Why should I do reproducible research?", that's completely reasonable.
-We decided to dedicate a whole chapter to this question, because it is very important to us describing different facets of the topic reproducibility. 
+We decided to dedicate a whole chapter to this question, because it is very important to us describing different facets of the topic reproducibility.
 Most of the arguments we will point out is not restricted to reproducibility but covers the whole topic of open science.
 
 ## Reproducibility: Simple and unneccesary?
 
-After the definition of reproducibility in the previous chapter, you might have one of two thoughts:
-Either you think, that getting the same results from the same data and code has to be common practice and super simple. 
+After the definition of reproducibility in the previous chapter, you might have one of two thoughts: Either you think, that getting the same results from the same data and code has to be common practice and super simple.
 Just to ruin your day, you can search for a paper with public code and data and try to reproduce the results from the article.
 While you are doing this (or wisely not) you may also start to figure out that many problems can occur when trying to reproduce scientific results.
 The amount of time spending on making your research reproducible and eventually prepare solutions for many different problems that can occur, can give you a headache.
-Or you think that your time spending on making your research reproducible is simply not worth it. 
-When you want to succeed as a researcher (PhD, Post-doc) and get a professorship at a university you need to get published in journals with high impact factors, significant results to get published in such journals and receive a lot of citations from other researchers. 
+Or you think that your time spending on making your research reproducible is simply not worth it.
+When you want to succeed as a researcher (PhD, Post-doc) and get a professorship at a university you need to get published in journals with high impact factors, significant results to get published in such journals and receive a lot of citations from other researchers.
 Where is the time for reproducibility?
 Isn't the reward system of science directly against good research practices?
-If you do not publish your code you can (un)intentionally and undetectedly make use of so-called questionable research practices.
+If you do not publish your code you can (un)intentionally and undetectedly make code errors that might confirm your hypthesized results.
 You can selectively report outcomes that confirm your hypotheses and climb the career ladder.
 Making your research reproducible and spend time with this learning resource is not valuable for your research career.
 
@@ -24,4 +23,25 @@ But there is also a different narrative:
 
 ## Reproducibility: Hard and worth-it
 
+Lets take another perspective.
+First of all, ask yourself: What is your primary goal as a researcher?
+Is it climbing the career ladder by publishing in high impact factor journals or conducting high quality research or something else?
+The focus on those measures like *Impact-Factors* and *h*-indexes.
+Does one of that exclude the other?
+Why do you think so?
+In a highly-debated [blog post](https://talyarkoni.org/blog/2018/10/02/no-its-not-the-incentives-its-you/), Tal Yarkoni stated that as researchers, we are not helpless prisoners in the reward system of science.
+We are an active part of our respective scientific community.
+We have the ability to shape our work and craft our jobs in the direction of reproducibility (which can also improve mental well-being and job performance \[\\@bakker2023\]\\).
+No matter what, we have to take responsibility for out actions, if we want to or not, and we cannot blame the incentives of science and lose our responsibility for our work.
 
+However, there are some arguments by \[\\@mckiernan2016\]\\that open science practices (e.g. reproducible data and code) can even enhance your visibility as a researcher and give yourself a headstart at the academic market.
+When you publish your code and data of your published articles, others can work with your data.
+They may rerun your analysis, try to answer different research questions with your data or apply new methods on your data.
+By that would you get more citations in comparison to the case where you do not make your code and data publicly available.
+You can also benefit the other way around.
+If there is a dataset or calculation that suits your research question, you can use open data sets and saving a lot of time for data acquisition.
+
+But how do you convince your supervisor to give you the time to make your research reproducible?
+Supervisors need the research and jobs to be funded by different organisations (as the [Horizon Europe](https://commission.europa.eu/funding-tenders/find-funding/eu-funding-programmes/horizon-europe_en?prefLang=de) funding pool from the european commission).
+These organisations require now open access practices including a call for reproducible research (for Horizon Europe see [here](https://research-and-innovation.ec.europa.eu/document/download/e69aff11-4494-4e5f-866c-694539a3ea26_en?filename=ec_rtd_commitments-reform-research-assessment.pdf) and [here](https://erc.europa.eu/manage-your-project/open-science)).
+That means your supervisor would lose funding opportunities, if they don't engage with you in open science practices and reproducible research.
