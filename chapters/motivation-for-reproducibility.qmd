@@ -52,3 +52,33 @@ But how do you convince your supervisor to give you the time to make your resear
 Supervisors need the research and jobs to be funded by different organisations (as the [Horizon Europe](https://commission.europa.eu/funding-tenders/find-funding/eu-funding-programmes/horizon-europe_en?prefLang=de) funding pool from the European Commission).
 These organisations require now open access practices including a call for reproducible research (for Horizon Europe see [here](https://research-and-innovation.ec.europa.eu/document/download/e69aff11-4494-4e5f-866c-694539a3ea26_en?filename=ec_rtd_commitments-reform-research-assessment.pdf) and [here](https://erc.europa.eu/manage-your-project/open-science)).
 That means your supervisor would lose funding opportunities, if they don't engage with you in open science practices and reproducible research.
+
+## Reproducibility pays off in the long run
+
+During this book, you will learn about project management, folder structure, version control, docker environments, coding practices and more.
+At first, all these tools intend to improve your reproducibility but may slow down your current research process.
+In the long run, you will save a lot of time once you get used to the proposed working process.
+Maybe you can remember your first research project during your undergraduate program.
+Do you still have access to it?
+Can you reproduce, what you have done there?
+Do you even understand what you have done there?
+In your research career (and also outside of research) you will have to deal with much larger projects.
+It is of great importance to keep your projects as tidy as possible - for your colleagues and collaborators and for future you.
+
+So let's get started to **improve your reproducibility**:
+
+# Resources:
+
+If you want to dive deeper in the discussion of the value of reproducibility and open science and how to change behavior, here are some resources:
+
+-   <https://talyarkoni.org/blog/2018/10/02/no-its-not-the-incentives-its-you/>
+
+-   <https://www.sciencedirect.com/science/article/pii/S0896627318310390>
+
+-   <https://erc.europa.eu/manage-your-project/open-science>
+
+-   <https://topfactor.org/>
+
+-   <https://elifesciences.org/articles/16800>
+
+-   <https://osf.io/652qw>
