@@ -23,6 +23,9 @@ But there is also a different narrative:
 
 ## Reproducibility: Hard and worth-it
 
+> Goodhart's Law: When a measure becomes a target, it ceases to be a good measure.
+> \[\\@goodhart1975\]\\
+
 Lets take another perspective.
 First of all, ask yourself: What is your primary goal as a researcher?
 Is it climbing the career ladder by publishing in high impact factor journals or conducting high quality research or something else?
