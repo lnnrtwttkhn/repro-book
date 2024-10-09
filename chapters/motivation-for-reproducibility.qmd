@@ -26,6 +26,8 @@ But there is also a different narrative:
 > Goodhart's Law: When a measure becomes a target, it ceases to be a good measure.
 > \[\\@goodhart1975\]\\
 
+![](/images/goodharts-law.png){fig-align="center"}
+
 Lets take another perspective.
 First of all, ask yourself: What is your primary goal as a researcher?
 Is it climbing the career ladder by publishing in high impact factor journals or conducting high quality research or something else?
