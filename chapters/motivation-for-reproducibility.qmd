@@ -76,7 +76,7 @@ You can think of reproducibility more as a scale (see @fig-repro_scale) and you 
 
 So let's get started to **improve your reproducibility**:
 
-# Resources:
+# Resources
 
 If you want to dive deeper in the discussion of the value of reproducibility and open science and how to change behavior, here are some resources:
 
