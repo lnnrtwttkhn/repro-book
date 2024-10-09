@@ -42,9 +42,9 @@ When you publish your code and data of your published articles, others can work 
 They may rerun your analysis, try to answer different research questions with your data or apply new methods on your data.
 By that would you get more citations in comparison to the case where you do not make your code and data publicly available.
 You can also benefit the other way around.
-If there is a dataset or calculation that suits your research question, you can use open data sets and saving a lot of time for data acquisition.
+If there is a data set or calculation that suits your research question, you can use open data sets and saving a lot of time for data acquisition.
 
 But how do you convince your supervisor to give you the time to make your research reproducible?
-Supervisors need the research and jobs to be funded by different organisations (as the [Horizon Europe](https://commission.europa.eu/funding-tenders/find-funding/eu-funding-programmes/horizon-europe_en?prefLang=de) funding pool from the european commission).
+Supervisors need the research and jobs to be funded by different organisations (as the [Horizon Europe](https://commission.europa.eu/funding-tenders/find-funding/eu-funding-programmes/horizon-europe_en?prefLang=de) funding pool from the European Commission).
 These organisations require now open access practices including a call for reproducible research (for Horizon Europe see [here](https://research-and-innovation.ec.europa.eu/document/download/e69aff11-4494-4e5f-866c-694539a3ea26_en?filename=ec_rtd_commitments-reform-research-assessment.pdf) and [here](https://erc.europa.eu/manage-your-project/open-science)).
 That means your supervisor would lose funding opportunities, if they don't engage with you in open science practices and reproducible research.
