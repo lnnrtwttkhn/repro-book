@@ -1,0 +1,72 @@
+# Naming things
+
+Think and go back to your first research project (or maybe to your most recent project). 
+Look at all the files you needed for that project. 
+Do you know by the files' and folders' name what they contain? 
+My first project (second semester of the undergraduate program in psychology) was about behavior observation and looked like this:
+
+::: callout-caution
+
+## Bad Example
+
+-   Ausgabe Verhaltensbeobachtung 1. Versuch.spv
+-   Bilder
+-   Data results.pptx
+-   Dateien fÅr eigene Studien
+-   Hausarbeit VB
+-   SPSS Ergebnisse leicht gekÅrzt.pptx
+-   SPSS Ergebnisse.pptx
+-   Sitzungen von Seminarleitung
+-   Statistische Analysen.docx
+-   Syntax Verhaltenbeobachtung Versuch 1.sps
+:::
+
+You don't have to capable of the German language to see that this is a complete mess.
+I cannot even find my course assignment.
+There are a few rules that can make your life way easier compared to what I fabricated during the seminar course.
+Especially when you think of large-scale projects that does not last for a semester, but for multiple years, maybe decades.
+
+There are two to four principles that play an important role when setting file and folder names:
+
+::: callout-important
+## Principles for naming files and folders
+
+1.  Machine readable
+2.  Human readable
+3.  Consistency
+4.  Default order
+:::
+
+We are going through each principle.
+These principles are not ordered by relevance, but it helps to stepwisely improve your "naming game"
+
+## Machine readability
+
+Sometimes (not always) machines are confused by blank spaces.
+When you write code in an R-Script it will be easier to code when referring to files and folders that do not contain blank spaces.
+The same applies to special characters like \*/#,;"§?! \ etc. and special letters like ä,ö,ü,ã,ß,ñ,ø,å,œ etc.
+To frame it positive, only use letters from the English alphabet, numbers, underscore and hyphens.
+
+:::{.callout-tip}
+
+Only use normal letters, numbers, underscores and hyphens!
+
+:::
+
+:::{.callout-note}
+
+## Apply machine readable rules on names
+
+-   Ausgabe_Verhaltensbeobachtung_1-Versuch.spv
+-   Bilder
+-   Data-results.pptx
+-   Dateien-fuer-eigene-Studien
+-   Hausarbeit_VB
+-   SPSS_Ergebnisse_leicht-gekuerzt.pptx
+-   SPSS_Ergebnisse.pptx
+-   Sitzungen-von-Seminarleitung
+-   Statistische-Analysen.docx
+-   Syntax_Verhaltenbeobachtung_Versuch-1.sps
+
+:::
+
