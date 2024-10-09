@@ -39,7 +39,7 @@ We are an active part of our respective scientific community.
 We have the ability to shape our work and craft our jobs in the direction of reproducibility (which can also improve mental well-being and job performance [@bakker2023]).
 No matter what, we have to take responsibility for out actions, if we want to or not, and we cannot blame the incentives of science and lose our responsibility for our work.
 
-However, there are some arguments by \[\\@mckiernan2016\]\\that open science practices (e.g. reproducible data and code) can even enhance your visibility as a researcher and give yourself a headstart at the academic market.
+However, there are some arguments by @mckiernan2016 that open science practices (e.g. reproducible data and code) can even enhance your visibility as a researcher and give yourself a headstart at the academic market.
 When you publish your code and data of your published articles, others can work with your data.
 They may rerun your analysis, try to answer different research questions with your data or apply new methods on your data.
 Especially the conduction of meta-analyses is simplified if your data and code is available and reproducible.
