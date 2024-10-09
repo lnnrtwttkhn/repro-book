@@ -65,6 +65,15 @@ Do you even understand what you have done there?
 In your research career (and also outside of research) you will have to deal with much larger projects.
 It is of great importance to keep your projects as tidy as possible - for your colleagues and collaborators and for future you.
 
+## Extent of reproducibility
+
+As you will learn throughout this book, reproducibility is not a binary construct. 
+There is no checklist waiting for you to tick off the open bullet points. 
+Its not that you either do or don't do reproducible research. 
+You can think of reproducibility more as a scale (see @fig-repro_scale) and you are shifting your reproducibility upwards by applying the tools you learn in this online resource. 
+
+![](/images/repro-scale.jpg){#fig-repro_scale}
+
 So let's get started to **improve your reproducibility**:
 
 # Resources:
