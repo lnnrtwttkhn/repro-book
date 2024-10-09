@@ -24,7 +24,7 @@ But there is also a different narrative:
 ## Reproducibility: Hard and worth-it
 
 > Goodhart's Law: When a measure becomes a target, it ceases to be a good measure.
-> \[\\@goodhart1975\]\\
+> @goodhart1984
 
 ![](/images/goodharts-law.png){fig-align="center"}
 
