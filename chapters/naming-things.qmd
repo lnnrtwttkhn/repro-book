@@ -67,6 +67,11 @@ Only use normal letters, numbers, underscores and hyphens!
 -   Sitzungen-von-Seminarleitung
 -   Statistische-Analysen.docx
 -   Syntax_Verhaltenbeobachtung_Versuch-1.sps
-
 :::
 
+## Human readability
+
+# Acknowledgements
+
+The ideas provided in this chapter are mainly based on the [slides](https://speakerdeck.com/jennybc/how-to-name-files) from Jenny Bryan. 
+We are also thankful for the additional ideas of [Danielle Navarro](https://djnavarro.net/slides-project-structure/#1) and the [BERD Academy](https://berd-nfdi.github.io/BERD-reproducible-research-course/2-1-naming.html)
