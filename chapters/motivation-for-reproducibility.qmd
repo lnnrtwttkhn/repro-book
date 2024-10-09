@@ -5,7 +5,7 @@ If you are asking the question "What for? Why should I do reproducible research?
 We decided to dedicate a whole chapter to this question, because it is very important to us describing different facets of the topic reproducibility.
 Most of the arguments we will point out is not restricted to reproducibility but covers the whole topic of open science.
 
-## Reproducibility: Simple and unneccesary?
+## Reproducibility: Simple and unnecessary?
 
 After the definition of reproducibility in the previous chapter, you might have one of two thoughts: Either you think, that getting the same results from the same data and code has to be common practice and super simple.
 Just to ruin your day, you can search for a paper with public code and data and try to reproduce the results from the article.
