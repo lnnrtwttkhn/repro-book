@@ -11,6 +11,79 @@
 Welcome to the Repro Book, an open-source online learning resource on reproducible research.
 The main goal of the Repro Book is to provide a companion online course text book for courses on reproducible research.
 
+## Repository Structure
+
+### Folders
+
+`.github/workflows` is a folder that contains [GitHub actions](https://github.com/features/actions).
+Currently, two automatic workflows run automatically.
+This folder can be ignored for users who want to contribute to our book.
+
+`_extensions` is a folder that contains Quarto extensions.
+Currently, this book only uses the fontawesome-extension to create icons like this: {{< fa folder >}}.
+This folder can beb ignored for users who want to contribute to our book.
+
+`chapters`is the heart of the book.
+The `chapters` folder contains all main chapters of the book.
+The content of each chapter is stored in it's own `.qmd` file.
+If you want to contribute with content and modify chapters or create new ones, this is main the place where your adjustments take place.
+
+`images` is a folder that does not contain images (yet).
+The images displayed in this book are stored in a [NextCloud](https://cloud.uni-hamburg.de/s/ifmfPkLJCqTELSC?).
+If you want to contribute with images to this book, please upload your images to the NextCloud folder.
+For an explanation how to use the images from NextCloud, see `contributing.qmd`.
+
+`renv` is a folder that contains information about the R packages used in this book.
+If your contributions include the utility of an additional R package, see `contributing.qmd` for how to modify the relevant files.
+
+### Files
+
+`.Renviron` TBA
+
+`.Rprofile` TBA
+
+`.all-contributorsrc` TBA
+
+`.codespellrc` TBA
+
+`.gitignore` TBA
+
+`LICENSE` TBA
+
+`Makefile` TBA
+
+`README.md` TBA
+
+`_affiliations.yml` TBA
+
+`_authors.yml` TBA
+
+`_custom.scss` TBA
+
+`_quarto-pdf.yml` TBA
+
+`_quarto.yml` TBA
+
+`_variables.yml` TBA
+
+`acknowledgements.qmd` TBA
+
+`contents.qmd` TBA
+
+`index.qmd` TBA
+
+`plausible.html` TBA
+
+`references.bib` TBA
+
+`references.qmd` TBA
+
+`renv.lock` TBA
+
+`repro-book.Rproj` TBA
+
+`summary.qmd` TBA
+
 ## License
 
 [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.en)
