@@ -39,6 +39,7 @@ This book was developed with Git and within the {{< fa github >}} GitHub-environ
 You can download the [sourcecode](https://github.com/lnnrtwttkhn/repro-book) from GitHub by clicking on the Code-Button.
 You must then press either **Open with GitHub Desktop** (requires [{{< fa github >}} GitHub Desktop](https://github.com/apps/desktop)) or **Download ZIP**.
 For a detailed introduction on Git and Github see this [**Version Control Book**](https://lennartwittkuhn.com/version-control-book/).
+For an overview about the project structure of this Reproducibility Book, look at the `README.md`-file at [GitHub](https://github.com/lnnrtwttkhn/repro-book/blob/main/README.md)
 
 ## RStudio Project {#sec-rstudio-project}
 
@@ -434,7 +435,7 @@ git status # <1>
 
 ### Background
 
-Images are stored in a [NextCloud folder]({{< var project.images-url >}}).
+Images are stored in a [NextCloud folder]({{< https://cloud.uni-hamburg.de/s/ifmfPkLJCqTELSC >}}).
 They are downloaded into the `/images` folder using the command specified in the `Makefile`.
 
 ### Installation
