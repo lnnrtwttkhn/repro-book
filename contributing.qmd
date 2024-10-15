@@ -15,6 +15,8 @@ library("data.table")
 
 ## Overview
 
+@sec-github: This section explains how to get the **source code from Github** to work on this project.
+
 @sec-rstudio-project: This section explains how to **use RStudio Project** to work on this project.
 
 @sec-quarto: This section explains how to **use Quarto** to work on this project.
@@ -30,6 +32,13 @@ library("data.table")
 @sec-variables: This section explains how to **use variables**.
 
 @sec-icons: This section explains how to **add icons**.
+
+## GitHub {#sec-github}
+
+This book was developed with Git and within the {{< fa github >}} GitHub-environment. 
+You can download the [sourcecode](https://github.com/lnnrtwttkhn/repro-book) from GitHub by clicking on the Code-Button.
+You must then press either **Open with GitHub Desktop** (requires [{{< fa github >}} GitHub Desktop](https://github.com/apps/desktop)) or **Download ZIP**.
+For a detailed introduction on Git and Github see this [**Version Control Book**](https://lennartwittkuhn.com/version-control-book/).
 
 ## RStudio Project {#sec-rstudio-project}
 
