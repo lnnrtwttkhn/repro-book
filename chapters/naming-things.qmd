@@ -14,6 +14,26 @@ abstract: |
 
 ### Bad names
 
+::: panel-tabset
+
+## Psychology
+
+```{zsh filename="Output"}
+#| code-copy: false
+Assignment BO
+Dateien fÅr eigene Studien
+Images
+Sessions by lecturer
+Data results.pptx
+Output behaviour observation 1. attempt.spv
+SPSS Results slightly shortened.pptx
+SPSS Results.pptx
+Statistical Analyses.docx
+Syntax behavior observation attempt 1.sps
+```
+
+## Biology
+
 ```{zsh filename="Output"}
 #| code-copy: false
 myabstract.docx
@@ -23,7 +43,29 @@ fig 2.png
 JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt
 ```
 
+:::
+
 ### Better names
+
+::: panel-tabset
+
+## Psychology
+
+```{zsh filename="Output"}
+#| code-copy: false
+01_session-slides
+02_images
+03_data
+04_assignment_behavior-observation
+2019-07-04_output_results_behavior-observation_attempt-1.spv
+2019-07-04_syntax_behavior-observation_attempt-1.sps
+2019-07-07_results_statistical-analyses.docx
+2019-07-09_SPSS_results.pptx
+2019-07-10_SPSS_results_short.pptx
+2019-07-11_data-results.pptx
+```
+
+## Biology
 
 ```{zsh filename="Output"}
 #| code-copy: false
@@ -34,15 +76,24 @@ fig02_histogram-talk-attendance.png
 1986-01-28_raw-data-from-challenger-o-rings.txt
 ```
 
+:::
+
 ::: {.callout-caution title="Exercise: What is bad or good about these file names?" collapse="false"}
 Pause for a moment an think about what exactly makes the file names above bad or better?
 Discuss with a learning partner.
 :::
 
-## Three principles for (file) names
+Think and go back to your first research project (or maybe to your most recent project).
+Look at all the files you needed for that project.
+Do you know by the files' and folders' name what they contain?
+Below you find a real-life example of a 2nd semester undergraduate student in psychology.
+Throughout this chapter, these file and folder names will be better by applying four different principles for names.
+
+## Four principles for (file) names
 
 1. [Machine readable](#machine-readable)
 1. [Human readable]((#human-readable))
+1. Consistency
 1. Plays well with default ordering
 
 ## Machine readable
@@ -127,6 +178,25 @@ You can use a glob pattern like `report_2023_10_*.txt` to match all of them.
 
 #### Example
 
+::: panel-tabset
+
+## Psychology
+
+Excerpt of complete file listing:
+
+```{zsh filename="Output"}
+#| code-copy: false
+2021-02-18_NEOFFI_numerical-stroop_bsc-thesis_01.csv
+2021-02-18_NEOFFI_numerical-stroop_bsc-thesis_02.csv
+2021-02-19_NEOFFI_numerical-stroop_bsc-thesis_03.csv
+2021-06-04_NEOFFI_emotional-stroop_msc-thesis_001.csv
+2021-06-05_NEOFFI_emotional-stroop_msc-thesis_002.csv
+2021-06-07_NEOFFI_emotional-stroop_msc-thesis_003.csv
+2021-06-11_NEOFFI_emotional-stroop_msc-thesis_004.csv
+```
+
+## Biology
+
 Excerpt of complete file listing:
 
 ```{zsh filename="Output"}
@@ -139,6 +209,50 @@ Excerpt of complete file listing:
 2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A03.csv
 2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A04.csv
 ```
+
+:::
+
+::: {.panel-tabset}
+
+## Psychology
+
+::: {.panel-tabset}
+
+## {{< fa terminal >}} Bash
+
+```{zsh filename="Code"}
+ls *emotional*
+```
+
+```{zsh filename="Output"}
+#| code-copy: false
+2021-06-04_NEOFFI_emotional-stroop_msc-thesis_001.csv
+2021-06-05_NEOFFI_emotional-stroop_msc-thesis_002.csv
+2021-06-07_NEOFFI_emotional-stroop_msc-thesis_003.csv
+2021-06-11_NEOFFI_emotional-stroop_msc-thesis_004.csv
+```
+
+## {{< fa brands apple >}} macOS
+
+Put image of macOS screenshot here
+
+## {{< fa brands r-project >}}
+
+```{zsh filename="Code"}
+list.files(pattern = "emotional") |> head
+```
+
+```{r filename="Output"}
+#| code-copy: false
+[1] "2021-06-04_NEOFFI_emotional-stroop_msc-thesis_001.csv"
+[2] "2021-06-05_NEOFFI_emotional-stroop_msc-thesis_002.csv"
+[3] "2021-06-07_NEOFFI_emotional-stroop_msc-thesis_003.csv"
+[4] "2021-06-11_NEOFFI_emotional-stroop_msc-thesis_004.csv"
+```
+
+:::
+
+## Biology
 
 ::: {.panel-tabset}
 
@@ -185,6 +299,33 @@ Deliberate use of underscores (`_`) and hyphens (`-`) allows us to recover metad
 - Use underscores (`_`) to delimit units of metadata
 - Use hyphens (`-`) to delimit words to improve human readability
 
+::: panel-tabset
+
+## Psychology
+
+::: {.panel-tabset}
+
+## {{< fa brands r-project >}}
+
+```{r filename="Code"}
+flist <- list.files(pattern = "emotional") %>% head
+stringr::str_split_fixed(flist, "[_\\.]", 6)
+```
+
+```{r filename="Output"}
+#| code-copy: false
+# date survey paradigm project participant
+      [ ,1]        [ ,2]    [ ,3]              [ ,4]        [ ,5] [ ,6]  
+[1, ] "2021-06-04" "NEOFFI" "emotional-stroop" "msc-thesis" "001" "csv"
+[2, ] "2021-06-05" "NEOFFI" "emotional-stroop" "msc-thesis" "002" "csv"
+[3, ] "2021-06-07" "NEOFFI" "emotional-stroop" "msc-thesis" "003" "csv"
+[4, ] "2021-06-11" "NEOFFI" "emotional-stroop" "msc-thesis" "004" "csv"
+```
+
+:::
+
+## Biology
+
 ::: {.panel-tabset}
 
 ## {{< fa brands r-project >}}
@@ -205,6 +346,7 @@ stringr::str_split_fixed(flist, "[_\\.]", 5)
 [6,] "2013-06-26" "BRAFWTNEGASSAY" "Plasmid-Cellline-100-1MutantFraction" "B03" "csv"
 ```
 
+:::
 
 :::
 
@@ -240,6 +382,25 @@ This makes the URL more user-friendly and helps search engines understand the pa
 
 Find the slug in the following file names:
 
+::: panel-tabset
+
+## Psychology
+
+```{zsh filename="Output"}
+#| code-copy: false
+01_DSM-5-data.csv
+02_pre-analysis-filtering.r
+03_test-hypotheses.r
+04_exploratory-analyses.r
+90_DSM-V-codebook.csv
+helper01_load-packages.r
+helper02_load-codebook.r
+helper03_test-assumptions.r
+helper04_load-figure-template.r
+```
+
+## Biology
+
 ```{zsh filename="Output"}
 #| code-copy: false
 01_marshal-data.r
@@ -253,7 +414,54 @@ helper03_load-focus-statinf.r
 helper04_extract-and-tidy.r
 ```
 
+:::
+
 Which filenames make it easier to understand their content?
+
+::: panel-tabset
+
+## Psychology
+
+```{zsh filename="Output"}
+#| code-copy: false
+01_DSM-5-data.csv
+02_pre-analysis-filtering.md
+02_pre-analysis-filtering.r
+03_test-hypotheses.md
+03_test-hypotheses.r
+04_exploratory-analyses.md
+04_exploratory-analyses.r
+90_DSM-codebook.csv
+Makefile
+figure
+helper01_load-packages.r
+helper02_load-codebook.r
+helper03_test-assumptions.r
+helper04_load-figure-template.r
+tmp.txt
+```
+
+```{zsh filename="Output"}
+#| code-copy: false
+01.csv
+02.md
+02.r
+03.md
+03.r
+04.md
+04.r
+90.md
+90.r
+Makefile
+figure
+helper01.r
+helper02.r
+helper03.r
+helper04.r
+tmp.txt
+```
+
+## Biology
 
 ```{zsh filename="Output"}
 #| code-copy: false
@@ -297,11 +505,57 @@ helper04.r
 tmp.txt
 ```
 
+:::
+
+## Consistent
+
+You can find and extract files more easily when you name them consistently.
+Sometimes it can happen that file names are made of multiple languages you are capable of.
+For example you study either in the Netherlands or in Germany but your research project is with international colleagues and the common language is English.
+It is recommended to name your files in only one language every person in touch can understand.
+
+Even if you entirely use one language, regional influences can be the cause for different spelling.
+For example, the English word "behavior" is written with an *u* in British English and without in American English.
+Decide in your team a language and uniform spelling to name files and folders!
+
+::: callout-note
+## Machine and human readable and consistent names
+
+-   {{< fa folder >}} assignment_behavior-observation
+-   {{< fa folder >}} data
+-   {{< fa folder >}} images
+-   {{< fa folder >}} session-slides
+-   {{< fa file-powerpoint >}} data-results.pptx
+-   {{< fa file >}} output_results_behavior-observation_attempt-1.spv
+-   {{< fa file-word >}} results_statistical-analyses.docx
+-   {{< fa file-powerpoint >}} SPSS_results_short.pptx
+-   {{< fa file-powerpoint >}} SPSS_result.pptx
+-   {{< fa file-code >}} syntax_behavior-observation_attempt-1.sps
+
+:::
+
 ## Play well with default ordering
 
 ### Put something numeric first
 
 #### Chronological order
+
+::: panel-tabset
+
+## Psychology
+
+```{zsh filename="Output"}
+#| code-copy: false
+2021-02-18_NEOFFI_numerical-stroop_bsc-thesis_01.csv
+2021-02-18_NEOFFI_numerical-stroop_bsc-thesis_02.csv
+2021-02-19_NEOFFI_numerical-stroop_bsc-thesis_03.csv
+2021-06-04_NEOFFI_emotional-stroop_msc-thesis_001.csv
+2021-06-05_NEOFFI_emotional-stroop_msc-thesis_002.csv
+2021-06-07_NEOFFI_emotional-stroop_msc-thesis_003.csv
+2021-06-11_NEOFFI_emotional-stroop_msc-thesis_004.csv
+```
+
+## Biology
 
 ```{zsh filename="Output"}
 #| code-copy: false
@@ -314,7 +568,27 @@ tmp.txt
 2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A04.csv
 ```
 
+:::
+
 #### Logical order
+
+::: panel-tabset
+
+## Psychology
+
+```{zsh}
+01_DSM-5-data.csv
+02_pre-analysis-filtering.r
+03_test-hypotheses.r
+04_exploratory-analyses.r
+90_DSM-V-codebook.csv
+helper01_load-packages.r
+helper02_load-codebook.r
+helper03_test-assumptions.r
+helper04_load-figure-template.r
+```
+
+## Biology
 
 ```{zsh}
 01_marshal-data.r
@@ -328,9 +602,28 @@ helper03_load-focus-statinf.r
 helper04_extract-and-tidy.r
 ```
 
+:::
+
 #### Use the ISO 8601 standard for dates
 
 `YYYY-MM-DD`
+
+::: panel-tabset
+
+## Psychology
+
+```{zsh filename="Output"}
+#| code-copy: false
+2021-02-18_NEOFFI_numerical-stroop_bsc-thesis_01.csv
+2021-02-18_NEOFFI_numerical-stroop_bsc-thesis_02.csv
+2021-02-19_NEOFFI_numerical-stroop_bsc-thesis_03.csv
+2021-06-04_NEOFFI_emotional-stroop_msc-thesis_001.csv
+2021-06-05_NEOFFI_emotional-stroop_msc-thesis_002.csv
+2021-06-07_NEOFFI_emotional-stroop_msc-thesis_003.csv
+2021-06-11_NEOFFI_emotional-stroop_msc-thesis_004.csv
+```
+
+## Biology
 
 ```{zsh filename="Output"}
 #| code-copy: false
@@ -342,6 +635,8 @@ helper04_extract-and-tidy.r
 2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A03.csv
 2014-02-17_BRAFWTNEGASSAY_FFPEDNA-CRC-1-41_A04.csv
 ```
+
+:::
 
 ```{r}
 #| results: asis
@@ -360,6 +655,24 @@ Left-padding of numbers refers to the practice of adding zeros to the left of a 
 This can be useful, for example, when dealing with numerical data that needs to be formatted in a specific way for presentation or computational purposes.
 By left-padding numbers, you can ensure that they all have the same length and are easier to compare or work with in a numerical context.
 
+::: panel-tabset
+
+## Psychology
+
+```{zsh}
+01_DSM-5-data.csv
+02_pre-analysis-filtering.r
+03_test-hypotheses.r
+04_exploratory-analyses.r
+90_DSM-V-codebook.csv
+helper01_load-packages.r
+helper02_load-codebook.r
+helper03_test-assumptions.r
+helper04_load-figure-template.r
+```
+
+## Biology
+
 ```{zsh filename="Output"}
 #| code-copy: false
 01_marshal-data.r
@@ -372,6 +685,8 @@ helper02_load-exp-des.r
 helper03_load-focus-statinf.r
 helper04_extract-and-tidy.r
 ```
+
+:::
 
 If you don't left pad numbers, you get this:
 
