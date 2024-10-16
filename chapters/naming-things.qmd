@@ -339,6 +339,7 @@ stringr::str_split_fixed(flist, "[_\\.]", 5)
 ```{r filename="Output"}
 #| code-copy: false
 # date assay sampleset well
+     [ ,1]        [ ,2]            [ ,3]                                  [ ,4] [ ,5]
 [1,] "2013-06-26" "BRAFWTNEGASSAY" "Plasmid-Cellline-100-1MutantFraction" "A01" "csv"
 [2,] "2013-06-26" "BRAFWTNEGASSAY" "Plasmid-Cellline-100-1MutantFraction" "A02" "csv"
 [3,] "2013-06-26" "BRAFWTNEGASSAY" "Plasmid-Cellline-100-1MutantFraction" "A03" "csv"
