@@ -35,10 +35,10 @@ library("data.table")
 
 ## GitHub {#sec-github}
 
-This book was developed with Git and within the {{< fa github >}} GitHub-environment. 
+This book was developed with Git and within the {{< fa brands github >}} GitHub-environment. 
 You can download the [sourcecode](https://github.com/lnnrtwttkhn/repro-book) from GitHub by clicking on the Code-Button.
-You must then press either **Open with GitHub Desktop** (requires [{{< fa github >}} GitHub Desktop](https://github.com/apps/desktop)) or **Download ZIP**.
-For a detailed introduction on Git and Github see this [**Version Control Book**](https://lennartwittkuhn.com/version-control-book/).
+You must then press either **Open with GitHub Desktop** (requires [{{< fa brands github >}} GitHub Desktop](https://github.com/apps/desktop)) or **Download ZIP**.
+For a detailed introduction on Git and GitHub see this [**Version Control Book**](https://lennartwittkuhn.com/version-control-book/).
 For an overview about the project structure of this Reproducibility Book, look at the `README.md`-file at [GitHub](https://github.com/lnnrtwttkhn/repro-book/blob/main/README.md)
 
 ## RStudio Project {#sec-rstudio-project}
@@ -453,7 +453,7 @@ Try by entering the following command into the Terminal:
 
 ```{zsh filename="Code"}
 make --version
-````
+```
 
 ## {{< fa brands windows >}}
 
