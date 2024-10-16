@@ -10,15 +10,23 @@ Reproducibility
 
 ![](/images/reproducible-matrix.jpg){fig-align="center"}
 
-We will use this conceptualization of reproducibility throughout the book. Note, that reproducibility and *replicability* are two different terms. Replicability is achieved when the same analysis produce similar answers among *different* datasets, whereas reproducibility when the same analysis produce the same answer in the *same* dataset. That makes reproducibility the lowest common denominator in research.
+We will use this conceptualization of reproducibility throughout the book.
+Note, that reproducibility and *replicability* are two different terms.
+Replicability is achieved when the same analysis produce similar answers among *different* datasets, whereas reproducibility when the same analysis produce the same answer in the *same* dataset.
+That makes reproducibility the lowest common denominator in research.
 
 ### Process-based reproducibility vs. outcome-based reproducibility
 
-As a researcher who wants to reproduce a result from a different research project, there are two main reasons why reproducibility might fail [@nosek2022]. First, you may not be able to repeat the analysis that had been done before, because of data or code unavailability or the lack of information or software to recreate code. This is called an process-based reproducibility failure. Second, your reanalysis yield different results than the original report. This is called an outcome-based reproducibility failure and can happen due to an error either in the original or the reproduction study [@nosek2022].
+As a researcher who wants to reproduce a result from a different research project, there are two main reasons why reproducibility might fail [@nosek2022].
+First, you may not be able to repeat the analysis that had been done before, because of data or code unavailability or the lack of information or software to recreate code.
+This is called an process-based reproducibility failure. Second, your reanalysis yield different results than the original report.
+This is called an outcome-based reproducibility failure and can happen due to an error either in the original or the reproduction study [@nosek2022].
 
 ## Why do reproducible research?
 
-During the book you might feel overwhelmed of what one can think about to turn a research project into a more reproducible project. You might start to wonder if its even worth the time you spend on it. We believe it is, and here are some arguments why
+During the book you might feel overwhelmed of what one can think about to turn a research project into a more reproducible project.
+You might start to wonder if its even worth the time you spend on it.
+We believe it is, and here are some arguments why
 
 ## Current state of reproducibility
 
@@ -26,19 +34,32 @@ During the book you might feel overwhelmed of what one can think about to turn a
 
 ## What this book is not about
 
-Open Science is a huge movement with many aspects, that we cannot cover completely in this book. Reproducibility is one important aspect for striving to open science, but many topics are still left.
+Open Science is a huge movement with many aspects, that we cannot cover completely in this book.
+Reproducibility is one important aspect for striving to open science, but many topics are still left.
 
 ### Qustionable Research Practices (QRPs)
 
-Questionable research practices (QRPs) have gained increasing attention since a popular article by John et al. (2012). We acknowledge the variety of QRPs and the need to face the issues raised by John et al. (2012), but that topic can fill another full book. If you feel engaged to learn more about QRPs, we recommend the [article](https://doi.org/10.1177/0956797611430953) by @john2012, and other links <!--# Links will be inserted soon -->.
+Questionable research practices (QRPs) have gained increasing attention since a popular article by John et al. (2012).
+We acknowledge the variety of QRPs and the need to face the issues raised by John et al. (2012), but that topic can fill another full book.
+If you feel engaged to learn more about QRPs, we recommend the [article](https://doi.org/10.1177/0956797611430953) by @john2012, and other links <!--# Links will be inserted soon -->.
 
 ### Pre-registration
 
-Pre-registrations have become popular as one answer to QRPs. However, even pre-registered studies can be irreproducible when data and code is not findable, accessible or understandable. In turn, a full reproducible research project does not necessarily have to be pre-registered. Both contribute in its own way to open science. If you want to find to pre-register your study, we recommend <https://aspredicted.org> or <https://osf.io>. If you want to learn more about pre-registration, we recommend the [website](https://www.cos.io/initiatives/prereg) of the Center for Open Science.
+Pre-registrations have become popular as one answer to QRPs.
+However, even pre-registered studies can be irreproducible when data and code is not findable, accessible or understandable.
+In turn, a full reproducible research project does not necessarily have to be pre-registered.
+Both contribute in its own way to open science.
+If you want to find to pre-register your study, we recommend <https://aspredicted.org> or <https://osf.io>.
+If you want to learn more about pre-registration, we recommend the [website](https://www.cos.io/initiatives/prereg) of the Center for Open Science.
 
 ### Statistics
 
-Many aspects of this book will deal with [R](https://www.r-project.org) and [RStudio](https://posit.co/download/rstudio-desktop/), which are powerful tools for statistical programming. However, this book requires almost no statistical knowledge. You might find some t-tests or something similar in code-examples (see Section tidy data). The purpose of the book is not to increase your statistical knowledge and skills; the purpose of the book is to make your research more reproducible. If you want to learn more about statistics, we recommend [this free E-book](https://learningstatisticswithr.com/lsr-0.6.pdf) by Danielle Navarro. If you prefer an analogous book, we recommend [Discovering statistics using R](https://uk.sagepub.com/en-gb/eur/discovering-statistics-using-r/book236067) by Andy Field.
+Many aspects of this book will deal with [R](https://www.r-project.org) and [RStudio](https://posit.co/download/rstudio-desktop/), which are powerful tools for statistical programming.
+However, this book requires almost no statistical knowledge.
+You might find some t-tests or something similar in code-examples (see Section tidy data).
+The purpose of the book is not to increase your statistical knowledge and skills; the purpose of the book is to make your research more reproducible.
+If you want to learn more about statistics, we recommend [this free E-book](https://learningstatisticswithr.com/lsr-0.6.pdf) by Danielle Navarro.
+If you prefer an analogous book, we recommend [Discovering statistics using R](https://uk.sagepub.com/en-gb/eur/discovering-statistics-using-r/book236067) by Andy Field.
 
 ## How you get the most out of this book
 
