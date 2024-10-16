@@ -520,19 +520,27 @@ Even if you entirely use one language, regional influences can be the cause for 
 For example, the English word "behavior" is written with an *u* in British English and without in American English.
 Decide in your team a language and uniform spelling to name files and folders!
 
-::: callout-note
-## Machine and human readable and consistent names
+::: panel-tabset
 
--   {{< fa folder >}} assignment_behavior-observation
--   {{< fa folder >}} data
--   {{< fa folder >}} images
--   {{< fa folder >}} session-slides
--   {{< fa file-powerpoint >}} data-results.pptx
--   {{< fa file >}} output_results_behavior-observation_attempt-1.spv
--   {{< fa file-word >}} results_statistical-analyses.docx
--   {{< fa file-powerpoint >}} SPSS_results_short.pptx
--   {{< fa file-powerpoint >}} SPSS_result.pptx
--   {{< fa file-code >}} syntax_behavior-observation_attempt-1.sps
+## Consistent names
+
+```{zsh filename="Output"}
+#| code-copy: false
+decision-for-the-use-of-american-english.csv
+all-my-file-names-are-in-one-language.txt
+behavioral-data-is-consistently-named.csv
+behavioral-data-file-names-are-easy-to-understand.r
+```
+
+## Inconsistent names
+
+```{zsh filename="Output"}
+#| code-copy: false
+decision-for-the-use-of-plenty-languages.csv
+dette-dokumentet-har-et-norsk-navn.txt
+behavioural-data-is-not-consistently-named.csv
+behavioral-data-file-names-are-hard-to-understand.r
+```
 
 :::
 
