@@ -144,3 +144,14 @@ Used under the [GNU General Public License](https://fsf.org/).
 No changes were made.
 
 :::
+
+::: callout-caution
+## Exercise: Take on different perspectives
+
+Pause for a moment after investigating the different project structures. 
+Take the perspective of a researcher that is currently working in this project structure. 
+How would you feel working with this structure? What helps you, hinders you to work productively and reproducible? 
+Then change your perspective. 
+Imagine you are a researcher aiming to reproduce the results of a different research project that uses such project structures. 
+What would you need to reproduce analysis and results?
+:::
