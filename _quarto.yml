@@ -27,6 +27,7 @@ book:
     - index.qmd
     - contents.qmd
     - chapters/intro.qmd
+    - chapters/project-structure.qmd
     - summary.qmd
     - references.qmd
     - acknowledgements.qmd
