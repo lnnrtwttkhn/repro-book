@@ -1,4 +1,146 @@
 ---
 title: "Project Structure"
 editor: visual
+abstract: "In this chapter, you will be exposed to different variations of project structures. You will learn, what is mandatory for a project structure and what is of importance to think about."
 ---
+
+::: {.callout-tip appearance="minimal"}
+<h5>Learning objectives</h5>
+
+:bulb: Be exposed to a couple of different project structure <br> 
+:bulb: Get in touch with main components of project structure <br> 
+:bulb: Think about advantages and disadvantages of particular project structures <br> 
+:bulb: Sense the hurdles and visions of a decent project structure <br> 
+:bulb: Take perspective on research as sequential vs. circular process
+:::
+
+A good folder structure saves future you and other researchers a lot of time when trying to understand your data. 
+Unfortunately, a *best practice standard* does not for a project structure yet. 
+Below you can find numerous examples of different project structures:
+
+## Examples
+
+::: panel-tabset
+
+## The Turing Way
+
+```         
+├── LICENSE
+├── README.md          <- The top-level README for users of this project.
+├── CODE_OF_CONDUCT.md <- Guidelines for users and contributors of the project.
+├── CONTRIBUTING.md    <- Information on how to contribute to the project.
+├── data
+│   ├── processed      <- The final, canonical data sets for modeling.
+│   └── raw            <- The original, immutable data dump.
+│
+├── docs               <- A default Sphinx project; see sphinx-doc.org for details
+│
+├── models             <- Trained and serialized models, model predictions, or model summaries
+│
+├── notebooks          <- Jupyter notebooks. The naming convention is a number (for ordering),
+│                         the creator's initials, and a short `-` delimited description, e.g.
+│                         `1.0-jqp-initial-data-exploration`.
+│
+├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
+│   └── figures        <- Generated graphics and figures to be used in reporting
+│
+├── project_management <- Meeting notes and other project planning resources
+│
+├── src                <- Source code for use in this project.
+│   │
+│   ├── data           <- Scripts to download or generate data
+│   │   └── make_dataset.py
+│   │
+│   ├── models         <- Scripts to train models and then use trained models to make
+│   │   │                 predictions
+│   │   ├── predict_model.py
+│   │   └── train_model.py
+│   │
+│   └── visualisation  <- Scripts to create exploratory and results-oriented visualisations
+│       └── visualise.py
+└──
+```
+
+Repository Structure Template by [The Turing Way](https://book.the-turing-way.org/index.html). 
+Used under the [LICENSE CC-BY 4.0](https://github.com/the-turing-way/reproducible-project-template/blob/main/LICENSE.md). 
+Reused without any modifcations.
+
+## Heidi Seibold
+
+```         
+.
+├── README.md
+├── analysis            <- all things data analysis
+│   └── src             <- functions and other source files
+├── comm
+│   ├── internal_comm   <- internal communication such as meeting notes
+│   └── journal_comm    <- communication with the journal, e.g. peer review
+├── data
+│   ├── data_clean      <- clean version of the data
+│   └── data_raw        <- raw data (don't touch)
+├── dissemination
+│   ├── manuscripts
+│   ├── posters
+│   └── presentations
+├── documentation       <- documentation, e.g. data management plan
+└── misc                <- miscellaneous files that don't fit elsewhere
+```
+
+Research Project Template by [Heidi Seibold](https://heidiseibold.com). 
+No license use specified.
+For source code, see [here](https://github.com/HeidiSeibold/research-project-template). 
+Reused without modifications.
+
+## analysistemplates
+
+```         
+|-- 01_Data
+|   |-- 01_Raw
+|   `-- 02_Clean
+|-- 02_Analysis
+|   |-- 01_Scripts
+|   |-- 02_Results
+|   |-- 03_Figures
+|   `-- 04_Tables
+|-- 03_Manuscript
+|   |-- 01_Text
+|   `-- 02_Final_figures
+|-- 04_Presentation
+|-- 05_Misc
+|-- 06_Analysis_for_publication <-- optional
+|   |-- 01_Scripts              <-- optional
+|   |-- 02_Results              <-- optional
+|   |-- 03_Figures              <-- optional
+|   `-- 04_Tables               <-- optional
+|-- README.md
+|-- .gitignore                  <-- optional
+|-- renv                        <-- optional
+```
+
+analysis template packages by [Jonas Hagenbeck](https://github.com/jonas-hag). 
+Used under the [MIT License](https://github.com/jonas-hag/analysistemplates/blob/0d76d5364c231a4710d227c8a935532c137383a2/LICENSE.md#L4). 
+Reused without any modifications.
+
+## WORCS
+
+| File          | Description                     | Usage           |
+|:--------------|:--------------------------------|:----------------|
+| \_pkgdown.yml | YAML for package website        | do not edit     |
+| DESCRIPTION   | R-package DESCRIPTION           | do not edit     |
+| LICENSE.md    | Project license                 | do not edit     |
+| NAMESPACE     | R-package namespace             | machine-written |
+| README.md     | Read this file to get started!  | do not edit     |
+| README.Rmd    | R-markdown source for readme.md | human editable  |
+| worcs.Rproj   | RStudio project file            | do not edit     |
+| docs/         | Package website                 | machine-written |
+| inst/         | RStudio project template files  | human editable  |
+| man/          | R-package documentation         | do not edit     |
+| paper/        | WORCS paper source files        | human editable  |
+| R/            | R-package source code           | human editable  |
+| vignettes/    | R-package vignettes             | human editable  |
+
+WORCS project structure by Van Lissa et al. ([2021](https://cjvanlissa.github.io/worcs/index.html#repository-structure)).
+Used under the [GNU General Public License](https://fsf.org/).
+No changes were made.
+
+:::
