@@ -78,16 +78,16 @@ fig02_histogram-talk-attendance.png
 
 :::
 
+Think and go back to your first research project (or maybe to your most recent project).
+Look at all the files you needed for that project.
+Do you know by the files' and folders' names what they contain?
+Above you find a real-life example of a 2nd semester undergraduate student in psychology.
+Which files would you wish to face when you start reproducing results?
+
 ::: {.callout-caution title="Exercise: What is bad or good about these file names?" collapse="false"}
 Pause for a moment an think about what exactly makes the file names above bad or better?
 Discuss with a learning partner.
 :::
-
-Think and go back to your first research project (or maybe to your most recent project).
-Look at all the files you needed for that project.
-Do you know by the files' and folders' names what they contain?
-Below you find a real-life example of a 2nd semester undergraduate student in psychology.
-Throughout this chapter, these file and folder names will be better by applying four different principles for names.
 
 ## Four principles for (file) names
 
