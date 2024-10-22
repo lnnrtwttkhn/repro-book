@@ -164,6 +164,13 @@ You can also paste the example text into a text file, for example called `exampl
 grep -Eo "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b" example.txt
 ```
 
+Here you can see the output:
+
+```{zsh filename="Output"}
+john.doe@email.com
+jane.smith@example.com
+```
+
 :::
 
 ::: {.callout-tip title="Find out more: What is globbing?" collapse="true"}
@@ -171,12 +178,8 @@ grep -Eo "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b" example.txt
 Globbing refers to the use of wildcard characters (like `*` and `?`) to match multiple files or directories in command-line interfaces and scripting.
 Being globbing friendly means file names or paths are structured in a way that makes them easy to match using these wildcards.
 
-For example, let's assume that you have two files like `report_2023_10_01.txt` and `report_2023_10_02.txt`.
-You can use a glob pattern like `report_2023_10_*.txt` to match all of them.
-
-:::
-
-#### Example
+For example, let's assume that you have three files like `YYYY-MM-DD_NEOFFI_numerical-stroop_bsc-thesis_01.csv` and `YYYY-MM-DD_NEOFFI_emotional-stroop_msc-thesis_01.csv`.
+You can use a glob pattern like `*emotional*` to match all of your data sets associated with the emotional stroop task.
 
 ::: panel-tabset
 
@@ -288,6 +291,8 @@ list.files(pattern = "Plasmid") |> head
 [5] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_B02.csv"
 [6] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_B03.csv"
 ```
+
+:::
 
 :::
 
