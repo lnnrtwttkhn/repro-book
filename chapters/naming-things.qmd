@@ -92,7 +92,7 @@ Throughout this chapter, these file and folder names will be better by applying 
 ## Four principles for (file) names
 
 1. [Machine readable](#machine-readable)
-1. [Human readable]((#human-readable))
+1. [Human readable](#human-readable)
 1. Consistency
 1. Plays well with default ordering
 
@@ -108,7 +108,7 @@ It's used to find or match specific combinations of characters within text.
 You can think of it as a tool for searching text in a very precise and flexible way.
 
 **Globbing** is a way to use special characters (called "wildcards") to match multiple files or directories in command-line interfaces or scripts.
-It helps you select groups of files without typing every single name.
+It helps you to select groups of files without typing every single name.
 
 Common wildcards in globbing:
 
@@ -121,7 +121,7 @@ So, if you wanted to list all text files in a directory, you could use the patte
 
 Both regular expression and globbing are concepts that help make working with files and data more efficient for automation and scripting tasks.
 
-To make file names regex and globing friendly, avoid:
+To make file names regex and globbing friendly, avoid:
 
 - spaces
 - punctuation
@@ -509,7 +509,7 @@ tmp.txt
 
 :::
 
-## Consistent
+## Consistency
 
 You can find and extract files more easily when you name them consistently.
 Sometimes it can happen that file names are made of multiple languages you are capable of.
