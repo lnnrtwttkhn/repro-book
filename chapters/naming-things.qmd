@@ -93,8 +93,8 @@ Throughout this chapter, these file and folder names will be better by applying 
 
 1. [Machine readable](#machine-readable)
 1. [Human readable](#human-readable)
-1. Consistency
-1. Plays well with default ordering
+1. [Consistency](#consistency)
+1. [Play well with default ordering](#play-well-with-default-ordering)
 
 ## Machine readable
 
