@@ -9,3 +9,14 @@ xkcd-iso-8601:
   license-reference: "https://xkcd.com/license.html"
   comments: "reused without modifications"
   alt-text: ""
+
+final-doc-comic:
+  title: "notFinal.doc"
+  author: "Jorge Cham"
+  author-url: "https://phdcomics.com/"
+  image-file: "final-doc-comic.gif"
+  image-url: "https://phdcomics.com/comics/archive.php?comicid=1531"
+  license: "All content copyright 1997-2003 Piled Higher and Deeper Publishing, LLC."
+  license-reference: ""
+  comments: "reused without modifications"
+  alt-text: ""

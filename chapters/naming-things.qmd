@@ -580,6 +580,17 @@ behavioral-data-file-names-are-hard-to-understand.r
 
 :::
 
+::: callout-important
+Consider the use of chronologically ordered files and folders! For specifying different versions of the same document, version control tools as Git and GitHub should be preferred. Otherwise you might feel as the person in the cartoon below writing on his "final document". For different but similar files, a chronological order can make sense.
+:::
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("final-doc-comic"))
+```
+
 #### Logical order
 
 ::: panel-tabset
