@@ -177,8 +177,8 @@ Since, we dedicated a whole chapter to this topic, we move on to the next basic 
 ### `README.md`-file
 
 A `README` is a text file that provides basic information about a project.
-As mentioned earlier, the `README` file can be created together with your repository or can be added later.
-In the context of a Git repository, the `README` file should contain "a description of your repository".
+It is typically a Markdown (`.md`) file, which means you can use [Markdown]({{< var links.markdown >}}) syntax in it.
+Markdown allows you to easily format text, create lists, include links, and embed images.
 The exact content depends on your repository, but some general things that you might want to include are:
 
 - **Project description**:
@@ -211,11 +211,6 @@ The chosen license influences contributions to your project.
 ::: {.callout-tip title="Find out more: View the `README.md` file of this project." collapse="true" appearance="simple" icon="true"}
 {{< include ../README.md >}}
 :::
-
-### Markdown syntax
-
-A `README` is typically a Markdown (`.md`) file, which means you can use [Markdown]({{< var links.markdown >}}) syntax in it.
-Markdown allows you to easily format text, create lists, include links, and embed images.
 
 ## YODA principles
 
