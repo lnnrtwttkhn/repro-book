@@ -272,6 +272,32 @@ It saves you from having a chaotic project folder when entering your project.
 -   Critically discuss if journal requirements are sufficient for computational reproducibility
 -   Something's missing?
 
+Below the line, the actual content starts
+---
+
+In the first subsections of the chapter, you have learned how to set up your own project structure.
+The structure is flexible to different occasions, e.g. working collaboratively with other team members, working at your own research project during your studies at university.
+Nevertheless, you have not learned what is actually required by journals when you need or want to make your data and code publicly available.
+To cover this topic, we will go into the details of open science requirements of a couple of journals.
+
 ### Requirements of Frontiers in Psychology
 
+| **GUIDELINE** | **LEVEL** | **SUMMARY** | **JUSTIFICATION** |
+|:---|:---|:---|:---|
+| **Total** | **13** |  |  |
+| Data Citation | **1** | Journal describes citation of data in guidelines to authors with clear rules and examples. | "Authors are encouraged to cite all datasets generated or analyzed in the study. " Includes example. |
+| Data Transparency | **2** | Data must be posted to a trusted repository. Exceptions must be identified at article submission. | "Frontiers is committed to open science and open data; we require that authors make available all data relevant to the conclusions of the manuscript." |
+| Analysis Code Transparency | **2** | Code must be posted to a trusted repository. Exceptions must be identified at article submission. | "Frontiers is committed to open science and open data; we require that authors make available all code used to conduct their research available to other researchers. " |
+| Materials Transparency | **2** | Materials must be posted to a trusted repository. Exceptions must be identified at article submission. | "Authors are required to make all materials used to conduct their research available to other researchers." |
+| Design & Analysis Reporting Guidelines | **0** | Journal encourages design and analysis transparency, or says nothing. | No mention. |
+| Study Preregistration | **0** | Journal says nothing. | No mention. |
+| Analysis Plan Preregistration | **0** | Journal says nothing. | No mention. |
+| Replication | **3** | Journal uses Registered Reports as a submission option for replication studies with peer review prior to observing the study outcomes. | Journal accepts Registered Reports. |
+| Registered Reports & Publication Bias | **3** |  | Journal accepts Registered Reports. |
+| Open Science Badges | **0** |  | No mention. |
+
+Open access policy of Frontiers in Psychology summarised by [TOP Factor](https://topfactor.org/journals/frontiers-in-psychology-2). License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Used without any modifications. 
+
 ### Requirements of Meta-Psychology / Advances in Methods and Practices in Psychological science Submission Guidelines
+
+
