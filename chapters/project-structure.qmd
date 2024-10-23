@@ -282,6 +282,37 @@ To cover this topic, we will go into the details of open science requirements of
 
 ### Requirements of Frontiers in Psychology
 
+The [TOP Guidelines](https://www.cos.io/initiatives/top-guidelines) by the Center of Open Science are a best practice formulation by journals, funders, and societies to implement better and more transparent research.
+The [TOP Factor](https://topfactor.org) is a metric that reports the steps that a journal is taking to implement open science practices.
+Below you can see the TOP Factor evaluation of the journal *Frontiers in Psychology*.
+
+::: {.callout-tip collapse="true"}
+
+## Learn more: What is the TOP-Factor?
+
+The TOP-FACTOR is a metric that assesses the open science policies of papers.
+It considers different dimensions, such as *data transparency* and *materials transparency*.
+In each dimension, a journal can achieve zero to three points.
+A journal receives zero points in a dimension, when it is not implemented in the open science policy.
+It receives three points in a dimension, when reproducibility of data and materials is not only required but also positively tested.
+The sum score over all dimensions constitutes the TOP Factor.
+The criteria for the scoring system is listed below:
+
+| | **NOT IMPLEMENTED** | **LEVEL I** | **LEVEL II** | **LEVEL III** |
+|:---|:---|:---|:---|:---|
+| **Data Citation** | No mention of data citation. | Journal describes citation of data in guidelines to authors with clear rules and examples. | Article provides appropriate citation for data and materials used consistent with journal's author guidelines. | Article is not published until providing appropriate citation for data and materials following journal's author guidelines. |
+| **Data Transparency** | Journal encourages data sharing, or says nothing. |  Article states whether data are available, and, if so, where to access them. | Data must be posted to a trusted repository. Exceptions must be identified at article submission. | Data must be posted to a trusted repository, and reported analyses will be reproduced independently prior to publication. |
+| **Analysis Code Transparency** | Journal encourages code sharing, or says nothing. | Article states whether code is available, and, if so, where to access it. | Code must be posted to a trusted repository. Exceptions must be identified at article submission. | Code must be posted to a trusted repository, and reported analyses will be reproduced independently prior to publication. |
+| **Materials Transparency** | Journal encourages materials sharing, or says nothing. | Article states whether materials are available, and, if so, where to access them. | Materials must be posted to a trusted repository. Exceptions must be identified at article submission. | Materials must be posted to a trusted repository, and reported analyses will be reproduced independently prior to publication. |
+| **Design & Analysis Reporting Guidelines** | Journal encourages design and analysis transparency, or says nothing. | Journal articulates design transparency standards. | Journal requires adherence to design transparency standards for review and publication. | Journal requires and enforces adherence to design transparency standards for review and publication. |
+| **Study Preregistration** | Journal says nothing. | Article states whether preregistration of study exists, and, if so, where to access it. | Article states whether preregistration of study exists, and, if so, allows journal access during peer review for verification. | Journal requires preregistration of studies and provides link and badge in article to meeting requirements. |
+| **Analysis Plan Preregistration** | Journal says nothing. | Article states whether preregistration of study exists, and, if so, where to access it. | Article states whether preregistration with analysis plan exists, and, if so, allows journal access during peer review for verification. | Journal requires preregistration of studies with analysis plans and provides link and badge in article to meeting requirements. |
+| **Replication** | Journal discourages submission of replication studies, or says nothing. | Journal encourages submission of replication studies. | Journal encourages submission of replication studies and conducts results blind review. | Journal uses Registered Reports as a submission option for replication studies with peer review prior to observing the study outcomes. |
+
+TOP Guidelines [Summary Table](https://topfactor.org/summary). License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Used without any modifications. 
+
+:::
+
 | **GUIDELINE** | **LEVEL** | **SUMMARY** | **JUSTIFICATION** |
 |:---|:---|:---|:---|
 | **Total** | **13** |  |  |
