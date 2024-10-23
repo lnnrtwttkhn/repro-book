@@ -63,7 +63,7 @@ Below you can find numerous examples of different project structures:
 
 Repository Structure Template by [The Turing Way](https://book.the-turing-way.org/index.html). 
 Used under the [LICENSE CC-BY 4.0](https://github.com/the-turing-way/reproducible-project-template/blob/main/LICENSE.md). 
-Reused without any modifcations.
+Reused without any modifications.
 
 ## Heidi Seibold
 
