@@ -1,27 +1,22 @@
 ---
 title: "Project Structure"
 editor: visual
-abstract: "In this chapter, you will be exposed to different variations of project structures. You will learn, what is mandatory for a project structure and what is of importance to think about."
+abstract: "In this chapter, you will be exposed to different variations of project structures. You will learn, what is mandatory for a project structure and what is of importance to think about. You will learn both, how to set up a project structure for your own project and what should be available in a published reproducibility archive"
 ---
 
 ::: {.callout-tip appearance="minimal"}
 <h5>Learning objectives</h5>
 
-:bulb: Be exposed to a couple of different project structure <br> 
-:bulb: Get in touch with main components of project structure <br> 
-:bulb: Think about advantages and disadvantages of particular project structures <br> 
-:bulb: Sense the hurdles and visions of a decent project structure <br> 
-:bulb: Take perspective on research as sequential vs. circular process
+:bulb: Be exposed to a couple of different project structure <br> :bulb: Get in touch with main components of project structure <br> :bulb: Think about advantages and disadvantages of particular project structures <br> :bulb: Sense the hurdles and visions of a decent project structure <br> :bulb: Take perspective on research as sequential vs. circular process
 :::
 
-A good folder structure saves future you and other researchers a lot of time when trying to understand your data. 
-Unfortunately, a *best practice standard* does not for a project structure yet. 
+A good folder structure saves future you and other researchers a lot of time when trying to understand your data.
+Unfortunately, a *best practice standard* does not for a project structure yet.
 Below you can find numerous examples of different project structures:
 
 ## Examples
 
 ::: panel-tabset
-
 ## The Turing Way
 
 ```         
@@ -61,8 +56,8 @@ Below you can find numerous examples of different project structures:
 └──
 ```
 
-Repository Structure Template by [The Turing Way](https://book.the-turing-way.org/index.html). 
-Used under the [LICENSE CC-BY 4.0](https://github.com/the-turing-way/reproducible-project-template/blob/main/LICENSE.md). 
+Repository Structure Template by [The Turing Way](https://book.the-turing-way.org/index.html).
+Used under the [LICENSE CC-BY 4.0](https://github.com/the-turing-way/reproducible-project-template/blob/main/LICENSE.md).
 Reused without any modifications.
 
 ## Heidi Seibold
@@ -86,9 +81,9 @@ Reused without any modifications.
 └── misc                <- miscellaneous files that don't fit elsewhere
 ```
 
-Research Project Template by [Heidi Seibold](https://heidiseibold.com). 
+Research Project Template by [Heidi Seibold](https://heidiseibold.com).
 No license use specified.
-For source code, see [here](https://github.com/HeidiSeibold/research-project-template). 
+For source code, see [here](https://github.com/HeidiSeibold/research-project-template).
 Reused without modifications.
 
 ## analysistemplates
@@ -117,8 +112,8 @@ Reused without modifications.
 |-- renv                        <-- optional
 ```
 
-analysis template packages by [Jonas Hagenbeck](https://github.com/jonas-hag). 
-Used under the [MIT License](https://github.com/jonas-hag/analysistemplates/blob/0d76d5364c231a4710d227c8a935532c137383a2/LICENSE.md#L4). 
+analysis template packages by [Jonas Hagenbeck](https://github.com/jonas-hag).
+Used under the [MIT License](https://github.com/jonas-hag/analysistemplates/blob/0d76d5364c231a4710d227c8a935532c137383a2/LICENSE.md#L4).
 Reused without any modifications.
 
 ## WORCS
@@ -142,16 +137,100 @@ Reused without any modifications.
 WORCS project structure by Van Lissa et al. ([2021](https://cjvanlissa.github.io/worcs/index.html#repository-structure)).
 Used under the [GNU General Public License](https://fsf.org/).
 No changes were made.
-
 :::
 
 ::: callout-caution
 ## Exercise: Take on different perspectives
 
-Pause for a moment after investigating the different project structures. 
-Take the perspective of a researcher that is currently working in this project structure. 
-How would you feel working with this structure? What helps you, hinders you to work productively and reproducible? 
-Then change your perspective. 
-Imagine you are a researcher aiming to reproduce the results of a different research project that uses such project structures. 
+Pause for a moment after investigating the different project structures.
+Take the perspective of a researcher that is currently working in this project structure.
+How would you feel working with this structure?
+What helps you, hinders you to work productively and reproducible?
+Then change your perspective.
+Imagine you are a researcher aiming to reproduce the results of a different research project that uses such project structures.
 What would you need to reproduce analysis and results?
 :::
+
+When looking at the different project structures, it becomes clear that there is no perfect or correct project structure for a research project.
+The variety and scale of projects is too diverse and include different demands of different parties.
+Nevertheless, in this chapter we try to summarise the most important aspects of a project structure in the context of research.
+We differentiate between basic standards that help in every project and optional standards that help in specific contexts of projects.
+Afterwards, we display reproducibility archives and the different requirements journals articulate for setting up an reproducibility archive.
+
+## Basic standards for research projects
+
+First of all, these basic standards are highly subjective.
+As researchers in the discipline of psychology, our experience comes from psychological research projects.
+Researchers from other disciplines might need to configure the project structure elements.
+In psychology research, we assess these standards as highly useful:
+
+1.  human and machine-readable files
+2.  `README.md`-file
+3.  differentiation of data and code
+4.  `renv`-folder
+5.  `misc`-folder
+
+As displayed in the chapter *Naming things*, human and machine-readable names for files and folders are relatively easy to modify, when starting a project.
+As your project grows, you will be thankful for good file and folder names.
+Since, we dedicated a whole chapter to this topic, we move on to the next basic standard of a project structure
+
+### `README.md`-file
+
+A `README` is a text file that provides basic information about a project.
+As mentioned earlier, the `README` file can be created together with your repository or can be added later.
+In the context of a Git repository, the `README` file should contain "a description of your repository".
+The exact content depends on your repository, but some general things that you might want to include are:
+
+- **Project description**:
+What function does this repository serve and what are it's key features?
+
+- **Installation instructions** (if applicable): Explain how to install and set up your project, including any dependencies or prerequisites.
+This is particularly relevant for repositories that contain programming code.
+Provide clear instructions to help users or contributors get started with your project quickly.
+
+- **Usage** (if applicable):
+Provide examples or code snippets demonstrating how to use your project.
+
+- **Contributing**:
+If you welcome contributions, specify how others can contribute to your project.
+Here, you can also include guidelines for submitting bug reports, feature requests, or pull requests.
+
+::: {.callout-tip title="Adding a `CONTRIBUTING.md` file to a repository" collapse="true" appearance="simple"}
+For larger or more complex projects where contributions may involve setting up a specific development environment or adhering to specific workflows, it is standard practice to create a file called `CONTRIBUTING.md`.
+GitHub recognizes the presence of a `CONTRIBUTING.md` file in a repository and, for example, automatically includes a link to the `CONTRIBUTING.md` file when users open a new issue or pull request.
+:::
+
+- **Acknowledgments**:
+Give credit to any third-party libraries, tools, or individuals that contributed to your project.
+
+- **License**:
+Choose a license that aligns with your project's goals. 
+You can use [choosealicense.com](https://choosealicense.com) for guidance. 
+The chosen license influences contributions to your project.
+
+::: {.callout-tip title="Find out more: View the `README.md` file of this project." collapse="true" appearance="simple" icon="true"}
+{{< include ../README.md >}}
+:::
+
+### Markdown syntax
+
+A `README` is typically a Markdown (`.md`) file, which means you can use [Markdown]({{< var links.markdown >}}) syntax in it.
+Markdown allows you to easily format text, create lists, include links, and embed images.
+
+## YODA principles
+
+## Optional standards for research projects
+
+## Structure of reproducibility archives
+
+> These are only comments.
+> There is no aim of sufficiency and precision in the ideas below.
+
+-   Different for each project and journal, when it comes to paper publishing
+-   Show example of requirements of journal
+-   Critically discuss if journal requirements are sufficient for computational reproducibility
+-   Something's missing?
+
+### Requirements of Frontiers in Psychology
+
+### Requirements of Meta-Psychology / Advances in Methods and Practices in Psychological science Submission Guidelines
