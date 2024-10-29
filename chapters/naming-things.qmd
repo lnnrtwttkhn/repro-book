@@ -85,7 +85,7 @@ Above you find a real-life example of a 2nd semester undergraduate student in ps
 Which files would you wish to face when you start reproducing results?
 
 ::: {.callout-caution title="Exercise: What is bad or good about these file names?" collapse="false"}
-Pause for a moment an think about what exactly makes the file names above bad or better?
+Pause for a moment and think about what exactly makes the file names above bad or better?
 Discuss with a learning partner.
 :::
 
