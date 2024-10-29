@@ -738,6 +738,12 @@ Add scss code to disable the code-copy button on selected code chunks
 
 1. File names contain info on content
 
+### Consistency
+
+1. File names are named in one language
+1. Be aware of regional influences in spelling
+1. Consistent use of upper and lower case
+
 ### Plays well with default ordering
 
 1. Put something numeric first
