@@ -15,7 +15,7 @@ abstract: "In this chapter, you will be exposed to different variations of proje
 :::
 
 A good folder structure saves future you and other researchers a lot of time when trying to understand your data.
-Unfortunately, a *best practice standard* does not for a project structure yet.
+Unfortunately, a *best practice standard* does not exist for a project structure yet.
 Below you can find numerous examples of different project structures:
 
 ## Examples {#examples}
@@ -277,6 +277,7 @@ It saves you from having a chaotic project folder when entering your project.
 -   Something's missing?
 
 Below the line, the actual content starts
+
 ---
 
 In the first subsections of the chapter, you have learned how to set up your own project structure.
@@ -288,10 +289,9 @@ To cover this topic, we will go into the details of open science requirements of
 
 The [TOP Guidelines](https://www.cos.io/initiatives/top-guidelines) by the Center of Open Science are a best practice formulation by journals, funders, and societies to implement better and more transparent research.
 The [TOP Factor](https://topfactor.org) is a metric that reports the steps that a journal is taking to implement open science practices.
-Below you can see the TOP Factor evaluation of the journal *Frontiers in Psychology*.
+Below you can see the TOP Factor evaluation of two psychological journals.
 
 ::: {.callout-tip collapse="true"}
-
 ## Learn more: What is the TOP-Factor?
 
 The TOP-FACTOR is a metric that assesses the open science policies of papers.
@@ -302,10 +302,10 @@ It receives three points in a dimension, when reproducibility of data and materi
 The sum score over all dimensions constitutes the TOP Factor.
 The criteria for the scoring system is listed below:
 
-| | **NOT IMPLEMENTED** | **LEVEL I** | **LEVEL II** | **LEVEL III** |
-|:---|:---|:---|:---|:---|
+|   | **NOT IMPLEMENTED** | **LEVEL I** | **LEVEL II** | **LEVEL III** |
+|:--------------|:--------------|:--------------|:--------------|:--------------|
 | **Data Citation** | No mention of data citation. | Journal describes citation of data in guidelines to authors with clear rules and examples. | Article provides appropriate citation for data and materials used consistent with journal's author guidelines. | Article is not published until providing appropriate citation for data and materials following journal's author guidelines. |
-| **Data Transparency** | Journal encourages data sharing, or says nothing. |  Article states whether data are available, and, if so, where to access them. | Data must be posted to a trusted repository. Exceptions must be identified at article submission. | Data must be posted to a trusted repository, and reported analyses will be reproduced independently prior to publication. |
+| **Data Transparency** | Journal encourages data sharing, or says nothing. | Article states whether data are available, and, if so, where to access them. | Data must be posted to a trusted repository. Exceptions must be identified at article submission. | Data must be posted to a trusted repository, and reported analyses will be reproduced independently prior to publication. |
 | **Analysis Code Transparency** | Journal encourages code sharing, or says nothing. | Article states whether code is available, and, if so, where to access it. | Code must be posted to a trusted repository. Exceptions must be identified at article submission. | Code must be posted to a trusted repository, and reported analyses will be reproduced independently prior to publication. |
 | **Materials Transparency** | Journal encourages materials sharing, or says nothing. | Article states whether materials are available, and, if so, where to access them. | Materials must be posted to a trusted repository. Exceptions must be identified at article submission. | Materials must be posted to a trusted repository, and reported analyses will be reproduced independently prior to publication. |
 | **Design & Analysis Reporting Guidelines** | Journal encourages design and analysis transparency, or says nothing. | Journal articulates design transparency standards. | Journal requires adherence to design transparency standards for review and publication. | Journal requires and enforces adherence to design transparency standards for review and publication. |
@@ -313,12 +313,18 @@ The criteria for the scoring system is listed below:
 | **Analysis Plan Preregistration** | Journal says nothing. | Article states whether preregistration of study exists, and, if so, where to access it. | Article states whether preregistration with analysis plan exists, and, if so, allows journal access during peer review for verification. | Journal requires preregistration of studies with analysis plans and provides link and badge in article to meeting requirements. |
 | **Replication** | Journal discourages submission of replication studies, or says nothing. | Journal encourages submission of replication studies. | Journal encourages submission of replication studies and conducts results blind review. | Journal uses Registered Reports as a submission option for replication studies with peer review prior to observing the study outcomes. |
 
-TOP Guidelines [Summary Table](https://topfactor.org/summary). License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Used without any modifications. 
-
+TOP Guidelines [Summary Table](https://topfactor.org/summary).
+License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Used without any modifications.
 :::
 
+::: panel-tabset
+## Frontiers
+
+TOP-Factor assessment of *Frontiers in Psychology*
+
 | **GUIDELINE** | **LEVEL** | **SUMMARY** | **JUSTIFICATION** |
-|:---|:---|:---|:---|
+|:-----------------|:-----------------|:-----------------|:-----------------|
 | **Total** | **13** |  |  |
 | Data Citation | **1** | Journal describes citation of data in guidelines to authors with clear rules and examples. | "Authors are encouraged to cite all datasets generated or analyzed in the study. " Includes example. |
 | Data Transparency | **2** | Data must be posted to a trusted repository. Exceptions must be identified at article submission. | "Frontiers is committed to open science and open data; we require that authors make available all data relevant to the conclusions of the manuscript." |
@@ -331,8 +337,100 @@ TOP Guidelines [Summary Table](https://topfactor.org/summary). License: [CC BY 4
 | Registered Reports & Publication Bias | **3** |  | Journal accepts Registered Reports. |
 | Open Science Badges | **0** |  | No mention. |
 
-Open access policy of Frontiers in Psychology summarised by [TOP Factor](https://topfactor.org/journals/frontiers-in-psychology-2). License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Used without any modifications. 
+Open access policy of Frontiers in Psychology summarised by [TOP Factor](https://topfactor.org/journals/frontiers-in-psychology-2).
+License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Used without any modifications.
 
-### Requirements of Meta-Psychology / Advances in Methods and Practices in Psychological science Submission Guidelines
+## AMPPS
 
+TOP-Factor assessment of *Advances in Methods and Practices in Psychological Science*
 
+| **GUIDELINE** | **LEVEL** | **SUMMARY** | **JUSTIFICATION** |
+|:---|:---|:---|:---|
+| **Total** | **25** |  |  |
+| Data Citation | **2** | Article provides appropriate citation for data and materials used consistent with journal's author guidelines. | Journal requires data citation. |
+| Data Transparency | **2** | Data must be posted to a trusted repository. Exceptions must be identified at article submission. | Journal requires data sharing. |
+| Analysis Code Transparency | **2** | Code must be posted to a trusted repository. Exceptions must be identified at article submission. | Journal requires code sharing. |
+| Materials Transparency | **2** | Materials must be posted to a trusted repository. Exceptions must be identified at article submission. | Journal requires materials sharing. |
+| Design & Analysis Reporting Guidelines | **3** | Journal requires and enforces adherence to design transparency standards for review and publication. | Adherence to reporting guidelines is enforced. |
+| Study Preregistration | **3** | Journal requires preregistration of studies and provides link and badge in article to meeting requirements. | Preregistration is required. |
+| Analysis Plan Preregistration | **3** | Journal requires preregistration of studies with analysis plans and provides link and badge in article to meeting requirements. | Analysis plan preregistration is required. |
+| Replication | **3** | Journal uses Registered Reports as a submission option for replication studies with peer review prior to observing the study outcomes. | Journal accepts Registered Reports for replication studies. |
+| Registered Reports & Publication Bias | **3** |  | Journal accepts Registered Reports for novel studies. |
+| Open Science Badges | **2** |  | Journal offers all Open Science Badges. |
+
+:::
+
+As you can see, journals do include requirements of public data and code for publishing articles.
+However, the specification of *how* to do that is scarce.
+Standards for research projects as stated above are missing.
+We further look at some examples of the application of open data and code policies in published articles.
+
+### Current application of open science practices
+
+::: panel-tabset
+
+## Frontiers
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+
+#insert frontiers screenshot /first merge naming things
+#cat(make_images("frontiers-paper"))
+
+#insert to _images.yml-file
+#frontiers-paper:
+  #title: "Exploring self-regulation theory as a mechanism of the effects of psychological contract fulfillment: The role of emotional intelligence"
+  #authors: "Lyonel Laulié, Gabriel Briceño-Jiménez, Gisselle Henríquez-Gómez"
+  #author-url: "https://movil.fen.uchile.cl/es/academicos-investigacion/directorio-de-academicos/detalle/lyonel-laulie"
+  #image-file: "frontiers-paper-screenshot.png"
+  #image-url: "https://osf.io/ufq9g"
+  #license: "CC-BY"
+  #license-url: "https://creativecommons.org/licenses/by/4.0/"
+  #license-reference: ""
+  #comments: "reused without modifications"
+  #alt-text: ""
+```
+
+## AMPPS
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+
+#insert ampps screenshot /first merge naming things
+#cat(make_images("ampps-paper"))
+
+#insert to _images.yml-file
+#ampps-paper:
+  #title: "Implementing Statcheck During Peer Review Is Related to a Steep Decline in Statistical-Reporting Inconsistencies"
+  #authors: "Michèle B. Nuijten and Jelte M. Wicherts"
+  #author-url: "https://orcid.org/0000-0002-1468-8585"
+  #image-file: "ampps-paper-screenshot.png"
+  #image-url: "https://journals.sagepub.com/doi/epdf/10.1177/25152459241258945"
+  #license: "CC-BY 4.0"
+  #license-url: "https://creativecommons.org/licenses/by/4.0/"
+  #license-reference: ""
+  #comments: "reused without modifications"
+  #alt-text: ""
+```
+
+:::
+
+Click on the following links to explore the reproducibility archives:
+
+- Frontiers: Laulié et al. (2023) $\rightarrow$ [Reproducibility Archive](https://osf.io/csdk8/?view_only=)
+- AMPPS: Nuijten & Wicherts (2024) $\rightarrow$ [Reproducibility Archive](https://osf.io/preprints/psyarxiv/qejhk)
+
+::: callout-caution
+## Exercise: Study reproducibility archives
+
+Investigate the links above and think about how these archives could help you to reproduce the analysis conducted in their papers. 
+What is helpful and what is not? 
+:::
+
+Again, it should be noted that there is no perfectly organized reproducibility archive.
+However, we hope that the displayed examples show that open science, open data and reproducibility can be applied in many different (and sadly sometimes insufficient) ways.
