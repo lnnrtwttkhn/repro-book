@@ -455,11 +455,11 @@ Try by entering the following command into the Terminal:
 make --version
 ```
 
-## {{< fa brands windows >}}
+## {{< fa brands windows >}} Windows
 
-TBA
+Find instructions to install `make` on Windows [here]({{< links.gnu-make-windows >}}).
 
-## {{< fa brands linux >}}
+## {{< fa brands linux >}} Linux
 
 TBA
 
