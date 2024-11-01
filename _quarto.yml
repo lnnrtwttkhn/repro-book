@@ -30,6 +30,7 @@ book:
     - summary.qmd
     - references.qmd
     - acknowledgements.qmd
+    - contributing.qmd
   sidebar:
     id: sidebar
     title: "{{< var project.title >}}"
