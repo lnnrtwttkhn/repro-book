@@ -35,11 +35,11 @@ library("data.table")
 
 ## GitHub {#sec-github}
 
-This book was developed with Git and within the {{< fa brands github >}} GitHub-environment. 
-You can download the [sourcecode](https://github.com/lnnrtwttkhn/repro-book) from GitHub by clicking on the Code-Button.
+This book is developed with [Git]({{< links.git >}}) and within the {{< fa brands github >}} [GitHub]({{< links.github >}})-environment. 
+You can download the [source code]({{< project-repo-url >}}) from GitHub by clicking on the Code-Button.
 You must then press either **Open with GitHub Desktop** (requires [{{< fa brands github >}} GitHub Desktop](https://github.com/apps/desktop)) or **Download ZIP**.
-For a detailed introduction on Git and GitHub see this [**Version Control Book**](https://lennartwittkuhn.com/version-control-book/).
-For an overview about the project structure of this Reproducibility Book, look at the `README.md`-file at [GitHub](https://github.com/lnnrtwttkhn/repro-book/blob/main/README.md)
+For a detailed introduction on Git and GitHub see this [**Version Control Book**]({{< links.version-control-book >}}).
+For an overview about the project structure of this Reproducibility Book, look at the `README.md`-file on [GitHub]({{< project.readme >}}).
 
 ## RStudio Project {#sec-rstudio-project}
 
@@ -488,7 +488,7 @@ make images
 1. Become a collaborator on the [UHH Cloud folder]({{< var project.images-url >}}).
 1. Go to the [UHH Cloud folder]({{< var project.images-url >}}).
 1. Place the new image inside the folder.
-Please use `-` to separate word in the filename.
+Please use `-` to separate words in the filename.
 1. Reference the image in the Quarto document relative to the root of the project directory:
 
 ```{markdown}
