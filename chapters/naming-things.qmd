@@ -12,13 +12,24 @@ abstract: |
 
 ## Examples
 
+Reflect on your first research project (or perhaps your most recent project).
+Take a moment to look at all the files you needed for that project.
+Can you determine what they contain just by their names?
+Below, you will find a real-life example from a second-semester undergraduate student in psychology.
+Which files would you want to encounter when you start reproducing results?
+
+::: {.callout-caution title="Exercise: What is bad or good about these file names?" collapse="false"}
+Pause for a moment and think about what exactly makes the file names above bad or better?
+Discuss with a learning partner.
+:::
+
 ### Bad names
 
 ::: panel-tabset
 
-## Psychology
+## {{< fa people-arrows >}} Psychology
 
-```{zsh filename="Output"}
+```{markdown filename="Output"}
 #| code-copy: false
 Assignment BO
 Dateien fÅr eigene Studien
@@ -32,9 +43,9 @@ Statistical Analyses.docx
 Syntax behavior observation attempt 1.sps
 ```
 
-## Biology
+## Example 2
 
-```{zsh filename="Output"}
+```{markdown filename="Output"}
 #| code-copy: false
 myabstract.docx
 Joe’s Filenames Use Spaces and Punctuation.xlsx
@@ -49,9 +60,9 @@ JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt
 
 ::: panel-tabset
 
-## Psychology
+## {{< fa people-arrows >}} Psychology
 
-```{zsh filename="Output"}
+```{markdown filename="Output"}
 #| code-copy: false
 01_session-slides
 02_images
@@ -65,9 +76,9 @@ JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt
 2019-07-11_data-results.pptx
 ```
 
-## Biology
+## Example 2
 
-```{zsh filename="Output"}
+```{markdown filename="Output"}
 #| code-copy: false
 2014-06-08_abstract-for-sla.docx
 joes-filenames-are-getting-better.xlsx
@@ -78,15 +89,34 @@ fig02_histogram-talk-attendance.png
 
 :::
 
-Think and go back to your first research project (or maybe to your most recent project).
-Look at all the files you needed for that project.
-Do you know by the files' and folders' names what they contain?
-Above you find a real-life example of a 2nd semester undergraduate student in psychology.
-Which files would you wish to face when you start reproducing results?
+## Introduction
 
-::: {.callout-caution title="Exercise: What is bad or good about these file names?" collapse="false"}
-Pause for a moment and think about what exactly makes the file names above bad or better?
-Discuss with a learning partner.
+> "*There are only two hard things in Computer Science: cache invalidation and naming things.*"
+> -- Phil Karlton
+
+In research, naming things can often be more difficult than it seems.
+Whether you're giving names to variables in a dataset, labeling files for your projects, or creating functions in a script, the names you choose are important for making your work clear and understandable.
+Good names help others (and even yourself!) know what your work is about and how to use it.
+
+Finding the right names takes careful thought.
+You need to consider what makes sense in context and how to be clear and consistent.
+This chapter will look at some common challenges people face when naming things in research and provide simple tips to improve your naming practices.
+By understanding these challenges, you can make your research easier to follow and more accessible to others and avoid situations as illustrated in @fig-phd-comic-story-told-in-file-names.
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("phd-comic-story-told-in-file-names"))
+```
+
+::: {.callout-note title="Ok, what the heck is cache invalidation and why is it hard?" collapse="true"}
+Cache invalidation is the process of updating or removing old data stored in a cache (a temporary storage area) when the original data changes.
+Caches are used to speed up access to frequently used data, but if the cache isn't updated correctly, it may end up providing outdated or incorrect information.
+It is challenging for several reasons: first, determining the right moment to update the cache can be difficult, risking the delivery of outdated information.
+Additionally, many data pieces are interconnected, making it hard to track what needs updating when changes occur.
+Lastly, automatically updating caches can slow down systems, so finding a balance between performance and accuracy is tricky.
+These complexities make effective cache invalidation one of the more difficult problems in software development.
 :::
 
 ## Four principles for (file) names
