@@ -9,7 +9,6 @@ xkcd-iso-8601:
   license-reference: "https://xkcd.com/license.html"
   comments: "reused without modifications"
   alt-text: ""
-
 final-doc-comic:
   title: "notFinal.doc"
   author: "Jorge Cham"
@@ -19,4 +18,14 @@ final-doc-comic:
   license: "All content copyright 1997-2003 Piled Higher and Deeper Publishing, LLC."
   license-reference: ""
   comments: "reused without modifications"
+  alt-text: ""
+phd-comic-story-told-in-file-names:
+  title: "A story told in file names"
+  author: "Jorge Cham"
+  author-url: "https://phdcomics.com/"
+  image-file: "phd-comic-story-told-in-file-names.gif"
+  image-url: "https://phdcomics.com/comics/archive.php?comicid=1323"
+  license: ""
+  license-reference: ""
+  comments: "All content copyright 1997-2003 Piled Higher and Deeper Publishing, LLC."
   alt-text: ""
