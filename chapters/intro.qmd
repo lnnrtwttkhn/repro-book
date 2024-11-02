@@ -1,1 +1,26 @@
 # Introduction
+
+## What is reproducibility?
+
+In a nutshell, reproducibility means that someone else (including your future self) can recreate the results of a data analysis.
+
+
+- Definition of the Turing Way
+- Reproducibility vs. replication
+- Add callout box with varying definitions of reproducibility 
+
+### Levels of reproducibility
+
+- Reproducibility as a scale
+- Which level of reproducibility is sufficient?
+- https://doi.org/10.1126/science.1213847
+
+## Reproducibility in science
+
+- State of reproducibility in science
+- Reproducibility per discipline
+
+Ask yourself: How trustworthy do you think 
+
+- Trust in science
+- 
