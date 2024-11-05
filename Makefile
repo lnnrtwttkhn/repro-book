@@ -29,3 +29,15 @@ images:
 .PHONY: clean
 clean:
 	rm -rf $(IMAGES_DIR)* _book/
+	
+.PHONY: docker-build
+docker-build:
+	docker build --platform linux/amd64 -f .docker/repro-book/Dockerfile -t lnnrtwttkhn/repro-book:latest .
+	
+.PHONY: docker-push
+docker-push:
+	docker push lnnrtwttkhn/repro-book:latest
+
+.PHONY: docker-run
+docker-run:
+	docker run --platform linux/amd64 -it --rm lnnrtwttkhn/repro-book
