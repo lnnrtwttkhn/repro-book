@@ -4,8 +4,136 @@ editor: source
 
 # Good coding practices
 
-In the last chapters, you have learned how to make your data and code findable, accessible, interoperable, and reusable.
+In the last chapters, you have learned how to name your names and variables and how to set up a decent project structure.
 In this chapter, you will learn good coding practices to help other researchers and future you with the code you used for your analysis.
+
+## Respective R projects
+
+As a researcher (and as a student) you work on different projects simultaneously.
+You have different research projects and teaching parts that you need to cover in your job.
+You attend different courses and do presentations and data analyses in these seminars and lectures.
+As you have learned in the previous chapter about project structure, it makes sense to set up your files and folders in a particular research project folder.
+
+```
+|projects
+|--version-control-book
+|--reproducibility-book
+|--grant_neuroscience_horizon
+|--grant_neuroscience_dfg
+```
+
+We highly recommend to use specific R-projects for each project, respectively.
+This will become clear throughout this chapter and the next chapter about `renv`.
+
+To create an R-project, follow these steps:
+
+1. Open RStudio
+1. Click on the blue {{< fa cube >}} cube with a R in it and a green plus {{< fa circle-plus >}} on the outside.
+1. Decide whether you want to create a new directory or an existing directory.
+
+::: panel-tabset
+## New Directory
+
+Click on **New Directory**, then **New Project** and type in your directory name. 
+Make sure that your project is at the correct place in your folder system.
+At this time point, it does not matter whether you want to create a *git repository* and/or use *renv* with this project.
+In the future chapters you will learn the advantages of using git and renv.
+
+When you click on **Create project**, your R project will be created.
+You will see that R created a folder named after your directory and that one file `directory-name.Rproj` is in this folder.
+
+## Existing Directory
+
+Click on **Existing Directory** and make sure which folder you want to turn into an R-project.
+
+When you click on **Create project**, your R-project will be created. You will see that R put a file in your chosen folder called `directory-name.Rproj`.
+:::
+
+Depending on your situation it makes sense to either create a new directory or turn an existing folder into an R-project.
+When you are at the beginning of your project and have not set up a project structure yet, it makes sense to create a new directory.
+Make sure, that in this case, your directory name aligns well with your project.
+When you have alrady set up a project structure, it makes sense to turn your project folder into an R-project. Make sure that in this case your project folder is the folder you turn into an R-project.
+
+::: callout-tip
+## What is an `.Rproj`-file?
+
+The `.Rproj`-file contains the settings for all files related to your specific R project.
+It is automatically created when you create an R-project. By double-clicking on the file, you open the project in RStudio. It is not recommended to change this file manually.
+:::
+
+After you have created your R project it is time to take a deep look into your R-scripts containing the code for your projects.
+
+## Comments
+
+Comments are probably the most important part of your scripts.
+Whenever you write a `#` in your R-script, all code after that `#` will be identified as comment and therefore not be executed as code.
+Thus, if you put a `#` at the beginning of a line, the whole line will be identified as comment.
+Here are some thoughts about comments by Nicola Rennie:
+
+::: callout-note
+## Adding comments
+
+- Add comments using a `#` in R (in a separate line)
+- Comments don`t need to explain *what* your code does
+- Comments should explain *why* you did it
+:::
+
+You can use `#` not only for comments but also for creating sections and subsections in your R-script.
+To do so, you must start a line with at least one has `#` and put at least 4 hyphens after your comment.
+The number of hashes you use at the beginning determines the level of section.
+
+```{r}
+# Section 1 ----
+
+## Subsection 1.1 ----
+
+## Sebsection 1.2 ----
+
+# Section 2 ----
+```
+
+## Absolute and relative file paths
+
+All of the time when you are doing research, you have to conduct your analysis on some sort of data.
+This data is usually stored in one or more files.
+Thus, you have to read the data into your script.
+TO do so, you need to refer to the files you want to read.
+Here comes a first advantage of setting up a particular R-project for your research project.
+
+You can read data or code into your R-environment by referring to your data through absolute paths and relative paths.
+
+### Absolute file paths
+
+Using an absolute path means that you refer to your file name by going through your whole computer folder structure:
+
+```{r}
+#| eval: false
+data <- read_csv("/Users/my-user-name/my-project/data/data-raw.csv")
+```
+
+Using absolute file paths is not recommended in terms of computational reproducibility.
+A collaborator or interested researcher who downloaded your scripts and want to reproduce your analysis has to change these paths before the scripts can run correctly.
+
+### Relative file paths
+
+A relative file path takes the path from your current *working directory* and puts it before your relative path.
+You can check your current working directory in R by using the `getwd()` command.
+
+```{zsh, filename="check working directory"}
+getwd()
+[1] "Users/my-user-name/my-project"
+```
+
+By default, the working directory in an R project is the project folder, in the example called `my-project`.
+
+You can then use the file path from that folder to read your data:
+
+```{r}
+#| eval: false
+data <- read_csv("data/data-raw.csv")
+```
+
+Thus, all relative paths to the files in an R-project remain the same insensitive to the person who wants to work with that project.
 
 ## Code Style {#sec-codestyle}
 
@@ -142,6 +270,8 @@ Tidy datasets follow three basic rules:
 
 ![Visualization of Tidy Data by Wickham et al. ([2024](https://r4ds.hadley.nz/data-tidy)). Used under a [CC BY-NC-ND 3.0 US license](http://creativecommons.org/licenses/by-nc-nd/3.0/us/).](/images/tidy-1.png){fig-align="center"}
 
+## Code Testing
+
 ## Acknowledgements & further reading
 
 We would like to express our gratitude to the following resources, which have been essential in shaping this chapter.
@@ -150,5 +280,5 @@ We recommend these references for further reading:
 | Resources |
 |------------------------------------------------------------------------|
 | Buhr, J. (2023). *Introduction to Data Analysis with R.* <https://jmbuhr.de/dataintro/> |
+| Rennie, N. (2024). *Writing Better R Code.* <https://nrennie.rbind.io/training-better-r-code/> |
 | Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2024). *R for Data Science (2e)*. <https://r4ds.hadley.nz> |
-|  |
