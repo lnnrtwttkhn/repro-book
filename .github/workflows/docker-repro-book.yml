@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      IMAGE_NAME: lnnrtwttkhn/quarto-docker
+      IMAGE_NAME: lnnrtwttkhn/repro-book
 
     steps:
       - name: Checkout repository
