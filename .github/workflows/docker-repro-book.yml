@@ -34,7 +34,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -f .docker/repro-book/Dockerfile-t $IMAGE_NAME:${{ steps.vars.outputs.hash }} .
+          docker build -f .docker/repro-book/Dockerfile -t $IMAGE_NAME:${{ steps.vars.outputs.hash }} .
 
       - name: Push Docker image
         run: |
