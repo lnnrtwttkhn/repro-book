@@ -1,15 +1,22 @@
 ---
-title: "good-coding-practices"
-editor: visual
+editor: source
 ---
 
 # Good coding practices
 
-In the last chapters, you have learned how to make your data and code findable, accessible, interoperable, and reusable. In this chapter, you will learn good coding practices to help other researchers and future you with the code you used for your analysis.
+In the last chapters, you have learned how to make your data and code findable, accessible, interoperable, and reusable.
+In this chapter, you will learn good coding practices to help other researchers and future you with the code you used for your analysis.
 
 ## Code Style {#sec-codestyle}
 
-One important aspect that fosters understandability of code is the code style. To make this more clear, let's think of an example. Consider yourself in a research project where you want to examine the robustness of the finding that women show higher neuroticism values than men. You have found a lot of papers examining this relationship, usually finding that indeed women show higher values than men. Now you are sitting in front of a paper from Wittkuhn et al. (2024). You want to check if the convenient finding of the authors is due to an error in the code of actually correct. Compare the following two examples of code. Which one would you prefer when you want to rerun analyses and why?
+One important aspect that fosters understandability of code is the code style.
+To make this more clear, let's think of an example.
+Consider yourself in a research project where you want to examine the robustness of the finding that women show higher neuroticism values than men.
+You have found a lot of papers examining this relationship, usually finding that indeed women show higher values than men.
+Now you are sitting in front of a paper from Wittkuhn et al. (2024).
+You want to check if the convenient finding of the authors is due to an error in the code of actually correct.
+Compare the following two examples of code.
+Which one would you prefer when you want to rerun analyses and why?
 
 ```{r}
 #| label: bad-code-example
@@ -117,7 +124,11 @@ ggplot(
 
 ## Tidy Data
 
-As you might have noticed when you worked through the @sec-codestyle section, the dataset `bfi` was organized well. That does not always hold true, when you work with datasets. In fact, most of the time you are facing datasets, you will spend more time organizing your data than running real analysis. A helpful concept is **tidy data**, which is a common guideline for datasets to be organized. Following tidy data guidelines will help you running analyses and getting the most out of your data.
+As you might have noticed when you worked through the @sec-codestyle section, the dataset `bfi` was organized well.
+That does not always hold true, when you work with datasets.
+In fact, most of the time you are facing datasets, you will spend more time organizing your data than running real analysis.
+A helpful concept is **tidy data**, which is a common guideline for datasets to be organized.
+Following tidy data guidelines will help you running analyses and getting the most out of your data.
 
 ::: callout-important
 ## Tidy Data
@@ -133,7 +144,8 @@ Tidy datasets follow three basic rules:
 
 # Acknowledgements & further reading
 
-We would like to express our gratitude to the following resources, which have been essential in shaping this chapter. We recommend these references for further reading:
+We would like to express our gratitude to the following resources, which have been essential in shaping this chapter.
+We recommend these references for further reading:
 
 | Resources |
 |------------------------------------------------------------------------|
