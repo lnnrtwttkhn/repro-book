@@ -119,7 +119,10 @@ Lastly, automatically updating caches can slow down systems, so finding a balanc
 These complexities make effective cache invalidation one of the more difficult problems in software development.
 :::
 
-## Four principles for (file) names
+## Principles for (file) names
+
+Good file naming practices are essential for organization, clarity, and efficient file management.
+Here are some key principles to follow when creating file names:
 
 1. [Machine readable](#machine-readable)
 1. [Human readable](#human-readable)
@@ -132,6 +135,8 @@ A file is machine-readable if information is formatted in a way that a computer 
 This often involves using standardized data formats like CSV, XML, or JSON, which are structured so that computer programs can process the information quickly and accurately.
 
 ### Regular expression and globbing friendly
+
+Both regular expression and globbing are concepts that help make working with files and data more efficient for automation and scripting tasks.
 
 A **regular expression**, often called a "regex", is a sequence of characters that defines a search pattern.
 It's used to find or match specific combinations of characters within text.
@@ -148,8 +153,6 @@ For example, `*.txt` matches all files ending with `.txt`.
 For example, `file?.txt` matches `file1.txt` and `file2.txt`, but not `file10.txt`.
 
 So, if you wanted to list all text files in a directory, you could use the pattern `*.txt`, and it would match all files with the `.txt` extension.
-
-Both regular expression and globbing are concepts that help make working with files and data more efficient for automation and scripting tasks.
 
 To make file names regex and globbing friendly, avoid:
 
@@ -213,7 +216,7 @@ You can use a glob pattern like `*emotional*` to match all of your data sets ass
 
 ::: panel-tabset
 
-## Psychology
+## {{< fa people-arrows >}} Psychology
 
 Excerpt of complete file listing:
 
@@ -247,7 +250,7 @@ Excerpt of complete file listing:
 
 ::: {.panel-tabset}
 
-## Psychology
+## {{< fa people-arrows >}} Psychology
 
 ::: {.panel-tabset}
 
@@ -389,19 +392,19 @@ stringr::str_split_fixed(flist, "[_\\.]", 5)
 
 ### Summary
 
-Names are more easily machine readable if it is
+Names are more easily machine-readable if they are:
 
-1. easy to search for files later
-1. easy to narrow file lists based on names
-1. easy to extract information from file names, for example by splitting
+1. Easy to search for files later.
+2. Easy to narrow file lists based on names.
+3. Easy to extract information from file names, for example, by splitting them.
 
 ## Human readable
 
 Names of files and folders should contain **information about its content**.
 It should make it easy to figure out what something is based on the file name.
-This idea connects to the concept of a slug from semantic urls.
+This idea connects to the concept of a slug from semantic URLs.
 
-::: {.callout-tip title="Find out more: What is a slug in a URL?" collapse="true"}
+::: {.callout-note title="Find out more: What is a slug in a URL?" collapse="true"}
 
 A slug is a part of a URL that is easy to read and understand.
 It usually comes after the main website address and describes the content of the page in simple words.
