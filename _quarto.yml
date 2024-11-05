@@ -27,6 +27,7 @@ book:
     - index.qmd
     - contents.qmd
     - chapters/intro.qmd
+    - chapters/good-coding-practices.qmd
     - summary.qmd
     - references.qmd
     - acknowledgements.qmd
