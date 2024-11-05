@@ -10,6 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     env:
       IMAGE_NAME: lnnrtwttkhn/repro-book
