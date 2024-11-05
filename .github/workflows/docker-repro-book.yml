@@ -2,11 +2,10 @@ name: Build and Push Docker Image for Repro Book
 
 on:
   push:
-    branches:
-      - docker
     paths:
       - 'renv.lock'
       - '.docker/repro-book/Dockerfile'
+  workflow_dispatch: # allows manual trigger
 
 jobs:
   build:
