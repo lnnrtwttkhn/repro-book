@@ -5,6 +5,7 @@ on:
     paths:
       - 'renv.lock'
       - '.docker/repro-book/Dockerfile'
+      - '.github/repro-book/docker-repro-book.yml'
   workflow_dispatch: # allows manual trigger
 
 jobs:
