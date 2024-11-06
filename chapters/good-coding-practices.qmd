@@ -108,11 +108,16 @@ Using an absolute path means that you refer to your file name by going through y
 
 ```{r}
 #| eval: false
-data <- read_csv("/Users/my-user-name/my-project/data/data-raw.csv")
+data <- read_csv("/Users/my-user-name/document/projects/my-project/data/data-raw.csv")
 ```
 
 Using absolute file paths is not recommended in terms of computational reproducibility.
 A collaborator or interested researcher who downloaded your scripts and want to reproduce your analysis has to change these paths before the scripts can run correctly.
+
+```{r}
+#| eval: false
+data <- read_csv("/Users/user-name-b/desktop/work/research/my-project/data/data-raw.csv")
+```
 
 ### Relative file paths
 
@@ -126,7 +131,8 @@ getwd()
 
 By default, the working directory in an R project is the project folder, in the example called `my-project`.
 
-You can then use the file path from that folder to read your data:
+You can then use the relative file path from that folder to read your data.
+You can use the file path that starts *after* the working directory:
 
 ```{r}
 #| eval: false
