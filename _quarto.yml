@@ -27,6 +27,7 @@ book:
     - index.qmd
     - contents.qmd
     - chapters/intro.qmd
+    - chapters/naming-things.qmd
     - chapters/good-coding-practices.qmd
     - summary.qmd
     - references.qmd
@@ -83,6 +84,9 @@ citation-location: document
 citeproc: true
 from: markdown+emoji
 license: CC BY
+abstract-title: "Summary"
+metadata-files:
+  - _images.yml
 
 format:
   html:
