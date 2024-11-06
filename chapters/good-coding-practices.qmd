@@ -143,7 +143,127 @@ Thus, all relative paths to the files in an R-project remain the same insensitiv
 
 ## Code Style {#sec-codestyle}
 
+>"Good coding style is like correct punctuation: you can manage without it, butitsuremakethingseasiertoread" - Wickham et al. (2024)
+
 One important aspect that fosters understandability of code is the code style.
+In this section, we will present the `tidyverse`-codestyle by Wickham et al. (2024).
+The Tidyverse is a collection of R packages particularly useful for data wrangling, manipulation and visualization.
+All packages share an underlying design philosophy, grammar, and data structures.
+
+In psychology, the grammar of tidyverse is widely used for data wrangling. In this section we will give a short introduction on code style.
+
+### Names
+
+Not only files and folders should be named well, the same applies to variable names and functions in scripts.
+Variable and function names should only consist of lowercase letters, numbers and underscores `_`.
+It is better to have descriptive long names rather than short abbreviations you do not understand in the future.
+
+```{r}
+#| eval: false
+# Strive for:
+short_flights <- flights |> filter(air_time < 60)
+
+# Avoid:
+SHORTFLIGHTS <- flights |> filter(air_time < 60)
+```
+
+### Spaces
+
+Put spaces around mathematical operators (except `^`) and around the assignment operator (`<-`).
+Do not put spaces around parentheses when you use functions.
+Put a space after a comma as you would in standard English.
+
+```{r}
+#| eval: false
+# Strive for
+mean(x, na.rm = TRUE)
+
+# Avoid
+mean (x ,na.rm=TRUE)
+```
+
+### Pipes
+
+The pipe (either `|>`or `%>%`) is a useful operator to connect subsequent operations with your code.
+The pipe takes everything left to the pipe and uses it as first argument to the function of the right side.
+
+>Here a cartoon illustrating how the pipe works would be fun.
+
+```{r}
+#| eval: false
+# Without pipe
+sum(c(1:4))
+
+# With pipe
+c(1:4) |> sum()
+```
+
+The pipe is particularly useful, when you subsequently connect many functions after each other. Therefore, use `|>` at the end of a line and use a space before it. The complete sequence of functions connected by a pipe is also called a **pipeline**.
+
+```{r}
+#| eval: false
+# Without pipe
+summarise(group_by(filter(select(data, N, gender), gender == "male" | gender == "female"), gender), mean = mean(N)
+
+# With pipe
+data |>
+  select(N, gender) |>
+  filter(gender == "male" | gender == "female") |>
+  group_by(gender) |>
+  summarise(
+    mean = mean(N),
+    median = md(N)
+  )
+```
+
+The code displayed above is way easier to read and understand for future you and other researchers, therefore increasing the possibility for reproducibility.
+Translated into plain English the pipe represents an *"and then"*:
+
+1. Take the data *and then*
+1. select the variables `N` and `gender` *and then*
+1. filter all observations where the variable `gender` either contains the value `male` or `female` *and then*
+1. group the dataset by the variable `gender` *and then*
+1. summarise your datasets by calculating the mean and median for the variable `N` for each group.
+
+
+### Line breaks
+
+If a function requires you to name arguments (as `summarise()`), put each argument on a new line.
+If a function does not require you to name arguments (as `group_by()`), keep your code in one line except it extends one code line.
+Then, you should put each argument on its own line.
+
+When you start a new line after using `|>` or a function as `summarise()`, indent the new line by two spaces (if not already done automatically).
+If you are putting each argument on a separate line, also indent the new line by two spaces.
+Make sure that the closing parenthesis `)` is on its own line and not indented.
+Thus, the closing parenthesis matches the horizontal position of the function you are using.
+
+```{r}
+#| eval: false
+# Strive for 
+flights |>  
+  group_by(tailnum) |> 
+  summarize(
+    delay = mean(arr_delay, na.rm = TRUE),
+    n = n()
+  )
+
+# Avoid
+flights|>
+  group_by(tailnum) |> 
+  summarize(
+             delay = mean(arr_delay, na.rm = TRUE), 
+             n = n()
+           )
+
+# Avoid
+flights|>
+  group_by(tailnum) |> 
+  summarize(
+  delay = mean(arr_delay, na.rm = TRUE), 
+  n = n()
+  )
+```
+
 To make this more clear, let's think of an example.
 Consider yourself in a research project where you want to examine the robustness of the finding that women show higher neuroticism values than men.
 You have found a lot of papers examining this relationship, usually finding that indeed women show higher values than men.
