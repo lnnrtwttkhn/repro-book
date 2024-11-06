@@ -813,4 +813,5 @@ Here is a summary of all recommendations for naming things:
 We would like to express our gratitude to the following resources, which have been essential in shaping this chapter.
 We recommend these references for further reading:
 
-@bryan2015
+The ideas provided in this chapter are mainly based on the [slides](https://speakerdeck.com/jennybc/how-to-name-files) from @bryan2015. 
+We are also thankful for the additional ideas of [Danielle Navarro](https://djnavarro.net/slides-project-structure/#1) and the [BERD Academy](https://berd-nfdi.github.io/BERD-reproducible-research-course/2-1-naming.html)
