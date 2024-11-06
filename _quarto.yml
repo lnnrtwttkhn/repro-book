@@ -27,6 +27,7 @@ book:
     - index.qmd
     - contents.qmd
     - chapters/intro.qmd
+    - chapters/naming-things.qmd
     - summary.qmd
     - references.qmd
     - acknowledgements.qmd
@@ -82,6 +83,9 @@ citation-location: document
 citeproc: true
 from: markdown+emoji
 license: CC BY
+abstract-title: "Summary"
+metadata-files:
+  - _images.yml
 
 format:
   html:
