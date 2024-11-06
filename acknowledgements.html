@@ -261,46 +261,51 @@ Click here to view the full <code>Makefile</code> of this project.
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource make number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>IMAGES_URL=https://cloud.uni-hamburg.de/s/pzEHT5DF3PzFdLH/download</span>
 <span id="cb2-2"><a href="#cb2-2"></a>IMAGES_ARCHIVE=repro-book-images.zip</span>
 <span id="cb2-3"><a href="#cb2-3"></a>IMAGES_DIR=images/</span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a>all: render</span>
-<span id="cb2-6"><a href="#cb2-6"></a></span>
-<span id="cb2-7"><a href="#cb2-7"></a>.PHONY: preview</span>
-<span id="cb2-8"><a href="#cb2-8"></a>preview:</span>
-<span id="cb2-9"><a href="#cb2-9"></a>    quarto preview</span>
-<span id="cb2-10"><a href="#cb2-10"></a></span>
-<span id="cb2-11"><a href="#cb2-11"></a>.PHONY: render</span>
-<span id="cb2-12"><a href="#cb2-12"></a>render: clean images</span>
-<span id="cb2-13"><a href="#cb2-13"></a>    quarto render</span>
-<span id="cb2-14"><a href="#cb2-14"></a></span>
-<span id="cb2-15"><a href="#cb2-15"></a>.PHONY: pdf</span>
-<span id="cb2-16"><a href="#cb2-16"></a>pdf: clean images</span>
-<span id="cb2-17"><a href="#cb2-17"></a>    quarto render --profile pdf</span>
-<span id="cb2-18"><a href="#cb2-18"></a>    </span>
-<span id="cb2-19"><a href="#cb2-19"></a>.PHONY: deploy</span>
-<span id="cb2-20"><a href="#cb2-20"></a>deploy: clean images</span>
-<span id="cb2-21"><a href="#cb2-21"></a>    quarto publish gh-pages</span>
-<span id="cb2-22"><a href="#cb2-22"></a></span>
-<span id="cb2-23"><a href="#cb2-23"></a>.PHONY: images</span>
-<span id="cb2-24"><a href="#cb2-24"></a>images:</span>
-<span id="cb2-25"><a href="#cb2-25"></a>    curl $(IMAGES_URL) -o $(IMAGES_ARCHIVE)</span>
-<span id="cb2-26"><a href="#cb2-26"></a>    unzip -j -o $(IMAGES_ARCHIVE) -d $(IMAGES_DIR)</span>
-<span id="cb2-27"><a href="#cb2-27"></a>    rm -f $(IMAGES_ARCHIVE)</span>
-<span id="cb2-28"><a href="#cb2-28"></a></span>
-<span id="cb2-29"><a href="#cb2-29"></a>.PHONY: clean</span>
-<span id="cb2-30"><a href="#cb2-30"></a>clean:</span>
-<span id="cb2-31"><a href="#cb2-31"></a>    rm -rf $(IMAGES_DIR)* _book/</span>
-<span id="cb2-32"><a href="#cb2-32"></a>    </span>
-<span id="cb2-33"><a href="#cb2-33"></a>.PHONY: docker-build</span>
-<span id="cb2-34"><a href="#cb2-34"></a>docker-build:</span>
-<span id="cb2-35"><a href="#cb2-35"></a>    docker build --platform linux/amd64 -f .docker/repro-book/Dockerfile -t lnnrtwttkhn/repro-book:latest .</span>
-<span id="cb2-36"><a href="#cb2-36"></a>    </span>
-<span id="cb2-37"><a href="#cb2-37"></a>.PHONY: docker-push</span>
-<span id="cb2-38"><a href="#cb2-38"></a>docker-push:</span>
-<span id="cb2-39"><a href="#cb2-39"></a>    docker push lnnrtwttkhn/repro-book:latest</span>
-<span id="cb2-40"><a href="#cb2-40"></a></span>
-<span id="cb2-41"><a href="#cb2-41"></a>.PHONY: docker-run</span>
-<span id="cb2-42"><a href="#cb2-42"></a>docker-run:</span>
-<span id="cb2-43"><a href="#cb2-43"></a>    docker run --platform linux/amd64 -it --rm lnnrtwttkhn/repro-book</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4"></a>DOCKER_NAME=lnnrtwttkhn/repro-book</span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a>all: render</span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a>.PHONY: preview</span>
+<span id="cb2-9"><a href="#cb2-9"></a>preview:</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    quarto preview</span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a>.PHONY: render</span>
+<span id="cb2-13"><a href="#cb2-13"></a>render: clean images</span>
+<span id="cb2-14"><a href="#cb2-14"></a>    quarto render</span>
+<span id="cb2-15"><a href="#cb2-15"></a></span>
+<span id="cb2-16"><a href="#cb2-16"></a>.PHONY: pdf</span>
+<span id="cb2-17"><a href="#cb2-17"></a>pdf: clean images</span>
+<span id="cb2-18"><a href="#cb2-18"></a>    quarto render --profile pdf</span>
+<span id="cb2-19"><a href="#cb2-19"></a>    </span>
+<span id="cb2-20"><a href="#cb2-20"></a>.PHONY: deploy</span>
+<span id="cb2-21"><a href="#cb2-21"></a>deploy: clean images</span>
+<span id="cb2-22"><a href="#cb2-22"></a>    quarto publish gh-pages</span>
+<span id="cb2-23"><a href="#cb2-23"></a></span>
+<span id="cb2-24"><a href="#cb2-24"></a>.PHONY: images</span>
+<span id="cb2-25"><a href="#cb2-25"></a>images:</span>
+<span id="cb2-26"><a href="#cb2-26"></a>    curl $(IMAGES_URL) -o $(IMAGES_ARCHIVE)</span>
+<span id="cb2-27"><a href="#cb2-27"></a>    unzip -j -o $(IMAGES_ARCHIVE) -d $(IMAGES_DIR)</span>
+<span id="cb2-28"><a href="#cb2-28"></a>    rm -f $(IMAGES_ARCHIVE)</span>
+<span id="cb2-29"><a href="#cb2-29"></a></span>
+<span id="cb2-30"><a href="#cb2-30"></a>.PHONY: clean</span>
+<span id="cb2-31"><a href="#cb2-31"></a>clean:</span>
+<span id="cb2-32"><a href="#cb2-32"></a>    rm -rf $(IMAGES_DIR)* _book/</span>
+<span id="cb2-33"><a href="#cb2-33"></a>    </span>
+<span id="cb2-34"><a href="#cb2-34"></a>.PHONY: docker-build</span>
+<span id="cb2-35"><a href="#cb2-35"></a>docker-build:</span>
+<span id="cb2-36"><a href="#cb2-36"></a>    docker build --platform linux/amd64 -f .docker/repro-book/Dockerfile -t $(DOCKER_NAME):latest .</span>
+<span id="cb2-37"><a href="#cb2-37"></a>    </span>
+<span id="cb2-38"><a href="#cb2-38"></a>.PHONY: docker-push</span>
+<span id="cb2-39"><a href="#cb2-39"></a>docker-push:</span>
+<span id="cb2-40"><a href="#cb2-40"></a>    docker push $(DOCKER_NAME):latest</span>
+<span id="cb2-41"><a href="#cb2-41"></a></span>
+<span id="cb2-42"><a href="#cb2-42"></a>.PHONY: docker-run</span>
+<span id="cb2-43"><a href="#cb2-43"></a>docker-run:</span>
+<span id="cb2-44"><a href="#cb2-44"></a>    docker run --rm -it -v $(CURDIR):/workspace $(DOCKER_NAME):latest </span>
+<span id="cb2-45"><a href="#cb2-45"></a></span>
+<span id="cb2-46"><a href="#cb2-46"></a>.PHONY: docker-render</span>
+<span id="cb2-47"><a href="#cb2-47"></a>docker-render:</span>
+<span id="cb2-48"><a href="#cb2-48"></a>    docker run --rm -v $(CURDIR):/workspace $(DOCKER_NAME):latest quarto render /workspace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </details>
