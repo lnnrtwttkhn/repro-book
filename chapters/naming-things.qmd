@@ -337,7 +337,7 @@ list.files(pattern = "Plasmid") |> head
 ### Recover meta data from file names
 
 Metadata is information that describes key details about a file, like the date it was created, the author, or the type of data it contains.
-Including metadata in a filename (for exampple, `2023_Experiment1_DrSmith.csv`) is helpful because it makes important details visible at a glance.
+Including metadata in a filename (for example, `2023_Experiment1_DrSmith.csv`) is helpful because it makes important details visible at a glance.
 This helps with organizing, searching, and sorting files, especially in large projects where you may have many similar files.
 By storing metadata in filenames, you can quickly understand what each file contains without opening it, saving time and reducing errors in data management.
 
@@ -634,7 +634,7 @@ Good ordering lets related files appear together, saves time when searching, and
 
 :::
 
-::: {.callout-important title="When keeping copies of the same or similiar files, consider version control!"}
+::: {.callout-important title="When keeping copies of the same or similar files, consider version control!"}
 Consider the use of chronologically ordered files and folders!
 For specifying different versions of the same document, version control tools as Git and GitHub should be preferred.
 Otherwise you might feel as the person in the cartoon in @fig-final-doc-comic writing on his "final document".
