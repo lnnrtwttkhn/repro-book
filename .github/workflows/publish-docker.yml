@@ -42,5 +42,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_book
           publish_branch: gh-pages
-          # keep existing files:
+          allow_empty_commit: true
           keep_files: true
