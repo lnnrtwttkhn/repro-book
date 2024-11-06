@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.32">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,10 +70,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-879e302ca45bb6811b6062ec9bd6e23b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-dbbea99675faee5a942e96e6aae28a94.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -165,8 +165,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chapters/naming-things.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Naming things</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -190,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 <div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
-<p><a href="https://lennartwittkuhn.com/"><img src="https://img.shields.io/website?url=https%3A%2F%2Flennartwittkuhn.com%2Frepro-book%2F" class="img-fluid" alt="Website"></a> <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg" class="img-fluid" alt="License: CC BY 4.0"></a> <a href="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/publish.yml"><img src="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/publish.yml/badge.svg" class="img-fluid" alt="Quarto Publish"></a> <a href="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/codespell.yml"><img src="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/codespell.yml/badge.svg" class="img-fluid" alt="Codespell"></a> <a href="?tab=readme-ov-file#contributors"><img src="https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&amp;style=flat-square.png" class="img-fluid" alt="All Contributors"></a></p>
+<p><a href="https://lennartwittkuhn.com/repro-book"><img src="https://img.shields.io/website?url=https%3A%2F%2Flennartwittkuhn.com%2Frepro-book%2F" class="img-fluid" alt="Website"></a> <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg" class="img-fluid" alt="License: CC BY 4.0"></a> <a href="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/publish.yml"><img src="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/publish.yml/badge.svg" class="img-fluid" alt="Quarto Publish"></a> <a href="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/codespell.yml"><img src="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/codespell.yml/badge.svg" class="img-fluid" alt="Codespell"></a> <a href="?tab=readme-ov-file#contributors"><img src="https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&amp;style=flat-square.png" class="img-fluid" alt="All Contributors"></a></p>
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -261,51 +267,34 @@ Click here to view the full <code>Makefile</code> of this project.
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource make number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>IMAGES_URL=https://cloud.uni-hamburg.de/s/pzEHT5DF3PzFdLH/download</span>
 <span id="cb2-2"><a href="#cb2-2"></a>IMAGES_ARCHIVE=repro-book-images.zip</span>
 <span id="cb2-3"><a href="#cb2-3"></a>IMAGES_DIR=images/</span>
-<span id="cb2-4"><a href="#cb2-4"></a>DOCKER_NAME=lnnrtwttkhn/repro-book</span>
-<span id="cb2-5"><a href="#cb2-5"></a></span>
-<span id="cb2-6"><a href="#cb2-6"></a>all: render</span>
-<span id="cb2-7"><a href="#cb2-7"></a></span>
-<span id="cb2-8"><a href="#cb2-8"></a>.PHONY: preview</span>
-<span id="cb2-9"><a href="#cb2-9"></a>preview:</span>
-<span id="cb2-10"><a href="#cb2-10"></a>    quarto preview</span>
-<span id="cb2-11"><a href="#cb2-11"></a></span>
-<span id="cb2-12"><a href="#cb2-12"></a>.PHONY: render</span>
-<span id="cb2-13"><a href="#cb2-13"></a>render: clean images</span>
-<span id="cb2-14"><a href="#cb2-14"></a>    quarto render</span>
-<span id="cb2-15"><a href="#cb2-15"></a></span>
-<span id="cb2-16"><a href="#cb2-16"></a>.PHONY: pdf</span>
-<span id="cb2-17"><a href="#cb2-17"></a>pdf: clean images</span>
-<span id="cb2-18"><a href="#cb2-18"></a>    quarto render --profile pdf</span>
-<span id="cb2-19"><a href="#cb2-19"></a>    </span>
-<span id="cb2-20"><a href="#cb2-20"></a>.PHONY: deploy</span>
-<span id="cb2-21"><a href="#cb2-21"></a>deploy: clean images</span>
-<span id="cb2-22"><a href="#cb2-22"></a>    quarto publish gh-pages</span>
-<span id="cb2-23"><a href="#cb2-23"></a></span>
-<span id="cb2-24"><a href="#cb2-24"></a>.PHONY: images</span>
-<span id="cb2-25"><a href="#cb2-25"></a>images:</span>
-<span id="cb2-26"><a href="#cb2-26"></a>    curl $(IMAGES_URL) -o $(IMAGES_ARCHIVE)</span>
-<span id="cb2-27"><a href="#cb2-27"></a>    unzip -j -o $(IMAGES_ARCHIVE) -d $(IMAGES_DIR)</span>
-<span id="cb2-28"><a href="#cb2-28"></a>    rm -f $(IMAGES_ARCHIVE)</span>
-<span id="cb2-29"><a href="#cb2-29"></a></span>
-<span id="cb2-30"><a href="#cb2-30"></a>.PHONY: clean</span>
-<span id="cb2-31"><a href="#cb2-31"></a>clean:</span>
-<span id="cb2-32"><a href="#cb2-32"></a>    rm -rf $(IMAGES_DIR)* _book/</span>
-<span id="cb2-33"><a href="#cb2-33"></a>    </span>
-<span id="cb2-34"><a href="#cb2-34"></a>.PHONY: docker-build</span>
-<span id="cb2-35"><a href="#cb2-35"></a>docker-build:</span>
-<span id="cb2-36"><a href="#cb2-36"></a>    docker build --platform linux/amd64 -f .docker/repro-book/Dockerfile -t $(DOCKER_NAME):latest .</span>
-<span id="cb2-37"><a href="#cb2-37"></a>    </span>
-<span id="cb2-38"><a href="#cb2-38"></a>.PHONY: docker-push</span>
-<span id="cb2-39"><a href="#cb2-39"></a>docker-push:</span>
-<span id="cb2-40"><a href="#cb2-40"></a>    docker push $(DOCKER_NAME):latest</span>
-<span id="cb2-41"><a href="#cb2-41"></a></span>
-<span id="cb2-42"><a href="#cb2-42"></a>.PHONY: docker-run</span>
-<span id="cb2-43"><a href="#cb2-43"></a>docker-run:</span>
-<span id="cb2-44"><a href="#cb2-44"></a>    docker run --rm -it -v $(CURDIR):/workspace $(DOCKER_NAME):latest </span>
-<span id="cb2-45"><a href="#cb2-45"></a></span>
-<span id="cb2-46"><a href="#cb2-46"></a>.PHONY: docker-render</span>
-<span id="cb2-47"><a href="#cb2-47"></a>docker-render:</span>
-<span id="cb2-48"><a href="#cb2-48"></a>    docker run --rm -v $(CURDIR):/workspace $(DOCKER_NAME):latest quarto render /workspace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a>all: render</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a>.PHONY: preview</span>
+<span id="cb2-8"><a href="#cb2-8"></a>preview:</span>
+<span id="cb2-9"><a href="#cb2-9"></a>    quarto preview</span>
+<span id="cb2-10"><a href="#cb2-10"></a></span>
+<span id="cb2-11"><a href="#cb2-11"></a>.PHONY: render</span>
+<span id="cb2-12"><a href="#cb2-12"></a>render: clean images</span>
+<span id="cb2-13"><a href="#cb2-13"></a>    quarto render</span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a>.PHONY: pdf</span>
+<span id="cb2-16"><a href="#cb2-16"></a>pdf: clean images</span>
+<span id="cb2-17"><a href="#cb2-17"></a>    quarto render --profile pdf</span>
+<span id="cb2-18"><a href="#cb2-18"></a>    </span>
+<span id="cb2-19"><a href="#cb2-19"></a>.PHONY: deploy</span>
+<span id="cb2-20"><a href="#cb2-20"></a>deploy: clean images</span>
+<span id="cb2-21"><a href="#cb2-21"></a>    quarto publish gh-pages</span>
+<span id="cb2-22"><a href="#cb2-22"></a></span>
+<span id="cb2-23"><a href="#cb2-23"></a>.PHONY: images</span>
+<span id="cb2-24"><a href="#cb2-24"></a>images:</span>
+<span id="cb2-25"><a href="#cb2-25"></a>    curl $(IMAGES_URL) -o $(IMAGES_ARCHIVE)</span>
+<span id="cb2-26"><a href="#cb2-26"></a>    unzip -j -o $(IMAGES_ARCHIVE) -d $(IMAGES_DIR)</span>
+<span id="cb2-27"><a href="#cb2-27"></a>    rm -f $(IMAGES_ARCHIVE)</span>
+<span id="cb2-28"><a href="#cb2-28"></a></span>
+<span id="cb2-29"><a href="#cb2-29"></a>.PHONY: clean</span>
+<span id="cb2-30"><a href="#cb2-30"></a>clean:</span>
+<span id="cb2-31"><a href="#cb2-31"></a>    rm -rf $(IMAGES_DIR)* _book/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </details>
