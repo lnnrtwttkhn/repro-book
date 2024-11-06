@@ -1,6 +1,7 @@
 IMAGES_URL=https://cloud.uni-hamburg.de/s/pzEHT5DF3PzFdLH/download
 IMAGES_ARCHIVE=repro-book-images.zip
 IMAGES_DIR=images/
+DOCKER_NAME=lnnrtwttkhn/repro-book
 
 all: render
 
@@ -32,12 +33,16 @@ clean:
 	
 .PHONY: docker-build
 docker-build:
-	docker build --platform linux/amd64 -f .docker/repro-book/Dockerfile -t lnnrtwttkhn/repro-book:latest .
+	docker build --platform linux/amd64 -f .docker/repro-book/Dockerfile -t $(DOCKER_NAME):latest .
 	
 .PHONY: docker-push
 docker-push:
-	docker push lnnrtwttkhn/repro-book:latest
+	docker push $(DOCKER_NAME):latest
 
 .PHONY: docker-run
 docker-run:
-	docker run --platform linux/amd64 -it --rm lnnrtwttkhn/repro-book
+	docker run --rm -it -v $(CURDIR):/workspace $(DOCKER_NAME):latest 
+
+.PHONY: docker-render
+docker-render:
+	docker run --rm -v $(CURDIR):/workspace $(DOCKER_NAME):latest quarto render /workspace
