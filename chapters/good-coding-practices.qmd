@@ -1,5 +1,10 @@
 ---
 editor: source
+engine: knitr
+execute:
+  eval: false
+  warning: false
+  message: false
 ---
 
 # Good coding practices
@@ -143,7 +148,8 @@ Thus, all relative paths to the files in an R-project remain the same insensitiv
 
 ## Code Style {#sec-codestyle}
 
->"Good coding style is like correct punctuation: you can manage without it, butitsuremakethingseasiertoread" - Wickham et al. (2024)
+>"Good coding style is like correct punctuation: you can manage without it, butitsuremakethingseasiertoread" 
+> -- Wickham et al. (2024)
 
 One important aspect that fosters understandability of code is the code style.
 In this section, we will present the `tidyverse`-codestyle by Wickham et al. (2024).
@@ -266,10 +272,17 @@ flights|>
 
 ## Tidy Data
 
-As you might have noticed when you worked through the @sec-codestyle section, the dataset `bfi` was organized well.
-That does not always hold true, when you work with datasets.
-In fact, most of the time you are facing datasets, you will spend more time organizing your data than running real analysis.
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("horst-tidydata"))
+```
+
+When you work with datasets, you will likely not be able to directly conduct your data analysis (e.g. `t-tests`, `ANOVAs`, `GLMs`).
+In fact, most of the time you are facing datasets, you will spend more time organizing your data than running your analysis.
 A helpful concept is **tidy data**, which is a common guideline for datasets to be organized.
+Tidy data refers to the `tidyverse` that was introduced in @sec-codestyle.
 Following tidy data guidelines will help you running analyses and getting the most out of your data.
 
 ::: callout-important
@@ -278,11 +291,73 @@ Following tidy data guidelines will help you running analyses and getting the mo
 Tidy datasets follow three basic rules:
 
 1.  Each variable is a column; each column is a variable.
-2.  Each observation is a row; each row is an observation.
-3.  Each value is a cell; each cell is a value.
+1.  Each observation is a row; each row is an observation.
+1.  Each value is a cell; each cell is a value.
 :::
 
 ![Visualization of Tidy Data by Wickham et al. ([2024](https://r4ds.hadley.nz/data-tidy)). Used under a [CC BY-NC-ND 3.0 US license](http://creativecommons.org/licenses/by-nc-nd/3.0/us/).](/images/tidy-1.png){fig-align="center"}
+
+The way from raw to tidy data can be long and frustrating.
+This book cannot provide a full insight into data wrangling and data manipulation.
+However, if you are interested in learning functions for data manipulation, we recommend studying the `dplyr()`-package and its [documentation](https://dplyr.tidyverse.org).
+From our experience, using and sharing code written in the tidyverse language fosters understanding of the code, therefore enhancing computational reproducibility.
+
+### Data structures
+
+Data can be structured in different ways. When your data is tidy, you still can face **wide** or **long data**.
+
+As a rule of thumb, you can memorise this:
+Data that is structured in a *long format* usually contains *repetitive* values in the first column of the dataset.
+Data that is structured in a *wide format* usually contains *non-repetitive* values in the first column of the dataset.
+
+```{r example wide and long format}
+#| echo: false
+#| eval: true
+
+#load library
+library(tibble)
+
+#set up data frame
+data_wide <- tibble(
+  participant = 1:3,
+  congruent = c(560, 623, 547),
+  incongruent = c(720, 799, 812)
+)
+
+print(data_wide)
+
+data_long <- tibble(
+  participant = c(1,1,2,2,3,3),
+  congruency = rep(c("congruent", "incongruent"), times = 3),
+  reaction_time = c(560,720, 623, 799, 547, 812)
+)
+
+print(data_long)
+```
+
+However, this rule of thumb does not always apply, for example when data is rearranged.
+
+```{r rearranged long data}
+#| echo: false
+#| eval: true
+
+data_long |>
+  select(reaction_time, congruency, participant) |>
+  print()
+```
+
+Another perspective on wide vs. long data includes the context of the data.
+In research, a common question is how a variable A influences variable B.
+B is dependent on A.
+That makes variable B the dependent variable (DV) and variable A the independent variable (IV).
+In the wide data format, the names of the factor levels of the IV are usually column names, whereas the DV is displayed in the values across these cells.
+In contrast, in the long data format, the names of the factor levels of the IV are usually values in the column of the IV.
+The name of the IV constitutes the column name rather than the level of the IV.
+Simultaneously, the DV is displayed in one column with the name of the DV as column name and values in only this particular column.
+
+### Changing the data structure
+
+> Add text and code here how to change long into wide format and vice versa.
 
 ## Code Testing
 

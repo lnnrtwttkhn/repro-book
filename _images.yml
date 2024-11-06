@@ -29,3 +29,13 @@ phd-comic-story-told-in-file-names:
   license-reference: ""
   comments: "All content copyright 1997-2003 Piled Higher and Deeper Publishing, LLC."
   alt-text: ""
+horst-tidydata:
+  title: "Illustration from the Openscapes blog Tidy Data for reproducibility efficiency and collaboration"
+  author: "Julia Lowndes and Allison Horst"
+  author-url: "https://allisonhorst.com/allison-horst"
+  image-file: "horst-tidydata-2.jpg"
+  image-url: "https://allisonhorst.com/other-r-fun"
+  license: "CC-BY 4.0"
+  license-reference: ""
+  comments: "reused without modifications"
+  alt-text: ""
