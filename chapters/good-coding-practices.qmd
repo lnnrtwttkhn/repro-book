@@ -370,6 +370,54 @@ Simultaneously, the DV is displayed in one column with the name of the DV as col
 
 ### Changing the data structure
 
+Dependent on which R-functions you want to use or other reasons, you might have to or want to change your data structure from wide to long or vice versa.
+An easy way to do so, is to use `pivot_wider()` and `pivot_longer()` from the `tidyr()`-package.
+
+#### `pivot_longer()`
+
+`pivot_longer()` takes your dataset and makes it longer. 
+It takes certain columns and puts their names as values into a new column.
+Further, it takes the values of these columns and puts the values together in one column.
+
+
+```{r}
+#| eval: true
+library(tidyr)
+
+data_wide |>                                # <1>
+  pivot_longer(                             # <2>
+    cols = c("congruent", "incongruent"),   # <3>
+    names_to = "congruency",                # <4>
+    values_to = "reaction_time"             # <5>
+  ) |>
+  print()
+```
+
+1. take the dataset `data_wide`, and then
+2. apply the function `pivot_longer()` on the data by
+3. specifying the columns that should be turned in to a long format,
+4. naming the new column with the previous column names in it, and
+5. naming the new column with the values of the previous columns in it.
+
+#### `pivot_wider()`
+
+`pivot_wider()` takes your dataset and makes it wider. 
+
+```{r}
+#| eval: true
+
+data_long |>                                # <1>
+  pivot_wider(                              # <2>
+    names_from = "congruency",              # <3>
+    values_from = "reaction_time"           # <4>
+  ) |>
+  print()
+```
+
+1. take the dataset `data_long`
+2. apply the function `pivot_wider` on the data by
+3. specifying the column name from which to take the new column names, and
+4. specifying the column namen from which to take the values of the new column names.
 
 ## Code Testing
 
