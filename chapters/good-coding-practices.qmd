@@ -5,6 +5,7 @@ execute:
   eval: false
   warning: false
   message: false
+code-annotations: hover
 ---
 
 # Good coding practices
@@ -419,7 +420,54 @@ data_long |>                                # <1>
 3. specifying the column name from which to take the new column names, and
 4. specifying the column namen from which to take the values of the new column names.
 
-## Code Testing
+## Advanced: Defensive programming
+
+Whenever you write code for data analysis or anything else, it is useful to validate what you are doing.
+This is also called **defensive programming**.
+Defensive in this context is meant as cautious.
+Here are some potential benefits of validating your code:
+
+- early error detection
+- code clarity
+- protection against invalid input
+- monitor data quality
+- improved documentation
+- improved error handling
+
+
+### The `assertr` package and it's function `verify()`
+
+The [`assertr`](https://cran.r-project.org/web/packages/assertr/vignettes/assertr.html)-package helps you when you start considering to test your code.
+When you start adopting coding in the tidyverse-codestyle, the function `verify()` will be very easy for you to apply in your code.
+`verify()` can be easily integrated into a pipeline of code.
+Here is an example of how verify() can be integrated into your tidy code:
+
+```{r}
+#| eval: true
+library(assertr)
+
+# verify if reaction time is longer than 200ms
+data_long |>
+  verify(reaction_time > 200) |>
+  head()
+```
+
+The `verify()` function take a data frame (which is the first argument of the function and provided by the `|>` operator) and a logical expression.
+Then, the expression is evaluated in the context of the data frame.
+When the expression is `TRUE`, no error occurs and the pipe goes on.
+When the expression is `FALSE`, verify will raise an error that terminates any further processing of the pipeline (Fischetti, 2023).
+
+### Further functions and packages
+
+The `verify()` function provides an easy way of starting validating your code within a tidyverse codestyle.
+However, more functions from the `assertr`-package can be applied for defensive programming.
+Going through all of these functions exceeds the scope of this book.
+Therefore, we cannot only recommend to read the bycoming [vignette ](https://cran.r-project.org/web/packages/assertr/vignettes/assertr.html) by Tony Fischetti, the author of the `assertr`-package.
+
+Furthermore, `assertr` is not the only {{< fa brands r-project >}} package dealing with defensive programming.
+`assert`, `assertthat`, and `testthat` are other powerful packages in this context.
+In general, code validation is not too popular in scientific practice.
+It is rather prevalent in software development contexts.
 
 ## Acknowledgements & further reading
 
