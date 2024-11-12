@@ -57,7 +57,7 @@ When you click on **Create project**, your R-project will be created. You will s
 Depending on your situation it makes sense to either create a new directory or turn an existing folder into an R-project.
 When you are at the beginning of your project and have not set up a project structure yet, it makes sense to create a new directory.
 Make sure, that in this case, your directory name aligns well with your project.
-When you have alrady set up a project structure, it makes sense to turn your project folder into an R-project. Make sure that in this case your project folder is the folder you turn into an R-project.
+When you have already set up a project structure, it makes sense to turn your project folder into an R-project. Make sure that in this case your project folder is the folder you turn into an R-project.
 
 ::: callout-tip
 ## What is an `.Rproj`-file?
