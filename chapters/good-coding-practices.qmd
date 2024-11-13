@@ -501,7 +501,7 @@ data_wide |>                                # <1>
 
 `pivot_wider()` takes your dataset and makes it wider.
 It takes the names of a certain column and changes them to new column names.
-Further, it takes the values of a second column and puts them accross the new columns to their corresponding names.
+Further, it takes the values of a second column and puts them across the new columns to their corresponding names.
 
 ```{r filename = "Code"}
 #| eval: true
