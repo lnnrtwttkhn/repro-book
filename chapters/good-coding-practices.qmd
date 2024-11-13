@@ -233,6 +233,37 @@ Translated into plain English the pipe represents an *"and then"*:
 1. summarise your datasets by calculating the mean and median for the variable `N` for each group.
 
 
+::: {.callout-note collapse="true"}
+## Difference between `%>%` and `|>`
+
+In basic code, `%>%` and `|>` behave the same in the simple cases we cover here.
+In general, `%>%` has some advantages when you want to code more complex cases.
+If you are interested when it matters if you either use `%>%`or `|>`, we recommend [this](https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/) resource.
+
+::: panel-tabset
+## `%>%`
+
+The `%>%` pipe was introduced in the context of the `tidyverse`.
+It comes with the package `magrittr` and con only be used when this package is installed and loaded.
+
+```{r filename = "Code"}
+#| eval: false
+install.packages("magrittr")
+library(magrittr)
+```
+
+However, you can also use it, when you load another package from the `tidyverse` such as `dplyr`. 
+This is because `dplyr` imports `magrittr` when it is loaded.
+
+## `|>`
+
+The `|>` pipe comes with the basic R. 
+To use `|>` in R, you have to go to **Tools** > **Global Options** > **Code** and tick the box **Use native pipe operator, |> (repquires R 4.1+)**.
+
+:::
+
+:::
+
 ### Line breaks
 
 If a function requires you to name arguments (as `summarise()`), put each argument on a new line.
