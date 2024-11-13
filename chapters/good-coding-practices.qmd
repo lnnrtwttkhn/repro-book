@@ -8,6 +8,14 @@ execute:
 code-annotations: hover
 ---
 
+```{r setup}
+#| echo: false
+library(tibble)
+library(dplyr)
+library(tidyr)
+library(assertr)
+```
+
 # Good coding practices
 
 In the last chapters, you have learned how to name your names and variables and how to set up a decent project structure.
@@ -88,7 +96,7 @@ You can use `#` not only for comments but also for creating sections and subsect
 To do so, you must start a line with at least one hash `#` and put at least 4 hyphens after your comment.
 The number of hashes you use at the beginning determines the level of section.
 
-```{r}
+```{r filename = "Code"}
 # Section 1 ----
 
 ## Subsection 1.1 ----
@@ -112,7 +120,7 @@ You can read data or code into your R-environment by referring to your data thro
 
 Using an absolute path means that you refer to your file name by going through your whole computer folder structure:
 
-```{r}
+```{r filename = "Code"}
 #| eval: false
 data <- read_csv("/Users/my-user-name/document/projects/my-project/data/data-raw.csv")
 ```
@@ -120,7 +128,7 @@ data <- read_csv("/Users/my-user-name/document/projects/my-project/data/data-raw
 Using absolute file paths is not recommended in terms of computational reproducibility.
 A collaborator or interested researcher who downloaded your scripts and wants to reproduce your analysis has to change these paths before the scripts can run correctly.
 
-```{r}
+```{r filename = "Code"}
 #| eval: false
 data <- read_csv("/Users/user-name-b/desktop/work/research/my-project/data/data-raw.csv")
 ```
@@ -140,7 +148,7 @@ By default, the working directory in an R project is the project folder, in the 
 You can then use the relative file path from that folder to read your data.
 You can use the file path that starts *after* the working directory:
 
-```{r}
+```{r filename = "Code"}
 #| eval: false
 data <- read_csv("data/data-raw.csv")
 ```
@@ -150,14 +158,15 @@ Thus, all relative paths to the files in an R-project remain the same insensitiv
 ## Code Style {#sec-codestyle}
 
 >"Good coding style is like correct punctuation: you can manage without it, butitsuremakethingseasiertoread" 
-> -- Wickham et al. (2024)
+> -- Wickham et al. (2023)
 
 One important aspect that fosters understandability of code is the code style.
-In this section, we will present the `tidyverse`-codestyle by Wickham et al. (2024).
+In this section, we will present the `tidyverse`-codestyle [@wickham2023].
 The Tidyverse is a collection of R packages particularly useful for data wrangling, manipulation and visualization.
 All packages share an underlying design philosophy, grammar, and data structures.
 
-In psychology, the grammar of tidyverse is widely used for data wrangling. In this section we will give a short introduction on code style.
+In psychology, the grammar of tidyverse is widely used for data wrangling.
+In this section, we will give a short introduction on code style.
 
 ### Names
 
@@ -165,7 +174,7 @@ Not only files and folders should be named well, the same applies to variable na
 Variable and function names should only consist of lowercase letters, numbers and underscores `_`.
 It is better to have descriptive long names rather than short abbreviations you do not understand in the future.
 
-```{r}
+```{r filename = "Code"}
 #| eval: false
 # Strive for:
 short_flights <- flights |> filter(air_time < 60)
@@ -180,7 +189,7 @@ Put spaces around mathematical operators (except `^`) and around the assignment 
 Do not put spaces around parentheses when you use functions.
 Put a space after a comma as you would in standard English.
 
-```{r}
+```{r filename = "Code"}
 #| eval: false
 # Strive for
 mean(x, na.rm = TRUE)
@@ -196,7 +205,7 @@ The pipe takes everything left to the pipe and uses it as first argument to the 
 
 >Here a cartoon illustrating how the pipe works would be fun.
 
-```{r}
+```{r filename = "Code"}
 #| eval: false
 # Without pipe
 sum(c(1:4))
@@ -207,7 +216,7 @@ c(1:4) |> sum()
 
 The pipe is particularly useful, when you subsequently connect many functions after each other. Therefore, use `|>` at the end of a line and use a space before it. The complete sequence of functions connected by a pipe is also called a **pipeline**.
 
-```{r}
+```{r filename = "Code"}
 #| eval: false
 # Without pipe
 summarise(group_by(filter(select(data, N, gender), gender == "male" | gender == "female"), gender), mean = mean(N))
@@ -275,7 +284,7 @@ If you are putting each argument on a separate line, also indent the new line by
 Make sure that the closing parenthesis `)` is on its own line and not indented.
 Thus, the closing parenthesis matches the horizontal position of the function you are using.
 
-```{r}
+```{r filename = "Code"}
 #| eval: false
 # Strive for 
 flights |>  
@@ -327,7 +336,12 @@ Tidy datasets follow three basic rules:
 1.  Each value is a cell; each cell is a value.
 :::
 
-![Visualization of Tidy Data by Wickham et al. ([2024](https://r4ds.hadley.nz/data-tidy)). Used under a [CC BY-NC-ND 3.0 US license](http://creativecommons.org/licenses/by-nc-nd/3.0/us/).](/images/tidy-1.png){fig-align="center"}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("tidy-data"))
+```
 
 The way from raw to tidy data can be long and frustrating.
 This book cannot provide a full insight into data wrangling and data manipulation.
@@ -346,7 +360,7 @@ Data that is structured in a *wide format* usually contains *non-repetitive* val
 
 ## {{< fa arrows-left-right >}} Wide format
 
-```{r example wide and long format}
+```{r filename = "Code"}
 #| echo: false
 #| eval: true
 
@@ -365,7 +379,7 @@ print(data_wide)
 
 ## {{< fa arrows-up-down >}} Long format
 
-```{r}
+```{r filename = "Code"}
 #| echo: false
 #| eval: true
 data_long <- tibble(
@@ -381,7 +395,7 @@ print(data_long)
 
 However, this rule of thumb does not always apply, for example when data is rearranged.
 
-```{r rearranged long data}
+```{r filename = "Code"}
 #| echo: false
 #| eval: true
 
@@ -412,7 +426,7 @@ It takes certain columns and puts their names as values into a new column.
 Further, it takes the values of these columns and puts the values together in one column.
 
 
-```{r}
+```{r filename = "Code"}
 #| eval: true
 library(tidyr)
 
@@ -433,9 +447,11 @@ data_wide |>                                # <1>
 
 #### `pivot_wider()`
 
-`pivot_wider()` takes your dataset and makes it wider. 
+`pivot_wider()` takes your dataset and makes it wider.
+It takes the names of a certain column and changes them to new column names.
+Further, it takes the values of a second column and puts them accross the new columns to their corresponding names.
 
-```{r}
+```{r filename = "Code"}
 #| eval: true
 
 data_long |>                                # <1>
@@ -473,20 +489,37 @@ When you start adopting coding in the tidyverse-codestyle, the function `verify(
 `verify()` can be easily integrated into a pipeline of code.
 Here is an example of how verify() can be integrated into your tidy code:
 
-```{r}
+```{r filename = "Code"}
 #| eval: true
 library(assertr)
 
 # verify if reaction time is longer than 200ms
 data_long |>
   verify(reaction_time > 200) |>
-  head()
+  print()
 ```
 
-The `verify()` function take a data frame (which is the first argument of the function and provided by the `|>` operator) and a logical expression.
+The `verify()` function takes a data frame (which is the first argument of the function and provided by the `|>` operator) and a logical expression.
 Then, the expression is evaluated in the context of the data frame.
 When the expression is `TRUE`, no error occurs and the pipe goes on.
-When the expression is `FALSE`, verify will raise an error that terminates any further processing of the pipeline (Fischetti, 2023).
+When the expression is `FALSE`, verify will raise an error that terminates any further processing of the pipeline [@fischetti2023] (Fischetti, 2023).
+
+```{zsh filename = "Console"}
+>data_long |>
+  +verify(reaction_time < 200) |>
+  +print()
+verification [reaction_time < 200] failed! (6 failures)
+
+    verb redux_fn           predicate column index value
+1 verify       NA reaction_time < 200     NA     1    NA
+2 verify       NA reaction_time < 200     NA     2    NA
+3 verify       NA reaction_time < 200     NA     3    NA
+4 verify       NA reaction_time < 200     NA     4    NA
+5 verify       NA reaction_time < 200     NA     5    NA
+6 verify       NA reaction_time < 200     NA     6    NA
+
+Error: assertr stopped execution
+```
 
 ### Further functions and packages
 
@@ -496,9 +529,12 @@ Going through all of these functions exceeds the scope of this book.
 Therefore, we cannot only recommend to read the bycoming [vignette ](https://cran.r-project.org/web/packages/assertr/vignettes/assertr.html) by Tony Fischetti, the author of the `assertr`-package.
 
 Furthermore, `assertr` is not the only {{< fa brands r-project >}} package dealing with defensive programming.
-`assert`, `assertthat`, and `testthat` are other powerful packages in this context.
+[`assert`](https://cran.r-project.org/web/packages/assert/assert.pdf), [`assertthat`](https://cran.r-project.org/web/packages/assertthat/assertthat.pdf), and [`testthat`](https://cran.r-project.org/web/packages/testthat/testthat.pdf) are other powerful packages in this context.
 In general, code validation is not too popular in scientific practice.
-It is rather prevalent in software development contexts.
+It is rather prevalent in software development contexts validating functions and whole scripts for specific purposes.
+These thorough testing processes extends the scope of computational reproducibility in our opinion.
+Thus, we recommend `assertr::verify()` as a good starting point for defensive programming in the context of computational reproducibility.
+
 
 ## Acknowledgements & further reading
 
@@ -509,4 +545,4 @@ We recommend these references for further reading:
 |------------------------------------------------------------------------|
 | Buhr, J. (2023). *Introduction to Data Analysis with R.* <https://jmbuhr.de/dataintro/> |
 | Rennie, N. (2024). *Writing Better R Code.* <https://nrennie.rbind.io/training-better-r-code/> |
-| Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2024). *R for Data Science (2e)*. <https://r4ds.hadley.nz> |
+| Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). *R for Data Science (2e)*. <https://r4ds.hadley.nz> |
