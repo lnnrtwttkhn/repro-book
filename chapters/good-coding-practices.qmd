@@ -311,6 +311,58 @@ flights|>
   )
 ```
 
+### Evaluate your code style
+
+After you have learned the `tidyverse` codestyle, you can check your code if you have any deviations from that codestyle.
+This is called "linting" and comparable to a program that checks for spelling errors.
+The `lintr` package [@hester2024] can do that for you and analyses your code for...
+
+- stylistic issues (e.g. `x<-3` vs. `x <- 3`)
+- common errors (e.g. `mean(x, na.rm = T, na.rm = F)`)
+- missing packages
+- ...
+
+::: callout-caution
+However, note that `lintr` cannot check whether your code runs correctly!
+:::
+
+::: {.callout-tip collapse="false"}
+## Example of `lintr`
+
+Suppose you have script called `test-script.R` in the folder `scripts` of your research projects.
+Your script looks as follows:
+
+```{r filename = "test-script.R"}
+#| code-line-numbers: true
+# Test Script
+
+df <- matrix(c(1,2,3,4,5,6), nrow = 2, ncol = 3)
+```
+
+After you installed and loaded the package `lintr`, run: `lintr::lint("scripts/test-script.R")` in your R-console:
+
+```{r filename = "Console"}
+install.packages("lintr")
+library(lintr)
+lintr::lint("scripts/test-script.R")
+```
+
+Next to your Console, a new tab will open called **Markers**, displaying all syntax messages `lintr` found in your script.
+
+```{r filename = "Markers"}
+Line 3 [commas_linter] Commas should always have a space after.
+Line 3 [commas_linter] Commas should always have a space after.
+Line 3 [commas_linter] Commas should always have a space after.
+Line 3 [commas_linter] Commas should always have a space after.
+Line 3 [commas_linter] Commas should always have a space after.
+```
+
+In `test-script.R`, lintr wants us to separate the numbers 1 to 6 by spaces after commas.
+For every missing comma, `lintr` displays a separate error message.
+After adding the spaces, saving the script, and running `lintr::lint("scripts/test-script.R")` again, no error messages are displayed in the **Markers** tab.
+
+:::
+
 ## Tidy Data
 
 ```{r}
