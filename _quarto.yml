@@ -27,10 +27,12 @@ book:
     - index.qmd
     - contents.qmd
     - chapters/intro.qmd
+    - chapters/naming-things.qmd
     - chapters/rdm.qmd
     - summary.qmd
     - references.qmd
     - acknowledgements.qmd
+    - contributing.qmd
   sidebar:
     id: sidebar
     title: "{{< var project.title >}}"
@@ -82,6 +84,7 @@ citation-location: document
 citeproc: true
 from: markdown+emoji
 license: CC BY
+abstract-title: "Summary"
 metadata-files:
   - _images.yml
 
