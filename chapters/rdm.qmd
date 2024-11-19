@@ -30,6 +30,12 @@ Reused without modifications.
 
 See @vid-rdm-snafu ...
 
+::: {.callout-warning title="The story of Reinhart & Rogoff"}
+:::
+
+:::{.callout-important title="Why you should stop using Excel!"}
+:::
+
 ## Benefits of research data management
 
 Managing data well throughout the research process is crucial for successful research outcomes, including:
@@ -132,6 +138,12 @@ cat(make_figure("bids-dataset"))
 ```
 
 @gorgolewski2016
+
+#### Example: Psychological Data Structure (Psych-DS)
+
+### Rectangular Data
+
+## Codebook / `.json` files
 
 ## Acknowledgements
 
