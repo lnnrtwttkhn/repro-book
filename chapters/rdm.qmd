@@ -147,12 +147,12 @@ If you do not have a community standard specifying the data organization, we hig
 
 :::{.callout-tip title="Rules of rectangular data [@broman2018]"}
 1. be consistent
-1. choose good names for things
-1. write dates as YYYY-MM-DD
+1. choose good names for things (see Naming things)
+1. write dates as YYYY-MM-DD (see Naming things)
 1. no empty cells
 1. put just one thing in a cell
 1. make it a rectangle
-1. create a data dictionary
+1. create a data dictionary (see @sec-codebook)
 1. no calculations in the raw data files
 1. do not use font color or highlighting as data
 1. make packups
@@ -160,7 +160,7 @@ If you do not have a community standard specifying the data organization, we hig
 1. save the data in plain text files
 :::
 
-## Codebook / `.json` files
+## Codebook / `.json` files {#sec-codebook}
 
 ## Acknowledgements
 
