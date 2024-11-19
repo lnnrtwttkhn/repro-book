@@ -126,7 +126,7 @@ guiding them through unfamiliar concepts and helping them understand the underly
 
 :::
 
-## Absolute and relative file paths
+## Referring file paths
 
 Whenever you are conducting research, you need to analyze some form of data.  
 This data is typically stored in one or more files.  
@@ -134,7 +134,7 @@ Therefore, you need to read the data into your script.
 To do so, you must refer to the files you want to read.  
 This is where the first advantage of setting up a dedicated R project for your research becomes apparent.
 
-You can read data or code into your R environment by referring to your files using **absolute paths** or **relative paths**.
+You can read data or code into your R environment by referring to your files using **absolute paths**, **relative paths**, and **`here::here()`**.
 
 ### Absolute paths
 
@@ -174,6 +174,101 @@ data <- read_csv("data/data-raw.csv")
 ```
 
 Thus, all relative paths to the files in an R project remain the same, regardless of who wants to work with the project.
+However, this does not hold true for scripts changing the working directory using the `setwd()` command.
+
+:::: columns
+
+::: {.column width="49%"}
+```{r filename="Relative file path does work"}
+#| eval: false
+> getwd()
+[1] "Users/my-user-name/my-project"
+> file.edit("script/script01.R")
+```
+:::
+
+::: {.column width="2%"}
+:::
+
+:::{.column width="49%"}
+```{r filename="Relative file path does not work"}
+#| eval: false
+> setwd("script")
+> getwd()
+[1] "Users/my-user-name/my-project/script"
+> file.edit("script/script01.R")
+```
+:::
+
+::::
+
+A way to avoid confusions about which file paths to use, is the `here` package [@mueller2020].
+The `here()` function works regardless of what your current working directory is.
+
+### The `here` package
+
+You can install the `here` package by typing:
+```{r filename="Code"}
+#| eval: false
+install.packages("here")
+```
+
+With `here::here()`, it is possible to refer file paths regardless of your working directory.
+`here()` uses the top-level directory of a file project to build the paths.
+It recognizes special files (e.g. `.Rproj`) and infers a project folder.
+Using `here()` referencing file paths will always use the same project structure regardless of the file you are referencing.
+
+::: {.callout-tip title="Example" collapse="false"}
+
+`here()` function works regardless of the current working directory.
+
+::: panel-tabset
+## No change in working directory
+
+```{r filename="Console"}
+getwd()
+[1] "/Users/my-user-name/my-project"
+> here()
+[1] "/Users/my-user-name/my-project"
+> source(here("scripts", "script01.R"))
+```
+
+## Change in working directory
+
+```{r filename="Console"}
+getwd()
+[1] "/Users/my-user-name/my-project"
+> here()
+[1] "/Users/my-user-name/my-project"
+> source(here("scripts", "script01.R"))
+```
+:::
+
+:::
+
+Another benefit of using `here()` is enhanced readability because the paths do always start at the project directory.
+Using relative paths would require the reader to think about the current working directory and how certain files are relatively located to it.
+Further, while separating files with characters and commas, here is untouched by different operating systems.
+
+::: {.callout-note title="Path differences between operating systems" collapse="true"}
+
+MacOS and Linux use slash `/` for path separators. In contrast, Windows uses a backslash `\` for path separators.
+In R, `\` is an escape operator.
+Thus, R will misinterpret Windows backslash `\` when using them as path separators.
+For Windows, the use of `\\` or `/` is appropriate in handling path separators.
+
+A benefit of `here()` is that one can specify paths within `""` separated by commata.
+Depending on the operating system `here()` applies a correct path separation.
+
+```{r filename="Code"}
+#| eval: false
+source(here("folder", "subfolder", "subsubfolder", "file.R"))
+```
+:::
+
+In summary, we recommend using the `here::here()` function because it is most robust against different paths.
+Relative file paths can also work if the working directory does not change in one of the project scripts and only `/` are used for path specifications.
+We recommend to never use absolute file paths, since they are a hurdle to computational reproducibility.
 
 ## Code Style {#sec-codestyle}
 
