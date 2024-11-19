@@ -176,31 +176,29 @@ data <- read_csv("data/data-raw.csv")
 Thus, all relative paths to the files in an R project remain the same, regardless of who wants to work with the project.
 However, this does not hold true for scripts changing the working directory using the `setwd()` command.
 
-:::: columns
+::: panel-tabset
 
-::: {.column width="49%"}
-```{r filename="Relative file path does work"}
+## Relative file path does work
+
+```{r filename="Console"}
 #| eval: false
 > getwd()
 [1] "Users/my-user-name/my-project"
 > file.edit("script/script01.R")
 ```
-:::
 
-::: {.column width="2%"}
-:::
+## Relative file path does not work
 
-:::{.column width="49%"}
-```{r filename="Relative file path does not work"}
+```{r filename="Console"}
 #| eval: false
 > setwd("script")
 > getwd()
 [1] "Users/my-user-name/my-project/script"
 > file.edit("script/script01.R")
 ```
+
 :::
 
-::::
 
 A way to avoid confusions about which file paths to use, is the `here` package [@mueller2020].
 The `here()` function works regardless of what your current working directory is.
@@ -257,7 +255,7 @@ In R, `\` is an escape operator.
 Thus, R will misinterpret Windows backslash `\` when using them as path separators.
 For Windows, the use of `\\` or `/` is appropriate in handling path separators.
 
-A benefit of `here()` is that one can specify paths within `""` separated by commata.
+A benefit of `here()` is that one can specify paths within `""` separated by commas.
 Depending on the operating system `here()` applies a correct path separation.
 
 ```{r filename="Code"}
@@ -504,7 +502,7 @@ However, note that `lintr` cannot check whether your code runs correctly!
 Suppose you have script called `test-script.R` in the folder `scripts` of your research projects.
 Your script looks as follows:
 
-```{r filename = "test-script.R"}
+```{r filename = "Script"}
 #| code-line-numbers: true
 # Test Script
 
@@ -513,7 +511,7 @@ df <- matrix(c(1,2,3,4,5,6), nrow = 2, ncol = 3)
 
 After you installed and loaded the package `lintr`, run: `lintr::lint("scripts/test-script.R")` in your R-console:
 
-```{r filename = "Console"}
+```{r filename = "Code"}
 install.packages("lintr")
 library(lintr)
 lintr::lint("scripts/test-script.R")
@@ -753,6 +751,7 @@ data_long_2 |>
 
 ```{r filename="Console output"}
 #| eval: false
+#| code-copy: false
 verification [reaction_time > 200] failed! (1 failure)
 
     verb redux_fn           predicate column index value
