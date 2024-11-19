@@ -1,5 +1,4 @@
 ---
-editor: source
 engine: knitr
 execute:
   eval: false
@@ -7,25 +6,26 @@ execute:
   message: false
 code-annotations: hover
 abstract: |
-  In the last chapters, you have learned how to name your names and variables and how to set up a decent project structure.
-  In this chapter, you will learn good coding practices to help other researchers and future you with the code you used for your analysis.
+  In the last chapters, you have learned how to name your names and variables and how to set up an organized project structure.
+  In this chapter, you will learn good coding practices to help other researchers and your future self with the code you used for your analysis.
 ---
 
 # Good coding practices
 
-## Respective R projects
+## R projects
 
-As a researcher (and as a student) you work on different projects simultaneously.
+As a researcher (and as a student), you work on different projects simultaneously.
 You have different research projects and teaching parts that you need to cover in your job.
-You attend different courses and do presentations and data analyses in these seminars and lectures.
-As you have learned in the previous chapter about project structure, it makes sense to set up your files and folders in a particular research project folder.
+You attend different courses and give presentations and perform data analyses in these seminars and lectures.
+As you learned in the previous chapter about project structure, it makes sense to set up your files and folders in a particular research project folder.
 
-```
-|projects
-|--version-control-book
-|--reproducibility-book
-|--grant_neuroscience_horizon
-|--grant_neuroscience_dfg
+```{markdown filename="Output"}
+#| code-copy: false
+projects/
+├── version-control-book
+├── reproducibility-book
+├── grant_neuroscience_horizon
+├── grant_neuroscience_dfg
 ```
 
 We highly recommend to use specific R-projects for each project, respectively.
@@ -33,45 +33,50 @@ This will become clear throughout this chapter and the next chapter about `renv`
 
 To create an R-project, follow these steps:
 
-1. Open RStudio
-1. Click on the blue {{< fa cube >}} cube with a R in it and a green plus {{< fa circle-plus >}} on the outside.
+1. Open RStudio.
+1. Click on the blue {{< fa cube >}} cube with a {{< fa brands r-project >}} in it and a green plus {{< fa circle-plus >}} on the outside.
 1. Decide whether you want to create a new directory or an existing directory.
 
-Depending on your situation it makes sense to either create a new directory or turn an existing folder into an R-project.
-When you are at the beginning of your project and have not set up a project structure yet, it makes sense to create a new directory.
-Make sure, that in this case, your directory name aligns well with your project.
-When you have already set up a project structure, it makes sense to turn your project folder into an R-project. Make sure that in this case your project folder is the folder you turn into an R-project.
+Depending on your situation, it makes sense to either create a new directory or turn an existing folder into an R project.  
+When you are at the beginning of your project and have not set up a project structure yet, it makes sense to create a new directory.  
+Make sure that, in this case, your directory name aligns well with your project.  
+When you have already set up a project structure, it makes sense to turn your project folder into an R project.
+Make sure that, in this case, your project folder is the folder you turn into an R project.
 
 ::: panel-tabset
-## New Directory
+## {{< fa folder-plus >}} New directory
 
-Click on **New Directory**, then **New Project** and type in your directory name. 
-Make sure that your project is at the correct place in your folder system.
-At this time point, it does not matter whether you want to create a *git repository* and/or use *renv* with this project.
-In the future chapters you will learn the advantages of using git and renv.
+Click on **New Directory**, then **New Project**, and type in your directory name.  
+Make sure that your project is in the correct place in your folder system.  
+At this point, it does not matter whether you want to create a *Git repository* and/or use `renv` with this project.  
+In future chapters, you will learn the advantages of using Git and `renv`.
 
-When you click on **Create project**, your R project will be created.
-You will see that R created a folder named after your directory and that one file `directory-name.Rproj` is in this folder.
+When you click on **Create Project**, your R project will be created.  
+You will see that R has created a folder named after your directory and that one file, `directory-name.Rproj`, is in this folder.
 
-## Existing Directory
+## {{< fa folder >}} Existing directory
 
-Click on **Existing Directory** and make sure which folder you want to turn into an R-project.
+Click on **Existing Directory** and make sure which folder you want to turn into an R project.
 
-When you click on **Create project**, your R-project will be created. You will see that R put a file in your chosen folder called `directory-name.Rproj`.
+When you click on **Create Project**, your R project will be created.
+You will see that R has placed a file in your chosen folder called `directory-name.Rproj`.
+
 :::
 
 ::: callout-tip
 ## What is an `.Rproj`-file?
 
-The `.Rproj`-file contains the settings for all files related to your specific R project.
-It is automatically created when you create an R-project. By double-clicking on the file, you open the project in RStudio. It is not recommended to change this file manually.
+The `.Rproj` file contains settings for all files associated with your specific R project.  
+It is automatically created when you set up an R project.
+By double-clicking on the file, you can open the project in RStudio.  
+It is not recommended to modify this file manually.
 :::
 
-After you have created your R project it is time to take a deep look into your R-scripts containing the code for your projects.
+After you have created your R project, it is time to take a closer look at your R scripts containing the code for your projects.
 
 ## Comments
 
-Comments are probably the most important part of your scripts.
+Comments are probably the most important part of your scripts (but also see the discussion in @tip-comments-pros-cons).
 Whenever you write a `#` in your R-script, all code after that `#` will be identified as comment and therefore not be executed as code.
 Thus, if you put a `#` at the beginning of a line, the whole line will be identified as comment.
 Here are some thoughts about comments by Nicola Rennie:
@@ -80,7 +85,7 @@ Here are some thoughts about comments by Nicola Rennie:
 ## Adding comments
 
 - Add comments using a `#` in R (in a separate line)
-- Comments don`t need to explain *what* your code does
+- Comments don't need to explain *what* your code does
 - Comments should explain *why* you did it
 :::
 
@@ -98,87 +103,112 @@ The number of hashes you use at the beginning determines the level of section.
 # Section 2 ----
 ```
 
+::: {#tip-comments-pros-cons .callout-tip title="Pros and cons of comments" collapse="true"}
+
+Comments in code are useful because they help explain complex logic, 
+provide context for why certain decisions were made, 
+and assist future developers in understanding the code faster. 
+
+However, ideally, code should be written clearly enough that its purpose and functionality are apparent without the need for excessive comments. 
+Well-structured, self-explanatory code enhances readability and reduces maintenance. 
+
+On the other hand, beginners often find comments valuable, 
+even in well-written code, as they can serve as a learning tool, 
+guiding them through unfamiliar concepts and helping them understand the underlying logic.
+
+:::
+
 ## Absolute and relative file paths
 
-All of the time when you are doing research, you have to conduct your analysis on some sort of data.
-This data is usually stored in one or more files.
-Thus, you have to read the data into your script.
-To do so, you need to refer to the files you want to read.
-Here comes a first advantage of setting up a particular R-project for your research project.
+Whenever you are conducting research, you need to analyze some form of data.  
+This data is typically stored in one or more files.  
+Therefore, you need to read the data into your script.  
+To do so, you must refer to the files you want to read.  
+This is where the first advantage of setting up a dedicated R project for your research becomes apparent.
 
-You can read data or code into your R-environment by referring to your data through absolute paths and relative paths.
+You can read data or code into your R environment by referring to your files using **absolute paths** or **relative paths**.
 
-### Absolute file paths
+### Absolute paths
 
-Using an absolute path means that you refer to your file name by going through your whole computer folder structure:
-
-```{r}
-#| eval: false
-data <- read_csv("/Users/my-user-name/document/projects/my-project/data/data-raw.csv")
-```
-
-Using absolute file paths is not recommended in terms of computational reproducibility.
-A collaborator or interested researcher who downloaded your scripts and wants to reproduce your analysis has to change these paths before the scripts can run correctly.
+Using an absolute path means referring to your file by specifying the entire folder structure on your computer:
 
 ```{r}
 #| eval: false
-data <- read_csv("/Users/user-name-b/desktop/work/research/my-project/data/data-raw.csv")
+data <- read_csv("/Users/my-user-name/Documents/projects/my-project/data/data-raw.csv")
 ```
 
-### Relative file paths
+Using absolute file paths is not recommended for computational reproducibility.  
+A collaborator or interested researcher who downloads your scripts and wants to reproduce your analysis would need to adjust these paths before the scripts can run correctly.
 
-A relative file path takes the path from your current *working directory* and puts it before your relative path.
+```{r}
+#| eval: false
+data <- read_csv("/Users/user-name-b/Desktop/work/research/my-project/data/data-raw.csv")
+```
+
+### Relative paths
+
+A relative file path starts from your current *working directory* and appends the relative path.  
 You can check your current working directory in R by using the `getwd()` command in the R Console.
 
-```{zsh, filename="Console"}
->getwd()
+```{r, filename="Console"}
+> getwd()
 [1] "Users/my-user-name/my-project"
 ```
 
-By default, the working directory in an R project is the project folder, in the example called `my-project`.
+By default, the working directory in an R project is the project folder, which in this example is called `my-project`.
 
-You can then use the relative file path from that folder to read your data.
-You can use the file path that starts *after* the working directory:
+You can then use a relative file path from that folder to read your data.  
+The file path should start *after* the working directory:
 
 ```{r}
 #| eval: false
 data <- read_csv("data/data-raw.csv")
 ```
 
-Thus, all relative paths to the files in an R-project remain the same insensitive to the person who wants to work with that project.
+Thus, all relative paths to the files in an R project remain the same, regardless of who wants to work with the project.
 
 ## Code Style {#sec-codestyle}
 
 >"Good coding style is like correct punctuation: you can manage without it, butitsuremakethingseasiertoread" 
 > -- Wickham et al. (2024)
 
-One important aspect that fosters understandability of code is the code style.
-In this section, we will present the `tidyverse`-codestyle by Wickham et al. (2024).
-The Tidyverse is a collection of R packages particularly useful for data wrangling, manipulation and visualization.
+One important aspect that enhances the understandability of code is the code style.
+In this section, we will present the `tidyverse` code style as outlined by Wickham et al. (2024).
+The `tidyverse` is a collection of R packages particularly useful for data wrangling, manipulation, and visualization.
 All packages share an underlying design philosophy, grammar, and data structures.
 
-In psychology, the grammar of tidyverse is widely used for data wrangling. In this section we will give a short introduction on code style.
+In psychology, the grammar of the `tidyverse` is widely used for data wrangling.
+In this section, we will provide a brief introduction to code style.
 
 ### Names
 
-Not only files and folders should be named well, the same applies to variable names and functions in scripts.
-Variable and function names should only consist of lowercase letters, numbers and underscores `_`.
-It is better to have descriptive long names rather than short abbreviations you do not understand in the future.
+Not only should files and folders be named well (see chapter on [naming thigs](naming-things.qmd)), but the same applies to variable and function names in scripts.
+Variable and function names should only consist of lowercase letters, numbers, and underscores (`_`).
+It is better to use descriptive, longer names rather than short abbreviations that you may not understand in the future.
 
-```{r}
+:::: columns
+::: {.column width="49%"}
+```{r filename="Strive for"}
 #| eval: false
-# Strive for:
-short_flights <- flights |> filter(air_time < 60)
-
-# Avoid:
-SHORTFLIGHTS <- flights |> filter(air_time < 60)
+short_flights <- flights |>
+  filter(air_time < 60)
 ```
+:::
+::: {.column width="2%"}
+:::
+::: {.column width="49%"}
+```{r filename="Avoid"}
+#| eval: false
+SHORTFLIGHTS <- flights |>
+  filter(air_time < 60)
+```
+::::
 
 ### Spaces
 
-Put spaces around mathematical operators (except `^`) and around the assignment operator (`<-`).
-Do not put spaces around parentheses when you use functions.
-Put a space after a comma as you would in standard English.
+Put spaces around mathematical operators (except `^`) and around the assignment operator (`<-`).  
+Do not put spaces around parentheses when using functions.  
+Put a space after a comma, as you would in standard English.
 
 ```{r}
 #| eval: false
@@ -191,8 +221,8 @@ mean (x ,na.rm=TRUE)
 
 ### Pipes
 
-The pipe (either `|>`or `%>%`) is a useful operator to connect subsequent operations with your code.
-The pipe takes everything left to the pipe and uses it as first argument to the function of the right side.
+The pipe (either `|>` or `%>%`) is a useful operator for connecting subsequent operations in your code.  
+The pipe takes everything to the left of it and uses it as the first argument to the function on the right side.
 
 >Here a cartoon illustrating how the pipe works would be fun.
 
@@ -205,7 +235,9 @@ sum(c(1:4))
 c(1:4) |> sum()
 ```
 
-The pipe is particularly useful, when you subsequently connect many functions after each other. Therefore, use `|>` at the end of a line and use a space before it. The complete sequence of functions connected by a pipe is also called a **pipeline**.
+The pipe is particularly useful when you chain many functions together.
+Therefore, use `|>` at the end of a line and add a space before it.
+The complete sequence of functions connected by a pipe is also called a **pipeline**.
 
 ```{r}
 #| eval: false
@@ -223,8 +255,8 @@ data |>
   )
 ```
 
-The code displayed above is way easier to read and understand for future you and other researchers, therefore increasing the possibility for reproducibility.
-Translated into plain English the pipe represents an *"and then"*:
+The code displayed above is much easier to read and understand for your future self and other researchers, thereby increasing the likelihood of reproducibility.
+Translated into plain English, the pipe represents an *"and then"*:
 
 1. Take the data *and then*
 1. select the variables `N` and `gender` *and then*
@@ -232,17 +264,16 @@ Translated into plain English the pipe represents an *"and then"*:
 1. group the dataset by the variable `gender` *and then*
 1. summarise your datasets by calculating the mean and median for the variable `N` for each group.
 
-
 ### Line breaks
 
-If a function requires you to name arguments (as `summarise()`), put each argument on a new line.
-If a function does not require you to name arguments (as `group_by()`), keep your code in one line except it extends one code line.
-Then, you should put each argument on its own line.
+If a function requires you to name arguments (as with `summarise()`), put each argument on a new line.
+If a function does not require you to name arguments (as with `group_by()`), keep your code on one line unless it extends beyond the width of a line.
+In that case, put each argument on its own line.
 
-When you start a new line after using `|>` or a function as `summarise()`, indent the new line by two spaces (if not already done automatically).
+When you start a new line after using `|>` or a function like `summarise()`, indent the new line by two spaces (if not already done automatically).
 If you are putting each argument on a separate line, also indent the new line by two spaces.
 Make sure that the closing parenthesis `)` is on its own line and not indented.
-Thus, the closing parenthesis matches the horizontal position of the function you are using.
+Thus, the closing parenthesis should align with the horizontal position of the function you are using.
 
 ```{r}
 #| eval: false
@@ -280,36 +311,37 @@ flights|>
 cat(make_figure("horst-tidydata"))
 ```
 
-When you work with datasets, you will likely not be able to directly conduct your data analysis (e.g. `t-tests`, `ANOVAs`, `GLMs`).
-In fact, most of the time you are facing datasets, on which you will spend more time organizing your data than running your analysis.
-A helpful concept is **tidy data**, which is a common guideline for datasets to be organized.
-Tidy data refers to the `tidyverse` that was introduced in @sec-codestyle.
-Following tidy data guidelines will help you running analyses and getting the most out of your data.
+When working with datasets, you will likely not be able to directly conduct your data analysis (e.g., `t-tests`, `ANOVAs`, `GLMs`).  
+In fact, most of the time, you will spend more time organizing your data than running your analysis.  
+A helpful concept is **tidy data**, which is a common guideline for organizing datasets.  
+Tidy data is closely related to the principles of the `tidyverse` introduced in @sec-codestyle.  
+Following tidy data guidelines will help you run analyses and get the most out of your data.
 
 ::: callout-important
 ## Tidy Data
 
 Tidy datasets follow three basic rules:
 
-1.  Each variable is a column; each column is a variable.
-1.  Each observation is a row; each row is an observation.
-1.  Each value is a cell; each cell is a value.
+1. Each variable is a column, and each column is a variable.
+1. Each observation is a row, and each row is an observation.
+1. Each value is a cell, and each cell contains a value.
 :::
 
 ![Visualization of Tidy Data by Wickham et al. ([2024](https://r4ds.hadley.nz/data-tidy)). Used under a [CC BY-NC-ND 3.0 US license](http://creativecommons.org/licenses/by-nc-nd/3.0/us/).](/images/tidy-1.png){fig-align="center"}
 
-The way from raw to tidy data can be long and frustrating.
-This book cannot provide a full insight into data wrangling and data manipulation.
-However, if you are interested in learning functions for data manipulation, we recommend studying the `dplyr()`-package and its [documentation](https://dplyr.tidyverse.org) as well as the `tidyr()`-package and its [documentation](https://tidyr.tidyverse.org).
-From our experience, using and sharing code written in the tidyverse language fosters understanding of the code, therefore enhancing computational reproducibility.
+The journey from raw to tidy data can be long and frustrating.
+This book cannot provide a full overview of data wrangling and manipulation.
+However, if you are interested in learning functions for data manipulation, we recommend studying the `dplyr` package and its [documentation](https://dplyr.tidyverse.org), as well as the `tidyr` package and its [documentation](https://tidyr.tidyverse.org).
+From our experience, using and sharing code written in the tidyverse style fosters better understanding of the code, thereby enhancing computational reproducibility.
 
 ### Data structures
 
-Data can be structured in different ways. When your data is tidy, you still can face **wide** or **long data**.
+Data can be structured in different ways.
+When your data is tidy, you may still encounter **wide** or **long** formats.
 
-As a rule of thumb, you can memorise this:
-Data that is structured in a *long format* usually contains *repetitive* values in the first column of the dataset.
-Data that is structured in a *wide format* usually contains *non-repetitive* values in the first column of the dataset.
+As a rule of thumb, you can remember this:  
+Data structured in a *long format* usually contains *repetitive* values in the first column of the dataset.  
+Data structured in a *wide format* usually contains *non-repetitive* values in the first column of the dataset.
 
 ::: panel-tabset
 
@@ -338,9 +370,9 @@ print(data_wide)
 #| echo: false
 #| eval: true
 data_long <- tibble(
-  participant = c(1,1,2,2,3,3),
+  participant = c(1, 1, 2, 2, 3, 3),
   congruency = rep(c("congruent", "incongruent"), times = 3),
-  reaction_time = c(560,720, 623, 799, 547, 812)
+  reaction_time = c(560, 720, 623, 799, 547, 812)
 )
 
 print(data_long)
@@ -353,33 +385,31 @@ However, this rule of thumb does not always apply, for example when data is rear
 ```{r rearranged long data}
 #| echo: false
 #| eval: true
-
 print("Data in long format")
 data_long |>
   select(reaction_time, congruency, participant) |>
   print()
 ```
 
-Another perspective on wide vs. long data includes the context of the data.
-In research, a common question is how a variable A influences variable B.
-B is dependent on A.
-That makes variable B the dependent variable (DV) and variable A the independent variable (IV).
-In the wide data format, the names of the factor levels of the IV are usually column names, whereas the DV is displayed in the values across these cells.
-In contrast, in the long data format, the names of the factor levels of the IV are usually values in the column of the IV.
-The name of the IV constitutes the column name rather than the level of the IV.
-Simultaneously, the DV is displayed in one column with the name of the DV as column name and values in only this particular column.
+Another perspective on wide vs. long data comes from the context of the data.
+In research, a common question is how variable A influences variable B.
+Variable B is dependent on variable A, making variable B the dependent variable (DV) and variable A the independent variable (IV).
+
+In the wide data format, the names of the factor levels of the IV are usually column names, while the DV is displayed as the values across these cells.
+In contrast, in the long data format, the names of the factor levels of the IV are typically values in the column of the IV.
+The name of the IV becomes the column name, rather than the level of the IV.
+Simultaneously, the DV is displayed in one column with the name of the DV as the column name and the corresponding values in that column.
 
 ### Changing the data structure
 
-Dependent on which R-functions you want to use or other reasons, you might have to or want to change your data structure from wide to long or vice versa.
-An easy way to do so, is to use `pivot_wider()` and `pivot_longer()` from the `tidyr()`-package.
+Depending on which R functions you want to use or other reasons, you may need to or want to change your data structure from wide to long or vice versa.
+An easy way to do this is by using `pivot_wider()` and `pivot_longer()` from the `tidyr` package.
 
 #### `pivot_longer()`
 
-`pivot_longer()` takes your dataset and makes it longer. 
-It takes certain columns and puts their names as values into a new column.
-Further, it takes the values of these columns and puts the values together in one column.
-
+`pivot_longer()` takes your dataset and makes it longer.  
+It takes certain columns and places their names as values into a new column.  
+Additionally, it combines the values of these columns into a single column.
 
 ```{r}
 #| eval: true
@@ -394,11 +424,11 @@ data_wide |>                                # <1>
   print()
 ```
 
-1. take the dataset `data_wide`, and then
-2. apply the function `pivot_longer()` on the data by
-3. specifying the columns that should be turned in to a long format,
-4. naming the new column with the previous column names in it, and
-5. naming the new column with the values of the previous columns in it.
+1. Take the dataset `data_wide`, then  
+2. Apply the function `pivot_longer()` to the data by  
+3. Specifying the columns that should be transformed into a long format,  
+4. Naming the new column to hold the previous column names, and  
+5. Naming the new column to hold the values of the previous columns.
 
 #### `pivot_wider()`
 
@@ -415,32 +445,31 @@ data_long |>                                # <1>
   print()
 ```
 
-1. take the dataset `data_long`
-2. apply the function `pivot_wider` on the data by
-3. specifying the column name from which to take the new column names, and
-4. specifying the column namen from which to take the values of the new column names.
+1. Take the dataset `data_long`,  
+2. Apply the function `pivot_wider()` to the data by  
+3. Specifying the column name from which to create the new column names, and  
+4. Specifying the column name from which to take the values for the new columns.
 
-## Advanced: Defensive programming
+## Defensive programming
 
-Whenever you write code for data analysis or anything else, it is useful to validate what you are doing.
-This is also called **defensive programming**.
-Defensive in this context is meant as cautious.
+Whenever you write code for data analysis or any other purpose, it is useful to validate what you are doing.
+This is also known as **defensive programming**.
+"Defensive" in this context means cautious.
 Here are some potential benefits of validating your code:
 
-- early error detection
-- code clarity
-- protection against invalid input
-- monitor data quality
-- improved documentation
-- improved error handling
-
+- Early error detection  
+- Code clarity  
+- Protection against invalid input  
+- Monitoring data quality  
+- Improved documentation  
+- Improved error handling
 
 ### The `assertr` package and it's function `verify()`
 
-The [`assertr`](https://cran.r-project.org/web/packages/assertr/vignettes/assertr.html)-package helps you when you start considering to test your code.
-When you start adopting coding in the tidyverse-codestyle, the function `verify()` will be very easy for you to apply in your code.
-`verify()` can be easily integrated into a pipeline of code.
-Here is an example of how verify() can be integrated into your tidy code:
+The [`assertr`](https://cran.r-project.org/web/packages/assertr/vignettes/assertr.html) package helps you when you start testing your code.
+Once you begin adopting the tidyverse coding style, the function `verify()` will be easy to apply in your code.
+`verify()` can be seamlessly integrated into a code pipeline.  
+Here is an example of how `verify()` can be integrated into your tidy code:
 
 ```{r}
 #| eval: true
@@ -452,22 +481,22 @@ data_long |>
   head()
 ```
 
-The `verify()` function take a data frame (which is the first argument of the function and provided by the `|>` operator) and a logical expression.
-Then, the expression is evaluated in the context of the data frame.
-When the expression is `TRUE`, no error occurs and the pipe goes on.
-When the expression is `FALSE`, verify will raise an error that terminates any further processing of the pipeline (Fischetti, 2023).
+The `verify()` function takes a data frame (which is the first argument of the function and provided by the `|>` operator) and a logical expression.
+The expression is then evaluated in the context of the data frame.
+When the expression is `TRUE`, no error occurs, and the pipe continues.
+When the expression is `FALSE`, `verify()` raises an error that terminates any further processing of the pipeline (Fischetti, 2023).
 
 ### Further functions and packages
 
-The `verify()` function provides an easy way of starting validating your code within a tidyverse codestyle.
-However, more functions from the `assertr`-package can be applied for defensive programming.
-Going through all of these functions exceeds the scope of this book.
-Therefore, we cannot only recommend to read the bycoming [vignette ](https://cran.r-project.org/web/packages/assertr/vignettes/assertr.html) by Tony Fischetti, the author of the `assertr`-package.
+The `verify()` function provides an easy way to start validating your code within a tidyverse coding style.  
+However, there are more functions from the `assertr` package that can be applied for defensive programming.  
+Going through all of these functions exceeds the scope of this book.  
+Therefore, we highly recommend reading the accompanying [vignette](https://cran.r-project.org/web/packages/assertr/vignettes/assertr.html) by Tony Fischetti, the author of the `assertr` package.
 
-Furthermore, `assertr` is not the only {{< fa brands r-project >}} package dealing with defensive programming.
-`assert`, `assertthat`, and `testthat` are other powerful packages in this context.
-In general, code validation is not too popular in scientific practice.
-It is rather prevalent in software development contexts.
+Furthermore, `assertr` is not the only {{< fa brands r-project >}} package dealing with defensive programming.  
+Other powerful packages in this context include `assert`, `assertthat`, and `testthat`.  
+In general, code validation is not widely practiced in scientific work.  
+It is more common in software development contexts.
 
 ## Acknowledgements & further reading
 
