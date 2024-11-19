@@ -710,10 +710,23 @@ Here are some potential benefits of validating your code:
 The [`assertr`](https://cran.r-project.org/web/packages/assertr/vignettes/assertr.html) package helps you when you start testing your code.
 Once you begin adopting the tidyverse coding style, the function `verify()` will be easy to apply in your code.
 `verify()` can be seamlessly integrated into a code pipeline.  
-Here is an example of how `verify()` can be integrated into your tidy code:
+
+The `verify()` function takes a data frame (which is the first argument of the function and provided by the `|>` operator) and a logical expression.
+Then, the expression is evaluated in the context of the data frame.
+When the expression is `TRUE`, no error occurs and the pipe goes on.
+When the expression is `FALSE`, verify will raise an error that terminates any further processing of the pipeline [@fischetti2023].
+
+::: panel-tabset
+
+## Verification passed
+
+In this example, a dataframe will only be printed, if all values in the column `reaction_time` are higher than 200.
+This holds true for `data_long`, but not for `data_long_2`.
+`data_long_2` has one value (`24`) violating the verify expression.
 
 ```{r filename = "Code"}
 #| eval: true
+#| asis: false
 library(assertr)
 
 # verify if reaction time is longer than 200ms
@@ -722,27 +735,32 @@ data_long |>
   print()
 ```
 
-The `verify()` function takes a data frame (which is the first argument of the function and provided by the `|>` operator) and a logical expression.
-Then, the expression is evaluated in the context of the data frame.
-When the expression is `TRUE`, no error occurs and the pipe goes on.
-When the expression is `FALSE`, verify will raise an error that terminates any further processing of the pipeline [@fischetti2023] (Fischetti, 2023).
+## Verification failed
 
-```{zsh filename = "Console"}
->data_long |>
-  +verify(reaction_time < 200) |>
-  +print()
-verification [reaction_time < 200] failed! (6 failures)
+In this example, a dataframe will only be printed, if all values in the column `reaction_time` are higher than 200.
+This holds true for `data_long`, but not for `data_long_2`.
+`data_long_2` has one value (`24`) violating the verify expression.
+
+```{r filename = "Code"}
+#| eval: false
+data_long_2 <- data_long
+data_long_2[5,3] <- 24
+
+data_long_2 |>
+  verify(reaction_time > 200) |>
+  print()
+```
+
+```{r filename="Console output"}
+#| eval: false
+verification [reaction_time > 200] failed! (1 failure)
 
     verb redux_fn           predicate column index value
-1 verify       NA reaction_time < 200     NA     1    NA
-2 verify       NA reaction_time < 200     NA     2    NA
-3 verify       NA reaction_time < 200     NA     3    NA
-4 verify       NA reaction_time < 200     NA     4    NA
-5 verify       NA reaction_time < 200     NA     5    NA
-6 verify       NA reaction_time < 200     NA     6    NA
+1 verify       NA reaction_time < 200     NA     5    NA
 
 Error: assertr stopped execution
 ```
+:::
 
 ### Further functions and packages
 
