@@ -10,6 +10,14 @@ abstract: |
   In this chapter, you will learn good coding practices to help other researchers and your future self with the code you used for your analysis.
 ---
 
+```{r setup}
+#| echo: false
+library(tibble)
+library(dplyr)
+library(tidyr)
+library(assertr)
+```
+
 # Good coding practices
 
 ## R projects
@@ -93,7 +101,7 @@ You can use `#` not only for comments but also for creating sections and subsect
 To do so, you must start a line with at least one hash `#` and put at least 4 hyphens after your comment.
 The number of hashes you use at the beginning determines the level of section.
 
-```{r}
+```{r filename = "Code"}
 # Section 1 ----
 
 ## Subsection 1.1 ----
@@ -132,7 +140,7 @@ You can read data or code into your R environment by referring to your files usi
 
 Using an absolute path means referring to your file by specifying the entire folder structure on your computer:
 
-```{r}
+```{r filename = "Code"}
 #| eval: false
 data <- read_csv("/Users/my-user-name/Documents/projects/my-project/data/data-raw.csv")
 ```
@@ -140,7 +148,7 @@ data <- read_csv("/Users/my-user-name/Documents/projects/my-project/data/data-ra
 Using absolute file paths is not recommended for computational reproducibility.  
 A collaborator or interested researcher who downloads your scripts and wants to reproduce your analysis would need to adjust these paths before the scripts can run correctly.
 
-```{r}
+```{r filename = "Code"}
 #| eval: false
 data <- read_csv("/Users/user-name-b/Desktop/work/research/my-project/data/data-raw.csv")
 ```
@@ -160,7 +168,7 @@ By default, the working directory in an R project is the project folder, which i
 You can then use a relative file path from that folder to read your data.  
 The file path should start *after* the working directory:
 
-```{r}
+```{r filename = "Code"}
 #| eval: false
 data <- read_csv("data/data-raw.csv")
 ```
@@ -170,11 +178,11 @@ Thus, all relative paths to the files in an R project remain the same, regardles
 ## Code Style {#sec-codestyle}
 
 >"Good coding style is like correct punctuation: you can manage without it, butitsuremakethingseasiertoread" 
-> -- Wickham et al. (2024)
+> -- Wickham et al. (2023)
 
-One important aspect that enhances the understandability of code is the code style.
-In this section, we will present the `tidyverse` code style as outlined by Wickham et al. (2024).
-The `tidyverse` is a collection of R packages particularly useful for data wrangling, manipulation, and visualization.
+One important aspect that fosters understandability of code is the code style.
+In this section, we will present the `tidyverse`-codestyle [@wickham2023].
+The Tidyverse is a collection of R packages particularly useful for data wrangling, manipulation and visualization.
 All packages share an underlying design philosophy, grammar, and data structures.
 
 In psychology, the grammar of the `tidyverse` is widely used for data wrangling.
@@ -210,7 +218,7 @@ Put spaces around mathematical operators (except `^`) and around the assignment 
 Do not put spaces around parentheses when using functions.  
 Put a space after a comma, as you would in standard English.
 
-```{r}
+```{r filename = "Code"}
 #| eval: false
 # Strive for
 mean(x, na.rm = TRUE)
@@ -226,7 +234,7 @@ The pipe takes everything to the left of it and uses it as the first argument to
 
 >Here a cartoon illustrating how the pipe works would be fun.
 
-```{r}
+```{r filename = "Code"}
 #| eval: false
 # Without pipe
 sum(c(1:4))
@@ -239,7 +247,7 @@ The pipe is particularly useful when you chain many functions together.
 Therefore, use `|>` at the end of a line and add a space before it.
 The complete sequence of functions connected by a pipe is also called a **pipeline**.
 
-```{r}
+```{r filename = "Code"}
 #| eval: false
 # Without pipe
 summarise(group_by(filter(select(data, N, gender), gender == "male" | gender == "female"), gender), mean = mean(N))
@@ -264,6 +272,38 @@ Translated into plain English, the pipe represents an *"and then"*:
 1. group the dataset by the variable `gender` *and then*
 1. summarise your datasets by calculating the mean and median for the variable `N` for each group.
 
+
+::: {.callout-note collapse="true"}
+## Difference between `%>%` and `|>`
+
+In basic code, `%>%` and `|>` behave the same in the simple cases we cover here.
+In general, `%>%` has some advantages when you want to code more complex cases.
+If you are interested when it matters if you either use `%>%`or `|>`, we recommend [this](https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/) resource.
+
+::: panel-tabset
+## `%>%`
+
+The `%>%` pipe was introduced in the context of the `tidyverse`.
+It comes with the package `magrittr` and con only be used when this package is installed and loaded.
+
+```{r filename = "Code"}
+#| eval: false
+install.packages("magrittr")
+library(magrittr)
+```
+
+However, you can also use it, when you load another package from the `tidyverse` such as `dplyr`. 
+This is because `dplyr` imports `magrittr` when it is loaded.
+
+## `|>`
+
+The `|>` pipe comes with the basic R. 
+To use `|>` in R, you have to go to **Tools** > **Global Options** > **Code** and tick the box **Use native pipe operator, |> (repquires R 4.1+)**.
+
+:::
+
+:::
+
 ### Line breaks
 
 If a function requires you to name arguments (as with `summarise()`), put each argument on a new line.
@@ -275,7 +315,7 @@ If you are putting each argument on a separate line, also indent the new line by
 Make sure that the closing parenthesis `)` is on its own line and not indented.
 Thus, the closing parenthesis should align with the horizontal position of the function you are using.
 
-```{r}
+```{r filename = "Code"}
 #| eval: false
 # Strive for 
 flights |>  
@@ -302,6 +342,58 @@ flights|>
   )
 ```
 
+### Evaluate your code style
+
+After you have learned the `tidyverse` codestyle, you can check your code if you have any deviations from that codestyle.
+This is called "linting" and comparable to a program that checks for spelling errors.
+The `lintr` package [@hester2024] can do that for you and analyses your code for...
+
+- stylistic issues (e.g. `x<-3` vs. `x <- 3`)
+- common errors (e.g. `mean(x, na.rm = T, na.rm = F)`)
+- missing packages
+- ...
+
+::: callout-caution
+However, note that `lintr` cannot check whether your code runs correctly!
+:::
+
+::: {.callout-tip collapse="false"}
+## Example of `lintr`
+
+Suppose you have script called `test-script.R` in the folder `scripts` of your research projects.
+Your script looks as follows:
+
+```{r filename = "test-script.R"}
+#| code-line-numbers: true
+# Test Script
+
+df <- matrix(c(1,2,3,4,5,6), nrow = 2, ncol = 3)
+```
+
+After you installed and loaded the package `lintr`, run: `lintr::lint("scripts/test-script.R")` in your R-console:
+
+```{r filename = "Console"}
+install.packages("lintr")
+library(lintr)
+lintr::lint("scripts/test-script.R")
+```
+
+Next to your Console, a new tab will open called **Markers**, displaying all syntax messages `lintr` found in your script.
+
+```{r filename = "Markers"}
+Line 3 [commas_linter] Commas should always have a space after.
+Line 3 [commas_linter] Commas should always have a space after.
+Line 3 [commas_linter] Commas should always have a space after.
+Line 3 [commas_linter] Commas should always have a space after.
+Line 3 [commas_linter] Commas should always have a space after.
+```
+
+In `test-script.R`, lintr wants us to separate the numbers 1 to 6 by spaces after commas.
+For every missing comma, `lintr` displays a separate error message.
+After adding the spaces, saving the script, and running `lintr::lint("scripts/test-script.R")` again, no error messages are displayed in the **Markers** tab.
+
+:::
+
 ## Tidy Data
 
 ```{r}
@@ -327,7 +419,12 @@ Tidy datasets follow three basic rules:
 1. Each value is a cell, and each cell contains a value.
 :::
 
-![Visualization of Tidy Data by Wickham et al. ([2024](https://r4ds.hadley.nz/data-tidy)). Used under a [CC BY-NC-ND 3.0 US license](http://creativecommons.org/licenses/by-nc-nd/3.0/us/).](/images/tidy-1.png){fig-align="center"}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("tidy-data"))
+```
 
 The journey from raw to tidy data can be long and frustrating.
 This book cannot provide a full overview of data wrangling and manipulation.
@@ -347,7 +444,7 @@ Data structured in a *wide format* usually contains *non-repetitive* values in t
 
 ## {{< fa arrows-left-right >}} Wide format
 
-```{r example wide and long format}
+```{r filename = "Code"}
 #| echo: false
 #| eval: true
 
@@ -366,7 +463,7 @@ print(data_wide)
 
 ## {{< fa arrows-up-down >}} Long format
 
-```{r}
+```{r filename = "Code"}
 #| echo: false
 #| eval: true
 data_long <- tibble(
@@ -382,7 +479,7 @@ print(data_long)
 
 However, this rule of thumb does not always apply, for example when data is rearranged.
 
-```{r rearranged long data}
+```{r filename = "Code"}
 #| echo: false
 #| eval: true
 print("Data in long format")
@@ -411,7 +508,8 @@ An easy way to do this is by using `pivot_wider()` and `pivot_longer()` from the
 It takes certain columns and places their names as values into a new column.  
 Additionally, it combines the values of these columns into a single column.
 
-```{r}
+
+```{r filename = "Code"}
 #| eval: true
 library(tidyr)
 
@@ -432,9 +530,11 @@ data_wide |>                                # <1>
 
 #### `pivot_wider()`
 
-`pivot_wider()` takes your dataset and makes it wider. 
+`pivot_wider()` takes your dataset and makes it wider.
+It takes the names of a certain column and changes them to new column names.
+Further, it takes the values of a second column and puts them across the new columns to their corresponding names.
 
-```{r}
+```{r filename = "Code"}
 #| eval: true
 
 data_long |>                                # <1>
@@ -471,20 +571,37 @@ Once you begin adopting the tidyverse coding style, the function `verify()` will
 `verify()` can be seamlessly integrated into a code pipeline.  
 Here is an example of how `verify()` can be integrated into your tidy code:
 
-```{r}
+```{r filename = "Code"}
 #| eval: true
 library(assertr)
 
 # verify if reaction time is longer than 200ms
 data_long |>
   verify(reaction_time > 200) |>
-  head()
+  print()
 ```
 
 The `verify()` function takes a data frame (which is the first argument of the function and provided by the `|>` operator) and a logical expression.
-The expression is then evaluated in the context of the data frame.
-When the expression is `TRUE`, no error occurs, and the pipe continues.
-When the expression is `FALSE`, `verify()` raises an error that terminates any further processing of the pipeline (Fischetti, 2023).
+Then, the expression is evaluated in the context of the data frame.
+When the expression is `TRUE`, no error occurs and the pipe goes on.
+When the expression is `FALSE`, verify will raise an error that terminates any further processing of the pipeline [@fischetti2023] (Fischetti, 2023).
+
+```{zsh filename = "Console"}
+>data_long |>
+  +verify(reaction_time < 200) |>
+  +print()
+verification [reaction_time < 200] failed! (6 failures)
+
+    verb redux_fn           predicate column index value
+1 verify       NA reaction_time < 200     NA     1    NA
+2 verify       NA reaction_time < 200     NA     2    NA
+3 verify       NA reaction_time < 200     NA     3    NA
+4 verify       NA reaction_time < 200     NA     4    NA
+5 verify       NA reaction_time < 200     NA     5    NA
+6 verify       NA reaction_time < 200     NA     6    NA
+
+Error: assertr stopped execution
+```
 
 ### Further functions and packages
 
@@ -493,10 +610,13 @@ However, there are more functions from the `assertr` package that can be applied
 Going through all of these functions exceeds the scope of this book.  
 Therefore, we highly recommend reading the accompanying [vignette](https://cran.r-project.org/web/packages/assertr/vignettes/assertr.html) by Tony Fischetti, the author of the `assertr` package.
 
-Furthermore, `assertr` is not the only {{< fa brands r-project >}} package dealing with defensive programming.  
-Other powerful packages in this context include `assert`, `assertthat`, and `testthat`.  
-In general, code validation is not widely practiced in scientific work.  
-It is more common in software development contexts.
+Furthermore, `assertr` is not the only {{< fa brands r-project >}} package dealing with defensive programming.
+[`assert`](https://cran.r-project.org/web/packages/assert/assert.pdf), [`assertthat`](https://cran.r-project.org/web/packages/assertthat/assertthat.pdf), and [`testthat`](https://cran.r-project.org/web/packages/testthat/testthat.pdf) are other powerful packages in this context.
+In general, code validation is not too popular in scientific practice.
+It is rather prevalent in software development contexts validating functions and whole scripts for specific purposes.
+These thorough testing processes extends the scope of computational reproducibility in our opinion.
+Thus, we recommend `assertr::verify()` as a good starting point for defensive programming in the context of computational reproducibility.
+
 
 ## Acknowledgements & further reading
 
@@ -507,4 +627,4 @@ We recommend these references for further reading:
 |------------------------------------------------------------------------|
 | Buhr, J. (2023). *Introduction to Data Analysis with R.* <https://jmbuhr.de/dataintro/> |
 | Rennie, N. (2024). *Writing Better R Code.* <https://nrennie.rbind.io/training-better-r-code/> |
-| Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2024). *R for Data Science (2e)*. <https://r4ds.hadley.nz> |
+| Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). *R for Data Science (2e)*. <https://r4ds.hadley.nz> |
