@@ -195,6 +195,7 @@ Variable and function names should only consist of lowercase letters, numbers, a
 It is better to use descriptive, longer names rather than short abbreviations that you may not understand in the future.
 
 :::: columns
+
 ::: {.column width="49%"}
 ```{r filename="Strive for"}
 #| eval: false
@@ -202,14 +203,18 @@ short_flights <- flights |>
   filter(air_time < 60)
 ```
 :::
+
 ::: {.column width="2%"}
 :::
+
 ::: {.column width="49%"}
 ```{r filename="Avoid"}
 #| eval: false
 SHORTFLIGHTS <- flights |>
   filter(air_time < 60)
 ```
+:::
+
 ::::
 
 ### Spaces
@@ -218,14 +223,26 @@ Put spaces around mathematical operators (except `^`) and around the assignment 
 Do not put spaces around parentheses when using functions.  
 Put a space after a comma, as you would in standard English.
 
-```{r filename = "Code"}
-#| eval: false
-# Strive for
-mean(x, na.rm = TRUE)
+:::: columns
 
-# Avoid
+::: {.column width="49%"}
+```{r filename = "Strive for"}
+#| eval: false
+mean(x, na.rm = TRUE)
+```
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="49%"}
+```{r filename="Avoid"}
+#| eval: false
 mean (x ,na.rm=TRUE)
 ```
+:::
+
+::::
 
 ### Pipes
 
@@ -247,21 +264,37 @@ The pipe is particularly useful when you chain many functions together.
 Therefore, use `|>` at the end of a line and add a space before it.
 The complete sequence of functions connected by a pipe is also called a **pipeline**.
 
-```{r filename = "Code"}
-#| eval: false
-# Without pipe
-summarise(group_by(filter(select(data, N, gender), gender == "male" | gender == "female"), gender), mean = mean(N))
+:::: columns
 
-# With pipe
+:::{.column width="49%"}
+```{r filename = "Strive for"}
+#| eval: false
 data |>
   select(N, gender) |>
-  filter(gender == "male" | gender == "female") |>
+  filter(
+    gender == "male" |
+    gender == "female"
+  ) |>
   group_by(gender) |>
   summarise(
     mean = mean(N),
     median = md(N)
   )
 ```
+:::
+
+:::{.column width="2%"}
+:::
+
+:::{.column width="49%"}
+```{r filename = "Avoid"}
+#| eval: false
+
+summarise(group_by(filter(select(data, N, gender), gender == "male" | gender == "female"), gender), mean = mean(N))
+```
+:::
+
+::::
 
 The code displayed above is much easier to read and understand for your future self and other researchers, thereby increasing the likelihood of reproducibility.
 Translated into plain English, the pipe represents an *"and then"*:
@@ -315,25 +348,36 @@ If you are putting each argument on a separate line, also indent the new line by
 Make sure that the closing parenthesis `)` is on its own line and not indented.
 Thus, the closing parenthesis should align with the horizontal position of the function you are using.
 
-```{r filename = "Code"}
+:::: columns
+
+::: {.column width="49%"}
+```{r filename = "Strive for"}
 #| eval: false
-# Strive for 
 flights |>  
   group_by(tailnum) |> 
   summarize(
-    delay = mean(arr_delay, na.rm = TRUE),
+    delay = mean(
+      x = arr_delay,
+      na.rm = TRUE
+    ),
     n = n()
   )
+```
+:::
 
-# Avoid
+::: {.column width="2%"}
+:::
+
+::: {.column width="49%"}
+```{r filename = "Avoid"}
 flights|>
   group_by(tailnum) |> 
   summarize(
              delay = mean(arr_delay, na.rm = TRUE), 
              n = n()
            )
+#or:
 
-# Avoid
 flights|>
   group_by(tailnum) |> 
   summarize(
@@ -341,7 +385,9 @@ flights|>
   n = n()
   )
 ```
+:::
 
+::::
 ### Evaluate your code style
 
 After you have learned the `tidyverse` codestyle, you can check your code if you have any deviations from that codestyle.
