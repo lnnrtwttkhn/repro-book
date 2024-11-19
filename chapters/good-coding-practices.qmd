@@ -6,12 +6,12 @@ execute:
   warning: false
   message: false
 code-annotations: hover
+abstract: |
+  In the last chapters, you have learned how to name your names and variables and how to set up a decent project structure.
+  In this chapter, you will learn good coding practices to help other researchers and future you with the code you used for your analysis.
 ---
 
 # Good coding practices
-
-In the last chapters, you have learned how to name your names and variables and how to set up a decent project structure.
-In this chapter, you will learn good coding practices to help other researchers and future you with the code you used for your analysis.
 
 ## Respective R projects
 
