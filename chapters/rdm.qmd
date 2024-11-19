@@ -143,6 +143,23 @@ cat(make_figure("bids-dataset"))
 
 ### Rectangular Data
 
+If you do not have a community standard specifying the data organization, we highly recommend using the rules of **rectangular data** as proposed in @broman2018.
+
+:::{.callout-tip title="Rules of rectangular data [@broman2018]"}
+1. be consistent
+1. choose good names for things
+1. write dates as YYYY-MM-DD
+1. no empty cells
+1. put just one thing in a cell
+1. make it a rectangle
+1. create a data dictionary
+1. no calculations in the raw data files
+1. do not use font color or highlighting as data
+1. make packups
+1. use data validation to avoid errors
+1. save the data in plain text files
+:::
+
 ## Codebook / `.json` files
 
 ## Acknowledgements
