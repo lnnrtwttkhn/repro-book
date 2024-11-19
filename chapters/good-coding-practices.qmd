@@ -87,7 +87,7 @@ After you have created your R project, it is time to take a closer look at your 
 Comments are probably the most important part of your scripts (but also see the discussion in @tip-comments-pros-cons).
 Whenever you write a `#` in your R-script, all code after that `#` will be identified as comment and therefore not be executed as code.
 Thus, if you put a `#` at the beginning of a line, the whole line will be identified as comment.
-Here are some thoughts about comments by Nicola Rennie:
+Here are some thoughts about comments by [@rennie2024]:
 
 ::: callout-note
 ## Adding comments
@@ -784,6 +784,5 @@ We recommend these references for further reading:
 
 | Resources |
 |------------------------------------------------------------------------|
-| Buhr, J. (2023). *Introduction to Data Analysis with R.* <https://jmbuhr.de/dataintro/> |
-| Rennie, N. (2024). *Writing Better R Code.* <https://nrennie.rbind.io/training-better-r-code/> |
-| Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). *R for Data Science (2e)*. <https://r4ds.hadley.nz> |
+| [@rennie2024] |
+| [@wickham2023]|
