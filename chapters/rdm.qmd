@@ -156,9 +156,127 @@ If you do not have a community standard specifying the data organization, we hig
 1. no calculations in the raw data files
 1. do not use font color or highlighting as data
 1. make packups
-1. use data validation to avoid errors
+1. use data validation to avoid errors (see @sec-assertr)
 1. save the data in plain text files
 :::
+
+We will not go into detail of rule 2, 3, and 6, because we either already dealt with these topics earlier or will give them a separate section later. 
+
+#### Be consistent
+
+It sounds easier than it is.
+If you organize your data consistently from the start, you will not have to spend additional amount of time later to "harmonize" the data.
+To do so, use consistent codes for categorical variables (decide between different versions of `male`, `Male`, `m`, `M`).
+Use a consistent fixed code for any missing value (we prefer using `NA`, but do not use `-999` or so).
+Use consistent variable names (decide between `saliva_10wk`, `Saliva_10wk`, `sal_week10`, etc.).
+Use consistent subject identifiers (decide between `003`, `pcp003`, `person-003`, etc.)
+Use a consistent data layout in multiple files.
+It would be extra work to combine different layout in different files.
+Use consistent file names (decide between `TSST_VR_2024-11-19.csv`, `2024-11-19_TSST_virtual-reality.csv`, etc.).
+Use a consistent format for all dates (see @sec-date-format).
+Use consistent phrases in notes, if you have a separate column for notes.
+Be careful about extra spaces within cells (difference between `male`, ` male `).
+
+#### No empty cells
+
+Do fill out every cell.
+When information is missing, use a common code to make it clear that it is missing (preferably `NA`).
+*Merging* cells as you can in Excel is not recommended, since it will leave some cells empty.
+Repeat repeating values.
+If you leave cells empty it will be harder to infer the repeating values, particularly after some data wrangling.
+
+#### Put just one thing in a cell
+
+In one piece of a spreadsheet, which is a cell, should only be one piece of information.
+Do not use units in your cells.
+It is better to put them in a Codebook (see @sec-codebook).
+The same applies to notes.
+Instead of writing `0 (below threshold)`, open up a new column calles `note` and write `0`in the first column and `below threshold` in the second.
+
+#### Make it a rectangle
+
+As your data usually lies in a two-dimensional spreadsheet, it is best to layout your data two-dimensional as well.
+Use columns for variables and rows for subjects or observations.
+The first row should contain variable names.
+If some data do not fit into one dataset, make a set of rectangular datasets and save them in separate files.
+Do not use multiple header rows.
+You can further apply the concept of `tidy data` [@wickham2014] to your rectangular dataset (see @sec-tidy-data).
+
+::: {.callout-caution title="Example of multiple header rows" collapse="true"}
+| A | B | C | D | E |
+|:------:|:------:|:------:|:------:|:------:|
+| | day_1 | | day_2 | |
+| ID | sleep | sport | sleep | sport |
+| 34 | 7.5 | 3 | 6 | 0.5 |
+| 35 | 8 | 0 | 8.5 | 0.5 |
+| 36 | 6 | 2.5 | 7.5 | 3 | 
+
+*Note:* This table deviates from the rectangle form.
+It also leaves multiple cells empty
+:::
+
+#### No calculations in the raw data files
+
+Primary data should just be data. Only data. There should be no means and standard deviations calculated in that primary data.
+Use scripts to calculate whatever you want, but do not make changes in the primary dataset.
+
+#### Do not use font color or highlighting as data
+
+If you spotted outliers or other information you want to highlight, do not highlight them via visualization.
+Instead, create a new column called `outlier` and declare your spotted outliers as `TRUE`and the others as `FALSE`.
+Visualization is nice in the short term, but it is hard to extract these information for later analysis.
+
+#### Make Backups
+
+Back-up your data regularly in multiple locations.
+Consider using a version control system as git (see [Version Control Book](https://lennartwittkuhn.com/version-control-book/)).
+When you finished entering data, *write-protect* your data file.
+Thus, you will not accidentally change anything in your data set.
+
+::: {.callout-tip title="Write-protecting your data" collapse="true"}
+
+:::panel-tabset
+## {{< fa brands apple >}} Mac
+
+1. Open the folder in **Finder** where your file lies
+1. **Right-click** on your file
+1. Click on **Get Info**
+1. Open Section **Sharing & Permissions**
+1. Click on **Privilege** on yourself
+1. Select **Read only**
+
+## {{< fa brands windows >}} Windows
+
+1. Open the folder in **Windows Explorer** where your file lies
+1. **Right-click** on your file
+1. Click on **Properties**
+1. Select the **General** Tab
+1. Go to section **Attributes**
+1. Select the box for **Read-only**
+1. Validate your choice by clicking the **OK** button
+
+## {{< fa brands linux >}} Linux
+
+Placeholder
+:::
+
+:::
+
+#### Use Data Validation to Avoid Errors
+
+Make sure that your entered data is error-free by applying data validation techniques.
+You can create validation rules via the R package `assertr` [@fischetti2023] and it's function `verify()` (see @sec-assertr).
+
+#### Save data in plain text files
+
+We recommend saving your data files in `.csv` format.
+`csv` stands for "comma separated value".
+This file format is basic and not really pretty.
+However, it requires no special software to be loaded.
+Further, they are easy to handle in code.
+Thus, it enhances computational reproducibility.
+In countries where commas are used as decimal separators, tab delimited text files (`.txt`) might be an appropriate alternative to `.csv`.
+Note, that if you highlighted cells or applied any special features in an Excel file, these features will be lost in the `.csv` or `.txt` files.
 
 ## Codebook / `.json` files {#sec-codebook}
 

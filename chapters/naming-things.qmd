@@ -682,7 +682,7 @@ helper04_extract-and-tidy.r
 
 :::
 
-#### Use the ISO 8601 standard for dates
+#### Use the ISO 8601 standard for dates {#sec-date-format}
 
 In 1988, to avoid confusion, the International Organization for Standardization (ISO) set a global standard numeric date format, known as ISO 8601: `YYYY-MM-DD`, where `YYYY` stands for the year, e.g., `2024`, `MM` stands for the month, e.g., `11` and `DD` stands for the day, e.g., `06`.
 Using the ISO 8601 standard for dates (like `2023-11-06`) ensures consistency and avoids confusion.
