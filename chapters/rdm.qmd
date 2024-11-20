@@ -58,6 +58,16 @@ Isn't it spectacular Excel rendered your entry to 2nd July of 1905?
 :::
 
 :::{.callout-important title="Why you should stop using Excel!"}
+As the exercise above showed, Excel can automatically convert specific data entries.
+In many everyday-cases this seems to be useful, e.g. for autocompletion of days.
+However, in research context, such conversions hinder reproducibility efforts.
+Thus, we highly recommend using {{< fa brands r-project >}} and RStudio to read and analyze data.
+
+The described phenomenon of Excel conversions was highly prevalent in the scientific research area of biogenetics.
+A meta-analysis found that roughly 20% of published genetic research was affected by Excel errors [@ziemann2016].
+Instead of changing Excel default options, this situation lead to a change in scientific standards.
+The HUGO Gene Nomenclature Committee (HGNC) updated their guidelines on how to name genes.
+It was easier to rename Genes than to update Excel!
 :::
 
 ## Benefits of research data management
