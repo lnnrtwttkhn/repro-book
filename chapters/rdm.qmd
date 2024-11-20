@@ -30,7 +30,31 @@ Reused without modifications.
 
 See @vid-rdm-snafu ...
 
-::: {.callout-warning title="The story of Reinhart & Rogoff"}
+::: {.callout-warning title="The [story](https://www.bbc.com/news/magazine-22223190) of Reinhart & Rogoff"}
+In 2010, Reinhart and Rogoff presented a research paper called *Growth in a Time of Debt* at the annual meeting of the American Economic Association.
+They found that the economic growth slows dramatically when a country's debt size rises above 90% of Gross Domestic Product [@reinhart2010].
+EU commissioner Olli Rehn and US republican Paul Ryan both quoted a 90% debt-to-GDP limit to support political austerity strategies.
+Meanwhile, a student at the University of Massachusets, Thomas Herndon, got an class assignment where he should reproduce the results of a research article.
+Herndon chose the article by @reinhart2010 and failed to reproduce their results again and again even after supervision with his professor.
+
+Subsequently, Herndon asked for the spreadsheet from the authors of @reinhart2010.
+Then he realized that the paper contained selective data selection, odd data averaging methods and coding errors that lead to substantial miscalculations [@herndon2014].
+
+@herndon2014 concluded that the results of @reinhart2010 are much gentler than originally assumed.
+However, the basic tendency that economic growth slows down with higher debt still survived.
+
+What matters most, is that Reinhart and Rogoff were able to **share** their orginal spreadsheet and that the results were then **reproducible**.
+Thus, reproducibility can **enhance** the scientific, and in this example the political, **discussion** about research findings and it's **implications for society**.
+:::
+
+:::{.callout-tip title="Excel exercise"}
+- Open an Excel Sheet
+- Set the first column to date-format
+- Enter the year *2010* into the cell *A1*
+
+Isn't it spectacular Excel rendered your entry to 2nd July of 1905?
+
+**Think** about this phenomenon in your research context: What are problems that you will face when you use Excel?
 :::
 
 :::{.callout-important title="Why you should stop using Excel!"}
