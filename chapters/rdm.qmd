@@ -68,6 +68,14 @@ A meta-analysis found that roughly 20% of published genetic research was affecte
 Instead of changing Excel default options, this situation lead to a change in scientific standards.
 The HUGO Gene Nomenclature Committee (HGNC) updated their guidelines on how to name genes.
 It was easier to rename Genes than to update Excel!
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("excel-genes"))
+```
+
 :::
 
 ## Benefits of research data management
