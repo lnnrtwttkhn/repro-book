@@ -43,7 +43,7 @@ Then he realized that the paper contained selective data selection, odd data ave
 @herndon2014 concluded that the results of @reinhart2010 are much gentler than originally assumed.
 However, the basic tendency that economic growth slows down with higher debt still survived.
 
-What matters most, is that Reinhart and Rogoff were able to **share** their orginal spreadsheet and that the results were then **reproducible**.
+What matters most, is that Reinhart and Rogoff were able to **share** their original spreadsheet and that the results were then **reproducible**.
 Thus, reproducibility can **enhance** the scientific, and in this example the political, **discussion** about research findings and it's **implications for society**.
 :::
 
@@ -225,7 +225,7 @@ In one piece of a spreadsheet, which is a cell, should only be one piece of info
 Do not use units in your cells.
 It is better to put them in a Codebook (see @sec-codebook).
 The same applies to notes.
-Instead of writing `0 (below threshold)`, open up a new column calles `note` and write `0`in the first column and `below threshold` in the second.
+Instead of writing `0 (below threshold)`, open up a new column called `note` and write `0`in the first column and `below threshold` in the second.
 
 #### Make it a rectangle
 
