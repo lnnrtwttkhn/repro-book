@@ -181,8 +181,8 @@ If you do not have a community standard specifying the data organization, we hig
 
 :::{.callout-tip title="Rules of rectangular data [@broman2018]"}
 1. be consistent
-1. choose good names for things (see Naming things)
-1. write dates as YYYY-MM-DD (see Naming things)
+1. choose good names for things (see Chapter [Naming things](naming-things.qmd))
+1. write dates as YYYY-MM-DD (see Chapter [Naming things](naming-things.qmd))
 1. no empty cells
 1. put just one thing in a cell
 1. make it a rectangle
