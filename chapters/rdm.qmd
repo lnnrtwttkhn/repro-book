@@ -250,6 +250,12 @@ Click here (section not merged yet) to go to the section.
 
 #### Example: Psychological Data Structure (Psych-DS)
 
+Psychological Data Structure (Psych-DS) wants to apply the ideas of BIDS to behavioral data.
+Thus, it is heavily based on BIDS.
+Again, the idea is to consistently organize data facilitating data sharing and understanding data.
+There is also a [guide](https://psychds-docs.readthedocs.io/en/latest/) helping researchers to organize their research project.
+As BIDS, Psych-DS provides a validation tool, checking if the data organization was done correctly.
+
 ### Rectangular Data
 
 If you do not have a community standard specifying the data organization, we highly recommend using the rules of **rectangular data** as proposed in @broman2018.
