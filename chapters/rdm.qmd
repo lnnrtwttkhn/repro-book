@@ -155,6 +155,27 @@ cat(make_figure("nlm-nih-fair"))
 
 ## Data organization
 
+There are many different ways you can organize your data.
+There is really no right and wrong here, but there are some valuable thoughts aiming to enhance reproducibility.
+Data organization is not only about folder structure and precise names.
+It is also about which file formats to use enhancing usability for humans and machines.
+Further, it includes the use of **metadata** to describe your data.
+
+::: {.callout-tip title="What is metadata?" collapse="true"}
+A short definition says that metadata is data about your data.
+More thoroughly, metadata is a set of data that **describes and gives information about other data**.
+However, that data does not contain the data itself.
+
+Example:
+
+Imagine you write a WhatsApp message to one of your friends.
+The data would be your message.
+Metadata would contain information about the forwarder, the recipient, the time the message was sent, the used device and so on...
+:::
+
+Due to the variety of organization styles, you should have a consistent style of organizing your data.
+Thus, you need to apply a standard for your data.
+
 ### Data standards
 
 ```{r}
@@ -170,6 +191,17 @@ Questions to ask yourself:
 1. Which analysis pipelines are you working with?
 1. **Is there a community standard?**
 
+First, you should think about the type of your data. 
+EEG data might have different requirements than MRI data than eye-tracking data than cardiological data than questionnaire data than...
+How complex is your data and how should it be arranged?
+
+Second, after figuring out your data type you will realize that you will face specific analysis pipelines.
+For example, raw EEG data has to be handled differently from MRI data and so on.
+You might need to use specific analyses software that requires specific file formats or so.
+
+Third, you can check whether there exists a standard in your scientific community.
+Community standards help to organize your data facilitating cooperation between different labs and consistency within your own lab.
+
 #### Example: Brain Imaging Data Structure (BIDS)
 
 ```{r}
@@ -179,7 +211,42 @@ Questions to ask yourself:
 cat(make_figure("bids-dataset"))
 ```
 
-@gorgolewski2016
+The community standard Brain Imaging Data Structure (BIDS) was introduced by @gorgolewski2016 providing a data organization standard for the scientific community of neuroimaging.
+MRI research faced the issue of producing many different output files, from plain text to multidimensional image data files.
+Additionally, different scanners produced different output files and there had been no consensus about how to organize and share these data.
+That leaded to misunderstanding and time wasted on rearranging data and possible causes for errors.
+
+Displaying the whole BIDS standards in all its facets would be out of this books's scope.
+Thus, we rather show high-level concepts that could be analogeously used in a variety of scientific projects.
+
+::: {.callout-note title="Steps to create a BIDS compatible dataset"}
+1. Convert files
+1. Create folder structure, rename and copy files
+1. Add remaining data
+1. Add missing metadata
+1. Validate the dataset
+:::
+
+When your data analysis pipeline requires your data to be in a specific format, be sure to convert your data files into the correct format.
+Specific software is used only for this purpose in MRI research.
+In survey based research that might not be too complicated.
+However, when extracting data from your survey servers (as Unipark or LimeSurvey), make sure to use a correct format.
+
+BIDS includes an own folder structure for research projects. When you have your own research project, make sure it aligns with our recommendations from [Chapter 2](naming-things.qmd) and (project-structure).
+
+Sometimes you might need to add more information data that has not been captured during your data collection process (e.g. details of experimental tasks and additional demographic information of participants).
+
+In BIDS, metadata files are created while converting files from one format to another.
+However, they happen to be not exhaustive.
+You might want to include task descriptions and task instructions and so on.
+@sec-dictionary describes which metadata can be used in less complex data management scenarios.
+
+A nice feature of BIDS is the [BIDS Validator](https://github.com/bids-standard/bids-validator).
+It checks if any required or recommended metadata is missing.
+It further spots incorrect definitions of missing values, wrong units, missing scans and inconsistent scanning parameters across subjects.
+Even though you are unlikely to apply the validator outside of neuroimaging, the concept is quite powerful.
+We have provided a small section about *verifying* your code that tackles the same topic but focuses more on your code rather than on your data.
+Click here (section not merged yet) to go to the section.
 
 #### Example: Psychological Data Structure (Psych-DS)
 
@@ -320,7 +387,7 @@ Thus, it enhances computational reproducibility.
 In countries where commas are used as decimal separators, tab delimited text files (`.txt`) might be an appropriate alternative to `.csv`.
 Note, that if you highlighted cells or applied any special features in an Excel file, these features will be lost in the `.csv` or `.txt` files.
 
-## Data dictionaries files {#sec-dictionary}
+## Data dictionaries {#sec-dictionary}
 
 Despite rectangular data, it is also valuable to have a **data dictionary** describing how your data is constituted.
 The data dictionary is sometimes referred as *Codebook* or *.json* file.
