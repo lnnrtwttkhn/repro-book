@@ -194,7 +194,7 @@ If you do not have a community standard specifying the data organization, we hig
 1. no empty cells
 1. put just one thing in a cell
 1. make it a rectangle
-1. create a data dictionary (see @sec-codebook)
+1. create a data dictionary (see @sec-dictionary)
 1. no calculations in the raw data files
 1. do not use font color or highlighting as data
 1. make packups
@@ -320,7 +320,63 @@ Thus, it enhances computational reproducibility.
 In countries where commas are used as decimal separators, tab delimited text files (`.txt`) might be an appropriate alternative to `.csv`.
 Note, that if you highlighted cells or applied any special features in an Excel file, these features will be lost in the `.csv` or `.txt` files.
 
-## Codebook / `.json` files {#sec-codebook}
+## Data dictionaries files {#sec-dictionary}
+
+Despite rectangular data, it is also valuable to have a **data dictionary** describing how your data is constituted.
+The data dictionary is sometimes referred as *Codebook* or *.json* file.
+Your dictionary enhances the understandability of your whole research project and is therefore very important regarding computational reproducibility.
+According to @broman2018, your dictionary should contain
+
+1. the exact variable name as in your data file
+1. a version of the variable name that might be used in data visualizations
+1. a longer explanation of what the variable means
+1. the measurement units
+expected minimum and maximum values
+
+However, more information can be stored in your dictionary. When you analyze data collected from a survey, a variable in your dataset will likely represent an item of that survey.
+You can then provide information on
+
+1. the item in the survey
+1. original wording of the item
+1. the subscale the item belongs to
+1. the author responsible for that item / subscale
+1. response format on the item
+1. specialties regarding that item
+
+Ideally, your data dictionary is also stored in a **rectangular format**.
+Another possibility is to use a `.json` file.
+This gives you more flexibility but it is also a new challenge style of organizing data.
+
+::: {.callout-tip title="Learn more: What is a `json` file?" collapse="true"}
+
+`json` stands for **J**ava**S**cript **O**bject **N**otation.
+Thus, all you write in that file has to be in json notation style.
+It would be out of the scope of this book to explain how data in a `.json` file needs to be formatted.
+However, you can see a small example below to get a feeling of how a `.json` file looks like.
+If you want to dive into the use of `.json` files we recommend this [Video](https://www.youtube.com/watch?v=cj3h3Fb10QY) that explains JSON more thoroughly. 
+
+```{zsh filename="json Code"}
+[
+  {
+    "name": "agr1",
+    "item_wording": "I make people feel at ease.",
+    "type": "numeric",
+    "scale": "agreeableness",
+    "min_value": 1,
+    "max_value": 5
+  },
+  {
+    "name": "agr2",
+    "item_wording": "I love children.",
+    "type": "numeric",
+    "scale": "agreeableness",
+    "min_value": 1,
+    "max_value": 5
+  }
+]
+```
+
+:::
 
 ## Acknowledgements
 
