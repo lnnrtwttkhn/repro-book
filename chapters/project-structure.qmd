@@ -8,13 +8,13 @@ abstract: |
 ---
 
 ::: {.callout-tip appearance="minimal"}
-<h5>Learning objectives</h5>
+<h5>Learning Objectives</h5>
 
-:bulb: Be exposed to a couple of different project structure <br>
-:bulb: Get in touch with main components of project structure <br>
-:bulb: Think about advantages and disadvantages of particular project structures <br>
-:bulb: Sense the hurdles and visions of a decent project structure <br>
-:bulb: Take perspective on research as sequential vs. circular process
+:bulb: You have explored various types of project structures.<br>
+:bulb: You know the key components of a project structure.<br>
+:bulb: You can evaluate the advantages and disadvantages of different project structures.<br>
+:bulb: You are aware of the challenges and opportunities in creating an effective project structure.<br>
+:bulb: You understand the perspective on research as either a sequential or circular process.
 :::
 
 A good folder structure saves future you and other researchers a lot of time when trying to understand your data.
