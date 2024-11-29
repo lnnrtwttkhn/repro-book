@@ -29,7 +29,7 @@ Below you can find numerous examples of different project structures:
 ::: panel-tabset
 ## The Turing Way
 
-```         
+```{zsh filename="Output"}  
 ├── LICENSE
 ├── README.md          <- The top-level README for users of this project.
 ├── CODE_OF_CONDUCT.md <- Guidelines for users and contributors of the project.
