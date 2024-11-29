@@ -20,9 +20,9 @@ execute:
 :bulb: You understand the perspective on research as either a sequential or circular process.
 :::
 
-A good folder structure saves future you and other researchers a lot of time when trying to understand your data.
-Unfortunately, a *best practice standard* does not exist for a project structure yet.
-Below you can find numerous examples of different project structures:
+A good folder structure saves you and other researchers a lot of time when revisiting or trying to understand your data.
+However, there is no universal *best practice standard* for project structures.
+Below are several examples of different project structures:
 
 ## Examples {#examples}
 
