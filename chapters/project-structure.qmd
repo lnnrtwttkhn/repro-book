@@ -31,7 +31,7 @@ Below you can find numerous examples of different project structures:
 
 ```{zsh filename="Output"}  
 ├── LICENSE
-├── README.md          <- The top-level README for users of this project.
+├── README.md # <1>
 ├── CODE_OF_CONDUCT.md <- Guidelines for users and contributors of the project.
 ├── CONTRIBUTING.md    <- Information on how to contribute to the project.
 ├── data
@@ -65,6 +65,8 @@ Below you can find numerous examples of different project structures:
 │       └── visualise.py
 └──
 ```
+
+1. The top-level README for users of this project.
 
 Repository Structure Template by [The Turing Way](https://book.the-turing-way.org/index.html).
 Used under the [LICENSE CC-BY 4.0](https://github.com/the-turing-way/reproducible-project-template/blob/main/LICENSE.md).
