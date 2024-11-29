@@ -1,7 +1,10 @@
 ---
 title: "Project Structure"
 editor: visual
-abstract: "In this chapter, you will be exposed to different variations of project structures. You will learn, what is mandatory for a project structure and what is of importance to think about. You will learn both, how to set up a project structure for your own project and what should be available in a published reproducibility archive"
+abstract: |
+  In this chapter, you will explore various types of project structures.
+  You will learn what elements are essential for a project structure and what key factors to consider.
+  Additionally, you will gain insight into how to create a project structure for your own work and understand what should be included in a published reproducibility archive.
 ---
 
 ::: {.callout-tip appearance="minimal"}
