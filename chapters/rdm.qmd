@@ -248,6 +248,22 @@ Even though you are unlikely to apply the validator outside of neuroimaging, the
 We have provided a small section about *verifying* your code that tackles the same topic but focuses more on your code rather than on your data.
 Click here (section not merged yet) to go to the section.
 
+::: {.callout-tip title="Benefits of **BIDS**"}
+What makes BIDS really beneficial are **BIDS apps**.
+BIDS apps are automatically compatible with BIDS datasets.
+One example of such an app is **fMRIPrep**.
+This app enables researchers using fMRI data an easy workflow of preprocessing fMRI data [@esteban2019].
+fMRIPrep undertakes several steps automatically without manual intervention of a researcher.
+Thus, BIDS combined with its apps are powerful tools to save time and work as a researcher.
+
+Incomplete selection of preprocessing steps provided by fMRIPrep:
+
+1. correction for missing scanner signals
+1. correction for participant movements
+1. correction for slice timing
+1. normalising brain volume
+:::
+
 #### Example: Psychological Data Structure (Psych-DS)
 
 Psychological Data Structure (Psych-DS) wants to apply the ideas of BIDS to behavioral data.
