@@ -92,7 +92,7 @@ format:
     page-layout: full
     title-block-style: default
     code-fold: false
-    code-overflow: wrap
+    code-overflow: scroll
     code-copy: true
     code-link: false
     code-tools: false
