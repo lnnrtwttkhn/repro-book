@@ -5,6 +5,9 @@ abstract: |
   In this chapter, you will explore various types of project structures.
   You will learn what elements are essential for a project structure and what key factors to consider.
   Additionally, you will gain insight into how to create a project structure for your own work and understand what should be included in a published reproducibility archive.
+engine: knitr
+execute:
+  eval: false
 ---
 
 ::: {.callout-tip appearance="minimal"}
