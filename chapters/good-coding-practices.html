@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Good Coding Practices – The Repro Book</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../summary.html" rel="next">
+<link href="../chapters/naming-things.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dd08061cb7210c315e315379d94beb87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-51d928ce8baf18ca42f6cb33322cc9db.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/good-coding-practices.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">The Repro Book</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://lennartwittkuhn.com/repro-book/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-globe"></i></a>
+    <a href="https://github.com/lnnrtwttkhn/repro-book/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-bug"></i></a>
+    <a href="https://github.com/lnnrtwttkhn/repro-book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contents</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/naming-things.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Naming things</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/good-coding-practices.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../acknowledgements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acknowledgements</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contributing</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<p><a href="https://lennartwittkuhn.com/repro-book"><img src="https://img.shields.io/website?url=https%3A%2F%2Flennartwittkuhn.com%2Frepro-book%2F" class="img-fluid" alt="Website"></a> <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg" class="img-fluid" alt="License: CC BY 4.0"></a> <a href="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/publish.yml"><img src="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/publish.yml/badge.svg" class="img-fluid" alt="Quarto Publish"></a> <a href="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/codespell.yml"><img src="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/codespell.yml/badge.svg" class="img-fluid" alt="Codespell"></a> <a href="?tab=readme-ov-file#contributors"><img src="https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&amp;style=flat-square.png" class="img-fluid" alt="All Contributors"></a></p>
+</div></div></nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#r-projects" id="toc-r-projects" class="nav-link active" data-scroll-target="#r-projects"><span class="header-section-number">3.1</span> R projects</a></li>
+  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments"><span class="header-section-number">3.2</span> Comments</a></li>
+  <li><a href="#file-paths" id="toc-file-paths" class="nav-link" data-scroll-target="#file-paths"><span class="header-section-number">3.3</span> File paths</a>
+  <ul class="collapse">
+  <li><a href="#absolute-paths" id="toc-absolute-paths" class="nav-link" data-scroll-target="#absolute-paths"><span class="header-section-number">3.3.1</span> Absolute paths</a></li>
+  <li><a href="#relative-paths" id="toc-relative-paths" class="nav-link" data-scroll-target="#relative-paths"><span class="header-section-number">3.3.2</span> Relative paths</a></li>
+  <li><a href="#the-here-package" id="toc-the-here-package" class="nav-link" data-scroll-target="#the-here-package"><span class="header-section-number">3.3.3</span> The <code>here</code> package</a></li>
+  </ul></li>
+  <li><a href="#sec-codestyle" id="toc-sec-codestyle" class="nav-link" data-scroll-target="#sec-codestyle"><span class="header-section-number">3.4</span> Code Style</a>
+  <ul class="collapse">
+  <li><a href="#names" id="toc-names" class="nav-link" data-scroll-target="#names"><span class="header-section-number">3.4.1</span> Names</a></li>
+  <li><a href="#spaces" id="toc-spaces" class="nav-link" data-scroll-target="#spaces"><span class="header-section-number">3.4.2</span> Spaces</a></li>
+  <li><a href="#pipes" id="toc-pipes" class="nav-link" data-scroll-target="#pipes"><span class="header-section-number">3.4.3</span> Pipes</a></li>
+  <li><a href="#line-breaks" id="toc-line-breaks" class="nav-link" data-scroll-target="#line-breaks"><span class="header-section-number">3.4.4</span> Line breaks</a></li>
+  <li><a href="#evaluate-your-code-style-linting" id="toc-evaluate-your-code-style-linting" class="nav-link" data-scroll-target="#evaluate-your-code-style-linting"><span class="header-section-number">3.4.5</span> Evaluate your code style: Linting</a></li>
+  </ul></li>
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data"><span class="header-section-number">3.5</span> Tidy Data</a>
+  <ul class="collapse">
+  <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures"><span class="header-section-number">3.5.1</span> Data structures</a></li>
+  <li><a href="#changing-the-data-structure" id="toc-changing-the-data-structure" class="nav-link" data-scroll-target="#changing-the-data-structure"><span class="header-section-number">3.5.2</span> Changing the data structure</a></li>
+  </ul></li>
+  <li><a href="#defensive-programming" id="toc-defensive-programming" class="nav-link" data-scroll-target="#defensive-programming"><span class="header-section-number">3.6</span> Defensive programming</a>
+  <ul class="collapse">
+  <li><a href="#the-assertr-package-and-its-function-verify" id="toc-the-assertr-package-and-its-function-verify" class="nav-link" data-scroll-target="#the-assertr-package-and-its-function-verify"><span class="header-section-number">3.6.1</span> The <code>assertr</code> package and it’s function <code>verify()</code></a></li>
+  <li><a href="#further-functions-and-packages" id="toc-further-functions-and-packages" class="nav-link" data-scroll-target="#further-functions-and-packages"><span class="header-section-number">3.6.2</span> Further functions and packages</a></li>
+  </ul></li>
+  <li><a href="#acknowledgements-further-reading" id="toc-acknowledgements-further-reading" class="nav-link" data-scroll-target="#acknowledgements-further-reading"><span class="header-section-number">3.7</span> Acknowledgements &amp; further reading</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/good-coding-practices.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/good-coding-practices.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Summary</div>
+    <p>In the last chapters, you have learned how to name your names and variables and how to set up an organized project structure. In this chapter, you will learn good coding practices to help other researchers and your future self with the code you used for your analysis.</p>
+  </div>
+</div>
+
+
+</header>
+
+
+<section id="r-projects" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="r-projects"><span class="header-section-number">3.1</span> R projects</h2>
+<p>As a researcher (and as a student), you work on different projects simultaneously. You have different research projects and teaching parts that you need to cover in your job. You attend different courses and give presentations and perform data analyses in these seminars and lectures. As you learned in the previous chapter about project structure, it makes sense to set up your files and folders in a particular research project folder.</p>
+<div class="cell" data-code-copy="false">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>projects/</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>├── version-control-book</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>├── reproducibility-book</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>├── grant_neuroscience_horizon</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>├── grant_neuroscience_dfg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>We highly recommend to use specific R-projects for each project, respectively. This will become clear throughout this chapter and the next chapter about <code>renv</code>.</p>
+<p>To create an R-project, follow these steps:</p>
+<ol type="1">
+<li>Open RStudio.</li>
+<li>Click on the blue <i class="fa-solid fa-cube" aria-label="cube"></i> cube with a <i class="fa-brands fa-r-project" aria-label="r-project"></i> in it and a green plus <i class="fa-solid fa-circle-plus" aria-label="circle-plus"></i> on the outside.</li>
+<li>Decide whether you want to create a new directory or an existing directory.</li>
+</ol>
+<p>Depending on your situation, it makes sense to either create a new directory or turn an existing folder into an R project.<br>
+When you are at the beginning of your project and have not set up a project structure yet, it makes sense to create a new directory.<br>
+Make sure that, in this case, your directory name aligns well with your project.<br>
+When you have already set up a project structure, it makes sense to turn your project folder into an R project. Make sure that, in this case, your project folder is the folder you turn into an R project.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><i class="fa-solid fa-folder-plus" aria-label="folder-plus"></i> New directory</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><i class="fa-solid fa-folder" aria-label="folder"></i> Existing directory</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Click on <strong>New Directory</strong>, then <strong>New Project</strong>, and type in your directory name.<br>
+Make sure that your project is in the correct place in your folder system.<br>
+At this point, it does not matter whether you want to create a <em>Git repository</em> and/or use <code>renv</code> with this project.<br>
+In future chapters, you will learn the advantages of using Git and <code>renv</code>.</p>
+<p>When you click on <strong>Create Project</strong>, your R project will be created.<br>
+You will see that R has created a folder named after your directory and that one file, <code>directory-name.Rproj</code>, is in this folder.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Click on <strong>Existing Directory</strong> and make sure which folder you want to turn into an R project.</p>
+<p>When you click on <strong>Create Project</strong>, your R project will be created. You will see that R has placed a file in your chosen folder called <code>directory-name.Rproj</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is an <code>.Rproj</code>-file?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>.Rproj</code> file contains settings for all files associated with your specific R project.<br>
+It is automatically created when you set up an R project. By double-clicking on the file, you can open the project in RStudio.<br>
+It is not recommended to modify this file manually.</p>
+</div>
+</div>
+<p>After you have created your R project, it is time to take a closer look at your R scripts containing the code for your projects.</p>
+</section>
+<section id="comments" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="comments"><span class="header-section-number">3.2</span> Comments</h2>
+<p>Comments are probably the most important part of your scripts (but also see the discussion in <a href="#tip-comments-pros-cons" class="quarto-xref">Tip&nbsp;<span>3.1</span></a>). Whenever you write a <code>#</code> in your R-script, all code after that <code>#</code> will be identified as comment and therefore not be executed as code. Thus, if you put a <code>#</code> at the beginning of a line, the whole line will be identified as comment. Here are some thoughts about comments by <span class="citation" data-cites="rennie2024">Rennie (<a href="../references.html#ref-rennie2024" role="doc-biblioref">2024</a>)</span>:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Adding comments">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Adding comments
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Add comments using a <code>#</code> in R (in a separate line)</li>
+<li>Comments don’t need to explain <em>what</em> your code does</li>
+<li>Comments should explain <em>why</em> you did it</li>
+</ul>
+</div>
+</div>
+<p>You can use <code>#</code> not only for comments but also for creating sections and subsections in your R-script. To do so, you must start a line with at least one hash <code>#</code> and put at least 4 hyphens after your comment. The number of hashes you use at the beginning determines the level of section.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Section 1 ----</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Subsection 1.1 ----</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Sebsection 1.2 ----</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Section 2 ----</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tip-comments-pros-cons" class="callout callout-style-default callout-tip callout-titled" title="Discussion: Pros and cons of comments">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip&nbsp;3.1: Discussion: Pros and cons of comments
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Comments in code are useful because they help explain complex logic, provide context for why certain decisions were made, and assist future developers in understanding the code faster.</p>
+<p>However, ideally, code should be written clearly enough that its purpose and functionality are apparent without the need for excessive comments. Well-structured, self-explanatory code enhances readability and reduces maintenance.</p>
+<p>On the other hand, beginners often find comments valuable, even in well-written code, as they can serve as a learning tool, guiding them through unfamiliar concepts and helping them understand the underlying logic.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="file-paths" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="file-paths"><span class="header-section-number">3.3</span> File paths</h2>
+<p>Whenever you are conducting research, you need to analyze some form of data. This data is typically stored in one or more files. Therefore, you need to read the data into your script. To do so, you must refer to the files you want to read. This is where the first advantage of setting up a dedicated R project for your research becomes apparent.</p>
+<p>You can read data or code into your R environment by referring to your files using <strong>absolute paths</strong>, <strong>relative paths</strong>, and <strong><code>here::here()</code></strong>.</p>
+<section id="absolute-paths" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="absolute-paths"><span class="header-section-number">3.3.1</span> Absolute paths</h3>
+<p>Using an absolute path means referring to your file by specifying the entire folder structure on your computer:</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"/Users/my-user-name/Documents/projects/my-project/data/data-raw.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Using absolute file paths is not recommended for computational reproducibility.<br>
+A collaborator or interested researcher who downloads your scripts and wants to reproduce your analysis would need to adjust these paths before the scripts can run correctly.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"/Users/user-name-b/Desktop/work/research/my-project/data/data-raw.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="relative-paths" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="relative-paths"><span class="header-section-number">3.3.2</span> Relative paths</h3>
+<p>A relative file path starts from your current <em>working directory</em> and appends the relative path.<br>
+You can check your current working directory in R by using the <code>getwd()</code> command in the R Console.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R Console</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">getwd</span>()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Users/my-user-name/my-project"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>By default, the working directory in an R project is the project folder, which in this example is called <code>my-project</code>.</p>
+<p>You can then use a relative file path from that folder to read your data.<br>
+The file path should start <em>after</em> the working directory:</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/data-raw.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Thus, all relative paths to the files in an R project remain the same, regardless of who wants to work with the project. However, this does not hold true for scripts changing the working directory using the <code>setwd()</code> command.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Relative file path does work</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Relative file path does not work</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Console</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">getwd</span>()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Users/my-user-name/my-project"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">file.edit</span>(<span class="st">"script/script01.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Console</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">setwd</span>(<span class="st">"script"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">getwd</span>()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Users/my-user-name/my-project/script"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">file.edit</span>(<span class="st">"script/script01.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-here-package" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="the-here-package"><span class="header-section-number">3.3.3</span> The <code>here</code> package</h3>
+<p>A way to avoid confusion about which file paths to use is the <code>here</code> package <span class="citation" data-cites="mueller2020">(<a href="../references.html#ref-mueller2020" role="doc-biblioref">Müller 2020</a>)</span>. The <code>here()</code> function works regardless of your current working directory.</p>
+<p>You can install the <code>here</code> package by typing:</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"here"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>With <code>here::here()</code>, it is possible to refer to file paths regardless of your working directory. <code>here()</code> uses the top-level directory of a project to build the paths. It recognizes special files (e.g., <code>.Rproj</code>) and infers the project folder. Using <code>here()</code>, referencing file paths will always follow the same project structure regardless of the file you are referencing.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p><code>here()</code> function works regardless of the current working directory.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">No change in working directory</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Change in working directory</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Console</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"/Users/my-user-name/my-project"</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">here</span>()</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"/Users/my-user-name/my-project"</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"scripts"</span>, <span class="st">"script01.R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Console</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"/Users/my-user-name/my-project"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">here</span>()</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"/Users/my-user-name/my-project"</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"scripts"</span>, <span class="st">"script01.R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Another benefit of using <code>here()</code> is enhanced readability because the paths always start at the project directory. Using relative paths would require the reader to consider the current working directory and how certain files are relatively located to it. Furthermore, <code>here()</code> remains unaffected by differences between operating systems when separating files with characters and commas.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Path differences between operating systems">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Path differences between operating systems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>macOS and Linux use a slash <code>/</code> for path separators, while Windows uses a backslash <code>\</code>. In R, <code>\</code> is an escape operator, causing R to misinterpret Windows backslashes <code>\</code> when used as path separators. On Windows, using <code>\\</code> or <code>/</code> is necessary to handle path separators correctly.</p>
+<p>A benefit of <code>here()</code> is that paths can be specified within <code>""</code> and separated by commas. Depending on the operating system, <code>here()</code> applies the correct path separator automatically.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"folder"</span>, <span class="st">"subfolder"</span>, <span class="st">"subsubfolder"</span>, <span class="st">"file.R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>In summary, we recommend using the <code>here::here()</code> function because it is most robust against different paths. Relative file paths can also work if the working directory does not change in one of the project scripts and only <code>/</code> are used for path specifications. We recommend to never use absolute file paths, since they are a hurdle to computational reproducibility.</p>
+</section>
+</section>
+<section id="sec-codestyle" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sec-codestyle"><span class="header-section-number">3.4</span> Code Style</h2>
+<blockquote class="blockquote">
+<p>“Good coding style is like correct punctuation: you can manage without it, butitsuremakethingseasiertoread” – <span class="citation" data-cites="wickham2023">Wickham, Çetinkaya-Rundel, and Grolemund (<a href="../references.html#ref-wickham2023" role="doc-biblioref">2023</a>)</span></p>
+</blockquote>
+<p>One important aspect that fosters understandability of code is the code style. In this section, we will present the <code>tidyverse</code>-codestyle <span class="citation" data-cites="wickham2023">(<a href="../references.html#ref-wickham2023" role="doc-biblioref">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span>. The Tidyverse is a collection of R packages particularly useful for data wrangling, manipulation and visualization. All packages share an underlying design philosophy, grammar, and data structures.</p>
+<p>In psychology, the grammar of the <code>tidyverse</code> is widely used for data wrangling. In this section, we will provide a brief introduction to code style.</p>
+<section id="names" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="names"><span class="header-section-number">3.4.1</span> Names</h3>
+<p>Not only should files and folders be named well (see chapter on <a href="../chapters/naming-things.html">naming things</a>), but the same applies to variable and function names in scripts. Variable and function names should only consist of lowercase letters, numbers, and underscores (<code>_</code>). It is better to use descriptive, longer names rather than short abbreviations that you may not understand in the future.</p>
+<div class="columns">
+<div class="column" style="width:49%;">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Strive for</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>short_flights <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(air_time <span class="sc">&lt;</span> <span class="dv">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:49%;">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Avoid</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>SHORTFLIGHTS <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(air_time <span class="sc">&lt;</span> <span class="dv">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="spaces" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="spaces"><span class="header-section-number">3.4.2</span> Spaces</h3>
+<p>Put spaces around mathematical operators (except <code>^</code>) and around the assignment operator (<code>&lt;-</code>). Do not put spaces around parentheses when using functions. Put a space after a comma, as you would in standard English.</p>
+<div class="columns">
+<div class="column" style="width:49%;">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Strive for</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:49%;">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Avoid</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span> (x ,<span class="at">na.rm=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="pipes" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="pipes"><span class="header-section-number">3.4.3</span> Pipes</h3>
+<p>The pipe (either <code>|&gt;</code> or <code>%&gt;%</code>) is a useful operator for connecting subsequent operations in your code. The pipe takes everything to the left of it and uses it as the first argument to the function on the right side.</p>
+<div class="columns">
+<div class="column" style="width:49%;">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Without pipe</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:49%;">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>With pipe</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">|&gt;</span> <span class="fu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>The pipe is particularly useful when you chain many functions together. Therefore, use <code>|&gt;</code> at the end of a line and add a space before it. The complete sequence of functions connected by a pipe is also called a <strong>pipeline</strong>.</p>
+<div class="columns">
+<div class="column" style="width:49%;">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Strive for</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="annotated-cell-39"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-39" data-target-annotation="1">1</button><span id="annotated-cell-39-1" class="code-annotation-target"><a href="#annotated-cell-39-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">|&gt;</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-39" data-target-annotation="2">2</button><span id="annotated-cell-39-2" class="code-annotation-target"><a href="#annotated-cell-39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(N, gender) <span class="sc">|&gt;</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-39" data-target-annotation="3">3</button><span id="annotated-cell-39-3" class="code-annotation-target"><a href="#annotated-cell-39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="annotated-cell-39-4"><a href="#annotated-cell-39-4" aria-hidden="true" tabindex="-1"></a>    gender <span class="sc">==</span> <span class="st">"male"</span> <span class="sc">|</span></span>
+<span id="annotated-cell-39-5"><a href="#annotated-cell-39-5" aria-hidden="true" tabindex="-1"></a>    gender <span class="sc">==</span> <span class="st">"female"</span></span>
+<span id="annotated-cell-39-6"><a href="#annotated-cell-39-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-39" data-target-annotation="4">4</button><span id="annotated-cell-39-7" class="code-annotation-target"><a href="#annotated-cell-39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">|&gt;</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-39" data-target-annotation="5">5</button><span id="annotated-cell-39-8" class="code-annotation-target"><a href="#annotated-cell-39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="annotated-cell-39-9"><a href="#annotated-cell-39-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(N),</span>
+<span id="annotated-cell-39-10"><a href="#annotated-cell-39-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">median =</span> <span class="fu">md</span>(N)</span>
+<span id="annotated-cell-39-11"><a href="#annotated-cell-39-11" aria-hidden="true" tabindex="-1"></a>  )</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-39" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-39" data-code-lines="1" data-code-annotation="1">Take the data <em>and then</em></span>
+</dd>
+<dt data-target-cell="annotated-cell-39" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-39" data-code-lines="2" data-code-annotation="2">Select the variables <code>N</code> and <code>gender</code> <em>and then</em></span>
+</dd>
+<dt data-target-cell="annotated-cell-39" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-39" data-code-lines="3,4,5,6" data-code-annotation="3">Filter all observations where the variable <code>gender</code> either contains the value <code>male</code> or <code>female</code> <em>and then</em></span>
+</dd>
+<dt data-target-cell="annotated-cell-39" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-39" data-code-lines="7" data-code-annotation="4">Group the dataset by the variable <code>gender</code> <em>and then</em></span>
+</dd>
+<dt data-target-cell="annotated-cell-39" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-39" data-code-lines="8,9,10,11" data-code-annotation="5">Summarize your datasets by calculating the mean and median for the variable <code>N</code> for each group.</span>
+</dd>
+</dl>
+</div>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:49%;">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Avoid</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(<span class="fu">group_by</span>(<span class="fu">filter</span>(<span class="fu">select</span>(data, N, gender), gender <span class="sc">==</span> <span class="st">"male"</span> <span class="sc">|</span> gender <span class="sc">==</span> <span class="st">"female"</span>), gender), <span class="at">mean =</span> <span class="fu">mean</span>(N))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>The code displayed above is much easier to read and understand for your future self and other researchers, thereby increasing the likelihood of reproducibility. Translated into plain English, the pipe represents an <em>“and then”</em>:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Difference between <code>%&gt;%</code> and <code>|&gt;</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In basic code, <code>%&gt;%</code> and <code>|&gt;</code> behave the same in the simple cases we cover here. In general, <code>%&gt;%</code> has some advantages when you want to code more complex cases. If you are interested when it matters if you either use <code>%&gt;%</code>or <code>|&gt;</code>, we recommend <a href="https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/">this</a> resource.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true"><code>%&gt;%</code></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false"><code>|&gt;</code></a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>The <code>%&gt;%</code> pipe was introduced in the context of the <code>tidyverse</code>. It comes with the package <code>magrittr</code> and con only be used when this package is installed and loaded.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"magrittr"</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>However, you can also use it, when you load another package from the <code>tidyverse</code> such as <code>dplyr</code>. This is because <code>dplyr</code> imports <code>magrittr</code> when it is loaded.</p>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>The <code>|&gt;</code> pipe comes with the basic R. To use <code>|&gt;</code> in R, you have to go to <strong>Tools</strong> &gt; <strong>Global Options</strong> &gt; <strong>Code</strong> and tick the box <strong>Use native pipe operator, |&gt; (repquires R 4.1+)</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="line-breaks" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="line-breaks"><span class="header-section-number">3.4.4</span> Line breaks</h3>
+<p>If a function requires you to name arguments (as with <code>summarise()</code>), put each argument on a new line. If a function does not require you to name arguments (as with <code>group_by()</code>), keep your code on one line unless it extends beyond the width of a line. In that case, put each argument on its own line.</p>
+<p>When you start a new line after using <code>|&gt;</code> or a function like <code>summarise()</code>, indent the new line by two spaces (if not already done automatically). If you are putting each argument on a separate line, also indent the new line by two spaces. Make sure that the closing parenthesis <code>)</code> is on its own line and not indented. Thus, the closing parenthesis should align with the horizontal position of the function you are using.</p>
+<div class="columns">
+<div class="column" style="width:49%;">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Strive for</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>flights <span class="sc">|&gt;</span>  </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tailnum) <span class="sc">|&gt;</span> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">delay =</span> <span class="fu">mean</span>(</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> arr_delay,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">na.rm =</span> <span class="cn">TRUE</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:49%;">
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Avoid</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>flights<span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tailnum) <span class="sc">|&gt;</span> </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">delay =</span> <span class="fu">mean</span>(arr_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>           )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Avoid</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>flights<span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tailnum) <span class="sc">|&gt;</span> </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">delay =</span> <span class="fu">mean</span>(arr_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="fu">n</span>()</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluate-your-code-style-linting" class="level3" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="evaluate-your-code-style-linting"><span class="header-section-number">3.4.5</span> Evaluate your code style: Linting</h3>
+<p>After learning the <code>tidyverse</code> coding style, you can check your code for any deviations from that style.<br>
+This process is called “linting” and is comparable to a program that checks for spelling errors.<br>
+The <code>lintr</code> package <span class="citation" data-cites="hester2024">(<a href="../references.html#ref-hester2024" role="doc-biblioref">Hester et al. 2024</a>)</span> can perform this task by analyzing your code for potential issues and deviations from the recommended coding style.</p>
+<ul>
+<li>stylistic issues (e.g.&nbsp;<code>x&lt;-3</code> vs.&nbsp;<code>x &lt;- 3</code>)</li>
+<li>common errors (e.g.&nbsp;<code>mean(x, na.rm = T, na.rm = F)</code>)</li>
+<li>missing packages</li>
+<li>…</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>However, note that <code>lintr</code> cannot check whether your code runs correctly!</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Example of `lintr`">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example of <code>lintr</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Suppose you have script called <code>test-script.R</code> in the folder <code>scripts</code> of your research projects. Your script looks as follows:</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Script</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Test Script</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a></span>
+<span id="cb24-3"><a href="#cb24-3"></a>df <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>After you installed and loaded the package <code>lintr</code>, run: <code>lintr::lint("scripts/test-script.R")</code> in your R-console:</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"lintr"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lintr)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>lintr<span class="sc">::</span><span class="fu">lint</span>(<span class="st">"scripts/test-script.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Next to your Console, a new tab will open called <strong>Markers</strong>, displaying all syntax messages <code>lintr</code> found in your script.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Markers</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Line <span class="dv">3</span> [commas_linter] Commas should always have a space after.</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>Line <span class="dv">3</span> [commas_linter] Commas should always have a space after.</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>Line <span class="dv">3</span> [commas_linter] Commas should always have a space after.</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>Line <span class="dv">3</span> [commas_linter] Commas should always have a space after.</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>Line <span class="dv">3</span> [commas_linter] Commas should always have a space after.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>In <code>test-script.R</code>, lintr wants us to separate the numbers 1 to 6 by spaces after commas. For every missing comma, <code>lintr</code> displays a separate error message. After adding the spaces, saving the script, and running <code>lintr::lint("scripts/test-script.R")</code> again, no error messages are displayed in the <strong>Markers</strong> tab.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="tidy-data" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="tidy-data"><span class="header-section-number">3.5</span> Tidy Data</h2>
+<div id="fig-horst-tidydata" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-horst-tidydata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/horst-tidydata-2.jpg" class="img-fluid figure-img" alt="">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-horst-tidydata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: “<a href="https://allisonhorst.com/other-r-fun">Illustration from the Openscapes blog Tidy Data for reproducibility efficiency and collaboration</a>” by <a href="https://allisonhorst.com/allison-horst">Julia Lowndes and Allison Horst</a> (License: <a href="">CC-BY 4.0</a>; reused without modifications)
+</figcaption>
+</figure>
+</div>
+<p>When working with datasets, you will likely not be able to directly conduct your data analysis (e.g., <code>t-tests</code>, <code>ANOVAs</code>, <code>GLMs</code>). In fact, most of the time, you will spend more time organizing your data than running your analysis. A helpful concept is <strong>tidy data</strong>, which is a common guideline for organizing datasets. Tidy data is closely related to the principles of the <code>tidyverse</code> introduced in <a href="#sec-codestyle" class="quarto-xref"><span>Section 3.4</span></a>. Following tidy data guidelines will help you run analyses and get the most out of your data.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Tidy Data">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tidy Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Tidy datasets follow three basic rules:</p>
+<ol type="1">
+<li>Each variable is a column, and each column is a variable.</li>
+<li>Each observation is a row, and each row is an observation.</li>
+<li>Each value is a cell, and each cell contains a value.</li>
+</ol>
+</div>
+</div>
+<div id="fig-tidy-data" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tidy-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/tidy-1.png" class="img-fluid figure-img" alt="">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tidy-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: “<a href="https://r4ds.hadley.nz/images/tidy-1.png">Tidy Data</a>” by <a href="https://hadley.nz">Hadley Wickham and Mine Çetinkaya-Rundel and Garret Grolemund</a> (License: <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/">CC BY-NC-ND 3.0 US</a>; reused without modifications)
+</figcaption>
+</figure>
+</div>
+<p>The journey from raw to tidy data can be long and frustrating. This book cannot provide a full overview of data wrangling and manipulation. However, if you are interested in learning functions for data manipulation, we recommend studying the <code>dplyr</code> package and its <a href="https://dplyr.tidyverse.org">documentation</a>, as well as the <code>tidyr</code> package and its <a href="https://tidyr.tidyverse.org">documentation</a>. From our experience, using and sharing code written in the tidyverse style fosters better understanding of the code, thereby enhancing computational reproducibility.</p>
+<section id="data-structures" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="data-structures"><span class="header-section-number">3.5.1</span> Data structures</h3>
+<p>Data can be structured in different ways. When your data is tidy, you may still encounter <strong>wide</strong> or <strong>long</strong> formats. As a rule of thumb, you can remember this: Data structured in a <em>long format</em> usually contains <em>repetitive</em> values in the first column of the dataset. Data structured in a <em>wide format</em> usually contains <em>non-repetitive</em> values in the first column of the dataset.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true"><i class="fa-solid fa-arrows-left-right" aria-label="arrows-left-right"></i> Wide format</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false"><i class="fa-solid fa-arrows-up-down" aria-label="arrows-up-down"></i> Long format</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div class="cell" data-filename="Code">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  participant congruent incongruent
+        &lt;int&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+1           1       560         720
+2           2       623         799
+3           3       547         812</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="cell" data-filename="Code">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  participant congruency  reaction_time
+        &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;
+1           1 congruent             560
+2           1 incongruent           720
+3           2 congruent             623
+4           2 incongruent           799
+5           3 congruent             547
+6           3 incongruent           812</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>However, this rule of thumb does not always apply, for example when data is rearranged.</p>
+<div class="cell" data-filename="Code">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Data in long format"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  reaction_time congruency  participant
+          &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;
+1           560 congruent             1
+2           720 incongruent           1
+3           623 congruent             2
+4           799 incongruent           2
+5           547 congruent             3
+6           812 incongruent           3</code></pre>
+</div>
+</div>
+<p>Another perspective on wide vs.&nbsp;long data comes from the context of the data. In research, a common question is how variable A influences variable B. Variable B is dependent on variable A, making variable B the dependent variable (DV) and variable A the independent variable (IV).</p>
+<p>In the wide data format, the names of the factor levels of the IV are usually column names, while the DV is displayed as the values across these cells. In contrast, in the long data format, the names of the factor levels of the IV are typically values in the column of the IV. The name of the IV becomes the column name, rather than the level of the IV. Simultaneously, the DV is displayed in one column with the name of the DV as the column name and the corresponding values in that column.</p>
+</section>
+<section id="changing-the-data-structure" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="changing-the-data-structure"><span class="header-section-number">3.5.2</span> Changing the data structure</h3>
+<p>Depending on which R functions you want to use or other reasons, you may need to or want to change your data structure from wide to long or vice versa. An easy way to do this is by using <code>pivot_wider()</code> and <code>pivot_longer()</code> from the <code>tidyr</code> package.</p>
+<section id="pivot_longer" class="level4" data-number="3.5.2.1">
+<h4 data-number="3.5.2.1" class="anchored" data-anchor-id="pivot_longer"><span class="header-section-number">3.5.2.1</span> <code>pivot_longer()</code></h4>
+<p><code>pivot_longer()</code> takes your dataset and makes it longer. It takes certain columns and places their names as values into a new column. Additionally, it combines the values of these columns into a single column.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1">1</button><span id="annotated-cell-8-2" class="code-annotation-target"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>data_wide <span class="sc">|&gt;</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2">2</button><span id="annotated-cell-8-3" class="code-annotation-target"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3">3</button><span id="annotated-cell-8-4" class="code-annotation-target"><a href="#annotated-cell-8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"congruent"</span>, <span class="st">"incongruent"</span>),</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="4">4</button><span id="annotated-cell-8-5" class="code-annotation-target"><a href="#annotated-cell-8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"congruency"</span>,</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="5">5</button><span id="annotated-cell-8-6" class="code-annotation-target"><a href="#annotated-cell-8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"reaction_time"</span></span>
+<span id="annotated-cell-8-7"><a href="#annotated-cell-8-7" aria-hidden="true" tabindex="-1"></a>  )</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-lines="2" data-code-annotation="1">Take the dataset <code>data_wide</code>, then<br>
+</span>
+</dd>
+<dt data-target-cell="annotated-cell-8" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-lines="3" data-code-annotation="2">Apply the function <code>pivot_longer()</code> to the data by<br>
+</span>
+</dd>
+<dt data-target-cell="annotated-cell-8" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-lines="4" data-code-annotation="3">Specifying the columns that should be transformed into a long format,<br>
+</span>
+</dd>
+<dt data-target-cell="annotated-cell-8" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-lines="5" data-code-annotation="4">Naming the new column to hold the previous column names, and<br>
+</span>
+</dd>
+<dt data-target-cell="annotated-cell-8" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-lines="6" data-code-annotation="5">Naming the new column to hold the values of the previous columns.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  participant congruency  reaction_time
+        &lt;int&gt; &lt;chr&gt;               &lt;dbl&gt;
+1           1 congruent             560
+2           1 incongruent           720
+3           2 congruent             623
+4           2 incongruent           799
+5           3 congruent             547
+6           3 incongruent           812</code></pre>
+</div>
+</div>
+</section>
+<section id="pivot_wider" class="level4" data-number="3.5.2.2">
+<h4 data-number="3.5.2.2" class="anchored" data-anchor-id="pivot_wider"><span class="header-section-number">3.5.2.2</span> <code>pivot_wider()</code></h4>
+<p><code>pivot_wider()</code> takes your dataset and makes it wider. It takes the names of a certain column and changes them to new column names. Further, it takes the values of a second column and puts them across the new columns to their corresponding names.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="annotated-cell-9"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1">1</button><span id="annotated-cell-9-1" class="code-annotation-target"><a href="#annotated-cell-9-1" aria-hidden="true" tabindex="-1"></a>data_long <span class="sc">|&gt;</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="2">2</button><span id="annotated-cell-9-2" class="code-annotation-target"><a href="#annotated-cell-9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="3">3</button><span id="annotated-cell-9-3" class="code-annotation-target"><a href="#annotated-cell-9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="st">"congruency"</span>,</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="4">4</button><span id="annotated-cell-9-4" class="code-annotation-target"><a href="#annotated-cell-9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> <span class="st">"reaction_time"</span></span>
+<span id="annotated-cell-9-5"><a href="#annotated-cell-9-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-9-6"><a href="#annotated-cell-9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-9" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-lines="1" data-code-annotation="1">Take the dataset <code>data_long</code>,<br>
+</span>
+</dd>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-lines="2" data-code-annotation="2">Apply the function <code>pivot_wider()</code> to the data by<br>
+</span>
+</dd>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-lines="3" data-code-annotation="3">Specifying the column name from which to create the new column names, and<br>
+</span>
+</dd>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-lines="4" data-code-annotation="4">Specifying the column name from which to take the values for the new columns.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  participant congruent incongruent
+        &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+1           1       560         720
+2           2       623         799
+3           3       547         812</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="defensive-programming" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="defensive-programming"><span class="header-section-number">3.6</span> Defensive programming</h2>
+<p>Whenever you write code for data analysis or any other purpose, it is useful to validate what you are doing. This is also known as <strong>defensive programming</strong>. “Defensive” in this context means cautious. Here are some potential benefits of validating your code:</p>
+<ul>
+<li>Early error detection<br>
+</li>
+<li>Code clarity<br>
+</li>
+<li>Protection against invalid input<br>
+</li>
+<li>Monitoring data quality<br>
+</li>
+<li>Improved documentation<br>
+</li>
+<li>Improved error handling</li>
+</ul>
+<section id="the-assertr-package-and-its-function-verify" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="the-assertr-package-and-its-function-verify"><span class="header-section-number">3.6.1</span> The <code>assertr</code> package and it’s function <code>verify()</code></h3>
+<p>The <a href="https://cran.r-project.org/web/packages/assertr/vignettes/assertr.html"><code>assertr</code></a> package helps you when you start testing your code. Once you begin adopting the tidyverse coding style, the function <code>verify()</code> will be easy to apply in your code. <code>verify()</code> can be seamlessly integrated into a code pipeline.</p>
+<p>The <code>verify()</code> function takes a data frame (which is the first argument of the function and provided by the <code>|&gt;</code> operator) and a logical expression. Then, the expression is evaluated in the context of the data frame. When the expression is <code>TRUE</code>, no error occurs and the pipe goes on. When the expression is <code>FALSE</code>, verify will raise an error that terminates any further processing of the pipeline <span class="citation" data-cites="fischetti2023">(<a href="../references.html#ref-fischetti2023" role="doc-biblioref">Fischetti 2023</a>)</span>.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Verification passed</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Verification failed</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<p>In this example, a dataframe will only be printed, if all values in the column <code>reaction_time</code> are higher than 200. This holds true for <code>data_long</code>, but not for <code>data_long_2</code>. <code>data_long_2</code> has one value (<code>24</code>) violating the verify expression.</p>
+<div class="cell" data-asis="false">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(assertr)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># verify if reaction time is longer than 200ms</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>data_long <span class="sc">|&gt;</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">verify</span>(reaction_time <span class="sc">&gt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  participant congruency  reaction_time
+        &lt;dbl&gt; &lt;chr&gt;               &lt;dbl&gt;
+1           1 congruent             560
+2           1 incongruent           720
+3           2 congruent             623
+4           2 incongruent           799
+5           3 congruent             547
+6           3 incongruent           812</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<p>In this example, a dataframe will only be printed, if all values in the column <code>reaction_time</code> are higher than 200. This holds true for <code>data_long</code>, but not for <code>data_long_2</code>. <code>data_long_2</code> has one value (<code>24</code>) violating the verify expression.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>data_long_2 <span class="ot">&lt;-</span> data_long</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>data_long_2[<span class="dv">5</span>,<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">24</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>data_long_2 <span class="sc">|&gt;</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">verify</span>(reaction_time <span class="sc">&gt;</span> <span class="dv">200</span>) <span class="sc">|&gt;</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="cell" data-code-copy="false">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Console output</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>verification [reaction_time <span class="sc">&gt;</span> <span class="dv">200</span>] failed<span class="sc">!</span> (<span class="dv">1</span> failure)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    verb redux_fn           predicate column index value</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> verify       <span class="cn">NA</span> reaction_time <span class="sc">&lt;</span> <span class="dv">200</span>     <span class="cn">NA</span>     <span class="dv">5</span>    <span class="cn">NA</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>Error<span class="sc">:</span> assertr stopped execution</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="further-functions-and-packages" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="further-functions-and-packages"><span class="header-section-number">3.6.2</span> Further functions and packages</h3>
+<p>The <code>verify()</code> function provides an easy way to start validating your code within a tidyverse coding style. However, there are more functions from the <code>assertr</code> package that can be applied for defensive programming. Going through all of these functions exceeds the scope of this book. Therefore, we highly recommend reading the accompanying <a href="https://cran.r-project.org/web/packages/assertr/vignettes/assertr.html">vignette</a> by Tony Fischetti, the author of the <code>assertr</code> package.</p>
+<p>Furthermore, <code>assertr</code> is not the only <i class="fa-brands fa-r-project" aria-label="r-project"></i> package dealing with defensive programming. <a href="https://cran.r-project.org/web/packages/assert/assert.pdf"><code>assert</code></a>, <a href="https://cran.r-project.org/web/packages/assertthat/assertthat.pdf"><code>assertthat</code></a>, and <a href="https://cran.r-project.org/web/packages/testthat/testthat.pdf"><code>testthat</code></a> are other powerful packages in this context. In general, code validation is not too popular in scientific practice. It is rather prevalent in software development contexts validating functions and whole scripts for specific purposes. These thorough testing processes extends the scope of computational reproducibility in our opinion. Thus, we recommend <code>assertr::verify()</code> as a good starting point for defensive programming in the context of computational reproducibility.</p>
+</section>
+</section>
+<section id="acknowledgements-further-reading" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="acknowledgements-further-reading"><span class="header-section-number">3.7</span> Acknowledgements &amp; further reading</h2>
+<p>We would like to express our gratitude to the following resources, which have been essential in shaping this chapter. We recommend these references for further reading:</p>
+<table class="table">
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Resources</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="citation" data-cites="rennie2024">(<a href="../references.html#ref-rennie2024" role="doc-biblioref">Rennie 2024</a>)</span></td>
+</tr>
+<tr class="even">
+<td><span class="citation" data-cites="wickham2023">(<a href="../references.html#ref-wickham2023" role="doc-biblioref">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span></td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-fischetti2023" class="csl-entry" role="listitem">
+Fischetti, Tony. 2023. <em>Assertr: Assertive Programming for r Analysis Pipelines</em>. <a href="https://docs.ropensci.org/assertr/">https://docs.ropensci.org/assertr/</a>.
+</div>
+<div id="ref-hester2024" class="csl-entry" role="listitem">
+Hester, Jim, Florent Angly, Russ Hyde, Michael Chirico, Kun Ren, Alexander Rosenstock, and Indrajeet Patil. 2024. <em>Lintr: A ’Linter’ for r Code</em>. <a href="https://CRAN.R-project.org/package=lintr">https://CRAN.R-project.org/package=lintr</a>.
+</div>
+<div id="ref-mueller2020" class="csl-entry" role="listitem">
+Müller, Kirill. 2020. <em>Here: A Simpler Way to Find Your Files</em>. <a href="https://here.r-lib.org/">https://here.r-lib.org/</a>.
+</div>
+<div id="ref-rennie2024" class="csl-entry" role="listitem">
+Rennie, Nicola. 2024. <span>“Writing Better r Code.”</span> <a href="https://nrennie.rbind.io/training-better-r-code/">https://nrennie.rbind.io/training-better-r-code/</a>.
+</div>
+<div id="ref-wickham2023" class="csl-entry" role="listitem">
+Wickham, H., M. Çetinkaya-Rundel, and G. Grolemund. 2023. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. O’Reilly Media. <a href="https://r4ds.hadley.nz">https://r4ds.hadley.nz</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script defer="" data-domain="lennartwittkuhn.com/repro-book" src="https://plausible.io/js/script.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/lennartwittkuhn\.com\/repro-book\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/naming-things.html" class="pagination-link" aria-label="Naming things">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Naming things</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2024 – 2025 <a href="?tab=readme-ov-file#contributors">The Repro Book Team</a></p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link active" href="../acknowledgements.html" aria-current="page">
+<p>Acknowledgements</p>
+</a>
+  </li>  
+</ul>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/good-coding-practices.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/good-coding-practices.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>License: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

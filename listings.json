@@ -3,7 +3,8 @@
     "listing": "/contents.html",
     "items": [
       "/chapters/intro.html",
-      "/chapters/naming-things.html"
+      "/chapters/naming-things.html",
+      "/chapters/good-coding-practices.html"
     ]
   }
 ]
