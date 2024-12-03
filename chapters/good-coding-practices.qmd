@@ -11,11 +11,13 @@ abstract: |
 ---
 
 ```{r setup}
+#| eval: true
 #| echo: false
 library(tibble)
 library(dplyr)
 library(tidyr)
 library(assertr)
+library(tibble)
 ```
 
 # Good coding practices
@@ -87,11 +89,9 @@ After you have created your R project, it is time to take a closer look at your 
 Comments are probably the most important part of your scripts (but also see the discussion in @tip-comments-pros-cons).
 Whenever you write a `#` in your R-script, all code after that `#` will be identified as comment and therefore not be executed as code.
 Thus, if you put a `#` at the beginning of a line, the whole line will be identified as comment.
-Here are some thoughts about comments by [@rennie2024]:
+Here are some thoughts about comments by @rennie2024:
 
-::: callout-note
-## Adding comments
-
+::: {.callout-note title="Adding comments"}
 - Add comments using a `#` in R (in a separate line)
 - Comments don't need to explain *what* your code does
 - Comments should explain *why* you did it
@@ -111,7 +111,7 @@ The number of hashes you use at the beginning determines the level of section.
 # Section 2 ----
 ```
 
-::: {#tip-comments-pros-cons .callout-tip title="Pros and cons of comments" collapse="true"}
+::: {#tip-comments-pros-cons .callout-tip title="Discussion: Pros and cons of comments" collapse="true"}
 
 Comments in code are useful because they help explain complex logic, 
 provide context for why certain decisions were made, 
@@ -126,12 +126,12 @@ guiding them through unfamiliar concepts and helping them understand the underly
 
 :::
 
-## Referring file paths
+## File paths
 
-Whenever you are conducting research, you need to analyze some form of data.  
-This data is typically stored in one or more files.  
-Therefore, you need to read the data into your script.  
-To do so, you must refer to the files you want to read.  
+Whenever you are conducting research, you need to analyze some form of data.
+This data is typically stored in one or more files.
+Therefore, you need to read the data into your script.
+To do so, you must refer to the files you want to read.
 This is where the first advantage of setting up a dedicated R project for your research becomes apparent.
 
 You can read data or code into your R environment by referring to your files using **absolute paths**, **relative paths**, and **`here::here()`**.
@@ -140,7 +140,7 @@ You can read data or code into your R environment by referring to your files usi
 
 Using an absolute path means referring to your file by specifying the entire folder structure on your computer:
 
-```{r filename = "Code"}
+```{r filename="Code"}
 #| eval: false
 data <- read_csv("/Users/my-user-name/Documents/projects/my-project/data/data-raw.csv")
 ```
@@ -148,7 +148,7 @@ data <- read_csv("/Users/my-user-name/Documents/projects/my-project/data/data-ra
 Using absolute file paths is not recommended for computational reproducibility.  
 A collaborator or interested researcher who downloads your scripts and wants to reproduce your analysis would need to adjust these paths before the scripts can run correctly.
 
-```{r filename = "Code"}
+```{r filename="Code"}
 #| eval: false
 data <- read_csv("/Users/user-name-b/Desktop/work/research/my-project/data/data-raw.csv")
 ```
@@ -158,7 +158,7 @@ data <- read_csv("/Users/user-name-b/Desktop/work/research/my-project/data/data-
 A relative file path starts from your current *working directory* and appends the relative path.  
 You can check your current working directory in R by using the `getwd()` command in the R Console.
 
-```{r, filename="Console"}
+```{r, filename="R Console"}
 > getwd()
 [1] "Users/my-user-name/my-project"
 ```
@@ -199,22 +199,22 @@ However, this does not hold true for scripts changing the working directory usin
 
 :::
 
-
-A way to avoid confusions about which file paths to use, is the `here` package [@mueller2020].
-The `here()` function works regardless of what your current working directory is.
-
 ### The `here` package
 
+A way to avoid confusion about which file paths to use is the `here` package [@mueller2020].
+The `here()` function works regardless of your current working directory.
+
 You can install the `here` package by typing:
+
 ```{r filename="Code"}
 #| eval: false
 install.packages("here")
 ```
 
-With `here::here()`, it is possible to refer file paths regardless of your working directory.
-`here()` uses the top-level directory of a file project to build the paths.
-It recognizes special files (e.g. `.Rproj`) and infers a project folder.
-Using `here()` referencing file paths will always use the same project structure regardless of the file you are referencing.
+With `here::here()`, it is possible to refer to file paths regardless of your working directory.
+`here()` uses the top-level directory of a project to build the paths.
+It recognizes special files (e.g., `.Rproj`) and infers the project folder.
+Using `here()`, referencing file paths will always follow the same project structure regardless of the file you are referencing.
 
 ::: {.callout-tip title="Example" collapse="false"}
 
@@ -244,19 +244,19 @@ getwd()
 
 :::
 
-Another benefit of using `here()` is enhanced readability because the paths do always start at the project directory.
-Using relative paths would require the reader to think about the current working directory and how certain files are relatively located to it.
-Further, while separating files with characters and commas, here is untouched by different operating systems.
+Another benefit of using `here()` is enhanced readability because the paths always start at the project directory.
+Using relative paths would require the reader to consider the current working directory and how certain files are relatively located to it.
+Furthermore, `here()` remains unaffected by differences between operating systems when separating files with characters and commas.  
+
 
 ::: {.callout-note title="Path differences between operating systems" collapse="true"}
 
-MacOS and Linux use slash `/` for path separators. In contrast, Windows uses a backslash `\` for path separators.
-In R, `\` is an escape operator.
-Thus, R will misinterpret Windows backslash `\` when using them as path separators.
-For Windows, the use of `\\` or `/` is appropriate in handling path separators.
+macOS and Linux use a slash `/` for path separators, while Windows uses a backslash `\`.
+In R, `\` is an escape operator, causing R to misinterpret Windows backslashes `\` when used as path separators.
+On Windows, using `\\` or `/` is necessary to handle path separators correctly.
 
-A benefit of `here()` is that one can specify paths within `""` separated by commas.
-Depending on the operating system `here()` applies a correct path separation.
+A benefit of `here()` is that paths can be specified within `""` and separated by commas.
+Depending on the operating system, `here()` applies the correct path separator automatically.
 
 ```{r filename="Code"}
 #| eval: false
@@ -271,7 +271,7 @@ We recommend to never use absolute file paths, since they are a hurdle to comput
 ## Code Style {#sec-codestyle}
 
 >"Good coding style is like correct punctuation: you can manage without it, butitsuremakethingseasiertoread" 
-> -- Wickham et al. (2023)
+> -- @wickham2023
 
 One important aspect that fosters understandability of code is the code style.
 In this section, we will present the `tidyverse`-codestyle [@wickham2023].
@@ -283,7 +283,7 @@ In this section, we will provide a brief introduction to code style.
 
 ### Names
 
-Not only should files and folders be named well (see chapter on [naming thigs](naming-things.qmd)), but the same applies to variable and function names in scripts.
+Not only should files and folders be named well (see chapter on [naming things](naming-things.qmd)), but the same applies to variable and function names in scripts.
 Variable and function names should only consist of lowercase letters, numbers, and underscores (`_`).
 It is better to use descriptive, longer names rather than short abbreviations that you may not understand in the future.
 
@@ -312,8 +312,8 @@ SHORTFLIGHTS <- flights |>
 
 ### Spaces
 
-Put spaces around mathematical operators (except `^`) and around the assignment operator (`<-`).  
-Do not put spaces around parentheses when using functions.  
+Put spaces around mathematical operators (except `^`) and around the assignment operator (`<-`).
+Do not put spaces around parentheses when using functions.
 Put a space after a comma, as you would in standard English.
 
 :::: columns
@@ -339,19 +339,29 @@ mean (x ,na.rm=TRUE)
 
 ### Pipes
 
-The pipe (either `|>` or `%>%`) is a useful operator for connecting subsequent operations in your code.  
+The pipe (either `|>` or `%>%`) is a useful operator for connecting subsequent operations in your code.
 The pipe takes everything to the left of it and uses it as the first argument to the function on the right side.
 
->Here a cartoon illustrating how the pipe works would be fun.
+:::: columns
 
-```{r filename = "Code"}
+::: {.column width="49%"}
+```{r filename="Without pipe"}
 #| eval: false
-# Without pipe
 sum(c(1:4))
+```
+:::
 
-# With pipe
+::: {.column width="2%"}
+:::
+
+::: {.column width="49%"}
+```{r filename="With pipe"}
+#| eval: false
 c(1:4) |> sum()
 ```
+:::
+
+::::
 
 The pipe is particularly useful when you chain many functions together.
 Therefore, use `|>` at the end of a line and add a space before it.
@@ -362,18 +372,24 @@ The complete sequence of functions connected by a pipe is also called a **pipeli
 :::{.column width="49%"}
 ```{r filename = "Strive for"}
 #| eval: false
-data |>
-  select(N, gender) |>
-  filter(
-    gender == "male" |
-    gender == "female"
-  ) |>
-  group_by(gender) |>
-  summarise(
-    mean = mean(N),
-    median = md(N)
-  )
+data |> # <1>
+  select(N, gender) |> # <2>
+  filter( # <3>
+    gender == "male" | # <3>
+    gender == "female" # <3>
+  ) |> # <3>
+  group_by(gender) |> # <4>
+  summarise( # <5>
+    mean = mean(N), # <5>
+    median = md(N) # <5>
+  ) # <5>
 ```
+1. Take the data *and then*
+1. Select the variables `N` and `gender` *and then*
+1. Filter all observations where the variable `gender` either contains the value `male` or `female` *and then*
+1. Group the dataset by the variable `gender` *and then*
+1. Summarize your datasets by calculating the mean and median for the variable `N` for each group.
+
 :::
 
 :::{.column width="2%"}
@@ -391,13 +407,6 @@ summarise(group_by(filter(select(data, N, gender), gender == "male" | gender == 
 
 The code displayed above is much easier to read and understand for your future self and other researchers, thereby increasing the likelihood of reproducibility.
 Translated into plain English, the pipe represents an *"and then"*:
-
-1. Take the data *and then*
-1. select the variables `N` and `gender` *and then*
-1. filter all observations where the variable `gender` either contains the value `male` or `female` *and then*
-1. group the dataset by the variable `gender` *and then*
-1. summarise your datasets by calculating the mean and median for the variable `N` for each group.
-
 
 ::: {.callout-note collapse="true"}
 ## Difference between `%>%` and `|>`
@@ -469,8 +478,9 @@ flights|>
              delay = mean(arr_delay, na.rm = TRUE), 
              n = n()
            )
-#or:
+```
 
+```{r filename = "Avoid"}
 flights|>
   group_by(tailnum) |> 
   summarize(
@@ -481,11 +491,11 @@ flights|>
 :::
 
 ::::
-### Evaluate your code style
+### Evaluate your code style: Linting
 
-After you have learned the `tidyverse` codestyle, you can check your code if you have any deviations from that codestyle.
-This is called "linting" and comparable to a program that checks for spelling errors.
-The `lintr` package [@hester2024] can do that for you and analyses your code for...
+After learning the `tidyverse` coding style, you can check your code for any deviations from that style.  
+This process is called "linting" and is comparable to a program that checks for spelling errors.  
+The `lintr` package [@hester2024] can perform this task by analyzing your code for potential issues and deviations from the recommended coding style.  
 
 - stylistic issues (e.g. `x<-3` vs. `x <- 3`)
 - common errors (e.g. `mean(x, na.rm = T, na.rm = F)`)
@@ -496,8 +506,7 @@ The `lintr` package [@hester2024] can do that for you and analyses your code for
 However, note that `lintr` cannot check whether your code runs correctly!
 :::
 
-::: {.callout-tip collapse="false"}
-## Example of `lintr`
+::: {.callout-tip title="Example of `lintr`" collapse="false"}
 
 Suppose you have script called `test-script.R` in the folder `scripts` of your research projects.
 Your script looks as follows:
@@ -542,14 +551,13 @@ After adding the spaces, saving the script, and running `lintr::lint("scripts/te
 cat(make_figure("horst-tidydata"))
 ```
 
-When working with datasets, you will likely not be able to directly conduct your data analysis (e.g., `t-tests`, `ANOVAs`, `GLMs`).  
-In fact, most of the time, you will spend more time organizing your data than running your analysis.  
-A helpful concept is **tidy data**, which is a common guideline for organizing datasets.  
-Tidy data is closely related to the principles of the `tidyverse` introduced in @sec-codestyle.  
+When working with datasets, you will likely not be able to directly conduct your data analysis (e.g., `t-tests`, `ANOVAs`, `GLMs`).
+In fact, most of the time, you will spend more time organizing your data than running your analysis.
+A helpful concept is **tidy data**, which is a common guideline for organizing datasets.
+Tidy data is closely related to the principles of the `tidyverse` introduced in @sec-codestyle.
 Following tidy data guidelines will help you run analyses and get the most out of your data.
 
-::: callout-important
-## Tidy Data
+::: {.callout-important title="Tidy Data"}
 
 Tidy datasets follow three basic rules:
 
@@ -574,9 +582,8 @@ From our experience, using and sharing code written in the tidyverse style foste
 
 Data can be structured in different ways.
 When your data is tidy, you may still encounter **wide** or **long** formats.
-
-As a rule of thumb, you can remember this:  
-Data structured in a *long format* usually contains *repetitive* values in the first column of the dataset.  
+As a rule of thumb, you can remember this:
+Data structured in a *long format* usually contains *repetitive* values in the first column of the dataset.
 Data structured in a *wide format* usually contains *non-repetitive* values in the first column of the dataset.
 
 ::: panel-tabset
@@ -586,11 +593,6 @@ Data structured in a *wide format* usually contains *non-repetitive* values in t
 ```{r filename = "Code"}
 #| echo: false
 #| eval: true
-
-#load library
-library(tibble)
-
-#set up data frame
 data_wide <- tibble(
   participant = 1:3,
   congruent = c(560, 623, 547),
@@ -643,22 +645,19 @@ An easy way to do this is by using `pivot_wider()` and `pivot_longer()` from the
 
 #### `pivot_longer()`
 
-`pivot_longer()` takes your dataset and makes it longer.  
-It takes certain columns and places their names as values into a new column.  
+`pivot_longer()` takes your dataset and makes it longer.
+It takes certain columns and places their names as values into a new column.
 Additionally, it combines the values of these columns into a single column.
 
-
-```{r filename = "Code"}
+```{r filename="Code"}
 #| eval: true
 library(tidyr)
-
 data_wide |>                                # <1>
   pivot_longer(                             # <2>
     cols = c("congruent", "incongruent"),   # <3>
     names_to = "congruency",                # <4>
     values_to = "reaction_time"             # <5>
-  ) |>
-  print()
+  )
 ```
 
 1. Take the dataset `data_wide`, then  
@@ -763,9 +762,9 @@ Error: assertr stopped execution
 
 ### Further functions and packages
 
-The `verify()` function provides an easy way to start validating your code within a tidyverse coding style.  
-However, there are more functions from the `assertr` package that can be applied for defensive programming.  
-Going through all of these functions exceeds the scope of this book.  
+The `verify()` function provides an easy way to start validating your code within a tidyverse coding style.
+However, there are more functions from the `assertr` package that can be applied for defensive programming.
+Going through all of these functions exceeds the scope of this book.
 Therefore, we highly recommend reading the accompanying [vignette](https://cran.r-project.org/web/packages/assertr/vignettes/assertr.html) by Tony Fischetti, the author of the `assertr` package.
 
 Furthermore, `assertr` is not the only {{< fa brands r-project >}} package dealing with defensive programming.
@@ -774,7 +773,6 @@ In general, code validation is not too popular in scientific practice.
 It is rather prevalent in software development contexts validating functions and whole scripts for specific purposes.
 These thorough testing processes extends the scope of computational reproducibility in our opinion.
 Thus, we recommend `assertr::verify()` as a good starting point for defensive programming in the context of computational reproducibility.
-
 
 ## Acknowledgements & further reading
 
