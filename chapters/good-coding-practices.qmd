@@ -20,7 +20,7 @@ library(assertr)
 library(tibble)
 ```
 
-# Good coding practices
+# Good Coding Practices
 
 ## R projects
 
