@@ -1,0 +1,123 @@
+---
+title: "Robust Environments: `{renv}`"
+editor: source
+engine: knitr
+execute:
+  eval: false
+  warning: false
+  message: false
+code-annotations: hover
+categories: [intermediate]
+abstract: |
+  In this chapter you will learn how your reproducible research project becomes robust against different package versions.
+  You will make it easy for you to and collaborators to use the same package versions in your joint project.
+---
+
+## Introduction
+
+Now a project is well-named including its files and folders.
+It is well-structured and follows a community standard as Psych-DS.
+It follows the FAIR principles.
+The code is written in the tidyverse-style.
+Is it reproducible?
+Well, it may be.
+Very likely, it is not.
+
+Imagine you need to reproduce the results of a research article from 2019.
+The project structure is openly available at [OSF](https://osf.io/) or at [Zenodo](https://zenodo.org/).
+You find a nice structure, run a script but then you get an error message in R like:
+
+```{zsh filename="Console"}
+Error in function_name(object[[i]], ...) : could not find function "function_name"
+```
+
+R is telling you that it cannot find a function called function_name.
+A similar problem can be that only arguments of a function are not found.
+However, the script runs correctly at the device of the researcher writing the script.
+Thus, you are facing a research project that is only reproducible on the same device it was written for.
+A possible reason is that your computational environment differs from the environment of the other researcher.
+You might have installed different versions of R packages or of {{< fa brands r-project >}} itself.
+
+::: {.callout-tip title="Computational environments" collapse="true"}
+
+<!--# Introduction to computational environments if not done in a separate chapter -->
+
+:::
+
+Different computational environments can hinder computational reproducibility.
+In the example above, the code cannot be executed.
+However, sometimes package updates do only change the calculation of a function or an argument.
+Thus, a different package version leads to **different results** even though the code runs correctly.
+
+::: {.callout-important title="Problems of different computational environments"}
+
+- scripts could stop running because of different functions or arguments
+- scripts could run correctly but produce different results
+:::
+
+::: {.callout-tip title="How `renv` helps aligning computational environments"}
+
+With `renv`...
+
+- package versions can be safed inside a research project
+- collaborators can easily load the same package versions independent of their device
+- R projects become isolated, portable and reproducible [@ushey2024]
+:::
+
+<!--# What we will be able to do after this chapter -->
+
+## `renv`
+
+`renv` is a package that cares about the different versions of your used packages.
+To use `renv` as package dependency manager, you only need to install it, as every other package.
+
+```{zsh filename="Code"}
+install.packages("renv")
+```
+
+::: {.callout-tip title="Benefits of `renv`"}
+- easy documenting package versions
+- easy restoring of older package versions
+<!--# Is this callout-box redundant to the one above?-->
+:::
+
+### `renv`-functions
+
+The `renv` package is very powerful because it does a lot of useful things while only needing 4 (+1) functions. 
+
+#### `renv::init`
+
+With `renv::init()`, we initialize our project.
+
+<details>
+<summary>Click here to view the full `renv.lock` file of this project.</summary>
+```{json, filename="renv.lock"}
+#| file: renv.lock
+#| code-line-numbers: true
+```
+</details>
+
+#### `renv::install`
+
+With `renv::install`, we can install new packages to our project.
+
+#### `renv::snapshot`
+
+With `renv::snapshot`, we can document the package versions we need in our project.
+
+#### `renv::restore`
+
+With `renv::restore`, we can restore versions of our used packages.
+
+#### `renv::status`
+
+### `renv`-workflow
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("renv-workflow"))
+```
+
+<!--# Insert a figure of a renv-workflow -->
