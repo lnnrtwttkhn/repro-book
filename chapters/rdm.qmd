@@ -153,36 +153,34 @@ cat(make_figure("nlm-nih-fair"))
 
 @wilkinson2016 published the FAIR principles for research data management.
 FAIR stands for Findable, Accessible, Interoperable, and Reusable.
+FAIR is a popular concept that has been adopted to a variety of research properties, such as FAIR data, and FAIR research software [@wilkinson2016; @barker2022].
 FAIR data principles was originally introduced to enhance the machine readability of data.
-However, human readability also increased.
-In the box below, you can find guidelines facilitating making your data FAIR.
+As a side effect, human readability also increased.
+However, enhancing reproducibility was no primary goal when implementing FAIR principles.
+Thus, we will only deal with two concepts we think are relevant for computational reproducibility: Persistent identifiers as **Digital Object Identifiers** (DOIs) and **metadata**.
+DOIs make your scientific output (e.g. articles, datasets, code) findable therefore enhancing the possibility of other researchers reproducing your scientific output.
 
-::: {.callout-tip title="Guidelines of **FAIR** data"}
+::: {.callout-tip title="What is a Digital Object Identifier (DOI)?" collapse="true"}
 
-These guidelines are taken from A FAIRy tale, a book providing an understandable explanation of each principle [@hansen2018].
+A Digital Object Identifier (DOI) is a unique alphanumeric string assigned to a digital document or resource to provide a permanent and stable link to it.
+DOIs are commonly used to identify and provide a persistent link to scholarly articles, research papers, books, datasets, and other types of digital content.
+The purpose of a DOI is to ensure that the content can be reliably located and accessed over time, even if the web address (URL) of the resource changes.
 
-::: panel-tabset
-## Findable
+Key features of DOIs include:
 
-1. Use a **persistent identifier** as a DOI for your research project.
-Thus, your data becomes findable for everyone with the DOI.
-Data platforms as [Zenodo](https://zenodo.org/) provide easy tools to do that.
+1. **Uniqueness:** Each DOI is unique to a particular resource, ensuring that no two resources have the same identifier.
 
-1. Provide **rich metadata**. 
-Metadata are often the first point of contact in search engines, when humans and machines look for data.
-Metadata should contain information about context, instruments used in the study, sample size, etc.
-These details make your data findable, thus, creating a bigger impact on research.
+2. **Persistence:** DOIs are designed to remain unchanged, providing a persistent link to the resource even if it is moved or the URL changes.
 
-1. Metadata should **include the identifier** of the data.
-Metadata and data are usually treated separately.
-Therefore, a link between Metadata and data must be included.
-Without, the metadata nicely describe data that cannot be found.
+3. **Interoperability:** DOIs are widely used in scholarly publishing and other sectors, making them interoperable across different systems and platforms.
 
-1. Meta(data) are registered or indexed in a **searchable resource**.
-Structured searches for datasets usually involve search engines.
-It does not help your data to be found on project websites.
-Your data can have more impact when it is found in a repository using a structured way of building metadata.
-For psychology, good repositories are [OSF](https://osf.io/) and [Zenodo](https://zenodo.org/).
+4. **Accessibility:** DOIs are often associated with metadata that provides information about the resource, such as author, title, publisher, publication date, and more.
+
+5. **Citations:** DOIs are commonly used in academic and scientific citations to provide a standardized and reliable reference to a specific resource.
+
+DOIs are typically assigned and managed by registration agencies, such as CrossRef for scholarly content or DataCite for research data. Organizations and publishers assign DOIs to their digital content to enhance discoverability, citation tracking, and long-term accessibility.
+
+:::
 
 ::: {.callout-note title="How to set up a persistent identifier with **OSF**?" collapse="true"}
 1. go to [https://osf.io/](https://osf.io)
@@ -200,19 +198,25 @@ For psychology, good repositories are [OSF](https://osf.io/) and [Zenodo](https:
 The version control book by @wittkuhn2024 gives a detailed instruction on how to set up a DOI with Zenodo. We therefore ask you to read the respective [chapter](https://lennartwittkuhn.com/version-control-book/chapters/tags-and-releases.html#zenodo).
 :::
 
-## Accessible
+::: {.callout-tip title="What is metadata?" collapse="true"}
+A short definition says that metadata is data about your data.
+More thoroughly, metadata is a set of data that **describes and gives information about other data**.
+However, metadata does not contain the data itself.
 
-1. Retrieval is possible by **standardised protocol**.
-Not all data is *openly* available.
-When you cannot provide your data to the public of the internet, you should have a standardised protocol that determines how someone can have access to your data.
-That could be contact information or any additional mechanisms.
-This might be particularly important when you want to publish data in clinical psychology.
+Example:
 
-## Interoperable
+Imagine you write a WhatsApp message to one of your friends.
+The data would be your message.
+Metadata would contain information about the forwarder, the recipient, the time the message was sent, the used device and so on...
 
-## Reusable
+The same applies to your research data.
+Metadata contains information about your project, variable names and labels, response formats, affiliations, etc.
+Remember the pandas wondering what all the variables Sam1, ..., Sam4 mean?
+That is what you can describe with metadata.
 :::
-:::
+
+Meta data ensure that people understand your code.
+It facilitates reproducibility because the raw computations are supplemented with semantical meaning.
 
 ## Data organization
 
@@ -220,20 +224,7 @@ There are many different ways you can organize your data.
 There is really no right and wrong here, but there are some valuable thoughts aiming to enhance reproducibility.
 Data organization is not only about folder structure and precise names.
 It is also about which file formats to use enhancing usability for humans and machines.
-Further, it includes the use of **metadata** to describe your data.
-
-::: {.callout-tip title="What is metadata?" collapse="true"}
-A short definition says that metadata is data about your data.
-More thoroughly, metadata is a set of data that **describes and gives information about other data**.
-However, that data does not contain the data itself.
-
-Example:
-
-Imagine you write a WhatsApp message to one of your friends.
-The data would be your message.
-Metadata would contain information about the forwarder, the recipient, the time the message was sent, the used device and so on...
-:::
-
+Further, it includes the use of metadata to describe your data.
 Due to the variety of organization styles, you should have a consistent style of organizing your data.
 Thus, you need to apply a standard for your data.
 
