@@ -68,12 +68,26 @@ With `renv`...
 
 ## `renv`
 
-::: {.callout.tip title="Benefits of `renv`"}
+`renv` is a package that cares about the different versions of your used packages.
+To use `renv` as package dependency manager, you only need to install it, as every other package.
+
+```{zsh filename="Code"}
+install.packages("renv")
+```
+
+::: {.callout-tip title="Benefits of `renv`"}
+- easy documenting package versions
+- easy restoring of older package versions
+<!--# Is this callout-box redundant to the one above?-->
 :::
 
 ### `renv`-functions
 
+The `renv` package is very powerful because it does a lot of useful things while only needing 4 (+1) functions. 
+
 #### `renv::init`
+
+With `renv::init()`, we initialize our project.
 
 <details>
 <summary>Click here to view the full `renv.lock` file of this project.</summary>
@@ -85,12 +99,25 @@ With `renv`...
 
 #### `renv::install`
 
+With `renv::install`, we can install new packages to our project.
+
 #### `renv::snapshot`
 
+With `renv::snapshot`, we can document the package versions we need in our project.
+
 #### `renv::restore`
+
+With `renv::restore`, we can restore versions of our used packages.
 
 #### `renv::status`
 
 ### `renv`-workflow
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("renv-workflow"))
+```
 
 <!--# Insert a figure of a renv-workflow -->
