@@ -155,7 +155,7 @@ The problem with such scripts is, that they are not really reusable.
 If you want to reproduce a certain analysis, you have to run and understand the whole OSDIA-script.
 Modularity, faces this issue.
 
-When you structure your analyses in different moduls, you are able to write OSDOT-scripts (*one script does one thing*).
+When you structure your analyses in different modules, you are able to write OSDOT-scripts (*one script does one thing*).
 Thus, your datasets and your code becomes more reusable.
 Further, it becomes less error-prone because 
 However, there is no free lunch.
