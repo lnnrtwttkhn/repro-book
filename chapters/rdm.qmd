@@ -142,6 +142,26 @@ cat(make_figure("remi-gau-data-readme"))
 
 :::
 
+Data analyses usually require multiple steps of data wrangling.
+Raw data has to undergo preprocessing steps such that it follows a analysable format.
+Data can than be analysed and represented in derivative data or data models [@haslbeck2022].
+Such data models can be a mean, a sum, a t-value a covariance-matrix...
+The point is: Data is available in different stages of processing.
+
+Sometimes you might see an OSDIA script (or you have even written one as well).
+OSDIA stands for *one script does it all*.
+Such a script is visualized in Figures 3.5 / 3.6.
+The problem with such scripts is, that they are not really reusable.
+If you want to reproduce a certain analysis, you have to run and understand the whole OSDIA-script.
+Modularity, faces this issue.
+
+When you structure your analyses in different moduls, you are able to write OSDOT-scripts (*one script does one thing*).
+Thus, your datasets and your code becomes more reusable.
+Further, it becomes less error-prone because 
+However, there is no free lunch.
+Modularity will increase the complexity of your project structure and the amount of files you need for your analysis.
+Nevertheless, with a thoughtful project structure, modularity is preferable to OSDIA-scripts.
+
 ## FAIR principles
 
 ```{r}
