@@ -91,9 +91,7 @@ Managing data well throughout the research process is crucial for successful res
 - Meeting the grant requirements of funding bodies
 - Adhering to industry and commerce practices.
 
-## Motivation
-
-### Modularity of research data
+## Modularity of research data
 
 What we expect the data to look like ...
 
