@@ -7,6 +7,7 @@ execute:
   warning: false
   message: false
 code-annotations: hover
+categories: [intermediate]
 abstract: |
   In this chapter you will learn how your reproducible reasearch project becomes robust against different package versions.
   You will make it easy for you to and collaborators to use the same package versions in your joint project.
@@ -14,15 +15,54 @@ abstract: |
 
 ## Introduction
 
-<!--# Write about the current status-->
+Now a project is well-named including its files and folders.
+It is well-structured and follows a community standard as Psych-DS.
+It follows the FAIR principles.
+The code is written in the tidyverse-style.
+Is it reproducible?
+Well, it may be.
+Very likely, it is not.
 
-### Computational environments
+Imagine you need to reproduce the results of a research article from 2019.
+The project structure is openly available at [OSF](https://osf.io/) or at [Zenodo](https://zenodo.org/).
+You find a nice structure, run a script but then you get an error message in R like:
+
+```{zsh filename="Console"}
+Error in function_name(object[[i]], ...) : could not find function "function_name"
+```
+
+R is telling you that it cannot find a function called function_name.
+A similar problem can be that only arguments of a function are not found.
+However, the script runs correctly at the device of the researcher writing the script.
+Thus, you are facing a research project that is only reproducible on the same device it was written for.
+A possible reason is that your computational environment differs from the environment of the other researcher.
+You might have installed different versions of R packages or of {{< fa brands r-project >}} itself.
+
+::: {.callout-tip title="Computational environments" collapse="true"}
 
 <!--# Introduction to computational environments if not done in a separate chapter -->
 
-### Problems of current knowledge status
+:::
 
-### Vision
+Different computational environments can hinder computational reproducibility.
+In the example above, the code cannot be executed.
+However, sometimes package updates do only change the calculation of a function or an argument.
+Thus, a different package version leads to **different results** even though the code runs correctly.
+
+::: {.callout-important title="Problems of different computational environments"}
+
+- scripts could stop running because of different functions or arguments
+- scripts could run correctly but produce different results
+:::
+
+::: {.callout-tip title="How `renv` helps aligning computational environments"}
+
+With `renv`...
+
+- package versions can be safed inside a research project
+- collaborators can easily load the same package versions independent of their device
+- R projects become isolated, portable and reproducible [@ushey2024]
+:::
 
 <!--# What we will be able to do after this chapter -->
 
