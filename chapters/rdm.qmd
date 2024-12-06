@@ -253,6 +253,8 @@ You might need to use specific analyses software that requires specific file for
 
 Third, you can check whether there exists a standard in your scientific community.
 Community standards help to organize your data facilitating cooperation between different labs and consistency within your own lab.
+Further, when you want to reproduce data you will have a hard time when the data is organized in a format you are not used to.
+Adopting a widely used data organization style will make reproducibility much easier.
 
 #### Example: Brain Imaging Data Structure (BIDS)
 
@@ -316,6 +318,15 @@ Incomplete selection of preprocessing steps provided by fMRIPrep:
 1. normalising brain volume
 :::
 
+fMRIPrep characterizes another benefit of data organization standards:
+When many people rely on such a standard, new innovations arise improving the workflow.
+Usually, preprocessing fMRI data was a time consuming activity for PhD Students and PostDocs in the field of Neuroimaging.
+With fMRIPrep, this can be done automatically and without manual intervention.
+When applying the standard of BIDS and fMRIPrep to your data you will need much less resources to understand other's analysis pipelines using the same standards.
+However, a data organization standard works only well when **a lot of people** use it.
+That is one reason, why BIDS is successful.
+It is widely used in the field of Neuroimaging.
+
 #### Example: Psychological Data Structure (Psych-DS)
 
 Psychological Data Structure (Psych-DS) wants to apply the ideas of BIDS to behavioral data.
@@ -323,6 +334,12 @@ Thus, it is heavily based on BIDS.
 Again, the idea is to consistently organize data facilitating data sharing and understanding data.
 There is also a [guide](https://psychds-docs.readthedocs.io/en/latest/) helping researchers to organize their research project.
 As BIDS, Psych-DS provides a validation tool, checking if the data organization was done correctly.
+
+However, Psych-DS has not been widely used among researchers and development is not as fast as in BIDS.
+Therefore, it does not have extension tools as fMRIPrep yet.
+Nevertheless, Psych-DS could have more impact, if more people would start using it.
+The benefit of Psych-DS is clearly its adoption to behahioral data structures, which can be applied by a wide range of research communities in Psychology.
+
 
 ### Rectangular Data
 
