@@ -268,7 +268,7 @@ cat(make_figure("bids-dataset"))
 The community standard Brain Imaging Data Structure (BIDS) was introduced by @gorgolewski2016 providing a data organization standard for the scientific community of neuroimaging.
 MRI research faced the issue of producing many different output files, from plain text to multidimensional image data files.
 Additionally, different scanners produced different output files and there had been no consensus about how to organize and share these data.
-That leaded to misunderstanding and time wasted on rearranging data and possible causes for errors.
+That lead to misunderstanding and time wasted on rearranging data and possible causes for errors.
 
 Displaying the whole BIDS standards in all its facets would be out of this books's scope.
 Thus, we rather show high-level concepts that could be analogeously used in a variety of scientific projects.
