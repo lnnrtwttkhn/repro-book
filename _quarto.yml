@@ -29,6 +29,7 @@ book:
     - chapters/intro.qmd
     - chapters/naming-things.qmd
     - chapters/rdm.qmd
+    - chapters/good-coding-practices.qmd
     - summary.qmd
     - references.qmd
     - acknowledgements.qmd
