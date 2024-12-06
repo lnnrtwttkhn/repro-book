@@ -1,0 +1,13 @@
+---
+title: "Robust Environments: `{renv}`"
+editor: source
+engine: knitr
+execute:
+  eval: false
+  warning: false
+  message: false
+code-annotations: hover
+abstract: |
+  In this chapter you will learn how your reproducible reasearch project becomes robust against different package versions.
+  You will make it easy for you to and collaborators to use the same package versions in your joint project.
+---
