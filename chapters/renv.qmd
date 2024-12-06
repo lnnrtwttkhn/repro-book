@@ -35,6 +35,14 @@ abstract: |
 
 #### `renv::init`
 
+<details>
+<summary>Click here to view the full `renv.lock` file of this project.</summary>
+```{json, filename="renv.lock"}
+#| file: renv.lock
+#| code-line-numbers: true
+```
+</details>
+
 #### `renv::install`
 
 #### `renv::snapshot`
