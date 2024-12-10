@@ -28,6 +28,7 @@ book:
     - contents.qmd
     - chapters/intro.qmd
     - chapters/naming-things.qmd
+    - chapters/rdm.qmd
     - chapters/good-coding-practices.qmd
     - summary.qmd
     - references.qmd
@@ -104,3 +105,8 @@ format:
     link-external-newwindow: true
     footnotes-hover: true
     include-after-body: plausible.html
+    crossref:
+      custom:
+        - kind: float
+          reference-prefix: Video
+          key: vid
