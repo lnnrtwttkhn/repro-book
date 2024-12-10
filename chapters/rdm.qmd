@@ -12,6 +12,31 @@ abstract: |
 
 ## Introduction
 
+
+::: {.callout-tip title="Group Exercise: Identifying and Discussing Problems with Research Data Management" collapse="true"} 
+
+1. **Form Groups:**
+   - Divide participants into **Home Groups** (3–6 members per group).
+   - Assign each member of the Home Group a number (e.g., 1, 2, 3...).
+
+2. **Study Examples in Expert Groups:**
+   - All participants with the same number will form an **Expert Group**.
+   - Each Expert Group will analyze an assigned example of **bad research data management** (e.g., incomplete documentation, lack of backups, inconsistent formats).
+   - Discuss the example, identify key issues, and note down why the practices are problematic.
+
+3. **Return to Home Groups:**
+   - Members return to their original **Home Group**.
+   - Take turns presenting the findings from your Expert Group.
+   - Work together to discuss patterns, lessons learned, and potential solutions.
+
+4. **Final Discussion:**
+   - As a group, summarize key takeaways about avoiding bad research data management.
+   - Prepare to share insights with the larger group if asked.
+
+**Goal:** By the end of the exercise, you’ll collaboratively identify common pitfalls in research data management and propose better practices.
+
+:::
+
 ::: {#vid-rdm-snafu}
 
 {{< video https://www.youtube.com/watch?v=N2zK3sAtr-4?cc_load_policy=1&cc_lang_pref=en >}}
