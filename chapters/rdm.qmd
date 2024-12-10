@@ -53,46 +53,45 @@ Reused without modifications.
 
 :::
 
-See @vid-rdm-snafu ...
+::: {.callout-note title="The [story](https://www.bbc.com/news/magazine-22223190) of Reinhart & Rogoff"}
+In 2010, the US economists Reinhart and Rogoff presented a research paper called *Growth in a Time of Debt* at the annual meeting of the American Economic Association.
+They found that economic growth slows dramatically when a country's debt size rises above 90% of Gross Domestic Product [@reinhart2010].
+EU Commissioner Olli Rehn and US Republican Paul Ryan both quoted a 90% debt-to-GDP limit to support political austerity strategies.
 
-::: {.callout-warning title="The [story](https://www.bbc.com/news/magazine-22223190) of Reinhart & Rogoff"}
-In 2010, Reinhart and Rogoff presented a research paper called *Growth in a Time of Debt* at the annual meeting of the American Economic Association.
-They found that the economic growth slows dramatically when a country's debt size rises above 90% of Gross Domestic Product [@reinhart2010].
-EU commissioner Olli Rehn and US republican Paul Ryan both quoted a 90% debt-to-GDP limit to support political austerity strategies.
-Meanwhile, a student at the University of Massachusets, Thomas Herndon, got an class assignment where he should reproduce the results of a research article.
-Herndon chose the article by @reinhart2010 and failed to reproduce their results again and again even after supervision with his professor.
+Meanwhile, a student at the University of Massachusetts, Thomas Herndon, received a class assignment to reproduce the results of a research article.
+Herndon chose the article by @reinhart2010 and failed to reproduce their results repeatedly, even after supervision with his professor.
 
-Subsequently, Herndon asked for the spreadsheet from the authors of @reinhart2010.
-Then he realized that the paper contained selective data selection, odd data averaging methods and coding errors that lead to substantial miscalculations [@herndon2014].
+Subsequently, Herndon requested the spreadsheet from the authors of @reinhart2010.
+He then realized that the paper contained selective data selection, odd data averaging methods, and coding errors that led to substantial miscalculations [@herndon2014].
 
-@herndon2014 concluded that the results of @reinhart2010 are much gentler than originally assumed.
-However, the basic tendency that economic growth slows down with higher debt still survived.
+@herndon2014 concluded that the results of @reinhart2010 are much less dramatic than originally assumed.
+However, the basic tendency that economic growth slows down with higher debt still held true.
 
-What matters most, is that Reinhart and Rogoff were able to **share** their original spreadsheet and that the results were then **reproducible**.
-Thus, reproducibility can **enhance** the scientific, and in this example the political, **discussion** about research findings and it's **implications for society**.
+What matters most about this story is that Reinhart and Rogoff were able to **share** their original spreadsheet and that the results were then **reproducible**.
+Thus, reproducibility can **enhance** the scientific, and in this example the political, **discussion** about research findings and their **implications for society**.
 :::
 
 :::{.callout-tip title="Excel exercise"}
-- Open an Excel Sheet
-- Set the first column to date-format
-- Enter the year *2010* into the cell *A1*
+- Open an Excel Sheet  
+- Set the first column to date-format  
+- Enter the year *2010* into the cell *A1*  
 
-Isn't it spectacular Excel rendered your entry to 2nd July of 1905?
+Isn't it spectacular that Excel rendered your entry as **2nd July 1905**?
 
-**Think** about this phenomenon in your research context: What are problems that you will face when you use Excel?
+**Think** about this phenomenon in your research context: What problems might arise when using Excel?
 :::
 
-:::{.callout-important title="Why you should stop using Excel!"}
+:::{.callout-note title="More problems when using Excel ..."}
 As the exercise above showed, Excel can automatically convert specific data entries.
-In many everyday-cases this seems to be useful, e.g. for autocompletion of days.
-However, in research context, such conversions hinder reproducibility efforts.
+In many everyday cases, this seems to be useful, for example for autocompletion of dates.
+However, in a research context, such conversions hinder reproducibility efforts.
 Thus, we highly recommend using {{< fa brands r-project >}} and RStudio to read and analyze data.
 
-The described phenomenon of Excel conversions was highly prevalent in the scientific research area of biogenetics.
-A meta-analysis found that roughly 20% of published genetic research was affected by Excel errors [@ziemann2016].
-Instead of changing Excel default options, this situation lead to a change in scientific standards.
+The described phenomenon of Excel conversions is highly prevalent in the scientific research area of biogenetics.
+A meta-analysis found that roughly 20% of published genetic research was affected by Excel errors [@ziemann2016]. 
+Instead of changing Excel's default options, this situation led to a change in scientific standards.
 The HUGO Gene Nomenclature Committee (HGNC) updated their guidelines on how to name genes.
-It was easier to rename Genes than to update Excel!
+It was easier to rename genes than to update Excel!
 
 ```{r}
 #| results: asis
