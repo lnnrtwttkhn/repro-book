@@ -195,12 +195,14 @@ cat(make_figure("nlm-nih-fair"))
 
 @wilkinson2016 published the FAIR principles for research data management.
 FAIR stands for Findable, Accessible, Interoperable, and Reusable.
-FAIR is a popular concept that has been adopted to a variety of research properties, such as FAIR data, and FAIR research software [@wilkinson2016; @barker2022].
-FAIR data principles was originally introduced to enhance the machine readability of data.
+FAIR is a popular concept that has been adopted for various research properties, such as FAIR data and FAIR research software [@wilkinson2016; @barker2022].
+
+The FAIR data principles were originally introduced to enhance the machine readability of data.
 As a side effect, human readability also increased.
-However, enhancing reproducibility was no primary goal when implementing FAIR principles.
-Thus, we will only deal with two concepts we think are relevant for computational reproducibility: Persistent identifiers as **Digital Object Identifiers** (DOIs) and **metadata**.
-DOIs make your scientific output (e.g. articles, datasets, code) findable therefore enhancing the possibility of other researchers reproducing your scientific output.
+However, enhancing reproducibility was not a primary goal when implementing FAIR principles.
+
+Thus, we will only address two concepts we believe are relevant for computational reproducibility: persistent identifiers, such as **Digital Object Identifiers** (DOIs), and **metadata**.
+DOIs make your scientific output (e.g., articles, datasets, code) findable, thereby enhancing the possibility of other researchers reproducing your scientific output.
 
 ::: {.callout-tip title="What is a Digital Object Identifier (DOI)?" collapse="true"}
 
@@ -225,15 +227,15 @@ DOIs are typically assigned and managed by registration agencies, such as CrossR
 :::
 
 ::: {.callout-note title="How to set up a persistent identifier with **OSF**?" collapse="true"}
-1. go to [https://osf.io/](https://osf.io)
-1. log in or sign up
-1. Click on **My Projects** on the top bar
-1. Click on the green button **Create Project**
-1. Type in a title, you can change it afterwards.
+1. Go to [https://osf.io/](https://osf.io).
+1. Log in or sign up.
+1. Click on **My Projects** on the top bar.  
+1. Click on the green button **Create Project**.
+1. Type in a title (you can change it later).
 1. Specify your storage location.
-1. Click on the green button **Create**
-1. Insert all your data, code, and metadata
-1. make your project public - that will generate a DOI
+1. Click on the green button **Create**.
+1. Insert all your data, code, and metadata.
+1. Make your project public — this will generate a DOI.
 :::
 
 ::: {.callout-note title="How to set up a persistent identifier with **Zenodo**?" collapse="true"}
@@ -241,33 +243,31 @@ The version control book by @wittkuhn2024 gives a detailed instruction on how to
 :::
 
 ::: {.callout-tip title="What is metadata?" collapse="true"}
-A short definition says that metadata is data about your data.
+A short definition is that metadata is **data about your data**.
 More thoroughly, metadata is a set of data that **describes and gives information about other data**.
 However, metadata does not contain the data itself.
 
-Example:
+***Example:**
 
-Imagine you write a WhatsApp message to one of your friends.
+Imagine you write a text message to one of your friends.
 The data would be your message.
-Metadata would contain information about the forwarder, the recipient, the time the message was sent, the used device and so on...
+Metadata would contain information about the forwarder, the recipient, the time the message was sent, the used device, and so on ...
 
 The same applies to your research data.
 Metadata contains information about your project, variable names and labels, response formats, affiliations, etc.
 Remember the pandas wondering what all the variables Sam1, ..., Sam4 mean?
 That is what you can describe with metadata.
-:::
 
-Meta data ensure that people understand your code.
-It facilitates reproducibility because the raw computations are supplemented with semantical meaning.
+:::
 
 ## Data organization
 
-There are many different ways you can organize your data.
-There is really no right and wrong here, but there are some valuable thoughts aiming to enhance reproducibility.
-Data organization is not only about folder structure and precise names.
-It is also about which file formats to use enhancing usability for humans and machines.
+There are many different ways to organize your data.
+There is really no right or wrong here, but there are some valuable guidelines aimed at enhancing reproducibility.
+Data organization is not only about folder structure and precise naming.
+It is also about choosing file formats that enhance usability for both humans and machines.
 Further, it includes the use of metadata to describe your data.
-Due to the variety of organization styles, you should have a consistent style of organizing your data.
+Due to the variety of organizational styles, you should establish a consistent approach to organizing your data.
 Thus, you need to apply a standard for your data.
 
 ### Data standards
@@ -279,23 +279,23 @@ Thus, you need to apply a standard for your data.
 cat(make_figure("xkcd-standards"))
 ```
 
-Questions to ask yourself:
+#### Questions to ask yourself:
 
 1. What data are you working with?
 1. Which analysis pipelines are you working with?
 1. **Is there a community standard?**
 
-First, you should think about the type of your data. 
-EEG data might have different requirements than MRI data than eye-tracking data than cardiological data than questionnaire data than...
-How complex is your data and how should it be arranged?
+First, you should consider the type of data you are working with.
+EEG data might have different requirements than MRI data, eye-tracking data, cardiological data, questionnaire data, and so on.
+How complex is your data, and how should it be arranged?
 
-Second, after figuring out your data type you will realize that you will face specific analysis pipelines.
-For example, raw EEG data has to be handled differently from MRI data and so on.
-You might need to use specific analyses software that requires specific file formats or so.
+Second, after determining your data type, you'll realize that you'll face specific analysis pipelines.
+For example, raw EEG data must be handled differently from MRI data, and so on.
+You might need to use specific analysis software that requires certain file formats or other specific requirements.
 
-Third, you can check whether there exists a standard in your scientific community.
-Community standards help to organize your data facilitating cooperation between different labs and consistency within your own lab.
-Further, when you want to reproduce data you will have a hard time when the data is organized in a format you are not used to.
+Third, check whether there is a standard in your scientific community.
+Community standards help to organize your data, facilitating cooperation between different labs and ensuring consistency within your own lab.
+Additionally, if you want to reproduce data, you will have a harder time if the data is organized in a format you are not familiar with.
 Adopting a widely used data organization style will make reproducibility much easier.
 
 #### Example: Brain Imaging Data Structure (BIDS)
@@ -307,140 +307,133 @@ Adopting a widely used data organization style will make reproducibility much ea
 cat(make_figure("bids-dataset"))
 ```
 
-The community standard Brain Imaging Data Structure (BIDS) was introduced by @gorgolewski2016 providing a data organization standard for the scientific community of neuroimaging.
-MRI research faced the issue of producing many different output files, from plain text to multidimensional image data files.
-Additionally, different scanners produced different output files and there had been no consensus about how to organize and share these data.
-That lead to misunderstanding and time wasted on rearranging data and possible causes for errors.
+The community standard **Brain Imaging Data Structure** (BIDS) was introduced by @gorgolewski2016, providing a data organization standard for the neuroimaging scientific community.
+MRI research faced the issue of producing many different output files, ranging from plain text to multidimensional image data files.
+Additionally, different scanners produced different output files, and there was no consensus on how to organize and share these data.
+This led to misunderstandings, wasted time rearranging data, and potential sources of error.
 
-Displaying the whole BIDS standards in all its facets would be out of this books's scope.
-Thus, we rather show high-level concepts that could be analogeously used in a variety of scientific projects.
+Reproducing the entire BIDS standard in all its facets would be beyond the scope of this book.
+Thus, we will focus on high-level concepts that could be analogously applied to a variety of scientific projects.
 
 ::: {.callout-note title="Steps to create a BIDS compatible dataset"}
 1. Convert files
-1. Create folder structure, rename and copy files
+1. Create folder structure, rename, and copy files
 1. Add remaining data
 1. Add missing metadata
 1. Validate the dataset
 :::
 
-When your data analysis pipeline requires your data to be in a specific format, be sure to convert your data files into the correct format.
-Specific software is used only for this purpose in MRI research.
-In survey based research that might not be too complicated.
-However, when extracting data from your survey servers (as Unipark or LimeSurvey), make sure to use a correct format.
+When your data analysis pipeline requires your data to be in a specific format, make sure to convert your data files into the correct format.
+Specific software is often used for this purpose in MRI research.
+In survey-based research, this might not be too complicated.
+However, when extracting data from your survey servers (such as Unipark or LimeSurvey), ensure you use the correct format.
 
-BIDS includes an own folder structure for research projects. When you have your own research project, make sure it aligns with our recommendations from [Chapter 2](naming-things.qmd) and (project-structure).
+BIDS includes its own folder structure for research projects. When you have your own research project, ensure it aligns with our recommendations from [Chapter 2](naming-things.qmd) and [project-structure](project-structure).
 
-Sometimes you might need to add more information data that has not been captured during your data collection process (e.g. details of experimental tasks and additional demographic information of participants).
+Sometimes, you might need to add more information that was not captured during your data collection process (e.g., details of experimental tasks and additional demographic information of participants).
 
-In BIDS, metadata files are created while converting files from one format to another.
-However, they happen to be not exhaustive.
-You might want to include task descriptions and task instructions and so on.
+In BIDS, metadata files are created when converting files from one format to another.
+However, these metadata files may not be exhaustive.
+You might want to include task descriptions, task instructions, and so on.
 @sec-dictionary describes which metadata can be used in less complex data management scenarios.
 
 A nice feature of BIDS is the [BIDS Validator](https://github.com/bids-standard/bids-validator).
 It checks if any required or recommended metadata is missing.
-It further spots incorrect definitions of missing values, wrong units, missing scans and inconsistent scanning parameters across subjects.
+It also identifies incorrect definitions of missing values, wrong units, missing scans, and inconsistent scanning parameters across subjects.
 Even though you are unlikely to apply the validator outside of neuroimaging, the concept is quite powerful.
-We have provided a small section about *verifying* your code that tackles the same topic but focuses more on your code rather than on your data.
-Click here (section not merged yet) to go to the section.
+We have provided a small section about *verifying* your code, which tackles the same topic but focuses more on your code than on your data.
+[Click here](section-not-merged-yet) to go to the section (section not merged yet).
 
-::: {.callout-tip title="Benefits of **BIDS**"}
-What makes BIDS really beneficial are **BIDS apps**.
+
+::: {.callout-tip title="Benefits of BIDS"}
+What makes BIDS truly beneficial are **BIDS apps**.
 BIDS apps are automatically compatible with BIDS datasets.
 One example of such an app is **fMRIPrep**.
-This app enables researchers using fMRI data an easy workflow of preprocessing fMRI data [@esteban2019].
-fMRIPrep undertakes several steps automatically without manual intervention of a researcher.
-Thus, BIDS combined with its apps are powerful tools to save time and work as a researcher.
-
-Incomplete selection of preprocessing steps provided by fMRIPrep:
-
-1. correction for missing scanner signals
-1. correction for participant movements
-1. correction for slice timing
-1. normalising brain volume
+This app provides researchers working with fMRI data an easy workflow for preprocessing fMRI data [@esteban2019].
+fMRIPrep automates several steps without requiring manual intervention from the researcher.
+Thus, BIDS, combined with its apps, is a powerful tool for saving time and effort as a researcher.
 :::
 
-fMRIPrep characterizes another benefit of data organization standards:
-When many people rely on such a standard, new innovations arise improving the workflow.
-Usually, preprocessing fMRI data was a time consuming activity for PhD Students and PostDocs in the field of Neuroimaging.
-With fMRIPrep, this can be done automatically and without manual intervention.
-When applying the standard of BIDS and fMRIPrep to your data you will need much less resources to understand other's analysis pipelines using the same standards.
-However, a data organization standard works only well when **a lot of people** use it.
-That is one reason, why BIDS is successful.
-It is widely used in the field of Neuroimaging.
+fMRIPrep highlights another benefit of data organization standards:
+When many people rely on such a standard, new innovations emerge that improve the workflow.  
+Previously, preprocessing fMRI data was a time-consuming task for PhD students and PostDocs in the field of neuroimaging.
+With fMRIPrep, this process can be done automatically and without manual intervention.
+By applying the BIDS standard and fMRIPrep to your data, you will require far fewer resources to understand others' analysis pipelines using the same standards.
+However, a data organization standard works well only when **a lot of people** use it.
+That is one reason why BIDS is successful:
+It is widely used in the field of neuroimaging.
 
 #### Example: Psychological Data Structure (Psych-DS)
 
-Psychological Data Structure (Psych-DS) wants to apply the ideas of BIDS to behavioral data.
+The **Psychological Data Structure** (Psych-DS) aims to apply the principles of BIDS to behavioral data.
 Thus, it is heavily based on BIDS.
-Again, the idea is to consistently organize data facilitating data sharing and understanding data.
-There is also a [guide](https://psychds-docs.readthedocs.io/en/latest/) helping researchers to organize their research project.
-As BIDS, Psych-DS provides a validation tool, checking if the data organization was done correctly.
+The core idea is to consistently organize data, facilitating data sharing and enhancing the understanding of the data.
+There is also a [guide](https://psychds-docs.readthedocs.io/en/latest/) to help researchers organize their research projects.
+Like BIDS, Psych-DS provides a validation tool that checks if the data organization has been done correctly.
 
-However, Psych-DS has not been widely used among researchers and development is not as fast as in BIDS.
-Therefore, it does not have extension tools as fMRIPrep yet.
-Nevertheless, Psych-DS could have more impact, if more people would start using it.
-The benefit of Psych-DS is clearly its adoption to behahioral data structures, which can be applied by a wide range of research communities in Psychology.
-
+However, Psych-DS has not been widely adopted by researchers, and its development is not as fast as that of BIDS.
+Therefore, it does not yet have extension tools like fMRIPrep.
+Nevertheless, Psych-DS could have more impact if more people began using it.
+The benefit of Psych-DS is clearly its adaptation to behavioral data structures, which can be applied by a wide range of research communities in psychology.
 
 ### Rectangular Data
 
-If you do not have a community standard specifying the data organization, we highly recommend using the rules of **rectangular data** as proposed in @broman2018.
+If you do not have a community standard specifying the data organization, we highly recommend using the rules of **rectangular data** as proposed by @broman2018.
 
 :::{.callout-tip title="Rules of rectangular data [@broman2018]"}
-1. be consistent
-1. choose good names for things (see Chapter [Naming things](naming-things.qmd))
-1. write dates as YYYY-MM-DD (see Chapter [Naming things](naming-things.qmd))
-1. no empty cells
-1. put just one thing in a cell
-1. make it a rectangle
-1. create a data dictionary (see @sec-dictionary)
-1. no calculations in the raw data files
-1. do not use font color or highlighting as data
-1. make packups
-1. use data validation to avoid errors (see @sec-assertr)
-1. save the data in plain text files
+1. Be consistent.
+1. Choose good names for things (see Chapter [Naming things](naming-things.qmd)).
+1. Write dates in the format `YYYY-MM-DD` (see Chapter [Naming things](naming-things.qmd)).
+1. Do not leave empty cells.
+1. Put just one thing in a cell.
+1. Make it a rectangle.
+1. Create a data dictionary (see @sec-dictionary).
+1. Do not perform calculations in the raw data files.
+1. Do not use font color or highlighting as data.
+1. Make backups.
+1. Use data validation to avoid errors (see @sec-assertr).
+1. Save the data in plain text files.
 :::
 
-We will not go into detail of rule 2, 3, and 6, because we either already dealt with these topics earlier or will give them a separate section later. 
+We will not go into detail on rules 2, 3, and 6, because we have either already covered these topics earlier or will address them in a separate section later.
 
 #### Be consistent
 
 It sounds easier than it is.
-If you organize your data consistently from the start, you will not have to spend additional amount of time later to "harmonize" the data.
+If you organize your data consistently from the start, you will not have to spend additional time later "harmonizing" the data.
 To do so, use consistent codes for categorical variables (decide between different versions of `male`, `Male`, `m`, `M`).
-Use a consistent fixed code for any missing value (we prefer using `NA`, but do not use `-999` or so).
+Use a consistent fixed code for any missing values (we prefer using `NA`, but avoid `-999` or similar).
 Use consistent variable names (decide between `saliva_10wk`, `Saliva_10wk`, `sal_week10`, etc.).
-Use consistent subject identifiers (decide between `003`, `pcp003`, `person-003`, etc.)
-Use a consistent data layout in multiple files.
-It would be extra work to combine different layout in different files.
+Use consistent subject identifiers (decide between `003`, `pcp003`, `person-003`, etc.).
+Use a consistent data layout across multiple files.
+It would be extra work to combine files with different layouts.
 Use consistent file names (decide between `TSST_VR_2024-11-19.csv`, `2024-11-19_TSST_virtual-reality.csv`, etc.).
 Use a consistent format for all dates (see @sec-date-format).
-Use consistent phrases in notes, if you have a separate column for notes.
-Be careful about extra spaces within cells (difference between `male`, ` male `).
+Use consistent phrases in notes if you have a separate column for them.
+Be careful about extra spaces within cells (e.g., the difference between `male` and ` male `).
 
 #### No empty cells
 
 Do fill out every cell.
-When information is missing, use a common code to make it clear that it is missing (preferably `NA`).
-*Merging* cells as you can in Excel is not recommended, since it will leave some cells empty.
+When information is missing, use a common code to indicate that it is missing (preferably `NA`).
+*Merging* cells, as you can in Excel, is not recommended, since it will leave some cells empty.
 Repeat repeating values.
-If you leave cells empty it will be harder to infer the repeating values, particularly after some data wrangling.
+If you leave cells empty, it will be harder to infer the repeating values, particularly after some data wrangling.
 
 #### Put just one thing in a cell
 
-In one piece of a spreadsheet, which is a cell, should only be one piece of information.
-Do not use units in your cells.
-It is better to put them in a Codebook (see @sec-codebook).
+In one piece of a spreadsheet, which is a cell, there should only be one piece of information.
+Do not include units in your cells.
+It is better to put units in a data dictionary (see @sec-dictionary).
 The same applies to notes.
-Instead of writing `0 (below threshold)`, open up a new column called `note` and write `0`in the first column and `below threshold` in the second.
+Instead of writing `0 (below threshold)`, create a new column called `note` and write `0` in the first column and `below threshold` in the second.
 
 #### Make it a rectangle
 
-As your data usually lies in a two-dimensional spreadsheet, it is best to layout your data two-dimensional as well.
+As your data usually resides in a two-dimensional spreadsheet, it is best to layout your data in a two-dimensional format as well.
 Use columns for variables and rows for subjects or observations.
 The first row should contain variable names.
-If some data do not fit into one dataset, make a set of rectangular datasets and save them in separate files.
+If some data do not fit into one dataset, create a set of rectangular datasets and save them in separate files.
 Do not use multiple header rows.
 You can further apply the concept of `tidy data` [@wickham2014] to your rectangular dataset (see @sec-tidy-data).
 
@@ -459,103 +452,104 @@ It also leaves multiple cells empty
 
 #### No calculations in the raw data files
 
-Primary data should just be data. Only data. There should be no means and standard deviations calculated in that primary data.
+Primary data should just be data.
+Only data.
+There should be no means and standard deviations calculated in that primary data.
 Use scripts to calculate whatever you want, but do not make changes in the primary dataset.
 
 #### Do not use font color or highlighting as data
 
-If you spotted outliers or other information you want to highlight, do not highlight them via visualization.
-Instead, create a new column called `outlier` and declare your spotted outliers as `TRUE`and the others as `FALSE`.
-Visualization is nice in the short term, but it is hard to extract these information for later analysis.
+If you identify outliers or other information you want to highlight, do not highlight them using visualization.
+Instead, create a new column called `outlier` and mark the identified outliers as `TRUE` and the others as `FALSE`. 
+Visualization is useful in the short term, but it makes it difficult to extract this information for later analysis.
 
 #### Make Backups
 
-Back-up your data regularly in multiple locations.
-Consider using a version control system as git (see [Version Control Book](https://lennartwittkuhn.com/version-control-book/)).
-When you finished entering data, *write-protect* your data file.
-Thus, you will not accidentally change anything in your data set.
+Back up your data regularly in multiple locations.
+Consider using a version control system like Git (see [Version Control Book](https://lennartwittkuhn.com/version-control-book/)).
+When you have finished entering data, *write-protect* your data file.
+This ensures that you do not accidentally make changes to your dataset.
 
 ::: {.callout-tip title="Write-protecting your data" collapse="true"}
 
 :::panel-tabset
 ## {{< fa brands apple >}} Mac
 
-1. Open the folder in **Finder** where your file lies
-1. **Right-click** on your file
-1. Click on **Get Info**
-1. Open Section **Sharing & Permissions**
-1. Click on **Privilege** on yourself
-1. Select **Read only**
+1. Open the folder in **Finder** where your file is located.
+1. **Right-click** on your file.
+1. Click on **Get Info**.
+1. Open the section **Sharing & Permissions**.
+1. Click on **Privilege** next to your user account.
+1. Select **Read only**.
 
 ## {{< fa brands windows >}} Windows
 
-1. Open the folder in **Windows Explorer** where your file lies
-1. **Right-click** on your file
-1. Click on **Properties**
-1. Select the **General** Tab
-1. Go to section **Attributes**
-1. Select the box for **Read-only**
-1. Validate your choice by clicking the **OK** button
+1. Open the folder in **Windows Explorer** where your file is located.
+1. **Right-click** on your file.
+1. Click on **Properties**.
+1. Select the **General** tab.
+1. Navigate to the **Attributes** section.
+1. Check the box for **Read-only**.
+1. Confirm your choice by clicking the **OK** button.
 
 ## {{< fa brands linux >}} Linux
 
-Placeholder
+TBA
 :::
 
 :::
 
 #### Use Data Validation to Avoid Errors
 
-Make sure that your entered data is error-free by applying data validation techniques.
-You can create validation rules via the R package `assertr` [@fischetti2023] and it's function `verify()` (see @sec-assertr).
+Ensure that your entered data is error-free by applying data validation techniques.
+You can create validation rules using the R package `assertr` [@fischetti2023] and its function `verify()` (see @sec-assertr).
 
 #### Save data in plain text files
 
 We recommend saving your data files in `.csv` format.
-`csv` stands for "comma separated value".
-This file format is basic and not really pretty.
-However, it requires no special software to be loaded.
-Further, they are easy to handle in code.
+`csv` stands for "comma-separated values".
+This file format is basic and not visually appealing.
+However, it requires no special software to open and is easy to handle in code.
 Thus, it enhances computational reproducibility.
-In countries where commas are used as decimal separators, tab delimited text files (`.txt`) might be an appropriate alternative to `.csv`.
-Note, that if you highlighted cells or applied any special features in an Excel file, these features will be lost in the `.csv` or `.txt` files.
+In countries where commas are used as decimal separators, tab-delimited text files (`.tsv`) might be an appropriate alternative to `.csv`.
+Note that if you have highlighted cells or applied any special features in an Excel file, these features will be lost when saving the file as `.csv` or `.txt`.
 
 ## Data dictionaries {#sec-dictionary}
 
-Despite rectangular data, it is also valuable to have a **data dictionary** describing how your data is constituted.
-The data dictionary is sometimes referred as *Codebook* or *.json* file.
-Your dictionary enhances the understandability of your whole research project and is therefore very important regarding computational reproducibility.
-According to @broman2018, your dictionary should contain
+In addition to rectangular data, it is also valuable to have a **data dictionary** describing how your data is structured.
+The data dictionary is also sometimes referred to as a *codebook*.
+Your dictionary enhances the understandability of your entire research project and is therefore crucial for computational reproducibility.
+According to @broman2018, your dictionary should contain:
 
-1. the exact variable name as in your data file
-1. a version of the variable name that might be used in data visualizations
-1. a longer explanation of what the variable means
-1. the measurement units
-expected minimum and maximum values
+1. The exact variable name as in your data file.  
+1. A version of the variable name that might be used in data visualizations.  
+1. A longer explanation of what the variable means.  
+1. The measurement units.  
+1. Expected minimum and maximum values.
 
-However, more information can be stored in your dictionary. When you analyze data collected from a survey, a variable in your dataset will likely represent an item of that survey.
-You can then provide information on
+However, more information can be stored in your dictionary. When analyzing data collected from a survey, a variable in your dataset will likely represent an item from that survey.
+You can then provide information on:
 
-1. the item in the survey
-1. original wording of the item
-1. the subscale the item belongs to
-1. the author responsible for that item / subscale
-1. response format on the item
-1. specialties regarding that item
+1. The item in the survey.
+1. The original wording of the item.
+1. The subscale the item belongs to
+1. The author responsible for that item/subscale.
+1. The response format for the item.
+1. Special considerations regarding the item.
 
-Ideally, your data dictionary is also stored in a **rectangular format**.
-Another possibility is to use a `.json` file.
-This gives you more flexibility but it is also a new challenge style of organizing data.
+Ideally, your data dictionary should also be stored in a **rectangular format**.
+Another option is to use a `.json` file.
+This offers more flexibility but also presents a new challenge in organizing the data.
 
 ::: {.callout-tip title="Learn more: What is a `json` file?" collapse="true"}
 
-`json` stands for **J**ava**S**cript **O**bject **N**otation.
-Thus, all you write in that file has to be in json notation style.
-It would be out of the scope of this book to explain how data in a `.json` file needs to be formatted.
-However, you can see a small example below to get a feeling of how a `.json` file looks like.
-If you want to dive into the use of `.json` files we recommend this [Video](https://www.youtube.com/watch?v=cj3h3Fb10QY) that explains JSON more thoroughly. 
+`json` stands for JavaScript Object Notation.
+Thus, everything you write in that file must adhere to the JSON notation style.
+It would be beyond the scope of this book to explain how data in a `.json` file should be formatted.
+However, you can see a small example below to get a sense of how a `.json` file looks.
+If you want to dive deeper into the use of `.json` files, we recommend this [Video](https://www.youtube.com/watch?v=cj3h3Fb10QY) that explains JSON more thoroughly.
 
-```{zsh filename="json Code"}
+```{json filename="json Code"}
 [
   {
     "name": "agr1",
@@ -581,7 +575,3 @@ If you want to dive into the use of `.json` files we recommend this [Video](http
 ## Acknowledgements
 
 [Dr. Maike Kleemeyer](https://orcid.org/0000-0002-9388-5535) and the Research Data Management and Open Science working group at the [Max Planck Institute for Human Development, Berlin]({{< links.mpib >}}).
-
-@gau2022
-
-@gorgolewski2016
