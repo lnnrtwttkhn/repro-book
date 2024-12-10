@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Research Data Management – The Repro Book</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/good-coding-practices.html" rel="next">
+<link href="../chapters/naming-things.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dd08061cb7210c315e315379d94beb87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-51d928ce8baf18ca42f6cb33322cc9db.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/rdm.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Research Data Management</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">The Repro Book</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://lennartwittkuhn.com/repro-book/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-globe"></i></a>
+    <a href="https://github.com/lnnrtwttkhn/repro-book/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-bug"></i></a>
+    <a href="https://github.com/lnnrtwttkhn/repro-book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contents</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/naming-things.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Naming things</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/rdm.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Research Data Management</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/good-coding-practices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../acknowledgements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acknowledgements</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contributing</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<p><a href="https://lennartwittkuhn.com/repro-book"><img src="https://img.shields.io/website?url=https%3A%2F%2Flennartwittkuhn.com%2Frepro-book%2F" class="img-fluid" alt="Website"></a> <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg" class="img-fluid" alt="License: CC BY 4.0"></a> <a href="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/publish.yml"><img src="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/publish.yml/badge.svg" class="img-fluid" alt="Quarto Publish"></a> <a href="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/codespell.yml"><img src="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/codespell.yml/badge.svg" class="img-fluid" alt="Codespell"></a> <a href="?tab=readme-ov-file#contributors"><img src="https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&amp;style=flat-square.png" class="img-fluid" alt="All Contributors"></a></p>
+</div></div></nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
+  <li><a href="#benefits-of-research-data-management" id="toc-benefits-of-research-data-management" class="nav-link" data-scroll-target="#benefits-of-research-data-management"><span class="header-section-number">3.2</span> Benefits of research data management</a></li>
+  <li><a href="#modularity-of-research-data" id="toc-modularity-of-research-data" class="nav-link" data-scroll-target="#modularity-of-research-data"><span class="header-section-number">3.3</span> Modularity of research data</a></li>
+  <li><a href="#fair-principles" id="toc-fair-principles" class="nav-link" data-scroll-target="#fair-principles"><span class="header-section-number">3.4</span> FAIR principles</a></li>
+  <li><a href="#data-organization" id="toc-data-organization" class="nav-link" data-scroll-target="#data-organization"><span class="header-section-number">3.5</span> Data organization</a>
+  <ul class="collapse">
+  <li><a href="#data-standards" id="toc-data-standards" class="nav-link" data-scroll-target="#data-standards"><span class="header-section-number">3.5.1</span> Data standards</a></li>
+  <li><a href="#rectangular-data" id="toc-rectangular-data" class="nav-link" data-scroll-target="#rectangular-data"><span class="header-section-number">3.5.2</span> Rectangular Data</a></li>
+  </ul></li>
+  <li><a href="#sec-dictionary" id="toc-sec-dictionary" class="nav-link" data-scroll-target="#sec-dictionary"><span class="header-section-number">3.6</span> Data dictionaries</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements"><span class="header-section-number">3.7</span> Acknowledgements</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/rdm.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/rdm.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Research Data Management</span></h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">intermediate</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Summary</div>
+    <p>In this chapter you will learn the basics of research data management.</p>
+  </div>
+</div>
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.1</span> Introduction</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="Group Exercise: Identifying and Discussing Problems with Research Data Management">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Group Exercise: Identifying and Discussing Problems with Research Data Management
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Form Groups:</strong>
+<ul>
+<li>Divide participants into <strong>Home Groups</strong> (3–6 members per group).</li>
+<li>Assign each member of the Home Group a number (e.g., 1, 2, 3…).</li>
+</ul></li>
+<li><strong>Study Examples in Expert Groups:</strong>
+<ul>
+<li>All participants with the same number will form an <strong>Expert Group</strong>.</li>
+<li>Each Expert Group will analyze an assigned example of <strong>bad research data management</strong> (e.g., incomplete documentation, lack of backups, inconsistent formats).</li>
+<li>Discuss the example, identify key issues, and note down why the practices are problematic.</li>
+</ul></li>
+<li><strong>Return to Home Groups:</strong>
+<ul>
+<li>Members return to their original <strong>Home Group</strong>.</li>
+<li>Take turns presenting the findings from your Expert Group.</li>
+<li>Work together to discuss patterns, lessons learned, and potential solutions.</li>
+</ul></li>
+<li><strong>Final Discussion:</strong>
+<ul>
+<li>As a group, summarize key takeaways about avoiding bad research data management.</li>
+<li>Prepare to share insights with the larger group if asked.</li>
+</ul></li>
+</ol>
+<p><strong>Goal:</strong> By the end of the exercise, you’ll collaboratively identify common pitfalls in research data management and propose better practices.</p>
+</div>
+</div>
+</div>
+<div id="vid-rdm-snafu" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-rdm-snafu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/N2zK3sAtr-4?cc_load_policy=1" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-rdm-snafu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;3.1: <strong>“Data Sharing and Management Snafu in 3 Short Acts”.</strong> The video by <span class="citation" data-cites="hanson2019">Hanson, Surkis, and Yacobucci (<a href="../references.html#ref-hanson2019" role="doc-biblioref">2019</a>)</span> from NYU Health Sciences Library features a cute animated panda researcher making a data sharing request to a bear researcher. It does not go well. The video aims to communicate some of the common and avoidable pitfalls of research data management in a light-hearted format. Topics include storage, documentation, and file formats. The video was produced using a tool called Xtranormal (now “nawmal”) and the characters are strangely expressive while talking in robotic text-to-speech voices with a limited range of movement. It was created and uploaded to YouTube by librarians at NYU School of Medicine in 2012 to be used for research data management education and has been included in numerous research data management courses and presentations. License: Creative Commons Attribution 4.0 International (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>). Reused without modifications.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="The [story](https://www.bbc.com/news/magazine-22223190) of Reinhart &amp; Rogoff">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The <a href="https://www.bbc.com/news/magazine-22223190">story</a> of Reinhart &amp; Rogoff
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In 2010, the US economists Reinhart and Rogoff presented a research paper called <em>Growth in a Time of Debt</em> at the annual meeting of the American Economic Association. They found that economic growth slows dramatically when a country’s debt size rises above 90% of Gross Domestic Product <span class="citation" data-cites="reinhart2010">(<a href="../references.html#ref-reinhart2010" role="doc-biblioref">Reinhart and Rogoff 2010</a>)</span>. EU Commissioner Olli Rehn and US Republican Paul Ryan both quoted a 90% debt-to-GDP limit to support political austerity strategies.</p>
+<p>Meanwhile, a student at the University of Massachusetts, Thomas Herndon, received a class assignment to reproduce the results of a research article. Herndon chose the article by <span class="citation" data-cites="reinhart2010">Reinhart and Rogoff (<a href="../references.html#ref-reinhart2010" role="doc-biblioref">2010</a>)</span> and failed to reproduce their results repeatedly, even after supervision with his professor.</p>
+<p>Subsequently, Herndon requested the spreadsheet from the authors of <span class="citation" data-cites="reinhart2010">Reinhart and Rogoff (<a href="../references.html#ref-reinhart2010" role="doc-biblioref">2010</a>)</span>. He then realized that the paper contained selective data selection, odd data averaging methods, and coding errors that led to substantial miscalculations <span class="citation" data-cites="herndon2014">(<a href="../references.html#ref-herndon2014" role="doc-biblioref">Herndon, Ash, and Pollin 2014</a>)</span>.</p>
+<p><span class="citation" data-cites="herndon2014">Herndon, Ash, and Pollin (<a href="../references.html#ref-herndon2014" role="doc-biblioref">2014</a>)</span> concluded that the results of <span class="citation" data-cites="reinhart2010">Reinhart and Rogoff (<a href="../references.html#ref-reinhart2010" role="doc-biblioref">2010</a>)</span> are much less dramatic than originally assumed. However, the basic tendency that economic growth slows down with higher debt still held true.</p>
+<p>What matters most about this story is that Reinhart and Rogoff were able to <strong>share</strong> their original spreadsheet and that the results were then <strong>reproducible</strong>. Thus, reproducibility can <strong>enhance</strong> the scientific, and in this example the political, <strong>discussion</strong> about research findings and their <strong>implications for society</strong>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Excel exercise">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Excel exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Open an Excel Sheet<br>
+</li>
+<li>Set the first column to date-format<br>
+</li>
+<li>Enter the year <em>2010</em> into the cell <em>A1</em></li>
+</ul>
+<p>Isn’t it spectacular that Excel rendered your entry as <strong>2nd July 1905</strong>?</p>
+<p><strong>Think</strong> about this phenomenon in your research context: What problems might arise when using Excel?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="More problems when using Excel ...">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+More problems when using Excel …
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As the exercise above showed, Excel can automatically convert specific data entries. In many everyday cases, this seems to be useful, for example for autocompletion of dates. However, in a research context, such conversions hinder reproducibility efforts. Thus, we highly recommend using <i class="fa-brands fa-r-project" aria-label="r-project"></i> and RStudio to read and analyze data.</p>
+<p>The described phenomenon of Excel conversions is highly prevalent in the scientific research area of biogenetics. A meta-analysis found that roughly 20% of published genetic research was affected by Excel errors <span class="citation" data-cites="ziemann2016">(<a href="../references.html#ref-ziemann2016" role="doc-biblioref">Ziemann, Eren, and El-Osta 2016</a>)</span>. Instead of changing Excel’s default options, this situation led to a change in scientific standards. The HUGO Gene Nomenclature Committee (HGNC) updated their guidelines on how to name genes. It was easier to rename genes than to update Excel!</p>
+<div id="fig-excel-genes" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-excel-genes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/excel_gene_names_111.gif" class="img-fluid figure-img" alt="">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-excel-genes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: “<a href="https://duet-cdn.vox-cdn.com/thumbor/0x0:500x345/1920x1325/filters:focal(250x173:251x174):no_upscale():format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/21700662/excel_gene_names_111.gif">Excel converting genes</a>” by <a href="https://www.theverge.com/">The Verge</a> (License: <a href=""></a>; reused without modifications)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="benefits-of-research-data-management" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="benefits-of-research-data-management"><span class="header-section-number">3.2</span> Benefits of research data management</h2>
+<p>Managing data well throughout the research process is crucial for successful research outcomes, including:</p>
+<ul>
+<li>Upholding research integrity and reproducibility</li>
+<li>Improving research productivity</li>
+<li>Ensuring the accuracy, completeness, authenticity, and reliability of research data and records</li>
+<li>Saving time and resources in the future</li>
+<li>Strengthening data security and reducing the likelihood of data loss</li>
+<li>Avoiding redundant work by facilitating data sharing</li>
+<li>Meeting the grant requirements of funding bodies</li>
+<li>Adhering to industry and commerce practices.</li>
+</ul>
+</section>
+<section id="modularity-of-research-data" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="modularity-of-research-data"><span class="header-section-number">3.3</span> Modularity of research data</h2>
+<p>What we expect the data to look like …</p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-remi-gau-data-source" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-remi-gau-data-source-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/remi-gau-data-source.jpeg" class="img-fluid figure-img" alt="">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-remi-gau-data-source-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main/images/shared.jpg">Research Data Management explained with pasta: Source data</a>” by <a href="https://remi-gau.github.io/">Remi Gau</a> (License: <a href="https://github.com/Remi-Gau/bids_workshop/blob/main/LICENSE">CC BY 4.0</a>; reused without modifications)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-remi-gau-data-raw" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-remi-gau-data-raw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/remi-gau-data-raw.jpeg" class="img-fluid figure-img" alt="">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-remi-gau-data-raw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main/images/raw.jpg">Raw data (Research Data Management explained with Pasta)</a>” by <a href="https://remi-gau.github.io/">Remi Gau</a> (License: <a href="https://github.com/Remi-Gau/bids_workshop/blob/main/LICENSE">CC BY 4.0</a>; reused without modifications)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-remi-gau-data-derivative" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-remi-gau-data-derivative-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/remi-gau-data-derivative.jpeg" class="img-fluid figure-img" alt="">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-remi-gau-data-derivative-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main/images/derivative.jpeg">Derivative data (Research Data Management explained with Pasta)</a>” by <a href="https://remi-gau.github.io/">Remi Gau</a> (License: <a href="https://github.com/Remi-Gau/bids_workshop/blob/main/LICENSE">CC BY 4.0</a>; reused without modifications)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>What the dataset actually looks like …</p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-remi-gau-data-shared" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-remi-gau-data-shared-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/remi-gau-data-shared.jpeg" class="img-fluid figure-img" alt="">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-remi-gau-data-shared-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main/images/shared.jpeg">Shared dataset (Research Data Management explained with Pasta)</a>” by <a href="https://remi-gau.github.io/">Remi Gau</a> (License: <a href="https://github.com/Remi-Gau/bids_workshop/blob/main/LICENSE">CC BY 4.0</a>; reused without modifications)
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div id="fig-remi-gau-data-readme" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-remi-gau-data-readme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/remi-gau-data-readme.jpeg" class="img-fluid figure-img" alt="">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-remi-gau-data-readme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.6: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main/images/readme.jpeg">Shared dataset with a README (Research Data Management explained with Pasta)</a>” by <a href="https://remi-gau.github.io/">Remi Gau</a> (License: <a href="https://github.com/Remi-Gau/bids_workshop/blob/main/LICENSE">CC BY 4.0</a>; reused without modifications)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="fair-principles" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="fair-principles"><span class="header-section-number">3.4</span> FAIR principles</h2>
+<div id="fig-nlm-nih-fair" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nlm-nih-fair-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/nlm-nih-fair.png" class="img-fluid figure-img" alt="">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nlm-nih-fair-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.7: “<a href="https://www.nlm.nih.gov/oet/ed/cde/tutorial/02-200.html">FAIR</a>” by <a href="https://www.nlm.nih.gov/">U.S. National Library of Medicine</a> (License: <a href="https://www.nlm.nih.gov/web_policies.html#copyright">Public Domain Mark 1.0 Universal (PDM 1.0)</a>; Any such works found on National Library of Medicine (NLM) Web sites may be freely used or reproduced without permission in the U.S.)
+</figcaption>
+</figure>
+</div>
+<p><span class="citation" data-cites="wilkinson2016">Wilkinson et al. (<a href="../references.html#ref-wilkinson2016" role="doc-biblioref">2016</a>)</span> published the FAIR principles for research data management. FAIR stands for Findable, Accessible, Interoperable, and Reusable. FAIR is a popular concept that has been adopted for various research properties, such as FAIR data and FAIR research software <span class="citation" data-cites="wilkinson2016 barker2022">(<a href="../references.html#ref-wilkinson2016" role="doc-biblioref">Wilkinson et al. 2016</a>; <a href="../references.html#ref-barker2022" role="doc-biblioref">Barker et al. 2022</a>)</span>.</p>
+<p>The FAIR data principles were originally introduced to enhance the machine readability of data. As a side effect, human readability also increased. However, enhancing reproducibility was not a primary goal when implementing FAIR principles.</p>
+<p>Thus, we will only address two concepts we believe are relevant for computational reproducibility: persistent identifiers, such as <strong>Digital Object Identifiers</strong> (DOIs), and <strong>metadata</strong>. DOIs make your scientific output (e.g., articles, datasets, code) findable, thereby enhancing the possibility of other researchers reproducing your scientific output.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="What is a Digital Object Identifier (DOI)?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is a Digital Object Identifier (DOI)?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A Digital Object Identifier (DOI) is a unique alphanumeric string assigned to a digital document or resource to provide a permanent and stable link to it. DOIs are commonly used to identify and provide a persistent link to scholarly articles, research papers, books, datasets, and other types of digital content. The purpose of a DOI is to ensure that the content can be reliably located and accessed over time, even if the web address (URL) of the resource changes.</p>
+<p>Key features of DOIs include:</p>
+<ol type="1">
+<li><p><strong>Uniqueness:</strong> Each DOI is unique to a particular resource, ensuring that no two resources have the same identifier.</p></li>
+<li><p><strong>Persistence:</strong> DOIs are designed to remain unchanged, providing a persistent link to the resource even if it is moved or the URL changes.</p></li>
+<li><p><strong>Interoperability:</strong> DOIs are widely used in scholarly publishing and other sectors, making them interoperable across different systems and platforms.</p></li>
+<li><p><strong>Accessibility:</strong> DOIs are often associated with metadata that provides information about the resource, such as author, title, publisher, publication date, and more.</p></li>
+<li><p><strong>Citations:</strong> DOIs are commonly used in academic and scientific citations to provide a standardized and reliable reference to a specific resource.</p></li>
+</ol>
+<p>DOIs are typically assigned and managed by registration agencies, such as CrossRef for scholarly content or DataCite for research data. Organizations and publishers assign DOIs to their digital content to enhance discoverability, citation tracking, and long-term accessibility.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="How to set up a persistent identifier with **OSF**?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How to set up a persistent identifier with <strong>OSF</strong>?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Go to <a href="https://osf.io">https://osf.io/</a>.</li>
+<li>Log in or sign up.</li>
+<li>Click on <strong>My Projects</strong> on the top bar.<br>
+</li>
+<li>Click on the green button <strong>Create Project</strong>.</li>
+<li>Type in a title (you can change it later).</li>
+<li>Specify your storage location.</li>
+<li>Click on the green button <strong>Create</strong>.</li>
+<li>Insert all your data, code, and metadata.</li>
+<li>Make your project public — this will generate a DOI.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="How to set up a persistent identifier with **Zenodo**?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How to set up a persistent identifier with <strong>Zenodo</strong>?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The version control book by <span class="citation" data-cites="wittkuhn2024">Wittkuhn and Pagenstedt (<a href="../references.html#ref-wittkuhn2024" role="doc-biblioref">2024</a>)</span> gives a detailed instruction on how to set up a DOI with Zenodo. We therefore ask you to read the respective <a href="https://lennartwittkuhn.com/version-control-book/chapters/tags-and-releases.html#zenodo">chapter</a>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="What is metadata?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is metadata?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A short definition is that metadata is <strong>data about your data</strong>. More thoroughly, metadata is a set of data that <strong>describes and gives information about other data</strong>. However, metadata does not contain the data itself.</p>
+<p>*<strong>Example:</strong></p>
+<p>Imagine you write a text message to one of your friends. The data would be your message. Metadata would contain information about the forwarder, the recipient, the time the message was sent, the used device, and so on …</p>
+<p>The same applies to your research data. Metadata contains information about your project, variable names and labels, response formats, affiliations, etc. Remember the pandas wondering what all the variables Sam1, …, Sam4 mean? That is what you can describe with metadata.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="data-organization" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="data-organization"><span class="header-section-number">3.5</span> Data organization</h2>
+<p>There are many different ways to organize your data. There is really no right or wrong here, but there are some valuable guidelines aimed at enhancing reproducibility. Data organization is not only about folder structure and precise naming. It is also about choosing file formats that enhance usability for both humans and machines. Further, it includes the use of metadata to describe your data. Due to the variety of organizational styles, you should establish a consistent approach to organizing your data. Thus, you need to apply a standard for your data.</p>
+<section id="data-standards" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="data-standards"><span class="header-section-number">3.5.1</span> Data standards</h3>
+<div id="fig-xkcd-standards" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-xkcd-standards-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/xkcd-standards.png" class="img-fluid figure-img" alt="">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-xkcd-standards-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.8: “<a href="https://xkcd.com/927/">Standards</a>” by <a href="https://xkcd.com/">xkcd.com (Randall Munroe)</a> (License: <a href="https://xkcd.com/license.html">CC BY-NC 2.5</a>; reused without modifications)
+</figcaption>
+</figure>
+</div>
+<section id="questions-to-ask-yourself" class="level4" data-number="3.5.1.1">
+<h4 data-number="3.5.1.1" class="anchored" data-anchor-id="questions-to-ask-yourself"><span class="header-section-number">3.5.1.1</span> Questions to ask yourself:</h4>
+<ol type="1">
+<li>What data are you working with?</li>
+<li>Which analysis pipelines are you working with?</li>
+<li><strong>Is there a community standard?</strong></li>
+</ol>
+<p>First, you should consider the type of data you are working with. EEG data might have different requirements than MRI data, eye-tracking data, cardiological data, questionnaire data, and so on. How complex is your data, and how should it be arranged?</p>
+<p>Second, after determining your data type, you’ll realize that you’ll face specific analysis pipelines. For example, raw EEG data must be handled differently from MRI data, and so on. You might need to use specific analysis software that requires certain file formats or other specific requirements.</p>
+<p>Third, check whether there is a standard in your scientific community. Community standards help to organize your data, facilitating cooperation between different labs and ensuring consistency within your own lab. Additionally, if you want to reproduce data, you will have a harder time if the data is organized in a format you are not familiar with. Adopting a widely used data organization style will make reproducibility much easier.</p>
+</section>
+<section id="example-brain-imaging-data-structure-bids" class="level4" data-number="3.5.1.2">
+<h4 data-number="3.5.1.2" class="anchored" data-anchor-id="example-brain-imaging-data-structure-bids"><span class="header-section-number">3.5.1.2</span> Example: Brain Imaging Data Structure (BIDS)</h4>
+<div id="fig-bids-dataset" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bids-dataset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/bids-dataset.png" class="img-fluid figure-img" alt="">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bids-dataset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.9: “<a href="https://www.nature.com/articles/sdata201644/figures/1">Illustration of a BIDS structured dataset</a>” by <a href="https://doi.org/10.1038/sdata.2016.44"><span class="citation" data-cites="gorgolewski2016">Gorgolewski et al. (<span>2016</span>)</span></a> (License: <a href="https://www.nature.com/articles/sdata201644">CC BY 4.0</a>; reused without modifications)
+</figcaption>
+</figure>
+</div>
+<p>The community standard <strong>Brain Imaging Data Structure</strong> (BIDS) was introduced by <span class="citation" data-cites="gorgolewski2016">Gorgolewski et al. (<a href="../references.html#ref-gorgolewski2016" role="doc-biblioref">2016</a>)</span>, providing a data organization standard for the neuroimaging scientific community. MRI research faced the issue of producing many different output files, ranging from plain text to multidimensional image data files. Additionally, different scanners produced different output files, and there was no consensus on how to organize and share these data. This led to misunderstandings, wasted time rearranging data, and potential sources of error.</p>
+<p>Reproducing the entire BIDS standard in all its facets would be beyond the scope of this book. Thus, we will focus on high-level concepts that could be analogously applied to a variety of scientific projects.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Steps to create a BIDS compatible dataset">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Steps to create a BIDS compatible dataset
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Convert files</li>
+<li>Create folder structure, rename, and copy files</li>
+<li>Add remaining data</li>
+<li>Add missing metadata</li>
+<li>Validate the dataset</li>
+</ol>
+</div>
+</div>
+<p>When your data analysis pipeline requires your data to be in a specific format, make sure to convert your data files into the correct format. Specific software is often used for this purpose in MRI research. In survey-based research, this might not be too complicated. However, when extracting data from your survey servers (such as Unipark or LimeSurvey), ensure you use the correct format.</p>
+<p>BIDS includes its own folder structure for research projects. When you have your own research project, ensure it aligns with our recommendations from <a href="../chapters/naming-things.html">Chapter 2</a> and <a href="project-structure">project-structure</a>.</p>
+<p>Sometimes, you might need to add more information that was not captured during your data collection process (e.g., details of experimental tasks and additional demographic information of participants).</p>
+<p>In BIDS, metadata files are created when converting files from one format to another. However, these metadata files may not be exhaustive. You might want to include task descriptions, task instructions, and so on. <a href="#sec-dictionary" class="quarto-xref"><span>Section 3.6</span></a> describes which metadata can be used in less complex data management scenarios.</p>
+<p>A nice feature of BIDS is the <a href="https://github.com/bids-standard/bids-validator">BIDS Validator</a>. It checks if any required or recommended metadata is missing. It also identifies incorrect definitions of missing values, wrong units, missing scans, and inconsistent scanning parameters across subjects. Even though you are unlikely to apply the validator outside of neuroimaging, the concept is quite powerful. We have provided a small section about <em>verifying</em> your code, which tackles the same topic but focuses more on your code than on your data. <a href="section-not-merged-yet">Click here</a> to go to the section (section not merged yet).</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Benefits of BIDS">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Benefits of BIDS
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What makes BIDS truly beneficial are <strong>BIDS apps</strong>. BIDS apps are automatically compatible with BIDS datasets. One example of such an app is <strong>fMRIPrep</strong>. This app provides researchers working with fMRI data an easy workflow for preprocessing fMRI data <span class="citation" data-cites="esteban2019">(<a href="../references.html#ref-esteban2019" role="doc-biblioref">Esteban et al. 2019</a>)</span>. fMRIPrep automates several steps without requiring manual intervention from the researcher. Thus, BIDS, combined with its apps, is a powerful tool for saving time and effort as a researcher.</p>
+</div>
+</div>
+<p>fMRIPrep highlights another benefit of data organization standards: When many people rely on such a standard, new innovations emerge that improve the workflow.<br>
+Previously, preprocessing fMRI data was a time-consuming task for PhD students and PostDocs in the field of neuroimaging. With fMRIPrep, this process can be done automatically and without manual intervention. By applying the BIDS standard and fMRIPrep to your data, you will require far fewer resources to understand others’ analysis pipelines using the same standards. However, a data organization standard works well only when <strong>a lot of people</strong> use it. That is one reason why BIDS is successful: It is widely used in the field of neuroimaging.</p>
+</section>
+<section id="example-psychological-data-structure-psych-ds" class="level4" data-number="3.5.1.3">
+<h4 data-number="3.5.1.3" class="anchored" data-anchor-id="example-psychological-data-structure-psych-ds"><span class="header-section-number">3.5.1.3</span> Example: Psychological Data Structure (Psych-DS)</h4>
+<p>The <strong>Psychological Data Structure</strong> (Psych-DS) aims to apply the principles of BIDS to behavioral data. Thus, it is heavily based on BIDS. The core idea is to consistently organize data, facilitating data sharing and enhancing the understanding of the data. There is also a <a href="https://psychds-docs.readthedocs.io/en/latest/">guide</a> to help researchers organize their research projects. Like BIDS, Psych-DS provides a validation tool that checks if the data organization has been done correctly.</p>
+<p>However, Psych-DS has not been widely adopted by researchers, and its development is not as fast as that of BIDS. Therefore, it does not yet have extension tools like fMRIPrep. Nevertheless, Psych-DS could have more impact if more people began using it. The benefit of Psych-DS is clearly its adaptation to behavioral data structures, which can be applied by a wide range of research communities in psychology.</p>
+</section>
+</section>
+<section id="rectangular-data" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="rectangular-data"><span class="header-section-number">3.5.2</span> Rectangular Data</h3>
+<p>If you do not have a community standard specifying the data organization, we highly recommend using the rules of <strong>rectangular data</strong> as proposed by <span class="citation" data-cites="broman2018">Broman and Woo (<a href="../references.html#ref-broman2018" role="doc-biblioref">2018</a>)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Rules of rectangular data [@broman2018]">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Rules of rectangular data <span class="citation" data-cites="broman2018">(<a href="../references.html#ref-broman2018" role="doc-biblioref">Broman and Woo 2018</a>)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Be consistent.</li>
+<li>Choose good names for things (see Chapter <a href="../chapters/naming-things.html">Naming things</a>).</li>
+<li>Write dates in the format <code>YYYY-MM-DD</code> (see Chapter <a href="../chapters/naming-things.html">Naming things</a>).</li>
+<li>Do not leave empty cells.</li>
+<li>Put just one thing in a cell.</li>
+<li>Make it a rectangle.</li>
+<li>Create a data dictionary (see <a href="#sec-dictionary" class="quarto-xref"><span>Section 3.6</span></a>).</li>
+<li>Do not perform calculations in the raw data files.</li>
+<li>Do not use font color or highlighting as data.</li>
+<li>Make backups.</li>
+<li>Use data validation to avoid errors (see <span class="quarto-unresolved-ref">?sec-assertr</span>).</li>
+<li>Save the data in plain text files.</li>
+</ol>
+</div>
+</div>
+<p>We will not go into detail on rules 2, 3, and 6, because we have either already covered these topics earlier or will address them in a separate section later.</p>
+<section id="be-consistent" class="level4" data-number="3.5.2.1">
+<h4 data-number="3.5.2.1" class="anchored" data-anchor-id="be-consistent"><span class="header-section-number">3.5.2.1</span> Be consistent</h4>
+<p>It sounds easier than it is. If you organize your data consistently from the start, you will not have to spend additional time later “harmonizing” the data. To do so, use consistent codes for categorical variables (decide between different versions of <code>male</code>, <code>Male</code>, <code>m</code>, <code>M</code>). Use a consistent fixed code for any missing values (we prefer using <code>NA</code>, but avoid <code>-999</code> or similar). Use consistent variable names (decide between <code>saliva_10wk</code>, <code>Saliva_10wk</code>, <code>sal_week10</code>, etc.). Use consistent subject identifiers (decide between <code>003</code>, <code>pcp003</code>, <code>person-003</code>, etc.). Use a consistent data layout across multiple files. It would be extra work to combine files with different layouts. Use consistent file names (decide between <code>TSST_VR_2024-11-19.csv</code>, <code>2024-11-19_TSST_virtual-reality.csv</code>, etc.). Use a consistent format for all dates (see <a href="naming-things.html#sec-date-format" class="quarto-xref"><span>Section 2.7.1.3</span></a>). Use consistent phrases in notes if you have a separate column for them. Be careful about extra spaces within cells (e.g., the difference between <code>male</code> and <code>male</code>).</p>
+</section>
+<section id="no-empty-cells" class="level4" data-number="3.5.2.2">
+<h4 data-number="3.5.2.2" class="anchored" data-anchor-id="no-empty-cells"><span class="header-section-number">3.5.2.2</span> No empty cells</h4>
+<p>Do fill out every cell. When information is missing, use a common code to indicate that it is missing (preferably <code>NA</code>). <em>Merging</em> cells, as you can in Excel, is not recommended, since it will leave some cells empty. Repeat repeating values. If you leave cells empty, it will be harder to infer the repeating values, particularly after some data wrangling.</p>
+</section>
+<section id="put-just-one-thing-in-a-cell" class="level4" data-number="3.5.2.3">
+<h4 data-number="3.5.2.3" class="anchored" data-anchor-id="put-just-one-thing-in-a-cell"><span class="header-section-number">3.5.2.3</span> Put just one thing in a cell</h4>
+<p>In one piece of a spreadsheet, which is a cell, there should only be one piece of information. Do not include units in your cells. It is better to put units in a data dictionary (see <a href="#sec-dictionary" class="quarto-xref"><span>Section 3.6</span></a>). The same applies to notes. Instead of writing <code>0 (below threshold)</code>, create a new column called <code>note</code> and write <code>0</code> in the first column and <code>below threshold</code> in the second.</p>
+</section>
+<section id="make-it-a-rectangle" class="level4" data-number="3.5.2.4">
+<h4 data-number="3.5.2.4" class="anchored" data-anchor-id="make-it-a-rectangle"><span class="header-section-number">3.5.2.4</span> Make it a rectangle</h4>
+<p>As your data usually resides in a two-dimensional spreadsheet, it is best to layout your data in a two-dimensional format as well. Use columns for variables and rows for subjects or observations. The first row should contain variable names. If some data do not fit into one dataset, create a set of rectangular datasets and save them in separate files. Do not use multiple header rows. You can further apply the concept of <code>tidy data</code> <span class="citation" data-cites="wickham2014">(<a href="../references.html#ref-wickham2014" role="doc-biblioref">Wickham 2014</a>)</span> to your rectangular dataset (see <span class="quarto-unresolved-ref">?sec-tidy-data</span>).</p>
+<div class="callout callout-style-default callout-caution callout-titled" title="Example of multiple header rows">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example of multiple header rows
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">D</th>
+<th style="text-align: center;">E</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;">day_1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">day_2</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">ID</td>
+<td style="text-align: center;">sleep</td>
+<td style="text-align: center;">sport</td>
+<td style="text-align: center;">sleep</td>
+<td style="text-align: center;">sport</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">34</td>
+<td style="text-align: center;">7.5</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">35</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">8.5</td>
+<td style="text-align: center;">0.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">36</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">2.5</td>
+<td style="text-align: center;">7.5</td>
+<td style="text-align: center;">3</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note:</em> This table deviates from the rectangle form. It also leaves multiple cells empty</p>
+</div>
+</div>
+</div>
+</section>
+<section id="no-calculations-in-the-raw-data-files" class="level4" data-number="3.5.2.5">
+<h4 data-number="3.5.2.5" class="anchored" data-anchor-id="no-calculations-in-the-raw-data-files"><span class="header-section-number">3.5.2.5</span> No calculations in the raw data files</h4>
+<p>Primary data should just be data. Only data. There should be no means and standard deviations calculated in that primary data. Use scripts to calculate whatever you want, but do not make changes in the primary dataset.</p>
+</section>
+<section id="do-not-use-font-color-or-highlighting-as-data" class="level4" data-number="3.5.2.6">
+<h4 data-number="3.5.2.6" class="anchored" data-anchor-id="do-not-use-font-color-or-highlighting-as-data"><span class="header-section-number">3.5.2.6</span> Do not use font color or highlighting as data</h4>
+<p>If you identify outliers or other information you want to highlight, do not highlight them using visualization. Instead, create a new column called <code>outlier</code> and mark the identified outliers as <code>TRUE</code> and the others as <code>FALSE</code>. Visualization is useful in the short term, but it makes it difficult to extract this information for later analysis.</p>
+</section>
+<section id="make-backups" class="level4" data-number="3.5.2.7">
+<h4 data-number="3.5.2.7" class="anchored" data-anchor-id="make-backups"><span class="header-section-number">3.5.2.7</span> Make Backups</h4>
+<p>Back up your data regularly in multiple locations. Consider using a version control system like Git (see <a href="https://lennartwittkuhn.com/version-control-book/">Version Control Book</a>). When you have finished entering data, <em>write-protect</em> your data file. This ensures that you do not accidentally make changes to your dataset.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Write-protecting your data">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Write-protecting your data
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><i class="fa-brands fa-apple" aria-label="apple"></i> Mac</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><i class="fa-brands fa-windows" aria-label="windows"></i> Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><i class="fa-brands fa-linux" aria-label="linux"></i> Linux</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ol type="1">
+<li>Open the folder in <strong>Finder</strong> where your file is located.</li>
+<li><strong>Right-click</strong> on your file.</li>
+<li>Click on <strong>Get Info</strong>.</li>
+<li>Open the section <strong>Sharing &amp; Permissions</strong>.</li>
+<li>Click on <strong>Privilege</strong> next to your user account.</li>
+<li>Select <strong>Read only</strong>.</li>
+</ol>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<ol type="1">
+<li>Open the folder in <strong>Windows Explorer</strong> where your file is located.</li>
+<li><strong>Right-click</strong> on your file.</li>
+<li>Click on <strong>Properties</strong>.</li>
+<li>Select the <strong>General</strong> tab.</li>
+<li>Navigate to the <strong>Attributes</strong> section.</li>
+<li>Check the box for <strong>Read-only</strong>.</li>
+<li>Confirm your choice by clicking the <strong>OK</strong> button.</li>
+</ol>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>TBA</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="use-data-validation-to-avoid-errors" class="level4" data-number="3.5.2.8">
+<h4 data-number="3.5.2.8" class="anchored" data-anchor-id="use-data-validation-to-avoid-errors"><span class="header-section-number">3.5.2.8</span> Use Data Validation to Avoid Errors</h4>
+<p>Ensure that your entered data is error-free by applying data validation techniques. You can create validation rules using the R package <code>assertr</code> <span class="citation" data-cites="fischetti2023">(<a href="../references.html#ref-fischetti2023" role="doc-biblioref">Fischetti 2023</a>)</span> and its function <code>verify()</code> (see <span class="quarto-unresolved-ref">?sec-assertr</span>).</p>
+</section>
+<section id="save-data-in-plain-text-files" class="level4" data-number="3.5.2.9">
+<h4 data-number="3.5.2.9" class="anchored" data-anchor-id="save-data-in-plain-text-files"><span class="header-section-number">3.5.2.9</span> Save data in plain text files</h4>
+<p>We recommend saving your data files in <code>.csv</code> format. <code>csv</code> stands for “comma-separated values”. This file format is basic and not visually appealing. However, it requires no special software to open and is easy to handle in code. Thus, it enhances computational reproducibility. In countries where commas are used as decimal separators, tab-delimited text files (<code>.tsv</code>) might be an appropriate alternative to <code>.csv</code>. Note that if you have highlighted cells or applied any special features in an Excel file, these features will be lost when saving the file as <code>.csv</code> or <code>.txt</code>.</p>
+</section>
+</section>
+</section>
+<section id="sec-dictionary" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="sec-dictionary"><span class="header-section-number">3.6</span> Data dictionaries</h2>
+<p>In addition to rectangular data, it is also valuable to have a <strong>data dictionary</strong> describing how your data is structured. The data dictionary is also sometimes referred to as a <em>codebook</em>. Your dictionary enhances the understandability of your entire research project and is therefore crucial for computational reproducibility. According to <span class="citation" data-cites="broman2018">Broman and Woo (<a href="../references.html#ref-broman2018" role="doc-biblioref">2018</a>)</span>, your dictionary should contain:</p>
+<ol type="1">
+<li>The exact variable name as in your data file.<br>
+</li>
+<li>A version of the variable name that might be used in data visualizations.<br>
+</li>
+<li>A longer explanation of what the variable means.<br>
+</li>
+<li>The measurement units.<br>
+</li>
+<li>Expected minimum and maximum values.</li>
+</ol>
+<p>However, more information can be stored in your dictionary. When analyzing data collected from a survey, a variable in your dataset will likely represent an item from that survey. You can then provide information on:</p>
+<ol type="1">
+<li>The item in the survey.</li>
+<li>The original wording of the item.</li>
+<li>The subscale the item belongs to</li>
+<li>The author responsible for that item/subscale.</li>
+<li>The response format for the item.</li>
+<li>Special considerations regarding the item.</li>
+</ol>
+<p>Ideally, your data dictionary should also be stored in a <strong>rectangular format</strong>. Another option is to use a <code>.json</code> file. This offers more flexibility but also presents a new challenge in organizing the data.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Learn more: What is a `json` file?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Learn more: What is a <code>json</code> file?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>json</code> stands for JavaScript Object Notation. Thus, everything you write in that file must adhere to the JSON notation style. It would be beyond the scope of this book to explain how data in a <code>.json</code> file should be formatted. However, you can see a small example below to get a sense of how a <code>.json</code> file looks. If you want to dive deeper into the use of <code>.json</code> files, we recommend this <a href="https://www.youtube.com/watch?v=cj3h3Fb10QY">Video</a> that explains JSON more thoroughly.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>json Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"agr1"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"item_wording"</span><span class="fu">:</span> <span class="st">"I make people feel at ease."</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"numeric"</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"scale"</span><span class="fu">:</span> <span class="st">"agreeableness"</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"min_value"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"max_value"</span><span class="fu">:</span> <span class="dv">5</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"agr2"</span><span class="fu">,</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"item_wording"</span><span class="fu">:</span> <span class="st">"I love children."</span><span class="fu">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"numeric"</span><span class="fu">,</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"scale"</span><span class="fu">:</span> <span class="st">"agreeableness"</span><span class="fu">,</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"min_value"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"max_value"</span><span class="fu">:</span> <span class="dv">5</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="acknowledgements" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="acknowledgements"><span class="header-section-number">3.7</span> Acknowledgements</h2>
+<p><a href="https://orcid.org/0000-0002-9388-5535">Dr.&nbsp;Maike Kleemeyer</a> and the Research Data Management and Open Science working group at the <a href="{{< links.mpib >}}">Max Planck Institute for Human Development, Berlin</a>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-barker2022" class="csl-entry" role="listitem">
+Barker, Michelle, Neil P. Chue Hong, Daniel S. Katz, Anna-Lena Lamprecht, Carlos Martinez-Ortiz, Fotis Psomopoulos, Jennifer Harrow, et al. 2022. <span>“Introducing the FAIR Principles for Research Software.”</span> <em>Scientific Data</em> 9: 622. <a href="https://doi.org/10.1038/s41597-022-01710-x">https://doi.org/10.1038/s41597-022-01710-x</a>.
+</div>
+<div id="ref-broman2018" class="csl-entry" role="listitem">
+Broman, Karl W., and Kara H. Woo. 2018. <span>“Data Organization in Spreadsheets.”</span> <em>The American Statistician</em> 72 (1): 2–10. <a href="https://doi.org/10.1080/00031305.2017.1375989">https://doi.org/10.1080/00031305.2017.1375989</a>.
+</div>
+<div id="ref-esteban2019" class="csl-entry" role="listitem">
+Esteban, Oscar, Christopher J. Markiewicz, Ross W. Blair, Craig A. Moodie, A. Ilkay Isik, Asier Erramuzpe, James D. Kent, et al. 2019. <span>“fMRIPrep: A Robust Preprocessing Pipeline for Functional MRI.”</span> <em>Nature Methods</em> 16 (January): 111–16. <a href="https://doi.org/10.1038/s41592-018-0235-4">https://doi.org/10.1038/s41592-018-0235-4</a>.
+</div>
+<div id="ref-fischetti2023" class="csl-entry" role="listitem">
+Fischetti, Tony. 2023. <em>Assertr: Assertive Programming for r Analysis Pipelines</em>. <a href="https://doi.org/10.32614/CRAN.package.assertr">https://doi.org/10.32614/CRAN.package.assertr</a>.
+</div>
+<div id="ref-gorgolewski2016" class="csl-entry" role="listitem">
+Gorgolewski, Krzysztof J., Tibor Auer, Vince D. Calhoun, R. Cameron Craddock, Samir Das, Eugene P. Duff, Guillaume Flandin, et al. 2016. <span>“The Brain Imaging Data Structure, a Format for Organizing and Describing Outputs of Neuroimaging Experiments.”</span> <em>Scientific Data</em> 3 (1). <a href="https://doi.org/10.1038/sdata.2016.44">https://doi.org/10.1038/sdata.2016.44</a>.
+</div>
+<div id="ref-hanson2019" class="csl-entry" role="listitem">
+Hanson, Karen, Alisa Surkis, and Karen Yacobucci. 2019. <span>“Data Sharing and Management Snafu in 3 Short Acts.”</span> <a href="https://doi.org/10.6084/M9.FIGSHARE.8061722.V1">https://doi.org/10.6084/M9.FIGSHARE.8061722.V1</a>.
+</div>
+<div id="ref-herndon2014" class="csl-entry" role="listitem">
+Herndon, Thomas, Michael Ash, and Robert Pollin. 2014. <span>“Does High Public Debt Consistently Stifle Economic Growth? A Critique of Reinhart and Rogoff.”</span> <em>Cambridge Journal of Economics</em> 38 (2): 257–79. <a href="https://doi.org/10.1093/cje/bet075">https://doi.org/10.1093/cje/bet075</a>.
+</div>
+<div id="ref-reinhart2010" class="csl-entry" role="listitem">
+Reinhart, Carmen M., and Kenneth S. Rogoff. 2010. <span>“Growth in a Time of Debt.”</span> <em>American Economic Review</em> 100 (2): 573–78. <a href="https://doi.org/10.1257/aer.100.2.573">https://doi.org/10.1257/aer.100.2.573</a>.
+</div>
+<div id="ref-wickham2014" class="csl-entry" role="listitem">
+Wickham, Hadley. 2014. <span>“Tidy Data.”</span> <em>Jornal of Statistical Software</em> 59 (10): 1–23. <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>.
+</div>
+<div id="ref-wilkinson2016" class="csl-entry" role="listitem">
+Wilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. <span>“The FAIR Guiding Principles for Scientific Data Management and Stewardship.”</span> <em>Scientific Data</em> 3 (1). <a href="https://doi.org/10.1038/sdata.2016.18">https://doi.org/10.1038/sdata.2016.18</a>.
+</div>
+<div id="ref-wittkuhn2024" class="csl-entry" role="listitem">
+Wittkuhn, Lennart, and Konrad Pagenstedt. 2024. <em>Version Control Book</em>. ZFDM Repository. <a href="https://doi.org/10.25592/uhhfdm.14149">https://doi.org/10.25592/uhhfdm.14149</a>.
+</div>
+<div id="ref-ziemann2016" class="csl-entry" role="listitem">
+Ziemann, M., Y. Eren, and A. El-Osta. 2016. <span>“Gene Name Erorrs Are Widespread in the Scientific Literature.”</span> <em>Genome Biology</em> 17 (August). <a href="https://doi.org/10.1186/s13059-016-1044-7">https://doi.org/10.1186/s13059-016-1044-7</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script defer="" data-domain="lennartwittkuhn.com/repro-book" src="https://plausible.io/js/script.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/lennartwittkuhn\.com\/repro-book\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/naming-things.html" class="pagination-link" aria-label="Naming things">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Naming things</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/good-coding-practices.html" class="pagination-link" aria-label="Good Coding Practices">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2024 – 2025 <a href="?tab=readme-ov-file#contributors">The Repro Book Team</a></p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link active" href="../acknowledgements.html" aria-current="page">
+<p>Acknowledgements</p>
+</a>
+  </li>  
+</ul>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/rdm.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/rdm.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>License: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

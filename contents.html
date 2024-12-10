@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -197,14 +217,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./chapters/rdm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Research Data Management</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./chapters/good-coding-practices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -234,7 +260,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YmFzaWNz">basics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmVnaW5uZXI=">beginner <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YmFzaWNz">basics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YmVnaW5uZXI=">beginner <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW50ZXJtZWRpYXRl">intermediate <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
@@ -285,7 +311,7 @@ window.Quarto = {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1733228961606" data-listing-reading-time-sort="1" data-listing-word-count-sort="19">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1733861288849" data-listing-reading-time-sort="1" data-listing-word-count-sort="19">
 <div class="thumbnail">
 <p><a href="./chapters/intro.html" class="no-external"></a></p><a href="./chapters/intro.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -308,12 +334,12 @@ window.Quarto = {
 1 min
 </div>
 <div class="metadata-value listing-file-modified">
-December 3, 2024
+December 10, 2024
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="YmVnaW5uZXIlMkNiYXNpY3M=" data-listing-file-modified-sort="1733228961606" data-listing-reading-time-sort="13" data-listing-word-count-sort="2450">
+<div class="quarto-post image-right" data-index="1" data-categories="YmVnaW5uZXIlMkNiYXNpY3M=" data-listing-file-modified-sort="1733861288849" data-listing-reading-time-sort="13" data-listing-word-count-sort="2451">
 <div class="thumbnail">
 <p><a href="./chapters/naming-things.html" class="no-external"></a></p><a href="./chapters/naming-things.html" class="no-external">
 <p class="card-img-top"><img src="images/phd-comic-story-told-in-file-names.gif"  class="thumbnail-image card-img"/></p>
@@ -344,12 +370,45 @@ basics
 13 min
 </div>
 <div class="metadata-value listing-file-modified">
-December 3, 2024
+December 10, 2024
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1733228961606" data-listing-reading-time-sort="21" data-listing-word-count-sort="4008">
+<div class="quarto-post image-right" data-index="2" data-categories="aW50ZXJtZWRpYXRl" data-listing-file-modified-sort="1733861288849" data-listing-reading-time-sort="19" data-listing-word-count-sort="3667">
+<div class="thumbnail">
+<p><a href="./chapters/rdm.html" class="no-external"></a></p><a href="./chapters/rdm.html" class="no-external">
+<p class="card-img-top"><img src="images/excel_gene_names_111.gif"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./chapters/rdm.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./chapters/rdm.html" class="no-external">Research Data Management</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./chapters/rdm.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('aW50ZXJtZWRpYXRl'); return false;">
+intermediate
+</div>
+</div>
+<div class="listing-description">
+<a href="./chapters/rdm.html" class="no-external">In this chapter you will learn the basics of research data management. </a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./chapters/rdm.html" class="no-external"></a></p><a href="./chapters/rdm.html" class="no-external">
+<div class="listing-reading-time">
+19 min
+</div>
+<div class="metadata-value listing-file-modified">
+December 10, 2024
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1733861288849" data-listing-reading-time-sort="21" data-listing-word-count-sort="4008">
 <div class="thumbnail">
 <p><a href="./chapters/good-coding-practices.html" class="no-external"></a></p><a href="./chapters/good-coding-practices.html" class="no-external">
 <p class="card-img-top"><img src="images/horst-tidydata-2.jpg"  class="thumbnail-image card-img"/></p>
@@ -372,7 +431,7 @@ December 3, 2024
 21 min
 </div>
 <div class="metadata-value listing-file-modified">
-December 3, 2024
+December 10, 2024
 </div>
 </a>
 </div>
@@ -385,6 +444,11 @@ No matching items
 
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-gorgolewski2016" class="csl-entry" role="listitem">
+Gorgolewski, Krzysztof J., Tibor Auer, Vince D. Calhoun, R. Cameron Craddock, Samir Das, Eugene P. Duff, Guillaume Flandin, et al. 2016. <span>“The Brain Imaging Data Structure, a Format for Organizing and Describing Outputs of Neuroimaging Experiments.”</span> <em>Scientific Data</em> 3 (1). <a href="https://doi.org/10.1038/sdata.2016.44">https://doi.org/10.1038/sdata.2016.44</a>.
+</div>
+</div>
 
 </main> <!-- /main -->
 <script defer="" data-domain="lennartwittkuhn.com/repro-book" src="https://plausible.io/js/script.js"></script>
