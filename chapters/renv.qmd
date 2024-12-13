@@ -102,7 +102,7 @@ If you do not know how to do that, see @sec-rproject.
 With `renv::init()`, we initialize our project.
 With this command, a couple of files and folders are created.
 
-- `.Rprofile` is a file that automatically runs everytime you start your R-project.
+- `.Rprofile` is a file that automatically runs every time you start your R-project.
 Renv uses it to set up your project library.
 Thus, once you have turned on your project library, it remains active until you turn it off.
 
@@ -204,7 +204,7 @@ In your Console, you will see something like this:
 Renv did not add the metadata about palmerpenguins to the lockfile.
 This is because renv checks if your package is really used somewhere in your project.
 The bare installation is not enough.
-This is to not unneccessarily overload the lockfile with packages that are not used in the project.
+This is to not unnecessarily overload the lockfile with packages that are not used in the project.
 The package has to be used and therefore loaded somewhere in the project.
 Create a script `test_palmerpenguins.R`, type `library(palmerpenguins)`, and save it in your project.
 Then try the snapshot command again:
@@ -242,7 +242,7 @@ When you open the lockfile, you will find the metadata of palmerpenguins there.
 
 #### `renv::restore`
 
-Say you successfully built up a project library, installed pacakges to it and saved the metadata into your lockfile.
+Say you successfully built up a project library, installed packages to it and saved the metadata into your lockfile.
 Future you or other collaborators or researchers now want to reproduce your code and need to use the particular package versions.
 The collaborators found your project and code and downloaded it.
 They now want to install the particular package versions.
@@ -342,7 +342,7 @@ The following package(s) are in an inconsistent state:
 See `?renv::status` for advice on resolving these issues.
 ```
 
-Fortunately, the messages displyed by renv are very straightforward.
+Fortunately, the messages displayed by renv are very straightforward.
 It tells us to go to the helper page by running `?renv::status`.
 
 ::: {.callout-tip title="Section of the helping page for renv::status()" collapse="true"}
@@ -377,7 +377,7 @@ Next we need to ensure that packages are recorded in the lockfile if and only if
 - If it's not used and not recorded, it's also ok, as it may be a development dependency.
 :::
 
-In the helpin page our case is well-described.
+In the helping page our case is well-described.
 We can just run `renv::snapshot` to remove it from the lockfile.
 Thus, our lockfile does not contain the unused package `ellipsis`.
 
