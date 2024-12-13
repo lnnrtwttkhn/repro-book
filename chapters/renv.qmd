@@ -426,6 +426,19 @@ You know the most important things now, but it sure can help to have a guideline
 :::
 :::
 
+
+## Limitations of `renv`
+
+As you can see in the lockfile, `renv` tracks not only the package versions but also the R version.
+However, `renv` cannot solve reproducibility issues when it comes to different R versions.
+It is possible to deal with this problem installing the specific R version used in the project you want to reproduce.
+Another way is using *docker* (see chapter about docker).
+However, it requires more time and work to make a project reproducible.
+Further, the benefits of separate projects comes with a constraint.
+Possible bug fixes that are included in later versions of a package are not implemented in the project libraries.
+Nevertheless, we recommend `renv` as a valuable tool for increasing a project's reproducibility.
+
+
 ## References
 
 somehow include:
