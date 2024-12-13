@@ -310,6 +310,83 @@ Restart your R session to use the new versions.
 
 #### `renv::status`
 
+You can check the status of your dependency management by using `renv::status()`.
+
+```{r}
+#| filename: "Console"
+#| eval: false
+#| echo: true
+renv::status()
+```
+
+If everything is alright, you should get an output message similar to this:
+
+```{zsh}
+#| filename: "Output"
+#| code-copy: false
+No issues found -- the project is in a consistent state.
+```
+
+
+However, there can still arise some issues.
+You can see an example below
+
+```{zsh}
+#| filename: "Output"
+#| code-copy: false
+The following package(s) are in an inconsistent state:
+
+ package  installed recorded used
+ ellipsis y         y        n   
+
+See `?renv::status` for advice on resolving these issues.
+```
+
+Fortunately, the messages displyed by renv are very straightforward.
+It tells us to go to the helper page by running `?renv::status`.
+
+::: {.callout-tip title="Section of the helping page for renv::status()" collapse="true"}
+
+**Missing packages**
+
+`status()` first checks that all packages used by the project are installed. This must be done first because if any packages are missing we can't tell for sure that a package isn't used; it might be a dependency that we don't know about. Once you have resolve any installation issues, you'll need to run `status()` again to reveal the next set of potential problems.
+
+There are four possibilities for an uninstalled package:
+
+- If it's used and recorded, call `renv::restore()` to install the version specified in the lockfile.
+
+- If it's used and not recorded, call `renv::install()` to install it from CRAN or elsewhere.
+
+- If it's not used and recorded, call `renv::snapshot()` to remove it from the lockfile.
+
+- If it's not used and not recorded, there's nothing to do.
+This the most common state because you only use a small fraction of all available packages in any one project.
+
+- If you have multiple packages in an inconsistent state, we recommend `renv::restore()`, then `renv::install()`, then `renv::snapshot()`, but that also suggests you should be running status more frequently.
+
+**Lockfile vs `dependencies()`**
+
+Next we need to ensure that packages are recorded in the lockfile if and only if they are used by the project. Fixing issues of this nature only requires calling `snapshot()` because there are four possibilities for a package:
+
+- If it's used and recorded, it's ok.
+
+- If it's used and not recorded, call `renv::snapshot()` to add it to the lockfile.
+
+- If it's not used but is recorded, call `renv::snapshot()` to remove it from the lockfile.
+
+- If it's not used and not recorded, it's also ok, as it may be a development dependency.
+:::
+
+In the helpin page our case is well-described.
+We can just run `renv::snapshot` to remove it from the lockfile.
+Thus, our lockfile does not contain the unused package `ellipsis`.
+
+::: {.callout-tip title="Video explaining basic `renv` functions"}
+For further information, see this video to increase your understanding of `renv`.
+
+{{< video https://www.youtube.com/watch?v=Oen9xhEh8PY >}}
+:::
+
 ### `renv`-workflow
 
 ```{r}
