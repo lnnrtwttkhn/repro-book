@@ -242,7 +242,71 @@ When you open the lockfile, you will find the metadata of palmerpenguins there.
 
 #### `renv::restore`
 
-With `renv::restore`, we can restore versions of our used packages.
+Say you successfully built up a project library, installed pacakges to it and saved the metadata into your lockfile.
+Future you or other collaborators or researchers now want to reproduce your code and need to use the particular package versions.
+The collaborators found your project and code and downloaded it.
+They now want to install the particular package versions.
+To simplify this step, one can use the `renv::restore()` function.
+
+```{r filename="Console"}
+#| echo: true
+#| eval: false
+
+renv::restore()
+```
+
+Then you should get an output like this:
+
+```{zsh filename="Output"}
+#| code-copy: false
+The following package(s) will be updated:
+
+# CRAN -----------------------------------------------------------------------
+- fontawesome    [0.5.2 -> 0.5.3]
+- knitr          [1.48 -> 1.49]
+- rmarkdown      [2.28 -> 2.29]
+- tinytex        [0.53 -> 0.54]
+- cyclocomp      [* -> 1.1.1]
+- lazyeval       [* -> 0.2.2]
+- lintr          [* -> 3.1.2]
+- remotes        [* -> 2.5.0]
+- rex            [* -> 1.2.1]
+- xmlparsedata   [* -> 1.0.5]
+
+Do you want to proceed? [Y/n]:
+```
+
+Type in `Y` and you should get an output similar to this:
+
+```{zsh}
+#| filename: "Output"
+#| code-copy: false
+
+# Downloading packages -------------------------------------------------------
+- Querying repositories for available binary packages ... Done!
+- Downloading rmarkdown from CRAN ...           OK [2.5 Mb in 1.2s]
+- Downloading fontawesome from CRAN ...         OK [1.3 Mb in 0.89s]
+- Downloading knitr from CRAN ...               OK [1.1 Mb in 1.1s]
+- Downloading tinytex from CRAN ...             OK [140.3 Kb in 0.68s]
+Successfully downloaded 4 packages in 6.4 seconds.
+
+# Installing packages --------------------------------------------------------
+- Installing fontawesome ...                    OK [installed binary and cached in 0.26s]
+- Installing knitr ...                          OK [installed binary and cached in 1.2s]
+- Installing tinytex ...                        OK [installed binary and cached in 0.24s]
+- Installing rmarkdown ...                      OK [installed binary and cached in 1.6s]
+- Installing remotes ...                        OK [linked from cache]
+- Installing cyclocomp ...                      OK [linked from cache]
+- Installing lazyeval ...                       OK [linked from cache]
+- Installing rex ...                            OK [linked from cache]
+- Installing xmlparsedata ...                   OK [linked from cache]
+- Installing lintr ...                          OK [linked from cache]
+
+The following loaded package(s) have been updated:
+- knitr
+Restart your R session to use the new versions.
+
+```
 
 #### `renv::status`
 
