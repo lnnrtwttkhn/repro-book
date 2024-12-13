@@ -393,10 +393,38 @@ For further information, see this video to increase your understanding of `renv`
 #| results: asis
 #| eval: true
 #| echo: false
+#| label: renv-workflow
 cat(make_figure("renv-workflow"))
 ```
 
 <!--# Insert a figure of a renv-workflow -->
+
+In @fig-renv-workflow, you can see how the basic functions in `renv` work.
+You know the most important things now, but it sure can help to have a guideline.
+
+::: {.callout-tip title="Step-by-step guide for `renv`"}
+::: panel-tabset
+## Create a reproducible environment
+
+1. Create an [R project](@sec-rproject)
+1. Install `renv` $\rightarrow$ `install.packages("renv")`
+1. Initialize reproducible environment $\rightarrow$ `renv::init()`
+1. Check status $\rightarrow$ `renv::status()`
+1. Use help page from `renv::status` $\rightarrow$ `?renv::status()`
+1. Install packages to project library $\rightarrow$ `renv::install()`
+1. Code something that makes you happy, e.g. a wonderful plot
+1. Save your used packages into your lockfile $\rightarrow$ `renv::snapshot()`
+
+## Reproduce such an environment
+
+1. Download the project folder e.g. from <https://osf.io> or <https://zenodo.org>
+1. Open R project by clicking the `.Rproj` file
+1. Check status $\rightarrow$ `renv::status()`
+1. Use help page from `renv::status` $\rightarrow$ `?renv::status()`
+1. Restore the project library from the lockfile $\rightarrow$ `renv::restore()`
+1. Run the code written be past you or an other researcher
+:::
+:::
 
 ## References
 
