@@ -97,13 +97,13 @@ However, it might occur that you have to install the same packages multiple time
 
 #### `renv::init`
 
-When you start using renv, we recommend you to set up an R-project before.
+When you start using `renv`, we recommend you to set up an R-project before.
 If you do not know how to do that, see @sec-rproject.
 With `renv::init()`, we initialize our project.
 With this command, a couple of files and folders are created.
 
 - `.Rprofile` is a file that automatically runs every time you start your R-project.
-Renv uses it to set up your project library.
+`renv` uses it to set up your project library.
 Thus, once you have turned on your project library, it remains active until you turn it off.
 
 - `renv/library` contains all the packages you are currently using.
@@ -136,7 +136,7 @@ renv::install("palmerpenguins")
 ```
 
 `renv` will download the package `palmerpenguins`.
-If you want to install packages with dependencies, renv will install these dependencies automatically.
+If you want to install packages with dependencies, `renv` will install these dependencies automatically.
 In your console you will be asked if you want to install the package to your project library.
 Type `Y` in to your console.
 
@@ -183,7 +183,7 @@ renv::install("psychonetrics")
 #### `renv::snapshot`
 
 When you search in the lockfile for your new installed package `palmerpenguins`, you will not find it there.
-renv does not automatically saves the metadata of your installed packages in the lockfile.
+`renv` does not automatically saves the metadata of your installed packages in the lockfile.
 With `renv::snapshot()`, we can document the package versions we need in our project.
 Simply run the command in your Console
 
@@ -201,8 +201,8 @@ In your Console, you will see something like this:
 - The lockfile is already up to date.
 ```
 
-Renv did not add the metadata about palmerpenguins to the lockfile.
-This is because renv checks if your package is really used somewhere in your project.
+`renv` did not add the metadata about palmerpenguins to the lockfile.
+This is because `renv` checks if your package is really used somewhere in your project.
 The bare installation is not enough.
 This is to not unnecessarily overload the lockfile with packages that are not used in the project.
 The package has to be used and therefore loaded somewhere in the project.
@@ -342,7 +342,7 @@ The following package(s) are in an inconsistent state:
 See `?renv::status` for advice on resolving these issues.
 ```
 
-Fortunately, the messages displayed by renv are very straightforward.
+Fortunately, the messages displayed by `renv` are very straightforward.
 It tells us to go to the helper page by running `?renv::status`.
 
 ::: {.callout-tip title="Section of the helping page for renv::status()" collapse="true"}
@@ -396,8 +396,6 @@ For further information, see this video to increase your understanding of `renv`
 #| label: renv-workflow
 cat(make_figure("renv-workflow"))
 ```
-
-<!--# Insert a figure of a renv-workflow -->
 
 In @fig-renv-workflow, you can see how the basic functions in `renv` work.
 You know the most important things now, but it sure can help to have a guideline.
