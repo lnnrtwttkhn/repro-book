@@ -27,7 +27,8 @@ Imagine you need to reproduce the results of a research article from 2019.
 The project structure is openly available at [OSF](https://osf.io/) or at [Zenodo](https://zenodo.org/).
 You find a nice structure, run a script but then you get an error message in R like:
 
-```{zsh filename="Console"}
+```{zsh filename="Output"}
+#| code-copy: false
 Error in function_name(object[[i]], ...) : could not find function "function_name"
 ```
 
@@ -71,7 +72,7 @@ With `renv`...
 `renv` is a package that cares about the different versions of your used packages.
 To use `renv` as package dependency manager, you only need to install it, as every other package.
 
-```{zsh filename="Code"}
+```{zsh filename="Console"}
 install.packages("renv")
 ```
 
@@ -127,7 +128,7 @@ It also displays the R version used in your particular project.
 With `renv::install`, we can install new packages to our project.
 Assume you need the package `palmerpenguins` in your project.
 
-```{r filename="Code"}
+```{r filename="Console"}
 #| echo: true
 #| eval: false
 
@@ -139,7 +140,8 @@ If you want to install packages with dependencies, renv will install these depen
 In your console you will be asked if you want to install the package to your project library.
 Type `Y` in to your console.
 
-```{zsh filename="Console"}
+```{zsh filename="Output"}
+#| code-copy: false
 # Downloading packages -------------------------------------------------------
 - Downloading palmerpenguins from CRAN ...      OK [2.9 Mb in 1.8s]
 Successfully downloaded 1 package in 2.1 seconds.
@@ -153,7 +155,8 @@ Do you want to proceed? [Y/n]:
 
 After that, you should see something in your console similar to this:
 
-```{zsh filename="Console"}
+```{zsh filename="Output"}
+#| code-copy: false
 # Installing packages --------------------------------------------------------
 - Installing palmerpenguins ...                 OK [installed binary and cached in 0.34s]
 Successfully installed 1 package in 0.42 seconds.
@@ -169,7 +172,7 @@ Your primary package depends on these other packages to run correctly.
 The package `psychonetrics` has a lot of packages.
 Install the package to see what happens.
 
-```{r filename="Code"}
+```{r filename="Console"}
 #| echo: true
 #| eval: false
 
@@ -184,7 +187,7 @@ renv does not automatically saves the metadata of your installed packages in the
 With `renv::snapshot()`, we can document the package versions we need in our project.
 Simply run the command in your Console
 
-```{r filename="Code"}
+```{r filename="Console"}
 #| echo: true
 #| eval: false
 
@@ -193,7 +196,8 @@ renv::snapshot()
 
 In your Console, you will see something like this:
 
-```{zsh, filename="Console"}
+```{zsh, filename="Output"}
+#| code-copy: false
 - The lockfile is already up to date.
 ```
 
@@ -205,7 +209,7 @@ The package has to be used and therefore loaded somewhere in the project.
 Create a script `test_palmerpenguins.R`, type `library(palmerpenguins)`, and save it in your project.
 Then try the snapshot command again:
 
-```{r filename="Code"}
+```{r filename="Console"}
 #| echo: true
 #| eval: false
 
@@ -214,7 +218,8 @@ renv::snapshot()
 
 Your console should have an output like this:
 
-```{zsh filename="Console"}
+```{zsh filename="Output"}
+#| code-copy: false
 The following package(s) will be updated in the lockfile:
 
 # CRAN -----------------------------------------------
@@ -226,7 +231,8 @@ Do you want to proceed? [Y/n]:
 Again, type `Y`.
 Then, you should see an output like this:
 
-```{zsh filename="Console"}
+```{zsh filename="Output"}
+#| code-copy: false
 
 - Lockfile written to "path/to/your/project/folder/renv.lock".
 ```
