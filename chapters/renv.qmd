@@ -179,7 +179,60 @@ renv::install("psychonetrics")
 
 #### `renv::snapshot`
 
-With `renv::snapshot`, we can document the package versions we need in our project.
+When you search in the lockfile for your new installed package `palmerpenguins`, you will not find it there.
+renv does not automatically saves the metadata of your installed packages in the lockfile.
+With `renv::snapshot()`, we can document the package versions we need in our project.
+Simply run the command in your Console
+
+```{r filename="Code"}
+#| echo: true
+#| eval: false
+
+renv::snapshot()
+```
+
+In your Console, you will see something like this:
+
+```{zsh, filename="Console"}
+- The lockfile is already up to date.
+```
+
+Renv did not add the metadata about palmerpenguins to the lockfile.
+This is because renv checks if your package is really used somewhere in your project.
+The bare installation is not enough.
+This is to not unneccessarily overload the lockfile with packages that are not used in the project.
+The package has to be used and therefore loaded somewhere in the project.
+Create a script `test_palmerpenguins.R`, type `library(palmerpenguins)`, and save it in your project.
+Then try the snapshot command again:
+
+```{r filename="Code"}
+#| echo: true
+#| eval: false
+
+renv::snapshot()
+```
+
+Your console should have an output like this:
+
+```{zsh filename="Console"}
+The following package(s) will be updated in the lockfile:
+
+# CRAN -----------------------------------------------
+- palmerpenguins    [* -> 0.1.1]
+
+Do you want to proceed? [Y/n]: 
+```
+
+Again, type `Y`.
+Then, you should see an output like this:
+
+```{zsh filename="Console"}
+
+- Lockfile written to "path/to/your/project/folder/renv.lock".
+```
+
+When you open the lockfile, you will find the metadata of palmerpenguins there.
+`renv::snapshot()` is useful because you and your collaborators will be able to reconstruct your package versions. The reconstruction relies on the lockfile and `renv::snapshot()` will update your current packages used in your project.
 
 #### `renv::restore`
 
