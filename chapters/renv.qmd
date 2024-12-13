@@ -125,6 +125,57 @@ It also displays the R version used in your particular project.
 #### `renv::install`
 
 With `renv::install`, we can install new packages to our project.
+Assume you need the package `palmerpenguins` in your project.
+
+```{r filename="Code"}
+#| echo: true
+#| eval: false
+
+renv::install("palmerpenguins")
+```
+
+`renv` will download the package `palmerpenguins`.
+If you want to install packages with dependencies, renv will install these dependencies automatically.
+In your console you will be asked if you want to install the package to your project library.
+Type `Y` in to your console.
+
+```{zsh filename="Console"}
+# Downloading packages -------------------------------------------------------
+- Downloading palmerpenguins from CRAN ...      OK [2.9 Mb in 1.8s]
+Successfully downloaded 1 package in 2.1 seconds.
+
+The following package(s) will be installed:
+- palmerpenguins [0.1.1]
+These packages will be installed into "~/Documents/repro-book/renv/library/macos/R-4.4/aarch64-apple-darwin20".
+
+Do you want to proceed? [Y/n]: 
+```
+
+After that, you should see something in your console similar to this:
+
+```{zsh filename="Console"}
+# Installing packages --------------------------------------------------------
+- Installing palmerpenguins ...                 OK [installed binary and cached in 0.34s]
+Successfully installed 1 package in 0.42 seconds.
+```
+
+Now you have installed the package `palmerpenguins` to your project library.
+
+::: {.callout-note title="What are dependencies?" collapse="true"}
+Some packages require other packages to be loaded.
+These other packages are called dependencies.
+Your primary package depends on these other packages to run correctly.
+
+The package `psychonetrics` has a lot of packages.
+Install the package to see what happens.
+
+```{r filename="Code"}
+#| echo: true
+#| eval: false
+
+renv::install("psychonetrics")
+```
+:::
 
 #### `renv::snapshot`
 
@@ -147,7 +198,7 @@ cat(make_figure("renv-workflow"))
 
 <!--# Insert a figure of a renv-workflow -->
 
-# References
+## References
 
 somehow include:
 
