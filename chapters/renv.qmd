@@ -84,6 +84,15 @@ install.packages("renv")
 ### `renv`-functions
 
 The `renv` package is very powerful because it does a lot of useful things while only needing 4 (+1) functions. 
+Before we start, it is helpful to disentangle a couple of terms.
+A **library** is a directory containing multiple packages.
+This is confusing because you load packages with the command `library(package)`.
+The command does not load a library, but a package.
+Until now you install packages into your **System library** with `install.packages("package")` and load these packages within this library with `library(package)`.
+Packages in the system library are independent from your project. 
+With `renv`, we will start to use **project libraries**.
+Thus, we will install and use packages to a library that meets the requirement for your specific projects.
+However, it might occur that you have to install the same packages multiple times when you want to use them across multiple projects.
 
 #### `renv::init`
 
@@ -121,3 +130,9 @@ cat(make_figure("renv-workflow"))
 ```
 
 <!--# Insert a figure of a renv-workflow -->
+
+# References
+
+somehow include:
+
+- https://rstudio.github.io/renv/articles/renv.html
