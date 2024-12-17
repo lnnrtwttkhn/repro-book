@@ -22,6 +22,11 @@ The code is written in the tidyverse-style.
 Is it reproducible?
 Well, it may be.
 Very likely, it is not.
+However, we have done a great job in organizing our research project.
+The previous chapters dealt with a possible architecture of a reproducible research project.
+But still, there are things to improve.
+The next chapters will dealth with reproducible computational environments.
+For an introduction, read the example below:
 
 Imagine you need to reproduce the results of a research article from 2019.
 The project structure is openly available at [OSF](https://osf.io/) or at [Zenodo](https://zenodo.org/).
