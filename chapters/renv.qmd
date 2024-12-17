@@ -384,7 +384,17 @@ Thus, our lockfile does not contain the unused package `ellipsis`.
 ::: {.callout-tip title="Video explaining basic `renv` functions"}
 For further information, see this video to increase your understanding of `renv`.
 
+::: {#vid-renv-rapp}
+
 {{< video https://www.youtube.com/watch?v=Oen9xhEh8PY >}}
+
+**"Robust R Code That Will Work Forever With {renv}".**
+The video by @rapp2024 aims to display and explain common workflows when creating a reproducible environment using `{renv}`.
+License: not specified.
+Reused without modifications.
+
+:::
+
 :::
 
 ### `renv`-workflow
