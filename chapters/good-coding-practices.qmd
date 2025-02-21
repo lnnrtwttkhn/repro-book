@@ -22,7 +22,7 @@ library(tibble)
 
 # Good Coding Practices
 
-## R projects
+## R projects {#sec-rproject}
 
 As a researcher (and as a student), you work on different projects simultaneously.
 You have different research projects and teaching parts that you need to cover in your job.
