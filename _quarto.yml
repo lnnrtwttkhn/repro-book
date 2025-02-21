@@ -28,6 +28,7 @@ book:
     - contents.qmd
     - chapters/intro.qmd
     - chapters/naming-things.qmd
+    - chapters/project-structure.qmd
     - chapters/rdm.qmd
     - chapters/good-coding-practices.qmd
     - chapters/renv.qmd
@@ -99,7 +100,7 @@ format:
     page-layout: full
     title-block-style: default
     code-fold: false
-    code-overflow: wrap
+    code-overflow: scroll
     code-copy: true
     code-link: false
     code-tools: false
