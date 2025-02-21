@@ -27,10 +27,15 @@ book:
     - index.qmd
     - contents.qmd
     - chapters/intro.qmd
+    - chapters/naming-things.qmd
     - chapters/project-structure.qmd
+    - chapters/rdm.qmd
+    - chapters/good-coding-practices.qmd
+    - chapters/renv.qmd
     - summary.qmd
     - references.qmd
     - acknowledgements.qmd
+    - contributing.qmd
   sidebar:
     id: sidebar
     title: "{{< var project.title >}}"
@@ -82,6 +87,9 @@ citation-location: document
 citeproc: true
 from: markdown+emoji
 license: CC BY
+abstract-title: "Summary"
+metadata-files:
+  - _images.yml
 
 format:
   html:
@@ -99,3 +107,8 @@ format:
     link-external-newwindow: true
     footnotes-hover: true
     include-after-body: plausible.html
+    crossref:
+      custom:
+        - kind: float
+          reference-prefix: Video
+          key: vid
