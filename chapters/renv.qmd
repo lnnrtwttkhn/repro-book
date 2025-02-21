@@ -25,7 +25,7 @@ Very likely, it is not.
 However, we have done a great job in organizing our research project.
 The previous chapters dealt with a possible architecture of a reproducible research project.
 But still, there are things to improve.
-The next chapters will dealth with reproducible computational environments.
+The next chapters will deal with reproducible computational environments.
 For an introduction, read the example below:
 
 Imagine you need to reproduce the results of a research article from 2019.
@@ -40,7 +40,7 @@ Error in function_name(object[[i]], ...) : could not find function "function_nam
 R is telling you that it cannot find a function called function_name.
 A similar problem can be that only arguments of a function are not found.
 However, the script runs correctly at the device of the researcher writing the script.
-Thus, you are facing a research project that is only reproducible on the same device it was written for.
+Thus, you are facing a research project that is only reproducible on the same device it was written on.
 A possible reason is that your computational environment differs from the environment of the other researcher.
 You might have installed different versions of R packages or of {{< fa brands r-project >}} itself.
 
@@ -86,7 +86,7 @@ With `renv`...
 ## `renv`
 
 `renv` is a package that cares about the different versions of your used packages.
-To use `renv` as package dependency manager, you only need to install it, as every other package.
+To use `renv` as package dependency manager, you only need to install it, as every other package in {{< fa brands r-project >}}.
 
 ```{zsh filename="Console"}
 install.packages("renv")
@@ -115,7 +115,7 @@ However, it might occur that you have to install the same packages multiple time
 
 When you start using `renv`, we recommend you to set up an R-project before.
 If you do not know how to do that, see @sec-rproject.
-With `renv::init()`, we initialize our project.
+With `renv::init()`, we initialize our reproducible, computational environment.
 With this command, a couple of files and folders are created.
 
 - `.Rprofile` is a file that automatically runs every time you start your R-project.
