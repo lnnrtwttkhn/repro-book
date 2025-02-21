@@ -4,6 +4,7 @@
     "items": [
       "/chapters/intro.html",
       "/chapters/naming-things.html",
+      "/chapters/project-structure.html",
       "/chapters/rdm.html",
       "/chapters/good-coding-practices.html",
       "/chapters/renv.html"
