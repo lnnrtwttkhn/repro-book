@@ -5,7 +5,8 @@
       "/chapters/intro.html",
       "/chapters/naming-things.html",
       "/chapters/rdm.html",
-      "/chapters/good-coding-practices.html"
+      "/chapters/good-coding-practices.html",
+      "/chapters/renv.html"
     ]
   }
 ]

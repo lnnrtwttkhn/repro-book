@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Robust Environments: {renv} – The Repro Book</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../summary.html" rel="next">
+<link href="../chapters/good-coding-practices.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-9e228d6d4d66c12a9d11739da31c2b1c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d10b236551ecc27488712dba59745e72.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/renv.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Robust Environments: <code>{renv}</code></span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">The Repro Book</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://lennartwittkuhn.com/repro-book/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-globe"></i></a>
+    <a href="https://github.com/lnnrtwttkhn/repro-book/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-bug"></i></a>
+    <a href="https://github.com/lnnrtwttkhn/repro-book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contents</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/naming-things.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Naming things</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/rdm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Research Data Management</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/good-coding-practices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/renv.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Robust Environments: <code>{renv}</code></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../acknowledgements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Acknowledgements</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contributing</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<p><a href="https://lennartwittkuhn.com/repro-book"><img src="https://img.shields.io/website?url=https%3A%2F%2Flennartwittkuhn.com%2Frepro-book%2F" class="img-fluid" alt="Website"></a> <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg" class="img-fluid" alt="License: CC BY 4.0"></a> <a href="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/publish.yml"><img src="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/publish.yml/badge.svg" class="img-fluid" alt="Quarto Publish"></a> <a href="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/codespell.yml"><img src="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/codespell.yml/badge.svg" class="img-fluid" alt="Codespell"></a> <a href="?tab=readme-ov-file#contributors"><img src="https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&amp;style=flat-square.png" class="img-fluid" alt="All Contributors"></a></p>
+</div></div></nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">5.1</span> Introduction</a></li>
+  <li><a href="#renv" id="toc-renv" class="nav-link" data-scroll-target="#renv"><span class="header-section-number">5.2</span> <code>renv</code></a>
+  <ul class="collapse">
+  <li><a href="#renv-functions" id="toc-renv-functions" class="nav-link" data-scroll-target="#renv-functions"><span class="header-section-number">5.2.1</span> <code>renv</code>-functions</a></li>
+  <li><a href="#renv-workflow" id="toc-renv-workflow" class="nav-link" data-scroll-target="#renv-workflow"><span class="header-section-number">5.2.2</span> <code>renv</code>-workflow</a></li>
+  </ul></li>
+  <li><a href="#limitations-of-renv" id="toc-limitations-of-renv" class="nav-link" data-scroll-target="#limitations-of-renv"><span class="header-section-number">5.3</span> Limitations of <code>renv</code></a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5.4</span> References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/renv.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/renv.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Robust Environments: <code>{renv}</code></span></h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">intermediate</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Summary</div>
+    <p>In this chapter you will learn how your reproducible research project becomes robust against different package versions. You will make it easy for you to and collaborators to use the same package versions in your joint project.</p>
+  </div>
+</div>
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">5.1</span> Introduction</h2>
+<p>Now a project is well-named including its files and folders. It is well-structured and follows a community standard as Psych-DS. It follows the FAIR principles. The code is written in the tidyverse-style. Is it reproducible? Well, it may be. Very likely, it is not. However, we have done a great job in organizing our research project. The previous chapters dealt with a possible architecture of a reproducible research project. But still, there are things to improve. The next chapters will deal with reproducible computational environments. For an introduction, read the example below:</p>
+<p>Imagine you need to reproduce the results of a research article from 2019. The project structure is openly available at <a href="https://osf.io/">OSF</a> or at <a href="https://zenodo.org/">Zenodo</a>. You find a nice structure, run a script but then you get an error message in R like:</p>
+<div class="cell" data-code-copy="false">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Error</span> in function_name<span class="op">(object[</span>[i<span class="op">]], ...)</span> : could not find function <span class="st">"function_name"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>R is telling you that it cannot find a function called function_name. A similar problem can be that only arguments of a function are not found. However, the script runs correctly at the device of the researcher writing the script. Thus, you are facing a research project that is only reproducible on the same device it was written on. A possible reason is that your computational environment differs from the environment of the other researcher. You might have installed different versions of R packages or of <i class="fa-brands fa-r-project" aria-label="r-project"></i> itself.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Computational environments">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Computational environments
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Computational environments include everything associated with technical infrastructure and software for conducting data analyses and reproducing scientific results. This comprises operating systems (Apple, Windows, Linux), software versions (R 4.3.1, 4.4.1, 4.4.2, etc.), and different versions of packages (dplyr 0.8.0, 1.1.4). It is important to consider your computational environment when it comes to computational reproducibility. The longer the time interval between creation and reproduction of your code is, the more the more likely reproducibility is not possible because of different computational environments. Software progresses over time, which is good in general. However, different versions of software include that some functions will not work in future versions or will do different things. Thus, it is important to keep track of the computational environment during creation of code and analyses.</p>
+<p>This done by so called <strong>Package Management Systems</strong>. Package Management Systems install and keep track of software and software versions, export files that specify these required software packages/versions and that can be shared with others <span class="citation" data-cites="community2022">(<a href="../references.html#ref-community2022" role="doc-biblioref">The Turing Way Community 2022</a>)</span>. Thus, environments can be replicated, either manually or via the Package Management System. In the next two chapters, we will introduce two Package Mangament Systems, namely <code>{renv}</code> and {docker}.</p>
+</div>
+</div>
+</div>
+<p>Different computational environments can hinder computational reproducibility. In the example above, the code cannot be executed. However, sometimes package updates do only change the calculation of a function or an argument. Thus, a different package version leads to <strong>different results</strong> even though the code runs correctly.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Problems of different computational environments">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problems of different computational environments
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>scripts could stop running because of different functions or arguments</li>
+<li>scripts could run correctly but produce different results</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="How `renv` helps aligning computational environments">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How <code>renv</code> helps aligning computational environments
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>With <code>renv</code>…</p>
+<ul>
+<li>package versions can be safed inside a research project</li>
+<li>collaborators can easily load the same package versions independent of their device</li>
+<li>R projects become isolated, portable and reproducible <span class="citation" data-cites="ushey2024">(<a href="../references.html#ref-ushey2024" role="doc-biblioref">Ushey and Wickham 2024</a>)</span></li>
+</ul>
+</div>
+</div>
+<!--# What we will be able to do after this chapter -->
+</section>
+<section id="renv" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="renv"><span class="header-section-number">5.2</span> <code>renv</code></h2>
+<p><code>renv</code> is a package that cares about the different versions of your used packages. To use <code>renv</code> as package dependency manager, you only need to install it, as every other package in <i class="fa-brands fa-r-project" aria-label="r-project"></i>.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Console</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">install.packages</span><span class="er">(</span><span class="st">"renv"</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Benefits of `renv`">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Benefits of <code>renv</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>easy documenting package versions</li>
+<li>easy restoring of older package versions <!--# Is this callout-box redundant to the one above?--></li>
+</ul>
+</div>
+</div>
+<section id="renv-functions" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="renv-functions"><span class="header-section-number">5.2.1</span> <code>renv</code>-functions</h3>
+<p>The <code>renv</code> package is very powerful because it does a lot of useful things while only needing 4 (+1) functions. Before we start, it is helpful to disentangle a couple of terms. A <strong>library</strong> is a directory containing multiple packages. This is confusing because you load packages with the command <code>library(package)</code>. The command does not load a library, but a package. Until now you install packages into your <strong>System library</strong> with <code>install.packages("package")</code> and load these packages within this library with <code>library(package)</code>. Packages in the system library are independent from your project. With <code>renv</code>, we will start to use <strong>project libraries</strong>. Thus, we will install and use packages to a library that meets the requirement for your specific projects. However, it might occur that you have to install the same packages multiple times when you want to use them across multiple projects.</p>
+<section id="renvinit" class="level4" data-number="5.2.1.1">
+<h4 data-number="5.2.1.1" class="anchored" data-anchor-id="renvinit"><span class="header-section-number">5.2.1.1</span> <code>renv::init</code></h4>
+<p>When you start using <code>renv</code>, we recommend you to set up an R-project before. If you do not know how to do that, see <a href="good-coding-practices.html#sec-rproject" class="quarto-xref"><span>Section 4.1</span></a>. With <code>renv::init()</code>, we initialize our reproducible, computational environment. With this command, a couple of files and folders are created.</p>
+<ul>
+<li><p><code>.Rprofile</code> is a file that automatically runs every time you start your R-project. <code>renv</code> uses it to set up your project library. Thus, once you have turned on your project library, it remains active until you turn it off.</p></li>
+<li><p><code>renv/library</code> contains all the packages you are currently using. This is now your project library. With different libraries for different projects you have the benefit of <em>isolation</em>. When a package version changes in one project, it does not affect your other projects.</p></li>
+<li><p>The lockfile <code>renv.lock</code> contains all the metadata of your packages to reinstall it on a new machine. It serves as documentation about which package and which version of the packages you use. It also displays the R version used in your particular project.</p></li>
+</ul>
+<details>
+<summary>
+Click here to view the full <code>renv.lock</code> file of this project.
+</summary>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>renv.lock</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="dt">"R"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"4.4.1"</span><span class="fu">,</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="dt">"Repositories"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>      <span class="fu">{</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>        <span class="dt">"Name"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>        <span class="dt">"URL"</span><span class="fu">:</span> <span class="st">"https://packagemanager.posit.co/cran/latest"</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>      <span class="fu">}</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>    <span class="ot">]</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>  <span class="fu">},</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>  <span class="dt">"Packages"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>    <span class="dt">"MASS"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"MASS"</span><span class="fu">,</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"7.3-61"</span><span class="fu">,</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a>        <span class="st">"grDevices"</span><span class="ot">,</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a>        <span class="st">"graphics"</span><span class="ot">,</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a>        <span class="st">"methods"</span><span class="ot">,</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a>        <span class="st">"stats"</span><span class="ot">,</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"0cafd6f0500e5deba33be22c46bf6055"</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a>    <span class="fu">},</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a>    <span class="dt">"R6"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"R6"</span><span class="fu">,</span></span>
+<span id="cb3-29"><a href="#cb3-29"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"2.5.1"</span><span class="fu">,</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-32"><a href="#cb3-32"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a>        <span class="st">"R"</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-35"><a href="#cb3-35"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"470851b6d5d0ac559e9d01bb352b4021"</span></span>
+<span id="cb3-36"><a href="#cb3-36"></a>    <span class="fu">},</span></span>
+<span id="cb3-37"><a href="#cb3-37"></a>    <span class="dt">"assertr"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-38"><a href="#cb3-38"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"assertr"</span><span class="fu">,</span></span>
+<span id="cb3-39"><a href="#cb3-39"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"3.0.1"</span><span class="fu">,</span></span>
+<span id="cb3-40"><a href="#cb3-40"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-41"><a href="#cb3-41"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-42"><a href="#cb3-42"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-43"><a href="#cb3-43"></a>        <span class="st">"MASS"</span><span class="ot">,</span></span>
+<span id="cb3-44"><a href="#cb3-44"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-45"><a href="#cb3-45"></a>        <span class="st">"dplyr"</span><span class="ot">,</span></span>
+<span id="cb3-46"><a href="#cb3-46"></a>        <span class="st">"methods"</span><span class="ot">,</span></span>
+<span id="cb3-47"><a href="#cb3-47"></a>        <span class="st">"rlang"</span><span class="ot">,</span></span>
+<span id="cb3-48"><a href="#cb3-48"></a>        <span class="st">"stats"</span><span class="ot">,</span></span>
+<span id="cb3-49"><a href="#cb3-49"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-50"><a href="#cb3-50"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-51"><a href="#cb3-51"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"dd34511e88d11c95e80f8d9bb0606e79"</span></span>
+<span id="cb3-52"><a href="#cb3-52"></a>    <span class="fu">},</span></span>
+<span id="cb3-53"><a href="#cb3-53"></a>    <span class="dt">"backports"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-54"><a href="#cb3-54"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"backports"</span><span class="fu">,</span></span>
+<span id="cb3-55"><a href="#cb3-55"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.5.0"</span><span class="fu">,</span></span>
+<span id="cb3-56"><a href="#cb3-56"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-57"><a href="#cb3-57"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-58"><a href="#cb3-58"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-59"><a href="#cb3-59"></a>        <span class="st">"R"</span></span>
+<span id="cb3-60"><a href="#cb3-60"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-61"><a href="#cb3-61"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"e1e1b9d75c37401117b636b7ae50827a"</span></span>
+<span id="cb3-62"><a href="#cb3-62"></a>    <span class="fu">},</span></span>
+<span id="cb3-63"><a href="#cb3-63"></a>    <span class="dt">"base64enc"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-64"><a href="#cb3-64"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"base64enc"</span><span class="fu">,</span></span>
+<span id="cb3-65"><a href="#cb3-65"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.1-3"</span><span class="fu">,</span></span>
+<span id="cb3-66"><a href="#cb3-66"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-67"><a href="#cb3-67"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-68"><a href="#cb3-68"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-69"><a href="#cb3-69"></a>        <span class="st">"R"</span></span>
+<span id="cb3-70"><a href="#cb3-70"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-71"><a href="#cb3-71"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"543776ae6848fde2f48ff3816d0628bc"</span></span>
+<span id="cb3-72"><a href="#cb3-72"></a>    <span class="fu">},</span></span>
+<span id="cb3-73"><a href="#cb3-73"></a>    <span class="dt">"bslib"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-74"><a href="#cb3-74"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"bslib"</span><span class="fu">,</span></span>
+<span id="cb3-75"><a href="#cb3-75"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.8.0"</span><span class="fu">,</span></span>
+<span id="cb3-76"><a href="#cb3-76"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-77"><a href="#cb3-77"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-78"><a href="#cb3-78"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-79"><a href="#cb3-79"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-80"><a href="#cb3-80"></a>        <span class="st">"base64enc"</span><span class="ot">,</span></span>
+<span id="cb3-81"><a href="#cb3-81"></a>        <span class="st">"cachem"</span><span class="ot">,</span></span>
+<span id="cb3-82"><a href="#cb3-82"></a>        <span class="st">"fastmap"</span><span class="ot">,</span></span>
+<span id="cb3-83"><a href="#cb3-83"></a>        <span class="st">"grDevices"</span><span class="ot">,</span></span>
+<span id="cb3-84"><a href="#cb3-84"></a>        <span class="st">"htmltools"</span><span class="ot">,</span></span>
+<span id="cb3-85"><a href="#cb3-85"></a>        <span class="st">"jquerylib"</span><span class="ot">,</span></span>
+<span id="cb3-86"><a href="#cb3-86"></a>        <span class="st">"jsonlite"</span><span class="ot">,</span></span>
+<span id="cb3-87"><a href="#cb3-87"></a>        <span class="st">"lifecycle"</span><span class="ot">,</span></span>
+<span id="cb3-88"><a href="#cb3-88"></a>        <span class="st">"memoise"</span><span class="ot">,</span></span>
+<span id="cb3-89"><a href="#cb3-89"></a>        <span class="st">"mime"</span><span class="ot">,</span></span>
+<span id="cb3-90"><a href="#cb3-90"></a>        <span class="st">"rlang"</span><span class="ot">,</span></span>
+<span id="cb3-91"><a href="#cb3-91"></a>        <span class="st">"sass"</span></span>
+<span id="cb3-92"><a href="#cb3-92"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-93"><a href="#cb3-93"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"b299c6741ca9746fb227debcb0f9fb6c"</span></span>
+<span id="cb3-94"><a href="#cb3-94"></a>    <span class="fu">},</span></span>
+<span id="cb3-95"><a href="#cb3-95"></a>    <span class="dt">"cachem"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-96"><a href="#cb3-96"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"cachem"</span><span class="fu">,</span></span>
+<span id="cb3-97"><a href="#cb3-97"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.1.0"</span><span class="fu">,</span></span>
+<span id="cb3-98"><a href="#cb3-98"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-99"><a href="#cb3-99"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-100"><a href="#cb3-100"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-101"><a href="#cb3-101"></a>        <span class="st">"fastmap"</span><span class="ot">,</span></span>
+<span id="cb3-102"><a href="#cb3-102"></a>        <span class="st">"rlang"</span></span>
+<span id="cb3-103"><a href="#cb3-103"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-104"><a href="#cb3-104"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"cd9a672193789068eb5a2aad65a0dedf"</span></span>
+<span id="cb3-105"><a href="#cb3-105"></a>    <span class="fu">},</span></span>
+<span id="cb3-106"><a href="#cb3-106"></a>    <span class="dt">"callr"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-107"><a href="#cb3-107"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"callr"</span><span class="fu">,</span></span>
+<span id="cb3-108"><a href="#cb3-108"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"3.7.6"</span><span class="fu">,</span></span>
+<span id="cb3-109"><a href="#cb3-109"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-110"><a href="#cb3-110"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-111"><a href="#cb3-111"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-112"><a href="#cb3-112"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-113"><a href="#cb3-113"></a>        <span class="st">"R6"</span><span class="ot">,</span></span>
+<span id="cb3-114"><a href="#cb3-114"></a>        <span class="st">"processx"</span><span class="ot">,</span></span>
+<span id="cb3-115"><a href="#cb3-115"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-116"><a href="#cb3-116"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-117"><a href="#cb3-117"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"d7e13f49c19103ece9e58ad2d83a7354"</span></span>
+<span id="cb3-118"><a href="#cb3-118"></a>    <span class="fu">},</span></span>
+<span id="cb3-119"><a href="#cb3-119"></a>    <span class="dt">"cli"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-120"><a href="#cb3-120"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"cli"</span><span class="fu">,</span></span>
+<span id="cb3-121"><a href="#cb3-121"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"3.6.3"</span><span class="fu">,</span></span>
+<span id="cb3-122"><a href="#cb3-122"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-123"><a href="#cb3-123"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-124"><a href="#cb3-124"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-125"><a href="#cb3-125"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-126"><a href="#cb3-126"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-127"><a href="#cb3-127"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-128"><a href="#cb3-128"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"b21916dd77a27642b447374a5d30ecf3"</span></span>
+<span id="cb3-129"><a href="#cb3-129"></a>    <span class="fu">},</span></span>
+<span id="cb3-130"><a href="#cb3-130"></a>    <span class="dt">"codetools"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-131"><a href="#cb3-131"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"codetools"</span><span class="fu">,</span></span>
+<span id="cb3-132"><a href="#cb3-132"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.2-20"</span><span class="fu">,</span></span>
+<span id="cb3-133"><a href="#cb3-133"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-134"><a href="#cb3-134"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-135"><a href="#cb3-135"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-136"><a href="#cb3-136"></a>        <span class="st">"R"</span></span>
+<span id="cb3-137"><a href="#cb3-137"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-138"><a href="#cb3-138"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"61e097f35917d342622f21cdc79c256e"</span></span>
+<span id="cb3-139"><a href="#cb3-139"></a>    <span class="fu">},</span></span>
+<span id="cb3-140"><a href="#cb3-140"></a>    <span class="dt">"cpp11"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-141"><a href="#cb3-141"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"cpp11"</span><span class="fu">,</span></span>
+<span id="cb3-142"><a href="#cb3-142"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.5.0"</span><span class="fu">,</span></span>
+<span id="cb3-143"><a href="#cb3-143"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-144"><a href="#cb3-144"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-145"><a href="#cb3-145"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-146"><a href="#cb3-146"></a>        <span class="st">"R"</span></span>
+<span id="cb3-147"><a href="#cb3-147"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-148"><a href="#cb3-148"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"91570bba75d0c9d3f1040c835cee8fba"</span></span>
+<span id="cb3-149"><a href="#cb3-149"></a>    <span class="fu">},</span></span>
+<span id="cb3-150"><a href="#cb3-150"></a>    <span class="dt">"crayon"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-151"><a href="#cb3-151"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"crayon"</span><span class="fu">,</span></span>
+<span id="cb3-152"><a href="#cb3-152"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.5.3"</span><span class="fu">,</span></span>
+<span id="cb3-153"><a href="#cb3-153"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-154"><a href="#cb3-154"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-155"><a href="#cb3-155"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-156"><a href="#cb3-156"></a>        <span class="st">"grDevices"</span><span class="ot">,</span></span>
+<span id="cb3-157"><a href="#cb3-157"></a>        <span class="st">"methods"</span><span class="ot">,</span></span>
+<span id="cb3-158"><a href="#cb3-158"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-159"><a href="#cb3-159"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-160"><a href="#cb3-160"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"859d96e65ef198fd43e82b9628d593ef"</span></span>
+<span id="cb3-161"><a href="#cb3-161"></a>    <span class="fu">},</span></span>
+<span id="cb3-162"><a href="#cb3-162"></a>    <span class="dt">"cyclocomp"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-163"><a href="#cb3-163"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"cyclocomp"</span><span class="fu">,</span></span>
+<span id="cb3-164"><a href="#cb3-164"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.1.1"</span><span class="fu">,</span></span>
+<span id="cb3-165"><a href="#cb3-165"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-166"><a href="#cb3-166"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-167"><a href="#cb3-167"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-168"><a href="#cb3-168"></a>        <span class="st">"callr"</span><span class="ot">,</span></span>
+<span id="cb3-169"><a href="#cb3-169"></a>        <span class="st">"crayon"</span><span class="ot">,</span></span>
+<span id="cb3-170"><a href="#cb3-170"></a>        <span class="st">"desc"</span><span class="ot">,</span></span>
+<span id="cb3-171"><a href="#cb3-171"></a>        <span class="st">"remotes"</span><span class="ot">,</span></span>
+<span id="cb3-172"><a href="#cb3-172"></a>        <span class="st">"withr"</span></span>
+<span id="cb3-173"><a href="#cb3-173"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-174"><a href="#cb3-174"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"cdc4a473222b0112d4df0bcfbed12d44"</span></span>
+<span id="cb3-175"><a href="#cb3-175"></a>    <span class="fu">},</span></span>
+<span id="cb3-176"><a href="#cb3-176"></a>    <span class="dt">"data.table"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-177"><a href="#cb3-177"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"data.table"</span><span class="fu">,</span></span>
+<span id="cb3-178"><a href="#cb3-178"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.16.2"</span><span class="fu">,</span></span>
+<span id="cb3-179"><a href="#cb3-179"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-180"><a href="#cb3-180"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-181"><a href="#cb3-181"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-182"><a href="#cb3-182"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-183"><a href="#cb3-183"></a>        <span class="st">"methods"</span></span>
+<span id="cb3-184"><a href="#cb3-184"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-185"><a href="#cb3-185"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"2e00b378fc3be69c865120d9f313039a"</span></span>
+<span id="cb3-186"><a href="#cb3-186"></a>    <span class="fu">},</span></span>
+<span id="cb3-187"><a href="#cb3-187"></a>    <span class="dt">"desc"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-188"><a href="#cb3-188"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"desc"</span><span class="fu">,</span></span>
+<span id="cb3-189"><a href="#cb3-189"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.4.3"</span><span class="fu">,</span></span>
+<span id="cb3-190"><a href="#cb3-190"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-191"><a href="#cb3-191"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-192"><a href="#cb3-192"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-193"><a href="#cb3-193"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-194"><a href="#cb3-194"></a>        <span class="st">"R6"</span><span class="ot">,</span></span>
+<span id="cb3-195"><a href="#cb3-195"></a>        <span class="st">"cli"</span><span class="ot">,</span></span>
+<span id="cb3-196"><a href="#cb3-196"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-197"><a href="#cb3-197"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-198"><a href="#cb3-198"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"99b79fcbd6c4d1ce087f5c5c758b384f"</span></span>
+<span id="cb3-199"><a href="#cb3-199"></a>    <span class="fu">},</span></span>
+<span id="cb3-200"><a href="#cb3-200"></a>    <span class="dt">"digest"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-201"><a href="#cb3-201"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"digest"</span><span class="fu">,</span></span>
+<span id="cb3-202"><a href="#cb3-202"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.6.37"</span><span class="fu">,</span></span>
+<span id="cb3-203"><a href="#cb3-203"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-204"><a href="#cb3-204"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-205"><a href="#cb3-205"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-206"><a href="#cb3-206"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-207"><a href="#cb3-207"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-208"><a href="#cb3-208"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-209"><a href="#cb3-209"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"33698c4b3127fc9f506654607fb73676"</span></span>
+<span id="cb3-210"><a href="#cb3-210"></a>    <span class="fu">},</span></span>
+<span id="cb3-211"><a href="#cb3-211"></a>    <span class="dt">"dplyr"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-212"><a href="#cb3-212"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"dplyr"</span><span class="fu">,</span></span>
+<span id="cb3-213"><a href="#cb3-213"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.1.4"</span><span class="fu">,</span></span>
+<span id="cb3-214"><a href="#cb3-214"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-215"><a href="#cb3-215"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-216"><a href="#cb3-216"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-217"><a href="#cb3-217"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-218"><a href="#cb3-218"></a>        <span class="st">"R6"</span><span class="ot">,</span></span>
+<span id="cb3-219"><a href="#cb3-219"></a>        <span class="st">"cli"</span><span class="ot">,</span></span>
+<span id="cb3-220"><a href="#cb3-220"></a>        <span class="st">"generics"</span><span class="ot">,</span></span>
+<span id="cb3-221"><a href="#cb3-221"></a>        <span class="st">"glue"</span><span class="ot">,</span></span>
+<span id="cb3-222"><a href="#cb3-222"></a>        <span class="st">"lifecycle"</span><span class="ot">,</span></span>
+<span id="cb3-223"><a href="#cb3-223"></a>        <span class="st">"magrittr"</span><span class="ot">,</span></span>
+<span id="cb3-224"><a href="#cb3-224"></a>        <span class="st">"methods"</span><span class="ot">,</span></span>
+<span id="cb3-225"><a href="#cb3-225"></a>        <span class="st">"pillar"</span><span class="ot">,</span></span>
+<span id="cb3-226"><a href="#cb3-226"></a>        <span class="st">"rlang"</span><span class="ot">,</span></span>
+<span id="cb3-227"><a href="#cb3-227"></a>        <span class="st">"tibble"</span><span class="ot">,</span></span>
+<span id="cb3-228"><a href="#cb3-228"></a>        <span class="st">"tidyselect"</span><span class="ot">,</span></span>
+<span id="cb3-229"><a href="#cb3-229"></a>        <span class="st">"utils"</span><span class="ot">,</span></span>
+<span id="cb3-230"><a href="#cb3-230"></a>        <span class="st">"vctrs"</span></span>
+<span id="cb3-231"><a href="#cb3-231"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-232"><a href="#cb3-232"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"fedd9d00c2944ff00a0e2696ccf048ec"</span></span>
+<span id="cb3-233"><a href="#cb3-233"></a>    <span class="fu">},</span></span>
+<span id="cb3-234"><a href="#cb3-234"></a>    <span class="dt">"evaluate"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-235"><a href="#cb3-235"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"evaluate"</span><span class="fu">,</span></span>
+<span id="cb3-236"><a href="#cb3-236"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.0.1"</span><span class="fu">,</span></span>
+<span id="cb3-237"><a href="#cb3-237"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-238"><a href="#cb3-238"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-239"><a href="#cb3-239"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-240"><a href="#cb3-240"></a>        <span class="st">"R"</span></span>
+<span id="cb3-241"><a href="#cb3-241"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-242"><a href="#cb3-242"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"3fd29944b231036ad67c3edb32e02201"</span></span>
+<span id="cb3-243"><a href="#cb3-243"></a>    <span class="fu">},</span></span>
+<span id="cb3-244"><a href="#cb3-244"></a>    <span class="dt">"fansi"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-245"><a href="#cb3-245"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"fansi"</span><span class="fu">,</span></span>
+<span id="cb3-246"><a href="#cb3-246"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.0.6"</span><span class="fu">,</span></span>
+<span id="cb3-247"><a href="#cb3-247"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-248"><a href="#cb3-248"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-249"><a href="#cb3-249"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-250"><a href="#cb3-250"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-251"><a href="#cb3-251"></a>        <span class="st">"grDevices"</span><span class="ot">,</span></span>
+<span id="cb3-252"><a href="#cb3-252"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-253"><a href="#cb3-253"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-254"><a href="#cb3-254"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"962174cf2aeb5b9eea581522286a911f"</span></span>
+<span id="cb3-255"><a href="#cb3-255"></a>    <span class="fu">},</span></span>
+<span id="cb3-256"><a href="#cb3-256"></a>    <span class="dt">"fastmap"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-257"><a href="#cb3-257"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"fastmap"</span><span class="fu">,</span></span>
+<span id="cb3-258"><a href="#cb3-258"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.2.0"</span><span class="fu">,</span></span>
+<span id="cb3-259"><a href="#cb3-259"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-260"><a href="#cb3-260"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-261"><a href="#cb3-261"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"aa5e1cd11c2d15497494c5292d7ffcc8"</span></span>
+<span id="cb3-262"><a href="#cb3-262"></a>    <span class="fu">},</span></span>
+<span id="cb3-263"><a href="#cb3-263"></a>    <span class="dt">"fontawesome"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-264"><a href="#cb3-264"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"fontawesome"</span><span class="fu">,</span></span>
+<span id="cb3-265"><a href="#cb3-265"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.5.3"</span><span class="fu">,</span></span>
+<span id="cb3-266"><a href="#cb3-266"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-267"><a href="#cb3-267"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-268"><a href="#cb3-268"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-269"><a href="#cb3-269"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-270"><a href="#cb3-270"></a>        <span class="st">"htmltools"</span><span class="ot">,</span></span>
+<span id="cb3-271"><a href="#cb3-271"></a>        <span class="st">"rlang"</span></span>
+<span id="cb3-272"><a href="#cb3-272"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-273"><a href="#cb3-273"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"bd1297f9b5b1fc1372d19e2c4cd82215"</span></span>
+<span id="cb3-274"><a href="#cb3-274"></a>    <span class="fu">},</span></span>
+<span id="cb3-275"><a href="#cb3-275"></a>    <span class="dt">"fs"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-276"><a href="#cb3-276"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"fs"</span><span class="fu">,</span></span>
+<span id="cb3-277"><a href="#cb3-277"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.6.5"</span><span class="fu">,</span></span>
+<span id="cb3-278"><a href="#cb3-278"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-279"><a href="#cb3-279"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-280"><a href="#cb3-280"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-281"><a href="#cb3-281"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-282"><a href="#cb3-282"></a>        <span class="st">"methods"</span></span>
+<span id="cb3-283"><a href="#cb3-283"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-284"><a href="#cb3-284"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"7f48af39fa27711ea5fbd183b399920d"</span></span>
+<span id="cb3-285"><a href="#cb3-285"></a>    <span class="fu">},</span></span>
+<span id="cb3-286"><a href="#cb3-286"></a>    <span class="dt">"generics"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-287"><a href="#cb3-287"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"generics"</span><span class="fu">,</span></span>
+<span id="cb3-288"><a href="#cb3-288"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.1.3"</span><span class="fu">,</span></span>
+<span id="cb3-289"><a href="#cb3-289"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-290"><a href="#cb3-290"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-291"><a href="#cb3-291"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-292"><a href="#cb3-292"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-293"><a href="#cb3-293"></a>        <span class="st">"methods"</span></span>
+<span id="cb3-294"><a href="#cb3-294"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-295"><a href="#cb3-295"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"15e9634c0fcd294799e9b2e929ed1b86"</span></span>
+<span id="cb3-296"><a href="#cb3-296"></a>    <span class="fu">},</span></span>
+<span id="cb3-297"><a href="#cb3-297"></a>    <span class="dt">"glue"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-298"><a href="#cb3-298"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"glue"</span><span class="fu">,</span></span>
+<span id="cb3-299"><a href="#cb3-299"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.8.0"</span><span class="fu">,</span></span>
+<span id="cb3-300"><a href="#cb3-300"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-301"><a href="#cb3-301"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-302"><a href="#cb3-302"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-303"><a href="#cb3-303"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-304"><a href="#cb3-304"></a>        <span class="st">"methods"</span></span>
+<span id="cb3-305"><a href="#cb3-305"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-306"><a href="#cb3-306"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"5899f1eaa825580172bb56c08266f37c"</span></span>
+<span id="cb3-307"><a href="#cb3-307"></a>    <span class="fu">},</span></span>
+<span id="cb3-308"><a href="#cb3-308"></a>    <span class="dt">"here"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-309"><a href="#cb3-309"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"here"</span><span class="fu">,</span></span>
+<span id="cb3-310"><a href="#cb3-310"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.0.1"</span><span class="fu">,</span></span>
+<span id="cb3-311"><a href="#cb3-311"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-312"><a href="#cb3-312"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-313"><a href="#cb3-313"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-314"><a href="#cb3-314"></a>        <span class="st">"rprojroot"</span></span>
+<span id="cb3-315"><a href="#cb3-315"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-316"><a href="#cb3-316"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"24b224366f9c2e7534d2344d10d59211"</span></span>
+<span id="cb3-317"><a href="#cb3-317"></a>    <span class="fu">},</span></span>
+<span id="cb3-318"><a href="#cb3-318"></a>    <span class="dt">"highr"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-319"><a href="#cb3-319"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"highr"</span><span class="fu">,</span></span>
+<span id="cb3-320"><a href="#cb3-320"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.11"</span><span class="fu">,</span></span>
+<span id="cb3-321"><a href="#cb3-321"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-322"><a href="#cb3-322"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-323"><a href="#cb3-323"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-324"><a href="#cb3-324"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-325"><a href="#cb3-325"></a>        <span class="st">"xfun"</span></span>
+<span id="cb3-326"><a href="#cb3-326"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-327"><a href="#cb3-327"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"d65ba49117ca223614f71b60d85b8ab7"</span></span>
+<span id="cb3-328"><a href="#cb3-328"></a>    <span class="fu">},</span></span>
+<span id="cb3-329"><a href="#cb3-329"></a>    <span class="dt">"htmltools"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-330"><a href="#cb3-330"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"htmltools"</span><span class="fu">,</span></span>
+<span id="cb3-331"><a href="#cb3-331"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.5.8.1"</span><span class="fu">,</span></span>
+<span id="cb3-332"><a href="#cb3-332"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-333"><a href="#cb3-333"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-334"><a href="#cb3-334"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-335"><a href="#cb3-335"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-336"><a href="#cb3-336"></a>        <span class="st">"base64enc"</span><span class="ot">,</span></span>
+<span id="cb3-337"><a href="#cb3-337"></a>        <span class="st">"digest"</span><span class="ot">,</span></span>
+<span id="cb3-338"><a href="#cb3-338"></a>        <span class="st">"fastmap"</span><span class="ot">,</span></span>
+<span id="cb3-339"><a href="#cb3-339"></a>        <span class="st">"grDevices"</span><span class="ot">,</span></span>
+<span id="cb3-340"><a href="#cb3-340"></a>        <span class="st">"rlang"</span><span class="ot">,</span></span>
+<span id="cb3-341"><a href="#cb3-341"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-342"><a href="#cb3-342"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-343"><a href="#cb3-343"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"81d371a9cc60640e74e4ab6ac46dcedc"</span></span>
+<span id="cb3-344"><a href="#cb3-344"></a>    <span class="fu">},</span></span>
+<span id="cb3-345"><a href="#cb3-345"></a>    <span class="dt">"jquerylib"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-346"><a href="#cb3-346"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"jquerylib"</span><span class="fu">,</span></span>
+<span id="cb3-347"><a href="#cb3-347"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.1.4"</span><span class="fu">,</span></span>
+<span id="cb3-348"><a href="#cb3-348"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-349"><a href="#cb3-349"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-350"><a href="#cb3-350"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-351"><a href="#cb3-351"></a>        <span class="st">"htmltools"</span></span>
+<span id="cb3-352"><a href="#cb3-352"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-353"><a href="#cb3-353"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"5aab57a3bd297eee1c1d862735972182"</span></span>
+<span id="cb3-354"><a href="#cb3-354"></a>    <span class="fu">},</span></span>
+<span id="cb3-355"><a href="#cb3-355"></a>    <span class="dt">"jsonlite"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-356"><a href="#cb3-356"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"jsonlite"</span><span class="fu">,</span></span>
+<span id="cb3-357"><a href="#cb3-357"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.8.9"</span><span class="fu">,</span></span>
+<span id="cb3-358"><a href="#cb3-358"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-359"><a href="#cb3-359"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-360"><a href="#cb3-360"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-361"><a href="#cb3-361"></a>        <span class="st">"methods"</span></span>
+<span id="cb3-362"><a href="#cb3-362"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-363"><a href="#cb3-363"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"4e993b65c2c3ffbffce7bb3e2c6f832b"</span></span>
+<span id="cb3-364"><a href="#cb3-364"></a>    <span class="fu">},</span></span>
+<span id="cb3-365"><a href="#cb3-365"></a>    <span class="dt">"knitr"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-366"><a href="#cb3-366"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"knitr"</span><span class="fu">,</span></span>
+<span id="cb3-367"><a href="#cb3-367"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.49"</span><span class="fu">,</span></span>
+<span id="cb3-368"><a href="#cb3-368"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-369"><a href="#cb3-369"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-370"><a href="#cb3-370"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-371"><a href="#cb3-371"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-372"><a href="#cb3-372"></a>        <span class="st">"evaluate"</span><span class="ot">,</span></span>
+<span id="cb3-373"><a href="#cb3-373"></a>        <span class="st">"highr"</span><span class="ot">,</span></span>
+<span id="cb3-374"><a href="#cb3-374"></a>        <span class="st">"methods"</span><span class="ot">,</span></span>
+<span id="cb3-375"><a href="#cb3-375"></a>        <span class="st">"tools"</span><span class="ot">,</span></span>
+<span id="cb3-376"><a href="#cb3-376"></a>        <span class="st">"xfun"</span><span class="ot">,</span></span>
+<span id="cb3-377"><a href="#cb3-377"></a>        <span class="st">"yaml"</span></span>
+<span id="cb3-378"><a href="#cb3-378"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-379"><a href="#cb3-379"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"9fcb189926d93c636dea94fbe4f44480"</span></span>
+<span id="cb3-380"><a href="#cb3-380"></a>    <span class="fu">},</span></span>
+<span id="cb3-381"><a href="#cb3-381"></a>    <span class="dt">"lazyeval"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-382"><a href="#cb3-382"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"lazyeval"</span><span class="fu">,</span></span>
+<span id="cb3-383"><a href="#cb3-383"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.2.2"</span><span class="fu">,</span></span>
+<span id="cb3-384"><a href="#cb3-384"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-385"><a href="#cb3-385"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-386"><a href="#cb3-386"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-387"><a href="#cb3-387"></a>        <span class="st">"R"</span></span>
+<span id="cb3-388"><a href="#cb3-388"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-389"><a href="#cb3-389"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"d908914ae53b04d4c0c0fd72ecc35370"</span></span>
+<span id="cb3-390"><a href="#cb3-390"></a>    <span class="fu">},</span></span>
+<span id="cb3-391"><a href="#cb3-391"></a>    <span class="dt">"lifecycle"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-392"><a href="#cb3-392"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"lifecycle"</span><span class="fu">,</span></span>
+<span id="cb3-393"><a href="#cb3-393"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.0.4"</span><span class="fu">,</span></span>
+<span id="cb3-394"><a href="#cb3-394"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-395"><a href="#cb3-395"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-396"><a href="#cb3-396"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-397"><a href="#cb3-397"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-398"><a href="#cb3-398"></a>        <span class="st">"cli"</span><span class="ot">,</span></span>
+<span id="cb3-399"><a href="#cb3-399"></a>        <span class="st">"glue"</span><span class="ot">,</span></span>
+<span id="cb3-400"><a href="#cb3-400"></a>        <span class="st">"rlang"</span></span>
+<span id="cb3-401"><a href="#cb3-401"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-402"><a href="#cb3-402"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"b8552d117e1b808b09a832f589b79035"</span></span>
+<span id="cb3-403"><a href="#cb3-403"></a>    <span class="fu">},</span></span>
+<span id="cb3-404"><a href="#cb3-404"></a>    <span class="dt">"lintr"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-405"><a href="#cb3-405"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"lintr"</span><span class="fu">,</span></span>
+<span id="cb3-406"><a href="#cb3-406"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"3.1.2"</span><span class="fu">,</span></span>
+<span id="cb3-407"><a href="#cb3-407"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-408"><a href="#cb3-408"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-409"><a href="#cb3-409"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-410"><a href="#cb3-410"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-411"><a href="#cb3-411"></a>        <span class="st">"backports"</span><span class="ot">,</span></span>
+<span id="cb3-412"><a href="#cb3-412"></a>        <span class="st">"codetools"</span><span class="ot">,</span></span>
+<span id="cb3-413"><a href="#cb3-413"></a>        <span class="st">"cyclocomp"</span><span class="ot">,</span></span>
+<span id="cb3-414"><a href="#cb3-414"></a>        <span class="st">"digest"</span><span class="ot">,</span></span>
+<span id="cb3-415"><a href="#cb3-415"></a>        <span class="st">"glue"</span><span class="ot">,</span></span>
+<span id="cb3-416"><a href="#cb3-416"></a>        <span class="st">"knitr"</span><span class="ot">,</span></span>
+<span id="cb3-417"><a href="#cb3-417"></a>        <span class="st">"rex"</span><span class="ot">,</span></span>
+<span id="cb3-418"><a href="#cb3-418"></a>        <span class="st">"stats"</span><span class="ot">,</span></span>
+<span id="cb3-419"><a href="#cb3-419"></a>        <span class="st">"utils"</span><span class="ot">,</span></span>
+<span id="cb3-420"><a href="#cb3-420"></a>        <span class="st">"xml2"</span><span class="ot">,</span></span>
+<span id="cb3-421"><a href="#cb3-421"></a>        <span class="st">"xmlparsedata"</span></span>
+<span id="cb3-422"><a href="#cb3-422"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-423"><a href="#cb3-423"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"08cff46381a242d44c0d8dd0aabd9f71"</span></span>
+<span id="cb3-424"><a href="#cb3-424"></a>    <span class="fu">},</span></span>
+<span id="cb3-425"><a href="#cb3-425"></a>    <span class="dt">"magrittr"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-426"><a href="#cb3-426"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"magrittr"</span><span class="fu">,</span></span>
+<span id="cb3-427"><a href="#cb3-427"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"2.0.3"</span><span class="fu">,</span></span>
+<span id="cb3-428"><a href="#cb3-428"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-429"><a href="#cb3-429"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-430"><a href="#cb3-430"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-431"><a href="#cb3-431"></a>        <span class="st">"R"</span></span>
+<span id="cb3-432"><a href="#cb3-432"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-433"><a href="#cb3-433"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"7ce2733a9826b3aeb1775d56fd305472"</span></span>
+<span id="cb3-434"><a href="#cb3-434"></a>    <span class="fu">},</span></span>
+<span id="cb3-435"><a href="#cb3-435"></a>    <span class="dt">"memoise"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-436"><a href="#cb3-436"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"memoise"</span><span class="fu">,</span></span>
+<span id="cb3-437"><a href="#cb3-437"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"2.0.1"</span><span class="fu">,</span></span>
+<span id="cb3-438"><a href="#cb3-438"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-439"><a href="#cb3-439"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-440"><a href="#cb3-440"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-441"><a href="#cb3-441"></a>        <span class="st">"cachem"</span><span class="ot">,</span></span>
+<span id="cb3-442"><a href="#cb3-442"></a>        <span class="st">"rlang"</span></span>
+<span id="cb3-443"><a href="#cb3-443"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-444"><a href="#cb3-444"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"e2817ccf4a065c5d9d7f2cfbe7c1d78c"</span></span>
+<span id="cb3-445"><a href="#cb3-445"></a>    <span class="fu">},</span></span>
+<span id="cb3-446"><a href="#cb3-446"></a>    <span class="dt">"mime"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-447"><a href="#cb3-447"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"mime"</span><span class="fu">,</span></span>
+<span id="cb3-448"><a href="#cb3-448"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.12"</span><span class="fu">,</span></span>
+<span id="cb3-449"><a href="#cb3-449"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-450"><a href="#cb3-450"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-451"><a href="#cb3-451"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-452"><a href="#cb3-452"></a>        <span class="st">"tools"</span></span>
+<span id="cb3-453"><a href="#cb3-453"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-454"><a href="#cb3-454"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"18e9c28c1d3ca1560ce30658b22ce104"</span></span>
+<span id="cb3-455"><a href="#cb3-455"></a>    <span class="fu">},</span></span>
+<span id="cb3-456"><a href="#cb3-456"></a>    <span class="dt">"pillar"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-457"><a href="#cb3-457"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"pillar"</span><span class="fu">,</span></span>
+<span id="cb3-458"><a href="#cb3-458"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.9.0"</span><span class="fu">,</span></span>
+<span id="cb3-459"><a href="#cb3-459"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-460"><a href="#cb3-460"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-461"><a href="#cb3-461"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-462"><a href="#cb3-462"></a>        <span class="st">"cli"</span><span class="ot">,</span></span>
+<span id="cb3-463"><a href="#cb3-463"></a>        <span class="st">"fansi"</span><span class="ot">,</span></span>
+<span id="cb3-464"><a href="#cb3-464"></a>        <span class="st">"glue"</span><span class="ot">,</span></span>
+<span id="cb3-465"><a href="#cb3-465"></a>        <span class="st">"lifecycle"</span><span class="ot">,</span></span>
+<span id="cb3-466"><a href="#cb3-466"></a>        <span class="st">"rlang"</span><span class="ot">,</span></span>
+<span id="cb3-467"><a href="#cb3-467"></a>        <span class="st">"utf8"</span><span class="ot">,</span></span>
+<span id="cb3-468"><a href="#cb3-468"></a>        <span class="st">"utils"</span><span class="ot">,</span></span>
+<span id="cb3-469"><a href="#cb3-469"></a>        <span class="st">"vctrs"</span></span>
+<span id="cb3-470"><a href="#cb3-470"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-471"><a href="#cb3-471"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"15da5a8412f317beeee6175fbc76f4bb"</span></span>
+<span id="cb3-472"><a href="#cb3-472"></a>    <span class="fu">},</span></span>
+<span id="cb3-473"><a href="#cb3-473"></a>    <span class="dt">"pkgconfig"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-474"><a href="#cb3-474"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"pkgconfig"</span><span class="fu">,</span></span>
+<span id="cb3-475"><a href="#cb3-475"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"2.0.3"</span><span class="fu">,</span></span>
+<span id="cb3-476"><a href="#cb3-476"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-477"><a href="#cb3-477"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-478"><a href="#cb3-478"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-479"><a href="#cb3-479"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-480"><a href="#cb3-480"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-481"><a href="#cb3-481"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"01f28d4278f15c76cddbea05899c5d6f"</span></span>
+<span id="cb3-482"><a href="#cb3-482"></a>    <span class="fu">},</span></span>
+<span id="cb3-483"><a href="#cb3-483"></a>    <span class="dt">"processx"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-484"><a href="#cb3-484"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"processx"</span><span class="fu">,</span></span>
+<span id="cb3-485"><a href="#cb3-485"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"3.8.4"</span><span class="fu">,</span></span>
+<span id="cb3-486"><a href="#cb3-486"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-487"><a href="#cb3-487"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-488"><a href="#cb3-488"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-489"><a href="#cb3-489"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-490"><a href="#cb3-490"></a>        <span class="st">"R6"</span><span class="ot">,</span></span>
+<span id="cb3-491"><a href="#cb3-491"></a>        <span class="st">"ps"</span><span class="ot">,</span></span>
+<span id="cb3-492"><a href="#cb3-492"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-493"><a href="#cb3-493"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-494"><a href="#cb3-494"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"0c90a7d71988856bad2a2a45dd871bb9"</span></span>
+<span id="cb3-495"><a href="#cb3-495"></a>    <span class="fu">},</span></span>
+<span id="cb3-496"><a href="#cb3-496"></a>    <span class="dt">"ps"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-497"><a href="#cb3-497"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"ps"</span><span class="fu">,</span></span>
+<span id="cb3-498"><a href="#cb3-498"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.8.1"</span><span class="fu">,</span></span>
+<span id="cb3-499"><a href="#cb3-499"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-500"><a href="#cb3-500"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-501"><a href="#cb3-501"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-502"><a href="#cb3-502"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-503"><a href="#cb3-503"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-504"><a href="#cb3-504"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-505"><a href="#cb3-505"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"b4404b1de13758dea1c0484ad0d48563"</span></span>
+<span id="cb3-506"><a href="#cb3-506"></a>    <span class="fu">},</span></span>
+<span id="cb3-507"><a href="#cb3-507"></a>    <span class="dt">"purrr"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-508"><a href="#cb3-508"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"purrr"</span><span class="fu">,</span></span>
+<span id="cb3-509"><a href="#cb3-509"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.0.2"</span><span class="fu">,</span></span>
+<span id="cb3-510"><a href="#cb3-510"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-511"><a href="#cb3-511"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-512"><a href="#cb3-512"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-513"><a href="#cb3-513"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-514"><a href="#cb3-514"></a>        <span class="st">"cli"</span><span class="ot">,</span></span>
+<span id="cb3-515"><a href="#cb3-515"></a>        <span class="st">"lifecycle"</span><span class="ot">,</span></span>
+<span id="cb3-516"><a href="#cb3-516"></a>        <span class="st">"magrittr"</span><span class="ot">,</span></span>
+<span id="cb3-517"><a href="#cb3-517"></a>        <span class="st">"rlang"</span><span class="ot">,</span></span>
+<span id="cb3-518"><a href="#cb3-518"></a>        <span class="st">"vctrs"</span></span>
+<span id="cb3-519"><a href="#cb3-519"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-520"><a href="#cb3-520"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"1cba04a4e9414bdefc9dcaa99649a8dc"</span></span>
+<span id="cb3-521"><a href="#cb3-521"></a>    <span class="fu">},</span></span>
+<span id="cb3-522"><a href="#cb3-522"></a>    <span class="dt">"rappdirs"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-523"><a href="#cb3-523"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"rappdirs"</span><span class="fu">,</span></span>
+<span id="cb3-524"><a href="#cb3-524"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.3.3"</span><span class="fu">,</span></span>
+<span id="cb3-525"><a href="#cb3-525"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-526"><a href="#cb3-526"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-527"><a href="#cb3-527"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-528"><a href="#cb3-528"></a>        <span class="st">"R"</span></span>
+<span id="cb3-529"><a href="#cb3-529"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-530"><a href="#cb3-530"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"5e3c5dc0b071b21fa128676560dbe94d"</span></span>
+<span id="cb3-531"><a href="#cb3-531"></a>    <span class="fu">},</span></span>
+<span id="cb3-532"><a href="#cb3-532"></a>    <span class="dt">"remotes"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-533"><a href="#cb3-533"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"remotes"</span><span class="fu">,</span></span>
+<span id="cb3-534"><a href="#cb3-534"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"2.5.0"</span><span class="fu">,</span></span>
+<span id="cb3-535"><a href="#cb3-535"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-536"><a href="#cb3-536"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-537"><a href="#cb3-537"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-538"><a href="#cb3-538"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-539"><a href="#cb3-539"></a>        <span class="st">"methods"</span><span class="ot">,</span></span>
+<span id="cb3-540"><a href="#cb3-540"></a>        <span class="st">"stats"</span><span class="ot">,</span></span>
+<span id="cb3-541"><a href="#cb3-541"></a>        <span class="st">"tools"</span><span class="ot">,</span></span>
+<span id="cb3-542"><a href="#cb3-542"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-543"><a href="#cb3-543"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-544"><a href="#cb3-544"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"3ee025083e66f18db6cf27b56e23e141"</span></span>
+<span id="cb3-545"><a href="#cb3-545"></a>    <span class="fu">},</span></span>
+<span id="cb3-546"><a href="#cb3-546"></a>    <span class="dt">"renv"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-547"><a href="#cb3-547"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"renv"</span><span class="fu">,</span></span>
+<span id="cb3-548"><a href="#cb3-548"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.0.11"</span><span class="fu">,</span></span>
+<span id="cb3-549"><a href="#cb3-549"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-550"><a href="#cb3-550"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-551"><a href="#cb3-551"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-552"><a href="#cb3-552"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-553"><a href="#cb3-553"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-554"><a href="#cb3-554"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"47623f66b4e80b3b0587bc5d7b309888"</span></span>
+<span id="cb3-555"><a href="#cb3-555"></a>    <span class="fu">},</span></span>
+<span id="cb3-556"><a href="#cb3-556"></a>    <span class="dt">"rex"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-557"><a href="#cb3-557"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"rex"</span><span class="fu">,</span></span>
+<span id="cb3-558"><a href="#cb3-558"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.2.1"</span><span class="fu">,</span></span>
+<span id="cb3-559"><a href="#cb3-559"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-560"><a href="#cb3-560"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-561"><a href="#cb3-561"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-562"><a href="#cb3-562"></a>        <span class="st">"lazyeval"</span></span>
+<span id="cb3-563"><a href="#cb3-563"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-564"><a href="#cb3-564"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"ae34cd56890607370665bee5bd17812f"</span></span>
+<span id="cb3-565"><a href="#cb3-565"></a>    <span class="fu">},</span></span>
+<span id="cb3-566"><a href="#cb3-566"></a>    <span class="dt">"rlang"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-567"><a href="#cb3-567"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"rlang"</span><span class="fu">,</span></span>
+<span id="cb3-568"><a href="#cb3-568"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.1.4"</span><span class="fu">,</span></span>
+<span id="cb3-569"><a href="#cb3-569"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-570"><a href="#cb3-570"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-571"><a href="#cb3-571"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-572"><a href="#cb3-572"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-573"><a href="#cb3-573"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-574"><a href="#cb3-574"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-575"><a href="#cb3-575"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"3eec01f8b1dee337674b2e34ab1f9bc1"</span></span>
+<span id="cb3-576"><a href="#cb3-576"></a>    <span class="fu">},</span></span>
+<span id="cb3-577"><a href="#cb3-577"></a>    <span class="dt">"rmarkdown"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-578"><a href="#cb3-578"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"rmarkdown"</span><span class="fu">,</span></span>
+<span id="cb3-579"><a href="#cb3-579"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"2.29"</span><span class="fu">,</span></span>
+<span id="cb3-580"><a href="#cb3-580"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-581"><a href="#cb3-581"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-582"><a href="#cb3-582"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-583"><a href="#cb3-583"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-584"><a href="#cb3-584"></a>        <span class="st">"bslib"</span><span class="ot">,</span></span>
+<span id="cb3-585"><a href="#cb3-585"></a>        <span class="st">"evaluate"</span><span class="ot">,</span></span>
+<span id="cb3-586"><a href="#cb3-586"></a>        <span class="st">"fontawesome"</span><span class="ot">,</span></span>
+<span id="cb3-587"><a href="#cb3-587"></a>        <span class="st">"htmltools"</span><span class="ot">,</span></span>
+<span id="cb3-588"><a href="#cb3-588"></a>        <span class="st">"jquerylib"</span><span class="ot">,</span></span>
+<span id="cb3-589"><a href="#cb3-589"></a>        <span class="st">"jsonlite"</span><span class="ot">,</span></span>
+<span id="cb3-590"><a href="#cb3-590"></a>        <span class="st">"knitr"</span><span class="ot">,</span></span>
+<span id="cb3-591"><a href="#cb3-591"></a>        <span class="st">"methods"</span><span class="ot">,</span></span>
+<span id="cb3-592"><a href="#cb3-592"></a>        <span class="st">"tinytex"</span><span class="ot">,</span></span>
+<span id="cb3-593"><a href="#cb3-593"></a>        <span class="st">"tools"</span><span class="ot">,</span></span>
+<span id="cb3-594"><a href="#cb3-594"></a>        <span class="st">"utils"</span><span class="ot">,</span></span>
+<span id="cb3-595"><a href="#cb3-595"></a>        <span class="st">"xfun"</span><span class="ot">,</span></span>
+<span id="cb3-596"><a href="#cb3-596"></a>        <span class="st">"yaml"</span></span>
+<span id="cb3-597"><a href="#cb3-597"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-598"><a href="#cb3-598"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"df99277f63d01c34e95e3d2f06a79736"</span></span>
+<span id="cb3-599"><a href="#cb3-599"></a>    <span class="fu">},</span></span>
+<span id="cb3-600"><a href="#cb3-600"></a>    <span class="dt">"rprojroot"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-601"><a href="#cb3-601"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"rprojroot"</span><span class="fu">,</span></span>
+<span id="cb3-602"><a href="#cb3-602"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"2.0.4"</span><span class="fu">,</span></span>
+<span id="cb3-603"><a href="#cb3-603"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-604"><a href="#cb3-604"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-605"><a href="#cb3-605"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-606"><a href="#cb3-606"></a>        <span class="st">"R"</span></span>
+<span id="cb3-607"><a href="#cb3-607"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-608"><a href="#cb3-608"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"4c8415e0ec1e29f3f4f6fc108bef0144"</span></span>
+<span id="cb3-609"><a href="#cb3-609"></a>    <span class="fu">},</span></span>
+<span id="cb3-610"><a href="#cb3-610"></a>    <span class="dt">"sass"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-611"><a href="#cb3-611"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"sass"</span><span class="fu">,</span></span>
+<span id="cb3-612"><a href="#cb3-612"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.4.9"</span><span class="fu">,</span></span>
+<span id="cb3-613"><a href="#cb3-613"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-614"><a href="#cb3-614"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-615"><a href="#cb3-615"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-616"><a href="#cb3-616"></a>        <span class="st">"R6"</span><span class="ot">,</span></span>
+<span id="cb3-617"><a href="#cb3-617"></a>        <span class="st">"fs"</span><span class="ot">,</span></span>
+<span id="cb3-618"><a href="#cb3-618"></a>        <span class="st">"htmltools"</span><span class="ot">,</span></span>
+<span id="cb3-619"><a href="#cb3-619"></a>        <span class="st">"rappdirs"</span><span class="ot">,</span></span>
+<span id="cb3-620"><a href="#cb3-620"></a>        <span class="st">"rlang"</span></span>
+<span id="cb3-621"><a href="#cb3-621"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-622"><a href="#cb3-622"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"d53dbfddf695303ea4ad66f86e99b95d"</span></span>
+<span id="cb3-623"><a href="#cb3-623"></a>    <span class="fu">},</span></span>
+<span id="cb3-624"><a href="#cb3-624"></a>    <span class="dt">"stringi"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-625"><a href="#cb3-625"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"stringi"</span><span class="fu">,</span></span>
+<span id="cb3-626"><a href="#cb3-626"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.8.4"</span><span class="fu">,</span></span>
+<span id="cb3-627"><a href="#cb3-627"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-628"><a href="#cb3-628"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-629"><a href="#cb3-629"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-630"><a href="#cb3-630"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-631"><a href="#cb3-631"></a>        <span class="st">"stats"</span><span class="ot">,</span></span>
+<span id="cb3-632"><a href="#cb3-632"></a>        <span class="st">"tools"</span><span class="ot">,</span></span>
+<span id="cb3-633"><a href="#cb3-633"></a>        <span class="st">"utils"</span></span>
+<span id="cb3-634"><a href="#cb3-634"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-635"><a href="#cb3-635"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"39e1144fd75428983dc3f63aa53dfa91"</span></span>
+<span id="cb3-636"><a href="#cb3-636"></a>    <span class="fu">},</span></span>
+<span id="cb3-637"><a href="#cb3-637"></a>    <span class="dt">"stringr"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-638"><a href="#cb3-638"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"stringr"</span><span class="fu">,</span></span>
+<span id="cb3-639"><a href="#cb3-639"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.5.1"</span><span class="fu">,</span></span>
+<span id="cb3-640"><a href="#cb3-640"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-641"><a href="#cb3-641"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-642"><a href="#cb3-642"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-643"><a href="#cb3-643"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-644"><a href="#cb3-644"></a>        <span class="st">"cli"</span><span class="ot">,</span></span>
+<span id="cb3-645"><a href="#cb3-645"></a>        <span class="st">"glue"</span><span class="ot">,</span></span>
+<span id="cb3-646"><a href="#cb3-646"></a>        <span class="st">"lifecycle"</span><span class="ot">,</span></span>
+<span id="cb3-647"><a href="#cb3-647"></a>        <span class="st">"magrittr"</span><span class="ot">,</span></span>
+<span id="cb3-648"><a href="#cb3-648"></a>        <span class="st">"rlang"</span><span class="ot">,</span></span>
+<span id="cb3-649"><a href="#cb3-649"></a>        <span class="st">"stringi"</span><span class="ot">,</span></span>
+<span id="cb3-650"><a href="#cb3-650"></a>        <span class="st">"vctrs"</span></span>
+<span id="cb3-651"><a href="#cb3-651"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-652"><a href="#cb3-652"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"960e2ae9e09656611e0b8214ad543207"</span></span>
+<span id="cb3-653"><a href="#cb3-653"></a>    <span class="fu">},</span></span>
+<span id="cb3-654"><a href="#cb3-654"></a>    <span class="dt">"tibble"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-655"><a href="#cb3-655"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"tibble"</span><span class="fu">,</span></span>
+<span id="cb3-656"><a href="#cb3-656"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"3.2.1"</span><span class="fu">,</span></span>
+<span id="cb3-657"><a href="#cb3-657"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-658"><a href="#cb3-658"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-659"><a href="#cb3-659"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-660"><a href="#cb3-660"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-661"><a href="#cb3-661"></a>        <span class="st">"fansi"</span><span class="ot">,</span></span>
+<span id="cb3-662"><a href="#cb3-662"></a>        <span class="st">"lifecycle"</span><span class="ot">,</span></span>
+<span id="cb3-663"><a href="#cb3-663"></a>        <span class="st">"magrittr"</span><span class="ot">,</span></span>
+<span id="cb3-664"><a href="#cb3-664"></a>        <span class="st">"methods"</span><span class="ot">,</span></span>
+<span id="cb3-665"><a href="#cb3-665"></a>        <span class="st">"pillar"</span><span class="ot">,</span></span>
+<span id="cb3-666"><a href="#cb3-666"></a>        <span class="st">"pkgconfig"</span><span class="ot">,</span></span>
+<span id="cb3-667"><a href="#cb3-667"></a>        <span class="st">"rlang"</span><span class="ot">,</span></span>
+<span id="cb3-668"><a href="#cb3-668"></a>        <span class="st">"utils"</span><span class="ot">,</span></span>
+<span id="cb3-669"><a href="#cb3-669"></a>        <span class="st">"vctrs"</span></span>
+<span id="cb3-670"><a href="#cb3-670"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-671"><a href="#cb3-671"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"a84e2cc86d07289b3b6f5069df7a004c"</span></span>
+<span id="cb3-672"><a href="#cb3-672"></a>    <span class="fu">},</span></span>
+<span id="cb3-673"><a href="#cb3-673"></a>    <span class="dt">"tidyr"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-674"><a href="#cb3-674"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"tidyr"</span><span class="fu">,</span></span>
+<span id="cb3-675"><a href="#cb3-675"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.3.1"</span><span class="fu">,</span></span>
+<span id="cb3-676"><a href="#cb3-676"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-677"><a href="#cb3-677"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-678"><a href="#cb3-678"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-679"><a href="#cb3-679"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-680"><a href="#cb3-680"></a>        <span class="st">"cli"</span><span class="ot">,</span></span>
+<span id="cb3-681"><a href="#cb3-681"></a>        <span class="st">"cpp11"</span><span class="ot">,</span></span>
+<span id="cb3-682"><a href="#cb3-682"></a>        <span class="st">"dplyr"</span><span class="ot">,</span></span>
+<span id="cb3-683"><a href="#cb3-683"></a>        <span class="st">"glue"</span><span class="ot">,</span></span>
+<span id="cb3-684"><a href="#cb3-684"></a>        <span class="st">"lifecycle"</span><span class="ot">,</span></span>
+<span id="cb3-685"><a href="#cb3-685"></a>        <span class="st">"magrittr"</span><span class="ot">,</span></span>
+<span id="cb3-686"><a href="#cb3-686"></a>        <span class="st">"purrr"</span><span class="ot">,</span></span>
+<span id="cb3-687"><a href="#cb3-687"></a>        <span class="st">"rlang"</span><span class="ot">,</span></span>
+<span id="cb3-688"><a href="#cb3-688"></a>        <span class="st">"stringr"</span><span class="ot">,</span></span>
+<span id="cb3-689"><a href="#cb3-689"></a>        <span class="st">"tibble"</span><span class="ot">,</span></span>
+<span id="cb3-690"><a href="#cb3-690"></a>        <span class="st">"tidyselect"</span><span class="ot">,</span></span>
+<span id="cb3-691"><a href="#cb3-691"></a>        <span class="st">"utils"</span><span class="ot">,</span></span>
+<span id="cb3-692"><a href="#cb3-692"></a>        <span class="st">"vctrs"</span></span>
+<span id="cb3-693"><a href="#cb3-693"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-694"><a href="#cb3-694"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"915fb7ce036c22a6a33b5a8adb712eb1"</span></span>
+<span id="cb3-695"><a href="#cb3-695"></a>    <span class="fu">},</span></span>
+<span id="cb3-696"><a href="#cb3-696"></a>    <span class="dt">"tidyselect"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-697"><a href="#cb3-697"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"tidyselect"</span><span class="fu">,</span></span>
+<span id="cb3-698"><a href="#cb3-698"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.2.1"</span><span class="fu">,</span></span>
+<span id="cb3-699"><a href="#cb3-699"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-700"><a href="#cb3-700"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-701"><a href="#cb3-701"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-702"><a href="#cb3-702"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-703"><a href="#cb3-703"></a>        <span class="st">"cli"</span><span class="ot">,</span></span>
+<span id="cb3-704"><a href="#cb3-704"></a>        <span class="st">"glue"</span><span class="ot">,</span></span>
+<span id="cb3-705"><a href="#cb3-705"></a>        <span class="st">"lifecycle"</span><span class="ot">,</span></span>
+<span id="cb3-706"><a href="#cb3-706"></a>        <span class="st">"rlang"</span><span class="ot">,</span></span>
+<span id="cb3-707"><a href="#cb3-707"></a>        <span class="st">"vctrs"</span><span class="ot">,</span></span>
+<span id="cb3-708"><a href="#cb3-708"></a>        <span class="st">"withr"</span></span>
+<span id="cb3-709"><a href="#cb3-709"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-710"><a href="#cb3-710"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"829f27b9c4919c16b593794a6344d6c0"</span></span>
+<span id="cb3-711"><a href="#cb3-711"></a>    <span class="fu">},</span></span>
+<span id="cb3-712"><a href="#cb3-712"></a>    <span class="dt">"tinytex"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-713"><a href="#cb3-713"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"tinytex"</span><span class="fu">,</span></span>
+<span id="cb3-714"><a href="#cb3-714"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.54"</span><span class="fu">,</span></span>
+<span id="cb3-715"><a href="#cb3-715"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-716"><a href="#cb3-716"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-717"><a href="#cb3-717"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-718"><a href="#cb3-718"></a>        <span class="st">"xfun"</span></span>
+<span id="cb3-719"><a href="#cb3-719"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-720"><a href="#cb3-720"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"3ec7e3ddcacc2d34a9046941222bf94d"</span></span>
+<span id="cb3-721"><a href="#cb3-721"></a>    <span class="fu">},</span></span>
+<span id="cb3-722"><a href="#cb3-722"></a>    <span class="dt">"utf8"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-723"><a href="#cb3-723"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"utf8"</span><span class="fu">,</span></span>
+<span id="cb3-724"><a href="#cb3-724"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.2.4"</span><span class="fu">,</span></span>
+<span id="cb3-725"><a href="#cb3-725"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-726"><a href="#cb3-726"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-727"><a href="#cb3-727"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-728"><a href="#cb3-728"></a>        <span class="st">"R"</span></span>
+<span id="cb3-729"><a href="#cb3-729"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-730"><a href="#cb3-730"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"62b65c52671e6665f803ff02954446e9"</span></span>
+<span id="cb3-731"><a href="#cb3-731"></a>    <span class="fu">},</span></span>
+<span id="cb3-732"><a href="#cb3-732"></a>    <span class="dt">"vctrs"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-733"><a href="#cb3-733"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"vctrs"</span><span class="fu">,</span></span>
+<span id="cb3-734"><a href="#cb3-734"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.6.5"</span><span class="fu">,</span></span>
+<span id="cb3-735"><a href="#cb3-735"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-736"><a href="#cb3-736"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-737"><a href="#cb3-737"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-738"><a href="#cb3-738"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-739"><a href="#cb3-739"></a>        <span class="st">"cli"</span><span class="ot">,</span></span>
+<span id="cb3-740"><a href="#cb3-740"></a>        <span class="st">"glue"</span><span class="ot">,</span></span>
+<span id="cb3-741"><a href="#cb3-741"></a>        <span class="st">"lifecycle"</span><span class="ot">,</span></span>
+<span id="cb3-742"><a href="#cb3-742"></a>        <span class="st">"rlang"</span></span>
+<span id="cb3-743"><a href="#cb3-743"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-744"><a href="#cb3-744"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"c03fa420630029418f7e6da3667aac4a"</span></span>
+<span id="cb3-745"><a href="#cb3-745"></a>    <span class="fu">},</span></span>
+<span id="cb3-746"><a href="#cb3-746"></a>    <span class="dt">"withr"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-747"><a href="#cb3-747"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"withr"</span><span class="fu">,</span></span>
+<span id="cb3-748"><a href="#cb3-748"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"3.0.2"</span><span class="fu">,</span></span>
+<span id="cb3-749"><a href="#cb3-749"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-750"><a href="#cb3-750"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-751"><a href="#cb3-751"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-752"><a href="#cb3-752"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-753"><a href="#cb3-753"></a>        <span class="st">"grDevices"</span><span class="ot">,</span></span>
+<span id="cb3-754"><a href="#cb3-754"></a>        <span class="st">"graphics"</span></span>
+<span id="cb3-755"><a href="#cb3-755"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-756"><a href="#cb3-756"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"cc2d62c76458d425210d1eb1478b30b4"</span></span>
+<span id="cb3-757"><a href="#cb3-757"></a>    <span class="fu">},</span></span>
+<span id="cb3-758"><a href="#cb3-758"></a>    <span class="dt">"xfun"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-759"><a href="#cb3-759"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"xfun"</span><span class="fu">,</span></span>
+<span id="cb3-760"><a href="#cb3-760"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"0.49"</span><span class="fu">,</span></span>
+<span id="cb3-761"><a href="#cb3-761"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-762"><a href="#cb3-762"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"RSPM"</span><span class="fu">,</span></span>
+<span id="cb3-763"><a href="#cb3-763"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-764"><a href="#cb3-764"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-765"><a href="#cb3-765"></a>        <span class="st">"grDevices"</span><span class="ot">,</span></span>
+<span id="cb3-766"><a href="#cb3-766"></a>        <span class="st">"stats"</span><span class="ot">,</span></span>
+<span id="cb3-767"><a href="#cb3-767"></a>        <span class="st">"tools"</span></span>
+<span id="cb3-768"><a href="#cb3-768"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-769"><a href="#cb3-769"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"8687398773806cfff9401a2feca96298"</span></span>
+<span id="cb3-770"><a href="#cb3-770"></a>    <span class="fu">},</span></span>
+<span id="cb3-771"><a href="#cb3-771"></a>    <span class="dt">"xml2"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-772"><a href="#cb3-772"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"xml2"</span><span class="fu">,</span></span>
+<span id="cb3-773"><a href="#cb3-773"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.3.6"</span><span class="fu">,</span></span>
+<span id="cb3-774"><a href="#cb3-774"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-775"><a href="#cb3-775"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-776"><a href="#cb3-776"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-777"><a href="#cb3-777"></a>        <span class="st">"R"</span><span class="ot">,</span></span>
+<span id="cb3-778"><a href="#cb3-778"></a>        <span class="st">"cli"</span><span class="ot">,</span></span>
+<span id="cb3-779"><a href="#cb3-779"></a>        <span class="st">"methods"</span><span class="ot">,</span></span>
+<span id="cb3-780"><a href="#cb3-780"></a>        <span class="st">"rlang"</span></span>
+<span id="cb3-781"><a href="#cb3-781"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-782"><a href="#cb3-782"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"1d0336142f4cd25d8d23cd3ba7a8fb61"</span></span>
+<span id="cb3-783"><a href="#cb3-783"></a>    <span class="fu">},</span></span>
+<span id="cb3-784"><a href="#cb3-784"></a>    <span class="dt">"xmlparsedata"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-785"><a href="#cb3-785"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"xmlparsedata"</span><span class="fu">,</span></span>
+<span id="cb3-786"><a href="#cb3-786"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"1.0.5"</span><span class="fu">,</span></span>
+<span id="cb3-787"><a href="#cb3-787"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-788"><a href="#cb3-788"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-789"><a href="#cb3-789"></a>      <span class="dt">"Requirements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb3-790"><a href="#cb3-790"></a>        <span class="st">"R"</span></span>
+<span id="cb3-791"><a href="#cb3-791"></a>      <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb3-792"><a href="#cb3-792"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"45e4bf3c46476896e821fc0a408fb4fc"</span></span>
+<span id="cb3-793"><a href="#cb3-793"></a>    <span class="fu">},</span></span>
+<span id="cb3-794"><a href="#cb3-794"></a>    <span class="dt">"yaml"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb3-795"><a href="#cb3-795"></a>      <span class="dt">"Package"</span><span class="fu">:</span> <span class="st">"yaml"</span><span class="fu">,</span></span>
+<span id="cb3-796"><a href="#cb3-796"></a>      <span class="dt">"Version"</span><span class="fu">:</span> <span class="st">"2.3.10"</span><span class="fu">,</span></span>
+<span id="cb3-797"><a href="#cb3-797"></a>      <span class="dt">"Source"</span><span class="fu">:</span> <span class="st">"Repository"</span><span class="fu">,</span></span>
+<span id="cb3-798"><a href="#cb3-798"></a>      <span class="dt">"Repository"</span><span class="fu">:</span> <span class="st">"CRAN"</span><span class="fu">,</span></span>
+<span id="cb3-799"><a href="#cb3-799"></a>      <span class="dt">"Hash"</span><span class="fu">:</span> <span class="st">"51dab85c6c98e50a18d7551e9d49f76c"</span></span>
+<span id="cb3-800"><a href="#cb3-800"></a>    <span class="fu">}</span></span>
+<span id="cb3-801"><a href="#cb3-801"></a>  <span class="fu">}</span></span>
+<span id="cb3-802"><a href="#cb3-802"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</details>
+</section>
+<section id="renvinstall" class="level4" data-number="5.2.1.2">
+<h4 data-number="5.2.1.2" class="anchored" data-anchor-id="renvinstall"><span class="header-section-number">5.2.1.2</span> <code>renv::install</code></h4>
+<p>With <code>renv::install</code>, we can install new packages to our project. Assume you need the package <code>palmerpenguins</code> in your project.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Console</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"palmerpenguins"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p><code>renv</code> will download the package <code>palmerpenguins</code>. If you want to install packages with dependencies, <code>renv</code> will install these dependencies automatically. In your console you will be asked if you want to install the package to your project library. Type <code>Y</code> in to your console.</p>
+<div class="cell" data-code-copy="false">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Downloading packages -------------------------------------------------------</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Downloading palmerpenguins from CRAN ...      OK <span class="pp">[</span><span class="st">2.9 Mb in 1.8s</span><span class="pp">]</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Successfully</span> downloaded 1 package in 2.1 seconds.</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following package<span class="op">(s)</span> will be installed:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> palmerpenguins <span class="pp">[</span><span class="st">0.1.1</span><span class="pp">]</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">These</span> packages will be installed into <span class="st">"~/Documents/repro-book/renv/library/macos/R-4.4/aarch64-apple-darwin20"</span>.</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Do</span> you want to proceed<span class="pp">?</span> <span class="pp">[</span><span class="st">Y/n</span><span class="pp">]</span>: </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>After that, you should see something in your console similar to this:</p>
+<div class="cell" data-code-copy="false">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installing packages --------------------------------------------------------</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Installing palmerpenguins ...                 OK <span class="pp">[</span><span class="st">installed binary and cached in 0.34s</span><span class="pp">]</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Successfully</span> installed 1 package in 0.42 seconds.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Now you have installed the package <code>palmerpenguins</code> to your project library.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="What are dependencies?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What are dependencies?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Some packages require other packages to be loaded. These other packages are called dependencies. Your primary package depends on these other packages to run correctly.</p>
+<p>The package <code>psychonetrics</code> has a lot of packages. Install the package to see what happens.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Console</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"psychonetrics"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="renvsnapshot" class="level4" data-number="5.2.1.3">
+<h4 data-number="5.2.1.3" class="anchored" data-anchor-id="renvsnapshot"><span class="header-section-number">5.2.1.3</span> <code>renv::snapshot</code></h4>
+<p>When you search in the lockfile for your new installed package <code>palmerpenguins</code>, you will not find it there. <code>renv</code> does not automatically saves the metadata of your installed packages in the lockfile. With <code>renv::snapshot()</code>, we can document the package versions we need in our project. Simply run the command in your Console</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Console</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>In your Console, you will see something like this:</p>
+<div class="cell" data-code-copy="false">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> The lockfile is already up to date.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p><code>renv</code> did not add the metadata about palmerpenguins to the lockfile. This is because <code>renv</code> checks if your package is really used somewhere in your project. The bare installation is not enough. This is to not unnecessarily overload the lockfile with packages that are not used in the project. The package has to be used and therefore loaded somewhere in the project. Create a script <code>test_palmerpenguins.R</code>, type <code>library(palmerpenguins)</code>, and save it in your project. Then try the snapshot command again:</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Console</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Your console should have an output like this:</p>
+<div class="cell" data-code-copy="false">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following package<span class="op">(s)</span> will be updated in the lockfile:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># CRAN -----------------------------------------------</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> palmerpenguins    <span class="pp">[</span><span class="st">* </span><span class="op">-</span><span class="st">&gt; 0.1.1</span><span class="pp">]</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Do</span> you want to proceed<span class="pp">?</span> <span class="pp">[</span><span class="st">Y/n</span><span class="pp">]</span>: </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Again, type <code>Y</code>. Then, you should see an output like this:</p>
+<div class="cell" data-code-copy="false">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Lockfile written to <span class="st">"path/to/your/project/folder/renv.lock"</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>When you open the lockfile, you will find the metadata of palmerpenguins there. <code>renv::snapshot()</code> is useful because you and your collaborators will be able to reconstruct your package versions. The reconstruction relies on the lockfile and <code>renv::snapshot()</code> will update your current packages used in your project.</p>
+</section>
+<section id="renvrestore" class="level4" data-number="5.2.1.4">
+<h4 data-number="5.2.1.4" class="anchored" data-anchor-id="renvrestore"><span class="header-section-number">5.2.1.4</span> <code>renv::restore</code></h4>
+<p>Say you successfully built up a project library, installed packages to it and saved the metadata into your lockfile. Future you or other collaborators or researchers now want to reproduce your code and need to use the particular package versions. The collaborators found your project and code and downloaded it. They now want to install the particular package versions. To simplify this step, one can use the <code>renv::restore()</code> function.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Console</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Then you should get an output like this:</p>
+<div class="cell" data-code-copy="false">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following package<span class="op">(s)</span> will be updated:</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># CRAN -----------------------------------------------------------------------</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> fontawesome    <span class="pp">[</span><span class="st">0.5.2 </span><span class="op">-</span><span class="st">&gt; 0.5.3</span><span class="pp">]</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> knitr          <span class="pp">[</span><span class="st">1.48 </span><span class="op">-</span><span class="st">&gt; 1.49</span><span class="pp">]</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> rmarkdown      <span class="pp">[</span><span class="st">2.28 </span><span class="op">-</span><span class="st">&gt; 2.29</span><span class="pp">]</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> tinytex        <span class="pp">[</span><span class="st">0.53 </span><span class="op">-</span><span class="st">&gt; 0.54</span><span class="pp">]</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> cyclocomp      <span class="pp">[</span><span class="st">* </span><span class="op">-</span><span class="st">&gt; 1.1.1</span><span class="pp">]</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> lazyeval       <span class="pp">[</span><span class="st">* </span><span class="op">-</span><span class="st">&gt; 0.2.2</span><span class="pp">]</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> lintr          <span class="pp">[</span><span class="st">* </span><span class="op">-</span><span class="st">&gt; 3.1.2</span><span class="pp">]</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> remotes        <span class="pp">[</span><span class="st">* </span><span class="op">-</span><span class="st">&gt; 2.5.0</span><span class="pp">]</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> rex            <span class="pp">[</span><span class="st">* </span><span class="op">-</span><span class="st">&gt; 1.2.1</span><span class="pp">]</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> xmlparsedata   <span class="pp">[</span><span class="st">* </span><span class="op">-</span><span class="st">&gt; 1.0.5</span><span class="pp">]</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="ex">Do</span> you want to proceed<span class="pp">?</span> <span class="pp">[</span><span class="st">Y/n</span><span class="pp">]</span>:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Type in <code>Y</code> and you should get an output similar to this:</p>
+<div class="cell" data-code-copy="false">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Downloading packages -------------------------------------------------------</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Querying repositories for available binary packages ... Done!</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Downloading rmarkdown from CRAN ...           OK <span class="pp">[</span><span class="st">2.5 Mb in 1.2s</span><span class="pp">]</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Downloading fontawesome from CRAN ...         OK <span class="pp">[</span><span class="st">1.3 Mb in 0.89s</span><span class="pp">]</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Downloading knitr from CRAN ...               OK <span class="pp">[</span><span class="st">1.1 Mb in 1.1s</span><span class="pp">]</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Downloading tinytex from CRAN ...             OK <span class="pp">[</span><span class="st">140.3 Kb in 0.68s</span><span class="pp">]</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Successfully</span> downloaded 4 packages in 6.4 seconds.</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Installing packages --------------------------------------------------------</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Installing fontawesome ...                    OK <span class="pp">[</span><span class="st">installed binary and cached in 0.26s</span><span class="pp">]</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Installing knitr ...                          OK <span class="pp">[</span><span class="st">installed binary and cached in 1.2s</span><span class="pp">]</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Installing tinytex ...                        OK <span class="pp">[</span><span class="st">installed binary and cached in 0.24s</span><span class="pp">]</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Installing rmarkdown ...                      OK <span class="pp">[</span><span class="st">installed binary and cached in 1.6s</span><span class="pp">]</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Installing remotes ...                        OK <span class="pp">[</span><span class="st">linked from cache</span><span class="pp">]</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Installing cyclocomp ...                      OK <span class="pp">[</span><span class="st">linked from cache</span><span class="pp">]</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Installing lazyeval ...                       OK <span class="pp">[</span><span class="st">linked from cache</span><span class="pp">]</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Installing rex ...                            OK <span class="pp">[</span><span class="st">linked from cache</span><span class="pp">]</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Installing xmlparsedata ...                   OK <span class="pp">[</span><span class="st">linked from cache</span><span class="pp">]</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> Installing lintr ...                          OK <span class="pp">[</span><span class="st">linked from cache</span><span class="pp">]</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following loaded package<span class="op">(s)</span> have been updated:</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="bu">-</span> knitr</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="ex">Restart</span> your R session to use the new versions.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="renvstatus" class="level4" data-number="5.2.1.5">
+<h4 data-number="5.2.1.5" class="anchored" data-anchor-id="renvstatus"><span class="header-section-number">5.2.1.5</span> <code>renv::status</code></h4>
+<p>You can check the status of your dependency management by using <code>renv::status()</code>.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Console</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">status</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>If everything is alright, you should get an output message similar to this:</p>
+<div class="cell" data-code-copy="false">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">No</span> issues found <span class="at">--</span> the project is in a consistent state.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>However, there can still arise some issues. You can see an example below</p>
+<div class="cell" data-code-copy="false">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following package<span class="op">(s)</span> are in an inconsistent state:</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">package</span>  installed recorded used</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">ellipsis</span> y         y        n   </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="ex">See</span> <span class="kw">`</span><span class="ex">?renv::status</span><span class="kw">`</span> for advice on resolving these issues.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Fortunately, the messages displayed by <code>renv</code> are very straightforward. It tells us to go to the helper page by running <code>?renv::status</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Section of the helping page for renv::status()">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Section of the helping page for renv::status()
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Missing packages</strong></p>
+<p><code>status()</code> first checks that all packages used by the project are installed. This must be done first because if any packages are missing we can’t tell for sure that a package isn’t used; it might be a dependency that we don’t know about. Once you have resolve any installation issues, you’ll need to run <code>status()</code> again to reveal the next set of potential problems.</p>
+<p>There are four possibilities for an uninstalled package:</p>
+<ul>
+<li><p>If it’s used and recorded, call <code>renv::restore()</code> to install the version specified in the lockfile.</p></li>
+<li><p>If it’s used and not recorded, call <code>renv::install()</code> to install it from CRAN or elsewhere.</p></li>
+<li><p>If it’s not used and recorded, call <code>renv::snapshot()</code> to remove it from the lockfile.</p></li>
+<li><p>If it’s not used and not recorded, there’s nothing to do. This the most common state because you only use a small fraction of all available packages in any one project.</p></li>
+<li><p>If you have multiple packages in an inconsistent state, we recommend <code>renv::restore()</code>, then <code>renv::install()</code>, then <code>renv::snapshot()</code>, but that also suggests you should be running status more frequently.</p></li>
+</ul>
+<p><strong>Lockfile vs <code>dependencies()</code></strong></p>
+<p>Next we need to ensure that packages are recorded in the lockfile if and only if they are used by the project. Fixing issues of this nature only requires calling <code>snapshot()</code> because there are four possibilities for a package:</p>
+<ul>
+<li><p>If it’s used and recorded, it’s ok.</p></li>
+<li><p>If it’s used and not recorded, call <code>renv::snapshot()</code> to add it to the lockfile.</p></li>
+<li><p>If it’s not used but is recorded, call <code>renv::snapshot()</code> to remove it from the lockfile.</p></li>
+<li><p>If it’s not used and not recorded, it’s also ok, as it may be a development dependency.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p>In the helping page our case is well-described. We can just run <code>renv::snapshot</code> to remove it from the lockfile. Thus, our lockfile does not contain the unused package <code>ellipsis</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Video explaining basic `renv` functions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Video explaining basic <code>renv</code> functions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For further information, see this video to increase your understanding of <code>renv</code>.</p>
+<div id="vid-renv-rapp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-renv-rapp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/Oen9xhEh8PY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-renv-rapp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;5.1: <strong>“Robust R Code That Will Work Forever With {renv}”.</strong> The video by <span class="citation" data-cites="rapp2024">Rapp (<a href="../references.html#ref-rapp2024" role="doc-biblioref">2024</a>)</span> aims to display and explain common workflows when creating a reproducible environment using <code>{renv}</code>. License: not specified. Reused without modifications.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="renv-workflow" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="renv-workflow"><span class="header-section-number">5.2.2</span> <code>renv</code>-workflow</h3>
+<div id="fig-renv-workflow" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-renv-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/renv-workflow.png" class="img-fluid figure-img" alt="">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-renv-workflow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: “<a href="https://rstudio.github.io/renv/articles/renv.html">renv workflow</a>” by <a href="https://hadley.nz/">Kevin Ushey and Hadley Wickham</a> (License: <a href="https://github.com/rstudio/renv/blob/main/LICENSE">MIT License</a>; reused without modifications)
+</figcaption>
+</figure>
+</div>
+<p>In <a href="#fig-renv-workflow" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>, you can see how the basic functions in <code>renv</code> work. You know the most important things now, but it sure can help to have a guideline.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Step-by-step guide for `renv`">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Step-by-step guide for <code>renv</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Create a reproducible environment</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Reproduce such an environment</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ol type="1">
+<li>Create an <a href="@sec-rproject">R project</a></li>
+<li>Install <code>renv</code> <span class="math inline">\(\rightarrow\)</span> <code>install.packages("renv")</code></li>
+<li>Initialize reproducible environment <span class="math inline">\(\rightarrow\)</span> <code>renv::init()</code></li>
+<li>Check status <span class="math inline">\(\rightarrow\)</span> <code>renv::status()</code></li>
+<li>Use help page from <code>renv::status</code> <span class="math inline">\(\rightarrow\)</span> <code>?renv::status()</code></li>
+<li>Install packages to project library <span class="math inline">\(\rightarrow\)</span> <code>renv::install()</code></li>
+<li>Code something that makes you happy, e.g.&nbsp;a wonderful plot</li>
+<li>Save your used packages into your lockfile <span class="math inline">\(\rightarrow\)</span> <code>renv::snapshot()</code></li>
+</ol>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<ol type="1">
+<li>Download the project folder e.g.&nbsp;from <a href="https://osf.io" class="uri">https://osf.io</a> or <a href="https://zenodo.org" class="uri">https://zenodo.org</a></li>
+<li>Open R project by clicking the <code>.Rproj</code> file</li>
+<li>Check status <span class="math inline">\(\rightarrow\)</span> <code>renv::status()</code></li>
+<li>Use help page from <code>renv::status</code> <span class="math inline">\(\rightarrow\)</span> <code>?renv::status()</code></li>
+<li>Restore the project library from the lockfile <span class="math inline">\(\rightarrow\)</span> <code>renv::restore()</code></li>
+<li>Run the code written be past you or an other researcher</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="limitations-of-renv" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="limitations-of-renv"><span class="header-section-number">5.3</span> Limitations of <code>renv</code></h2>
+<p>As you can see in the lockfile, <code>renv</code> tracks not only the package versions but also the R version. However, <code>renv</code> cannot solve reproducibility issues when it comes to different R versions. It is possible to deal with this problem installing the specific R version used in the project you want to reproduce. Another way is using <em>docker</em> (see chapter about docker). However, it requires more time and work to make a project reproducible. Further, the benefits of separate projects comes with a constraint. Possible bug fixes that are included in later versions of a package are not implemented in the project libraries. Nevertheless, we recommend <code>renv</code> as a valuable tool for increasing a project’s reproducibility.</p>
+</section>
+<section id="references" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="references"><span class="header-section-number">5.4</span> References</h2>
+<p>somehow include:</p>
+<ul>
+<li>https://rstudio.github.io/renv/articles/renv.html</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-gorgolewski2016" class="csl-entry" role="listitem">
+Gorgolewski, Krzysztof J., Tibor Auer, Vince D. Calhoun, R. Cameron Craddock, Samir Das, Eugene P. Duff, Guillaume Flandin, et al. 2016. <span>“The Brain Imaging Data Structure, a Format for Organizing and Describing Outputs of Neuroimaging Experiments.”</span> <em>Scientific Data</em> 3 (1). <a href="https://doi.org/10.1038/sdata.2016.44">https://doi.org/10.1038/sdata.2016.44</a>.
+</div>
+<div id="ref-rapp2024" class="csl-entry" role="listitem">
+Rapp, Albert. 2024. <span>“Robust r Code That Will Work Forever with <span class="nocase">renv</span>.”</span> <em>YouTube</em>. <a href="https://www.youtube.com/watch?v=Oen9xhEh8PY">https://www.youtube.com/watch?v=Oen9xhEh8PY</a>.
+</div>
+<div id="ref-community2022" class="csl-entry" role="listitem">
+The Turing Way Community. 2022. <em>The Turing Way: A Handbook for Reproducible, Ethical and Collaborative Research</em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.3233853">https://doi.org/10.5281/zenodo.3233853</a>.
+</div>
+<div id="ref-ushey2024" class="csl-entry" role="listitem">
+Ushey, Kevin, and Hadley Wickham. 2024. <em>Renv: Project Environments</em>. <a href="https://rstudio.github.io/renv/">https://rstudio.github.io/renv/</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script defer="" data-domain="lennartwittkuhn.com/repro-book" src="https://plausible.io/js/script.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/lennartwittkuhn\.com\/repro-book\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/good-coding-practices.html" class="pagination-link" aria-label="Good Coding Practices">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../summary.html" class="pagination-link" aria-label="Summary">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2024 – 2025 <a href="?tab=readme-ov-file#contributors">The Repro Book Team</a></p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link active" href="../acknowledgements.html" aria-current="page">
+<p>Acknowledgements</p>
+</a>
+  </li>  
+</ul>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/renv.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/renv.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>License: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

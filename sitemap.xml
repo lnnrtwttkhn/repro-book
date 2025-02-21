@@ -2,42 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lennartwittkuhn.com/repro-book/index.html</loc>
-    <lastmod>2024-12-10T20:08:08.849Z</lastmod>
+    <lastmod>2025-02-21T12:26:34.505Z</lastmod>
   </url>
   <url>
     <loc>https://lennartwittkuhn.com/repro-book/contents.html</loc>
-    <lastmod>2024-12-10T20:08:08.849Z</lastmod>
+    <lastmod>2025-02-21T12:26:34.505Z</lastmod>
   </url>
   <url>
     <loc>https://lennartwittkuhn.com/repro-book/chapters/intro.html</loc>
-    <lastmod>2024-12-10T20:08:08.849Z</lastmod>
+    <lastmod>2025-02-21T12:26:34.504Z</lastmod>
   </url>
   <url>
     <loc>https://lennartwittkuhn.com/repro-book/chapters/naming-things.html</loc>
-    <lastmod>2024-12-10T20:08:08.849Z</lastmod>
+    <lastmod>2025-02-21T12:26:34.504Z</lastmod>
   </url>
   <url>
     <loc>https://lennartwittkuhn.com/repro-book/chapters/rdm.html</loc>
-    <lastmod>2024-12-10T20:08:08.849Z</lastmod>
+    <lastmod>2025-02-21T12:26:34.504Z</lastmod>
   </url>
   <url>
     <loc>https://lennartwittkuhn.com/repro-book/chapters/good-coding-practices.html</loc>
-    <lastmod>2024-12-10T20:08:08.849Z</lastmod>
+    <lastmod>2025-02-21T12:26:34.504Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lennartwittkuhn.com/repro-book/chapters/renv.html</loc>
+    <lastmod>2025-02-21T12:26:34.504Z</lastmod>
   </url>
   <url>
     <loc>https://lennartwittkuhn.com/repro-book/summary.html</loc>
-    <lastmod>2024-12-10T20:08:08.849Z</lastmod>
+    <lastmod>2025-02-21T12:26:34.506Z</lastmod>
   </url>
   <url>
     <loc>https://lennartwittkuhn.com/repro-book/references.html</loc>
-    <lastmod>2024-12-10T20:08:08.849Z</lastmod>
+    <lastmod>2025-02-21T12:26:34.505Z</lastmod>
   </url>
   <url>
     <loc>https://lennartwittkuhn.com/repro-book/acknowledgements.html</loc>
-    <lastmod>2024-12-10T20:08:08.849Z</lastmod>
+    <lastmod>2025-02-21T12:26:34.504Z</lastmod>
   </url>
   <url>
     <loc>https://lennartwittkuhn.com/repro-book/contributing.html</loc>
-    <lastmod>2024-12-10T20:08:08.849Z</lastmod>
+    <lastmod>2025-02-21T12:26:34.505Z</lastmod>
   </url>
 </urlset>
