@@ -185,7 +185,7 @@ Thus, it makes sense to have research data management from the beginning on in m
 *Modularity* is a widely used concept for research data management.
 When applying the concept of modularity, data is stored in different phases of the research process, e.g. source data, raw data, and derivative data.
 Source data is typically the *data as you get them*.
-This can be the output of a software programm (e.g. [LimeSurvey](https://www.limesurvey.org) or [Unipark](https://www.unipark.com)), pen-and-paper questionnaires, etc.
+This can be the output of a software program (e.g. [LimeSurvey](https://www.limesurvey.org) or [Unipark](https://www.unipark.com)), pen-and-paper questionnaires, etc.
 Raw data is typically the *digital form* of the source data.
 When your data is originally collected via pen-and-paper-questionnaires, somehow the data must be transferred to a digital format.
 When the data is collected directly via software programs, source data and raw data remain the same.
@@ -215,28 +215,6 @@ Burden of modular data:
 
 1. probably need for `file-dependency` file
 1. higher risk for chaotic project structure
-
-<!--#
-Comments:
-- Die Modularität wird hier bei insbesondere für Datensätze veranschaulicht, das Konzept der Modularität lässt sich jedoch auch gut auf Code - also modularen Code - übertragen.
-- Die Fotoreihe stellt dar, wie Anspruch und Wirklichkeit bezüglich der Aufbereitung von Daten typischerweise häufig auseinanderklaffen
-  - Liest man sich den Methodenteil eines Papers durch scheint alles klar sinnvoll und logisch aufgebaut zu sein.
-  - Will man dann die Ergebnisse reproduzieren, schaut es alles ziemlich diffus / confus aus. Da helfen dann auch keine READMEs mehr.
-- Tatsächlich ergibt es Sinn, sich von vornherein Gedanken über das Datenmanagement zu machen:
-  - Wie sollen meine Daten aufbereitet sein?
-  - Was will ich mit ihnen rechnen?
-  - Was bräuchte ich, um in 10 Jahren meine Rechnungen nachzuvollziehen?
-- Eine vielgenutzte Methode ist die der Modularität.
-- Dabei werden Datensätze in verschiedenen Stadien gespeichert, häufig Rohdaten, aufbereitete Daten und Ergebnisse von Analysen.
-
-Vorteile von Modularität:
-- leichteres Verstehen / nachvollziehen von Analyseschritten
-- leichteres Extrahieren von Daten, um eigene Rechnugnen an den Daten durchzuführen
-
-Nachteile von Modularität:
-- mehr Dateien können Projektstruktur undurchsichtiger machen
-- evtl. eigene Datei für Projektstruktur (um Abhängigkeiten klar zu machen)
--->
 
 ## FAIR principles
 
