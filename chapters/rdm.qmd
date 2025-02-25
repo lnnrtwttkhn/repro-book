@@ -348,13 +348,55 @@ It is widely used in the field of neuroimaging.
 The **Psychological Data Structure** (Psych-DS) aims to apply the principles of BIDS to behavioral data.
 Thus, it is heavily based on BIDS.
 The core idea is to consistently organize data, facilitating data sharing and enhancing the understanding of the data.
-There is also a [guide](https://psychds-docs.readthedocs.io/en/latest/) to help researchers organize their research projects.
-Like BIDS, Psych-DS provides a validation tool that checks if the data organization has been done correctly.
+There is also a [guide](https://psychds-docs.readthedocs.io/en/latest/guides/1_getting_started/) to help researchers organize their research projects.
+Like BIDS, Psych-DS provides a [validation tool](https://psych-ds.github.io/validator/) that checks if the data organization has been done correctly.
+It also has the [CEDAR wizard](https://psych-ds.github.io/cedar-wizard-psychds/), a tool which creates a standard `.json` file.
+This file contains metadata informationen important to understand the dataset(s) someone is working within a project.
 
 However, Psych-DS has not been widely adopted by researchers, and its development is not as fast as that of BIDS.
 Therefore, it does not yet have extension tools like fMRIPrep.
 Nevertheless, Psych-DS could have more impact if more people began using it.
 The benefit of Psych-DS is clearly its adaptation to behavioral data structures, which can be applied by a wide range of research communities in psychology.
+
+::: {.callout-note title="Minimum requirements of a Psych-DS congruent project" collapse=FALSE}
+
+1. one folder for your study / research project
+1. inside that folder, there must exist a folder called `data`
+1. inside the `data` folder, all data must be with `.csv` extension
+1. if the primary data was not a `.csv`-file, it must be stored in another subfolder called `raw`
+1. `.csv`-files in the data folder must have the suffix `_data.csv`
+1. deliberate use of `-` and `_` to name data files as in @sec-metadatarecovery
+1. next to to the `data` folder a metadata file must exist, named `dataset_description.json` (see [CEDAR wizard](https://psych-ds.github.io/cedar-wizard-psychds/))
+
+::: {.callout-tip title="Metadata requirements"}
+- `"name"` - A name for the dataset
+- `"description"`- A description for the dataset, which can be as long or as short as you like
+- `variableMeasured` - A list of all the variable names that appear anywhere in the CSV file headers in your dataset
+:::
+
+::: {.callout-note title="Example of a Psych-DS sample folder" collapse="TRUE"}
+```
+Zebra-Questionnaire-Project/
+    dataset_description.json
+    analysis/
+        myanalysisfiles.R
+        my_excel_data.xlsx
+    data/
+        version-alltrials_participant-001_data.csv
+        version-alltrials_participant-002_data.csv
+        version-alltrials_participant-003_data.csv
+        version-nofillers_data.csv
+        summary-session_data.csv
+        raw/
+            questionnaire1.jpg
+            questionnaire2.jpg
+            questionnaire3.jpg
+```
+:::
+
+*Information were extracted from the [Psych-DS guide](https://psychds-docs.readthedocs.io/en/latest/guides/1_getting_started/)*
+
+:::
 
 ### Rectangular Data
 
