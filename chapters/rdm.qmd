@@ -166,7 +166,7 @@ cat(make_figure("remi-gau-data-readme"))
 
 >In software design, modularity refers to a logical partitioning of the "software design" that allows complex software to be manageable for the purpose of implementation and maintenance [@wikipedia2025].
 
-:::{.callout-tip}
+::: {.callout-tip}
 Even though this section deals with modularity of **data**, the concept of modularity can also be applied to **code**.
 :::
 
