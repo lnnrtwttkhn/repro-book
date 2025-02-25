@@ -415,7 +415,7 @@ Use columns for variables and rows for subjects or observations.
 The first row should contain variable names.
 If some data do not fit into one dataset, create a set of rectangular datasets and save them in separate files.
 Do not use multiple header rows.
-You can further apply the concept of `tidy data` [@wickham2014] to your rectangular dataset (see @sec-tidy-data).
+You can further apply the concept of `tidy data` [@wickham2014] to your rectangular dataset (see @sec-tidydata).
 
 ::: {.callout-caution title="Example of multiple header rows" collapse="true"}
 | A | B | C | D | E |
