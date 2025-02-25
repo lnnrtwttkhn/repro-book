@@ -542,7 +542,7 @@ After adding the spaces, saving the script, and running `lintr::lint("scripts/te
 
 :::
 
-## Tidy Data
+## Tidy Data {#sec-tidydata}
 
 ```{r}
 #| results: asis
@@ -702,7 +702,7 @@ Here are some potential benefits of validating your code:
 - Improved documentation  
 - Improved error handling
 
-### The `assertr` package and it's function `verify()`
+### The `assertr` package and it's function `verify()` {#sec-assertr}
 
 The [`assertr`](https://cran.r-project.org/web/packages/assertr/vignettes/assertr.html) package helps you when you start testing your code.
 Once you begin adopting the tidyverse coding style, the function `verify()` will be easy to apply in your code.

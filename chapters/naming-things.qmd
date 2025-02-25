@@ -341,7 +341,7 @@ Including metadata in a filename (for example, `2023_Experiment1_DrSmith.csv`) i
 This helps with organizing, searching, and sorting files, especially in large projects where you may have many similar files.
 By storing metadata in filenames, you can quickly understand what each file contains without opening it, saving time and reducing errors in data management.
 
-#### How to recover meta data from file names
+#### How to recover meta data from file names {#sec-metadatarecovery}
 
 Deliberate use of underscores (`_`) and hyphens (`-`) allows us to recover metadata from file names.
 
