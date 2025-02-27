@@ -41,6 +41,11 @@ Note, that reproducibility and *replicability* are two different terms.
 Replicability is achieved when the same analysis produce similar answers among *different* datasets, whereas reproducibility when the same analysis produce the same answer in the *same* dataset.
 That makes reproducibility the lowest common denominator in research.
 
+::: {.callout-warning title="Reproducibility vs. Replicability"}
+Reproducibility means that the same analysis of the same data leads to the same result.
+Replicability means that the same analysis of different data leads to the same result.
+:::
+
 ### Process-based reproducibility vs. outcome-based reproducibility
 
 As a researcher who wants to reproduce a result from a different research project, there are two main reasons why reproducibility might fail [@nosek2022].
