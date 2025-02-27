@@ -1,10 +1,14 @@
 ---
+title: "Introduction"
+engine: knitr
+execute:
+  eval: false
+  warning: false
+  message: false
 categories: [beginner, basics]
 abstract: |
   In this chapter, you get to know the concept of reproducibility, different types of reproducibility and related but somewhat different concepts.
 ---
-
-# Introduction
 
 ::: {.callout-tip appearance="minimal"}
 <h5>Learning Objectives</h5>
