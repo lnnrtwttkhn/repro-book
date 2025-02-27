@@ -46,6 +46,11 @@ Reproducibility means that the same analysis of the same data leads to the same 
 Replicability means that the same analysis of different data leads to the same result.
 :::
 
+::: {.callout-note}
+Within this book, we limit the term reproducibility to **computational** entities.
+Thus, we mainly focus on **data and code**.
+:::
+
 ### Process-based reproducibility vs. outcome-based reproducibility
 
 As a researcher who wants to reproduce a result from a different research project, there are two main reasons why reproducibility might fail [@nosek2022].
