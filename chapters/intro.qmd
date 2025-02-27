@@ -6,6 +6,15 @@ abstract: |
 
 # Introduction
 
+::: {.callout-tip appearance="minimal"}
+<h5>Learning Objectives</h5>
+
+:bulb: You know what reproducibility is.<br>
+:bulb: You can argue why reproducibility is useful for research.<br>
+:bulb: You can explain the difference between reproducibility and replicability.<br>
+:bulb: You can explain the difference between process-based and outcome-based reproducibility.
+:::
+
 ## What is reproducibility?
 
 A good definition of reproducibility is given by The Turing Way Company:
