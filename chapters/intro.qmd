@@ -29,7 +29,12 @@ Reproducibility
 > Reproducible is distinct from replicable, robust and generalisable as described in the figure below."
 > - @community2022, chapter on [Reproducibility](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions).
 
-![](/images/reproducible-matrix.jpg){fig-align="center"}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("reproducible-matrix"))
+```
 
 We will use this conceptualization of reproducibility throughout the book.
 Note, that reproducibility and *replicability* are two different terms.
