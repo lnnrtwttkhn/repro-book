@@ -53,6 +53,20 @@ First, you may not be able to repeat the analysis that had been done before, bec
 This is called an process-based reproducibility failure. Second, your reanalysis yield different results than the original report.
 This is called an outcome-based reproducibility failure and can happen due to an error either in the original or the reproduction study [@nosek2022].
 
+## Benefits of reproducible research
+
+1. Enhances the clarity of research processes for other researchers and yourself
+1. Allows other researchers verifying your results
+1. Increases the credibility of research findings
+1. Saves time in the long run by reusing methods and data
+1. Aids in the identification of errors and biases
+1. Ensures that research outputs can be used in future studies
+1. Promotes better documentation of research processes
+1. Strengthen a researcher`s reputation and career prospects
+1. Fosters public understanding of scientific processes
+1. Promotes better data management practices
+1. Minimizes duplication of research efforts
+
 ## Current state of reproducibility
 
 ## What you can expect from this book
