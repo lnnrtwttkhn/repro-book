@@ -17,3 +17,11 @@ authors:
     email: justus.reihs@studium.uni-hamburg.de
     affiliations:
       - ref: uhh-psych
+  - id: kuemmerle
+    name:
+      given: Liese
+      family: Kümmerle
+      literal: Liese Kümmerle
+    email: liese.kuemmerle@studium.uni-hamburg.de
+    affiliations:
+      - ref: uhh-psych
