@@ -61,6 +61,14 @@ The purpose of the book is not to increase your statistical knowledge and skills
 If you want to learn more about statistics, we recommend [this free E-book](https://learningstatisticswithr.com/lsr-0.6.pdf) by Danielle Navarro.
 If you prefer an analogous book, we recommend [Discovering statistics using R](https://uk.sagepub.com/en-gb/eur/discovering-statistics-using-r/book236067) by Andy Field.
 
+### Programming
+
+The same applies to programming as to statistics.
+You will not learn anything about a new programming language.
+However, you will learn concepts derived from programming that benefits your research.
+Thus, some parts of the book seem quite technical.
+Nevertheless, these technical parts aim to make your research more robust and less error-prone regarding reproducibility.
+
 ## How you get the most out of this book
 
 ## References
