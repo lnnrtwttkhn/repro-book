@@ -1,3 +1,9 @@
+---
+categories: [beginner, basics]
+abstract: |
+  In this chapter, you get to know the concept of reproducibility, different types of reproducibility and related but somewhat different concepts.
+---
+
 # Introduction
 
 ## What is reproducibility?
