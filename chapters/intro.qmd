@@ -21,7 +21,9 @@ A good definition of reproducibility is given by The Turing Way Company:
 
 Reproducibility
 
-> "At *The Turing Way*, we define **reproducible research** as work that can be independently recreated from the same data and the same code that the original team used. Reproducible is distinct from replicable, robust and generalisable as described in the figure below."
+> "At *The Turing Way*, we define **reproducible research** as work that can be independently recreated from the same data and the same code that the original team used.
+> Reproducible is distinct from replicable, robust and generalisable as described in the figure below."
+> - @community2022, chapter on [Reproducibility](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions).
 
 ![](/images/reproducible-matrix.jpg){fig-align="center"}
 
