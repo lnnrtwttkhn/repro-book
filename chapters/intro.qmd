@@ -22,12 +22,6 @@ First, you may not be able to repeat the analysis that had been done before, bec
 This is called an process-based reproducibility failure. Second, your reanalysis yield different results than the original report.
 This is called an outcome-based reproducibility failure and can happen due to an error either in the original or the reproduction study [@nosek2022].
 
-## Why do reproducible research?
-
-During the book you might feel overwhelmed of what one can think about to turn a research project into a more reproducible project.
-You might start to wonder if its even worth the time you spend on it.
-We believe it is, and here are some arguments why
-
 ## Current state of reproducibility
 
 ## What you can expect from this book
