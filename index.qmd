@@ -8,6 +8,9 @@ metadata-files:
 
 ## Welcome {.unnumbered}
 
+Welcome to the world of reproduciblity and "The Repro Book - A Guide to Reproducible Research"!
+The purpose of this book is to empower scientists, researchers, and students with the knowledge and skills needed to conduct a research project that is easy to reproduce.
+
 ## Who is this book for? {.unnumbered}
 
 ## What is the purpose of this book? {.unnumbered}
