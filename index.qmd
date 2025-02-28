@@ -20,12 +20,12 @@ cat(make_figure("reproducible-journey"))
 
 ## Welcome {.unnumbered}
 
-Welcome to the world of reproduciblity and "The Repro Book - A Guide to Reproducible Research"!
+Welcome to the world of reproducibility and "The Repro Book - A Guide to Reproducible Research"!
 The purpose of this book is to empower scientists, researchers, and students with the knowledge and skills needed to conduct a research project that is easy to reproduce.
 
 ## Who is this book for? {.unnumbered}
 
-This guide is meant to be a gentle introduction to reproducibility for (aspiring) scientists who want to conduct research more reproducable.
+This guide is meant to be a gentle introduction to reproducibility for (aspiring) scientists who want to conduct research more reproducible.
 Whether you are conducting experiments, writing code, collaborating with scientific peers, or managing complex data sets, this book conveys useful concepts with hands-on tips and exercises to enhance the reproducibility of your research project.
 While this book was developed with scientists in mind, it is open to anyone who wants to learn more about reproducibility.
 We try to avoid technical jargon as much as we can.
@@ -33,9 +33,9 @@ When we discuss best practices about reproducible guidelines, we try to offer mu
 
 ## What is the purpose of this book? {.unnumbered}
 
-Reproducability can take your scientific projects to the next level.
+Reproducibility can take your scientific projects to the next level.
 By enhancing reproducibility, you will strengthen your results and evidence from your analysis [@community2022].
-Of course, conducting research projects considering reproduciblity also adds some layer of complexity to your workflow.
+Of course, conducting research projects considering reproducibility also adds some layer of complexity to your workflow.
 We aim to simplify this workflow as much as possible for you. Whether you are new to version control or have dabbled in it before, this book aims to add something for all levels of expertise.
 
 
