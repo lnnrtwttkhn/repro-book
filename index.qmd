@@ -33,6 +33,12 @@ When we discuss best practices about reproducible guidelines, we try to offer mu
 
 ## What is the purpose of this book? {.unnumbered}
 
+Reproducability can take your scientific projects to the next level.
+By enhancing reproducibility, you will strengthen your results and evidence from your analysis [@community2022].
+Of course, conducting research projects considering reproduciblity also adds some layer of complexity to your workflow.
+We aim to simplify this workflow as much as possible for you. Whether you are new to version control or have dabbled in it before, this book aims to add something for all levels of expertise.
+
+
 ## How to use this book? {.unnumbered}
 
 First paragraph about reproduciblity...
