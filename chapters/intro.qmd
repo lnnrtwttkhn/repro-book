@@ -113,8 +113,6 @@ However, you will learn concepts derived from programming that benefits your res
 Thus, some parts of the book seem quite technical.
 Nevertheless, these technical parts aim to make your research more robust and less error-prone regarding reproducibility.
 
-## How you get the most out of this book
-
 ## References
 
 John, L. K., Loewenstein, G., & Prelec, D. (2012). Measuring the prevalence of questionable research practices with incentives for truth telling. *Psychological science*, *23*(5), 524-532. <https://doi.org/10.1177/0956797611430953>
