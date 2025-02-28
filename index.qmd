@@ -1,8 +1,20 @@
 ---
+engine: knitr
+execute:
+  eval: false
+  warning: false
+  message: false
 metadata-files:
   - _authors.yml
   - _affiliations.yml
 ---
+
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("reproducible-journey"))
+```
 
 # Preface {.unnumbered}
 
@@ -22,6 +34,20 @@ When we discuss best practices about reproducible guidelines, we try to offer mu
 ## What is the purpose of this book? {.unnumbered}
 
 ## How to use this book? {.unnumbered}
+
+First paragraph about reproduciblity...
+
+We also believe in **learning by doing** and try to **focus on implementation** as much as possible.
+The concepts introduced in this book are accompanied by practical examples and hands on exercises. <!--# and quizzes?-->
+Feel free to follow the exercises to gain the necessary "muscle memory" to start enhancing the reproducibility of your work step-by-step.
+
+This book was initially created for the full-semester course "[Open Science in Practice: A Toolkit for Research](https://osf.io/23mvn/)" at [University of Hamburg](https://www.uni-hamburg.de), Germany.
+The book is therefore structured for a course that is spread out across multiple sessions.
+Each chapter and the accompanying exercises should roughly fill 90 minutes of class time during a course.
+
+This book is available in HTML format and will soon be available as PDF version.
+However, we recommend using the **HTML version** for the most up-to-date content. The HTML version in continuously updated with new material, corrections, and interactive elements, ensuring you always have access to the latest information.
+The PDF version will be a static snapshot and may become outdated over time, making it useful for offline reading and archival but less reliable for the most current information.
 
 ## How can I contribute? {.unnumbered}
 
