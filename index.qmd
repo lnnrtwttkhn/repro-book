@@ -6,10 +6,12 @@ metadata-files:
 
 # Preface {.unnumbered}
 
-This is a Quarto book.
+## Welcome {.unnumbered}
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+## Who is this book for? {.unnumbered}
 
-```{r}
-1 + 1
-```
+## What is the purpose of this book? {.unnumbered}
+
+## How to use this book? {.unnumbered}
+
+## How can I contribute? {.unnumbered}
