@@ -15,7 +15,7 @@ The purpose of this book is to empower scientists, researchers, and students wit
 
 This guide is meant to be a gentle introduction to reproducibility for (aspiring) scientists who want to conduct research more reproducable.
 Whether you are conducting experiments, writing code, collaborating with scientific peers, or managing complex data sets, this book conveys useful concepts with hands-on tips and exercises to enhance the reproducibility of your research project.
-While this book was developed with sicentists in mind, it is open to anyone who wants to learn more about reproducibility.
+While this book was developed with scientists in mind, it is open to anyone who wants to learn more about reproducibility.
 We try to avoid technical jargon as much as we can.
 When we discuss best practices about reproducible guidelines, we try to offer multiple alternatives but also give opinionated recommendations as guidance to new users.
 
