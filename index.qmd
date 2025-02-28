@@ -41,11 +41,11 @@ We aim to simplify this workflow as much as possible for you. Whether you are ne
 
 ## How to use this book? {.unnumbered}
 
-First paragraph about reproduciblity...
-
-We also believe in **learning by doing** and try to **focus on implementation** as much as possible.
+We believe in **learning by doing** and try to **focus on implementation** as much as possible.
 The concepts introduced in this book are accompanied by practical examples and hands on exercises. <!--# and quizzes?-->
 Feel free to follow the exercises to gain the necessary "muscle memory" to start enhancing the reproducibility of your work step-by-step.
+Further, we recommend to work with a current research projects of yourself to apply different steps making your research more reproducible.
+However, we also provide an example project, which you can download [here](https://osf.io/23mvn/). <!--# update link, when the project is finally published-->
 
 This book was initially created for the full-semester course "[Open Science in Practice: A Toolkit for Research](https://osf.io/23mvn/)" at [University of Hamburg](https://www.uni-hamburg.de), Germany.
 The book is therefore structured for a course that is spread out across multiple sessions.
