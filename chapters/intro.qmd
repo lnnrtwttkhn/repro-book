@@ -1,9 +1,120 @@
-# Introduction
+---
+title: "Introduction"
+engine: knitr
+execute:
+  eval: false
+  warning: false
+  message: false
+categories: [beginner, basics]
+abstract: |
+  In this chapter, you get to know the concept of reproducibility, different types of reproducibility and related but somewhat different concepts.
+---
 
-This is a book created from markdown and executable code.
+::: {.callout-tip appearance="minimal"}
+<h5>Learning Objectives</h5>
 
-See @knuth84 for additional discussion of literate programming.
+:bulb: You know what reproducibility is.<br>
+:bulb: You can argue why reproducibility is useful for research.<br>
+:bulb: You can explain the difference between reproducibility and replicability.<br>
+:bulb: You can explain the difference between process-based and outcome-based reproducibility.
+:::
+
+## What is reproducibility?
+
+A good definition of reproducibility is given by The Turing Way Company:
+
+Reproducibility
+
+> "At *The Turing Way*, we define **reproducible research** as work that can be independently recreated from the same data and the same code that the original team used.
+> Reproducible is distinct from replicable, robust and generalisable as described in the figure below."
+> - @community2022, chapter on [Reproducibility](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions).
 
 ```{r}
-1 + 1
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("reproducible-matrix"))
 ```
+
+We will use this conceptualization of reproducibility throughout the book.
+Note, that reproducibility and *replicability* are two different terms.
+Replicability is achieved when the same analysis produce similar answers among *different* datasets, whereas reproducibility when the same analysis produce the same answer in the *same* dataset.
+That makes reproducibility the lowest common denominator in research.
+
+::: {.callout-warning title="Reproducibility vs. Replicability"}
+Reproducibility means that the same analysis of the same data leads to the same result.
+Replicability means that the same analysis of different data leads to the same result.
+:::
+
+::: {.callout-note}
+Within this book, we limit the term reproducibility to **computational** entities.
+Thus, we mainly focus on **data and code**.
+:::
+
+### Process-based reproducibility vs. outcome-based reproducibility
+
+As a researcher who wants to reproduce a result from a different research project, there are two main reasons why reproducibility might fail [@nosek2022].
+First, you may not be able to repeat the analysis that had been done before, because of data or code unavailability or the lack of information or software to recreate code.
+This is called an process-based reproducibility failure. Second, your reanalysis yield different results than the original report.
+This is called an outcome-based reproducibility failure and can happen due to an error either in the original or the reproduction study [@nosek2022].
+
+## Benefits of reproducible research
+
+1. Enhances the clarity of research processes for other researchers and yourself
+1. Allows other researchers verifying your results
+1. Increases the credibility of research findings
+1. Saves time in the long run by reusing methods and data
+1. Aids in the identification of errors and biases
+1. Ensures that research outputs can be used in future studies
+1. Promotes better documentation of research processes
+1. Strengthen a researcher`s reputation and career prospects
+1. Fosters public understanding of scientific processes
+1. Promotes better data management practices
+1. Minimizes duplication of research efforts
+
+## Current state of reproducibility
+
+## Reproducibility in the context of open science
+
+## What this book is not about
+
+Open Science is a huge movement with many aspects, that we cannot cover completely in this book.
+Reproducibility is one important aspect for striving to open science, but many topics are still left.
+
+### Qustionable Research Practices (QRPs)
+
+Questionable research practices (QRPs) have gained increasing attention since a popular article by John et al. (2012).
+We acknowledge the variety of QRPs and the need to face the issues raised by John et al. (2012), but that topic can fill another full book.
+If you feel engaged to learn more about QRPs, we recommend the [article](https://doi.org/10.1177/0956797611430953) by @john2012, and other links <!--# Links will be inserted soon -->.
+
+### Pre-registration
+
+Pre-registrations have become popular as one answer to QRPs.
+However, even pre-registered studies can be irreproducible when data and code is not findable, accessible or understandable.
+In turn, a full reproducible research project does not necessarily have to be pre-registered.
+Both contribute in its own way to open science.
+If you want to find to pre-register your study, we recommend <https://aspredicted.org> or <https://osf.io>.
+If you want to learn more about pre-registration, we recommend the [website](https://www.cos.io/initiatives/prereg) of the Center for Open Science.
+
+### Statistics
+
+Many aspects of this book will deal with [R](https://www.r-project.org) and [RStudio](https://posit.co/download/rstudio-desktop/), which are powerful tools for statistical programming.
+However, this book requires almost no statistical knowledge.
+You might find some t-tests or something similar in code-examples (see Section tidy data).
+The purpose of the book is not to increase your statistical knowledge and skills; the purpose of the book is to make your research more reproducible.
+If you want to learn more about statistics, we recommend [this free E-book](https://learningstatisticswithr.com/lsr-0.6.pdf) by Danielle Navarro.
+If you prefer an analogous book, we recommend [Discovering statistics using R](https://uk.sagepub.com/en-gb/eur/discovering-statistics-using-r/book236067) by Andy Field.
+
+### Programming
+
+The same applies to programming as to statistics.
+You will not learn anything about a new programming language.
+However, you will learn concepts derived from programming that benefits your research.
+Thus, some parts of the book seem quite technical.
+Nevertheless, these technical parts aim to make your research more robust and less error-prone regarding reproducibility.
+
+## References
+
+John, L. K., Loewenstein, G., & Prelec, D. (2012). Measuring the prevalence of questionable research practices with incentives for truth telling. *Psychological science*, *23*(5), 524-532. <https://doi.org/10.1177/0956797611430953>
+
+Nosek, B. A., Hardwicke, T. E., Moshontz, H., Allard, A., Corker, K. S., Dreber, A., Fidler, F., Hilgard, J., Kline Struhl, M., Nuijten, M. B., Rohrer, J. M., Romero, F., Scheel, A. M., Scherer, L. D., Schönbrodt, F. D. & Vazire, S. (2022). Replicability, robustness, and reproducibility in psychological science. *Annual review of psychology*, *73*(1), 719-748. <https://doi.org/10.1146/annurev-psych-020821-114157>
