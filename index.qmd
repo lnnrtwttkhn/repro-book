@@ -24,3 +24,7 @@ When we discuss best practices about reproducible guidelines, we try to offer mu
 ## How to use this book? {.unnumbered}
 
 ## How can I contribute? {.unnumbered}
+
+This book is constantly evolving and meant as a living resource, and your input can make it even better!
+If you spot typos, have suggestions for improvement, or want to contribute new content, we welcome your involvement!
+If you find a typo, have an idea for a new chapter or want to see a specific topic covered you are more than welcome to [open an issue]({{< var links.issues >}}) or submit a pull request in the [GitHub repository]({{< var project.repo-url >}}) of this book. 
