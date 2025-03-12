@@ -150,9 +150,9 @@ Reproducibility is one important aspect for striving to open science, but many t
 
 ### Qustionable Research Practices (QRPs)
 
-Questionable research practices (QRPs) have gained increasing attention since a popular article by John et al. (2012).
-We acknowledge the variety of QRPs and the need to face the issues raised by John et al. (2012), but that topic can fill another full book.
-If you feel engaged to learn more about QRPs, we recommend the [article](https://doi.org/10.1177/0956797611430953) by @john2012, and other links <!--# Links will be inserted soon -->.
+Questionable research practices (QRPs) have gained increasing attention since a popular article by @john2012.
+We acknowledge the variety of QRPs and the need to face the issues raised by the authors, but that topic can fill another full book.
+If you feel engaged to learn more about QRPs, we recommend to read the [article](https://doi.org/10.1177/0956797611430953) and the embedded references. <!--# Links will be inserted soon -->.
 
 ### Pre-registration
 
@@ -167,7 +167,7 @@ If you want to learn more about pre-registration, we recommend the [website](htt
 
 Many aspects of this book will deal with [R](https://www.r-project.org) and [RStudio](https://posit.co/download/rstudio-desktop/), which are powerful tools for statistical programming.
 However, this book requires almost no statistical knowledge.
-You might find some t-tests or something similar in code-examples (see Section tidy data).
+You might find some t-tests or something similar in code-examples (see @sec-tidydata).
 The purpose of the book is not to increase your statistical knowledge and skills; the purpose of the book is to make your research more reproducible.
 If you want to learn more about statistics, we recommend [this free E-book](https://learningstatisticswithr.com/lsr-0.6.pdf) by Danielle Navarro.
 If you prefer an analogous book, we recommend [Discovering statistics using R](https://uk.sagepub.com/en-gb/eur/discovering-statistics-using-r/book236067) by Andy Field.
@@ -175,7 +175,7 @@ If you prefer an analogous book, we recommend [Discovering statistics using R](h
 ### Programming
 
 The same applies to programming as to statistics.
-You will not learn anything about a new programming language.
+You will not learn anything new on purpose about a programming language.
 However, you will learn concepts derived from programming that benefits your research.
 Thus, some parts of the book seem quite technical.
 Nevertheless, these technical parts aim to make your research more robust and less error-prone regarding reproducibility.
