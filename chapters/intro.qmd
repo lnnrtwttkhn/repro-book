@@ -96,6 +96,46 @@ Three articles were essentially reproducible with minor deviations (such as typo
 Noteworthy, all of these articles were certified with an OpenData-Badge.
 Another study investigated 62 registered reports from the psychological literature from 2014-2018.
 36 of them (58%) provided shared data and code and 21 of these 36 (58%) were reproducible [@obels2020].
+This evidence shows that psychological literature is far from a reproducibility ratio of 100%.
+However, a substantial body of studies already is reproducible.
+
+Despite these raw findings the researchers of the above-mentioned studies also reported hindrances that weaken and opportunities that foster the reproducibility of results.
+Reproducibility is not easy, in fact one of the authors described the process of reproducing the results as "cumbersome and time-consuming trial-and-error work" [@artner2021, p. 527].
+Below, a list describes hindering and fostering factors for reproducible research.
+
+:::: columns
+
+::: {.column width="49%"}
+::: {.callout-important title="What hinders reproducibility?"}
+1. Raw and / or data not available
+1. Codebook / metadata not available
+1. Error-prone workflow of copy-pasting values from long statistical outputs
+1. Unclear reporting of analytic procedures
+1. Different versions of packages and softwares
+:::
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="49%"}
+::: {.callout-tip title="What fosters reproducibility?"}
+1. Availability of raw and tidy data
+1. Availability of metadata / a codebook
+1. Flowchart of case selection
+1. Data manipulation steps stored in code
+1. Dynamic reports (e.g. RMarkdown or Quarto)
+1. Co-piloting of data analysis
+:::
+:::
+
+::::
+
+Maybe, some of the concepts (e.g. raw vs. tidy data) are not familiar to you.
+Do not worry, this book will cover all topics, explain the concepts and will provide exercises to directly apply the concepts to a research project.
+One exception is the Co-piloting of data analysis.
+It means that other colleagues reconduct your data analyses based on your shared data and code.
+To get the best out of this book, we recommend to find a partner with whom you work through this book.
 
 ## Reproducibility in the context of open science
 
