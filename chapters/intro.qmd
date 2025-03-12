@@ -139,6 +139,10 @@ To get the best out of this book, we recommend to find a partner with whom you w
 
 ## Reproducibility in the context of open science
 
+Reproducibility is one part of the puzzle of OpenScience.
+OpenScience strives for transparency and accessibility of anything related to research.
+Reproducibility helps to make research more open.
+
 ## What this book is not about
 
 Open Science is a huge movement with many aspects, that we cannot cover completely in this book.
