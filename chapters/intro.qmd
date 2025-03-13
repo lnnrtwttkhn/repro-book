@@ -197,12 +197,12 @@ In their article, @lakomy2019 referred to a book from @cribb2010, defininf OpenS
 
 > "Open Science is a practice aiming to make scientifically generated knowledge and its method of production more accessible, applicable, transparent, and responsive to the needs of both scientists and the public." [@lakomy2019, p. 246]
 
-Open Science policies arised not only but also because of the so-called *replication crisis*.
+Open Science policies arose not only but also because of the so-called *replication crisis*.
 In psychology, 100 original studies were replicated and the results attracted a lot of attention.
 The mean effect size of the replicated studies was half the magnitude of the original effect sizes and only 36% of the replications had significant results compared to 97% of the original studies [@opensciencecollaboration2015].
 Psychology was not the only research area failing to replicate their studies.
 For example, cancer research also found theirselves in a crisis facing a thorough replication crisis [@begley2012].
-As a result, many initiatives and institutions arised to enhance the credibility of research (e.g. [Center for OpenScience](https://www.cos.io), [ORION](https://www.orion-openscience.eu), and many more).
+As a result, many initiatives and institutions arose to enhance the credibility of research (e.g. [Center for OpenScience](https://www.cos.io), [ORION](https://www.orion-openscience.eu), and many more).
 This comprised not only replicability of studies but the whole research process.
 Thus, reproducibility is a feature of this research process.
 Nowadays, policies aim to not make only research open, but also a variety of other topics which are disclosed in @fig-opensciencecloud including educational materials.
