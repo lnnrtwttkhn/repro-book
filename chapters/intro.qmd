@@ -111,7 +111,7 @@ Below, a list describes hindering and fostering factors for reproducible researc
 1. Codebook / metadata not available
 1. Error-prone workflow of copy-pasting values from long statistical outputs
 1. Unclear reporting of analytic procedures
-1. Different versions of packages and softwares
+1. Different versions of packages and software
 :::
 :::
 
