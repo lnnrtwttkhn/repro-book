@@ -190,6 +190,18 @@ wordcloud2(
 )
 ```
 
+Reproducibility is a buzzword that is inevitably linked to **OpenScience**.
+OpenScience is ... `insert definition`
+The OpenScience-movement was a response to ...
+In the last years, OpenScience developed to OpenScholarship which also includes...
+As one can see, it now comprises a variety of topic which are disclosed in @fig-opensciencecloud.
+Many initiatives from the European Union, etc. <!--# insert links please--> foster Science to be more open.
+This book mainly focuses on computational reproducibility.
+However, on our way to a reproducible research project, we will tangent many topics related to OpenScience.
+
+As shown in @fig-opensciencecloud, many topics are related to reproducibility and OpenScience.
+
+
 Reproducibility is one part of the puzzle of OpenScience.
 OpenScience strives for transparency and accessibility of anything related to research.
 Reproducibility helps to make research more open.
