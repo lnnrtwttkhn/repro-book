@@ -39,9 +39,18 @@ Note, that reproducibility and *replicability* are two different terms.
 Replicability is achieved when the same analysis produce similar answers among *different* datasets, whereas reproducibility when the same analysis produce the same answer in the *same* dataset.
 That makes reproducibility the lowest common denominator in research.
 
-::: {.callout-warning title="Reproducibility vs. Replicability"}
-Reproducibility means that the same analysis of the same data leads to the same result.
+The definition above is the most common definition of reproducibility.
+Note, that some research areas use the terms reproducibility and replicability the other way around.
+Thus, in computational science, reproducibility is given when the same result is obtained when the same analyses are carried out with different data.
+Other areas use these terms interchangeably.
+
+::: {.callout-tip title="Reproducibility vs. Replicability"}
+Dependent on the research area, reproducibility and replicability are used differently.
+In this book, we use a consistent and distinct conceptualization.
+**Reproducibility** means that the **same analysis** of the **same data** leads to the **same result**.
 Replicability means that the same analysis of different data leads to the same result.
+
+If you look in the literature, be aware of what these terms express respective of the study you are reading.
 :::
 
 ::: {.callout-note}
