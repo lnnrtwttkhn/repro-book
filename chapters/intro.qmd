@@ -139,6 +139,50 @@ To get the best out of this book, we recommend to find a partner with whom you w
 
 ## Reproducibility in the context of open science
 
+```{r make wordcloud}
+#| eval: true
+#| echo: false
+#| label: fig-opensciencecloud
+#| fig-cap: "Terms related to OpenScience (selfmade)"
+library(wordcloud2)
+
+#create dataframe for workcloud
+df_wordcloud <- data.frame(
+  word = c(
+    "OpenScience",
+    "OpenScholarship",
+    "OpenData",
+    "OpenCode",
+    "OpenSource",
+    "Reproducibility",
+    "Transparency",
+    "OpenAccess",
+    "Preregistration",
+    "Registered Reports",
+    "Open Educational Materials",
+    "OpenNotebooks",
+    "Equity",
+    "Diversity",
+    "Inclusion",
+    "OpenResearch",
+    "Collaboration",
+    "Data Sharing"
+    ),
+    freq = rep(1,18)
+)
+
+#create workcloud
+set.seed(1234)
+wordcloud2(
+  data = df_wordcloud,
+  size = 0.17,
+  #minSize = 0.5,
+  color = "random-dark",
+  shape = "diamond",
+  hoverFunction = "off"
+)
+```
+
 Reproducibility is one part of the puzzle of OpenScience.
 OpenScience strives for transparency and accessibility of anything related to research.
 Reproducibility helps to make research more open.
