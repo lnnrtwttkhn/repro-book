@@ -16,14 +16,12 @@ abstract: |
 :bulb: You know what reproducibility is.<br>
 :bulb: You can argue why reproducibility is useful for research.<br>
 :bulb: You can explain the difference between reproducibility and replicability.<br>
-:bulb: You can explain the difference between process-based and outcome-based reproducibility.
+:bulb: You can explain the difference between process-based and outcome-based reproducibility errors.
 :::
 
 ## What is reproducibility?
 
 A good definition of reproducibility is given by The Turing Way Company:
-
-Reproducibility
 
 > "At *The Turing Way*, we define **reproducible research** as work that can be independently recreated from the same data and the same code that the original team used.
 > Reproducible is distinct from replicable, robust and generalisable as described in the figure below."
@@ -51,7 +49,7 @@ Within this book, we limit the term reproducibility to **computational** entitie
 Thus, we mainly focus on **data and code**.
 :::
 
-### Process-based reproducibility vs. outcome-based reproducibility
+### Two errors of reproducibility
 
 As a researcher who wants to reproduce a result from a different research project, there are two main reasons why reproducibility might fail [@nosek2022].
 First, you may not be able to repeat the analysis that had been done before, because of data or code unavailability or the lack of information or software to recreate code.
