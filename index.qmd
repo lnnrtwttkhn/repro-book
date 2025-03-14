@@ -1,15 +1,64 @@
 ---
+engine: knitr
+execute:
+  eval: false
+  warning: false
+  message: false
 metadata-files:
   - _authors.yml
   - _affiliations.yml
 ---
 
+![This illustration is created by [Scriberia](https://www.scriberia.com/) with [The Turing Way](https://the-turing-way.netlify.app/) community. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) licence. DOI: [10.5281/zenodo.3695300](https://doi.org/10.5281/zenodo.3695300) (Version 3, [direct download link](https://zenodo.org/records/3695300/files/ReproducibleJourney.jpg?download=1)).](static/reproducible-journey.jpg){#fig-reproducible-journey fig-align="center" width="70%"}
+
+<!--#
+The illustration is not inserted to the book as the other illustrations.
+This illustration lies in a separate "static" folder of the project.
+All the other illustrations are stored in the nextcloud of UHH.
+That does not work on this page because index.qmd is not stored in the chapters folder of the project.
+-->
+
 # Preface {.unnumbered}
 
-This is a Quarto book.
+## Welcome {.unnumbered}
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+Welcome to the world of reproducibility and "The Repro Book - A Guide to Reproducible Research"!
+The purpose of this book is to empower scientists, researchers, and students with the knowledge and skills needed to conduct a research project that is easy to reproduce.
 
-```{r}
-1 + 1
-```
+## Who is this book for? {.unnumbered}
+
+This guide is meant to be a gentle introduction to reproducibility for (aspiring) scientists who want to conduct research more reproducible.
+Whether you are conducting experiments, writing code, collaborating with scientific peers, or managing complex data sets, this book conveys useful concepts with hands-on tips and exercises to enhance the reproducibility of your research project.
+While this book was developed with scientists in mind, it is open to anyone who wants to learn more about reproducibility.
+We try to avoid technical jargon as much as we can.
+When we discuss best practices about reproducible guidelines, we try to offer multiple alternatives but also give opinionated recommendations as guidance to new users.
+
+## What is the purpose of this book? {.unnumbered}
+
+Reproducibility can take your scientific projects to the next level.
+By enhancing reproducibility, you will strengthen your results and evidence from your analysis [@community2022].
+Of course, conducting research projects considering reproducibility also adds some layer of complexity to your workflow.
+We aim to simplify this workflow as much as possible for you. Whether you are new to reproducibility or have dabbled in it before, this book aims to add something for all levels of expertise.
+
+
+## How to use this book? {.unnumbered}
+
+We believe in **learning by doing** and try to **focus on implementation** as much as possible.
+The concepts introduced in this book are accompanied by practical examples and hands on exercises. <!--# and quizzes?-->
+Feel free to follow the exercises to gain the necessary "muscle memory" to start enhancing the reproducibility of your work step-by-step.
+Further, we recommend to work with a current research projects of yourself to apply different steps making your research more reproducible.
+However, we also provide an example project, which you can download [here](https://osf.io/23mvn/). <!--# update link, when the project is finally published-->
+
+This book was initially created for the full-semester course "[Open Science in Practice: A Toolkit for Research](https://osf.io/23mvn/)" at [University of Hamburg](https://www.uni-hamburg.de), Germany.
+The book is therefore structured for a course that is spread out across multiple sessions.
+Each chapter and the accompanying exercises should roughly fill 90 minutes of class time during a course.
+
+This book is available in HTML format and will soon be available as PDF version.
+However, we recommend using the **HTML version** for the most up-to-date content. The HTML version in continuously updated with new material, corrections, and interactive elements, ensuring you always have access to the latest information.
+The PDF version will be a static snapshot and may become outdated over time, making it useful for offline reading and archival but less reliable for the most current information.
+
+## How can I contribute? {.unnumbered}
+
+This book is constantly evolving and meant as a living resource, and your input can make it even better!
+If you spot typos, have suggestions for improvement, or want to contribute new content, we welcome your involvement!
+If you find a typo, have an idea for a new chapter or want to see a specific topic covered you are more than welcome to [open an issue]({{< var links.issues >}}) or submit a pull request in the [GitHub repository]({{< var project.repo-url >}}) of this book. 
