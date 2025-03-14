@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -248,7 +214,14 @@ div.csl-indent {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
+  <ul class="collapse">
+  <li><a href="#welcome" id="toc-welcome" class="nav-link" data-scroll-target="#welcome">Welcome</a></li>
+  <li><a href="#who-is-this-book-for" id="toc-who-is-this-book-for" class="nav-link" data-scroll-target="#who-is-this-book-for">Who is this book for?</a></li>
+  <li><a href="#what-is-the-purpose-of-this-book" id="toc-what-is-the-purpose-of-this-book" class="nav-link" data-scroll-target="#what-is-the-purpose-of-this-book">What is the purpose of this book?</a></li>
+  <li><a href="#how-to-use-this-book" id="toc-how-to-use-this-book" class="nav-link" data-scroll-target="#how-to-use-this-book">How to use this book?</a></li>
+  <li><a href="#how-can-i-contribute" id="toc-how-can-i-contribute" class="nav-link" data-scroll-target="#how-can-i-contribute">How can I contribute?</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -310,23 +283,56 @@ div.csl-indent {
 </header>
 
 
+<div id="fig-reproducible-journey" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reproducible-journey-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="static/reproducible-journey.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reproducible-journey-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: This illustration is created by <a href="https://www.scriberia.com/">Scriberia</a> with <a href="https://the-turing-way.netlify.app/">The Turing Way</a> community. Used under a <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> licence. DOI: <a href="https://doi.org/10.5281/zenodo.3695300">10.5281/zenodo.3695300</a> (Version 3, <a href="https://zenodo.org/records/3695300/files/ReproducibleJourney.jpg?download=1">direct download link</a>).
+</figcaption>
+</figure>
+</div>
+<!--#
+The illustration is not inserted to the book as the other illustrations.
+This illustration lies in a separate "static" folder of the project.
+All the other illustrations are stored in the nextcloud of UHH.
+That does not work on this page because index.qmd is not stored in the chapters folder of the project.
+-->
 <section id="preface" class="level1 unnumbered">
 <h1 class="unnumbered">Preface</h1>
-<p>This is a Quarto book.</p>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
+<section id="welcome" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="welcome">Welcome</h2>
+<p>Welcome to the world of reproducibility and “The Repro Book - A Guide to Reproducible Research”! The purpose of this book is to empower scientists, researchers, and students with the knowledge and skills needed to conduct a research project that is easy to reproduce.</p>
+</section>
+<section id="who-is-this-book-for" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="who-is-this-book-for">Who is this book for?</h2>
+<p>This guide is meant to be a gentle introduction to reproducibility for (aspiring) scientists who want to conduct research more reproducible. Whether you are conducting experiments, writing code, collaborating with scientific peers, or managing complex data sets, this book conveys useful concepts with hands-on tips and exercises to enhance the reproducibility of your research project. While this book was developed with scientists in mind, it is open to anyone who wants to learn more about reproducibility. We try to avoid technical jargon as much as we can. When we discuss best practices about reproducible guidelines, we try to offer multiple alternatives but also give opinionated recommendations as guidance to new users.</p>
+</section>
+<section id="what-is-the-purpose-of-this-book" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="what-is-the-purpose-of-this-book">What is the purpose of this book?</h2>
+<p>Reproducibility can take your scientific projects to the next level. By enhancing reproducibility, you will strengthen your results and evidence from your analysis <span class="citation" data-cites="community2022">(<a href="references.html#ref-community2022" role="doc-biblioref">The Turing Way Community 2022</a>)</span>. Of course, conducting research projects considering reproducibility also adds some layer of complexity to your workflow. We aim to simplify this workflow as much as possible for you. Whether you are new to reproducibility or have dabbled in it before, this book aims to add something for all levels of expertise.</p>
+</section>
+<section id="how-to-use-this-book" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="how-to-use-this-book">How to use this book?</h2>
+<p>We believe in <strong>learning by doing</strong> and try to <strong>focus on implementation</strong> as much as possible. The concepts introduced in this book are accompanied by practical examples and hands on exercises. <!--# and quizzes?--> Feel free to follow the exercises to gain the necessary “muscle memory” to start enhancing the reproducibility of your work step-by-step. Further, we recommend to work with a current research projects of yourself to apply different steps making your research more reproducible. However, we also provide an example project, which you can download <a href="https://osf.io/23mvn/">here</a>. <!--# update link, when the project is finally published--></p>
+<p>This book was initially created for the full-semester course “<a href="https://osf.io/23mvn/">Open Science in Practice: A Toolkit for Research</a>” at <a href="https://www.uni-hamburg.de">University of Hamburg</a>, Germany. The book is therefore structured for a course that is spread out across multiple sessions. Each chapter and the accompanying exercises should roughly fill 90 minutes of class time during a course.</p>
+<p>This book is available in HTML format and will soon be available as PDF version. However, we recommend using the <strong>HTML version</strong> for the most up-to-date content. The HTML version in continuously updated with new material, corrections, and interactive elements, ensuring you always have access to the latest information. The PDF version will be a static snapshot and may become outdated over time, making it useful for offline reading and archival but less reliable for the most current information.</p>
+</section>
+<section id="how-can-i-contribute" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="how-can-i-contribute">How can I contribute?</h2>
+<p>This book is constantly evolving and meant as a living resource, and your input can make it even better! If you spot typos, have suggestions for improvement, or want to contribute new content, we welcome your involvement! If you find a typo, have an idea for a new chapter or want to see a specific topic covered you are more than welcome to <a href="https://github.com/lnnrtwttkhn/repro-book/issues">open an issue</a> or submit a pull request in the <a href="https://github.com/lnnrtwttkhn/repro-book">GitHub repository</a> of this book.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-gorgolewski2016" class="csl-entry" role="listitem">
 Gorgolewski, Krzysztof J., Tibor Auer, Vince D. Calhoun, R. Cameron Craddock, Samir Das, Eugene P. Duff, Guillaume Flandin, et al. 2016. <span>“The Brain Imaging Data Structure, a Format for Organizing and Describing Outputs of Neuroimaging Experiments.”</span> <em>Scientific Data</em> 3 (1). <a href="https://doi.org/10.1038/sdata.2016.44">https://doi.org/10.1038/sdata.2016.44</a>.
 </div>
+<div id="ref-community2022" class="csl-entry" role="listitem">
+The Turing Way Community. 2022. <em>The Turing Way: A Handbook for Reproducible, Ethical and Collaborative Research</em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.3233853">https://doi.org/10.5281/zenodo.3233853</a>.
 </div>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->
