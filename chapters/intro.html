@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -122,6 +88,12 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="../site_libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet">
+<script src="../site_libs/wordcloud2-0.0.1/wordcloud2-all.js"></script>
+<script src="../site_libs/wordcloud2-0.0.1/hover.js"></script>
+<script src="../site_libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script>
 
 
 </head>
@@ -244,49 +216,273 @@ div.csl-indent {
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#what-is-reproducibility" id="toc-what-is-reproducibility" class="nav-link active" data-scroll-target="#what-is-reproducibility"><span class="header-section-number">1.1</span> What is reproducibility?</a>
+  <ul class="collapse">
+  <li><a href="#two-errors-of-reproducibility" id="toc-two-errors-of-reproducibility" class="nav-link" data-scroll-target="#two-errors-of-reproducibility"><span class="header-section-number">1.1.1</span> Two errors of reproducibility</a></li>
+  </ul></li>
+  <li><a href="#benefits-of-reproducible-research" id="toc-benefits-of-reproducible-research" class="nav-link" data-scroll-target="#benefits-of-reproducible-research"><span class="header-section-number">1.2</span> Benefits of reproducible research</a></li>
+  <li><a href="#current-state-of-reproducibility" id="toc-current-state-of-reproducibility" class="nav-link" data-scroll-target="#current-state-of-reproducibility"><span class="header-section-number">1.3</span> Current state of reproducibility</a></li>
+  <li><a href="#reproducibility-in-the-context-of-open-science" id="toc-reproducibility-in-the-context-of-open-science" class="nav-link" data-scroll-target="#reproducibility-in-the-context-of-open-science"><span class="header-section-number">1.4</span> Reproducibility in the context of open science</a></li>
+  <li><a href="#what-this-book-is-not-about" id="toc-what-this-book-is-not-about" class="nav-link" data-scroll-target="#what-this-book-is-not-about"><span class="header-section-number">1.5</span> What this book is not about</a>
+  <ul class="collapse">
+  <li><a href="#qustionable-research-practices-qrps" id="toc-qustionable-research-practices-qrps" class="nav-link" data-scroll-target="#qustionable-research-practices-qrps"><span class="header-section-number">1.5.1</span> Qustionable Research Practices (QRPs)</a></li>
+  <li><a href="#pre-registration" id="toc-pre-registration" class="nav-link" data-scroll-target="#pre-registration"><span class="header-section-number">1.5.2</span> Pre-registration</a></li>
+  <li><a href="#statistics" id="toc-statistics" class="nav-link" data-scroll-target="#statistics"><span class="header-section-number">1.5.3</span> Statistics</a></li>
+  <li><a href="#programming" id="toc-programming" class="nav-link" data-scroll-target="#programming"><span class="header-section-number">1.5.4</span> Programming</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/intro.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">beginner</div>
+    <div class="quarto-category">basics</div>
+  </div>
+  </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
     
   
     
   </div>
   
+<div>
+  <div class="abstract">
+    <div class="block-title">Summary</div>
+    <p>In this chapter, you get to know the concept of reproducibility, different types of reproducibility and related but somewhat different concepts.</p>
+  </div>
+</div>
 
 
 </header>
 
 
-<p>This is a book created from markdown and executable code.</p>
-<p>See <span class="citation" data-cites="knuth84">Knuth (<a href="../references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<h5 class="anchored">
+Learning Objectives
+</h5>
+<p><span class="emoji" data-emoji="bulb">💡</span> You know what reproducibility is.<br> <span class="emoji" data-emoji="bulb">💡</span> You can argue why reproducibility is useful for research.<br> <span class="emoji" data-emoji="bulb">💡</span> You can explain the difference between reproducibility and replicability.<br> <span class="emoji" data-emoji="bulb">💡</span> You can explain the difference between process-based and outcome-based reproducibility errors.</p>
+</div>
+</div>
+</div>
+<section id="what-is-reproducibility" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="what-is-reproducibility"><span class="header-section-number">1.1</span> What is reproducibility?</h2>
+<p>A good definition of reproducibility is given by The Turing Way Company:</p>
+<blockquote class="blockquote">
+<p>“At <em>The Turing Way</em>, we define <strong>reproducible research</strong> as work that can be independently recreated from the same data and the same code that the original team used. Reproducible is distinct from replicable, robust and generalisable as described in the figure below.” - <span class="citation" data-cites="community2022">The Turing Way Community (<a href="../references.html#ref-community2022" role="doc-biblioref">2022</a>)</span>, chapter on <a href="https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions">Reproducibility</a>.</p>
+</blockquote>
+<div id="fig-reproducible-matrix" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reproducible-matrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/reproducible-matrix.jpg" class="img-fluid figure-img" alt="">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reproducible-matrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: “<a href="https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions">Reproducible Matrix</a>” by <a href="https://www.turing.ac.uk/research/research-projects/turing-way">The Turing Way Company</a> (License: <a href="">CC-BY 4.0</a>; reused without modifications)
+</figcaption>
+</figure>
+</div>
+<p>We will use this conceptualization of reproducibility throughout the book. Note, that reproducibility and <em>replicability</em> are two different terms. Replicability is achieved when the same analysis produce similar answers among <em>different</em> datasets, whereas reproducibility when the same analysis produce the same answer in the <em>same</em> dataset. That makes reproducibility the lowest common denominator in research.</p>
+<p>The definition above is the most common definition of reproducibility. Note, that some research areas use the terms reproducibility and replicability the other way around. Thus, in computational science, reproducibility is given when the same result is obtained when the same analyses are carried out with different data. Other areas use these terms interchangeably.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Reproducibility vs. Replicability">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reproducibility vs.&nbsp;Replicability
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dependent on the research area, reproducibility and replicability are used differently. In this book, we use a consistent and distinct conceptualization. <strong>Reproducibility</strong> means that the <strong>same analysis</strong> of the <strong>same data</strong> leads to the <strong>same result</strong>. Replicability means that the same analysis of different data leads to the same result.</p>
+<p>If you look in the literature, be aware of what these terms express respective of the study you are reading.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Within this book, we limit the term reproducibility to <strong>computational</strong> entities. Thus, we mainly focus on <strong>data and code</strong>.</p>
+</div>
+</div>
+<section id="two-errors-of-reproducibility" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="two-errors-of-reproducibility"><span class="header-section-number">1.1.1</span> Two errors of reproducibility</h3>
+<p>As a researcher who wants to reproduce a result from a different research project, there are two main reasons why reproducibility might fail <span class="citation" data-cites="nosek2022">(<a href="../references.html#ref-nosek2022" role="doc-biblioref">Nosek et al. 2022</a>)</span>. First, you may not be able to repeat the analysis that had been done before, because of data or code unavailability or the lack of information or software to recreate code. This is called an process-based reproducibility failure. Second, your reanalysis yield different results than the original report. This is called an outcome-based reproducibility failure and can happen due to an error either in the original or the reproduction study <span class="citation" data-cites="nosek2022">(<a href="../references.html#ref-nosek2022" role="doc-biblioref">Nosek et al. 2022</a>)</span>.</p>
+</section>
+</section>
+<section id="benefits-of-reproducible-research" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="benefits-of-reproducible-research"><span class="header-section-number">1.2</span> Benefits of reproducible research</h2>
+<ol type="1">
+<li>Enhances the clarity of research processes for other researchers and yourself</li>
+<li>Allows other researchers verifying your results</li>
+<li>Increases the credibility of research findings</li>
+<li>Saves time in the long run by reusing methods and data</li>
+<li>Aids in the identification of errors and biases</li>
+<li>Ensures that research outputs can be used in future studies</li>
+<li>Promotes better documentation of research processes</li>
+<li>Strengthen a researcher`s reputation and career prospects</li>
+<li>Fosters public understanding of scientific processes</li>
+<li>Promotes better data management practices</li>
+<li>Minimizes duplication of research efforts</li>
+</ol>
+</section>
+<section id="current-state-of-reproducibility" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="current-state-of-reproducibility"><span class="header-section-number">1.3</span> Current state of reproducibility</h2>
+<p>An anecdote: For this section of the book, we were searching for prevalence of reproducible and non-reproducible psychological research. We typed the search string <code>(reproducib* and psycholog*).ti</code> into <a href="https://www.webofscience.com/">WebofScience</a>. The database found 64 articles related to the search string. 4 articles got a “Highly cited paper” badge on it. We clicked on it with the feeling of getting the most important articles. We trapped into the citation trap. However, at the end, we screened all 64 articles and 2 articles of the highly cited paper and 2 of the not highly cited paper gave rise to the research question.</p>
+<p>However, before starting deep into the applied methods of making research reproducible, let’s have a look at how good research (psychological research) is now. The investigation about reproducibility started around 2010 with the beginning of the <em>replication</em> crisis. <span class="citation" data-cites="artner2021">Artner et al. (<a href="../references.html#ref-artner2021" role="doc-biblioref">2021</a>)</span> investigated 46 articles from 2012 published in 3 different APA journals. The authors extracted 232 statistical claims and were able to reproduce 163 (70%) of the results. More recently, a study evaluated the reproducibility of research on the study level rather than the statistical result level. <span class="citation" data-cites="hardwicke2021">Hardwicke et al. (<a href="../references.html#ref-hardwicke2021" role="doc-biblioref">2021</a>)</span> investigated 25 articles of the journal <em>Psychological Science</em> published between 2014 and 2015 awarded with OpenData Badges. Overall, 15 articles (60%) were fully reproducible, 9 of them (60%) without author involvement. Another article investigated 14 articles from an issue of the same journal five years later and tried to reproduce the results of the articles in that issue <span class="citation" data-cites="crüwell2023">(<a href="../references.html#ref-crüwell2023" role="doc-biblioref">Crüwell et al. 2023</a>)</span>. The researchers could only exactly reproduce the results of one of the 14 articles. Three articles were essentially reproducible with minor deviations (such as typographical mistakes). Noteworthy, all of these articles were certified with an OpenData-Badge. Another study investigated 62 registered reports from the psychological literature from 2014-2018. 36 of them (58%) provided shared data and code and 21 of these 36 (58%) were reproducible <span class="citation" data-cites="obels2020">(<a href="../references.html#ref-obels2020" role="doc-biblioref">Obels et al. 2020</a>)</span>. This evidence shows that psychological literature is far from a reproducibility ratio of 100%. However, a substantial body of studies already is reproducible.</p>
+<p>Despite these raw findings the researchers of the above-mentioned studies also reported hindrances that weaken and opportunities that foster the reproducibility of results. Reproducibility is not easy, in fact one of the authors described the process of reproducing the results as “cumbersome and time-consuming trial-and-error work” <span class="citation" data-cites="artner2021">(<a href="../references.html#ref-artner2021" role="doc-biblioref">Artner et al. 2021, 527</a>)</span>. Below, a list describes hindering and fostering factors for reproducible research.</p>
+<div class="columns">
+<div class="column" style="width:49%;">
+<div class="callout callout-style-default callout-important callout-titled" title="What hinders reproducibility?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What hinders reproducibility?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Raw and / or data not available</li>
+<li>Codebook / metadata not available</li>
+<li>Error-prone workflow of copy-pasting values from long statistical outputs</li>
+<li>Unclear reporting of analytic procedures</li>
+<li>Different versions of packages and software</li>
+</ol>
+</div>
+</div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:49%;">
+<div class="callout callout-style-default callout-tip callout-titled" title="What fosters reproducibility?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What fosters reproducibility?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Availability of raw and tidy data</li>
+<li>Availability of metadata / a codebook</li>
+<li>Flowchart of case selection</li>
+<li>Data manipulation steps stored in code</li>
+<li>Dynamic reports (e.g.&nbsp;RMarkdown or Quarto)</li>
+<li>Co-piloting of data analysis</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>Maybe, some of the concepts (e.g.&nbsp;raw vs.&nbsp;tidy data) are not familiar to you. Do not worry, this book will cover all topics, explain the concepts and will provide exercises to directly apply the concepts to a research project. One exception is the Co-piloting of data analysis. It means that other colleagues reconduct your data analyses based on your shared data and code. To get the best out of this book, we recommend to find a partner with whom you work through this book.</p>
+</section>
+<section id="reproducibility-in-the-context-of-open-science" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="reproducibility-in-the-context-of-open-science"><span class="header-section-number">1.4</span> Reproducibility in the context of open science</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div id="fig-opensciencecloud" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-opensciencecloud-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="wordcloud2 html-widget html-fill-item" id="htmlwidget-1b4ff99564eb6e8884a5" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-1b4ff99564eb6e8884a5">{"x":{"word":["OpenScience","OpenScholarship","OpenData","OpenCode","OpenSource","Reproducibility","Transparency","OpenAccess","Preregistration","Registered Reports","Open Educational Materials","OpenNotebooks","Equity","Diversity","Inclusion","OpenResearch","Collaboration","Data Sharing"],"freq":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":30.6,"backgroundColor":"white","gridSize":0,"minRotation":-0.7853981633974483,"maxRotation":0.7853981633974483,"shuffle":true,"rotateRatio":0.4,"shape":"diamond","ellipticity":0.65,"figBase64":null,"hover":"off"},"evals":["hover"],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-opensciencecloud-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2: Terms related to OpenScience (selfmade)
+</figcaption>
+</figure>
 </div>
 </div>
+<p>Reproducibility is a buzzword that is inevitably linked to <strong>OpenScience</strong>. But what is Open Science? Many associations aiming to foster OpenScience exist, however, a clear definition is rare. In their article, <span class="citation" data-cites="lakomy2019">Lakomý, Hlavová, and Machackova (<a href="../references.html#ref-lakomy2019" role="doc-biblioref">2019</a>)</span> referred to a book from <span class="citation" data-cites="cribb2010">Cribb and Sari (<a href="../references.html#ref-cribb2010" role="doc-biblioref">2010</a>)</span>, defininf OpenScience as follows:</p>
+<blockquote class="blockquote">
+<p>“Open Science is a practice aiming to make scientifically generated knowledge and its method of production more accessible, applicable, transparent, and responsive to the needs of both scientists and the public.” <span class="citation" data-cites="lakomy2019">(<a href="../references.html#ref-lakomy2019" role="doc-biblioref">Lakomý, Hlavová, and Machackova 2019, 246</a>)</span></p>
+</blockquote>
+<p>Open Science policies arose not only but also because of the so-called <em>replication crisis</em>. In psychology, 100 original studies were replicated and the results attracted a lot of attention. The mean effect size of the replicated studies was half the magnitude of the original effect sizes and only 36% of the replications had significant results compared to 97% of the original studies <span class="citation" data-cites="opensciencecollaboration2015">(<a href="../references.html#ref-opensciencecollaboration2015" role="doc-biblioref">Open Science Collaboration 2015</a>)</span>. Psychology was not the only research area failing to replicate their studies. For example, cancer research also found theirselves in a crisis facing a thorough replication crisis <span class="citation" data-cites="begley2012">(<a href="../references.html#ref-begley2012" role="doc-biblioref">Begley and Ellis 2012</a>)</span>. As a result, many initiatives and institutions arose to enhance the credibility of research (e.g.&nbsp;<a href="https://www.cos.io">Center for OpenScience</a>, <a href="https://www.orion-openscience.eu">ORION</a>, and many more). This comprised not only replicability of studies but the whole research process. Thus, reproducibility is a feature of this research process. Nowadays, policies aim to not make only research open, but also a variety of other topics which are disclosed in <a href="#fig-opensciencecloud" class="quarto-xref">Figure&nbsp;<span>1.2</span></a> including educational materials. This is also the reason why this Repro-Book is published online without any restrictions. As the title suggests, this book mainly focuses on computational reproducibility. However, on our way to a reproducible research project, we will tangent many topics related to OpenScience.</p>
+</section>
+<section id="what-this-book-is-not-about" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="what-this-book-is-not-about"><span class="header-section-number">1.5</span> What this book is not about</h2>
+<p>Open Science is a huge movement with many aspects, that we cannot cover completely in this book. Reproducibility is one important aspect for striving to open science, but many topics are still left.</p>
+<section id="qustionable-research-practices-qrps" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="qustionable-research-practices-qrps"><span class="header-section-number">1.5.1</span> Qustionable Research Practices (QRPs)</h3>
+<p>Questionable research practices (QRPs) have gained increasing attention since a popular article by <span class="citation" data-cites="john2012">John, Loewenstein, and Prelec (<a href="../references.html#ref-john2012" role="doc-biblioref">2012</a>)</span>. We acknowledge the variety of QRPs and the need to face the issues raised by the authors, but that topic can fill another full book. If you feel engaged to learn more about QRPs, we recommend to read the <a href="https://doi.org/10.1177/0956797611430953">article</a> and the embedded references. <!--# Links will be inserted soon -->.</p>
+</section>
+<section id="pre-registration" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="pre-registration"><span class="header-section-number">1.5.2</span> Pre-registration</h3>
+<p>Pre-registrations have become popular as one answer to QRPs. However, even pre-registered studies can be irreproducible when data and code is not findable, accessible or understandable. In turn, a full reproducible research project does not necessarily have to be pre-registered. Both contribute in its own way to open science. If you want to find to pre-register your study, we recommend <a href="https://aspredicted.org" class="uri">https://aspredicted.org</a> or <a href="https://osf.io" class="uri">https://osf.io</a>. If you want to learn more about pre-registration, we recommend the <a href="https://www.cos.io/initiatives/prereg">website</a> of the Center for Open Science.</p>
+</section>
+<section id="statistics" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="statistics"><span class="header-section-number">1.5.3</span> Statistics</h3>
+<p>Many aspects of this book will deal with <a href="https://www.r-project.org">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>, which are powerful tools for statistical programming. However, this book requires almost no statistical knowledge. You might find some t-tests or something similar in code-examples (see <a href="good-coding-practices.html#sec-tidydata" class="quarto-xref"><span>Section 5.5</span></a>). The purpose of the book is not to increase your statistical knowledge and skills; the purpose of the book is to make your research more reproducible. If you want to learn more about statistics, we recommend <a href="https://learningstatisticswithr.com/lsr-0.6.pdf">this free E-book</a> by Danielle Navarro. If you prefer an analogous book, we recommend <a href="https://uk.sagepub.com/en-gb/eur/discovering-statistics-using-r/book236067">Discovering statistics using R</a> by Andy Field.</p>
+</section>
+<section id="programming" class="level3" data-number="1.5.4">
+<h3 data-number="1.5.4" class="anchored" data-anchor-id="programming"><span class="header-section-number">1.5.4</span> Programming</h3>
+<p>The same applies to programming as to statistics. You will not learn anything new on purpose about a programming language. However, you will learn concepts derived from programming that benefits your research. Thus, some parts of the book seem quite technical. Nevertheless, these technical parts aim to make your research more robust and less error-prone regarding reproducibility.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-artner2021" class="csl-entry" role="listitem">
+Artner, Richard, Thomas Verliefde, Sara Steegen, Sara Gomes, Frits Traets, Francis Tuerlinckx, and Wolf Vanpaemel. 2021. <span>“The Reproducibility of Statistical Results in Psychological Research: An Investigation Using Unpublished Raw Data.”</span> <em>Psychological Methods</em> 26: 527–46. <a href="https://doi.org/10.1037/met0000365">https://doi.org/10.1037/met0000365</a>.
+</div>
+<div id="ref-begley2012" class="csl-entry" role="listitem">
+Begley, C. Glenn, and Lee M. Ellis. 2012. <span>“Raise Standards for Preclinical Cancer Research.”</span> <em>Nature</em> 483: 531–33. <a href="https://doi.org/10.1038/483531a">https://doi.org/10.1038/483531a</a>.
+</div>
+<div id="ref-cribb2010" class="csl-entry" role="listitem">
+Cribb, Julian, and Tjempaka Sari. 2010. <em>Open Science: Sharing Knowledge in the Global Century</em>. CSIRO Publishing. <a href="https://doi.org/10.1071/9780643097643">https://doi.org/10.1071/9780643097643</a>.
+</div>
+<div id="ref-crüwell2023" class="csl-entry" role="listitem">
+Crüwell, Sophia, Deborah Apthorp, Bradley J. Baker, Lincoln Colling, Malte Elson, Sandra J. Geiger, Sebastian Lobentanzer, et al. 2023. <span>“What’s in a Badge? A Computational Reproducibility Investigation of the Open Data Badge Policy in One Issue of Psychological Science.”</span> <em>Psychological Science</em> 34: 513–22. <a href="https://doi.org/10.1177/09567976221140828">https://doi.org/10.1177/09567976221140828</a>.
+</div>
 <div id="ref-gorgolewski2016" class="csl-entry" role="listitem">
 Gorgolewski, Krzysztof J., Tibor Auer, Vince D. Calhoun, R. Cameron Craddock, Samir Das, Eugene P. Duff, Guillaume Flandin, et al. 2016. <span>“The Brain Imaging Data Structure, a Format for Organizing and Describing Outputs of Neuroimaging Experiments.”</span> <em>Scientific Data</em> 3 (1). <a href="https://doi.org/10.1038/sdata.2016.44">https://doi.org/10.1038/sdata.2016.44</a>.
 </div>
-<div id="ref-knuth84" class="csl-entry" role="listitem">
-Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+<div id="ref-hardwicke2021" class="csl-entry" role="listitem">
+Hardwicke, Tom E., Manuel Bohn, Kyle MacDonald, Emily Hembacher, Michéle B. Nuijten, Benjamin N. Peloquin, Benjamin E. deMayo, Bria Long, Erica J. Yoon, and Michael C. Frank. 2021. <span>“Analytic Reproducibility in Articles Receiving Open Data Badges at the Journal *Psychological Science*: An Observational Study.”</span> <em>Royal Society Open Science</em> 8: 201494. <a href="https://doi.org/10.1098/rsos.201494">https://doi.org/10.1098/rsos.201494</a>.
+</div>
+<div id="ref-john2012" class="csl-entry" role="listitem">
+John, Leslie K., George Loewenstein, and Drazen Prelec. 2012. <span>“Measuring the Prevalence of Questionable Research Practices With Incentives for Truth Telling.”</span> <em>Psychological Science</em> 23 (5): 524–32. <a href="https://doi.org/10.1177/0956797611430953">https://doi.org/10.1177/0956797611430953</a>.
+</div>
+<div id="ref-lakomy2019" class="csl-entry" role="listitem">
+Lakomý, Martin, Renata Hlavová, and Hana Machackova. 2019. <span>“Open Science and the Science-Society Relationship.”</span> <em>Society</em> 56: 246–55. <a href="https://doi.org/10.1007/s12115-019-00361-w">https://doi.org/10.1007/s12115-019-00361-w</a>.
+</div>
+<div id="ref-nosek2022" class="csl-entry" role="listitem">
+Nosek, Brian A., Tom E. Hardwicke, Hannah Moshontz, Aurélien Allard, Katherine S. Corker, Anna Dreber, Fiona Fidler, et al. 2022. <span>“Replicability, Robustness, and Reproducibility in Psychological Science.”</span> <em>Annual Review of Psychology</em> 73 (1): 719–48. <a href="https://doi.org/10.1146/annurev-psych-020821-114157">https://doi.org/10.1146/annurev-psych-020821-114157</a>.
+</div>
+<div id="ref-obels2020" class="csl-entry" role="listitem">
+Obels, Pepijn, Daniël Lakens, Nicholas A. Coles, Jaroslav Gottfried, and Seth A. Green. 2020. <span>“Analysis of Open Data and Computational Reproducibility in Registered Reports in Psychology.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 3: 229–37. <a href="https://doi.org/10.1177/2515245920918872">https://doi.org/10.1177/2515245920918872</a>.
+</div>
+<div id="ref-opensciencecollaboration2015" class="csl-entry" role="listitem">
+Open Science Collaboration. 2015. <span>“Estimating the Reproducibility of Psychological Science.”</span> <em>Science</em> 349 (August): aac4716. <a href="https://doi.org/10.1126/science.aac4716">https://doi.org/10.1126/science.aac4716</a>.
+</div>
+<div id="ref-community2022" class="csl-entry" role="listitem">
+The Turing Way Community. 2022. <em>The Turing Way: A Handbook for Reproducible, Ethical and Collaborative Research</em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.3233853">https://doi.org/10.5281/zenodo.3233853</a>.
 </div>
 </div>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script defer="" data-domain="lennartwittkuhn.com/repro-book" src="https://plausible.io/js/script.js"></script>
@@ -712,7 +908,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../contents.html" class="pagination-link" aria-label="Contents">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Contents</span>
@@ -738,7 +934,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </a>
   </li>  
 </ul>
-    <div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/intro.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/intro.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/intro.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>License: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
 </div>
