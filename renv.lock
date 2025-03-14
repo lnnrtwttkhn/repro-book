@@ -755,6 +755,20 @@
       ],
       "Hash": "cc2d62c76458d425210d1eb1478b30b4"
     },
+    "wordcloud2": {
+      "Package": "wordcloud2",
+      "Version": "0.2.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "base64enc",
+        "grDevices",
+        "graphics",
+        "htmlwidgets"
+      ],
+      "Hash": "10274bd096f5c2ad7471ea0eea0c1424"
+    },
     "xfun": {
       "Package": "xfun",
       "Version": "0.49",
