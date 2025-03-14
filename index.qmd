@@ -9,12 +9,14 @@ metadata-files:
   - _affiliations.yml
 ---
 
-```{r}
-#| results: asis
-#| eval: true
-#| echo: false
-cat(make_figure("reproducible-journey"))
-```
+![This illustration is created by [Scriberia](https://www.scriberia.com/) with [The Turing Way](https://the-turing-way.netlify.app/) community. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) licence. DOI: [10.5281/zenodo.3695300](https://doi.org/10.5281/zenodo.3695300) (Version 3, [direct download link](https://zenodo.org/records/3695300/files/ReproducibleJourney.jpg?download=1)).](static/reproducible-journey.jpg){#fig-reproducible-journey fig-align="center" width="70%"}
+
+<!--#
+The illustration is not inserted to the book as the other illustrations.
+This illustration lies in a separate "static" folder of the project.
+All the other illustrations are stored in the nextcloud of UHH.
+That does not work on this page because index.qmd is not stored in the chapters folder of the project.
+-->
 
 # Preface {.unnumbered}
 
@@ -36,7 +38,7 @@ When we discuss best practices about reproducible guidelines, we try to offer mu
 Reproducibility can take your scientific projects to the next level.
 By enhancing reproducibility, you will strengthen your results and evidence from your analysis [@community2022].
 Of course, conducting research projects considering reproducibility also adds some layer of complexity to your workflow.
-We aim to simplify this workflow as much as possible for you. Whether you are new to version control or have dabbled in it before, this book aims to add something for all levels of expertise.
+We aim to simplify this workflow as much as possible for you. Whether you are new to reproducibility or have dabbled in it before, this book aims to add something for all levels of expertise.
 
 
 ## How to use this book? {.unnumbered}
