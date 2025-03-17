@@ -32,7 +32,13 @@ But there is also a different narrative:
 > Goodhart's Law: When a measure becomes a target, it ceases to be a good measure.
 > @goodhart1984
 
-![](/images/goodharts-law.png){fig-align="center"}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+#| warning: false
+cat(make_figure("xkcd-goodharts-law"))
+```
 
 Lets take another perspective.
 First of all, ask yourself: What is your primary goal as a researcher?
@@ -76,9 +82,16 @@ It is of great importance to keep your projects as tidy as possible - for your c
 As you will learn throughout this book, reproducibility is not a binary construct. 
 There is no checklist waiting for you to tick off the open bullet points. 
 Its not that you either do or don't do reproducible research. 
-You can think of reproducibility more as a scale (see @fig-repro_scale) and you are shifting your reproducibility upwards by applying the tools you learn in this online resource. 
+You can think of reproducibility more as a scale (see @fig-repro-scale) and you are shifting your reproducibility upwards by applying the tools you learn in this online resource. 
 
-![](/images/repro-scale.jpg){#fig-repro_scale}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+#| warning: false
+#| label: fig-repro-scale
+cat(make_figure("repro-scale"))
+```
 
 So let's get started to **improve your reproducibility**:
 
