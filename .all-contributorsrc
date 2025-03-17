@@ -46,7 +46,12 @@
       "contributions": [
         "bug",
         "code",
-        "ideas"
+        "ideas",
+        "maintenance",
+        "research",
+        "review",
+        "content",
+        "doc"
       ]
     }
   ]
