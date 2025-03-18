@@ -25,6 +25,14 @@ While some qualitative indicators like the fit of research profile to the appoin
 Also notably, "indicators of research transparency" took the *last* rank of 41 selection criteria.
 :::
 
+::: {.callout-warning title="Arguments against Open Science practices}
+- time consuming
+- not important for climbing the career-ladder
+- possible data misuse of shared data
+- against innovation-driven research
+- against business model of private research companies
+:::
+
 But there is also a different narrative:
 
 ## Reproducibility: Hard and worth-it
@@ -95,7 +103,7 @@ cat(make_figure("repro-scale"))
 
 So let's get started to **improve your reproducibility**:
 
-# Resources
+## Resources
 
 If you want to dive deeper in the discussion of the value of reproducibility and open science and how to change behavior, here are some resources:
 
