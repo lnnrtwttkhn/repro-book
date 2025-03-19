@@ -69,15 +69,37 @@ In a highly-debated [blog post](https://talyarkoni.org/blog/2018/10/02/no-its-no
 We are an active part of our respective scientific community.
 We have the ability to shape our work and craft our jobs in the direction of reproducibility (which can also improve mental well-being and job performance [@bakker2023]).
 No matter what, we have to take responsibility for out actions, if we want to or not, and we cannot blame the incentives of science and lose our responsibility for our work.
+Apart from that, the access of knowledge and scientific processes will be easier for everyone to access [@community2022].
 
 However, there are some arguments by @mckiernan2016 that open science practices (e.g. reproducible data and code) can even enhance your visibility as a researcher and give yourself a headstart at the academic market.
 When you publish your code and data of your published articles, others can work with your data.
 They may rerun your analysis, try to answer different research questions with your data or apply new methods on your data.
 Especially the conduction of meta-analyses is simplified if your data and code is available and reproducible.
-By that would you get more citations in comparison to the case where you do not make your code and data publicly available.
+By that would you get more citations in comparison to the case where you do not make your code and data publicly available [@mckiernan2016].
 And further you are cited in important review-articles which also increases your visibility as researcher.
 You can also benefit the other way around.
 If there is a data set or calculation that suits your research question, you can use open data sets and saving a lot of time for data acquisition.
+
+Furthermore, making your research reproducible makes your research more efficient from the second project on.
+There is no doubt that making your first project reproducible is more time-consuming than ignoring reproducibility efforts.
+However, imagine you submitted a paper in whatever discipline and in your research you conclude that a slight change of the experimental setup or the statistical analyses would deepen the understanding of your topic.
+For example, you conducted a Stroop task [@stroop1935] aiming to investigate an influencing factor that explains the stroop effect.
+You did your research, published a paper and now you want to investigate whether your findings also apply to the emotional stroop task [@williams1996].
+If you set up your first study reproducible, you have easy access to the experiment, all your code that constitutes your experiment is already there.
+You just have to make minor changes to convert your inital stroop task to an emotional stroop task.
+Thus, reproducibility saves you a lot of time in programming tasks.
+Of course, the analyses pipelines to test your hypotheses would also already exist.
+This example shows how you can save a lot of time from your second project on.
+
+::: {.callout-note collapse="false"}
+You can even save a lot of time for your **first** project, when you build your work on previous OpenAccess work.
+For example, the initial study was not conducted by yourself, but was shared in a reproducibility archive as [osf.io](https://www.osf.io/).
+:::
+
+The example also illustrates that reproducibility and Open Science practices foster **collaboration** among researchers [@poldrack2019].
+With openly available experimental materials, you can collaborate with others also interested in your topic and can conduct well-powered multilab studies.
+Or the other way around: If in a multilab study one laboratory does not share the project materials in a way that the other labs can reproduce them, how easy will collaboration in this project be?
+A nice side benefit might be that you get job opportunities from other labs you collaborated with.
 
 But how do you convince your supervisor to give you the time to make your research reproducible?
 Supervisors need the research and jobs to be funded by different organisations (as the [Horizon Europe](https://commission.europa.eu/funding-tenders/find-funding/eu-funding-programmes/horizon-europe_en?prefLang=de) funding pool from the European Commission).
