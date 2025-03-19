@@ -1,4 +1,15 @@
-# Motivation for reproducible science
+---
+title: "Motivation for reproducible science"
+engine: knitr
+execute:
+  eval: false
+  warning: false
+  message: false
+categories: [beginner, basics]
+abstract: |
+  In this chapter, you learn about typical arguments in the Open Science debate.
+  You will learn why some people do or do not engage in a reproducible workflow.
+---
 
 Reproducibility is a big topic, we spent a lot of work and time in writing a book about it and you will probably spend a lot time learning about it.
 If you are asking the question "What for? Why should I do reproducible research?", that's completely reasonable.
