@@ -86,7 +86,7 @@ However, imagine you submitted a paper in whatever discipline and in your resear
 For example, you conducted a Stroop task [@stroop1935] aiming to investigate an influencing factor that explains the stroop effect.
 You did your research, published a paper and now you want to investigate whether your findings also apply to the emotional stroop task [@williams1996].
 If you set up your first study reproducible, you have easy access to the experiment, all your code that constitutes your experiment is already there.
-You just have to make minor changes to convert your inital stroop task to an emotional stroop task.
+You just have to make minor changes to convert your initial stroop task to an emotional stroop task.
 Thus, reproducibility saves you a lot of time in programming tasks.
 Of course, the analyses pipelines to test your hypotheses would also already exist.
 This example shows how you can save a lot of time from your second project on.
