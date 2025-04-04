@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Naming things – The Repro Book</title>
+<title>3&nbsp; Naming things – The Repro Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../chapters/project-structure.html" rel="next">
-<link href="../chapters/intro.html" rel="prev">
+<link href="../chapters/motivation-for-reproducibility.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -137,7 +137,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/naming-things.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Naming things</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/naming-things.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Naming things</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -187,38 +187,44 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chapters/motivation-for-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Motivation for reproducible science</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../chapters/naming-things.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Naming things</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Naming things</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/project-structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Project Structure</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Project Structure</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/rdm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Research Data Management</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Research Data Management</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/good-coding-practices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/renv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Robust Environments: <code>{renv}</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Robust Environments: <code>{renv}</code></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -251,35 +257,35 @@ div.csl-indent {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#examples" id="toc-examples" class="nav-link active" data-scroll-target="#examples"><span class="header-section-number">2.1</span> Examples</a>
+  <li><a href="#examples" id="toc-examples" class="nav-link active" data-scroll-target="#examples"><span class="header-section-number">3.1</span> Examples</a>
   <ul class="collapse">
-  <li><a href="#bad-names" id="toc-bad-names" class="nav-link" data-scroll-target="#bad-names"><span class="header-section-number">2.1.1</span> Bad names</a></li>
-  <li><a href="#better-names" id="toc-better-names" class="nav-link" data-scroll-target="#better-names"><span class="header-section-number">2.1.2</span> Better names</a></li>
+  <li><a href="#bad-names" id="toc-bad-names" class="nav-link" data-scroll-target="#bad-names"><span class="header-section-number">3.1.1</span> Bad names</a></li>
+  <li><a href="#better-names" id="toc-better-names" class="nav-link" data-scroll-target="#better-names"><span class="header-section-number">3.1.2</span> Better names</a></li>
   </ul></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">2.2</span> Introduction</a></li>
-  <li><a href="#principles-for-file-names" id="toc-principles-for-file-names" class="nav-link" data-scroll-target="#principles-for-file-names"><span class="header-section-number">2.3</span> Principles for (file) names</a></li>
-  <li><a href="#machine-readable" id="toc-machine-readable" class="nav-link" data-scroll-target="#machine-readable"><span class="header-section-number">2.4</span> Machine readable</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">3.2</span> Introduction</a></li>
+  <li><a href="#principles-for-file-names" id="toc-principles-for-file-names" class="nav-link" data-scroll-target="#principles-for-file-names"><span class="header-section-number">3.3</span> Principles for (file) names</a></li>
+  <li><a href="#machine-readable" id="toc-machine-readable" class="nav-link" data-scroll-target="#machine-readable"><span class="header-section-number">3.4</span> Machine readable</a>
   <ul class="collapse">
-  <li><a href="#regular-expression-and-globbing-friendly" id="toc-regular-expression-and-globbing-friendly" class="nav-link" data-scroll-target="#regular-expression-and-globbing-friendly"><span class="header-section-number">2.4.1</span> Regular expression and globbing friendly</a></li>
-  <li><a href="#how-to-make-files-regex-and-globbing-friendy" id="toc-how-to-make-files-regex-and-globbing-friendy" class="nav-link" data-scroll-target="#how-to-make-files-regex-and-globbing-friendy"><span class="header-section-number">2.4.2</span> How to make files regex and globbing friendy</a></li>
-  <li><a href="#recover-meta-data-from-file-names" id="toc-recover-meta-data-from-file-names" class="nav-link" data-scroll-target="#recover-meta-data-from-file-names"><span class="header-section-number">2.4.3</span> Recover meta data from file names</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">2.4.4</span> Summary</a></li>
+  <li><a href="#regular-expression-and-globbing-friendly" id="toc-regular-expression-and-globbing-friendly" class="nav-link" data-scroll-target="#regular-expression-and-globbing-friendly"><span class="header-section-number">3.4.1</span> Regular expression and globbing friendly</a></li>
+  <li><a href="#how-to-make-files-regex-and-globbing-friendy" id="toc-how-to-make-files-regex-and-globbing-friendy" class="nav-link" data-scroll-target="#how-to-make-files-regex-and-globbing-friendy"><span class="header-section-number">3.4.2</span> How to make files regex and globbing friendy</a></li>
+  <li><a href="#recover-meta-data-from-file-names" id="toc-recover-meta-data-from-file-names" class="nav-link" data-scroll-target="#recover-meta-data-from-file-names"><span class="header-section-number">3.4.3</span> Recover meta data from file names</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">3.4.4</span> Summary</a></li>
   </ul></li>
-  <li><a href="#human-readable" id="toc-human-readable" class="nav-link" data-scroll-target="#human-readable"><span class="header-section-number">2.5</span> Human readable</a></li>
-  <li><a href="#consistency" id="toc-consistency" class="nav-link" data-scroll-target="#consistency"><span class="header-section-number">2.6</span> Consistency</a></li>
-  <li><a href="#play-well-with-default-ordering" id="toc-play-well-with-default-ordering" class="nav-link" data-scroll-target="#play-well-with-default-ordering"><span class="header-section-number">2.7</span> Play well with default ordering</a>
+  <li><a href="#human-readable" id="toc-human-readable" class="nav-link" data-scroll-target="#human-readable"><span class="header-section-number">3.5</span> Human readable</a></li>
+  <li><a href="#consistency" id="toc-consistency" class="nav-link" data-scroll-target="#consistency"><span class="header-section-number">3.6</span> Consistency</a></li>
+  <li><a href="#play-well-with-default-ordering" id="toc-play-well-with-default-ordering" class="nav-link" data-scroll-target="#play-well-with-default-ordering"><span class="header-section-number">3.7</span> Play well with default ordering</a>
   <ul class="collapse">
-  <li><a href="#put-something-numeric-first" id="toc-put-something-numeric-first" class="nav-link" data-scroll-target="#put-something-numeric-first"><span class="header-section-number">2.7.1</span> Put something numeric first</a></li>
-  <li><a href="#left-pad-numbers-with-zeros" id="toc-left-pad-numbers-with-zeros" class="nav-link" data-scroll-target="#left-pad-numbers-with-zeros"><span class="header-section-number">2.7.2</span> Left-pad numbers with zeros</a></li>
+  <li><a href="#put-something-numeric-first" id="toc-put-something-numeric-first" class="nav-link" data-scroll-target="#put-something-numeric-first"><span class="header-section-number">3.7.1</span> Put something numeric first</a></li>
+  <li><a href="#left-pad-numbers-with-zeros" id="toc-left-pad-numbers-with-zeros" class="nav-link" data-scroll-target="#left-pad-numbers-with-zeros"><span class="header-section-number">3.7.2</span> Left-pad numbers with zeros</a></li>
   </ul></li>
-  <li><a href="#summary-1" id="toc-summary-1" class="nav-link" data-scroll-target="#summary-1"><span class="header-section-number">2.8</span> Summary</a>
+  <li><a href="#summary-1" id="toc-summary-1" class="nav-link" data-scroll-target="#summary-1"><span class="header-section-number">3.8</span> Summary</a>
   <ul class="collapse">
-  <li><a href="#machine-readable-1" id="toc-machine-readable-1" class="nav-link" data-scroll-target="#machine-readable-1"><span class="header-section-number">2.8.1</span> Machine readable</a></li>
-  <li><a href="#human-readable-1" id="toc-human-readable-1" class="nav-link" data-scroll-target="#human-readable-1"><span class="header-section-number">2.8.2</span> Human readable</a></li>
-  <li><a href="#consistency-1" id="toc-consistency-1" class="nav-link" data-scroll-target="#consistency-1"><span class="header-section-number">2.8.3</span> Consistency</a></li>
-  <li><a href="#plays-well-with-default-ordering" id="toc-plays-well-with-default-ordering" class="nav-link" data-scroll-target="#plays-well-with-default-ordering"><span class="header-section-number">2.8.4</span> Plays well with default ordering</a></li>
+  <li><a href="#machine-readable-1" id="toc-machine-readable-1" class="nav-link" data-scroll-target="#machine-readable-1"><span class="header-section-number">3.8.1</span> Machine readable</a></li>
+  <li><a href="#human-readable-1" id="toc-human-readable-1" class="nav-link" data-scroll-target="#human-readable-1"><span class="header-section-number">3.8.2</span> Human readable</a></li>
+  <li><a href="#consistency-1" id="toc-consistency-1" class="nav-link" data-scroll-target="#consistency-1"><span class="header-section-number">3.8.3</span> Consistency</a></li>
+  <li><a href="#plays-well-with-default-ordering" id="toc-plays-well-with-default-ordering" class="nav-link" data-scroll-target="#plays-well-with-default-ordering"><span class="header-section-number">3.8.4</span> Plays well with default ordering</a></li>
   </ul></li>
-  <li><a href="#acknowledgements-further-reading" id="toc-acknowledgements-further-reading" class="nav-link" data-scroll-target="#acknowledgements-further-reading"><span class="header-section-number">2.9</span> Acknowledgements &amp; further reading</a></li>
+  <li><a href="#acknowledgements-further-reading" id="toc-acknowledgements-further-reading" class="nav-link" data-scroll-target="#acknowledgements-further-reading"><span class="header-section-number">3.9</span> Acknowledgements &amp; further reading</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/naming-things.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/naming-things.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -288,7 +294,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Naming things</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Naming things</span></h1>
   <div class="quarto-categories">
     <div class="quarto-category">beginner</div>
     <div class="quarto-category">basics</div>
@@ -315,8 +321,8 @@ div.csl-indent {
 </header>
 
 
-<section id="examples" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="examples"><span class="header-section-number">2.1</span> Examples</h2>
+<section id="examples" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="examples"><span class="header-section-number">3.1</span> Examples</h2>
 <p>Reflect on your first research project (or perhaps your most recent project). Take a moment to look at all the files you needed for that project. Can you determine what they contain just by their names? Below, you will find a real-life example from a second-semester undergraduate student in psychology. Which files would you want to encounter when you start reproducing results?</p>
 <div class="callout callout-style-default callout-caution callout-titled" title="Exercise: What is bad or good about these file names?">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
@@ -334,8 +340,8 @@ Exercise: What is bad or good about these file names?
 </div>
 </div>
 </div>
-<section id="bad-names" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="bad-names"><span class="header-section-number">2.1.1</span> Bad names</h3>
+<section id="bad-names" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="bad-names"><span class="header-section-number">3.1.1</span> Bad names</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><i class="fa-solid fa-people-arrows" aria-label="people-arrows"></i> Psychology</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Example 2</a></li></ul>
 <div class="tab-content">
@@ -375,8 +381,8 @@ Exercise: What is bad or good about these file names?
 </div>
 </div>
 </section>
-<section id="better-names" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="better-names"><span class="header-section-number">2.1.2</span> Better names</h3>
+<section id="better-names" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="better-names"><span class="header-section-number">3.1.2</span> Better names</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"><i class="fa-solid fa-people-arrows" aria-label="people-arrows"></i> Psychology</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Example 2</a></li></ul>
 <div class="tab-content">
@@ -417,20 +423,20 @@ Exercise: What is bad or good about these file names?
 </div>
 </section>
 </section>
-<section id="introduction" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2.2</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.2</span> Introduction</h2>
 <blockquote class="blockquote">
 <p>“<em>There are only two hard things in Computer Science: cache invalidation and naming things.</em>” – Phil Karlton</p>
 </blockquote>
 <p>In research, naming things can often be more difficult than it seems. Whether you’re giving names to variables in a dataset, labeling files for your projects, or creating functions in a script, the names you choose are important for making your work clear and understandable. Good names help others (and yourself!) know what your work is about and how to use it.</p>
-<p>Finding the right names takes careful thought. You need to consider what makes sense in context and how to be clear and consistent. This chapter will look at some common challenges people face when naming things in research and provide simple tips to improve your naming practices. By understanding these challenges, you can make your research easier to follow and more accessible to others and avoid situations as illustrated in <a href="#fig-phd-comic-story-told-in-file-names" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>.</p>
+<p>Finding the right names takes careful thought. You need to consider what makes sense in context and how to be clear and consistent. This chapter will look at some common challenges people face when naming things in research and provide simple tips to improve your naming practices. By understanding these challenges, you can make your research easier to follow and more accessible to others and avoid situations as illustrated in <a href="#fig-phd-comic-story-told-in-file-names" class="quarto-xref">Figure&nbsp;<span>3.1</span></a>.</p>
 <div id="fig-phd-comic-story-told-in-file-names" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-phd-comic-story-told-in-file-names-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/phd-comic-story-told-in-file-names.gif" class="img-fluid figure-img" alt="">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-phd-comic-story-told-in-file-names-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.1: “<a href="https://phdcomics.com/comics/archive.php?comicid=1323">A story told in file names</a>” by <a href="https://phdcomics.com/">Jorge Cham</a> (License: <a href=""></a>; All content copyright 1997-2003 Piled Higher and Deeper Publishing, LLC.)
+Figure&nbsp;3.1: “<a href="https://phdcomics.com/comics/archive.php?comicid=1323">A story told in file names</a>” by <a href="https://phdcomics.com/">Jorge Cham</a> (License: <a href=""></a>; All content copyright 1997-2003 Piled Higher and Deeper Publishing, LLC.)
 </figcaption>
 </figure>
 </div>
@@ -451,8 +457,8 @@ Ok, what the heck is cache invalidation and why is it hard?
 </div>
 </div>
 </section>
-<section id="principles-for-file-names" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="principles-for-file-names"><span class="header-section-number">2.3</span> Principles for (file) names</h2>
+<section id="principles-for-file-names" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="principles-for-file-names"><span class="header-section-number">3.3</span> Principles for (file) names</h2>
 <p>Good file naming practices are essential for organization, clarity, and efficient file management. Here are some key principles to follow when creating file names:</p>
 <ol type="1">
 <li><a href="#machine-readable">Machine readable</a></li>
@@ -461,11 +467,11 @@ Ok, what the heck is cache invalidation and why is it hard?
 <li><a href="#play-well-with-default-ordering">Play well with default ordering</a></li>
 </ol>
 </section>
-<section id="machine-readable" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="machine-readable"><span class="header-section-number">2.4</span> Machine readable</h2>
+<section id="machine-readable" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="machine-readable"><span class="header-section-number">3.4</span> Machine readable</h2>
 <p>A file is machine-readable if information is formatted in a way that a computer can easily read and understand it without needing a human to interpret or manually enter the data. This often involves using standardized data formats like CSV, XML, or JSON, which are structured so that computer programs can process the information quickly and accurately. There are two main concepts that help computers quickly search and match patterns in text or file names, making data processing tasks easier and faster: regular expressions and globbing.</p>
-<section id="regular-expression-and-globbing-friendly" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="regular-expression-and-globbing-friendly"><span class="header-section-number">2.4.1</span> Regular expression and globbing friendly</h3>
+<section id="regular-expression-and-globbing-friendly" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="regular-expression-and-globbing-friendly"><span class="header-section-number">3.4.1</span> Regular expression and globbing friendly</h3>
 <p>Both regular expression and globbing are concepts that help make working with files and data more efficient for automation and scripting tasks.</p>
 <p>A <strong>regular expression</strong>, often called a “regex”, is a sequence of characters that defines a search pattern. It’s used to find or match specific combinations of characters within text. You can think of it as a tool for searching text in a very precise and flexible way.</p>
 <p><strong>Globbing</strong> is a way to use special characters (called “wildcards”) to match multiple files or directories in command-line interfaces or scripts. It helps you to select groups of files without typing every single name.</p>
@@ -476,8 +482,8 @@ Ok, what the heck is cache invalidation and why is it hard?
 </ul>
 <p>So, if you wanted to list all text files in a directory, you could use the pattern <code>*.txt</code>, and it would match all files with the <code>.txt</code> extension.</p>
 </section>
-<section id="how-to-make-files-regex-and-globbing-friendy" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="how-to-make-files-regex-and-globbing-friendy"><span class="header-section-number">2.4.2</span> How to make files regex and globbing friendy</h3>
+<section id="how-to-make-files-regex-and-globbing-friendy" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="how-to-make-files-regex-and-globbing-friendy"><span class="header-section-number">3.4.2</span> How to make files regex and globbing friendy</h3>
 <p>To make file names regex and globbing friendly, avoid:</p>
 <ul>
 <li>spaces</li>
@@ -715,11 +721,11 @@ What is globbing?
 </div>
 </div>
 </section>
-<section id="recover-meta-data-from-file-names" class="level3" data-number="2.4.3">
-<h3 data-number="2.4.3" class="anchored" data-anchor-id="recover-meta-data-from-file-names"><span class="header-section-number">2.4.3</span> Recover meta data from file names</h3>
+<section id="recover-meta-data-from-file-names" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="recover-meta-data-from-file-names"><span class="header-section-number">3.4.3</span> Recover meta data from file names</h3>
 <p>Metadata is information that describes key details about a file, like the date it was created, the author, or the type of data it contains. Including metadata in a filename (for example, <code>2023_Experiment1_DrSmith.csv</code>) is helpful because it makes important details visible at a glance. This helps with organizing, searching, and sorting files, especially in large projects where you may have many similar files. By storing metadata in filenames, you can quickly understand what each file contains without opening it, saving time and reducing errors in data management.</p>
-<section id="sec-metadatarecovery" class="level4" data-number="2.4.3.1">
-<h4 data-number="2.4.3.1" class="anchored" data-anchor-id="sec-metadatarecovery"><span class="header-section-number">2.4.3.1</span> How to recover meta data from file names</h4>
+<section id="sec-metadatarecovery" class="level4" data-number="3.4.3.1">
+<h4 data-number="3.4.3.1" class="anchored" data-anchor-id="sec-metadatarecovery"><span class="header-section-number">3.4.3.1</span> How to recover meta data from file names</h4>
 <p>Deliberate use of underscores (<code>_</code>) and hyphens (<code>-</code>) allows us to recover metadata from file names.</p>
 <ul>
 <li>Use underscores (<code>_</code>) to delimit units of metadata</li>
@@ -796,8 +802,8 @@ What is globbing?
 </div>
 </section>
 </section>
-<section id="summary" class="level3" data-number="2.4.4">
-<h3 data-number="2.4.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">2.4.4</span> Summary</h3>
+<section id="summary" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">3.4.4</span> Summary</h3>
 <p>Names are more easily machine-readable if they are:</p>
 <ol type="1">
 <li>Easy to search for files later.</li>
@@ -806,8 +812,8 @@ What is globbing?
 </ol>
 </section>
 </section>
-<section id="human-readable" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="human-readable"><span class="header-section-number">2.5</span> Human readable</h2>
+<section id="human-readable" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="human-readable"><span class="header-section-number">3.5</span> Human readable</h2>
 <p>Names of files and folders should contain <strong>information about its content</strong>. It should make it easy to figure out what something is based on the file name. This idea connects to the concept of a slug from semantic URLs.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="What is a slug in a URL?">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -977,8 +983,8 @@ What is a slug in a URL?
 </div>
 </div>
 </section>
-<section id="consistency" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="consistency"><span class="header-section-number">2.6</span> Consistency</h2>
+<section id="consistency" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="consistency"><span class="header-section-number">3.6</span> Consistency</h2>
 <p>You can find and organize files more easily when you name them consistently.<br>
 Sometimes, file names might be in multiple languages.<br>
 For example, you may study in the Netherlands or Germany, but your research project involves international colleagues, so the common language is English.<br>
@@ -1021,13 +1027,13 @@ Be mindful of capitalization as well, and choose a consistent style!</p>
 </div>
 </div>
 </section>
-<section id="play-well-with-default-ordering" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="play-well-with-default-ordering"><span class="header-section-number">2.7</span> Play well with default ordering</h2>
+<section id="play-well-with-default-ordering" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="play-well-with-default-ordering"><span class="header-section-number">3.7</span> Play well with default ordering</h2>
 <p>Filenames should be designed to work well with default ordering (like alphabetical or chronological order) so that files are easy to locate and understand at a glance Good ordering lets related files appear together, saves time when searching, and keeps files organized, especially in large projects.</p>
-<section id="put-something-numeric-first" class="level3" data-number="2.7.1">
-<h3 data-number="2.7.1" class="anchored" data-anchor-id="put-something-numeric-first"><span class="header-section-number">2.7.1</span> Put something numeric first</h3>
-<section id="chronological-order" class="level4" data-number="2.7.1.1">
-<h4 data-number="2.7.1.1" class="anchored" data-anchor-id="chronological-order"><span class="header-section-number">2.7.1.1</span> Chronological order</h4>
+<section id="put-something-numeric-first" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="put-something-numeric-first"><span class="header-section-number">3.7.1</span> Put something numeric first</h3>
+<section id="chronological-order" class="level4" data-number="3.7.1.1">
+<h4 data-number="3.7.1.1" class="anchored" data-anchor-id="chronological-order"><span class="header-section-number">3.7.1.1</span> Chronological order</h4>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-13-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-1" role="tab" aria-controls="tabset-13-1" aria-selected="true"><i class="fa-solid fa-people-arrows" aria-label="people-arrows"></i> Psychology</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-2" role="tab" aria-controls="tabset-13-2" aria-selected="false">Biology</a></li></ul>
 <div class="tab-content">
@@ -1075,7 +1081,7 @@ When keeping copies of the same or similar files, consider version control!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consider the use of chronologically ordered files and folders! For specifying different versions of the same document, version control tools as Git and GitHub should be preferred. Otherwise you might feel as the person in the cartoon in <a href="#fig-final-doc-comic" class="quarto-xref">Figure&nbsp;<span>2.2</span></a> writing on his “final document”. For different but similar files, a chronological order can make sense.</p>
+<p>Consider the use of chronologically ordered files and folders! For specifying different versions of the same document, version control tools as Git and GitHub should be preferred. Otherwise you might feel as the person in the cartoon in <a href="#fig-final-doc-comic" class="quarto-xref">Figure&nbsp;<span>3.2</span></a> writing on his “final document”. For different but similar files, a chronological order can make sense.</p>
 </div>
 </div>
 <div id="fig-final-doc-comic" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
@@ -1084,13 +1090,13 @@ When keeping copies of the same or similar files, consider version control!
 <img src="../images/final-doc-comic.gif" class="img-fluid figure-img" alt="">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-final-doc-comic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.2: “<a href="https://phdcomics.com/comics/archive.php?comicid=1531">notFinal.doc</a>” by <a href="https://phdcomics.com/">Jorge Cham</a> (License: <a href="">All content copyright 1997-2003 Piled Higher and Deeper Publishing, LLC.</a>; reused without modifications)
+Figure&nbsp;3.2: “<a href="https://phdcomics.com/comics/archive.php?comicid=1531">notFinal.doc</a>” by <a href="https://phdcomics.com/">Jorge Cham</a> (License: <a href="">All content copyright 1997-2003 Piled Higher and Deeper Publishing, LLC.</a>; reused without modifications)
 </figcaption>
 </figure>
 </div>
 </section>
-<section id="logical-order" class="level4" data-number="2.7.1.2">
-<h4 data-number="2.7.1.2" class="anchored" data-anchor-id="logical-order"><span class="header-section-number">2.7.1.2</span> Logical order</h4>
+<section id="logical-order" class="level4" data-number="3.7.1.2">
+<h4 data-number="3.7.1.2" class="anchored" data-anchor-id="logical-order"><span class="header-section-number">3.7.1.2</span> Logical order</h4>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-14-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-1" role="tab" aria-controls="tabset-14-1" aria-selected="true"><i class="fa-solid fa-people-arrows" aria-label="people-arrows"></i> Psychology</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-2" role="tab" aria-controls="tabset-14-2" aria-selected="false">Biology</a></li></ul>
 <div class="tab-content">
@@ -1123,8 +1129,8 @@ Figure&nbsp;2.2: “<a href="https://phdcomics.com/comics/archive.php?comicid=15
 </div>
 </div>
 </section>
-<section id="sec-date-format" class="level4" data-number="2.7.1.3">
-<h4 data-number="2.7.1.3" class="anchored" data-anchor-id="sec-date-format"><span class="header-section-number">2.7.1.3</span> Use the ISO 8601 standard for dates</h4>
+<section id="sec-date-format" class="level4" data-number="3.7.1.3">
+<h4 data-number="3.7.1.3" class="anchored" data-anchor-id="sec-date-format"><span class="header-section-number">3.7.1.3</span> Use the ISO 8601 standard for dates</h4>
 <p>In 1988, to avoid confusion, the International Organization for Standardization (ISO) set a global standard numeric date format, known as ISO 8601: <code>YYYY-MM-DD</code>, where <code>YYYY</code> stands for the year, e.g., <code>2024</code>, <code>MM</code> stands for the month, e.g., <code>11</code> and <code>DD</code> stands for the day, e.g., <code>06</code>. Using the ISO 8601 standard for dates (like <code>2023-11-06</code>) ensures consistency and avoids confusion. This format starts with the year, followed by the month, and then the day, which makes it easy to sort dates in the correct order. It works well across different cultures and software, helping everyone read and organize dates the same way.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-15-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-15-1" role="tab" aria-controls="tabset-15-1" aria-selected="true"><i class="fa-solid fa-people-arrows" aria-label="people-arrows"></i> Psychology</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-15-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-15-2" role="tab" aria-controls="tabset-15-2" aria-selected="false">Biology</a></li></ul>
@@ -1169,18 +1175,18 @@ Figure&nbsp;2.2: “<a href="https://phdcomics.com/comics/archive.php?comicid=15
 <img src="../images/xkcd-iso-8601.png" class="img-fluid figure-img" alt="">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-xkcd-iso-8601-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.3: “<a href="https://xkcd.com/1179/">ISO 8601</a>” by <a href="https://xkcd.com/">xkcd.com (Randall Munroe)</a> (License: <a href="https://xkcd.com/license.html">CC BY-NC 2.5</a>; reused without modifications)
+Figure&nbsp;3.3: “<a href="https://xkcd.com/1179/">ISO 8601</a>” by <a href="https://xkcd.com/">xkcd.com (Randall Munroe)</a> (License: <a href="https://xkcd.com/license.html">CC BY-NC 2.5</a>; reused without modifications)
 </figcaption>
 </figure>
 </div>
 </section>
-<section id="consider-the-output" class="level4" data-number="2.7.1.4">
-<h4 data-number="2.7.1.4" class="anchored" data-anchor-id="consider-the-output"><span class="header-section-number">2.7.1.4</span> Consider the output:</h4>
+<section id="consider-the-output" class="level4" data-number="3.7.1.4">
+<h4 data-number="3.7.1.4" class="anchored" data-anchor-id="consider-the-output"><span class="header-section-number">3.7.1.4</span> Consider the output:</h4>
 <p>Files that are later turned into HTML should be exclusively delimited by hyphens (<code>-</code>).</p>
 </section>
 </section>
-<section id="left-pad-numbers-with-zeros" class="level3" data-number="2.7.2">
-<h3 data-number="2.7.2" class="anchored" data-anchor-id="left-pad-numbers-with-zeros"><span class="header-section-number">2.7.2</span> Left-pad numbers with zeros</h3>
+<section id="left-pad-numbers-with-zeros" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="left-pad-numbers-with-zeros"><span class="header-section-number">3.7.2</span> Left-pad numbers with zeros</h3>
 <p>Left-padding of numbers refers to the practice of adding zeros to the left of a number to make it reach a certain length. This can be useful, for example, when dealing with numerical data that needs to be formatted in a specific way for presentation or computational purposes. By left-padding numbers, you can ensure that they all have the same length and are easier to compare or work with in a numerical context.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-16-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-16-1" role="tab" aria-controls="tabset-16-1" aria-selected="true"><i class="fa-solid fa-people-arrows" aria-label="people-arrows"></i> Psychology</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-16-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-16-2" role="tab" aria-controls="tabset-16-2" aria-selected="false">Biology</a></li></ul>
@@ -1247,32 +1253,32 @@ Consider how many leading zero you will need!
 </div>
 </section>
 </section>
-<section id="summary-1" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="summary-1"><span class="header-section-number">2.8</span> Summary</h2>
+<section id="summary-1" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="summary-1"><span class="header-section-number">3.8</span> Summary</h2>
 <p>Here is a summary of all recommendations for naming things:</p>
-<section id="machine-readable-1" class="level3" data-number="2.8.1">
-<h3 data-number="2.8.1" class="anchored" data-anchor-id="machine-readable-1"><span class="header-section-number">2.8.1</span> Machine readable</h3>
+<section id="machine-readable-1" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="machine-readable-1"><span class="header-section-number">3.8.1</span> Machine readable</h3>
 <ol type="1">
 <li>File names are regular expression and globbing friendly</li>
 <li>File names allow to recover meta data</li>
 </ol>
 </section>
-<section id="human-readable-1" class="level3" data-number="2.8.2">
-<h3 data-number="2.8.2" class="anchored" data-anchor-id="human-readable-1"><span class="header-section-number">2.8.2</span> Human readable</h3>
+<section id="human-readable-1" class="level3" data-number="3.8.2">
+<h3 data-number="3.8.2" class="anchored" data-anchor-id="human-readable-1"><span class="header-section-number">3.8.2</span> Human readable</h3>
 <ol type="1">
 <li>File names contain info on content</li>
 </ol>
 </section>
-<section id="consistency-1" class="level3" data-number="2.8.3">
-<h3 data-number="2.8.3" class="anchored" data-anchor-id="consistency-1"><span class="header-section-number">2.8.3</span> Consistency</h3>
+<section id="consistency-1" class="level3" data-number="3.8.3">
+<h3 data-number="3.8.3" class="anchored" data-anchor-id="consistency-1"><span class="header-section-number">3.8.3</span> Consistency</h3>
 <ol type="1">
 <li>File names are named in one language</li>
 <li>Be aware of regional influences in spelling</li>
 <li>Consistent use of upper and lower case</li>
 </ol>
 </section>
-<section id="plays-well-with-default-ordering" class="level3" data-number="2.8.4">
-<h3 data-number="2.8.4" class="anchored" data-anchor-id="plays-well-with-default-ordering"><span class="header-section-number">2.8.4</span> Plays well with default ordering</h3>
+<section id="plays-well-with-default-ordering" class="level3" data-number="3.8.4">
+<h3 data-number="3.8.4" class="anchored" data-anchor-id="plays-well-with-default-ordering"><span class="header-section-number">3.8.4</span> Plays well with default ordering</h3>
 <ol type="1">
 <li>Put something numeric first</li>
 <li>Use the ISO 8601 standard for dates: <code>YYYY-MM-DD</code></li>
@@ -1280,8 +1286,8 @@ Consider how many leading zero you will need!
 </ol>
 </section>
 </section>
-<section id="acknowledgements-further-reading" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="acknowledgements-further-reading"><span class="header-section-number">2.9</span> Acknowledgements &amp; further reading</h2>
+<section id="acknowledgements-further-reading" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="acknowledgements-further-reading"><span class="header-section-number">3.9</span> Acknowledgements &amp; further reading</h2>
 <p>We would like to express our gratitude to the following resources, which have been essential in shaping this chapter. We recommend these references for further reading:</p>
 <p>The ideas provided in this chapter are mainly based on the <a href="https://speakerdeck.com/jennybc/how-to-name-files">slides</a> from <span class="citation" data-cites="bryan2015">Bryan (<a href="../references.html#ref-bryan2015" role="doc-biblioref">2015</a>)</span>. We are also thankful for the additional ideas of <a href="https://djnavarro.net/slides-project-structure/#1">Danielle Navarro</a> and the <a href="https://berd-nfdi.github.io/BERD-reproducible-research-course/2-1-naming.html">BERD Academy</a></p>
 
@@ -1722,13 +1728,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/intro.html" class="pagination-link" aria-label="Introduction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="../chapters/motivation-for-reproducibility.html" class="pagination-link" aria-label="Motivation for reproducible science">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Motivation for reproducible science</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../chapters/project-structure.html" class="pagination-link" aria-label="Project Structure">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Project Structure</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Project Structure</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

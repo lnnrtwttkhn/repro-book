@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Project Structure – The Repro Book</title>
+<title>4&nbsp; Project Structure – The Repro Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -166,7 +166,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/project-structure.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Project Structure</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/project-structure.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Project Structure</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -216,38 +216,44 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chapters/motivation-for-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Motivation for reproducible science</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../chapters/naming-things.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Naming things</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Naming things</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/project-structure.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Project Structure</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Project Structure</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/rdm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Research Data Management</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Research Data Management</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/good-coding-practices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/renv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Robust Environments: <code>{renv}</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Robust Environments: <code>{renv}</code></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -280,21 +286,21 @@ window.Quarto = {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#examples" id="toc-examples" class="nav-link active" data-scroll-target="#examples"><span class="header-section-number">3.1</span> Examples</a></li>
-  <li><a href="#basic-standards-for-research-projects" id="toc-basic-standards-for-research-projects" class="nav-link" data-scroll-target="#basic-standards-for-research-projects"><span class="header-section-number">3.2</span> Basic standards for research projects</a>
+  <li><a href="#examples" id="toc-examples" class="nav-link active" data-scroll-target="#examples"><span class="header-section-number">4.1</span> Examples</a></li>
+  <li><a href="#basic-standards-for-research-projects" id="toc-basic-standards-for-research-projects" class="nav-link" data-scroll-target="#basic-standards-for-research-projects"><span class="header-section-number">4.2</span> Basic standards for research projects</a>
   <ul class="collapse">
-  <li><a href="#human-and-machine-readable-files" id="toc-human-and-machine-readable-files" class="nav-link" data-scroll-target="#human-and-machine-readable-files"><span class="header-section-number">3.2.1</span> Human and machine-readable files</a></li>
-  <li><a href="#readme.md-file" id="toc-readme.md-file" class="nav-link" data-scroll-target="#readme.md-file"><span class="header-section-number">3.2.2</span> <code>README.md</code>-file</a></li>
-  <li><a href="#separation-of-data-and-code" id="toc-separation-of-data-and-code" class="nav-link" data-scroll-target="#separation-of-data-and-code"><span class="header-section-number">4.4.1</span> Separation of data and code</a></li>
-  <li><a href="#renv-folder" id="toc-renv-folder" class="nav-link" data-scroll-target="#renv-folder"><span class="header-section-number">4.4.2</span> <code>renv</code> folder</a></li>
-  <li><a href="#misc-folder" id="toc-misc-folder" class="nav-link" data-scroll-target="#misc-folder"><span class="header-section-number">4.4.3</span> misc-folder</a></li>
+  <li><a href="#human-and-machine-readable-files" id="toc-human-and-machine-readable-files" class="nav-link" data-scroll-target="#human-and-machine-readable-files"><span class="header-section-number">4.2.1</span> Human and machine-readable files</a></li>
+  <li><a href="#readme.md-file" id="toc-readme.md-file" class="nav-link" data-scroll-target="#readme.md-file"><span class="header-section-number">4.2.2</span> <code>README.md</code>-file</a></li>
+  <li><a href="#separation-of-data-and-code" id="toc-separation-of-data-and-code" class="nav-link" data-scroll-target="#separation-of-data-and-code"><span class="header-section-number">5.4.1</span> Separation of data and code</a></li>
+  <li><a href="#renv-folder" id="toc-renv-folder" class="nav-link" data-scroll-target="#renv-folder"><span class="header-section-number">5.4.2</span> <code>renv</code> folder</a></li>
+  <li><a href="#misc-folder" id="toc-misc-folder" class="nav-link" data-scroll-target="#misc-folder"><span class="header-section-number">5.4.3</span> misc-folder</a></li>
   </ul></li>
-  <li><a href="#yoda-principles" id="toc-yoda-principles" class="nav-link" data-scroll-target="#yoda-principles"><span class="header-section-number">4.5</span> YODA principles</a></li>
-  <li><a href="#optional-standards-for-research-projects" id="toc-optional-standards-for-research-projects" class="nav-link" data-scroll-target="#optional-standards-for-research-projects"><span class="header-section-number">4.6</span> Optional standards for research projects</a></li>
-  <li><a href="#structure-of-reproducibility-archives" id="toc-structure-of-reproducibility-archives" class="nav-link" data-scroll-target="#structure-of-reproducibility-archives"><span class="header-section-number">4.7</span> Structure of reproducibility archives</a>
+  <li><a href="#yoda-principles" id="toc-yoda-principles" class="nav-link" data-scroll-target="#yoda-principles"><span class="header-section-number">5.5</span> YODA principles</a></li>
+  <li><a href="#optional-standards-for-research-projects" id="toc-optional-standards-for-research-projects" class="nav-link" data-scroll-target="#optional-standards-for-research-projects"><span class="header-section-number">5.6</span> Optional standards for research projects</a></li>
+  <li><a href="#structure-of-reproducibility-archives" id="toc-structure-of-reproducibility-archives" class="nav-link" data-scroll-target="#structure-of-reproducibility-archives"><span class="header-section-number">5.7</span> Structure of reproducibility archives</a>
   <ul class="collapse">
-  <li><a href="#requirements-of-frontiers-in-psychology" id="toc-requirements-of-frontiers-in-psychology" class="nav-link" data-scroll-target="#requirements-of-frontiers-in-psychology"><span class="header-section-number">4.7.1</span> Requirements of Frontiers in Psychology</a></li>
-  <li><a href="#current-application-of-open-science-practices" id="toc-current-application-of-open-science-practices" class="nav-link" data-scroll-target="#current-application-of-open-science-practices"><span class="header-section-number">4.7.2</span> Current application of open science practices</a></li>
+  <li><a href="#requirements-of-frontiers-in-psychology" id="toc-requirements-of-frontiers-in-psychology" class="nav-link" data-scroll-target="#requirements-of-frontiers-in-psychology"><span class="header-section-number">5.7.1</span> Requirements of Frontiers in Psychology</a></li>
+  <li><a href="#current-application-of-open-science-practices" id="toc-current-application-of-open-science-practices" class="nav-link" data-scroll-target="#current-application-of-open-science-practices"><span class="header-section-number">5.7.2</span> Current application of open science practices</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/project-structure.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/project-structure.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
@@ -304,7 +310,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Project Structure</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Project Structure</span></h1>
 </div>
 
 
@@ -341,8 +347,8 @@ Learning Objectives
 </div>
 </div>
 <p>A good folder structure saves you and other researchers a lot of time when revisiting or trying to understand your data. However, there is no universal <em>best practice standard</em> for project structures. Below are several examples of different project structures:</p>
-<section id="examples" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="examples"><span class="header-section-number">3.1</span> Examples</h2>
+<section id="examples" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="examples"><span class="header-section-number">4.1</span> Examples</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">The Turing Way</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Heidi Seibold</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">analysistemplates</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">WORCS</a></li></ul>
 <div class="tab-content">
@@ -537,8 +543,8 @@ Exercise: Take on different perspectives
 </div>
 <p>When looking at the different project structures, it becomes clear that there is no perfect or correct project structure for a research project. The variety and scale of projects is too diverse and include different demands of different parties. Nevertheless, in this chapter we try to summarise the most important aspects of a project structure in the context of research. We differentiate between basic standards that help in every project and optional standards that help in specific contexts of projects. Afterwards, we display reproducibility archives and the different requirements journals articulate for setting up an reproducibility archive.</p>
 </section>
-<section id="basic-standards-for-research-projects" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="basic-standards-for-research-projects"><span class="header-section-number">3.2</span> Basic standards for research projects</h2>
+<section id="basic-standards-for-research-projects" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="basic-standards-for-research-projects"><span class="header-section-number">4.2</span> Basic standards for research projects</h2>
 <p>First of all, these basic standards are highly subjective. As researchers in the discipline of psychology, our experience comes from psychological research projects. Researchers from other disciplines might need to configure the project structure elements. In psychology research, we assess these standards as highly useful:</p>
 <ol type="1">
 <li>Human and machine-readable files</li>
@@ -548,12 +554,12 @@ Exercise: Take on different perspectives
 <li><code>misc</code>-folder</li>
 </ol>
 <p>Apart from these standards, it is always useful to look for already existing standards in your research discipline. Researchers working with fMRI data will find the convention of <em>Brain Images Data Structures (<a href="?var:link.bids">BIDS</a>)</em>. BIDS is a standard that aims to foster a simple and easy way of organizing neuroimaging and behavioural data. Inspired by BIDS, <em><a href="?var:link.psych-ds">psych-DS</a></em> started in 2018 to aiming to provide a systematic way of formatting and documenting scientific datasets. However, content creation by psych-DS has been low. If you want to contribute to the project, take a look at their <i class="fa-brands fa-github" aria-label="github"></i> Github <a href="https://github.com/psych-DS/psych-DS">repository</a>.</p>
-<section id="human-and-machine-readable-files" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="human-and-machine-readable-files"><span class="header-section-number">3.2.1</span> Human and machine-readable files</h3>
+<section id="human-and-machine-readable-files" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="human-and-machine-readable-files"><span class="header-section-number">4.2.1</span> Human and machine-readable files</h3>
 <p>As displayed in the chapter <em>Naming things</em>, human and machine-readable names for files and folders are relatively easy to modify, when starting a project. As your project grows, you will be thankful for good file and folder names. Since, we dedicated a whole chapter to this topic, we move on to the next basic standard of a project structure.</p>
 </section>
-<section id="readme.md-file" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored"><span class="header-section-number">3.2.2</span> <code>README.md</code>-file</h3>
+<section id="readme.md-file" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored"><span class="header-section-number">4.2.2</span> <code>README.md</code>-file</h3>
 <p>A <code>README</code> is a text file that provides basic information about a project. It is typically a Markdown (<code>.md</code>) file, which means you can use <a href="https://www.markdownguide.org/">Markdown</a> syntax in it. Markdown allows you to easily format text, create lists, include links, and embed images. The exact content depends on your repository, but some general things that you might want to include are:</p>
 <ul>
 <li><p><strong>Project description</strong>: What function does this repository serve and what are it’s key features?</p></li>
@@ -593,25 +599,25 @@ Find out more: View the <code>README.md</code> file of this project.
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<section id="the-repro-book" class="level1 callout-body-container callout-body" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> The Repro Book</h1>
+<section id="the-repro-book" class="level1 callout-body-container callout-body" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> The Repro Book</h1>
 <p><a href="https://lennartwittkuhn.com/repro-book/"><img src="https://img.shields.io/website?url=https%3A%2F%2Flennartwittkuhn.com%2Frepro-book%2F" class="img-fluid" alt="Website"></a> <a href="https://creativecommons.org/licenses/by/4.0/"><img src="https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg" class="img-fluid" alt="License: CC BY 4.0"></a> <a href="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/publish.yml"><img src="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/publish.yml/badge.svg" class="img-fluid" alt="Quarto Publish"></a> <a href="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/codespell.yml"><img src="https://github.com/lnnrtwttkhn/repro-book/actions/workflows/codespell.yml/badge.svg" class="img-fluid" alt="Codespell"></a> <a href="#contributors"><img src="https://img.shields.io/github/all-contributors/projectOwner/projectName?color=ee8449&amp;style=flat-square.png" class="img-fluid" alt="All Contributors"></a></p>
-<section id="description" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="description"><span class="header-section-number">4.1</span> Description</h2>
+<section id="description" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="description"><span class="header-section-number">5.1</span> Description</h2>
 <p>Welcome to the Repro Book, an open-source online learning resource on reproducible research. The main goal of the Repro Book is to provide a companion online course text book for courses on reproducible research.</p>
 </section>
-<section id="repository-structure" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="repository-structure"><span class="header-section-number">4.2</span> Repository Structure</h2>
-<section id="folders" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="folders"><span class="header-section-number">4.2.1</span> Folders</h3>
+<section id="repository-structure" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="repository-structure"><span class="header-section-number">5.2</span> Repository Structure</h2>
+<section id="folders" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="folders"><span class="header-section-number">5.2.1</span> Folders</h3>
 <p><code>.github/workflows</code> is a folder that contains GitHub Actions workflows. Currently, two automatic workflows run automatically. This folder can be ignored by users who want to contribute to the book.</p>
 <p><code>_extensions</code> is a folder that contains Quarto extensions. Currently, this book only uses the <code>fontawesome-extension</code> to create icons like this: <code></code>. This folder can be ignored by users who want to contribute to the book.</p>
 <p><code>chapters</code> is the heart of the book. The <code>chapters</code> folder contains all main chapters of the book. The content of each chapter is stored in its own <code>.qmd</code> file. If you want to contribute with content and modify chapters or create new ones, this is main the place where your adjustments take place.</p>
 <p><code>images</code> is a folder that does not contain images (yet). The images displayed in this book are stored in a <a href="https://cloud.uni-hamburg.de/s/ifmfPkLJCqTELSC?">NextCloud</a> folder. If you want to contribute images to this book, please upload them to the NextCloud folder. For an explanation of how to use the images from NextCloud, see <code>contributing.qmd</code>.</p>
 <p><code>renv</code> is a folder that contains information about the R packages used in this book. If your contributions include the utility of an additional R package, see <code>contributing.qmd</code> for how to modify the relevant files.</p>
 </section>
-<section id="files" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="files"><span class="header-section-number">4.2.2</span> Files</h3>
+<section id="files" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="files"><span class="header-section-number">5.2.2</span> Files</h3>
 <p><code>.Renviron</code> is a file used in R that allows users to define environment variables.</p>
 <p><code>.Rprofile</code> is a file used in R that allows users to customize their R sessions by specifying code that should be executed every time R starts.</p>
 <p><code>.all-contributorsrc</code> is a file where the contributors of this project are listed. When you want to start working on this book, you will be included in this document. Content contribution is not affected by this file.</p>
@@ -637,13 +643,13 @@ Find out more: View the <code>README.md</code> file of this project.
 <p><code>summary.qmd</code> is a closing chapter of the book. It summarizes the most important insights.</p>
 </section>
 </section>
-<section id="license" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="license"><span class="header-section-number">4.3</span> License</h2>
+<section id="license" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="license"><span class="header-section-number">5.3</span> License</h2>
 <p><a href="https://creativecommons.org/licenses/by/4.0/deed.en">Creative Commons Attribution 4.0 International (CC BY 4.0)</a></p>
 <p>For details, see the <a href="LICENSE">LICENSE</a> file.</p>
 </section>
-<section id="contributors" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="contributors"><span class="header-section-number">4.4</span> Contributors</h2>
+<section id="contributors" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="contributors"><span class="header-section-number">5.4</span> Contributors</h2>
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
@@ -668,27 +674,27 @@ Find out more: View the <code>README.md</code> file of this project.
 </div>
 <p>A <code>README.md</code>-file can include a lot of content. When writing your <code>README</code>, consider your perspective as on-working researcher and other researchers that might want to reproduce parts of your project results.</p>
 </section>
-<section id="separation-of-data-and-code" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="separation-of-data-and-code"><span class="header-section-number">4.4.1</span> Separation of data and code</h3>
+<section id="separation-of-data-and-code" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="separation-of-data-and-code"><span class="header-section-number">5.4.1</span> Separation of data and code</h3>
 <p>As seen in the <a href="#examples">Examples</a>, many researchers separate data and code in different folders. It is also recommended to separate raw and clean (or tidy) data. When conducting experiments in psychology, raw data usually do not come in a way that lets you start analysing the data. Most (if not all) of the time, you need to configure the data. These configurations should be based on code (rather than clicking in a graphical user interface). The code that makes the raw data clean, should be included in the code folder of your project. In R, a popular method for data cleaning is the use of the <code>tidyverse</code>, which we will cover in the chapter about good coding practices.</p>
 </section>
-<section id="renv-folder" class="level3" data-number="4.4.2">
-<h3 data-number="4.4.2" class="anchored" data-anchor-id="renv-folder"><span class="header-section-number">4.4.2</span> <code>renv</code> folder</h3>
+<section id="renv-folder" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="renv-folder"><span class="header-section-number">5.4.2</span> <code>renv</code> folder</h3>
 <p>A <code>renv</code> folder helps you to create reproducible environments for your r projects. <code>renv</code> saves and lists all your R-packages used in your project. That means you have for each project an own project library in R. When you are working in R to run your data analyses, you can create the <code>renv</code>-folder directly. However, the use of <code>renv</code> is not intuitive, so we will cover the topic in another separate chapter.</p>
 </section>
-<section id="misc-folder" class="level3" data-number="4.4.3">
-<h3 data-number="4.4.3" class="anchored" data-anchor-id="misc-folder"><span class="header-section-number">4.4.3</span> misc-folder</h3>
+<section id="misc-folder" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="misc-folder"><span class="header-section-number">5.4.3</span> misc-folder</h3>
 <p>The abbreviation <code>misc</code> stands for miscellaneous. This folder is particularly useful for files that do not fit into one of your other folders. It saves you from having a chaotic project folder when entering your project.</p>
 </section>
 </section>
-<section id="yoda-principles" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="yoda-principles"><span class="header-section-number">4.5</span> YODA principles</h2>
+<section id="yoda-principles" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="yoda-principles"><span class="header-section-number">5.5</span> YODA principles</h2>
 </section>
-<section id="optional-standards-for-research-projects" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="optional-standards-for-research-projects"><span class="header-section-number">4.6</span> Optional standards for research projects</h2>
+<section id="optional-standards-for-research-projects" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="optional-standards-for-research-projects"><span class="header-section-number">5.6</span> Optional standards for research projects</h2>
 </section>
-<section id="structure-of-reproducibility-archives" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="structure-of-reproducibility-archives"><span class="header-section-number">4.7</span> Structure of reproducibility archives</h2>
+<section id="structure-of-reproducibility-archives" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="structure-of-reproducibility-archives"><span class="header-section-number">5.7</span> Structure of reproducibility archives</h2>
 <blockquote class="blockquote">
 <p>These are only comments. There is no aim of sufficiency and precision in the ideas below.</p>
 </blockquote>
@@ -701,8 +707,8 @@ Find out more: View the <code>README.md</code> file of this project.
 <p>Below the line, the actual content starts</p>
 <hr>
 <p>In the first subsections of the chapter, you have learned how to set up your own project structure. The structure is flexible to different occasions, e.g.&nbsp;working collaboratively with other team members, working at your own research project during your studies at university. Nevertheless, you have not learned what is actually required by journals when you need or want to make your data and code publicly available. To cover this topic, we will go into the details of open science requirements of a couple of journals.</p>
-<section id="requirements-of-frontiers-in-psychology" class="level3" data-number="4.7.1">
-<h3 data-number="4.7.1" class="anchored" data-anchor-id="requirements-of-frontiers-in-psychology"><span class="header-section-number">4.7.1</span> Requirements of Frontiers in Psychology</h3>
+<section id="requirements-of-frontiers-in-psychology" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="requirements-of-frontiers-in-psychology"><span class="header-section-number">5.7.1</span> Requirements of Frontiers in Psychology</h3>
 <p>The <a href="https://www.cos.io/initiatives/top-guidelines">TOP Guidelines</a> by the Center of Open Science are a best practice formulation by journals, funders, and societies to implement better and more transparent research. The <a href="https://topfactor.org">TOP Factor</a> is a metric that reports the steps that a journal is taking to implement open science practices. Below you can see the TOP Factor evaluation of two psychological journals.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -979,8 +985,8 @@ Learn more: What is the TOP-Factor?
 </div>
 <p>As you can see, journals do include requirements of public data and code for publishing articles. However, the specification of <em>how</em> to do that is scarce. Standards for research projects as stated above are missing. We further look at some examples of the application of open data and code policies in published articles.</p>
 </section>
-<section id="current-application-of-open-science-practices" class="level3" data-number="4.7.2">
-<h3 data-number="4.7.2" class="anchored" data-anchor-id="current-application-of-open-science-practices"><span class="header-section-number">4.7.2</span> Current application of open science practices</h3>
+<section id="current-application-of-open-science-practices" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="current-application-of-open-science-practices"><span class="header-section-number">5.7.2</span> Current application of open science practices</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Frontiers</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">AMPPS</a></li></ul>
 <div class="tab-content">
@@ -1448,12 +1454,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../chapters/naming-things.html" class="pagination-link" aria-label="Naming things">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Naming things</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Naming things</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../chapters/rdm.html" class="pagination-link" aria-label="Research Data Management">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Research Data Management</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Research Data Management</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

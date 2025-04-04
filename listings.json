@@ -3,6 +3,7 @@
     "listing": "/contents.html",
     "items": [
       "/chapters/intro.html",
+      "/chapters/motivation-for-reproducibility.html",
       "/chapters/naming-things.html",
       "/chapters/project-structure.html",
       "/chapters/rdm.html",

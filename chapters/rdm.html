@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Research Data Management – The Repro Book</title>
+<title>5&nbsp; Research Data Management – The Repro Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -137,7 +137,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/rdm.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Research Data Management</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/rdm.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Research Data Management</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -187,38 +187,44 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chapters/motivation-for-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Motivation for reproducible science</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../chapters/naming-things.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Naming things</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Naming things</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/project-structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Project Structure</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Project Structure</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/rdm.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Research Data Management</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Research Data Management</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/good-coding-practices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/renv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Robust Environments: <code>{renv}</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Robust Environments: <code>{renv}</code></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -251,17 +257,17 @@ div.csl-indent {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">4.1</span> Introduction</a></li>
-  <li><a href="#benefits-of-research-data-management" id="toc-benefits-of-research-data-management" class="nav-link" data-scroll-target="#benefits-of-research-data-management"><span class="header-section-number">4.2</span> Benefits of research data management</a></li>
-  <li><a href="#modularity-of-research-data" id="toc-modularity-of-research-data" class="nav-link" data-scroll-target="#modularity-of-research-data"><span class="header-section-number">4.3</span> Modularity of research data</a></li>
-  <li><a href="#fair-principles" id="toc-fair-principles" class="nav-link" data-scroll-target="#fair-principles"><span class="header-section-number">4.4</span> FAIR principles</a></li>
-  <li><a href="#data-organization" id="toc-data-organization" class="nav-link" data-scroll-target="#data-organization"><span class="header-section-number">4.5</span> Data organization</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">5.1</span> Introduction</a></li>
+  <li><a href="#benefits-of-research-data-management" id="toc-benefits-of-research-data-management" class="nav-link" data-scroll-target="#benefits-of-research-data-management"><span class="header-section-number">5.2</span> Benefits of research data management</a></li>
+  <li><a href="#modularity-of-research-data" id="toc-modularity-of-research-data" class="nav-link" data-scroll-target="#modularity-of-research-data"><span class="header-section-number">5.3</span> Modularity of research data</a></li>
+  <li><a href="#fair-principles" id="toc-fair-principles" class="nav-link" data-scroll-target="#fair-principles"><span class="header-section-number">5.4</span> FAIR principles</a></li>
+  <li><a href="#data-organization" id="toc-data-organization" class="nav-link" data-scroll-target="#data-organization"><span class="header-section-number">5.5</span> Data organization</a>
   <ul class="collapse">
-  <li><a href="#data-standards" id="toc-data-standards" class="nav-link" data-scroll-target="#data-standards"><span class="header-section-number">4.5.1</span> Data standards</a></li>
-  <li><a href="#rectangular-data" id="toc-rectangular-data" class="nav-link" data-scroll-target="#rectangular-data"><span class="header-section-number">4.5.2</span> Rectangular Data</a></li>
+  <li><a href="#data-standards" id="toc-data-standards" class="nav-link" data-scroll-target="#data-standards"><span class="header-section-number">5.5.1</span> Data standards</a></li>
+  <li><a href="#rectangular-data" id="toc-rectangular-data" class="nav-link" data-scroll-target="#rectangular-data"><span class="header-section-number">5.5.2</span> Rectangular Data</a></li>
   </ul></li>
-  <li><a href="#sec-dictionary" id="toc-sec-dictionary" class="nav-link" data-scroll-target="#sec-dictionary"><span class="header-section-number">4.6</span> Data dictionaries</a></li>
-  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements"><span class="header-section-number">4.7</span> Acknowledgements</a></li>
+  <li><a href="#sec-dictionary" id="toc-sec-dictionary" class="nav-link" data-scroll-target="#sec-dictionary"><span class="header-section-number">5.6</span> Data dictionaries</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements"><span class="header-section-number">5.7</span> Acknowledgements</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/rdm.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/rdm.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -270,7 +276,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Research Data Management</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Research Data Management</span></h1>
   <div class="quarto-categories">
     <div class="quarto-category">intermediate</div>
   </div>
@@ -296,8 +302,8 @@ div.csl-indent {
 </header>
 
 
-<section id="introduction" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
+<section id="introduction" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">5.1</span> Introduction</h2>
 <div class="callout callout-style-default callout-tip callout-titled" title="Group Exercise: Identifying and Discussing Problems with Research Data Management">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -344,7 +350,7 @@ Group Exercise: Identifying and Discussing Problems with Research Data Managemen
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/N2zK3sAtr-4?cc_load_policy=1" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-rdm-snafu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;4.1: <strong>“Data Sharing and Management Snafu in 3 Short Acts”.</strong> The video by <span class="citation" data-cites="hanson2019">Hanson, Surkis, and Yacobucci (<a href="../references.html#ref-hanson2019" role="doc-biblioref">2019</a>)</span> from NYU Health Sciences Library features a cute animated panda researcher making a data sharing request to a bear researcher. It does not go well. The video aims to communicate some of the common and avoidable pitfalls of research data management in a light-hearted format. Topics include storage, documentation, and file formats. The video was produced using a tool called Xtranormal (now “nawmal”) and the characters are strangely expressive while talking in robotic text-to-speech voices with a limited range of movement. It was created and uploaded to YouTube by librarians at NYU School of Medicine in 2012 to be used for research data management education and has been included in numerous research data management courses and presentations. License: Creative Commons Attribution 4.0 International (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>). Reused without modifications.
+Video&nbsp;5.1: <strong>“Data Sharing and Management Snafu in 3 Short Acts”.</strong> The video by <span class="citation" data-cites="hanson2019">Hanson, Surkis, and Yacobucci (<a href="../references.html#ref-hanson2019" role="doc-biblioref">2019</a>)</span> from NYU Health Sciences Library features a cute animated panda researcher making a data sharing request to a bear researcher. It does not go well. The video aims to communicate some of the common and avoidable pitfalls of research data management in a light-hearted format. Topics include storage, documentation, and file formats. The video was produced using a tool called Xtranormal (now “nawmal”) and the characters are strangely expressive while talking in robotic text-to-speech voices with a limited range of movement. It was created and uploaded to YouTube by librarians at NYU School of Medicine in 2012 to be used for research data management education and has been included in numerous research data management courses and presentations. License: Creative Commons Attribution 4.0 International (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>). Reused without modifications.
 </figcaption>
 </figure>
 </div>
@@ -404,15 +410,15 @@ More problems when using Excel …
 <img src="../images/excel_gene_names_111.gif" class="img-fluid figure-img" alt="">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-excel-genes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: “<a href="https://duet-cdn.vox-cdn.com/thumbor/0x0:500x345/1920x1325/filters:focal(250x173:251x174):no_upscale():format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/21700662/excel_gene_names_111.gif">Excel converting genes</a>” by <a href="https://www.theverge.com/">The Verge</a> (License: <a href=""></a>; reused without modifications)
+Figure&nbsp;5.1: “<a href="https://duet-cdn.vox-cdn.com/thumbor/0x0:500x345/1920x1325/filters:focal(250x173:251x174):no_upscale():format(webp)/cdn.vox-cdn.com/uploads/chorus_asset/file/21700662/excel_gene_names_111.gif">Excel converting genes</a>” by <a href="https://www.theverge.com/">The Verge</a> (License: <a href=""></a>; reused without modifications)
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="benefits-of-research-data-management" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="benefits-of-research-data-management"><span class="header-section-number">4.2</span> Benefits of research data management</h2>
+<section id="benefits-of-research-data-management" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="benefits-of-research-data-management"><span class="header-section-number">5.2</span> Benefits of research data management</h2>
 <p>Managing data well throughout the research process is crucial for successful research outcomes, including:</p>
 <ul>
 <li>Upholding research integrity and reproducibility</li>
@@ -425,8 +431,8 @@ Figure&nbsp;4.1: “<a href="https://duet-cdn.vox-cdn.com/thumbor/0x0:500x345/19
 <li>Adhering to industry and commerce practices.</li>
 </ul>
 </section>
-<section id="modularity-of-research-data" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="modularity-of-research-data"><span class="header-section-number">4.3</span> Modularity of research data</h2>
+<section id="modularity-of-research-data" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="modularity-of-research-data"><span class="header-section-number">5.3</span> Modularity of research data</h2>
 <p>What we expect the data to look like …</p>
 <div>
 
@@ -440,7 +446,7 @@ Figure&nbsp;4.1: “<a href="https://duet-cdn.vox-cdn.com/thumbor/0x0:500x345/19
 <img src="../images/remi-gau-data-source.jpeg" class="img-fluid figure-img" alt="">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-remi-gau-data-source-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main/images/shared.jpg">Research Data Management explained with pasta: Source data</a>” by <a href="https://remi-gau.github.io/">Remi Gau</a> (License: <a href="https://github.com/Remi-Gau/bids_workshop/blob/main/LICENSE">CC BY 4.0</a>; reused without modifications)
+Figure&nbsp;5.2: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main/images/shared.jpg">Research Data Management explained with pasta: Source data</a>” by <a href="https://remi-gau.github.io/">Remi Gau</a> (License: <a href="https://github.com/Remi-Gau/bids_workshop/blob/main/LICENSE">CC BY 4.0</a>; reused without modifications)
 </figcaption>
 </figure>
 </div>
@@ -452,7 +458,7 @@ Figure&nbsp;4.2: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main
 <img src="../images/remi-gau-data-raw.jpeg" class="img-fluid figure-img" alt="">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-remi-gau-data-raw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.3: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main/images/raw.jpg">Raw data (Research Data Management explained with Pasta)</a>” by <a href="https://remi-gau.github.io/">Remi Gau</a> (License: <a href="https://github.com/Remi-Gau/bids_workshop/blob/main/LICENSE">CC BY 4.0</a>; reused without modifications)
+Figure&nbsp;5.3: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main/images/raw.jpg">Raw data (Research Data Management explained with Pasta)</a>” by <a href="https://remi-gau.github.io/">Remi Gau</a> (License: <a href="https://github.com/Remi-Gau/bids_workshop/blob/main/LICENSE">CC BY 4.0</a>; reused without modifications)
 </figcaption>
 </figure>
 </div>
@@ -464,7 +470,7 @@ Figure&nbsp;4.3: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main
 <img src="../images/remi-gau-data-derivative.jpeg" class="img-fluid figure-img" alt="">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-remi-gau-data-derivative-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.4: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main/images/derivative.jpeg">Derivative data (Research Data Management explained with Pasta)</a>” by <a href="https://remi-gau.github.io/">Remi Gau</a> (License: <a href="https://github.com/Remi-Gau/bids_workshop/blob/main/LICENSE">CC BY 4.0</a>; reused without modifications)
+Figure&nbsp;5.4: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main/images/derivative.jpeg">Derivative data (Research Data Management explained with Pasta)</a>” by <a href="https://remi-gau.github.io/">Remi Gau</a> (License: <a href="https://github.com/Remi-Gau/bids_workshop/blob/main/LICENSE">CC BY 4.0</a>; reused without modifications)
 </figcaption>
 </figure>
 </div>
@@ -484,7 +490,7 @@ Figure&nbsp;4.4: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main
 <img src="../images/remi-gau-data-shared.jpeg" class="img-fluid figure-img" alt="">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-remi-gau-data-shared-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.5: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main/images/shared.jpeg">Shared dataset (Research Data Management explained with Pasta)</a>” by <a href="https://remi-gau.github.io/">Remi Gau</a> (License: <a href="https://github.com/Remi-Gau/bids_workshop/blob/main/LICENSE">CC BY 4.0</a>; reused without modifications)
+Figure&nbsp;5.5: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main/images/shared.jpeg">Shared dataset (Research Data Management explained with Pasta)</a>” by <a href="https://remi-gau.github.io/">Remi Gau</a> (License: <a href="https://github.com/Remi-Gau/bids_workshop/blob/main/LICENSE">CC BY 4.0</a>; reused without modifications)
 </figcaption>
 </figure>
 </div>
@@ -496,7 +502,7 @@ Figure&nbsp;4.5: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main
 <img src="../images/remi-gau-data-readme.jpeg" class="img-fluid figure-img" alt="">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-remi-gau-data-readme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.6: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main/images/readme.jpeg">Shared dataset with a README (Research Data Management explained with Pasta)</a>” by <a href="https://remi-gau.github.io/">Remi Gau</a> (License: <a href="https://github.com/Remi-Gau/bids_workshop/blob/main/LICENSE">CC BY 4.0</a>; reused without modifications)
+Figure&nbsp;5.6: “<a href="https://github.com/Remi-Gau/bids_workshop/blob/main/images/readme.jpeg">Shared dataset with a README (Research Data Management explained with Pasta)</a>” by <a href="https://remi-gau.github.io/">Remi Gau</a> (License: <a href="https://github.com/Remi-Gau/bids_workshop/blob/main/LICENSE">CC BY 4.0</a>; reused without modifications)
 </figcaption>
 </figure>
 </div>
@@ -561,7 +567,7 @@ Tidy data as additional modular data
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In <a href="good-coding-practices.html#sec-tidydata" class="quarto-xref"><span>Section 5.5</span></a>, we will introduce another data module, called <strong>tidy data</strong>. Tidy data reflect the <em>data as you analyze them</em>. Thus, separation between data preprocessing and data analyses is enforced.</p>
+<p>In <a href="good-coding-practices.html#sec-tidydata" class="quarto-xref"><span>Section 6.5</span></a>, we will introduce another data module, called <strong>tidy data</strong>. Tidy data reflect the <em>data as you analyze them</em>. Thus, separation between data preprocessing and data analyses is enforced.</p>
 </div>
 </div>
 <p>Benefits of modular data:</p>
@@ -575,15 +581,15 @@ Tidy data as additional modular data
 <li>higher risk for chaotic project structure</li>
 </ol>
 </section>
-<section id="fair-principles" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="fair-principles"><span class="header-section-number">4.4</span> FAIR principles</h2>
+<section id="fair-principles" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="fair-principles"><span class="header-section-number">5.4</span> FAIR principles</h2>
 <div id="fig-nlm-nih-fair" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-nlm-nih-fair-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/nlm-nih-fair.png" class="img-fluid figure-img" alt="">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nlm-nih-fair-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.7: “<a href="https://www.nlm.nih.gov/oet/ed/cde/tutorial/02-200.html">FAIR</a>” by <a href="https://www.nlm.nih.gov/">U.S. National Library of Medicine</a> (License: <a href="https://www.nlm.nih.gov/web_policies.html#copyright">Public Domain Mark 1.0 Universal (PDM 1.0)</a>; Any such works found on National Library of Medicine (NLM) Web sites may be freely used or reproduced without permission in the U.S.)
+Figure&nbsp;5.7: “<a href="https://www.nlm.nih.gov/oet/ed/cde/tutorial/02-200.html">FAIR</a>” by <a href="https://www.nlm.nih.gov/">U.S. National Library of Medicine</a> (License: <a href="https://www.nlm.nih.gov/web_policies.html#copyright">Public Domain Mark 1.0 Universal (PDM 1.0)</a>; Any such works found on National Library of Medicine (NLM) Web sites may be freely used or reproduced without permission in the U.S.)
 </figcaption>
 </figure>
 </div>
@@ -678,23 +684,23 @@ What is metadata?
 </div>
 </div>
 </section>
-<section id="data-organization" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="data-organization"><span class="header-section-number">4.5</span> Data organization</h2>
+<section id="data-organization" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="data-organization"><span class="header-section-number">5.5</span> Data organization</h2>
 <p>There are many different ways to organize your data. There is really no right or wrong here, but there are some valuable guidelines aimed at enhancing reproducibility. Data organization is not only about folder structure and precise naming. It is also about choosing file formats that enhance usability for both humans and machines. Further, it includes the use of metadata to describe your data. Due to the variety of organizational styles, you should establish a consistent approach to organizing your data. Thus, you need to apply a standard for your data.</p>
-<section id="data-standards" class="level3" data-number="4.5.1">
-<h3 data-number="4.5.1" class="anchored" data-anchor-id="data-standards"><span class="header-section-number">4.5.1</span> Data standards</h3>
+<section id="data-standards" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="data-standards"><span class="header-section-number">5.5.1</span> Data standards</h3>
 <div id="fig-xkcd-standards" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-xkcd-standards-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/xkcd-standards.png" class="img-fluid figure-img" alt="">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-xkcd-standards-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.8: “<a href="https://xkcd.com/927/">Standards</a>” by <a href="https://xkcd.com/">xkcd.com (Randall Munroe)</a> (License: <a href="https://xkcd.com/license.html">CC BY-NC 2.5</a>; reused without modifications)
+Figure&nbsp;5.8: “<a href="https://xkcd.com/927/">Standards</a>” by <a href="https://xkcd.com/">xkcd.com (Randall Munroe)</a> (License: <a href="https://xkcd.com/license.html">CC BY-NC 2.5</a>; reused without modifications)
 </figcaption>
 </figure>
 </div>
-<section id="questions-to-ask-yourself" class="level4" data-number="4.5.1.1">
-<h4 data-number="4.5.1.1" class="anchored" data-anchor-id="questions-to-ask-yourself"><span class="header-section-number">4.5.1.1</span> Questions to ask yourself:</h4>
+<section id="questions-to-ask-yourself" class="level4" data-number="5.5.1.1">
+<h4 data-number="5.5.1.1" class="anchored" data-anchor-id="questions-to-ask-yourself"><span class="header-section-number">5.5.1.1</span> Questions to ask yourself:</h4>
 <ol type="1">
 <li>What data are you working with?</li>
 <li>Which analysis pipelines are you working with?</li>
@@ -704,15 +710,15 @@ Figure&nbsp;4.8: “<a href="https://xkcd.com/927/">Standards</a>” by <a href=
 <p>Second, after determining your data type, you’ll realize that you’ll face specific analysis pipelines. For example, raw EEG data must be handled differently from MRI data, and so on. You might need to use specific analysis software that requires certain file formats or other specific requirements.</p>
 <p>Third, check whether there is a standard in your scientific community. Community standards help to organize your data, facilitating cooperation between different labs and ensuring consistency within your own lab. Additionally, if you want to reproduce data, you will have a harder time if the data is organized in a format you are not familiar with. Adopting a widely used data organization style will make reproducibility much easier.</p>
 </section>
-<section id="example-brain-imaging-data-structure-bids" class="level4" data-number="4.5.1.2">
-<h4 data-number="4.5.1.2" class="anchored" data-anchor-id="example-brain-imaging-data-structure-bids"><span class="header-section-number">4.5.1.2</span> Example: Brain Imaging Data Structure (BIDS)</h4>
+<section id="example-brain-imaging-data-structure-bids" class="level4" data-number="5.5.1.2">
+<h4 data-number="5.5.1.2" class="anchored" data-anchor-id="example-brain-imaging-data-structure-bids"><span class="header-section-number">5.5.1.2</span> Example: Brain Imaging Data Structure (BIDS)</h4>
 <div id="fig-bids-dataset" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bids-dataset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/bids-dataset.png" class="img-fluid figure-img" alt="">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bids-dataset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.9: “<a href="https://www.nature.com/articles/sdata201644/figures/1">Illustration of a BIDS structured dataset</a>” by <a href="https://doi.org/10.1038/sdata.2016.44"><span class="citation" data-cites="gorgolewski2016">Gorgolewski et al. (<span>2016</span>)</span></a> (License: <a href="https://www.nature.com/articles/sdata201644">CC BY 4.0</a>; reused without modifications)
+Figure&nbsp;5.9: “<a href="https://www.nature.com/articles/sdata201644/figures/1">Illustration of a BIDS structured dataset</a>” by <a href="https://doi.org/10.1038/sdata.2016.44"><span class="citation" data-cites="gorgolewski2016">Gorgolewski et al. (<span>2016</span>)</span></a> (License: <a href="https://www.nature.com/articles/sdata201644">CC BY 4.0</a>; reused without modifications)
 </figcaption>
 </figure>
 </div>
@@ -740,7 +746,7 @@ Steps to create a BIDS compatible dataset
 <p>When your data analysis pipeline requires your data to be in a specific format, make sure to convert your data files into the correct format. Specific software is often used for this purpose in MRI research. In survey-based research, this might not be too complicated. However, when extracting data from your survey servers (such as Unipark or LimeSurvey), ensure you use the correct format.</p>
 <p>BIDS includes its own folder structure for research projects. When you have your own research project, ensure it aligns with our recommendations from <a href="../chapters/naming-things.html">Chapter 2</a> and <a href="project-structure">project-structure</a>.</p>
 <p>Sometimes, you might need to add more information that was not captured during your data collection process (e.g., details of experimental tasks and additional demographic information of participants).</p>
-<p>In BIDS, metadata files are created when converting files from one format to another. However, these metadata files may not be exhaustive. You might want to include task descriptions, task instructions, and so on. <a href="#sec-dictionary" class="quarto-xref"><span>Section 4.6</span></a> describes which metadata can be used in less complex data management scenarios.</p>
+<p>In BIDS, metadata files are created when converting files from one format to another. However, these metadata files may not be exhaustive. You might want to include task descriptions, task instructions, and so on. <a href="#sec-dictionary" class="quarto-xref"><span>Section 5.6</span></a> describes which metadata can be used in less complex data management scenarios.</p>
 <p>A nice feature of BIDS is the <a href="https://github.com/bids-standard/bids-validator">BIDS Validator</a>. It checks if any required or recommended metadata is missing. It also identifies incorrect definitions of missing values, wrong units, missing scans, and inconsistent scanning parameters across subjects. Even though you are unlikely to apply the validator outside of neuroimaging, the concept is quite powerful. We have provided a small section about <em>verifying</em> your code, which tackles the same topic but focuses more on your code than on your data. <a href="section-not-merged-yet">Click here</a> to go to the section (section not merged yet).</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Benefits of BIDS">
 <div class="callout-header d-flex align-content-center">
@@ -758,8 +764,8 @@ Benefits of BIDS
 <p>fMRIPrep highlights another benefit of data organization standards: When many people rely on such a standard, new innovations emerge that improve the workflow.<br>
 Previously, preprocessing fMRI data was a time-consuming task for PhD students and PostDocs in the field of neuroimaging. With fMRIPrep, this process can be done automatically and without manual intervention. By applying the BIDS standard and fMRIPrep to your data, you will require far fewer resources to understand others’ analysis pipelines using the same standards. However, a data organization standard works well only when <strong>a lot of people</strong> use it. That is one reason why BIDS is successful: It is widely used in the field of neuroimaging.</p>
 </section>
-<section id="example-psychological-data-structure-psych-ds" class="level4" data-number="4.5.1.3">
-<h4 data-number="4.5.1.3" class="anchored" data-anchor-id="example-psychological-data-structure-psych-ds"><span class="header-section-number">4.5.1.3</span> Example: Psychological Data Structure (Psych-DS)</h4>
+<section id="example-psychological-data-structure-psych-ds" class="level4" data-number="5.5.1.3">
+<h4 data-number="5.5.1.3" class="anchored" data-anchor-id="example-psychological-data-structure-psych-ds"><span class="header-section-number">5.5.1.3</span> Example: Psychological Data Structure (Psych-DS)</h4>
 <p>The <strong>Psychological Data Structure</strong> (Psych-DS) aims to apply the principles of BIDS to behavioral data. Thus, it is heavily based on BIDS. The core idea is to consistently organize data, facilitating data sharing and enhancing the understanding of the data. There is also a <a href="https://psychds-docs.readthedocs.io/en/latest/guides/1_getting_started/">guide</a> to help researchers organize their research projects. Like BIDS, Psych-DS provides a <a href="https://psych-ds.github.io/validator/">validation tool</a> that checks if the data organization has been done correctly. It also has the <a href="https://psych-ds.github.io/cedar-wizard-psychds/">CEDAR wizard</a>, a tool which creates a standard <code>.json</code> file. This file contains metadata informationen important to understand the dataset(s) someone is working within a project.</p>
 <p>However, Psych-DS has not been widely adopted by researchers, and its development is not as fast as that of BIDS. Therefore, it does not yet have extension tools like fMRIPrep. Nevertheless, Psych-DS could have more impact if more people began using it. The benefit of Psych-DS is clearly its adaptation to behavioral data structures, which can be applied by a wide range of research communities in psychology.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Minimum requirements of a Psych-DS congruent project">
@@ -780,7 +786,7 @@ Minimum requirements of a Psych-DS congruent project
 <li>inside the <code>data</code> folder, all data must be with <code>.csv</code> extension</li>
 <li>if the primary data was not a <code>.csv</code>-file, it must be stored in another subfolder called <code>raw</code></li>
 <li><code>.csv</code>-files in the data folder must have the suffix <code>_data.csv</code></li>
-<li>deliberate use of <code>-</code> and <code>_</code> to name data files as in <a href="naming-things.html#sec-metadatarecovery" class="quarto-xref"><span>Section 2.4.3.1</span></a></li>
+<li>deliberate use of <code>-</code> and <code>_</code> to name data files as in <a href="naming-things.html#sec-metadatarecovery" class="quarto-xref"><span>Section 3.4.3.1</span></a></li>
 <li>next to to the <code>data</code> folder a metadata file must exist, named <code>dataset_description.json</code> (see <a href="https://psych-ds.github.io/cedar-wizard-psychds/">CEDAR wizard</a>)</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled" title="Metadata requirements">
@@ -836,8 +842,8 @@ Example of a Psych-DS sample folder
 </div>
 </section>
 </section>
-<section id="rectangular-data" class="level3" data-number="4.5.2">
-<h3 data-number="4.5.2" class="anchored" data-anchor-id="rectangular-data"><span class="header-section-number">4.5.2</span> Rectangular Data</h3>
+<section id="rectangular-data" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="rectangular-data"><span class="header-section-number">5.5.2</span> Rectangular Data</h3>
 <p>If you do not have a community standard specifying the data organization, we highly recommend using the rules of <strong>rectangular data</strong> as proposed by <span class="citation" data-cites="broman2018">Broman and Woo (<a href="../references.html#ref-broman2018" role="doc-biblioref">2018</a>)</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Rules of rectangular data [@broman2018]">
 <div class="callout-header d-flex align-content-center">
@@ -856,31 +862,31 @@ Rules of rectangular data <span class="citation" data-cites="broman2018">(<a hre
 <li>Do not leave empty cells.</li>
 <li>Put just one thing in a cell.</li>
 <li>Make it a rectangle.</li>
-<li>Create a data dictionary (see <a href="#sec-dictionary" class="quarto-xref"><span>Section 4.6</span></a>).</li>
+<li>Create a data dictionary (see <a href="#sec-dictionary" class="quarto-xref"><span>Section 5.6</span></a>).</li>
 <li>Do not perform calculations in the raw data files.</li>
 <li>Do not use font color or highlighting as data.</li>
 <li>Make backups.</li>
-<li>Use data validation to avoid errors (see <a href="good-coding-practices.html#sec-assertr" class="quarto-xref"><span>Section 5.6.1</span></a>).</li>
+<li>Use data validation to avoid errors (see <a href="good-coding-practices.html#sec-assertr" class="quarto-xref"><span>Section 6.6.1</span></a>).</li>
 <li>Save the data in plain text files.</li>
 </ol>
 </div>
 </div>
 <p>We will not go into detail on rules 2, 3, and 6, because we have either already covered these topics earlier or will address them in a separate section later.</p>
-<section id="be-consistent" class="level4" data-number="4.5.2.1">
-<h4 data-number="4.5.2.1" class="anchored" data-anchor-id="be-consistent"><span class="header-section-number">4.5.2.1</span> Be consistent</h4>
-<p>It sounds easier than it is. If you organize your data consistently from the start, you will not have to spend additional time later “harmonizing” the data. To do so, use consistent codes for categorical variables (decide between different versions of <code>male</code>, <code>Male</code>, <code>m</code>, <code>M</code>). Use a consistent fixed code for any missing values (we prefer using <code>NA</code>, but avoid <code>-999</code> or similar). Use consistent variable names (decide between <code>saliva_10wk</code>, <code>Saliva_10wk</code>, <code>sal_week10</code>, etc.). Use consistent subject identifiers (decide between <code>003</code>, <code>pcp003</code>, <code>person-003</code>, etc.). Use a consistent data layout across multiple files. It would be extra work to combine files with different layouts. Use consistent file names (decide between <code>TSST_VR_2024-11-19.csv</code>, <code>2024-11-19_TSST_virtual-reality.csv</code>, etc.). Use a consistent format for all dates (see <a href="naming-things.html#sec-date-format" class="quarto-xref"><span>Section 2.7.1.3</span></a>). Use consistent phrases in notes if you have a separate column for them. Be careful about extra spaces within cells (e.g., the difference between <code>male</code> and <code>male</code>).</p>
+<section id="be-consistent" class="level4" data-number="5.5.2.1">
+<h4 data-number="5.5.2.1" class="anchored" data-anchor-id="be-consistent"><span class="header-section-number">5.5.2.1</span> Be consistent</h4>
+<p>It sounds easier than it is. If you organize your data consistently from the start, you will not have to spend additional time later “harmonizing” the data. To do so, use consistent codes for categorical variables (decide between different versions of <code>male</code>, <code>Male</code>, <code>m</code>, <code>M</code>). Use a consistent fixed code for any missing values (we prefer using <code>NA</code>, but avoid <code>-999</code> or similar). Use consistent variable names (decide between <code>saliva_10wk</code>, <code>Saliva_10wk</code>, <code>sal_week10</code>, etc.). Use consistent subject identifiers (decide between <code>003</code>, <code>pcp003</code>, <code>person-003</code>, etc.). Use a consistent data layout across multiple files. It would be extra work to combine files with different layouts. Use consistent file names (decide between <code>TSST_VR_2024-11-19.csv</code>, <code>2024-11-19_TSST_virtual-reality.csv</code>, etc.). Use a consistent format for all dates (see <a href="naming-things.html#sec-date-format" class="quarto-xref"><span>Section 3.7.1.3</span></a>). Use consistent phrases in notes if you have a separate column for them. Be careful about extra spaces within cells (e.g., the difference between <code>male</code> and <code>male</code>).</p>
 </section>
-<section id="no-empty-cells" class="level4" data-number="4.5.2.2">
-<h4 data-number="4.5.2.2" class="anchored" data-anchor-id="no-empty-cells"><span class="header-section-number">4.5.2.2</span> No empty cells</h4>
+<section id="no-empty-cells" class="level4" data-number="5.5.2.2">
+<h4 data-number="5.5.2.2" class="anchored" data-anchor-id="no-empty-cells"><span class="header-section-number">5.5.2.2</span> No empty cells</h4>
 <p>Do fill out every cell. When information is missing, use a common code to indicate that it is missing (preferably <code>NA</code>). <em>Merging</em> cells, as you can in Excel, is not recommended, since it will leave some cells empty. Repeat repeating values. If you leave cells empty, it will be harder to infer the repeating values, particularly after some data wrangling.</p>
 </section>
-<section id="put-just-one-thing-in-a-cell" class="level4" data-number="4.5.2.3">
-<h4 data-number="4.5.2.3" class="anchored" data-anchor-id="put-just-one-thing-in-a-cell"><span class="header-section-number">4.5.2.3</span> Put just one thing in a cell</h4>
-<p>In one piece of a spreadsheet, which is a cell, there should only be one piece of information. Do not include units in your cells. It is better to put units in a data dictionary (see <a href="#sec-dictionary" class="quarto-xref"><span>Section 4.6</span></a>). The same applies to notes. Instead of writing <code>0 (below threshold)</code>, create a new column called <code>note</code> and write <code>0</code> in the first column and <code>below threshold</code> in the second.</p>
+<section id="put-just-one-thing-in-a-cell" class="level4" data-number="5.5.2.3">
+<h4 data-number="5.5.2.3" class="anchored" data-anchor-id="put-just-one-thing-in-a-cell"><span class="header-section-number">5.5.2.3</span> Put just one thing in a cell</h4>
+<p>In one piece of a spreadsheet, which is a cell, there should only be one piece of information. Do not include units in your cells. It is better to put units in a data dictionary (see <a href="#sec-dictionary" class="quarto-xref"><span>Section 5.6</span></a>). The same applies to notes. Instead of writing <code>0 (below threshold)</code>, create a new column called <code>note</code> and write <code>0</code> in the first column and <code>below threshold</code> in the second.</p>
 </section>
-<section id="make-it-a-rectangle" class="level4" data-number="4.5.2.4">
-<h4 data-number="4.5.2.4" class="anchored" data-anchor-id="make-it-a-rectangle"><span class="header-section-number">4.5.2.4</span> Make it a rectangle</h4>
-<p>As your data usually resides in a two-dimensional spreadsheet, it is best to layout your data in a two-dimensional format as well. Use columns for variables and rows for subjects or observations. The first row should contain variable names. If some data do not fit into one dataset, create a set of rectangular datasets and save them in separate files. Do not use multiple header rows. You can further apply the concept of <code>tidy data</code> <span class="citation" data-cites="wickham2014">(<a href="../references.html#ref-wickham2014" role="doc-biblioref">Wickham 2014</a>)</span> to your rectangular dataset (see <a href="good-coding-practices.html#sec-tidydata" class="quarto-xref"><span>Section 5.5</span></a>).</p>
+<section id="make-it-a-rectangle" class="level4" data-number="5.5.2.4">
+<h4 data-number="5.5.2.4" class="anchored" data-anchor-id="make-it-a-rectangle"><span class="header-section-number">5.5.2.4</span> Make it a rectangle</h4>
+<p>As your data usually resides in a two-dimensional spreadsheet, it is best to layout your data in a two-dimensional format as well. Use columns for variables and rows for subjects or observations. The first row should contain variable names. If some data do not fit into one dataset, create a set of rectangular datasets and save them in separate files. Do not use multiple header rows. You can further apply the concept of <code>tidy data</code> <span class="citation" data-cites="wickham2014">(<a href="../references.html#ref-wickham2014" role="doc-biblioref">Wickham 2014</a>)</span> to your rectangular dataset (see <a href="good-coding-practices.html#sec-tidydata" class="quarto-xref"><span>Section 6.5</span></a>).</p>
 <div class="callout callout-style-default callout-caution callout-titled" title="Example of multiple header rows">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -946,16 +952,16 @@ Example of multiple header rows
 </div>
 </div>
 </section>
-<section id="no-calculations-in-the-raw-data-files" class="level4" data-number="4.5.2.5">
-<h4 data-number="4.5.2.5" class="anchored" data-anchor-id="no-calculations-in-the-raw-data-files"><span class="header-section-number">4.5.2.5</span> No calculations in the raw data files</h4>
+<section id="no-calculations-in-the-raw-data-files" class="level4" data-number="5.5.2.5">
+<h4 data-number="5.5.2.5" class="anchored" data-anchor-id="no-calculations-in-the-raw-data-files"><span class="header-section-number">5.5.2.5</span> No calculations in the raw data files</h4>
 <p>Primary data should just be data. Only data. There should be no means and standard deviations calculated in that primary data. Use scripts to calculate whatever you want, but do not make changes in the primary dataset.</p>
 </section>
-<section id="do-not-use-font-color-or-highlighting-as-data" class="level4" data-number="4.5.2.6">
-<h4 data-number="4.5.2.6" class="anchored" data-anchor-id="do-not-use-font-color-or-highlighting-as-data"><span class="header-section-number">4.5.2.6</span> Do not use font color or highlighting as data</h4>
+<section id="do-not-use-font-color-or-highlighting-as-data" class="level4" data-number="5.5.2.6">
+<h4 data-number="5.5.2.6" class="anchored" data-anchor-id="do-not-use-font-color-or-highlighting-as-data"><span class="header-section-number">5.5.2.6</span> Do not use font color or highlighting as data</h4>
 <p>If you identify outliers or other information you want to highlight, do not highlight them using visualization. Instead, create a new column called <code>outlier</code> and mark the identified outliers as <code>TRUE</code> and the others as <code>FALSE</code>. Visualization is useful in the short term, but it makes it difficult to extract this information for later analysis.</p>
 </section>
-<section id="make-backups" class="level4" data-number="4.5.2.7">
-<h4 data-number="4.5.2.7" class="anchored" data-anchor-id="make-backups"><span class="header-section-number">4.5.2.7</span> Make Backups</h4>
+<section id="make-backups" class="level4" data-number="5.5.2.7">
+<h4 data-number="5.5.2.7" class="anchored" data-anchor-id="make-backups"><span class="header-section-number">5.5.2.7</span> Make Backups</h4>
 <p>Back up your data regularly in multiple locations. Consider using a version control system like Git (see <a href="https://lennartwittkuhn.com/version-control-book/">Version Control Book</a>). When you have finished entering data, <em>write-protect</em> your data file. This ensures that you do not accidentally make changes to your dataset.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Write-protecting your data">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
@@ -1002,18 +1008,18 @@ Write-protecting your data
 </div>
 </div>
 </section>
-<section id="use-data-validation-to-avoid-errors" class="level4" data-number="4.5.2.8">
-<h4 data-number="4.5.2.8" class="anchored" data-anchor-id="use-data-validation-to-avoid-errors"><span class="header-section-number">4.5.2.8</span> Use Data Validation to Avoid Errors</h4>
-<p>Ensure that your entered data is error-free by applying data validation techniques. You can create validation rules using the R package <code>assertr</code> <span class="citation" data-cites="fischetti2023">(<a href="../references.html#ref-fischetti2023" role="doc-biblioref">Fischetti 2023</a>)</span> and its function <code>verify()</code> (see <a href="good-coding-practices.html#sec-assertr" class="quarto-xref"><span>Section 5.6.1</span></a>).</p>
+<section id="use-data-validation-to-avoid-errors" class="level4" data-number="5.5.2.8">
+<h4 data-number="5.5.2.8" class="anchored" data-anchor-id="use-data-validation-to-avoid-errors"><span class="header-section-number">5.5.2.8</span> Use Data Validation to Avoid Errors</h4>
+<p>Ensure that your entered data is error-free by applying data validation techniques. You can create validation rules using the R package <code>assertr</code> <span class="citation" data-cites="fischetti2023">(<a href="../references.html#ref-fischetti2023" role="doc-biblioref">Fischetti 2023</a>)</span> and its function <code>verify()</code> (see <a href="good-coding-practices.html#sec-assertr" class="quarto-xref"><span>Section 6.6.1</span></a>).</p>
 </section>
-<section id="save-data-in-plain-text-files" class="level4" data-number="4.5.2.9">
-<h4 data-number="4.5.2.9" class="anchored" data-anchor-id="save-data-in-plain-text-files"><span class="header-section-number">4.5.2.9</span> Save data in plain text files</h4>
+<section id="save-data-in-plain-text-files" class="level4" data-number="5.5.2.9">
+<h4 data-number="5.5.2.9" class="anchored" data-anchor-id="save-data-in-plain-text-files"><span class="header-section-number">5.5.2.9</span> Save data in plain text files</h4>
 <p>We recommend saving your data files in <code>.csv</code> format. <code>csv</code> stands for “comma-separated values”. This file format is basic and not visually appealing. However, it requires no special software to open and is easy to handle in code. Thus, it enhances computational reproducibility. In countries where commas are used as decimal separators, tab-delimited text files (<code>.tsv</code>) might be an appropriate alternative to <code>.csv</code>. Note that if you have highlighted cells or applied any special features in an Excel file, these features will be lost when saving the file as <code>.csv</code> or <code>.txt</code>.</p>
 </section>
 </section>
 </section>
-<section id="sec-dictionary" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="sec-dictionary"><span class="header-section-number">4.6</span> Data dictionaries</h2>
+<section id="sec-dictionary" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="sec-dictionary"><span class="header-section-number">5.6</span> Data dictionaries</h2>
 <p>In addition to rectangular data, it is also valuable to have a <strong>data dictionary</strong> describing how your data is structured. The data dictionary is also sometimes referred to as a <em>codebook</em>. Your dictionary enhances the understandability of your entire research project and is therefore crucial for computational reproducibility. According to <span class="citation" data-cites="broman2018">Broman and Woo (<a href="../references.html#ref-broman2018" role="doc-biblioref">2018</a>)</span>, your dictionary should contain:</p>
 <ol type="1">
 <li>The exact variable name as in your data file.<br>
@@ -1078,8 +1084,8 @@ Learn more: What is a <code>json</code> file?
 </div>
 </div>
 </section>
-<section id="acknowledgements" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="acknowledgements"><span class="header-section-number">4.7</span> Acknowledgements</h2>
+<section id="acknowledgements" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="acknowledgements"><span class="header-section-number">5.7</span> Acknowledgements</h2>
 <p><a href="https://orcid.org/0000-0002-9388-5535">Dr.&nbsp;Maike Kleemeyer</a> and the Research Data Management and Open Science working group at the <a href="{{< links.mpib >}}">Max Planck Institute for Human Development, Berlin</a>.</p>
 
 
@@ -1553,12 +1559,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../chapters/project-structure.html" class="pagination-link" aria-label="Project Structure">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Project Structure</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Project Structure</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../chapters/good-coding-practices.html" class="pagination-link" aria-label="Good Coding Practices">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
