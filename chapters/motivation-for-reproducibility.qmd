@@ -11,6 +11,14 @@ abstract: |
   You will learn why some people do or do not engage in a reproducible workflow.
 ---
 
+::: {.callout-tip appearance="minimal"}
+<h5>Learning Objectives</h5>
+
+:bulb: You can argue why some researchers do not engage in reproducible research.<br>
+:bulb: You can argue why some researchers do engage in reproducible research.<br>
+:bulb: You can argue how Open Science practices influence classical incentives in a research career.
+:::
+
 Reproducibility is a big topic, we spent a lot of work and time in writing a book about it and you will probably spend a lot time learning about it.
 If you are asking the question "What for? Why should I do reproducible research?", that's completely reasonable.
 We decided to dedicate a whole chapter to this question, because it is very important to us describing different facets of the topic reproducibility.
