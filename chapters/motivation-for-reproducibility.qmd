@@ -155,7 +155,7 @@ You can think of reproducibility more as a scale (see @fig-repro-scale) and you 
 cat(make_figure("repro-scale"))
 ```
 
-So let's get started to **improve your reproducibility**:
+So let's get started to **improve your reproducibility**.
 
 ## Resources
 
