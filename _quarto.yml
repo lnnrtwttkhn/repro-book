@@ -27,6 +27,7 @@ book:
     - index.qmd
     - contents.qmd
     - chapters/intro.qmd
+    - chapters/motivation-for-reproducibility.qmd
     - chapters/naming-things.qmd
     - chapters/project-structure.qmd
     - chapters/rdm.qmd
