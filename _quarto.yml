@@ -33,7 +33,6 @@ book:
     - chapters/rdm.qmd
     - chapters/good-coding-practices.qmd
     - chapters/renv.qmd
-    - chapters/git-crashcourse.qmd
     - summary.qmd
     - references.qmd
     - acknowledgements.qmd
