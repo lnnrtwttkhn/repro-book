@@ -8,7 +8,20 @@ execute:
 categories: [beginner, basics]
 abstract: |
   In this chapter you will learn how to name things.
+  You get to know different principles for naming files and folders and accompanying tips how to apply them.
 ---
+
+::: {.callout-tip appearance="minimal"}
+<h5>Learning Objectives</h5>
+
+:bulb: You know different principles to name things.<br>
+:bulb: You know what regular expressions and globbing are.<br>
+:bulb: You know what a file name should contain to be easily processed by a computer.<br>
+:bulb: You know what a file name should contain to be easily understood by a human being. <br>
+:bulb: You know how to consistently name files. <br>
+:bulb: You know how to use date formats and numbering. <br>
+:bulb: You know how to use hyphens and underscores when naming files.
+:::
 
 ## Examples
 
