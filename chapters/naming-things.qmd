@@ -286,7 +286,12 @@ ls *emotional*
 
 ## {{< fa brands apple >}} macOS
 
-Put image of macOS screenshot here
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("globbing-example-mac-psychology"))
+```
 
 ## {{< fa brands r-project >}}
 
@@ -323,7 +328,12 @@ ls *Plasmid*
 
 ## {{< fa brands apple >}} macOS
 
-Put image of macOS screenshot here
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("globbing-example-mac-biology"))
+```
 
 ## {{< fa brands r-project >}}
 
