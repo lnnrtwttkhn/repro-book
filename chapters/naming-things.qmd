@@ -270,6 +270,20 @@ Excerpt of complete file listing:
 
 ::: {.panel-tabset}
 
+## {{< fa brands r-project >}}
+
+```{zsh filename="Code"}
+list.files(pattern = "emotional") |> head
+```
+
+```{r filename="Output"}
+#| code-copy: false
+[1] "2021-06-04_NEOFFI_emotional-stroop_msc-thesis_001.csv"
+[2] "2021-06-05_NEOFFI_emotional-stroop_msc-thesis_002.csv"
+[3] "2021-06-07_NEOFFI_emotional-stroop_msc-thesis_003.csv"
+[4] "2021-06-11_NEOFFI_emotional-stroop_msc-thesis_004.csv"
+```
+
 ## {{< fa terminal >}} Bash
 
 ```{zsh filename="Code"}
@@ -295,25 +309,27 @@ cat(make_figure("globbing-example-mac-psychology"))
 
 ![This screenshot was made by Justus Reihs on a [MacBook](https://apple.com/). Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/globbing-example-mac-psychology.png)
 
-## {{< fa brands r-project >}}
-
-```{zsh filename="Code"}
-list.files(pattern = "emotional") |> head
-```
-
-```{r filename="Output"}
-#| code-copy: false
-[1] "2021-06-04_NEOFFI_emotional-stroop_msc-thesis_001.csv"
-[2] "2021-06-05_NEOFFI_emotional-stroop_msc-thesis_002.csv"
-[3] "2021-06-07_NEOFFI_emotional-stroop_msc-thesis_003.csv"
-[4] "2021-06-11_NEOFFI_emotional-stroop_msc-thesis_004.csv"
-```
-
 :::
 
 ## Biology
 
 ::: {.panel-tabset}
+
+## {{< fa brands r-project >}}
+
+```{zsh filename="Code"}
+list.files(pattern = "Plasmid") |> head
+```
+
+```{r filename="Output"}
+#| code-copy: false
+[1] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_A01.csv"
+[2] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_A02.csv"
+[3] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_A03.csv"
+[4] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_B01.csv"
+[5] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_B02.csv"
+[6] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_B03.csv"
+```
 
 ## {{< fa terminal >}} Bash
 
@@ -338,22 +354,6 @@ cat(make_figure("globbing-example-mac-biology"))
 ```
 
 ![This screenshot was made by Justus Reihs on a [MacBook](https://apple.com/). Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/globbing-example-mac-biology.png)
-
-## {{< fa brands r-project >}}
-
-```{zsh filename="Code"}
-list.files(pattern = "Plasmid") |> head
-```
-
-```{r filename="Output"}
-#| code-copy: false
-[1] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_A01.csv"
-[2] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_A02.csv"
-[3] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_A03.csv"
-[4] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_B01.csv"
-[5] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_B02.csv"
-[6] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_B03.csv"
-```
 
 :::
 
