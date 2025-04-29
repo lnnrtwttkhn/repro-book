@@ -293,6 +293,8 @@ ls *emotional*
 cat(make_figure("globbing-example-mac-psychology"))
 ```
 
+![This screenshot was made by Justus Reihs on a [MacBook](https://apple.com/). Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/globbing-example-mac-psychology.png)
+
 ## {{< fa brands r-project >}}
 
 ```{zsh filename="Code"}
@@ -334,6 +336,8 @@ ls *Plasmid*
 #| echo: false
 cat(make_figure("globbing-example-mac-biology"))
 ```
+
+![This screenshot was made by Justus Reihs on a [MacBook](https://apple.com/). Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/globbing-example-mac-biology.png)
 
 ## {{< fa brands r-project >}}
 
