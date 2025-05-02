@@ -273,8 +273,22 @@ It saves you from having a chaotic project folder when entering your project.
 
 ## YODA principles
 
+The YODA principles are a set of best practices for data analysis projects [@wagner2021].
+YODA means "YODAs Organigram on Data Analysis".
+The YODA principles are designed for the work with [DataLad](https://www.datalad.org/).
+Even though, this book does not cover the use of DataLad, the principles are useful for enhancing the reproducibility of a research project, especially when thinking about large-scaled projects.
+
+::: {.callout-note title="What is datalad?" collapse="true"}
+DataLad is an open-source tool designed for the management, sharing, and reproducibility of large-scale data and code.
+It builds on top of the version control system [Git](https://git-scm.com/downloads).
+You will get to know Git in one of the subsequent chapters.
+DataLad serves as an upgrade to Git for large scale research projects.
+If you want to dive deep into DataLad, we recommend the DataLad [Handbook](https://handbook.datalad.org/en/latest/index.html) to you [@wagner2021].
+:::
+
 ## Structure of reproducibility archives
 
+<!--#
 > These are only comments.
 > There is no aim of sufficiency and precision in the ideas below.
 
@@ -283,7 +297,9 @@ It saves you from having a chaotic project folder when entering your project.
 -   Critically discuss if journal requirements are sufficient for computational reproducibility
 -   Something's missing?
 
+
 Below the line, the actual content starts
+-->
 
 ---
 
