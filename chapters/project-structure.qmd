@@ -271,35 +271,6 @@ The abbreviation `misc` stands for miscellaneous.
 This folder is particularly useful for files that do not fit into one of your other folders.
 It saves you from having a chaotic project folder when entering your project.
 
-## YODA principles
-
-The YODA principles are a set of best practices for data analysis projects [@wagner2021].
-YODA means "YODAs Organigram on Data Analysis".
-The YODA principles are designed for the work with [DataLad](https://www.datalad.org/).
-Even though, this book does not cover the use of DataLad, the principles are useful for enhancing the reproducibility of a research project, especially when thinking about large-scaled projects.
-
-::: {.callout-note title="What is datalad?" collapse="true"}
-DataLad is an open-source tool designed for the management, sharing, and reproducibility of large-scale data and code.
-It builds on top of the version control system [Git](https://git-scm.com/downloads).
-You will get to know Git in one of the subsequent chapters.
-DataLad serves as an upgrade to Git for large scale research projects.
-If you want to dive deep into DataLad, we recommend the DataLad [Handbook](https://handbook.datalad.org/en/latest/index.html) to you [@wagner2021].
-:::
-
-### Principle 1: One thing, one dataset
-
-Imagine you have a file in your research project that could be useful for other projects, e.g. data manipulation scripts for you or even other researchers.
-One first thing to enhance reproducibility is to make these files standalone as modular entity.
-
-In the YODA principles, this is how it could look like:
-
-1. an `inputs/` folder for input data in your analysis
-    - keep raw data, preprocessed data, etc. **modular**
-    - if your data analysis relies on multiple data collections, these collection should constitute individual components
-1. a `code/` folder for scripts and code used for the data analyses
-1. results of the analyses should be stored outside of the `inputs/` directory, e.g. `outputs/` or `results` folder.
-1. if you conduct multiple different analyses, create separate projects for each analysis
-
 ## Structure of reproducibility archives
 
 <!--#
