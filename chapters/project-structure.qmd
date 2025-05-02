@@ -293,7 +293,7 @@ The structure is flexible to different occasions, e.g. working collaboratively w
 Nevertheless, you have not learned what is actually required by journals when you need or want to make your data and code publicly available.
 To cover this topic, we will go into the details of open science requirements of a couple of journals.
 
-### Requirements of Frontiers in Psychology
+### Requirements of Journals
 
 The [TOP Guidelines](https://www.cos.io/initiatives/top-guidelines) by the Center of Open Science are a best practice formulation by journals, funders, and societies to implement better and more transparent research.
 The [TOP Factor](https://topfactor.org) is a metric that reports the steps that a journal is taking to implement open science practices.
@@ -399,6 +399,19 @@ We further look at some examples of the application of open data and code polici
   #comments: "reused without modifications"
   #alt-text: ""
 ```
+
+Below, you can find the structure of the reproducibility archive of a paper from @laulie2023.
+The paper is placed in work and organizational psychology and postulates a relationship between the fulfillment of (implicit) expectation between employees and employers and the intention to leave the company for another job.
+The authors further assume that this relationship is mediated by emotional exhaustion and investigate whether emotional intelligence moderates the mediation effect of emotional exhaustion.
+
+```{zsh filename="Output"}
+├── fpsyg-14-1090094.pdf                <- Paper in its published version
+├── Materials - DataBase.xlsx           <- Dataset 
+├── Materials - Informed Consent.pdf    <- Informed consent
+├── Materials - Instruments.pdf         <- Survey Questions
+```
+
+Here, you can find the link to the archive of the paper: [Reproducibility Archive](https://osf.io/csdk8/?view_only=)
 
 ## AMPPS
 
