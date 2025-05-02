@@ -23,6 +23,9 @@ execute:
 :bulb: You understand the perspective on research as either a sequential or circular process.
 :::
 
+Project structure adresses how the files and folder of your research project are structured.
+This is what this chapter is about.
+Other topics related to the term, such as setting a timeline for your project, will be neglected as this would lead to losing the focus on reproducibility.
 A good folder structure saves you and other researchers a lot of time when revisiting or trying to understand your data.
 However, there is no universal *best practice standard* for project structures.
 Below are several examples of different project structures:
