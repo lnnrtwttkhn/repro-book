@@ -1,6 +1,9 @@
 ---
 title: "Project Structure"
-editor: visual
+editor: 
+  source:
+    markdown:
+      wrap: sentence
 abstract: |
   In this chapter, you will explore various types of project structures.
   You will learn what elements are essential for a project structure and what key factors to consider.
@@ -29,7 +32,7 @@ Below are several examples of different project structures:
 ::: panel-tabset
 ## The Turing Way
 
-```{zsh filename="Output"}  
+```{zsh filename="Output"}
 ├── LICENSE
 ├── README.md # <1>
 ├── CODE_OF_CONDUCT.md <- Guidelines for users and contributors of the project.
@@ -66,7 +69,7 @@ Below are several examples of different project structures:
 └──
 ```
 
-1. The top-level README for users of this project.
+1.  The top-level README for users of this project.
 
 Repository Structure Template by [The Turing Way](https://book.the-turing-way.org/index.html).
 Used under the [LICENSE CC-BY 4.0](https://github.com/the-turing-way/reproducible-project-template/blob/main/LICENSE.md).
@@ -185,7 +188,7 @@ In psychology research, we assess these standards as highly useful:
 Apart from these standards, it is always useful to look for already existing standards in your research discipline.
 Researchers working with fMRI data will find the convention of *Brain Images Data Structures ([BIDS]({{< var link.bids >}}))*.
 BIDS is a standard that aims to foster a simple and easy way of organizing neuroimaging and behavioural data.
-Inspired by BIDS, *[psych-DS]({{< var link.psych-ds >}})* started in 2018 to aiming to provide a systematic way of formatting and documenting scientific datasets.
+Inspired by BIDS, [*psych-DS*]({{< var link.psych-ds >}}) started in 2018 to aiming to provide a systematic way of formatting and documenting scientific datasets.
 However, content creation by psych-DS has been low.
 If you want to contribute to the project, take a look at their {{< fa brands github >}} Github [repository](https://github.com/psych-DS/psych-DS).
 
@@ -202,48 +205,44 @@ It is typically a Markdown (`.md`) file, which means you can use [Markdown]({{< 
 Markdown allows you to easily format text, create lists, include links, and embed images.
 The exact content depends on your repository, but some general things that you might want to include are:
 
-- **Project description**:
-What function does this repository serve and what are it's key features?
+-   **Project description**: What function does this repository serve and what are it's key features?
 
-- **Installation instructions** (if applicable): Explain how to install and set up your project, including any dependencies or prerequisites.
-This is particularly relevant for repositories that contain programming code.
-Provide clear instructions to help users or contributors get started with your project quickly.
+-   **Installation instructions** (if applicable): Explain how to install and set up your project, including any dependencies or prerequisites.
+    This is particularly relevant for repositories that contain programming code.
+    Provide clear instructions to help users or contributors get started with your project quickly.
 
-- **Project structure**: Explain your project structure. 
-Use one sentence to describe each file and folder. 
-Examples are displayed [above](#examples).
+-   **Project structure**: Explain your project structure.
+    Use one sentence to describe each file and folder.
+    Examples are displayed [above](#examples).
 
-- **Usage** (if applicable):
-Provide examples or code snippets demonstrating how to use your project.
+-   **Usage** (if applicable): Provide examples or code snippets demonstrating how to use your project.
 
-- **Contributing**:
-If you welcome contributions, specify how others can contribute to your project.
-Here, you can also include guidelines for submitting bug reports, feature requests, or pull requests.
+-   **Contributing**: If you welcome contributions, specify how others can contribute to your project.
+    Here, you can also include guidelines for submitting bug reports, feature requests, or pull requests.
 
 ::: {.callout-tip collapse="true" appearance="simple"}
-
 ## Adding a `CONTRIBUTING.md` file to a repository
+
 For larger or more complex projects where contributions may involve setting up a specific development environment or adhering to specific workflows, it is standard practice to create a file called `CONTRIBUTING.md`.
 GitHub recognizes the presence of a `CONTRIBUTING.md` file in a repository and, for example, automatically includes a link to the `CONTRIBUTING.md` file when users open a new issue or pull request.
 :::
 
-- **Acknowledgments**:
-Give credit to any third-party libraries, tools, or individuals that contributed to your project.
+-   **Acknowledgments**: Give credit to any third-party libraries, tools, or individuals that contributed to your project.
 
-- **License**:
-Choose a license that aligns with your project's goals. 
-You can use [choosealicense.com](https://choosealicense.com) for guidance. 
-The chosen license influences contributions to your project.
-Researchers are often insecure about which license to use.
-We will there cover the topic license in a separate chapter.
+-   **License**: Choose a license that aligns with your project's goals.
+    You can use [choosealicense.com](https://choosealicense.com) for guidance.
+    The chosen license influences contributions to your project.
+    Researchers are often insecure about which license to use.
+    We will there cover the topic license in a separate chapter.
 
 ::: {.callout-tip collapse="true" appearance="simple" icon="true"}
-
 ## Find out more: View the `README.md` file of this project.
+
 {{< include ../README.md >}}
 :::
 
-A `README.md`-file can include a lot of content. When writing your `README`, consider your perspective as on-working researcher and other researchers that might want to reproduce parts of your project results.
+A `README.md`-file can include a lot of content.
+When writing your `README`, consider your perspective as on-working researcher and other researchers that might want to reproduce parts of your project results.
 
 ### Separation of data and code
 
@@ -258,17 +257,16 @@ In R, a popular method for data cleaning is the use of the `tidyverse`, which we
 ### `renv` folder
 
 A `renv` folder helps you to create reproducible environments for your r projects.
-`renv` saves and lists all your R-packages used in your project. 
+`renv` saves and lists all your R-packages used in your project.
 That means you have for each project an own project library in R.
 When you are working in R to run your data analyses, you can create the `renv`-folder directly.
 However, the use of `renv` is not intuitive, so we will cover the topic in another separate chapter.
 
 ### misc-folder
 
-The abbreviation `misc` stands for miscellaneous. 
-This folder is particularly useful for files that do not fit into one of your other folders. 
+The abbreviation `misc` stands for miscellaneous.
+This folder is particularly useful for files that do not fit into one of your other folders.
 It saves you from having a chaotic project folder when entering your project.
-
 
 ## YODA principles
 
@@ -354,7 +352,7 @@ Used without any modifications.
 TOP-Factor assessment of *Advances in Methods and Practices in Psychological Science*
 
 | **GUIDELINE** | **LEVEL** | **SUMMARY** | **JUSTIFICATION** |
-|:---|:---|:---|:---|
+|:-----------------|:-----------------|:-----------------|:-----------------|
 | **Total** | **25** |  |  |
 | Data Citation | **2** | Article provides appropriate citation for data and materials used consistent with journal's author guidelines. | Journal requires data citation. |
 | Data Transparency | **2** | Data must be posted to a trusted repository. Exceptions must be identified at article submission. | Journal requires data sharing. |
@@ -366,7 +364,6 @@ TOP-Factor assessment of *Advances in Methods and Practices in Psychological Sci
 | Replication | **3** | Journal uses Registered Reports as a submission option for replication studies with peer review prior to observing the study outcomes. | Journal accepts Registered Reports for replication studies. |
 | Registered Reports & Publication Bias | **3** |  | Journal accepts Registered Reports for novel studies. |
 | Open Science Badges | **2** |  | Journal offers all Open Science Badges. |
-
 :::
 
 As you can see, journals do include requirements of public data and code for publishing articles.
@@ -377,7 +374,6 @@ We further look at some examples of the application of open data and code polici
 ### Current application of open science practices
 
 ::: panel-tabset
-
 ## Frontiers
 
 ```{r}
@@ -425,19 +421,18 @@ We further look at some examples of the application of open data and code polici
   #comments: "reused without modifications"
   #alt-text: ""
 ```
-
 :::
 
 Click on the following links to explore the reproducibility archives:
 
-- Frontiers: Laulié et al. (2023) $\rightarrow$ [Reproducibility Archive](https://osf.io/csdk8/?view_only=)
-- AMPPS: Nuijten & Wicherts (2024) $\rightarrow$ [Reproducibility Archive](https://osf.io/preprints/psyarxiv/qejhk)
+-   Frontiers: Laulié et al. (2023) $\rightarrow$ [Reproducibility Archive](https://osf.io/csdk8/?view_only=)
+-   AMPPS: Nuijten & Wicherts (2024) $\rightarrow$ [Reproducibility Archive](https://osf.io/preprints/psyarxiv/qejhk)
 
 ::: callout-caution
 ## Exercise: Study reproducibility archives
 
-Investigate the links above and think about how these archives could help you to reproduce the analysis conducted in their papers. 
-What is helpful and what is not? 
+Investigate the links above and think about how these archives could help you to reproduce the analysis conducted in their papers.
+What is helpful and what is not?
 :::
 
 Again, it should be noted that there is no perfectly organized reproducibility archive.
