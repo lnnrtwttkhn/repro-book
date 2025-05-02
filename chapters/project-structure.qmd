@@ -286,6 +286,20 @@ DataLad serves as an upgrade to Git for large scale research projects.
 If you want to dive deep into DataLad, we recommend the DataLad [Handbook](https://handbook.datalad.org/en/latest/index.html) to you [@wagner2021].
 :::
 
+### Principle 1: One thing, one dataset
+
+Imagine you have a file in your research project that could be useful for other projects, e.g. data manipulation scripts for you or even other researchers.
+One first thing to enhance reproducibility is to make these files standalone as modular entity.
+
+In the YODA principles, this is how it could look like:
+
+1. an `inputs/` folder for input data in your analysis
+    - keep raw data, preprocessed data, etc. **modular**
+    - if your data analysis relies on multiple data collections, these collection should constitute individual components
+1. a `code/` folder for scripts and code used for the data analyses
+1. results of the analyses should be stored outside of the `inputs/` directory, e.g. `outputs/` or `results` folder.
+1. if you conduct multiple different analyses, create separate projects for each analysis
+
 ## Structure of reproducibility archives
 
 <!--#
