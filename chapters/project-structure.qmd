@@ -270,8 +270,6 @@ It saves you from having a chaotic project folder when entering your project.
 
 ## YODA principles
 
-## Optional standards for research projects
-
 ## Structure of reproducibility archives
 
 > These are only comments.
