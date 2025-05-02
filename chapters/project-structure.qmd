@@ -436,12 +436,94 @@ Here, you can find the link to the archive of the paper: [Reproducibility Archiv
   #comments: "reused without modifications"
   #alt-text: ""
 ```
+
+Below you can find the structure of an archive of a paper from @nuijten2024.
+The paper is placed in the methodological area of psychological science.
+The authors investigated whether inconsistencies in reporting statistical results could be reduced by implementing a software tool called *statcheck*.
+
+::: {.callout-note title="Structure of the Repro Archive from @nuijten2024" collapse="true"}
+## File descriptions {.unnumbered}
+The file descriptions below are organized in the same way as the components and folders on the OSF page at [https://osf.io/q84jn/](https://osf.io/q84jn/).
+
+### 02 Preregistration {.unnumbered}
+| File Name | Description | Created By |
+|:--|:--|:--|
+|221130preregistration_effectivitystatcheck.pdf|Preregistration of the project|MN, JW|
+
+#### Power analysis {.unnumbered}
+| File Name | Description | Created By |
+|:--|:--|:--|
+| 00extract_dates.R              | Helper function with regexes to extract dates                         | MN         |
+| 00extract_pattern.R            | Helper function to extract a pattern from text                        | MN         |
+| 00html_to_txt.R                | Helper function to convert html files to plain txt                    | MN         |
+| 00scrape_html_dir.R            | Helper function that allows scraping a directory of html files        | MN         |
+| 01scrape_articles.R            | Function to run statcheck & scrape additional meta-data from articles | MN         |
+| 02data_wrangling.R             | Function to clean & reorder raw data                                  | MN         |
+| 2022-11-23scraped_articles.txt | Raw, scraped data from articles                                       | MN         |
+| 2022-11-28data_per_article.txt | Data organized at article level                                       | MN         |
+| 2022-11-28data_wrangled.txt    | Data with additional variables and missing values removed             | MN         |
+| power_analysis.R               | R script to run power simulation                                      | MN         |
+| powerplot_estimated.png        | Graph of power estimates per b3 value                                 | MN         |
+
+### 03 Data {.unnumbered}
+| File Name | Description| Created By |
+|:--|:--|:--|
+| 00extract_dates_v2.R   | Helper function with regexes to extract dates                         | MN         |
+| 00extract_pattern.R | Helper function to extract a pattern from text                        | MN         |
+| 00html_to_txt_v2.R     | Helper function to convert html files to plain txt                    | MN         |
+| 00scrape_html_dir.R | Helper function that allows scraping a directory of html files        | MN         |
+| 01scrape_articles_v3.R | Function to run statcheck & scrape additional meta-data from articles | MN         |
+| 02data_wrangling_v3.R  | Function to clean & reorder raw data                                  | MN         |
+|2024-04-15scraped_articles_v3.txt|Raw statcheck data|MN|
+|2024-04-15data_per_article_with_missings.txt|Data organized per article, including articles without NHST results|MN|
+|2024-04-15data_per_article_with_stats.txt|Data organized per article, only including articles with NHST results|MN|
+|2024-04-15data_wrangled_no_missings.txt|Clean data organized per NHST result, only including articles with NHST results|MN|
+|2024-04-15data_wrangled_with_missings.txt|Clean data organized per NHST result, also including articles without NHST results (in these cases, only article level info is in the data frame)|MN|
+|missing_htmls_jepg.docx/-.pdf|List of articles from JEPG with missing html file|MN|
+|codebook.xlsx|Codebook explaining the variables in the main data files|MN|
+
+### 04 Analysis {.unnumbered}
+
+#### 01 Descriptives {.unnumbered}
+
+| File Name | Description| Created By |
+|:--|:--|:--|
+|descriptives_V3.R|Main analysis file to create descriptive statistics, figures, and tables | MN |
+|fig1_violin_plots.png|Figure 1|MN|
+|fig2_line_graph_means.png|Figure 2|MN|
+|table2.txt|Raw data from Table 2|MN|
+|table3.txt|Raw data from Table 3|MN|
+
+#### 02 Confirmatory {.unnumbered}
+
+| File Name | Description| Created By |
+|:--|:--|:--|
+|confirmatory_analyses_v3.R|Main analysis script for confirmatory analyses|MN|
+|illustration_logits_odds_probs.xlsx|Toy example to convert obtained regression coefficients from logits to probabilities|MN|
+|lm_dec_errors.rda|R data object with output of the multilevel logistic model estimating the probability of a decision error|MN|
+|lm_errors.rda|R data object with output of the multilevel logistic model estimating the probability of an error|MN|
+
+#### 03 Exploratory {.unnumbered}
+
+| File Name | Description| Created By |
+|:--|:--|:--|
+|bayes_factors.R|Calculating Bayes factors and posterior probabilities|MN|
+|fig3_perc_articles_errors_over_time.png|Figure 3|MN|
+|separate_journal_pairs.R|Fit regression models for journal pairs separately|MN|
+|trends_over_time.R|Calculate and visualize trends over time|MN|
+
+### renv {.unnumbered}
+
+| File Name | Description| Created By |
+|:--|:--|:--|
+|renv (folder), .Rprofile, renv.lock|Files for syncing the same R package versions used in the data analysis|MN|
+
 :::
 
-Click on the following links to explore the reproducibility archives:
 
--   Frontiers: Laulié et al. (2023) $\rightarrow$ [Reproducibility Archive](https://osf.io/csdk8/?view_only=)
--   AMPPS: Nuijten & Wicherts (2024) $\rightarrow$ [Reproducibility Archive](https://osf.io/preprints/psyarxiv/qejhk)
+Here you can fend the link to archive of the paper: [Reproducibility Archive](https://osf.io/q84jn/)
+
+:::
 
 ::: callout-caution
 ## Exercise: Study reproducibility archives
