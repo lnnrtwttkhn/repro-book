@@ -172,7 +172,8 @@ What would you need to reproduce analysis and results?
 When looking at the different project structures, it becomes clear that there is no perfect or correct project structure for a research project.
 The variety and scale of projects is too diverse and include different demands of different parties.
 Nevertheless, in this chapter we try to summarise the most important aspects of a project structure in the context of research.
-We differentiate between basic standards that help in every project and optional standards that help in specific contexts of projects.
+We only tackle basic standards that help in every project.
+We will not handle optional standards for specific research contexts.
 Afterwards, we display reproducibility archives and the different requirements journals articulate for setting up an reproducibility archive.
 
 ## Basic standards for research projects
@@ -197,7 +198,7 @@ If you want to contribute to the project, take a look at their {{< fa brands git
 
 ### Human and machine-readable files
 
-As displayed in the chapter *Naming things*, human and machine-readable names for files and folders are relatively easy to modify, when starting a project.
+As displayed in the chapter [Naming things](naming-things.qmd), human and machine-readable names for files and folders are relatively easy to modify, when starting a project.
 As your project grows, you will be thankful for good file and folder names.
 Since, we dedicated a whole chapter to this topic, we move on to the next basic standard of a project structure.
 
@@ -285,8 +286,6 @@ It saves you from having a chaotic project folder when entering your project.
 
 Below the line, the actual content starts
 -->
-
----
 
 In the first subsections of the chapter, you have learned how to set up your own project structure.
 The structure is flexible to different occasions, e.g. working collaboratively with other team members, working at your own research project during your studies at university.
@@ -532,5 +531,10 @@ Investigate the links above and think about how these archives could help you to
 What is helpful and what is not?
 :::
 
+::: {.callout-note title="Postscript"}
+The examples from @laulie2023 and @nuijten2024 do not have the intention to discredit researchers.
+Rather, the paper were chosen from the respective journal websites on a random basis.
+:::
+
 Again, it should be noted that there is no perfectly organized reproducibility archive.
-However, we hope that the displayed examples show that open science, open data and reproducibility can be applied in many different (and sadly sometimes insufficient) ways.
+However, we hope that the displayed examples show that open science, open data and reproducibility can be applied in many different ways.
