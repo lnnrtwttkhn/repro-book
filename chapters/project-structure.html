@@ -127,35 +127,6 @@ div.csl-indent {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -297,12 +268,10 @@ window.Quarto = {
   <li><a href="#renv-folder" id="toc-renv-folder" class="nav-link" data-scroll-target="#renv-folder"><span class="header-section-number">5.4.2</span> <code>renv</code> folder</a></li>
   <li><a href="#misc-folder" id="toc-misc-folder" class="nav-link" data-scroll-target="#misc-folder"><span class="header-section-number">5.4.3</span> misc-folder</a></li>
   </ul></li>
-  <li><a href="#yoda-principles" id="toc-yoda-principles" class="nav-link" data-scroll-target="#yoda-principles"><span class="header-section-number">5.5</span> YODA principles</a></li>
-  <li><a href="#optional-standards-for-research-projects" id="toc-optional-standards-for-research-projects" class="nav-link" data-scroll-target="#optional-standards-for-research-projects"><span class="header-section-number">5.6</span> Optional standards for research projects</a></li>
-  <li><a href="#structure-of-reproducibility-archives" id="toc-structure-of-reproducibility-archives" class="nav-link" data-scroll-target="#structure-of-reproducibility-archives"><span class="header-section-number">5.7</span> Structure of reproducibility archives</a>
+  <li><a href="#structure-of-reproducibility-archives" id="toc-structure-of-reproducibility-archives" class="nav-link" data-scroll-target="#structure-of-reproducibility-archives"><span class="header-section-number">5.5</span> Structure of reproducibility archives</a>
   <ul class="collapse">
-  <li><a href="#requirements-of-frontiers-in-psychology" id="toc-requirements-of-frontiers-in-psychology" class="nav-link" data-scroll-target="#requirements-of-frontiers-in-psychology"><span class="header-section-number">5.7.1</span> Requirements of Frontiers in Psychology</a></li>
-  <li><a href="#current-application-of-open-science-practices" id="toc-current-application-of-open-science-practices" class="nav-link" data-scroll-target="#current-application-of-open-science-practices"><span class="header-section-number">5.7.2</span> Current application of open science practices</a></li>
+  <li><a href="#requirements-of-journals" id="toc-requirements-of-journals" class="nav-link" data-scroll-target="#requirements-of-journals"><span class="header-section-number">5.5.1</span> Requirements of Journals</a></li>
+  <li><a href="#current-application-of-open-science-practices" id="toc-current-application-of-open-science-practices" class="nav-link" data-scroll-target="#current-application-of-open-science-practices"><span class="header-section-number">5.5.2</span> Current application of open science practices</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/project-structure.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/project-structure.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
@@ -348,7 +317,7 @@ Learning Objectives
 </div>
 </div>
 </div>
-<p>A good folder structure saves you and other researchers a lot of time when revisiting or trying to understand your data. However, there is no universal <em>best practice standard</em> for project structures. Below are several examples of different project structures:</p>
+<p>Project structure addresses how the files and folder of your research project are structured. This is what this chapter is about. Other topics related to the term, such as setting a timeline for your project, will be neglected as this would lead to losing the focus on reproducibility. A good folder structure saves you and other researchers a lot of time when revisiting or trying to understand your data. However, there is no universal <em>best practice standard</em> for project structures. Below are several examples of different project structures:</p>
 <section id="examples" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="examples"><span class="header-section-number">4.1</span> Examples</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -543,7 +512,7 @@ Exercise: Take on different perspectives
 <p>Pause for a moment after investigating the different project structures. Take the perspective of a researcher that is currently working in this project structure. How would you feel working with this structure? What helps you, hinders you to work productively and reproducible? Then change your perspective. Imagine you are a researcher aiming to reproduce the results of a different research project that uses such project structures. What would you need to reproduce analysis and results?</p>
 </div>
 </div>
-<p>When looking at the different project structures, it becomes clear that there is no perfect or correct project structure for a research project. The variety and scale of projects is too diverse and include different demands of different parties. Nevertheless, in this chapter we try to summarise the most important aspects of a project structure in the context of research. We differentiate between basic standards that help in every project and optional standards that help in specific contexts of projects. Afterwards, we display reproducibility archives and the different requirements journals articulate for setting up an reproducibility archive.</p>
+<p>When looking at the different project structures, it becomes clear that there is no perfect or correct project structure for a research project. The variety and scale of projects is too diverse and include different demands of different parties. Nevertheless, in this chapter we try to summarise the most important aspects of a project structure in the context of research. We only tackle basic standards that help in every project. We will not handle optional standards for specific research contexts. Afterwards, we display reproducibility archives and the different requirements journals articulate for setting up an reproducibility archive.</p>
 </section>
 <section id="basic-standards-for-research-projects" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="basic-standards-for-research-projects"><span class="header-section-number">4.2</span> Basic standards for research projects</h2>
@@ -555,10 +524,10 @@ Exercise: Take on different perspectives
 <li><code>renv</code>-folder</li>
 <li><code>misc</code>-folder</li>
 </ol>
-<p>Apart from these standards, it is always useful to look for already existing standards in your research discipline. Researchers working with fMRI data will find the convention of <em>Brain Images Data Structures (<a href="?var:link.bids">BIDS</a>)</em>. BIDS is a standard that aims to foster a simple and easy way of organizing neuroimaging and behavioural data. Inspired by BIDS, <em><a href="?var:link.psych-ds">psych-DS</a></em> started in 2018 to aiming to provide a systematic way of formatting and documenting scientific datasets. However, content creation by psych-DS has been low. If you want to contribute to the project, take a look at their <i class="fa-brands fa-github" aria-label="github"></i> Github <a href="https://github.com/psych-DS/psych-DS">repository</a>.</p>
+<p>Apart from these standards, it is always useful to look for already existing standards in your research discipline. Researchers working with fMRI data will find the convention of <em>Brain Images Data Structures (<a href="?var:link.bids">BIDS</a>)</em>. BIDS is a standard that aims to foster a simple and easy way of organizing neuroimaging and behavioural data. Inspired by BIDS, <a href="?var:link.psych-ds"><em>psych-DS</em></a> started in 2018 to aiming to provide a systematic way of formatting and documenting scientific datasets. However, content creation by psych-DS has been low. If you want to contribute to the project, take a look at their <i class="fa-brands fa-github" aria-label="github"></i> Github <a href="https://github.com/psych-DS/psych-DS">repository</a>.</p>
 <section id="human-and-machine-readable-files" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="human-and-machine-readable-files"><span class="header-section-number">4.2.1</span> Human and machine-readable files</h3>
-<p>As displayed in the chapter <em>Naming things</em>, human and machine-readable names for files and folders are relatively easy to modify, when starting a project. As your project grows, you will be thankful for good file and folder names. Since, we dedicated a whole chapter to this topic, we move on to the next basic standard of a project structure.</p>
+<p>As displayed in the chapter <a href="../chapters/naming-things.html">Naming things</a>, human and machine-readable names for files and folders are relatively easy to modify, when starting a project. As your project grows, you will be thankful for good file and folder names. Since, we dedicated a whole chapter to this topic, we move on to the next basic standard of a project structure.</p>
 </section>
 <section id="readme.md-file" class="level3" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored"><span class="header-section-number">4.2.2</span> <code>README.md</code>-file</h3>
@@ -689,28 +658,23 @@ Find out more: View the <code>README.md</code> file of this project.
 <p>The abbreviation <code>misc</code> stands for miscellaneous. This folder is particularly useful for files that do not fit into one of your other folders. It saves you from having a chaotic project folder when entering your project.</p>
 </section>
 </section>
-<section id="yoda-principles" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="yoda-principles"><span class="header-section-number">5.5</span> YODA principles</h2>
-</section>
-<section id="optional-standards-for-research-projects" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="optional-standards-for-research-projects"><span class="header-section-number">5.6</span> Optional standards for research projects</h2>
-</section>
-<section id="structure-of-reproducibility-archives" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="structure-of-reproducibility-archives"><span class="header-section-number">5.7</span> Structure of reproducibility archives</h2>
-<blockquote class="blockquote">
-<p>These are only comments. There is no aim of sufficiency and precision in the ideas below.</p>
-</blockquote>
-<ul>
-<li>Different for each project and journal, when it comes to paper publishing</li>
-<li>Show example of requirements of journal</li>
-<li>Critically discuss if journal requirements are sufficient for computational reproducibility</li>
-<li>Something’s missing?</li>
-</ul>
-<p>Below the line, the actual content starts</p>
-<hr>
+<section id="structure-of-reproducibility-archives" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="structure-of-reproducibility-archives"><span class="header-section-number">5.5</span> Structure of reproducibility archives</h2>
+<!--#
+> These are only comments.
+> There is no aim of sufficiency and precision in the ideas below.
+
+-   Different for each project and journal, when it comes to paper publishing
+-   Show example of requirements of journal
+-   Critically discuss if journal requirements are sufficient for computational reproducibility
+-   Something's missing?
+
+
+Below the line, the actual content starts
+-->
 <p>In the first subsections of the chapter, you have learned how to set up your own project structure. The structure is flexible to different occasions, e.g.&nbsp;working collaboratively with other team members, working at your own research project during your studies at university. Nevertheless, you have not learned what is actually required by journals when you need or want to make your data and code publicly available. To cover this topic, we will go into the details of open science requirements of a couple of journals.</p>
-<section id="requirements-of-frontiers-in-psychology" class="level3" data-number="5.7.1">
-<h3 data-number="5.7.1" class="anchored" data-anchor-id="requirements-of-frontiers-in-psychology"><span class="header-section-number">5.7.1</span> Requirements of Frontiers in Psychology</h3>
+<section id="requirements-of-journals" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="requirements-of-journals"><span class="header-section-number">5.5.1</span> Requirements of Journals</h3>
 <p>The <a href="https://www.cos.io/initiatives/top-guidelines">TOP Guidelines</a> by the Center of Open Science are a best practice formulation by journals, funders, and societies to implement better and more transparent research. The <a href="https://topfactor.org">TOP Factor</a> is a metric that reports the steps that a journal is taking to implement open science practices. Below you can see the TOP Factor evaluation of two psychological journals.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -987,24 +951,380 @@ Learn more: What is the TOP-Factor?
 </div>
 <p>As you can see, journals do include requirements of public data and code for publishing articles. However, the specification of <em>how</em> to do that is scarce. Standards for research projects as stated above are missing. We further look at some examples of the application of open data and code policies in published articles.</p>
 </section>
-<section id="current-application-of-open-science-practices" class="level3" data-number="5.7.2">
-<h3 data-number="5.7.2" class="anchored" data-anchor-id="current-application-of-open-science-practices"><span class="header-section-number">5.7.2</span> Current application of open science practices</h3>
+<section id="current-application-of-open-science-practices" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored"><span class="header-section-number">5.5.2</span> Current application of open science practices</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Frontiers</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">AMPPS</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-
+<p>Below, you can find the structure of the reproducibility archive of a paper from <span class="citation" data-cites="laulie2023">Laulié, Briceño-Jiménez, and Henríquez-Gomez (<a href="../references.html#ref-laulie2023" role="doc-biblioref">2023</a>)</span>. The paper is placed in work and organizational psychology and postulates a relationship between the fulfillment of (implicit) expectation between employees and employers and the intention to leave the company for another job. The authors further assume that this relationship is mediated by emotional exhaustion and investigate whether emotional intelligence moderates the mediation effect of emotional exhaustion.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> fpsyg-14-1090094.pdf                </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> Materials <span class="at">-</span> DataBase.xlsx           </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> Materials <span class="at">-</span> Informed Consent.pdf    </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> Materials <span class="at">-</span> Instruments.pdf         </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Here, you can find the link to the archive of the paper: <a href="https://osf.io/csdk8/?view_only=">Reproducibility Archive</a></p>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-
+<p>Below you can find the structure of an archive of a paper from <span class="citation" data-cites="nuijten2024">Nuijten and Wicherts (<a href="../references.html#ref-nuijten2024" role="doc-biblioref">2024</a>)</span>. The paper is placed in the methodological area of psychological science. The authors investigated whether inconsistencies in reporting statistical results could be reduced by implementing a software tool called <em>statcheck</em>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Structure of the Repro Archive from @nuijten2024">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Structure of the Repro Archive from <span class="citation" data-cites="nuijten2024">Nuijten and Wicherts (<a href="../references.html#ref-nuijten2024" role="doc-biblioref">2024</a>)</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<section id="file-descriptions" class="level2 unnumbered callout-body-container callout-body">
+<h2 class="unnumbered anchored" data-anchor-id="file-descriptions">File descriptions</h2>
+<p>The file descriptions below are organized in the same way as the components and folders on the OSF page at <a href="https://osf.io/q84jn/">https://osf.io/q84jn/</a>.</p>
+<section id="preregistration" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="preregistration">02 Preregistration</h3>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">File Name</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Created By</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">221130preregistration_effectivitystatcheck.pdf</td>
+<td style="text-align: left;">Preregistration of the project</td>
+<td style="text-align: left;">MN, JW</td>
+</tr>
+</tbody>
+</table>
+<section id="power-analysis" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="power-analysis">Power analysis</h4>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">File Name</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Created By</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">00extract_dates.R</td>
+<td style="text-align: left;">Helper function with regexes to extract dates</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">00extract_pattern.R</td>
+<td style="text-align: left;">Helper function to extract a pattern from text</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">00html_to_txt.R</td>
+<td style="text-align: left;">Helper function to convert html files to plain txt</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">00scrape_html_dir.R</td>
+<td style="text-align: left;">Helper function that allows scraping a directory of html files</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">01scrape_articles.R</td>
+<td style="text-align: left;">Function to run statcheck &amp; scrape additional meta-data from articles</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">02data_wrangling.R</td>
+<td style="text-align: left;">Function to clean &amp; reorder raw data</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2022-11-23scraped_articles.txt</td>
+<td style="text-align: left;">Raw, scraped data from articles</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2022-11-28data_per_article.txt</td>
+<td style="text-align: left;">Data organized at article level</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2022-11-28data_wrangled.txt</td>
+<td style="text-align: left;">Data with additional variables and missing values removed</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">power_analysis.R</td>
+<td style="text-align: left;">R script to run power simulation</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">powerplot_estimated.png</td>
+<td style="text-align: left;">Graph of power estimates per b3 value</td>
+<td style="text-align: left;">MN</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="data" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="data">03 Data</h3>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">File Name</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Created By</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">00extract_dates_v2.R</td>
+<td style="text-align: left;">Helper function with regexes to extract dates</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">00extract_pattern.R</td>
+<td style="text-align: left;">Helper function to extract a pattern from text</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">00html_to_txt_v2.R</td>
+<td style="text-align: left;">Helper function to convert html files to plain txt</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">00scrape_html_dir.R</td>
+<td style="text-align: left;">Helper function that allows scraping a directory of html files</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">01scrape_articles_v3.R</td>
+<td style="text-align: left;">Function to run statcheck &amp; scrape additional meta-data from articles</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">02data_wrangling_v3.R</td>
+<td style="text-align: left;">Function to clean &amp; reorder raw data</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024-04-15scraped_articles_v3.txt</td>
+<td style="text-align: left;">Raw statcheck data</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2024-04-15data_per_article_with_missings.txt</td>
+<td style="text-align: left;">Data organized per article, including articles without NHST results</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024-04-15data_per_article_with_stats.txt</td>
+<td style="text-align: left;">Data organized per article, only including articles with NHST results</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2024-04-15data_wrangled_no_missings.txt</td>
+<td style="text-align: left;">Clean data organized per NHST result, only including articles with NHST results</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2024-04-15data_wrangled_with_missings.txt</td>
+<td style="text-align: left;">Clean data organized per NHST result, also including articles without NHST results (in these cases, only article level info is in the data frame)</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">missing_htmls_jepg.docx/-.pdf</td>
+<td style="text-align: left;">List of articles from JEPG with missing html file</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">codebook.xlsx</td>
+<td style="text-align: left;">Codebook explaining the variables in the main data files</td>
+<td style="text-align: left;">MN</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="analysis" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="analysis">04 Analysis</h3>
+<section id="descriptives" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="descriptives">01 Descriptives</h4>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">File Name</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Created By</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">descriptives_V3.R</td>
+<td style="text-align: left;">Main analysis file to create descriptive statistics, figures, and tables</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">fig1_violin_plots.png</td>
+<td style="text-align: left;">Figure 1</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">fig2_line_graph_means.png</td>
+<td style="text-align: left;">Figure 2</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">table2.txt</td>
+<td style="text-align: left;">Raw data from Table 2</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">table3.txt</td>
+<td style="text-align: left;">Raw data from Table 3</td>
+<td style="text-align: left;">MN</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="confirmatory" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="confirmatory">02 Confirmatory</h4>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">File Name</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Created By</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">confirmatory_analyses_v3.R</td>
+<td style="text-align: left;">Main analysis script for confirmatory analyses</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">illustration_logits_odds_probs.xlsx</td>
+<td style="text-align: left;">Toy example to convert obtained regression coefficients from logits to probabilities</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lm_dec_errors.rda</td>
+<td style="text-align: left;">R data object with output of the multilevel logistic model estimating the probability of a decision error</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">lm_errors.rda</td>
+<td style="text-align: left;">R data object with output of the multilevel logistic model estimating the probability of an error</td>
+<td style="text-align: left;">MN</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exploratory" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="exploratory">03 Exploratory</h4>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">File Name</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Created By</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">bayes_factors.R</td>
+<td style="text-align: left;">Calculating Bayes factors and posterior probabilities</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">fig3_perc_articles_errors_over_time.png</td>
+<td style="text-align: left;">Figure 3</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">separate_journal_pairs.R</td>
+<td style="text-align: left;">Fit regression models for journal pairs separately</td>
+<td style="text-align: left;">MN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">trends_over_time.R</td>
+<td style="text-align: left;">Calculate and visualize trends over time</td>
+<td style="text-align: left;">MN</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="renv" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="renv">renv</h3>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">File Name</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Created By</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">renv (folder), .Rprofile, renv.lock</td>
+<td style="text-align: left;">Files for syncing the same R package versions used in the data analysis</td>
+<td style="text-align: left;">MN</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</div>
+<p>Here you can fend the link to archive of the paper: <a href="https://osf.io/q84jn/">Reproducibility Archive</a></p>
 </div>
 </div>
 </div>
-<p>Click on the following links to explore the reproducibility archives:</p>
-<ul>
-<li>Frontiers: Laulié et al.&nbsp;(2023) <span class="math inline">\(\rightarrow\)</span> <a href="https://osf.io/csdk8/?view_only=">Reproducibility Archive</a></li>
-<li>AMPPS: Nuijten &amp; Wicherts (2024) <span class="math inline">\(\rightarrow\)</span> <a href="https://osf.io/preprints/psyarxiv/qejhk">Reproducibility Archive</a></li>
-</ul>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1015,15 +1335,34 @@ Exercise: Study reproducibility archives
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Investigate the links above and think about how these archives could help you to reproduce the analysis conducted in their papers. What is helpful and what is not?</p>
+<p>Investigate the reproducibility archives above and think about how these archives could help you to reproduce the analysis conducted in their papers. What is helpful and what is not?</p>
 </div>
 </div>
-<p>Again, it should be noted that there is no perfectly organized reproducibility archive. However, we hope that the displayed examples show that open science, open data and reproducibility can be applied in many different (and sadly sometimes insufficient) ways.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Postscript">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Postscript
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The examples from <span class="citation" data-cites="laulie2023">Laulié, Briceño-Jiménez, and Henríquez-Gomez (<a href="../references.html#ref-laulie2023" role="doc-biblioref">2023</a>)</span> and <span class="citation" data-cites="nuijten2024">Nuijten and Wicherts (<a href="../references.html#ref-nuijten2024" role="doc-biblioref">2024</a>)</span> do not have the intention to discredit researchers. Rather, the paper were chosen from the respective journal websites on a random basis.</p>
+</div>
+</div>
+<p>Again, it should be noted that there is no perfectly organized reproducibility archive. However, we hope that the displayed examples show that open science, open data and reproducibility can be applied in many different ways.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-gorgolewski2016" class="csl-entry" role="listitem">
 Gorgolewski, Krzysztof J., Tibor Auer, Vince D. Calhoun, R. Cameron Craddock, Samir Das, Eugene P. Duff, Guillaume Flandin, et al. 2016. <span>“The Brain Imaging Data Structure, a Format for Organizing and Describing Outputs of Neuroimaging Experiments.”</span> <em>Scientific Data</em> 3 (1). <a href="https://doi.org/10.1038/sdata.2016.44">https://doi.org/10.1038/sdata.2016.44</a>.
+</div>
+<div id="ref-laulie2023" class="csl-entry" role="listitem">
+Laulié, Lyonel, Gabriel Briceño-Jiménez, and Gisselle Henríquez-Gomez. 2023. <span>“Exploring Self-Regulation Theory as a Mechanism of the Effects of Psychological Contract Fulfillment: The Role of Emotional Intelligence.”</span> <em>Frontiers in Psychology</em> 14. <a href="https://doi.org/10.3389/fpsyg.2023.1090094">https://doi.org/10.3389/fpsyg.2023.1090094</a>.
+</div>
+<div id="ref-nuijten2024" class="csl-entry" role="listitem">
+Nuijten, Michèle B., and Jelte M. Wicherts. 2024. <span>“Implementing Statcheck During Peer Review Is Related to a Steep Decline in Statistical-Reporting Inconsistencies.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 7. <a href="https://doi.org/10.1177/25152459241258945">https://doi.org/10.1177/25152459241258945</a>.
 </div>
 </div>
 </section>
