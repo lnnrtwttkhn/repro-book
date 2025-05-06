@@ -1,6 +1,9 @@
 ---
 title: "Project Structure"
-editor: visual
+editor: 
+  source:
+    markdown:
+      wrap: sentence
 abstract: |
   In this chapter, you will explore various types of project structures.
   You will learn what elements are essential for a project structure and what key factors to consider.
@@ -20,6 +23,9 @@ execute:
 :bulb: You understand the perspective on research as either a sequential or circular process.
 :::
 
+Project structure addresses how the files and folder of your research project are structured.
+This is what this chapter is about.
+Other topics related to the term, such as setting a timeline for your project, will be neglected as this would lead to losing the focus on reproducibility.
 A good folder structure saves you and other researchers a lot of time when revisiting or trying to understand your data.
 However, there is no universal *best practice standard* for project structures.
 Below are several examples of different project structures:
@@ -29,7 +35,7 @@ Below are several examples of different project structures:
 ::: panel-tabset
 ## The Turing Way
 
-```{zsh filename="Output"}  
+```{zsh filename="Output"}
 ├── LICENSE
 ├── README.md # <1>
 ├── CODE_OF_CONDUCT.md <- Guidelines for users and contributors of the project.
@@ -66,7 +72,7 @@ Below are several examples of different project structures:
 └──
 ```
 
-1. The top-level README for users of this project.
+1.  The top-level README for users of this project.
 
 Repository Structure Template by [The Turing Way](https://book.the-turing-way.org/index.html).
 Used under the [LICENSE CC-BY 4.0](https://github.com/the-turing-way/reproducible-project-template/blob/main/LICENSE.md).
@@ -166,7 +172,8 @@ What would you need to reproduce analysis and results?
 When looking at the different project structures, it becomes clear that there is no perfect or correct project structure for a research project.
 The variety and scale of projects is too diverse and include different demands of different parties.
 Nevertheless, in this chapter we try to summarise the most important aspects of a project structure in the context of research.
-We differentiate between basic standards that help in every project and optional standards that help in specific contexts of projects.
+We only tackle basic standards that help in every project.
+We will not handle optional standards for specific research contexts.
 Afterwards, we display reproducibility archives and the different requirements journals articulate for setting up an reproducibility archive.
 
 ## Basic standards for research projects
@@ -185,13 +192,13 @@ In psychology research, we assess these standards as highly useful:
 Apart from these standards, it is always useful to look for already existing standards in your research discipline.
 Researchers working with fMRI data will find the convention of *Brain Images Data Structures ([BIDS]({{< var link.bids >}}))*.
 BIDS is a standard that aims to foster a simple and easy way of organizing neuroimaging and behavioural data.
-Inspired by BIDS, *[psych-DS]({{< var link.psych-ds >}})* started in 2018 to aiming to provide a systematic way of formatting and documenting scientific datasets.
+Inspired by BIDS, [*psych-DS*]({{< var link.psych-ds >}}) started in 2018 to aiming to provide a systematic way of formatting and documenting scientific datasets.
 However, content creation by psych-DS has been low.
 If you want to contribute to the project, take a look at their {{< fa brands github >}} Github [repository](https://github.com/psych-DS/psych-DS).
 
 ### Human and machine-readable files
 
-As displayed in the chapter *Naming things*, human and machine-readable names for files and folders are relatively easy to modify, when starting a project.
+As displayed in the chapter [Naming things](naming-things.qmd), human and machine-readable names for files and folders are relatively easy to modify, when starting a project.
 As your project grows, you will be thankful for good file and folder names.
 Since, we dedicated a whole chapter to this topic, we move on to the next basic standard of a project structure.
 
@@ -202,48 +209,44 @@ It is typically a Markdown (`.md`) file, which means you can use [Markdown]({{< 
 Markdown allows you to easily format text, create lists, include links, and embed images.
 The exact content depends on your repository, but some general things that you might want to include are:
 
-- **Project description**:
-What function does this repository serve and what are it's key features?
+-   **Project description**: What function does this repository serve and what are it's key features?
 
-- **Installation instructions** (if applicable): Explain how to install and set up your project, including any dependencies or prerequisites.
-This is particularly relevant for repositories that contain programming code.
-Provide clear instructions to help users or contributors get started with your project quickly.
+-   **Installation instructions** (if applicable): Explain how to install and set up your project, including any dependencies or prerequisites.
+    This is particularly relevant for repositories that contain programming code.
+    Provide clear instructions to help users or contributors get started with your project quickly.
 
-- **Project structure**: Explain your project structure. 
-Use one sentence to describe each file and folder. 
-Examples are displayed [above](#examples).
+-   **Project structure**: Explain your project structure.
+    Use one sentence to describe each file and folder.
+    Examples are displayed [above](#examples).
 
-- **Usage** (if applicable):
-Provide examples or code snippets demonstrating how to use your project.
+-   **Usage** (if applicable): Provide examples or code snippets demonstrating how to use your project.
 
-- **Contributing**:
-If you welcome contributions, specify how others can contribute to your project.
-Here, you can also include guidelines for submitting bug reports, feature requests, or pull requests.
+-   **Contributing**: If you welcome contributions, specify how others can contribute to your project.
+    Here, you can also include guidelines for submitting bug reports, feature requests, or pull requests.
 
 ::: {.callout-tip collapse="true" appearance="simple"}
-
 ## Adding a `CONTRIBUTING.md` file to a repository
+
 For larger or more complex projects where contributions may involve setting up a specific development environment or adhering to specific workflows, it is standard practice to create a file called `CONTRIBUTING.md`.
 GitHub recognizes the presence of a `CONTRIBUTING.md` file in a repository and, for example, automatically includes a link to the `CONTRIBUTING.md` file when users open a new issue or pull request.
 :::
 
-- **Acknowledgments**:
-Give credit to any third-party libraries, tools, or individuals that contributed to your project.
+-   **Acknowledgments**: Give credit to any third-party libraries, tools, or individuals that contributed to your project.
 
-- **License**:
-Choose a license that aligns with your project's goals. 
-You can use [choosealicense.com](https://choosealicense.com) for guidance. 
-The chosen license influences contributions to your project.
-Researchers are often insecure about which license to use.
-We will there cover the topic license in a separate chapter.
+-   **License**: Choose a license that aligns with your project's goals.
+    You can use [choosealicense.com](https://choosealicense.com) for guidance.
+    The chosen license influences contributions to your project.
+    Researchers are often insecure about which license to use.
+    We will there cover the topic license in a separate chapter.
 
 ::: {.callout-tip collapse="true" appearance="simple" icon="true"}
-
 ## Find out more: View the `README.md` file of this project.
+
 {{< include ../README.md >}}
 :::
 
-A `README.md`-file can include a lot of content. When writing your `README`, consider your perspective as on-working researcher and other researchers that might want to reproduce parts of your project results.
+A `README.md`-file can include a lot of content.
+When writing your `README`, consider your perspective as on-working researcher and other researchers that might want to reproduce parts of your project results.
 
 ### Separation of data and code
 
@@ -258,24 +261,20 @@ In R, a popular method for data cleaning is the use of the `tidyverse`, which we
 ### `renv` folder
 
 A `renv` folder helps you to create reproducible environments for your r projects.
-`renv` saves and lists all your R-packages used in your project. 
+`renv` saves and lists all your R-packages used in your project.
 That means you have for each project an own project library in R.
 When you are working in R to run your data analyses, you can create the `renv`-folder directly.
 However, the use of `renv` is not intuitive, so we will cover the topic in another separate chapter.
 
 ### misc-folder
 
-The abbreviation `misc` stands for miscellaneous. 
-This folder is particularly useful for files that do not fit into one of your other folders. 
+The abbreviation `misc` stands for miscellaneous.
+This folder is particularly useful for files that do not fit into one of your other folders.
 It saves you from having a chaotic project folder when entering your project.
-
-
-## YODA principles
-
-## Optional standards for research projects
 
 ## Structure of reproducibility archives
 
+<!--#
 > These are only comments.
 > There is no aim of sufficiency and precision in the ideas below.
 
@@ -284,16 +283,16 @@ It saves you from having a chaotic project folder when entering your project.
 -   Critically discuss if journal requirements are sufficient for computational reproducibility
 -   Something's missing?
 
-Below the line, the actual content starts
 
----
+Below the line, the actual content starts
+-->
 
 In the first subsections of the chapter, you have learned how to set up your own project structure.
 The structure is flexible to different occasions, e.g. working collaboratively with other team members, working at your own research project during your studies at university.
 Nevertheless, you have not learned what is actually required by journals when you need or want to make your data and code publicly available.
 To cover this topic, we will go into the details of open science requirements of a couple of journals.
 
-### Requirements of Frontiers in Psychology
+### Requirements of Journals
 
 The [TOP Guidelines](https://www.cos.io/initiatives/top-guidelines) by the Center of Open Science are a best practice formulation by journals, funders, and societies to implement better and more transparent research.
 The [TOP Factor](https://topfactor.org) is a metric that reports the steps that a journal is taking to implement open science practices.
@@ -354,7 +353,7 @@ Used without any modifications.
 TOP-Factor assessment of *Advances in Methods and Practices in Psychological Science*
 
 | **GUIDELINE** | **LEVEL** | **SUMMARY** | **JUSTIFICATION** |
-|:---|:---|:---|:---|
+|:-----------------|:-----------------|:-----------------|:-----------------|
 | **Total** | **25** |  |  |
 | Data Citation | **2** | Article provides appropriate citation for data and materials used consistent with journal's author guidelines. | Journal requires data citation. |
 | Data Transparency | **2** | Data must be posted to a trusted repository. Exceptions must be identified at article submission. | Journal requires data sharing. |
@@ -366,7 +365,6 @@ TOP-Factor assessment of *Advances in Methods and Practices in Psychological Sci
 | Replication | **3** | Journal uses Registered Reports as a submission option for replication studies with peer review prior to observing the study outcomes. | Journal accepts Registered Reports for replication studies. |
 | Registered Reports & Publication Bias | **3** |  | Journal accepts Registered Reports for novel studies. |
 | Open Science Badges | **2** |  | Journal offers all Open Science Badges. |
-
 :::
 
 As you can see, journals do include requirements of public data and code for publishing articles.
@@ -377,7 +375,6 @@ We further look at some examples of the application of open data and code polici
 ### Current application of open science practices
 
 ::: panel-tabset
-
 ## Frontiers
 
 ```{r}
@@ -401,6 +398,19 @@ We further look at some examples of the application of open data and code polici
   #comments: "reused without modifications"
   #alt-text: ""
 ```
+
+Below, you can find the structure of the reproducibility archive of a paper from @laulie2023.
+The paper is placed in work and organizational psychology and postulates a relationship between the fulfillment of (implicit) expectation between employees and employers and the intention to leave the company for another job.
+The authors further assume that this relationship is mediated by emotional exhaustion and investigate whether emotional intelligence moderates the mediation effect of emotional exhaustion.
+
+```{zsh filename="Output"}
+├── fpsyg-14-1090094.pdf                
+├── Materials - DataBase.xlsx           
+├── Materials - Informed Consent.pdf    
+├── Materials - Instruments.pdf         
+```
+
+Here, you can find the link to the archive of the paper: [Reproducibility Archive](https://osf.io/csdk8/?view_only=)
 
 ## AMPPS
 
@@ -426,19 +436,105 @@ We further look at some examples of the application of open data and code polici
   #alt-text: ""
 ```
 
+Below you can find the structure of an archive of a paper from @nuijten2024.
+The paper is placed in the methodological area of psychological science.
+The authors investigated whether inconsistencies in reporting statistical results could be reduced by implementing a software tool called *statcheck*.
+
+::: {.callout-note title="Structure of the Repro Archive from @nuijten2024" collapse="true"}
+## File descriptions {.unnumbered}
+The file descriptions below are organized in the same way as the components and folders on the OSF page at [https://osf.io/q84jn/](https://osf.io/q84jn/).
+
+### 02 Preregistration {.unnumbered}
+| File Name | Description | Created By |
+|:--|:--|:--|
+|221130preregistration_effectivitystatcheck.pdf|Preregistration of the project|MN, JW|
+
+#### Power analysis {.unnumbered}
+| File Name | Description | Created By |
+|:--|:--|:--|
+| 00extract_dates.R              | Helper function with regexes to extract dates                         | MN         |
+| 00extract_pattern.R            | Helper function to extract a pattern from text                        | MN         |
+| 00html_to_txt.R                | Helper function to convert html files to plain txt                    | MN         |
+| 00scrape_html_dir.R            | Helper function that allows scraping a directory of html files        | MN         |
+| 01scrape_articles.R            | Function to run statcheck & scrape additional meta-data from articles | MN         |
+| 02data_wrangling.R             | Function to clean & reorder raw data                                  | MN         |
+| 2022-11-23scraped_articles.txt | Raw, scraped data from articles                                       | MN         |
+| 2022-11-28data_per_article.txt | Data organized at article level                                       | MN         |
+| 2022-11-28data_wrangled.txt    | Data with additional variables and missing values removed             | MN         |
+| power_analysis.R               | R script to run power simulation                                      | MN         |
+| powerplot_estimated.png        | Graph of power estimates per b3 value                                 | MN         |
+
+### 03 Data {.unnumbered}
+| File Name | Description| Created By |
+|:--|:--|:--|
+| 00extract_dates_v2.R   | Helper function with regexes to extract dates                         | MN         |
+| 00extract_pattern.R | Helper function to extract a pattern from text                        | MN         |
+| 00html_to_txt_v2.R     | Helper function to convert html files to plain txt                    | MN         |
+| 00scrape_html_dir.R | Helper function that allows scraping a directory of html files        | MN         |
+| 01scrape_articles_v3.R | Function to run statcheck & scrape additional meta-data from articles | MN         |
+| 02data_wrangling_v3.R  | Function to clean & reorder raw data                                  | MN         |
+|2024-04-15scraped_articles_v3.txt|Raw statcheck data|MN|
+|2024-04-15data_per_article_with_missings.txt|Data organized per article, including articles without NHST results|MN|
+|2024-04-15data_per_article_with_stats.txt|Data organized per article, only including articles with NHST results|MN|
+|2024-04-15data_wrangled_no_missings.txt|Clean data organized per NHST result, only including articles with NHST results|MN|
+|2024-04-15data_wrangled_with_missings.txt|Clean data organized per NHST result, also including articles without NHST results (in these cases, only article level info is in the data frame)|MN|
+|missing_htmls_jepg.docx/-.pdf|List of articles from JEPG with missing html file|MN|
+|codebook.xlsx|Codebook explaining the variables in the main data files|MN|
+
+### 04 Analysis {.unnumbered}
+
+#### 01 Descriptives {.unnumbered}
+
+| File Name | Description| Created By |
+|:--|:--|:--|
+|descriptives_V3.R|Main analysis file to create descriptive statistics, figures, and tables | MN |
+|fig1_violin_plots.png|Figure 1|MN|
+|fig2_line_graph_means.png|Figure 2|MN|
+|table2.txt|Raw data from Table 2|MN|
+|table3.txt|Raw data from Table 3|MN|
+
+#### 02 Confirmatory {.unnumbered}
+
+| File Name | Description| Created By |
+|:--|:--|:--|
+|confirmatory_analyses_v3.R|Main analysis script for confirmatory analyses|MN|
+|illustration_logits_odds_probs.xlsx|Toy example to convert obtained regression coefficients from logits to probabilities|MN|
+|lm_dec_errors.rda|R data object with output of the multilevel logistic model estimating the probability of a decision error|MN|
+|lm_errors.rda|R data object with output of the multilevel logistic model estimating the probability of an error|MN|
+
+#### 03 Exploratory {.unnumbered}
+
+| File Name | Description| Created By |
+|:--|:--|:--|
+|bayes_factors.R|Calculating Bayes factors and posterior probabilities|MN|
+|fig3_perc_articles_errors_over_time.png|Figure 3|MN|
+|separate_journal_pairs.R|Fit regression models for journal pairs separately|MN|
+|trends_over_time.R|Calculate and visualize trends over time|MN|
+
+### renv {.unnumbered}
+
+| File Name | Description| Created By |
+|:--|:--|:--|
+|renv (folder), .Rprofile, renv.lock|Files for syncing the same R package versions used in the data analysis|MN|
+
 :::
 
-Click on the following links to explore the reproducibility archives:
 
-- Frontiers: Laulié et al. (2023) $\rightarrow$ [Reproducibility Archive](https://osf.io/csdk8/?view_only=)
-- AMPPS: Nuijten & Wicherts (2024) $\rightarrow$ [Reproducibility Archive](https://osf.io/preprints/psyarxiv/qejhk)
+Here you can fend the link to archive of the paper: [Reproducibility Archive](https://osf.io/q84jn/)
+
+:::
 
 ::: callout-caution
 ## Exercise: Study reproducibility archives
 
-Investigate the links above and think about how these archives could help you to reproduce the analysis conducted in their papers. 
-What is helpful and what is not? 
+Investigate the reproducibility archives above and think about how these archives could help you to reproduce the analysis conducted in their papers.
+What is helpful and what is not?
+:::
+
+::: {.callout-note title="Postscript"}
+The examples from @laulie2023 and @nuijten2024 do not have the intention to discredit researchers.
+Rather, the paper were chosen from the respective journal websites on a random basis.
 :::
 
 Again, it should be noted that there is no perfectly organized reproducibility archive.
-However, we hope that the displayed examples show that open science, open data and reproducibility can be applied in many different (and sadly sometimes insufficient) ways.
+However, we hope that the displayed examples show that open science, open data and reproducibility can be applied in many different ways.
