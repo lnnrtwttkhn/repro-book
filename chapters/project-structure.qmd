@@ -404,10 +404,10 @@ The paper is placed in work and organizational psychology and postulates a relat
 The authors further assume that this relationship is mediated by emotional exhaustion and investigate whether emotional intelligence moderates the mediation effect of emotional exhaustion.
 
 ```{zsh filename="Output"}
-├── fpsyg-14-1090094.pdf                <- Paper in its published version
-├── Materials - DataBase.xlsx           <- Dataset 
-├── Materials - Informed Consent.pdf    <- Informed consent
-├── Materials - Instruments.pdf         <- Survey Questions
+├── fpsyg-14-1090094.pdf                
+├── Materials - DataBase.xlsx           
+├── Materials - Informed Consent.pdf    
+├── Materials - Instruments.pdf         
 ```
 
 Here, you can find the link to the archive of the paper: [Reproducibility Archive](https://osf.io/csdk8/?view_only=)
@@ -527,7 +527,7 @@ Here you can fend the link to archive of the paper: [Reproducibility Archive](ht
 ::: callout-caution
 ## Exercise: Study reproducibility archives
 
-Investigate the links above and think about how these archives could help you to reproduce the analysis conducted in their papers.
+Investigate the reproducibility archives above and think about how these archives could help you to reproduce the analysis conducted in their papers.
 What is helpful and what is not?
 :::
 
