@@ -20,11 +20,11 @@ pdf: clean images
 deploy: clean images
 	quarto publish gh-pages
 
-.PHONY: images
-images:
-	curl $(IMAGES_URL) -o $(IMAGES_ARCHIVE)
-	unzip -j -o $(IMAGES_ARCHIVE) -d $(IMAGES_DIR)
-	rm -f $(IMAGES_ARCHIVE)
+#.PHONY: images
+#images:
+#	curl $(IMAGES_URL) -o $(IMAGES_ARCHIVE)
+#	unzip -j -o $(IMAGES_ARCHIVE) -d $(IMAGES_DIR)
+#	rm -f $(IMAGES_ARCHIVE)
 
 .PHONY: clean
 clean:
