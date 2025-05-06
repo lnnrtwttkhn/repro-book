@@ -25,3 +25,8 @@ abstract: |
 :bulb: Learn more advanced syntax: add a quarto apa extension to the file (see wjschne/apaquarto)<br>
 :bulb: Rewrite the report in quarto
 :::
+
+## Resources
+
+- <https://quarto.org/>
+- <https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html>
