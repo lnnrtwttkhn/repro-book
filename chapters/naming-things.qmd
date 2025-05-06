@@ -300,13 +300,6 @@ ls *emotional*
 
 ## {{< fa brands apple >}} macOS
 
-```{r}
-#| results: asis
-#| eval: true
-#| echo: false
-cat(make_figure("globbing-example-mac-psychology"))
-```
-
 ![This screenshot was made by Justus Reihs on a [MacBook](https://apple.com/). Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/globbing-example-mac-psychology.png)
 
 :::
@@ -345,13 +338,6 @@ ls *Plasmid*
 ```
 
 ## {{< fa brands apple >}} macOS
-
-```{r}
-#| results: asis
-#| eval: true
-#| echo: false
-cat(make_figure("globbing-example-mac-biology"))
-```
 
 ![This screenshot was made by Justus Reihs on a [MacBook](https://apple.com/). Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/globbing-example-mac-biology.png)
 
