@@ -33,6 +33,7 @@ book:
     - chapters/rdm.qmd
     - chapters/good-coding-practices.qmd
     - chapters/renv.qmd
+    - chapters/literate-programming.qmd
     - summary.qmd
     - references.qmd
     - acknowledgements.qmd
