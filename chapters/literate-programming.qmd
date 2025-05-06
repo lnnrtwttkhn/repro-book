@@ -1,0 +1,15 @@
+---
+title: "Literate Programming"
+editor: source
+engine: knitr
+execute:
+  eval: false
+  warning: false
+  message: false
+code-annotations: hover
+categories: [intermediate]
+abstract: |
+  In this chapter you will learn how you can automatically integrate your reproducible results into a paper.
+  You will learn how to write a paper in with Quarto and how to format it for a required output.
+  You will learn how to use extension, specifically the apaquarto extension to write reproducible paper in APA-style.
+---
