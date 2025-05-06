@@ -13,3 +13,15 @@ abstract: |
   You will learn how to write a paper in with Quarto and how to format it for a required output.
   You will learn how to use extension, specifically the apaquarto extension to write reproducible paper in APA-style.
 ---
+
+::: {.callout-tip appearance="minimal"}
+<h5>Learning Objectives</h5>
+
+:bulb: Learn the basics about the markdown syntax.<br>
+:bulb: Work on a new branch in your Git repository.<br>
+:bulb: Create a new report file using Quarto.<br>
+:bulb: Learn more advanced syntax: include a reference.bib file<br>
+:bulb: Learn more advanced syntax: the YAML header<br>
+:bulb: Learn more advanced syntax: add a quarto apa extension to the file (see wjschne/apaquarto)<br>
+:bulb: Rewrite the report in quarto
+:::
