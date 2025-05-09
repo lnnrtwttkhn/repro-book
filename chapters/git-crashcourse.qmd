@@ -28,6 +28,34 @@ It was created by some of the same people as the Repro book, that you are curren
 It does focus on teaching Git using the command line but can be a good place to go if you have questions, need to fix a mistake or simply want to learn more about the beautiful world of version control using Git.
 Another great resource, that is even more comprehensive and heavily informed the Version Control Book, is the [Turing Way](https://book.the-turing-way.org/reproducible-research/vcs).
 
+::: {.callout-tip title="What is the command line?" collapse="false"}
+
+>You are most likely used to interact with programs on your computer through graphical user interfaces (GUIs) where you can select options through graphical icons and visual indicators using the computer mouse.
+>However, computers have historically been controlled through text-based commands typed into command-line interfaces (CLIs) using the computer keyboard.
+>To this day, the command line has persisted as a reliable (and sometimes the only) way to effectively interact with computer programs. - @wittkuhn2024, chapter on the [command line](https://lennartwittkuhn.com/version-control-book/chapters/command-line.html)
+
+:::
+
+::: {.callout-tip title="How to open the command line on your computer" collapse="false"}
+
+::: panel-tabset
+## MacOS
+
+To open a command-line tool on a Mac, open the *Finder*, click on *Applications*, then on *Utilities*.
+In the folder *Utilities*, you will find the application **Terminal**.
+Open it, and you can use the command line.
+
+## Windows
+
+Press the Windows-Button {{< fa brands windows >}} so that your search pane opens on the computer.
+Type *cmd* into the search field.
+Then, the command line should pop up.
+Hit **Enter** and you open the command line.
+
+:::
+
+:::
+
 ### What are Git and version control and why are they useful
 
 You've likely come across the illustration below before in this book, but it helps illustrate why using version control can make your workflow and collaboration that much smoother.
