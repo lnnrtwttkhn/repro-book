@@ -40,7 +40,7 @@ cat(make_figure("final-doc-comic"))
 ```
 
 Version control allows you to keep working on the same file whilst not losing your previous versions.
-Just imagine you are working on a code, that is working pefectly fine,let's call this 01_code.
+Just imagine you are working on a code, that is working perfectly fine,let's call this 01_code.
 You now add a new feature to 01_code for which you change parts of the previous code.
 Accidentally, you've created a bug and now your whole code doesn't run anymore.
 You've changed too much to simply remember what you would need to do to get back to 01_code.
@@ -116,7 +116,7 @@ Below you can see how this could look like.
 
 ![This screenshot shows ow to stage files in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-inital-staging.jpg)
 
-### Commiting
+### Committing
 A **commit** is like a screenshot of your current work.
 Everything that you have previously **staged** will be included in the next commit and makes up that specific version of your repository that you are saving.
 You can create a new commit at any point of time.
@@ -136,10 +136,10 @@ Now simply press the 'Commit' button below the message.
 Congrats, you just created your first commit.  
 
 ::: {.callout-tip title="How to create better commit messages" collapse=false}
-It might help you to imagine of these tow scenarios, when trying to create better commit messages:  
+It might help you to imagine these two scenarios, when trying to create better commit messages:  
 1. Impersonate a strict, tight-lipped, demanding commander that yells what you are supposed to be doing at you in one short sentence.  
 2. Think about your message being read by your vicious archnemesis, who doesn't want to understand what you did there.
-(Similarily, you could also think about yourself in 5 months time, not having touched your project at all and barely remembering what it was about.)  
+(Similarly, you could also think about yourself in 5 months time, not having touched your project at all and barely remembering what it was about.)  
 Another great way to think about what to include in your commit message are your answers to the questions: 
 What?
 Why?
@@ -229,7 +229,7 @@ Now, as a last step, you need to connect your local and remote repositories.
 Do do this, simply copy the HTTPS **or** SSH URL and head back to your repository in RStudio.
 
 ::: {.callout-warning title="SSH vs PAT URL" collapse=false}
-Take care to use the HTTPS URL (httsp://) if you use PAT for authentification and the SSH URL (git@github.com) if you use an SSH key.
+Take care to use the HTTPS URL (httsp://) if you use PAT for authentication and the SSH URL (git@github.com) if you use an SSH key.
 :::
 
 ![This screenshot shows where to find the HTTPS and SSH URL on a repository on GitHub. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/github-startpage-repo.jpg)
@@ -275,7 +275,7 @@ Instead of having to send each other files back and forth, having to wait for ot
 Simply add them in the repositories settings under access.
 They can then accept this collaborator role and 
 
-##Acknowledgemnts
+##Acknowledgments
 
 
 
