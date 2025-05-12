@@ -121,6 +121,22 @@ It should look something like below.
 
 Here you can see all of your projects file, which so far are not tracked by Git.
 
+#### .gitignore file
+
+Now that you've added Git to your repository, a **.gitignore** file was automatically added to it.
+This file lists all the files that are **not** tracked aka ignored by Git.
+You can and should add files that you don't want to be included in the version history in here.
+
+This is useful to:  
+1. Keep your repository **free of unnecessary files**, that would only clutter it.
+ You should ignore files that can be recreated by using code from your repository, e.g., plots you created in your data analysis.  
+2. Keep **private** or sensitive information out of the version control history, which you might later share.  
+3. **Not slow down** working with your repository by adding big files, such as datasets to the .gitignore file.
+Additionally, you shouldn't need to track changes when it's reproducible from your raw data and code.  
+
+To add files to .gitignore, just open the .gitignore file and list the files you don't want to be tracked in it.
+There will already be some files listed there that are being ignored by default.
+
 ### General workflow with Git
 
 When using Git, the most basic workflow is:  
