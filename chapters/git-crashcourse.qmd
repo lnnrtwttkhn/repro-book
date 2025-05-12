@@ -90,13 +90,40 @@ Git is not good at tracking very large files such as pure text files like a .doc
 ## First steps
 ### Installation
 To use Git, you have to install it first.
-Depending on your operating system, you might already have Git installed.
-For macOS Git comes preinstalled from version XYZ onwards.
-For Windows this is not the case and you'll also   
-If you do not have Git installed yet or are unsure if you do, please follow the instructions found in the [Version Control Book](https://lennartwittkuhn.com/version-control-book/chapters/installation.html).
+Depending on your operating system, this will look different.
+
+::: {.callout-tip title="How to install Git on your computer" collapse="false"}
+
+::: panel-tabset
+## MacOS
+
+Git should come pre installed on MacOS.
+To make sure, head to your command-line/Terminal and enter the following command.
+
+```{bash}
+git --version
+```
+
+This should return the version of Git that is already installed.
+
+## Windows
+
+On [Git for Windows](https://gitforwindows.org/) you can download Git and Bash in one go.
+The Bash shell is a commonly used command-line interface, which can be useful for more complex commands.
+On the website simply click on the **Download** button and after it has finished downloading, double-click on the installer to start the installation process.
+You can accept all the default settings if you have no special requirements such as a specific installation destination.
+After running through all the settings, click **Install**.
+Once done installing, the Bash shell will open automatically.
+To confirm everything worked correctly and Git is installed, run the following command, which should return the Git version.
+
+```{bash}
+git --version
+```
+:::
+:::
 
 ### Repository
-In the world of Git, your project is referred to as a repositors.
+In the world of Git, your project is referred to as a repository.
 More specifically, repository or repo for short, refers to the folderstructure that you are tracking with Git, which usually is the same as your project.
 Sometimes these terms are used interchangeably but when using Git and GitHub, your project is called a repository.
 
