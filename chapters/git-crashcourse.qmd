@@ -144,6 +144,16 @@ This is also very relevant if you plan on potentially sharing now private projec
 Consider if you'd rather use a pseudonym for your username and email address.
 :::
 
+The next step is not strictly necessary for functionality but comes highly recommended.
+Some older versions of Git still use the terminology of "master" to define the most important branch.
+(There will be more explanation on what branches are later on.)
+To make the terminology of Git less offensive and more inclusive, there has been a shift to refer to "main" instead.
+To ensure your Git will refer to "main" instead of "master", simply run this in your command line:
+
+```{bash}
+git config --global init.defaultBranch main
+```
+
 ### Repository
 In the world of Git, your project is referred to as a repository.
 More specifically, repository or repo for short, refers to the folderstructure that you are tracking with Git, which usually is the same as your project.
