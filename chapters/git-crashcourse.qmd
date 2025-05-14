@@ -122,6 +122,28 @@ git --version
 :::
 :::
 
+### Setting up Git in .gitconfig
+
+When you first want to start using Git, there are some things you will need to set up once in the **.gitconfig** file.
+This file stores all your specific settings.
+Using the [command line](http://repro-book/chapters/git-crashcourse.html#introduction), you first need to let Git know who you are.
+Your username and email address will be associated with the changes you're tracking with Git.
+This is useful, as it allows others to trace back who made which changes.
+As you will later use this email address to connect with GitHub, make sure you either use the same email as the one in your GitHub account or use an email address you would be happy to use for your GitHub profile as well!  
+To set this up, enter the command below in the command line, replacing 'Your Name' and 'Your Email' with your own.
+
+```{bash}
+git config --global user.name "Name"
+git config --global user.email Your Email
+```
+
+::: {.callout-important title="Consider privacy concerns!" collapse=false}  
+Beware that your username and email address will be publicly visible if you make changes to a public project on e.g., GitHub.
+They is very difficult to change or remove later on.
+This is also very relevant if you plan on potentially sharing now private projects later on.
+Consider if you'd rather use a pseudonym for your username and email address.
+:::
+
 ### Repository
 In the world of Git, your project is referred to as a repository.
 More specifically, repository or repo for short, refers to the folderstructure that you are tracking with Git, which usually is the same as your project.
