@@ -193,8 +193,11 @@ This is useful to:
 3. **Not slow down** working with your repository by adding big files, such as datasets to the .gitignore file.
 Additionally, you shouldn't need to track changes when it's reproducible from your raw data and code.  
 
-To add files to .gitignore, just open the .gitignore file and list the files you don't want to be tracked in it.
+To add files to .gitignore, just open the .gitignore file and **list the files** you don't want to be tracked in it.
 There will already be some files listed there that are being ignored by default.
+Your .gitignore should look something like this.
+
+![This screenshot shows how a .gitignore file looks like in RStudio . Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-gitignore.jpg)
 
 ### General workflow with Git
 
