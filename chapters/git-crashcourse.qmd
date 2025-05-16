@@ -127,7 +127,7 @@ git --version
 
 ### Setting up Git in .gitconfig
 
-When you first want to start using Git, there are some things you will need to set up once in the **.gitconfig** file.
+When you first start using Git, there are some things you need to set up in the **.gitconfig** file.
 This file stores all your specific settings.
 Using the [command line](http://repro-book/chapters/git-crashcourse.html#introduction), you first need to let Git know who you are.
 Your username and email address will be associated with the changes you're tracking with Git.
@@ -142,14 +142,13 @@ git config --global user.email Your Email
 
 ::: {.callout-important title="Consider privacy concerns!" collapse=false}  
 Beware that your username and email address will be publicly visible if you make changes to a public project on e.g., GitHub.
-They is very difficult to change or remove later on.
-This is also very relevant if you plan on potentially sharing now private projects later on.
+This is very difficult to change or remove later on.
+This is relevant if you plan on potentially sharing private projects later on.
 Consider if you'd rather use a pseudonym for your username and email address.
 :::
 
 The next step is not strictly necessary for functionality but comes highly recommended.
-Some older versions of Git still use the terminology of "master" to define the most important branch.
-(There will be more explanation on what branches are later on.)
+Some older versions of Git still use the terminology of "master" to define the most important branch (There will be more explanation on what branches are later on).
 To make the terminology of Git less offensive and more inclusive, there has been a shift to refer to "main" instead.
 To ensure your Git will refer to "main" instead of "master", simply run this in your command line:
 
@@ -159,14 +158,14 @@ git config --global init.defaultBranch main
 
 ### Repository
 In the world of Git, your project is referred to as a repository.
-More specifically, repository or repo for short, refers to the folderstructure that you are tracking with Git, which usually is the same as your project.
-Sometimes these terms are used interchangeably but when using Git and GitHub, your project is called a repository.
+More specifically repository, or repo for short, refers to the folderstructure that you are tracking with Git, which usually is the same as your project.
+Sometimes project and repo are used interchangeably but when using Git and GitHub, your project is called a repository.
 
 ## Using Git in RStudio
 
 Git is well integrated in RStudio and offers a GUI for Git.
 As long as you have Git installed on your computer, it is very easy to use it in RStudio and add it to existing projects.
-Whilst originally Git is a command line based program, using the GUI of RStudio makes it often more intuitive and can be faster for standard commands than typing them out.
+Whilst originally Git is a command line based program, using the GUI of RStudio makes it more intuitive and can be faster for standard commands than typing them out.
 However, for some actions, using the command line is still necessary.
 
 ### Setting up Git in an existing R project
@@ -211,7 +210,7 @@ When using Git, the most basic workflow is:
 
 ### Staging
 
-**Staging** is essentially telling Git, which files and changes you want it to track in your next commit.
+**Staging** is essentially telling Git which files and changes you want it to track in your next commit.
 It is like adding items to your shopping cart but not yet buying them.
 You have to do this before being able to create a commit.
 When staging files, keep in mind what changes and files to include in a single commit.
@@ -232,7 +231,7 @@ You can create a new commit at any point of time.
 It is usually better to commit often rather than seldom.
 But also committing too often can make your commit history overwhelming and hard to find specific changes.
 
-In RStudio, after having staged your files you can simply make a commit by pressing the **Commit** button in the Git window.
+In RStudio, after having staged your files you can simply make a commit by pressing the **Commit** button in the Git pane.
 Now you add a commit message.
 Below you can see how this would look like for the initial commit, including the commit message.
 
@@ -271,19 +270,20 @@ One major advantages of version control is being able to retrieve previous versi
 To do this, click the **History** button in the Git pane.
 This shows you a list of your previous commits, e.g., in the screenshot below, you can see the commit '63289c71' with the commit message "Add love message to version control".
 
-![This screenshot shows the history of . Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-history-love-message.jpg)
+![This screenshot shows the commit history of a repository in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-history-love-message.jpg)
 
-Here, you can already see, why descriptive commit messages are so valuable, especially when there will be more than just three.  
+Here, you can already see, why descriptive commit messages are so valuable, especially when there will be more than just three commits.  
 You can see which changes were made in that commit.
-Navigate to the version you want to bring back and click on **Save as**, which allows you to replace your current file with the previous version.
+Navigate to the version you want to bring back and select **View file @ **.  
+**Save as** allows you to replace your current file with the previous version you are looking at now.
 
-![This screenshot shows the history of . Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-revert history.jpg)
-
-![This screenshot shows the history of . Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-revert-history-save.jpg)
+![A screenshot of a previously committed file. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-revert-history-save.jpg)
 
 Simply save it as you are prompted to do.
 Now as a last step, save, stage and commit the file again as you normally would, to have Git track the change you just made.
 Now, you just travelled back in time and reset your file to a previous version.
+The versions of the file that you have changed in between the commit you went back to and the first time you made that commit are still there in your commit history.
+This way you could also return to them later on if you change your mind.
 
 ### Branches
 
