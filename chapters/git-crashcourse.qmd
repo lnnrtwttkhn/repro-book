@@ -86,7 +86,9 @@ Furthermore, it can be a great tool to collaborate with others if you make proje
 
 ### Some limitations
 
-Git is not good at tracking very large files such as pure text files like a .docx document.
+Git is not good at tracking very large files such as data sets, which can slow it down quite a bit.
+It is also not very good at tracking binary files like videos, images or '.docx' files. 
+But if you want to track written work you can use '.md' (Markdown) files instead.
 
 ## First steps
 ### Installation
