@@ -52,6 +52,16 @@ Type *cmd* into the search field.
 Then, the command line should pop up.
 Hit **Enter** and you open the command line.
 
+::: {.callout-note}
+
+Opposed to MacOS, the default command line in Windows does not work with Git.
+To work with Git on a Windows computer, you have to install Git Bash first (@sec-gitinstallation) and then open Git Bash.
+Then you can work with a git-friendly command line on Windows (see @fig-gitbash).
+
+![This screenshot shows how the Git Bash command line looks like on a Windows computer. Code to check the current version of git: `git --version` Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-bash.png){#fig-gitbash width="70%"}
+
+:::
+
 :::
 
 :::
@@ -91,7 +101,7 @@ It is also not very good at tracking binary files like videos, images or '.docx'
 But if you want to track written work you can use '.md' (Markdown) files instead.
 
 ## First steps
-### Installation
+### Installation {#sec-gitinstallation}
 To use Git, you have to install it first.
 Depending on your operating system, this will look different.
 
