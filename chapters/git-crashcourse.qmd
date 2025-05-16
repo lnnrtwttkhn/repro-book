@@ -328,7 +328,22 @@ git merge <your branch>
 
 ```
 
-## Remote repositories
+## Outlook: Remote repositories
+
+The possibility to make your repositories available remotely makes Git and online platforms such as GitHub very valuable for collaboration.
+GitHub is often referred to as it is the most popular platform and as a student you can get a free pro-account.
+This allows you to transfer your local repositories to online platforms, where not only you can make use of features to better structure your project and workflow but most importantly your collaborators can easily access the repository.
+
+Collaborators can simultaneously work on the same file in different or the same branches on their local repositories and once done, both can "upload", or **push** their versions to the remote repository.
+On these online platforms such as GitHub, you can easily comment on the changes and merge them into other branches.
+Other collaborators can easily "download", or **pull** these other versions to their own local repository.
+
+Another advantage is that you can easily make your repository accessible to others.
+In a publication, you can refer to your remote repository for easy access to not only your repository but also your version history.
+This can make it easier to follow your work and train of thought.
+
+You can also use this to simply optimize your own workflow and have a backup that's independent of your local computer and can be accessed from anywhere.
+Repositories don't need to be public to to collaborated on, you can also keep them private and specifically invite your other contributors to them.
 
 **Advantages of using remote repositories**:  
 1. Collaboration  
@@ -336,6 +351,10 @@ git merge <your branch>
 3. Backup  
 4. Workflow optimization  
 
+If you want to learn more about using remote repositories and connecting your local repository to a remote one, check out [The Version Control Book-Remotes: Introduction](https://lennartwittkuhn.com/version-control-book/chapters/remotes-intro.html).
+You can also have a look at [The Turing Way](https://book.the-turing-way.org/collaboration/github-novice) for how to begin using GitHub.
+
+<!--
 ### GitHub
 
 GitHub is a popular platform for hosting remote repositories.
@@ -417,6 +436,7 @@ Now that you have a remote repository, it is very easy to collaborate with other
 Instead of having to send each other files back and forth, having to wait for others to edit them before being able to move on with your part, as well as having many different versions
 Simply add them in the repositories settings under access.
 They can then accept this collaborator role and 
+-->
 
 ##Acknowledgments
 
