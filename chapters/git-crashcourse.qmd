@@ -157,6 +157,7 @@ git config --global init.defaultBranch main
 ```
 
 ### Repository
+
 In the world of Git, your project is referred to as a repository.
 More specifically repository, or repo for short, refers to the folderstructure that you are tracking with Git, which usually is the same as your project.
 Sometimes project and repo are used interchangeably but when using Git and GitHub, your project is called a repository.
@@ -170,7 +171,7 @@ However, for some actions, using the command line is still necessary.
 
 ### Setting up Git in an existing R project
 
-Before setting up Git in an existing R project, make sure you are in your intended project in RStudio.
+Before setting up Git in an existing R-project, make sure you are in your intended project in RStudio ^[:bulb: Tip: How to set up an R-project is explained in the [Good coding practices](https://lennartwittkuhn.com/repro-book/chapters/good-coding-practices.html#sec-rproject) chapter.].
 Now, to set up Git, simply go to **Tools > Version Control > Project Setup...** (see below) and choose Git as the version control system in the Pop-up window. Confirm both the initialization of a Git repository in your project, as well as the RStudio restart.
 
 ![This screenshot shows where to find the version control feature in RStudio . Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-initialize.jpg)
