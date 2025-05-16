@@ -68,20 +68,21 @@ cat(make_figure("final-doc-comic"))
 ```
 
 Version control allows you to keep working on the same file whilst not losing your previous versions.
-Just imagine you are working on a code, that is working perfectly fine,let's call this 01_code.
+Just imagine you are working on a code that's working perfectly fine, let's call this 01_code.
 You now add a new feature to 01_code for which you change parts of the previous code.
 Accidentally, you've created a bug and now your whole code doesn't run anymore.
 You've changed too much to simply remember what you would need to do to get back to 01_code.
-Would it not be great to travel back in time to your working 01_code?
+Wouldn't it be great to travel back in time to your working 01_code?
 In a way version control allows you to do this.
-It essentially allows you to take snapshots of your work and you can go back to them at any point.  
+It essentially allows you to take snapshots of your work that you can go back to at any point.  
 
-Git is a software, that allows you to do just this.
+Git is a software that allows you to do just that.
 
 ### Git and reproducibility
+
 Version control is a reproducibility measure you can implement to help yourself succeed in your research.
 Think about it as reproducibility for your own future self or others.
-Furthermore, it can be a great tool to collaborate with others in your projects if you make projects accessible by using remote repositories.
+Furthermore, it can be a great tool to collaborate with others if you make projects accessible by using remote repositories.
 
 ### Some limitations
 
