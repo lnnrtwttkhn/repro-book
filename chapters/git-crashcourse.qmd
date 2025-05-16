@@ -167,6 +167,7 @@ git config --global init.defaultBranch main
 ```
 
 ### Repository
+
 In the world of Git, your project is referred to as a repository.
 More specifically repository, or repo for short, refers to the folderstructure that you are tracking with Git, which usually is the same as your project.
 Sometimes project and repo are used interchangeably but when using Git and GitHub, your project is called a repository.
@@ -180,7 +181,7 @@ However, for some actions, using the command line is still necessary.
 
 ### Setting up Git in an existing R project
 
-Before setting up Git in an existing R project, make sure you are in your intended project in RStudio.
+Before setting up Git in an existing R-project, make sure you are in your intended project in RStudio ^[:bulb: Tip: How to set up an R-project is explained in the [Good coding practices](https://lennartwittkuhn.com/repro-book/chapters/good-coding-practices.html#sec-rproject) chapter.].
 Now, to set up Git, simply go to **Tools > Version Control > Project Setup...** (see below) and choose Git as the version control system in the Pop-up window. Confirm both the initialization of a Git repository in your project, as well as the RStudio restart.
 
 ![This screenshot shows where to find the version control feature in RStudio . Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-initialize.jpg)
@@ -211,10 +212,10 @@ Your .gitignore should look something like this.
 
 ![This screenshot shows how a .gitignore file looks like in RStudio . Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-gitignore.jpg)
 
-### General workflow with Git
+## General workflow with Git
 
 When using Git, the most basic workflow is:  
-1. Make changes to your files  
+1. Make changes to your files and save them as usual  
 2. Stage files  
 3. Commit your changes  
 
@@ -224,10 +225,10 @@ When using Git, the most basic workflow is:
 It is like adding items to your shopping cart but not yet buying them.
 You have to do this before being able to create a commit.
 When staging files, keep in mind what changes and files to include in a single commit.
-This can be all the files that you changed in order to fix a bug or to include a new feature, but could be divided up into smaller commits as well.
+This can be all the files that you've changed in order to fix a bug or to include a new feature, but could be divided up into smaller commits as well.  
 
 In order to stage a file in RStudio, simply tick the box on the left of the file name in the Git pane. 
-There, all your files that have changes you have saved but not yet tracked with Git will show up.
+There, all your files that have saved changes but aren't yet tracked with Git will show up.
 Logically, after you have first initialized Git in a repository, all the files will show up there as they have not yet been tracked.
 You can go ahead and stage all the files and then click **Commit** in the Git pane.
 Below you can see how this could look like.
@@ -237,9 +238,8 @@ Below you can see how this could look like.
 ### Committing
 A **commit** is like a screenshot of your current work.
 Everything that you have previously **staged** will be included in the next commit and makes up that specific version of your repository that you are saving.
-You can create a new commit at any point of time.
-It is usually better to commit often rather than seldom.
-But also committing too often can make your commit history overwhelming and hard to find specific changes.
+
+![Commits can be compared to anchors in climbing. When you commit, you create a safety point you can't fall past in your progress. Illustration from the [Openscapes](https://openscapes.org/) blog [_GitHub for supporting, contributing, and failing safely_](https://openscapes.org/blog/2022-05-27-github-illustrated-series/) by Allison Horst and Julia Lowndes. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-wickham-bryan-monster-climb.jpg)
 
 In RStudio, after having staged your files you can simply make a commit by pressing the **Commit** button in the Git pane.
 Now you add a commit message.
@@ -252,6 +252,10 @@ If you do want to go back to a previous version later on, the commit messages ne
 By convention, start your message with a verb in the imperative, e.g., 'Add', 'Fix', 'Remove'.
 Now simply press the **Commit** button below the message.
 Congrats, you just created your first commit.  
+
+You can create a new commit at any point of time.
+It is usually better to commit often rather than seldom.
+But also committing too often can make your commit history overwhelming and hard to find specific changes.
 
 ::: {.callout-tip title="How to create better commit messages" collapse=false}
 It might help you to imagine these two scenarios, when trying to create better commit messages:  
@@ -306,7 +310,7 @@ Instead of fidgeting with the same plot to try out different styles and having t
 The default branch in Git, where essentially your final results will land is called **main**. 
 As touched on [previously](http://https://lennartwittkuhn.com/repro-book/chapters/git-crashcourse.html#setting-up-git-in-.gitconfig) in older versions of Git this was referred to as "master".
 
-INSERT ILLUSTRATION.
+![This illustration shows a main branch in grey with several other branches. Each dot is a commit. From main at the third commit, a blue Feature A branch was created. From this Feature A branch another Feature A-1 branch was created after the second commit on Feature A. Feature A-1 now already includes the changes made in Feature A. Both branches were merged back into main. The Feature B branch has two commits but hasn't yet been merged back into main. Image from [Chapter "Git Branches"](https://book.the-turing-way.org/reproducible-research/vcs/vcs-git-branches.html) of the ["The Turing Way handbook to reproducible, ethical and collaborative data science"](https://book.the-turing-way.org/), used under a [Creative Commons Attribution 4.0 License](https://github.com/the-turing-way/the-turing-way/blob/main/LICENSE.md).](../static/git-turing-way-branching.jpg)
 
 #### Create a branch
 
@@ -338,7 +342,22 @@ git merge <your branch>
 
 ```
 
-## Remote repositories
+## Outlook: Remote repositories
+
+The possibility to make your repositories available remotely makes Git and online platforms such as GitHub very valuable for collaboration.
+GitHub is often referred to as it is the most popular platform and as a student you can get a free pro-account.
+This allows you to transfer your local repositories to online platforms, where not only you can make use of features to better structure your project and workflow but most importantly your collaborators can easily access the repository.
+
+Collaborators can simultaneously work on the same file in different or the same branches on their local repositories and once done, both can "upload", or **push** their versions to the remote repository.
+On these online platforms such as GitHub, you can easily comment on the changes and merge them into other branches.
+Other collaborators can easily "download", or **pull** these other versions to their own local repository.
+
+Another advantage is that you can easily make your repository accessible to others.
+In a publication, you can refer to your remote repository for easy access to not only your repository but also your version history.
+This can make it easier to follow your work and train of thought.
+
+You can also use this to simply optimize your own workflow and have a backup that's independent of your local computer and can be accessed from anywhere.
+Repositories don't need to be public to to collaborated on, you can also keep them private and specifically invite your other contributors to them.
 
 **Advantages of using remote repositories**:  
 1. Collaboration  
@@ -346,6 +365,10 @@ git merge <your branch>
 3. Backup  
 4. Workflow optimization  
 
+If you want to learn more about using remote repositories and connecting your local repository to a remote one, check out [The Version Control Book-Remotes: Introduction](https://lennartwittkuhn.com/version-control-book/chapters/remotes-intro.html).
+You can also have a look at [The Turing Way](https://book.the-turing-way.org/collaboration/github-novice) for how to begin using GitHub.
+
+<!--
 ### GitHub
 
 GitHub is a popular platform for hosting remote repositories.
@@ -427,8 +450,9 @@ Now that you have a remote repository, it is very easy to collaborate with other
 Instead of having to send each other files back and forth, having to wait for others to edit them before being able to move on with your part, as well as having many different versions
 Simply add them in the repositories settings under access.
 They can then accept this collaborator role and 
+-->
 
-##Acknowledgments
+## Acknowledgments
 
-
+This chapter was heavily informed by [The Version Control Book](https://lennartwittkuhn.com/version-control-book/).
 
