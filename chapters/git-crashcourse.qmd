@@ -296,7 +296,7 @@ Instead of fidgeting with the same plot to try out different styles and having t
 The default branch in Git, where essentially your final results will land is called **main**. 
 As touched on [previously](http://https://lennartwittkuhn.com/repro-book/chapters/git-crashcourse.html#setting-up-git-in-.gitconfig) in older versions of Git this was referred to as "master".
 
-INSERT ILLUSTRATION.
+![This illustration shows a main branch in grey with several other branches. Each dot is a commit. From main at the third commit, a blue Feature A branch was created. From this Feature A branch anoter Feature A-1 branch was created after the second commit on Feature A. Feature A-1 now already includes the changes made in Feature A. Both branches were merged back into main. The Feature B branch has two commits but hasn't yet been merged back into main. Image from [Chapter "Git Branches"](https://book.the-turing-way.org/reproducible-research/vcs/vcs-git-branches.html) of the ["The Turing Way handbook to reproducible, ethical and collaborative data science"](https://book.the-turing-way.org/), used under a [Creative Commons Attribution 4.0 License](https://github.com/the-turing-way/the-turing-way/blob/main/LICENSE.md).](../static/git-turing-way-branching.jpg)
 
 #### Create a branch
 
