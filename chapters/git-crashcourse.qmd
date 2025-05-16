@@ -25,16 +25,22 @@ In this chapter you will get to know the basic structure of Git and how you can 
 This is simply meant as a crashcourse to understand the basics and only covers how to do so in RStudio.
 If you would like a more comprehensive approach to learning Git and version control, we highly recommend the [Version Control Book](https://lennartwittkuhn.com/version-control-book/).
 It was created by some of the same people as the Repro book, that you are currently reading and follows a similar structure.
-It does focus on teaching Git using the command line but can be a good place to go if you have questions, need to fix a mistake or simply want to learn more about the beautiful world of version control using Git.
+It does focus on teaching Git using the command line (see @tip-commandline) but can be a good place to go if you have questions, need to fix a mistake or simply want to learn more about the beautiful world of version control using Git.
 Another great resource, that is even more comprehensive and heavily informed the Version Control Book, is the [Turing Way](https://book.the-turing-way.org/reproducible-research/vcs).
 
-::: {.callout-tip title="What is the command line?" collapse="false"}
+::: {#tip-commandline .callout-tip title="What is the command line?" collapse="false"}
 
 >You are most likely used to interact with programs on your computer through graphical user interfaces (GUIs) where you can select options through graphical icons and visual indicators using the computer mouse.
 >However, computers have historically been controlled through text-based commands typed into command-line interfaces (CLIs) using the computer keyboard.
 >To this day, the command line has persisted as a reliable (and sometimes the only) way to effectively interact with computer programs. - @wittkuhn2024, chapter on the [command line](https://lennartwittkuhn.com/version-control-book/chapters/command-line.html)
 
 :::
+
+It is possible to work with Git completely through the command line.
+However, the command line might seem unintuitively for many people.
+Thus, we aim to use git as much as possible with GUIs as RStudio.
+Therefore, we aim to keep the chapter as user-friendly as possible.
+Nevertheless, we might need to work with the command line for specific commands that do not have a specific button in RStudio.
 
 ::: {.callout-tip title="How to open the command line on your computer" collapse="false"}
 
