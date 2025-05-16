@@ -202,7 +202,7 @@ Your .gitignore should look something like this.
 
 ![This screenshot shows how a .gitignore file looks like in RStudio . Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-gitignore.jpg)
 
-### General workflow with Git
+## General workflow with Git
 
 When using Git, the most basic workflow is:  
 1. Make changes to your files and save them as usual  
@@ -215,7 +215,7 @@ When using Git, the most basic workflow is:
 It is like adding items to your shopping cart but not yet buying them.
 You have to do this before being able to create a commit.
 When staging files, keep in mind what changes and files to include in a single commit.
-This can be all the files that you've changed in order to fix a bug or to include a new feature, but could be divided up into smaller commits as well.
+This can be all the files that you've changed in order to fix a bug or to include a new feature, but could be divided up into smaller commits as well.  
 
 In order to stage a file in RStudio, simply tick the box on the left of the file name in the Git pane. 
 There, all your files that have saved changes but aren't yet tracked with Git will show up.
@@ -228,9 +228,8 @@ Below you can see how this could look like.
 ### Committing
 A **commit** is like a screenshot of your current work.
 Everything that you have previously **staged** will be included in the next commit and makes up that specific version of your repository that you are saving.
-You can create a new commit at any point of time.
-It is usually better to commit often rather than seldom.
-But also committing too often can make your commit history overwhelming and hard to find specific changes.
+
+![Commits can be compared to anchors in climbing. When you commit, you create a safety point you can't fall past in your progress. Illustration from the [Openscapes](https://openscapes.org/) blog [_GitHub for supporting, contributing, and failing safely_](https://openscapes.org/blog/2022-05-27-github-illustrated-series/) by Allison Horst and Julia Lowndes. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-wickham-bryan-monster-climb.jpg)
 
 In RStudio, after having staged your files you can simply make a commit by pressing the **Commit** button in the Git pane.
 Now you add a commit message.
@@ -243,6 +242,10 @@ If you do want to go back to a previous version later on, the commit messages ne
 By convention, start your message with a verb in the imperative, e.g., 'Add', 'Fix', 'Remove'.
 Now simply press the **Commit** button below the message.
 Congrats, you just created your first commit.  
+
+You can create a new commit at any point of time.
+It is usually better to commit often rather than seldom.
+But also committing too often can make your commit history overwhelming and hard to find specific changes.
 
 ::: {.callout-tip title="How to create better commit messages" collapse=false}
 It might help you to imagine these two scenarios, when trying to create better commit messages:  
