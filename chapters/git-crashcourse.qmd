@@ -287,12 +287,46 @@ This way you could also return to them later on if you change your mind.
 
 ### Branches
 
+Branches allow you to work on your project in several versions at the same time.
+You can keep your main repo unchanged, whilst figuring out how to fix a bug or plot your analysis on a different branch.
 
-### Merging
-Possible using GUI or only with command line? if so refer to GUI until then and switch to the command line for this
+A good example for research could be that you want to try out different visualizations of your results.
+Instead of fidgeting with the same plot to try out different styles and having to revert to old commits to get back to the previous version, you can have several branches to try out new styles and if you like your plot, add it to your main branch.
 
-Merging refers to combining two branches with each other.
-When you merge a branch with main, you add the work that you have finished on another branch to your main branch.
+The default branch in Git, where essentially your final results will land is called **main**. 
+As touched on [previously](http://https://lennartwittkuhn.com/repro-book/chapters/git-crashcourse.html#setting-up-git-in-.gitconfig) in older versions of Git this was referred to as "master".
+
+INSERT ILLUSTRATION.
+
+#### Create a branch
+
+To add a new branch to your repository, head to **Git pane > New Branch** and give your branch a descriptive but short name.
+Naming your branches systematically with 'bugfix/'or 'feature/' etc. is helpful to easily identify what the aim of each branch is, making collaboration easier.
+
+![Screenshot of adding a new branch called feature/intro in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-new-branch.jpg)
+
+Once you've created a new branch, you essentially have a copy of your `main` and can change all the files however you want.
+Staging and committing works just as usual.
+You can switch between your branches by clicking on them in your Git pane.
+Always make sure you are on the correct branch when making changes.
+
+![Screenshot of viewing branches in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-view-branches.jpg)
+
+::: {.callout-warning title="Pay attention to create new branches from main" collapse=true}
+When creating a new branch, Git creates this branch from whichever branch you are on at the moment.
+If you want to create a new branch from main, always double-check that you are on main.
+:::
+
+#### Merging
+
+Once you are happy with your changes in a branch and want to add it to your main you have to **merge** them.
+Merging one branch into another refers to adding the changes you've made there to your other branch, often 'main'.
+To do this, make sure you are on the branch you want to merge **into**, so add your changes to, which will often be main. To merge, go to your terminal in RStudio and run the following command:
+
+``` {bash}
+git merge <your branch>
+
+```
 
 ## Remote repositories
 
