@@ -204,7 +204,7 @@ Your .gitignore should look something like this.
 ### General workflow with Git
 
 When using Git, the most basic workflow is:  
-1. Make changes to your files  
+1. Make changes to your files and save them as usual  
 2. Stage files  
 3. Commit your changes  
 
@@ -214,10 +214,10 @@ When using Git, the most basic workflow is:
 It is like adding items to your shopping cart but not yet buying them.
 You have to do this before being able to create a commit.
 When staging files, keep in mind what changes and files to include in a single commit.
-This can be all the files that you changed in order to fix a bug or to include a new feature, but could be divided up into smaller commits as well.
+This can be all the files that you've changed in order to fix a bug or to include a new feature, but could be divided up into smaller commits as well.
 
 In order to stage a file in RStudio, simply tick the box on the left of the file name in the Git pane. 
-There, all your files that have changes you have saved but not yet tracked with Git will show up.
+There, all your files that have saved changes but aren't yet tracked with Git will show up.
 Logically, after you have first initialized Git in a repository, all the files will show up there as they have not yet been tracked.
 You can go ahead and stage all the files and then click **Commit** in the Git pane.
 Below you can see how this could look like.
