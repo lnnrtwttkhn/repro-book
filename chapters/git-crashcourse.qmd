@@ -438,7 +438,7 @@ Simply add them in the repositories settings under access.
 They can then accept this collaborator role and 
 -->
 
-##Acknowledgments
+## Acknowledgments
 
-
+This chapter was heavily informed by [The Version Control Book](https://lennartwittkuhn.com/version-control-book/).
 
