@@ -72,7 +72,7 @@ What matters most about this story is that Reinhart and Rogoff were able to **sh
 Thus, reproducibility can **enhance** the scientific, and in this example the political, **discussion** about research findings and their **implications for society**.
 :::
 
-:::{.callout-tip title="Excel exercise"}
+:::{#tip-excel-exercise .callout-tip title="Excel exercise"}
 - Open an Excel Sheet  
 - Set the first column to date-format  
 - Enter the year *2010* into the cell *A1*  
@@ -101,6 +101,17 @@ It was easier to rename genes than to update Excel!
 cat(make_figure("excel-genes"))
 ```
 
+:::
+
+::: {.callout-caution title="Why is Excel still widely used?"}
+Given the information above, you might wonder why many researchers still use Excel.
+One aspect at least is that is very intuitive to use.
+It comes with many integrated functions that can be easily applied to data.
+Compared to {{< fa brands r-project >}} it takes much less time to work with data in Excel.
+However, the most important aspect might be that it is incredibly easy to **entry data** in a spreadsheet.
+It takes much less time in Excel compared to R, to open a table and add data to it.
+Thus, for *data entry*, Excel is still a good choice (apart from the problems in @tip-excel-exercise).
+Nevertheless, all computations should be done in R or a different software program where data changes and computations are saved in scripts (e.g. [Python](https://www.python.org/)), because the computations in Excel are hard to reproduce.
 :::
 
 ## Benefits of research data management
