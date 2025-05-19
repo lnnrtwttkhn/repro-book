@@ -302,11 +302,12 @@ Now, you just travelled back in time and reset your file to a previous version.
 The versions of the file that you have changed in between the commit you went back to and the first time you made that commit are still there in your commit history.
 This way you could also return to them later on if you change your mind.
 
-### Branches
+## Branches
 
 Branches allow you to work on your project in several versions at the same time.
 You can keep your main repo unchanged, whilst figuring out how to fix a bug or plot your analysis on a different branch.
-
+This let's you keep your working code safe whilst you add or modify things in a separate branch.
+Once you're happy with changes made you can move them from that branch to your actual main branch.
 A good example for research could be that you want to try out different visualizations of your results.
 Instead of fidgeting with the same plot to try out different styles and having to revert to old commits to get back to the previous version, you can have several branches to try out new styles and if you like your plot, add it to your main branch.
 
@@ -315,7 +316,15 @@ As touched on [previously](http://https://lennartwittkuhn.com/repro-book/chapter
 
 ![This illustration shows a main branch in grey with several other branches. Each dot is a commit. From main at the third commit, a blue Feature A branch was created. From this Feature A branch another Feature A-1 branch was created after the second commit on Feature A. Feature A-1 now already includes the changes made in Feature A. Both branches were merged back into main. The Feature B branch has two commits but hasn't yet been merged back into main. Image from [Chapter "Git Branches"](https://book.the-turing-way.org/reproducible-research/vcs/vcs-git-branches.html) of the ["The Turing Way handbook to reproducible, ethical and collaborative data science"](https://book.the-turing-way.org/), used under a [Creative Commons Attribution 4.0 License](https://github.com/the-turing-way/the-turing-way/blob/main/LICENSE.md).](../static/git-turing-way-branching.jpg)
 
-#### Create a branch
+Branches allow you to work on a version of your repo whilst keeping the working version safe and separate as main.
+You can mess around and experiment on other branches and once you are content with your changes you can add them to your main branch.
+If you are not, you can just as easily abandon that branch, delete it and start fresh on a new branch, without impacting your main version.  
+Additionally to keeping a working version of your code safe, it allows you to work on several issues or additions at the same time in separate branches.
+You can always switch between these branches and your working code.
+You can refer back to main easily or quickly prioritize one addition whilst keeping your other work-in-progress separate and safe to return to later on their respective branches.  
+If you work on a repo together with other people, you can each work on a different branch at the same time and give each other access to these branches by using a remote repository, which we will briefly talk about later.
+
+### Create a branch
 
 To add a new branch to your repository, head to **Git pane > New Branch** and give your branch a descriptive but short name.
 Naming your branches systematically with 'bugfix/'or 'feature/' etc. is helpful to easily identify what the aim of each branch is, making collaboration easier.
@@ -334,7 +343,7 @@ When creating a new branch, Git creates this branch from whichever branch you ar
 If you want to create a new branch from main, always double-check that you are on main.
 :::
 
-#### Merging
+### Merging
 
 Once you are happy with your changes in a branch and want to add it to your main you have to **merge** them.
 Merging one branch into another refers to adding the changes you've made there to your other branch, often 'main'.
