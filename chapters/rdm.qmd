@@ -677,6 +677,60 @@ If you want to dive deeper into the use of `.json` files, we recommend this [Vid
 
 :::
 
+::: {.callout-note title="Benefits of a `json`-file"}
+
+Providing metadata in a `json` format has some useful advantages:
+
+- It is easy for humans and especially machines to read
+
+- You can read in the json file into R and use the data information for your data analyses
+
+- In comparison to spreadsheets, `json` files are not limited to two-dimensional in- and outputs
+
+:::
+
+::: {.callout-note title="How to work with `json` files in R" collapse="true"}
+
+::: {.panel-tabset}
+## Create a `json` file
+
+1. Click on **File** $\rightarrow$ **New File** $\rightarrow$ **Text file**
+
+2. Save the file in your desired location and name it with a `.json` suffix, e.g. `dataset_description.json`.
+
+3. Then, you can add content in your newly created `json` file.
+
+## Read `json`-file into R
+
+1. Install the package `{jsonlite}` if you have not installed it before.
+
+```{r filename="Code"}
+#| eval: false
+install.packages("jsonlite")
+```
+
+2. Load the package
+
+```{r filename="Code"}
+#| eval: false
+library(jsonlite)
+```
+
+3. Load the `json`-file to your R environment.
+Make sure that you specified the correct file path from your working or project directory (see @sec-file-paths).
+
+```{r filename="Code"}
+#| eval: false
+codebook <- jsonlite::fromJSON("path/to/your-json-file.json")
+```
+
+4. your `json`-file should now be a list object in R and you can use the values of the file with extracting the information you want with indexing [^1].
+
+[^1]: Since indexing lists in R or RStudio is not part of this book, you can see how to do that in the [online materials](https://osf.io/jh2nt) of a seminar on OpenScience that uses this book as online resource.
+
+:::
+:::
+
 ## Acknowledgements
 
 [Dr. Maike Kleemeyer](https://orcid.org/0000-0002-9388-5535) and the Research Data Management and Open Science working group at the [Max Planck Institute for Human Development, Berlin]({{< links.mpib >}}).
