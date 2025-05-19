@@ -284,7 +284,7 @@ Simply write the corrected commit message, check the **Amend previous commit** b
 Just be careful tat you did not stage any files, if you only want to change the message.
 :::
 
-::: {.callout-tip title="Why are staging and committing seperate actions?" collapse=false}
+::: {.callout-tip title="Why are staging and committing separate actions?" collapse=false}
 Staging and committing being separate actions allow you to be more deliberate in what you include in one commit.
 Logical units can go together by staging several files before creating a singular commit.
 These changed files might depend upon each other or are part of one larger action.
