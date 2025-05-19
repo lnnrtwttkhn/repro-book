@@ -116,7 +116,7 @@ Managing data well throughout the research process is crucial for successful res
 - Meeting the grant requirements of funding bodies
 - Adhering to industry and commerce practices.
 
-## Modularity of research data
+## Modularity of research data {#sec-modularity}
 
 What we expect the data to look like ...
 
@@ -448,6 +448,9 @@ Zebra-Questionnaire-Project/
 :::
 
 *Information were extracted from the [Psych-DS guide](https://psychds-docs.readthedocs.io/en/latest/guides/1_getting_started/)*
+
+Note that Psych-DS uses the term **raw data** differently than described in the section about [modularity](@sec-modularity).
+When someone using Psych-DS wording referring to raw data, it is meant what we described above as **source data**.
 
 :::
 
