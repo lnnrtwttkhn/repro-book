@@ -9,6 +9,12 @@ categories: [intermediate]
 abstract: |
   In this chapter you will learn the basics of research data management.
 ---
+::: {.callout-tip appearance="minimal"}
+<h5>Learning Objectives</h5>
+
+:bulb: You can argue why research data management is important.<br>
+:bulb: You know about practical measures and community standards for better research data management.<br>
+:::
 
 ## Introduction
 
