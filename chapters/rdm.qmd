@@ -13,6 +13,7 @@ abstract: |
 <h5>Learning Objectives</h5>
 
 :bulb: You can argue why research data management is important.<br>
+:bulb: You know constraints to reproducibility when research data management lacks sufficiency.
 :bulb: You know about practical measures and community standards for better research data management.<br>
 :::
 
@@ -241,8 +242,14 @@ Benefits of modular data:
 
 Burden of modular data:
 
-1. probably need for `file-dependency` file
+1. probably need for a *dependency file*
 1. higher risk for chaotic project structure
+
+::: {.callout-note title="What is a file-dependency file?"}
+A dependency file displays how different files are related to each other, e.g. which scripts depend on which other scripts or on which data files.
+A dependency file can determine whether a file needs to be reexecuted based on changes in its dependent files.
+This can be useful for humans and machines, if this reexecution should be done automatically.
+:::
 
 ## FAIR principles
 
@@ -692,6 +699,7 @@ Providing metadata in a `json` format has some useful advantages:
 ::: {.callout-note title="How to work with `json` files in R" collapse="true"}
 
 ::: {.panel-tabset}
+
 ## Create a `json` file
 
 1. Click on **File** $\rightarrow$ **New File** $\rightarrow$ **Text file**
