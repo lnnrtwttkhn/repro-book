@@ -108,7 +108,7 @@ Given the information above, you might wonder why many researchers still use Exc
 One aspect at least is that is very intuitive to use.
 It comes with many integrated functions that can be easily applied to data.
 Compared to {{< fa brands r-project >}} it takes much less time to work with data in Excel.
-However, the most important aspect might be that it is incredibly easy to **entry data** in a spreadsheet.
+However, the most important aspect might be that it is incredibly easy to **enter data** in a spreadsheet.
 It takes much less time in Excel compared to R, to open a table and add data to it.
 Thus, for *data entry*, Excel is still a good choice (apart from the problems in @tip-excel-exercise).
 Nevertheless, all computations should be done in R or a different software program where data changes and computations are saved in scripts (e.g. [Python](https://www.python.org/)), because the computations in Excel are hard to reproduce.
@@ -117,7 +117,8 @@ Nevertheless, all computations should be done in R or a different software progr
 As the introductory sections highlighted, research data management (also referred to as **RDM**) is very important for increasing the reproducibility of your research.
 We follow the definition of The Turing Way for RDM:
 
->RDM covers how research data can be stored, described and reused [@community2022, chapter on Research Data Management].
+>RDM covers how research data can be stored, described and reused  
+[@community2022, chapter on Research Data Management].
 
 ## Benefits of research data management
 
@@ -412,7 +413,7 @@ When many people rely on such a standard, new innovations emerge that improve th
 Previously, preprocessing fMRI data was a time-consuming task for PhD students and PostDocs in the field of neuroimaging.
 With fMRIPrep, this process can be done automatically and without manual intervention.
 By applying the BIDS standard and fMRIPrep to your data, you will require far fewer resources to understand others' analysis pipelines using the same standards.
-However, a data organization standard works well only when **a lot of people** use it.
+However, a data organization standard only works well when **a lot of people** use it.
 That is one reason why BIDS is successful:
 It is widely used in the field of neuroimaging.
 
@@ -424,7 +425,7 @@ The core idea is to consistently organize data, facilitating data sharing and en
 There is also a [guide](https://psychds-docs.readthedocs.io/en/latest/guides/1_getting_started/) to help researchers organize their research projects.
 Like BIDS, Psych-DS provides a [validation tool](https://psych-ds.github.io/validator/) that checks if the data organization has been done correctly.
 It also has the [CEDAR wizard](https://psych-ds.github.io/cedar-wizard-psychds/), a tool which creates a standard `.json` file.
-This file contains metadata informationen important to understand the dataset(s) someone is working within a project.
+This file contains metadata informationen important to understand the dataset(s) someone is working on within a project.
 
 However, Psych-DS has not been widely adopted by researchers, and its development is not as fast as that of BIDS.
 Therefore, it does not yet have extension tools like fMRIPrep.
@@ -508,7 +509,7 @@ It would be extra work to combine files with different layouts.
 Use consistent file names (decide between `TSST_VR_2024-11-19.csv`, `2024-11-19_TSST_virtual-reality.csv`, etc.).
 Use a consistent format for all dates (see @sec-date-format).
 Use consistent phrases in notes if you have a separate column for them.
-Be careful about extra spaces within cells (e.g., the difference between `male` and ` male `).
+Be careful about extra spaces within cells (e.g., the difference between "male" and " male ").
 
 #### No empty cells
 
