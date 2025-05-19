@@ -268,6 +268,19 @@ Simply write the corrected commit message, check the **Amend previous commit** b
 Just be careful tat you did not stage any files, if you only want to change the message.
 :::
 
+::: {.callout-tip title="Why are staging and committing seperate actions?" collapse=false}
+Staging and committing being separate actions allow you to be more deliberate in what you include in one commit.
+Logical units can go together by staging several files before creating a singular commit.
+These changed files might depend upon each other or are part of one larger action.
+Even if you've made changes across many files already but want to create several commits across them, you can do this by deliberately staging them.
+By only staging some of the changed files and creating a first commit and then staging the rest and creating a second commit, you can create more logical and clean commits.
+In your workflow, you can get a better overview and avoid forgetting files to include in a commit, by already staging them once you are done with changes within them.
+You can also stage only parts of the changes you've made by **staging chunks**.
+This way you can include only some lines in a commit even if you made other changes to a file as well.
+You can do this in the commit window, by first selecting your file and then selecting **Stage chunk** above the parts you've changed within a file. 
+If you want to stage most of the changes, you can first stage the whole file and then select **Unstage chunks** above the lines you don't want to stage.
+:::
+
 ### Retrieving previous versions
 
 One major advantages of version control is being able to retrieve previous versions of your documents.
