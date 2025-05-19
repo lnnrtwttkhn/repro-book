@@ -134,6 +134,10 @@ Managing data well throughout the research process is crucial for successful res
 
 ## Modularity of research data {#sec-modularity}
 
+In the previous sections of this chapter, you have seen pitfalls for reproducibility when not thinking about RDM.
+Further, you now know advantages of RDM.
+In this section, you will get to know the concept of *modularity*, that has been widely used in research that is meant to be reproducible.
+
 What we expect the data to look like ...
 
 ::: {layout-ncol=3}
