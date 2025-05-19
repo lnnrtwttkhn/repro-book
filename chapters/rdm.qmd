@@ -114,6 +114,11 @@ Thus, for *data entry*, Excel is still a good choice (apart from the problems in
 Nevertheless, all computations should be done in R or a different software program where data changes and computations are saved in scripts (e.g. [Python](https://www.python.org/)), because the computations in Excel are hard to reproduce.
 :::
 
+As the introductory sections highlighted, research data management (also referred to as **RDM**) is very important for increasing the reproducibility of your research.
+We follow the definition of The Turing Way for RDM:
+
+>RDM covers how research data can be stored, described and reused [@community2022, chapter on Research Data Management].
+
 ## Benefits of research data management
 
 Managing data well throughout the research process is crucial for successful research outcomes, including:
