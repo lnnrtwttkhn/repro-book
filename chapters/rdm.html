@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -92,10 +92,10 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e4b8024a137a066106f64e849fce2999.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e4fbaa5b9575d7f6de7c906568c40117.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bcd6f45adb84d5b38f1428f6badfcadc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-78208384aded7f702a01127c4c4d064f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -127,6 +127,35 @@ div.csl-indent {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -261,7 +290,7 @@ div.csl-indent {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">5.1</span> Introduction</a></li>
   <li><a href="#benefits-of-research-data-management" id="toc-benefits-of-research-data-management" class="nav-link" data-scroll-target="#benefits-of-research-data-management"><span class="header-section-number">5.2</span> Benefits of research data management</a></li>
-  <li><a href="#modularity-of-research-data" id="toc-modularity-of-research-data" class="nav-link" data-scroll-target="#modularity-of-research-data"><span class="header-section-number">5.3</span> Modularity of research data</a></li>
+  <li><a href="#sec-modularity" id="toc-sec-modularity" class="nav-link" data-scroll-target="#sec-modularity"><span class="header-section-number">5.3</span> Modularity of research data</a></li>
   <li><a href="#fair-principles" id="toc-fair-principles" class="nav-link" data-scroll-target="#fair-principles"><span class="header-section-number">5.4</span> FAIR principles</a></li>
   <li><a href="#data-organization" id="toc-data-organization" class="nav-link" data-scroll-target="#data-organization"><span class="header-section-number">5.5</span> Data organization</a>
   <ul class="collapse">
@@ -304,48 +333,46 @@ div.csl-indent {
 </header>
 
 
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<h5 class="anchored">
+Learning Objectives
+</h5>
+<p><span class="emoji" data-emoji="bulb">💡</span> You can argue why research data management is important.<br> <span class="emoji" data-emoji="bulb">💡</span> You know constraints to reproducibility when research data management lacks sufficiency.<br> <span class="emoji" data-emoji="bulb">💡</span> You know about practical measures and community standards for better research data management.<br></p>
+</div>
+</div>
+</div>
 <section id="introduction" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">5.1</span> Introduction</h2>
-<div class="callout callout-style-default callout-tip callout-titled" title="Group Exercise: Identifying and Discussing Problems with Research Data Management">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Group Exercise: Identifying and Discussing Problems with Research Data Management
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><strong>Form Groups:</strong>
-<ul>
-<li>Divide participants into <strong>Home Groups</strong> (3–6 members per group).</li>
-<li>Assign each member of the Home Group a number (e.g., 1, 2, 3…).</li>
-</ul></li>
-<li><strong>Study Examples in Expert Groups:</strong>
-<ul>
-<li>All participants with the same number will form an <strong>Expert Group</strong>.</li>
-<li>Each Expert Group will analyze an assigned example of <strong>bad research data management</strong> (e.g., incomplete documentation, lack of backups, inconsistent formats).</li>
-<li>Discuss the example, identify key issues, and note down why the practices are problematic.</li>
-</ul></li>
-<li><strong>Return to Home Groups:</strong>
-<ul>
-<li>Members return to their original <strong>Home Group</strong>.</li>
-<li>Take turns presenting the findings from your Expert Group.</li>
-<li>Work together to discuss patterns, lessons learned, and potential solutions.</li>
-</ul></li>
-<li><strong>Final Discussion:</strong>
-<ul>
-<li>As a group, summarize key takeaways about avoiding bad research data management.</li>
-<li>Prepare to share insights with the larger group if asked.</li>
-</ul></li>
-</ol>
-<p><strong>Goal:</strong> By the end of the exercise, you’ll collaboratively identify common pitfalls in research data management and propose better practices.</p>
-</div>
-</div>
-</div>
+<!--
+::: {.callout-tip title="Group Exercise: Identifying and Discussing Problems with Research Data Management" collapse="true"} 
+
+1. **Form Groups:**
+   - Divide participants into **Home Groups** (3–6 members per group).
+   - Assign each member of the Home Group a number (e.g., 1, 2, 3...).
+
+2. **Study Examples in Expert Groups:**
+   - All participants with the same number will form an **Expert Group**.
+   - Each Expert Group will analyze an assigned example of **bad research data management** (e.g., incomplete documentation, lack of backups, inconsistent formats).
+   - Discuss the example, identify key issues, and note down why the practices are problematic.
+
+3. **Return to Home Groups:**
+   - Members return to their original **Home Group**.
+   - Take turns presenting the findings from your Expert Group.
+   - Work together to discuss patterns, lessons learned, and potential solutions.
+
+4. **Final Discussion:**
+   - As a group, summarize key takeaways about avoiding bad research data management.
+   - Prepare to share insights with the larger group if asked.
+
+**Goal:** By the end of the exercise, you’ll collaboratively identify common pitfalls in research data management and propose better practices.
+
+:::
+-->
 <div id="vid-rdm-snafu" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-rdm-snafu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -373,13 +400,13 @@ The <a href="https://www.bbc.com/news/magazine-22223190">story</a> of Reinhart &
 <p>What matters most about this story is that Reinhart and Rogoff were able to <strong>share</strong> their original spreadsheet and that the results were then <strong>reproducible</strong>. Thus, reproducibility can <strong>enhance</strong> the scientific, and in this example the political, <strong>discussion</strong> about research findings and their <strong>implications for society</strong>.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Excel exercise">
+<div id="tip-excel-exercise" class="callout callout-style-default callout-tip callout-titled" title="Excel exercise">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Excel exercise
+Tip&nbsp;5.1: Excel exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -418,6 +445,24 @@ Figure&nbsp;5.1: “<a href="https://duet-cdn.vox-cdn.com/thumbor/0x0:500x345/19
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Why is Excel still widely used?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why is Excel still widely used?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Given the information above, you might wonder why many researchers still use Excel. One aspect at least is that is very intuitive to use. It comes with many integrated functions that can be easily applied to data. Compared to <i class="fa-brands fa-r-project" aria-label="r-project"></i> it takes much less time to work with data in Excel. However, the most important aspect might be that it is incredibly easy to <strong>enter data</strong> in a spreadsheet. It takes much less time in Excel compared to R, to open a table and add data to it. Thus, for <em>data entry</em>, Excel is still a good choice (apart from the problems in <a href="#tip-excel-exercise" class="quarto-xref">Tip&nbsp;<span>5.1</span></a>). Nevertheless, all computations should be done in R or a different software program where data changes and computations are saved in scripts (e.g.&nbsp;<a href="https://www.python.org/">Python</a>), because the computations in Excel are hard to reproduce.</p>
+</div>
+</div>
+<p>As the introductory sections highlighted, research data management (also referred to as <strong>RDM</strong>) is very important for increasing the reproducibility of your research. We follow the definition of The Turing Way for RDM:</p>
+<blockquote class="blockquote">
+<p>RDM covers how research data can be stored, described and reused<br>
+<span class="citation" data-cites="community2022">(<a href="../references.html#ref-community2022" role="doc-biblioref">The Turing Way Community 2022</a>, chapter on Research Data Management)</span>.</p>
+</blockquote>
 </section>
 <section id="benefits-of-research-data-management" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="benefits-of-research-data-management"><span class="header-section-number">5.2</span> Benefits of research data management</h2>
@@ -433,8 +478,9 @@ Figure&nbsp;5.1: “<a href="https://duet-cdn.vox-cdn.com/thumbor/0x0:500x345/19
 <li>Adhering to industry and commerce practices.</li>
 </ul>
 </section>
-<section id="modularity-of-research-data" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="modularity-of-research-data"><span class="header-section-number">5.3</span> Modularity of research data</h2>
+<section id="sec-modularity" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="sec-modularity"><span class="header-section-number">5.3</span> Modularity of research data</h2>
+<p>In the previous sections of this chapter, you have seen pitfalls for reproducibility when not thinking about RDM. Further, you now know advantages of RDM. In this section, you will get to know the concept of <em>modularity</em>, that has been widely used in research that is meant to be reproducible.</p>
 <p>What we expect the data to look like …</p>
 <div class="quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
@@ -573,9 +619,22 @@ Tidy data as additional modular data
 </ol>
 <p>Burden of modular data:</p>
 <ol type="1">
-<li>probably need for <code>file-dependency</code> file</li>
+<li>probably need for a <em>dependency file</em></li>
 <li>higher risk for chaotic project structure</li>
 </ol>
+<div class="callout callout-style-default callout-note callout-titled" title="What is a file-dependency file?">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What is a file-dependency file?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A dependency file displays how different files are related to each other, e.g.&nbsp;which scripts depend on which other scripts or on which data files. A dependency file can determine whether a file needs to be reexecuted based on changes in its dependent files. This can be useful for humans and machines, if this reexecution should be done automatically.</p>
+</div>
+</div>
 </section>
 <section id="fair-principles" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="fair-principles"><span class="header-section-number">5.4</span> FAIR principles</h2>
@@ -593,7 +652,7 @@ Figure&nbsp;5.7: “<a href="https://www.nlm.nih.gov/oet/ed/cde/tutorial/02-200.
 <p>The FAIR data principles were originally introduced to enhance the machine readability of data. As a side effect, human readability also increased. However, enhancing reproducibility was not a primary goal when implementing FAIR principles.</p>
 <p>Thus, we will only address two concepts we believe are relevant for computational reproducibility: persistent identifiers, such as <strong>Digital Object Identifiers</strong> (DOIs), and <strong>metadata</strong>. DOIs make your scientific output (e.g., articles, datasets, code) findable, thereby enhancing the possibility of other researchers reproducing your scientific output.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="What is a Digital Object Identifier (DOI)?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -602,7 +661,7 @@ What is a Digital Object Identifier (DOI)?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A Digital Object Identifier (DOI) is a unique alphanumeric string assigned to a digital document or resource to provide a permanent and stable link to it. DOIs are commonly used to identify and provide a persistent link to scholarly articles, research papers, books, datasets, and other types of digital content. The purpose of a DOI is to ensure that the content can be reliably located and accessed over time, even if the web address (URL) of the resource changes.</p>
 <p>Key features of DOIs include:</p>
@@ -618,7 +677,7 @@ What is a Digital Object Identifier (DOI)?
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="How to set up a persistent identifier with **OSF**?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -627,7 +686,7 @@ How to set up a persistent identifier with <strong>OSF</strong>?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li>Go to <a href="https://osf.io">https://osf.io/</a>.</li>
@@ -645,7 +704,7 @@ How to set up a persistent identifier with <strong>OSF</strong>?
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="How to set up a persistent identifier with **Zenodo**?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -654,14 +713,14 @@ How to set up a persistent identifier with <strong>Zenodo</strong>?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The version control book by <span class="citation" data-cites="wittkuhn2024">Wittkuhn and Pagenstedt (<a href="../references.html#ref-wittkuhn2024" role="doc-biblioref">2024</a>)</span> gives a detailed instruction on how to set up a DOI with Zenodo. We therefore ask you to read the respective <a href="https://lennartwittkuhn.com/version-control-book/chapters/tags-and-releases.html#zenodo">chapter</a>.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="What is metadata?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -670,7 +729,7 @@ What is metadata?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A short definition is that metadata is <strong>data about your data</strong>. More thoroughly, metadata is a set of data that <strong>describes and gives information about other data</strong>. However, metadata does not contain the data itself.</p>
 <p>*<strong>Example:</strong></p>
@@ -758,14 +817,14 @@ Benefits of BIDS
 </div>
 </div>
 <p>fMRIPrep highlights another benefit of data organization standards: When many people rely on such a standard, new innovations emerge that improve the workflow.<br>
-Previously, preprocessing fMRI data was a time-consuming task for PhD students and PostDocs in the field of neuroimaging. With fMRIPrep, this process can be done automatically and without manual intervention. By applying the BIDS standard and fMRIPrep to your data, you will require far fewer resources to understand others’ analysis pipelines using the same standards. However, a data organization standard works well only when <strong>a lot of people</strong> use it. That is one reason why BIDS is successful: It is widely used in the field of neuroimaging.</p>
+Previously, preprocessing fMRI data was a time-consuming task for PhD students and PostDocs in the field of neuroimaging. With fMRIPrep, this process can be done automatically and without manual intervention. By applying the BIDS standard and fMRIPrep to your data, you will require far fewer resources to understand others’ analysis pipelines using the same standards. However, a data organization standard only works well when <strong>a lot of people</strong> use it. That is one reason why BIDS is successful: It is widely used in the field of neuroimaging.</p>
 </section>
 <section id="example-psychological-data-structure-psych-ds" class="level4" data-number="5.5.1.3">
 <h4 data-number="5.5.1.3" class="anchored" data-anchor-id="example-psychological-data-structure-psych-ds"><span class="header-section-number">5.5.1.3</span> Example: Psychological Data Structure (Psych-DS)</h4>
-<p>The <strong>Psychological Data Structure</strong> (Psych-DS) aims to apply the principles of BIDS to behavioral data. Thus, it is heavily based on BIDS. The core idea is to consistently organize data, facilitating data sharing and enhancing the understanding of the data. There is also a <a href="https://psychds-docs.readthedocs.io/en/latest/guides/1_getting_started/">guide</a> to help researchers organize their research projects. Like BIDS, Psych-DS provides a <a href="https://psych-ds.github.io/validator/">validation tool</a> that checks if the data organization has been done correctly. It also has the <a href="https://psych-ds.github.io/cedar-wizard-psychds/">CEDAR wizard</a>, a tool which creates a standard <code>.json</code> file. This file contains metadata informationen important to understand the dataset(s) someone is working within a project.</p>
+<p>The <strong>Psychological Data Structure</strong> (Psych-DS) aims to apply the principles of BIDS to behavioral data. Thus, it is heavily based on BIDS. The core idea is to consistently organize data, facilitating data sharing and enhancing the understanding of the data. There is also a <a href="https://psychds-docs.readthedocs.io/en/latest/guides/1_getting_started/">guide</a> to help researchers organize their research projects. Like BIDS, Psych-DS provides a <a href="https://psych-ds.github.io/validator/">validation tool</a> that checks if the data organization has been done correctly. It also has the <a href="https://psych-ds.github.io/cedar-wizard-psychds/">CEDAR wizard</a>, a tool which creates a standard <code>.json</code> file. This file contains metadata informationen important to understand the dataset(s) someone is working on within a project.</p>
 <p>However, Psych-DS has not been widely adopted by researchers, and its development is not as fast as that of BIDS. Therefore, it does not yet have extension tools like fMRIPrep. Nevertheless, Psych-DS could have more impact if more people began using it. The benefit of Psych-DS is clearly its adaptation to behavioral data structures, which can be applied by a wide range of research communities in psychology.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Minimum requirements of a Psych-DS congruent project">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -774,7 +833,7 @@ Minimum requirements of a Psych-DS congruent project
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse show">
+<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li>one folder for your study / research project</li>
@@ -796,14 +855,14 @@ Metadata requirements
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><code>"name"</code> - A name for the dataset</li>
+<li><code>"name"</code> - The name of the dataset</li>
 <li><code>"description"</code>- A description for the dataset, which can be as long or as short as you like</li>
 <li><code>variableMeasured</code> - A list of all the variable names that appear anywhere in the CSV file headers in your dataset</li>
 </ul>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Example of a Psych-DS sample folder">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -812,7 +871,7 @@ Example of a Psych-DS sample folder
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <pre><code>Zebra-Questionnaire-Project/
     dataset_description.json
@@ -833,6 +892,7 @@ Example of a Psych-DS sample folder
 </div>
 </div>
 <p><em>Information were extracted from the <a href="https://psychds-docs.readthedocs.io/en/latest/guides/1_getting_started/">Psych-DS guide</a></em></p>
+<p>Note that Psych-DS uses the term <strong>raw data</strong> differently than described in the section about <a href="@sec-modularity">modularity</a>. When someone using Psych-DS wording referring to raw data, it is meant what we described above as <strong>source data</strong>.</p>
 </div>
 </div>
 </div>
@@ -870,7 +930,7 @@ Rules of rectangular data <span class="citation" data-cites="broman2018">(<a hre
 <p>We will not go into detail on rules 2, 3, and 6, because we have either already covered these topics earlier or will address them in a separate section later.</p>
 <section id="be-consistent" class="level4" data-number="5.5.2.1">
 <h4 data-number="5.5.2.1" class="anchored" data-anchor-id="be-consistent"><span class="header-section-number">5.5.2.1</span> Be consistent</h4>
-<p>It sounds easier than it is. If you organize your data consistently from the start, you will not have to spend additional time later “harmonizing” the data. To do so, use consistent codes for categorical variables (decide between different versions of <code>male</code>, <code>Male</code>, <code>m</code>, <code>M</code>). Use a consistent fixed code for any missing values (we prefer using <code>NA</code>, but avoid <code>-999</code> or similar). Use consistent variable names (decide between <code>saliva_10wk</code>, <code>Saliva_10wk</code>, <code>sal_week10</code>, etc.). Use consistent subject identifiers (decide between <code>003</code>, <code>pcp003</code>, <code>person-003</code>, etc.). Use a consistent data layout across multiple files. It would be extra work to combine files with different layouts. Use consistent file names (decide between <code>TSST_VR_2024-11-19.csv</code>, <code>2024-11-19_TSST_virtual-reality.csv</code>, etc.). Use a consistent format for all dates (see <a href="naming-things.html#sec-date-format" class="quarto-xref"><span>Section 3.7.1.3</span></a>). Use consistent phrases in notes if you have a separate column for them. Be careful about extra spaces within cells (e.g., the difference between <code>male</code> and <code>male</code>).</p>
+<p>It sounds easier than it is. If you organize your data consistently from the start, you will not have to spend additional time later “harmonizing” the data. To do so, use consistent codes for categorical variables (decide between different versions of <code>male</code>, <code>Male</code>, <code>m</code>, <code>M</code>). Use a consistent fixed code for any missing values (we prefer using <code>NA</code>, but avoid <code>-999</code> or similar). Use consistent variable names (decide between <code>saliva_10wk</code>, <code>Saliva_10wk</code>, <code>sal_week10</code>, etc.). Use consistent subject identifiers (decide between <code>003</code>, <code>pcp003</code>, <code>person-003</code>, etc.). Use a consistent data layout across multiple files. It would be extra work to combine files with different layouts. Use consistent file names (decide between <code>TSST_VR_2024-11-19.csv</code>, <code>2024-11-19_TSST_virtual-reality.csv</code>, etc.). Use a consistent format for all dates (see <a href="naming-things.html#sec-date-format" class="quarto-xref"><span>Section 3.7.1.3</span></a>). Use consistent phrases in notes if you have a separate column for them. Be careful about extra spaces within cells (e.g., the difference between “male” and ” male “).</p>
 </section>
 <section id="no-empty-cells" class="level4" data-number="5.5.2.2">
 <h4 data-number="5.5.2.2" class="anchored" data-anchor-id="no-empty-cells"><span class="header-section-number">5.5.2.2</span> No empty cells</h4>
@@ -884,7 +944,7 @@ Rules of rectangular data <span class="citation" data-cites="broman2018">(<a hre
 <h4 data-number="5.5.2.4" class="anchored" data-anchor-id="make-it-a-rectangle"><span class="header-section-number">5.5.2.4</span> Make it a rectangle</h4>
 <p>As your data usually resides in a two-dimensional spreadsheet, it is best to layout your data in a two-dimensional format as well. Use columns for variables and rows for subjects or observations. The first row should contain variable names. If some data do not fit into one dataset, create a set of rectangular datasets and save them in separate files. Do not use multiple header rows. You can further apply the concept of <code>tidy data</code> <span class="citation" data-cites="wickham2014">(<a href="../references.html#ref-wickham2014" role="doc-biblioref">Wickham 2014</a>)</span> to your rectangular dataset (see <a href="good-coding-practices.html#sec-tidydata" class="quarto-xref"><span>Section 6.5</span></a>).</p>
 <div class="callout callout-style-default callout-caution callout-titled" title="Example of multiple header rows">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -893,7 +953,7 @@ Example of multiple header rows
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <table class="table">
 <thead>
@@ -960,7 +1020,7 @@ Example of multiple header rows
 <h4 data-number="5.5.2.7" class="anchored" data-anchor-id="make-backups"><span class="header-section-number">5.5.2.7</span> Make Backups</h4>
 <p>Back up your data regularly in multiple locations. Consider using a version control system like Git (see <a href="https://lennartwittkuhn.com/version-control-book/">Version Control Book</a>). When you have finished entering data, <em>write-protect</em> your data file. This ensures that you do not accidentally make changes to your dataset.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Write-protecting your data">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -969,7 +1029,7 @@ Write-protecting your data
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><i class="fa-brands fa-apple" aria-label="apple"></i> Mac</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><i class="fa-brands fa-windows" aria-label="windows"></i> Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><i class="fa-brands fa-linux" aria-label="linux"></i> Linux</a></li></ul>
@@ -1039,7 +1099,7 @@ Write-protecting your data
 </ol>
 <p>Ideally, your data dictionary should also be stored in a <strong>rectangular format</strong>. Another option is to use a <code>.json</code> file. This offers more flexibility but also presents a new challenge in organizing the data.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Learn more: What is a `json` file?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1048,7 +1108,7 @@ Learn more: What is a <code>json</code> file?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><code>json</code> stands for JavaScript Object Notation. Thus, everything you write in that file must adhere to the JSON notation style. It would be beyond the scope of this book to explain how data in a <code>.json</code> file should be formatted. However, you can see a small example below to get a sense of how a <code>.json</code> file looks. If you want to dive deeper into the use of <code>.json</code> files, we recommend this <a href="https://www.youtube.com/watch?v=cj3h3Fb10QY">Video</a> that explains JSON more thoroughly.</p>
 <div class="cell">
@@ -1074,6 +1134,89 @@ Learn more: What is a <code>json</code> file?
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"max_value"</span><span class="fu">:</span> <span class="dv">5</span></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Benefits of a `json`-file">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Benefits of a <code>json</code>-file
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Providing metadata in a <code>json</code> format has some useful advantages:</p>
+<ul>
+<li><p>It is easy for humans and especially machines to read</p></li>
+<li><p>You can read in the json file into R and use the data information for your data analyses</p></li>
+<li><p>In comparison to spreadsheets, <code>json</code> files are not limited to two-dimensional in- and outputs</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="How to work with `json` files in R">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How to work with <code>json</code> files in R
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Create a <code>json</code> file</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Read <code>json</code>-file into R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ol type="1">
+<li><p>Click on <strong>File</strong> <span class="math inline">\(\rightarrow\)</span> <strong>New File</strong> <span class="math inline">\(\rightarrow\)</span> <strong>Text file</strong></p></li>
+<li><p>Save the file in your desired location and name it with a <code>.json</code> suffix, e.g.&nbsp;<code>dataset_description.json</code>.</p></li>
+<li><p>Then, you can add content in your newly created <code>json</code> file.</p></li>
+</ol>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<ol type="1">
+<li>Install the package <code>{jsonlite}</code> if you have not installed it before.</li>
+</ol>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"jsonlite"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Load the package</li>
+</ol>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Load the <code>json</code>-file to your R environment. Make sure that you specified the correct file path from your working or project directory (see <a href="good-coding-practices.html#sec-file-paths" class="quarto-xref"><span>Section 6.3</span></a>).</li>
+</ol>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>codebook <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(<span class="st">"path/to/your-json-file.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>your <code>json</code>-file should now be a list object in R and you can use the values of the file with extracting the information you want with indexing <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
@@ -1110,6 +1253,9 @@ Herndon, Thomas, Michael Ash, and Robert Pollin. 2014. <span>“Does High Public
 <div id="ref-reinhart2010" class="csl-entry" role="listitem">
 Reinhart, Carmen M., and Kenneth S. Rogoff. 2010. <span>“Growth in a Time of Debt.”</span> <em>American Economic Review</em> 100 (2): 573–78. <a href="https://doi.org/10.1257/aer.100.2.573">https://doi.org/10.1257/aer.100.2.573</a>.
 </div>
+<div id="ref-community2022" class="csl-entry" role="listitem">
+The Turing Way Community. 2022. <em>The Turing Way: A Handbook for Reproducible, Ethical and Collaborative Research</em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.3233853">https://doi.org/10.5281/zenodo.3233853</a>.
+</div>
 <div id="ref-wickham2014" class="csl-entry" role="listitem">
 Wickham, Hadley. 2014. <span>“Tidy Data.”</span> <em>Jornal of Statistical Software</em> 59 (10): 1–23. <a href="https://doi.org/10.18637/jss.v059.i10">https://doi.org/10.18637/jss.v059.i10</a>.
 </div>
@@ -1126,6 +1272,12 @@ Wittkuhn, Lennart, and Konrad Pagenstedt. 2024. <em>Version Control Book</em>. Z
 Ziemann, M., Y. Eren, and A. El-Osta. 2016. <span>“Gene Name Erorrs Are Widespread in the Scientific Literature.”</span> <em>Genome Biology</em> 17 (August). <a href="https://doi.org/10.1186/s13059-016-1044-7">https://doi.org/10.1186/s13059-016-1044-7</a>.
 </div>
 </div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Since indexing lists in R or RStudio is not part of this book, you can see how to do that in the <a href="https://osf.io/jh2nt">online materials</a> of a seminar on OpenScience that uses this book as online resource.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
