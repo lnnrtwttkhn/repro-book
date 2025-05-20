@@ -456,7 +456,7 @@ The benefit of Psych-DS is clearly its adaptation to behavioral data structures,
 1. next to to the `data` folder a metadata file must exist, named `dataset_description.json` (see [CEDAR wizard](https://psych-ds.github.io/cedar-wizard-psychds/))
 
 ::: {.callout-tip title="Metadata requirements"}
-- `"name"` - A name for the dataset
+- `"name"` - The name of the dataset
 - `"description"`- A description for the dataset, which can be as long or as short as you like
 - `variableMeasured` - A list of all the variable names that appear anywhere in the CSV file headers in your dataset
 :::
