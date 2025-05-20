@@ -9,10 +9,17 @@ categories: [intermediate]
 abstract: |
   In this chapter you will learn the basics of research data management.
 ---
+::: {.callout-tip appearance="minimal"}
+<h5>Learning Objectives</h5>
+
+:bulb: You can argue why research data management is important.<br>
+:bulb: You know constraints to reproducibility when research data management lacks sufficiency.<br>
+:bulb: You know about practical measures and community standards for better research data management.<br>
+:::
 
 ## Introduction
 
-
+<!--
 ::: {.callout-tip title="Group Exercise: Identifying and Discussing Problems with Research Data Management" collapse="true"} 
 
 1. **Form Groups:**
@@ -36,6 +43,7 @@ abstract: |
 **Goal:** By the end of the exercise, you’ll collaboratively identify common pitfalls in research data management and propose better practices.
 
 :::
+-->
 
 ::: {#vid-rdm-snafu}
 
@@ -71,7 +79,7 @@ What matters most about this story is that Reinhart and Rogoff were able to **sh
 Thus, reproducibility can **enhance** the scientific, and in this example the political, **discussion** about research findings and their **implications for society**.
 :::
 
-:::{.callout-tip title="Excel exercise"}
+:::{#tip-excel-exercise .callout-tip title="Excel exercise"}
 - Open an Excel Sheet  
 - Set the first column to date-format  
 - Enter the year *2010* into the cell *A1*  
@@ -102,6 +110,23 @@ cat(make_figure("excel-genes"))
 
 :::
 
+::: {.callout-caution title="Why is Excel still widely used?"}
+Given the information above, you might wonder why many researchers still use Excel.
+One aspect at least is that is very intuitive to use.
+It comes with many integrated functions that can be easily applied to data.
+Compared to {{< fa brands r-project >}} it takes much less time to work with data in Excel.
+However, the most important aspect might be that it is incredibly easy to **enter data** in a spreadsheet.
+It takes much less time in Excel compared to R, to open a table and add data to it.
+Thus, for *data entry*, Excel is still a good choice (apart from the problems in @tip-excel-exercise).
+Nevertheless, all computations should be done in R or a different software program where data changes and computations are saved in scripts (e.g. [Python](https://www.python.org/)), because the computations in Excel are hard to reproduce.
+:::
+
+As the introductory sections highlighted, research data management (also referred to as **RDM**) is very important for increasing the reproducibility of your research.
+We follow the definition of The Turing Way for RDM:
+
+>RDM covers how research data can be stored, described and reused  
+[@community2022, chapter on Research Data Management].
+
 ## Benefits of research data management
 
 Managing data well throughout the research process is crucial for successful research outcomes, including:
@@ -115,7 +140,11 @@ Managing data well throughout the research process is crucial for successful res
 - Meeting the grant requirements of funding bodies
 - Adhering to industry and commerce practices.
 
-## Modularity of research data
+## Modularity of research data {#sec-modularity}
+
+In the previous sections of this chapter, you have seen pitfalls for reproducibility when not thinking about RDM.
+Further, you now know advantages of RDM.
+In this section, you will get to know the concept of *modularity*, that has been widely used in research that is meant to be reproducible.
 
 What we expect the data to look like ...
 
@@ -213,8 +242,14 @@ Benefits of modular data:
 
 Burden of modular data:
 
-1. probably need for `file-dependency` file
+1. probably need for a *dependency file*
 1. higher risk for chaotic project structure
+
+::: {.callout-note title="What is a file-dependency file?"}
+A dependency file displays how different files are related to each other, e.g. which scripts depend on which other scripts or on which data files.
+A dependency file can determine whether a file needs to be reexecuted based on changes in its dependent files.
+This can be useful for humans and machines, if this reexecution should be done automatically.
+:::
 
 ## FAIR principles
 
@@ -391,7 +426,7 @@ When many people rely on such a standard, new innovations emerge that improve th
 Previously, preprocessing fMRI data was a time-consuming task for PhD students and PostDocs in the field of neuroimaging.
 With fMRIPrep, this process can be done automatically and without manual intervention.
 By applying the BIDS standard and fMRIPrep to your data, you will require far fewer resources to understand others' analysis pipelines using the same standards.
-However, a data organization standard works well only when **a lot of people** use it.
+However, a data organization standard only works well when **a lot of people** use it.
 That is one reason why BIDS is successful:
 It is widely used in the field of neuroimaging.
 
@@ -403,7 +438,7 @@ The core idea is to consistently organize data, facilitating data sharing and en
 There is also a [guide](https://psychds-docs.readthedocs.io/en/latest/guides/1_getting_started/) to help researchers organize their research projects.
 Like BIDS, Psych-DS provides a [validation tool](https://psych-ds.github.io/validator/) that checks if the data organization has been done correctly.
 It also has the [CEDAR wizard](https://psych-ds.github.io/cedar-wizard-psychds/), a tool which creates a standard `.json` file.
-This file contains metadata informationen important to understand the dataset(s) someone is working within a project.
+This file contains metadata informationen important to understand the dataset(s) someone is working on within a project.
 
 However, Psych-DS has not been widely adopted by researchers, and its development is not as fast as that of BIDS.
 Therefore, it does not yet have extension tools like fMRIPrep.
@@ -421,7 +456,7 @@ The benefit of Psych-DS is clearly its adaptation to behavioral data structures,
 1. next to to the `data` folder a metadata file must exist, named `dataset_description.json` (see [CEDAR wizard](https://psych-ds.github.io/cedar-wizard-psychds/))
 
 ::: {.callout-tip title="Metadata requirements"}
-- `"name"` - A name for the dataset
+- `"name"` - The name of the dataset
 - `"description"`- A description for the dataset, which can be as long or as short as you like
 - `variableMeasured` - A list of all the variable names that appear anywhere in the CSV file headers in your dataset
 :::
@@ -447,6 +482,9 @@ Zebra-Questionnaire-Project/
 :::
 
 *Information were extracted from the [Psych-DS guide](https://psychds-docs.readthedocs.io/en/latest/guides/1_getting_started/)*
+
+Note that Psych-DS uses the term **raw data** differently than described in the section about [modularity](@sec-modularity).
+When someone using Psych-DS wording referring to raw data, it is meant what we described above as **source data**.
 
 :::
 
@@ -484,7 +522,7 @@ It would be extra work to combine files with different layouts.
 Use consistent file names (decide between `TSST_VR_2024-11-19.csv`, `2024-11-19_TSST_virtual-reality.csv`, etc.).
 Use a consistent format for all dates (see @sec-date-format).
 Use consistent phrases in notes if you have a separate column for them.
-Be careful about extra spaces within cells (e.g., the difference between `male` and ` male `).
+Be careful about extra spaces within cells (e.g., the difference between "male" and " male ").
 
 #### No empty cells
 
@@ -644,6 +682,61 @@ If you want to dive deeper into the use of `.json` files, we recommend this [Vid
 ]
 ```
 
+:::
+
+::: {.callout-note title="Benefits of a `json`-file"}
+
+Providing metadata in a `json` format has some useful advantages:
+
+- It is easy for humans and especially machines to read
+
+- You can read in the json file into R and use the data information for your data analyses
+
+- In comparison to spreadsheets, `json` files are not limited to two-dimensional in- and outputs
+
+:::
+
+::: {.callout-note title="How to work with `json` files in R" collapse="true"}
+
+::: {.panel-tabset}
+
+## Create a `json` file
+
+1. Click on **File** $\rightarrow$ **New File** $\rightarrow$ **Text file**
+
+2. Save the file in your desired location and name it with a `.json` suffix, e.g. `dataset_description.json`.
+
+3. Then, you can add content in your newly created `json` file.
+
+## Read `json`-file into R
+
+1. Install the package `{jsonlite}` if you have not installed it before.
+
+```{r filename="Code"}
+#| eval: false
+install.packages("jsonlite")
+```
+
+2. Load the package
+
+```{r filename="Code"}
+#| eval: false
+library(jsonlite)
+```
+
+3. Load the `json`-file to your R environment.
+Make sure that you specified the correct file path from your working or project directory (see @sec-file-paths).
+
+```{r filename="Code"}
+#| eval: false
+codebook <- jsonlite::fromJSON("path/to/your-json-file.json")
+```
+
+4. your `json`-file should now be a list object in R and you can use the values of the file with extracting the information you want with indexing [^1].
+
+[^1]: Since indexing lists in R or RStudio is not part of this book, you can see how to do that in the [online materials](https://osf.io/jh2nt) of a seminar on OpenScience that uses this book as online resource.
+
+:::
 :::
 
 ## Acknowledgements

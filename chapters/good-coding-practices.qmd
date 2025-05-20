@@ -126,7 +126,7 @@ guiding them through unfamiliar concepts and helping them understand the underly
 
 :::
 
-## File paths
+## File paths {#sec-file-paths}
 
 Whenever you are conducting research, you need to analyze some form of data.
 This data is typically stored in one or more files.
