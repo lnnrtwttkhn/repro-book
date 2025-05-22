@@ -96,13 +96,17 @@ Git is a software that allows you to do just that.
 
 ### Git and reproducibility
 
-Version control is a reproducibility measure you can implement to help yourself succeed in your research.
-Think about it as reproducibility for your own future self or others.
-Furthermore, it can be a great tool to collaborate with others if you make projects accessible by using remote repositories.
+Git as version control software is able to follow different versions of code and data.
+Thus, it provides information about code and data **evolved** over time.
+Hence, it becomes way easier to understand which code and data was used to create e.g. a particular figure.
+Further, Git saves a **version history** enabling us to understand the changes made, the purpose of analyses, even months or years later.
+Meanwhile, Git hides older versions which keeps your project structure organized.
+However, you can still access them if you need them [@community2022].
+
 
 ### Some limitations
 
-Git is not good at tracking very large files such as data sets, which can slow it down quite a bit.
+Git is not good at tracking very large files such as large data sets, which can slow it down quite a bit.
 It is also not very good at tracking binary files like videos, images or '.docx' files. 
 But if you want to track written work you can use '.md' (Markdown) files instead.
 
@@ -482,5 +486,5 @@ They can then accept this collaborator role and
 
 ## Acknowledgments
 
-This chapter was heavily informed by [The Version Control Book](https://lennartwittkuhn.com/version-control-book/).
+This chapter was heavily informed by [The Version Control Book](https://lennartwittkuhn.com/version-control-book/) and [The Turing Way](https://book.the-turing-way.org/reproducible-research/vcs).
 
