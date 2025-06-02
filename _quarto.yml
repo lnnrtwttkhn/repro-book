@@ -31,6 +31,7 @@ book:
     - chapters/naming-things.qmd
     - chapters/project-structure.qmd
     - chapters/rdm.qmd
+    - chapters/git-crashcourse.qmd
     - chapters/good-coding-practices.qmd
     - chapters/renv.qmd
     - summary.qmd
