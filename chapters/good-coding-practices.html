@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; Good Coding Practices – The Repro Book</title>
+<title>7&nbsp; Good Coding Practices – The Repro Book</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../chapters/renv.html" rel="next">
-<link href="../chapters/rdm.html" rel="prev">
+<link href="../chapters/git-crashcourse.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -139,7 +139,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/good-coding-practices.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/good-coding-practices.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -213,20 +213,26 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chapters/git-crashcourse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Git crashcourse</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../chapters/good-coding-practices.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/renv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Robust Environments: <code>{renv}</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Robust Environments: <code>{renv}</code></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -259,33 +265,33 @@ div.csl-indent {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#sec-rproject" id="toc-sec-rproject" class="nav-link active" data-scroll-target="#sec-rproject"><span class="header-section-number">6.1</span> R projects</a></li>
-  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments"><span class="header-section-number">6.2</span> Comments</a></li>
-  <li><a href="#sec-file-paths" id="toc-sec-file-paths" class="nav-link" data-scroll-target="#sec-file-paths"><span class="header-section-number">6.3</span> File paths</a>
+  <li><a href="#sec-rproject" id="toc-sec-rproject" class="nav-link active" data-scroll-target="#sec-rproject"><span class="header-section-number">7.1</span> R projects</a></li>
+  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments"><span class="header-section-number">7.2</span> Comments</a></li>
+  <li><a href="#sec-file-paths" id="toc-sec-file-paths" class="nav-link" data-scroll-target="#sec-file-paths"><span class="header-section-number">7.3</span> File paths</a>
   <ul class="collapse">
-  <li><a href="#absolute-paths" id="toc-absolute-paths" class="nav-link" data-scroll-target="#absolute-paths"><span class="header-section-number">6.3.1</span> Absolute paths</a></li>
-  <li><a href="#relative-paths" id="toc-relative-paths" class="nav-link" data-scroll-target="#relative-paths"><span class="header-section-number">6.3.2</span> Relative paths</a></li>
-  <li><a href="#the-here-package" id="toc-the-here-package" class="nav-link" data-scroll-target="#the-here-package"><span class="header-section-number">6.3.3</span> The <code>here</code> package</a></li>
+  <li><a href="#absolute-paths" id="toc-absolute-paths" class="nav-link" data-scroll-target="#absolute-paths"><span class="header-section-number">7.3.1</span> Absolute paths</a></li>
+  <li><a href="#relative-paths" id="toc-relative-paths" class="nav-link" data-scroll-target="#relative-paths"><span class="header-section-number">7.3.2</span> Relative paths</a></li>
+  <li><a href="#the-here-package" id="toc-the-here-package" class="nav-link" data-scroll-target="#the-here-package"><span class="header-section-number">7.3.3</span> The <code>here</code> package</a></li>
   </ul></li>
-  <li><a href="#sec-codestyle" id="toc-sec-codestyle" class="nav-link" data-scroll-target="#sec-codestyle"><span class="header-section-number">6.4</span> Code Style</a>
+  <li><a href="#sec-codestyle" id="toc-sec-codestyle" class="nav-link" data-scroll-target="#sec-codestyle"><span class="header-section-number">7.4</span> Code Style</a>
   <ul class="collapse">
-  <li><a href="#names" id="toc-names" class="nav-link" data-scroll-target="#names"><span class="header-section-number">6.4.1</span> Names</a></li>
-  <li><a href="#spaces" id="toc-spaces" class="nav-link" data-scroll-target="#spaces"><span class="header-section-number">6.4.2</span> Spaces</a></li>
-  <li><a href="#pipes" id="toc-pipes" class="nav-link" data-scroll-target="#pipes"><span class="header-section-number">6.4.3</span> Pipes</a></li>
-  <li><a href="#line-breaks" id="toc-line-breaks" class="nav-link" data-scroll-target="#line-breaks"><span class="header-section-number">6.4.4</span> Line breaks</a></li>
-  <li><a href="#evaluate-your-code-style-linting" id="toc-evaluate-your-code-style-linting" class="nav-link" data-scroll-target="#evaluate-your-code-style-linting"><span class="header-section-number">6.4.5</span> Evaluate your code style: Linting</a></li>
+  <li><a href="#names" id="toc-names" class="nav-link" data-scroll-target="#names"><span class="header-section-number">7.4.1</span> Names</a></li>
+  <li><a href="#spaces" id="toc-spaces" class="nav-link" data-scroll-target="#spaces"><span class="header-section-number">7.4.2</span> Spaces</a></li>
+  <li><a href="#pipes" id="toc-pipes" class="nav-link" data-scroll-target="#pipes"><span class="header-section-number">7.4.3</span> Pipes</a></li>
+  <li><a href="#line-breaks" id="toc-line-breaks" class="nav-link" data-scroll-target="#line-breaks"><span class="header-section-number">7.4.4</span> Line breaks</a></li>
+  <li><a href="#evaluate-your-code-style-linting" id="toc-evaluate-your-code-style-linting" class="nav-link" data-scroll-target="#evaluate-your-code-style-linting"><span class="header-section-number">7.4.5</span> Evaluate your code style: Linting</a></li>
   </ul></li>
-  <li><a href="#sec-tidydata" id="toc-sec-tidydata" class="nav-link" data-scroll-target="#sec-tidydata"><span class="header-section-number">6.5</span> Tidy Data</a>
+  <li><a href="#sec-tidydata" id="toc-sec-tidydata" class="nav-link" data-scroll-target="#sec-tidydata"><span class="header-section-number">7.5</span> Tidy Data</a>
   <ul class="collapse">
-  <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures"><span class="header-section-number">6.5.1</span> Data structures</a></li>
-  <li><a href="#changing-the-data-structure" id="toc-changing-the-data-structure" class="nav-link" data-scroll-target="#changing-the-data-structure"><span class="header-section-number">6.5.2</span> Changing the data structure</a></li>
+  <li><a href="#data-structures" id="toc-data-structures" class="nav-link" data-scroll-target="#data-structures"><span class="header-section-number">7.5.1</span> Data structures</a></li>
+  <li><a href="#changing-the-data-structure" id="toc-changing-the-data-structure" class="nav-link" data-scroll-target="#changing-the-data-structure"><span class="header-section-number">7.5.2</span> Changing the data structure</a></li>
   </ul></li>
-  <li><a href="#defensive-programming" id="toc-defensive-programming" class="nav-link" data-scroll-target="#defensive-programming"><span class="header-section-number">6.6</span> Defensive programming</a>
+  <li><a href="#defensive-programming" id="toc-defensive-programming" class="nav-link" data-scroll-target="#defensive-programming"><span class="header-section-number">7.6</span> Defensive programming</a>
   <ul class="collapse">
-  <li><a href="#sec-assertr" id="toc-sec-assertr" class="nav-link" data-scroll-target="#sec-assertr"><span class="header-section-number">6.6.1</span> The <code>assertr</code> package and it’s function <code>verify()</code></a></li>
-  <li><a href="#further-functions-and-packages" id="toc-further-functions-and-packages" class="nav-link" data-scroll-target="#further-functions-and-packages"><span class="header-section-number">6.6.2</span> Further functions and packages</a></li>
+  <li><a href="#sec-assertr" id="toc-sec-assertr" class="nav-link" data-scroll-target="#sec-assertr"><span class="header-section-number">7.6.1</span> The <code>assertr</code> package and it’s function <code>verify()</code></a></li>
+  <li><a href="#further-functions-and-packages" id="toc-further-functions-and-packages" class="nav-link" data-scroll-target="#further-functions-and-packages"><span class="header-section-number">7.6.2</span> Further functions and packages</a></li>
   </ul></li>
-  <li><a href="#acknowledgements-further-reading" id="toc-acknowledgements-further-reading" class="nav-link" data-scroll-target="#acknowledgements-further-reading"><span class="header-section-number">6.7</span> Acknowledgements &amp; further reading</a></li>
+  <li><a href="#acknowledgements-further-reading" id="toc-acknowledgements-further-reading" class="nav-link" data-scroll-target="#acknowledgements-further-reading"><span class="header-section-number">7.7</span> Acknowledgements &amp; further reading</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/good-coding-practices.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/good-coding-practices.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -294,7 +300,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></h1>
 </div>
 
 
@@ -317,8 +323,8 @@ div.csl-indent {
 </header>
 
 
-<section id="sec-rproject" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="sec-rproject"><span class="header-section-number">6.1</span> R projects</h2>
+<section id="sec-rproject" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="sec-rproject"><span class="header-section-number">7.1</span> R projects</h2>
 <p>As a researcher (and as a student), you work on different projects simultaneously. You have different research projects and teaching parts that you need to cover in your job. You attend different courses and give presentations and perform data analyses in these seminars and lectures. As you learned in the previous chapter about project structure, it makes sense to set up your files and folders in a particular research project folder.</p>
 <div class="cell" data-code-copy="false">
 <div class="code-with-filename">
@@ -377,9 +383,9 @@ It is not recommended to modify this file manually.</p>
 </div>
 <p>After you have created your R project, it is time to take a closer look at your R scripts containing the code for your projects.</p>
 </section>
-<section id="comments" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="comments"><span class="header-section-number">6.2</span> Comments</h2>
-<p>Comments are probably the most important part of your scripts (but also see the discussion in <a href="#tip-comments-pros-cons" class="quarto-xref">Tip&nbsp;<span>6.1</span></a>). Whenever you write a <code>#</code> in your R-script, all code after that <code>#</code> will be identified as comment and therefore not be executed as code. Thus, if you put a <code>#</code> at the beginning of a line, the whole line will be identified as comment. Here are some thoughts about comments by <span class="citation" data-cites="rennie2024">Rennie (<a href="../references.html#ref-rennie2024" role="doc-biblioref">2024</a>)</span>:</p>
+<section id="comments" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="comments"><span class="header-section-number">7.2</span> Comments</h2>
+<p>Comments are probably the most important part of your scripts (but also see the discussion in <a href="#tip-comments-pros-cons" class="quarto-xref">Tip&nbsp;<span>7.1</span></a>). Whenever you write a <code>#</code> in your R-script, all code after that <code>#</code> will be identified as comment and therefore not be executed as code. Thus, if you put a <code>#</code> at the beginning of a line, the whole line will be identified as comment. Here are some thoughts about comments by <span class="citation" data-cites="rennie2024">Rennie (<a href="../references.html#ref-rennie2024" role="doc-biblioref">2024</a>)</span>:</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Adding comments">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -418,7 +424,7 @@ Adding comments
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;6.1: Discussion: Pros and cons of comments
+Tip&nbsp;7.1: Discussion: Pros and cons of comments
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -431,12 +437,12 @@ Tip&nbsp;6.1: Discussion: Pros and cons of comments
 </div>
 </div>
 </section>
-<section id="sec-file-paths" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="sec-file-paths"><span class="header-section-number">6.3</span> File paths</h2>
+<section id="sec-file-paths" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="sec-file-paths"><span class="header-section-number">7.3</span> File paths</h2>
 <p>Whenever you are conducting research, you need to analyze some form of data. This data is typically stored in one or more files. Therefore, you need to read the data into your script. To do so, you must refer to the files you want to read. This is where the first advantage of setting up a dedicated R project for your research becomes apparent.</p>
 <p>You can read data or code into your R environment by referring to your files using <strong>absolute paths</strong>, <strong>relative paths</strong>, and <strong><code>here::here()</code></strong>.</p>
-<section id="absolute-paths" class="level3" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="absolute-paths"><span class="header-section-number">6.3.1</span> Absolute paths</h3>
+<section id="absolute-paths" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="absolute-paths"><span class="header-section-number">7.3.1</span> Absolute paths</h3>
 <p>Using an absolute path means referring to your file by specifying the entire folder structure on your computer:</p>
 <div class="cell">
 <div class="code-with-filename">
@@ -457,8 +463,8 @@ A collaborator or interested researcher who downloads your scripts and wants to 
 </div>
 </div>
 </section>
-<section id="relative-paths" class="level3" data-number="6.3.2">
-<h3 data-number="6.3.2" class="anchored" data-anchor-id="relative-paths"><span class="header-section-number">6.3.2</span> Relative paths</h3>
+<section id="relative-paths" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="relative-paths"><span class="header-section-number">7.3.2</span> Relative paths</h3>
 <p>A relative file path starts from your current <em>working directory</em> and appends the relative path.<br>
 You can check your current working directory in R by using the <code>getwd()</code> command in the R Console.</p>
 <div class="cell">
@@ -513,8 +519,8 @@ The file path should start <em>after</em> the working directory:</p>
 </div>
 </div>
 </section>
-<section id="the-here-package" class="level3" data-number="6.3.3">
-<h3 data-number="6.3.3" class="anchored" data-anchor-id="the-here-package"><span class="header-section-number">6.3.3</span> The <code>here</code> package</h3>
+<section id="the-here-package" class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="the-here-package"><span class="header-section-number">7.3.3</span> The <code>here</code> package</h3>
 <p>A way to avoid confusion about which file paths to use is the <code>here</code> package <span class="citation" data-cites="mueller2020">(<a href="../references.html#ref-mueller2020" role="doc-biblioref">Müller 2020</a>)</span>. The <code>here()</code> function works regardless of your current working directory.</p>
 <p>You can install the <code>here</code> package by typing:</p>
 <div class="cell">
@@ -604,15 +610,15 @@ Path differences between operating systems
 <p>In summary, we recommend using the <code>here::here()</code> function because it is most robust against different paths. Relative file paths can also work if the working directory does not change in one of the project scripts and only <code>/</code> are used for path specifications. We recommend to never use absolute file paths, since they are a hurdle to computational reproducibility.</p>
 </section>
 </section>
-<section id="sec-codestyle" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="sec-codestyle"><span class="header-section-number">6.4</span> Code Style</h2>
+<section id="sec-codestyle" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="sec-codestyle"><span class="header-section-number">7.4</span> Code Style</h2>
 <blockquote class="blockquote">
 <p>“Good coding style is like correct punctuation: you can manage without it, butitsuremakethingseasiertoread” – <span class="citation" data-cites="wickham2023">Wickham, Çetinkaya-Rundel, and Grolemund (<a href="../references.html#ref-wickham2023" role="doc-biblioref">2023</a>)</span></p>
 </blockquote>
 <p>One important aspect that fosters understandability of code is the code style. In this section, we will present the <code>tidyverse</code>-codestyle <span class="citation" data-cites="wickham2023">(<a href="../references.html#ref-wickham2023" role="doc-biblioref">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span>. The Tidyverse is a collection of R packages particularly useful for data wrangling, manipulation and visualization. All packages share an underlying design philosophy, grammar, and data structures.</p>
 <p>In psychology, the grammar of the <code>tidyverse</code> is widely used for data wrangling. In this section, we will provide a brief introduction to code style.</p>
-<section id="names" class="level3" data-number="6.4.1">
-<h3 data-number="6.4.1" class="anchored" data-anchor-id="names"><span class="header-section-number">6.4.1</span> Names</h3>
+<section id="names" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="names"><span class="header-section-number">7.4.1</span> Names</h3>
 <p>Not only should files and folders be named well (see chapter on <a href="../chapters/naming-things.html">naming things</a>), but the same applies to variable and function names in scripts. Variable and function names should only consist of lowercase letters, numbers, and underscores (<code>_</code>). It is better to use descriptive, longer names rather than short abbreviations that you may not understand in the future.</p>
 <div class="columns">
 <div class="column" style="width:49%;">
@@ -640,8 +646,8 @@ Path differences between operating systems
 </div>
 </div>
 </section>
-<section id="spaces" class="level3" data-number="6.4.2">
-<h3 data-number="6.4.2" class="anchored" data-anchor-id="spaces"><span class="header-section-number">6.4.2</span> Spaces</h3>
+<section id="spaces" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="spaces"><span class="header-section-number">7.4.2</span> Spaces</h3>
 <p>Put spaces around mathematical operators (except <code>^</code>) and around the assignment operator (<code>&lt;-</code>). Do not put spaces around parentheses when using functions. Put a space after a comma, as you would in standard English.</p>
 <div class="columns">
 <div class="column" style="width:49%;">
@@ -667,8 +673,8 @@ Path differences between operating systems
 </div>
 </div>
 </section>
-<section id="pipes" class="level3" data-number="6.4.3">
-<h3 data-number="6.4.3" class="anchored" data-anchor-id="pipes"><span class="header-section-number">6.4.3</span> Pipes</h3>
+<section id="pipes" class="level3" data-number="7.4.3">
+<h3 data-number="7.4.3" class="anchored" data-anchor-id="pipes"><span class="header-section-number">7.4.3</span> Pipes</h3>
 <p>The pipe (either <code>|&gt;</code> or <code>%&gt;%</code>) is a useful operator for connecting subsequent operations in your code. The pipe takes everything to the left of it and uses it as the first argument to the function on the right side.</p>
 <div class="columns">
 <div class="column" style="width:49%;">
@@ -790,8 +796,8 @@ Difference between <code>%&gt;%</code> and <code>|&gt;</code>
 </div>
 </div>
 </section>
-<section id="line-breaks" class="level3" data-number="6.4.4">
-<h3 data-number="6.4.4" class="anchored" data-anchor-id="line-breaks"><span class="header-section-number">6.4.4</span> Line breaks</h3>
+<section id="line-breaks" class="level3" data-number="7.4.4">
+<h3 data-number="7.4.4" class="anchored" data-anchor-id="line-breaks"><span class="header-section-number">7.4.4</span> Line breaks</h3>
 <p>If a function requires you to name arguments (as with <code>summarise()</code>), put each argument on a new line. If a function does not require you to name arguments (as with <code>group_by()</code>), keep your code on one line unless it extends beyond the width of a line. In that case, put each argument on its own line.</p>
 <p>When you start a new line after using <code>|&gt;</code> or a function like <code>summarise()</code>, indent the new line by two spaces (if not already done automatically). If you are putting each argument on a separate line, also indent the new line by two spaces. Make sure that the closing parenthesis <code>)</code> is on its own line and not indented. Thus, the closing parenthesis should align with the horizontal position of the function you are using.</p>
 <div class="columns">
@@ -844,8 +850,8 @@ Difference between <code>%&gt;%</code> and <code>|&gt;</code>
 </div>
 </div>
 </section>
-<section id="evaluate-your-code-style-linting" class="level3" data-number="6.4.5">
-<h3 data-number="6.4.5" class="anchored" data-anchor-id="evaluate-your-code-style-linting"><span class="header-section-number">6.4.5</span> Evaluate your code style: Linting</h3>
+<section id="evaluate-your-code-style-linting" class="level3" data-number="7.4.5">
+<h3 data-number="7.4.5" class="anchored" data-anchor-id="evaluate-your-code-style-linting"><span class="header-section-number">7.4.5</span> Evaluate your code style: Linting</h3>
 <p>After learning the <code>tidyverse</code> coding style, you can check your code for any deviations from that style.<br>
 This process is called “linting” and is comparable to a program that checks for spelling errors.<br>
 The <code>lintr</code> package <span class="citation" data-cites="hester2024">(<a href="../references.html#ref-hester2024" role="doc-biblioref">Hester et al. 2024</a>)</span> can perform this task by analyzing your code for potential issues and deviations from the recommended coding style.</p>
@@ -921,19 +927,19 @@ Example of <code>lintr</code>
 </div>
 </section>
 </section>
-<section id="sec-tidydata" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="sec-tidydata"><span class="header-section-number">6.5</span> Tidy Data</h2>
+<section id="sec-tidydata" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="sec-tidydata"><span class="header-section-number">7.5</span> Tidy Data</h2>
 <div id="fig-horst-tidydata" class="quarto-float quarto-figure quarto-figure-center anchored" alt="">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-horst-tidydata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../images/horst-tidydata-2.jpg" class="img-fluid figure-img" alt="">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-horst-tidydata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.1: “<a href="https://allisonhorst.com/other-r-fun">Illustration from the Openscapes blog Tidy Data for reproducibility efficiency and collaboration</a>” by <a href="https://allisonhorst.com/allison-horst">Julia Lowndes and Allison Horst</a> (License: <a href="">CC-BY 4.0</a>; reused without modifications)
+Figure&nbsp;7.1: “<a href="https://allisonhorst.com/other-r-fun">Illustration from the Openscapes blog Tidy Data for reproducibility efficiency and collaboration</a>” by <a href="https://allisonhorst.com/allison-horst">Julia Lowndes and Allison Horst</a> (License: <a href="">CC-BY 4.0</a>; reused without modifications)
 </figcaption>
 </figure>
 </div>
-<p>When working with datasets, you will likely not be able to directly conduct your data analysis (e.g., <code>t-tests</code>, <code>ANOVAs</code>, <code>GLMs</code>). In fact, most of the time, you will spend more time organizing your data than running your analysis. A helpful concept is <strong>tidy data</strong>, which is a common guideline for organizing datasets. Tidy data is closely related to the principles of the <code>tidyverse</code> introduced in <a href="#sec-codestyle" class="quarto-xref"><span>Section 6.4</span></a>. Following tidy data guidelines will help you run analyses and get the most out of your data.</p>
+<p>When working with datasets, you will likely not be able to directly conduct your data analysis (e.g., <code>t-tests</code>, <code>ANOVAs</code>, <code>GLMs</code>). In fact, most of the time, you will spend more time organizing your data than running your analysis. A helpful concept is <strong>tidy data</strong>, which is a common guideline for organizing datasets. Tidy data is closely related to the principles of the <code>tidyverse</code> introduced in <a href="#sec-codestyle" class="quarto-xref"><span>Section 7.4</span></a>. Following tidy data guidelines will help you run analyses and get the most out of your data.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Tidy Data">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -958,13 +964,13 @@ Tidy Data
 <img src="../images/tidy-1.png" class="img-fluid figure-img" alt="">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tidy-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.2: “<a href="https://r4ds.hadley.nz/images/tidy-1.png">Tidy Data</a>” by <a href="https://hadley.nz">Hadley Wickham and Mine Çetinkaya-Rundel and Garret Grolemund</a> (License: <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/">CC BY-NC-ND 3.0 US</a>; reused without modifications)
+Figure&nbsp;7.2: “<a href="https://r4ds.hadley.nz/images/tidy-1.png">Tidy Data</a>” by <a href="https://hadley.nz">Hadley Wickham and Mine Çetinkaya-Rundel and Garret Grolemund</a> (License: <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/us/">CC BY-NC-ND 3.0 US</a>; reused without modifications)
 </figcaption>
 </figure>
 </div>
 <p>The journey from raw to tidy data can be long and frustrating. This book cannot provide a full overview of data wrangling and manipulation. However, if you are interested in learning functions for data manipulation, we recommend studying the <code>dplyr</code> package and its <a href="https://dplyr.tidyverse.org">documentation</a>, as well as the <code>tidyr</code> package and its <a href="https://tidyr.tidyverse.org">documentation</a>. From our experience, using and sharing code written in the tidyverse style fosters better understanding of the code, thereby enhancing computational reproducibility.</p>
-<section id="data-structures" class="level3" data-number="6.5.1">
-<h3 data-number="6.5.1" class="anchored" data-anchor-id="data-structures"><span class="header-section-number">6.5.1</span> Data structures</h3>
+<section id="data-structures" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="data-structures"><span class="header-section-number">7.5.1</span> Data structures</h3>
 <p>Data can be structured in different ways. When your data is tidy, you may still encounter <strong>wide</strong> or <strong>long</strong> formats. As a rule of thumb, you can remember this: Data structured in a <em>long format</em> usually contains <em>repetitive</em> values in the first column of the dataset. Data structured in a <em>wide format</em> usually contains <em>non-repetitive</em> values in the first column of the dataset.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true"><i class="fa-solid fa-arrows-left-right" aria-label="arrows-left-right"></i> Wide format</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false"><i class="fa-solid fa-arrows-up-down" aria-label="arrows-up-down"></i> Long format</a></li></ul>
@@ -1018,11 +1024,11 @@ Figure&nbsp;6.2: “<a href="https://r4ds.hadley.nz/images/tidy-1.png">Tidy Data
 <p>Another perspective on wide vs.&nbsp;long data comes from the context of the data. In research, a common question is how variable A influences variable B. Variable B is dependent on variable A, making variable B the dependent variable (DV) and variable A the independent variable (IV).</p>
 <p>In the wide data format, the names of the factor levels of the IV are usually column names, while the DV is displayed as the values across these cells. In contrast, in the long data format, the names of the factor levels of the IV are typically values in the column of the IV. The name of the IV becomes the column name, rather than the level of the IV. Simultaneously, the DV is displayed in one column with the name of the DV as the column name and the corresponding values in that column.</p>
 </section>
-<section id="changing-the-data-structure" class="level3" data-number="6.5.2">
-<h3 data-number="6.5.2" class="anchored" data-anchor-id="changing-the-data-structure"><span class="header-section-number">6.5.2</span> Changing the data structure</h3>
+<section id="changing-the-data-structure" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="changing-the-data-structure"><span class="header-section-number">7.5.2</span> Changing the data structure</h3>
 <p>Depending on which R functions you want to use or other reasons, you may need to or want to change your data structure from wide to long or vice versa. An easy way to do this is by using <code>pivot_wider()</code> and <code>pivot_longer()</code> from the <code>tidyr</code> package.</p>
-<section id="pivot_longer" class="level4" data-number="6.5.2.1">
-<h4 data-number="6.5.2.1" class="anchored" data-anchor-id="pivot_longer"><span class="header-section-number">6.5.2.1</span> <code>pivot_longer()</code></h4>
+<section id="pivot_longer" class="level4" data-number="7.5.2.1">
+<h4 data-number="7.5.2.1" class="anchored" data-anchor-id="pivot_longer"><span class="header-section-number">7.5.2.1</span> <code>pivot_longer()</code></h4>
 <p><code>pivot_longer()</code> takes your dataset and makes it longer. It takes certain columns and places their names as values into a new column. Additionally, it combines the values of these columns into a single column.</p>
 <div class="cell">
 <div class="code-with-filename">
@@ -1078,8 +1084,8 @@ Figure&nbsp;6.2: “<a href="https://r4ds.hadley.nz/images/tidy-1.png">Tidy Data
 </div>
 </div>
 </section>
-<section id="pivot_wider" class="level4" data-number="6.5.2.2">
-<h4 data-number="6.5.2.2" class="anchored" data-anchor-id="pivot_wider"><span class="header-section-number">6.5.2.2</span> <code>pivot_wider()</code></h4>
+<section id="pivot_wider" class="level4" data-number="7.5.2.2">
+<h4 data-number="7.5.2.2" class="anchored" data-anchor-id="pivot_wider"><span class="header-section-number">7.5.2.2</span> <code>pivot_wider()</code></h4>
 <p><code>pivot_wider()</code> takes your dataset and makes it wider. It takes the names of a certain column and changes them to new column names. Further, it takes the values of a second column and puts them across the new columns to their corresponding names.</p>
 <div class="cell">
 <div class="code-with-filename">
@@ -1128,8 +1134,8 @@ Figure&nbsp;6.2: “<a href="https://r4ds.hadley.nz/images/tidy-1.png">Tidy Data
 </section>
 </section>
 </section>
-<section id="defensive-programming" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="defensive-programming"><span class="header-section-number">6.6</span> Defensive programming</h2>
+<section id="defensive-programming" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="defensive-programming"><span class="header-section-number">7.6</span> Defensive programming</h2>
 <p>Whenever you write code for data analysis or any other purpose, it is useful to validate what you are doing. This is also known as <strong>defensive programming</strong>. “Defensive” in this context means cautious. Here are some potential benefits of validating your code:</p>
 <ul>
 <li>Early error detection<br>
@@ -1144,8 +1150,8 @@ Figure&nbsp;6.2: “<a href="https://r4ds.hadley.nz/images/tidy-1.png">Tidy Data
 </li>
 <li>Improved error handling</li>
 </ul>
-<section id="sec-assertr" class="level3" data-number="6.6.1">
-<h3 data-number="6.6.1" class="anchored" data-anchor-id="sec-assertr"><span class="header-section-number">6.6.1</span> The <code>assertr</code> package and it’s function <code>verify()</code></h3>
+<section id="sec-assertr" class="level3" data-number="7.6.1">
+<h3 data-number="7.6.1" class="anchored" data-anchor-id="sec-assertr"><span class="header-section-number">7.6.1</span> The <code>assertr</code> package and it’s function <code>verify()</code></h3>
 <p>The <a href="https://cran.r-project.org/web/packages/assertr/vignettes/assertr.html"><code>assertr</code></a> package helps you when you start testing your code. Once you begin adopting the tidyverse coding style, the function <code>verify()</code> will be easy to apply in your code. <code>verify()</code> can be seamlessly integrated into a code pipeline.</p>
 <p>The <code>verify()</code> function takes a data frame (which is the first argument of the function and provided by the <code>|&gt;</code> operator) and a logical expression. Then, the expression is evaluated in the context of the data frame. When the expression is <code>TRUE</code>, no error occurs and the pipe goes on. When the expression is <code>FALSE</code>, verify will raise an error that terminates any further processing of the pipeline <span class="citation" data-cites="fischetti2023">(<a href="../references.html#ref-fischetti2023" role="doc-biblioref">Fischetti 2023</a>)</span>.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -1210,14 +1216,14 @@ Figure&nbsp;6.2: “<a href="https://r4ds.hadley.nz/images/tidy-1.png">Tidy Data
 </div>
 </div>
 </section>
-<section id="further-functions-and-packages" class="level3" data-number="6.6.2">
-<h3 data-number="6.6.2" class="anchored" data-anchor-id="further-functions-and-packages"><span class="header-section-number">6.6.2</span> Further functions and packages</h3>
+<section id="further-functions-and-packages" class="level3" data-number="7.6.2">
+<h3 data-number="7.6.2" class="anchored" data-anchor-id="further-functions-and-packages"><span class="header-section-number">7.6.2</span> Further functions and packages</h3>
 <p>The <code>verify()</code> function provides an easy way to start validating your code within a tidyverse coding style. However, there are more functions from the <code>assertr</code> package that can be applied for defensive programming. Going through all of these functions exceeds the scope of this book. Therefore, we highly recommend reading the accompanying <a href="https://cran.r-project.org/web/packages/assertr/vignettes/assertr.html">vignette</a> by Tony Fischetti, the author of the <code>assertr</code> package.</p>
 <p>Furthermore, <code>assertr</code> is not the only <i class="fa-brands fa-r-project" aria-label="r-project"></i> package dealing with defensive programming. <a href="https://cran.r-project.org/web/packages/assert/assert.pdf"><code>assert</code></a>, <a href="https://cran.r-project.org/web/packages/assertthat/assertthat.pdf"><code>assertthat</code></a>, and <a href="https://cran.r-project.org/web/packages/testthat/testthat.pdf"><code>testthat</code></a> are other powerful packages in this context. In general, code validation is not too popular in scientific practice. It is rather prevalent in software development contexts validating functions and whole scripts for specific purposes. These thorough testing processes extends the scope of computational reproducibility in our opinion. Thus, we recommend <code>assertr::verify()</code> as a good starting point for defensive programming in the context of computational reproducibility.</p>
 </section>
 </section>
-<section id="acknowledgements-further-reading" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="acknowledgements-further-reading"><span class="header-section-number">6.7</span> Acknowledgements &amp; further reading</h2>
+<section id="acknowledgements-further-reading" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="acknowledgements-further-reading"><span class="header-section-number">7.7</span> Acknowledgements &amp; further reading</h2>
 <p>We would like to express our gratitude to the following resources, which have been essential in shaping this chapter. We recommend these references for further reading:</p>
 <table class="table">
 <colgroup>
@@ -1708,13 +1714,13 @@ Wickham, H., M. Çetinkaya-Rundel, and G. Grolemund. 2023. <em>R for Data Scienc
   </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../chapters/rdm.html" class="pagination-link" aria-label="Research Data Management">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Research Data Management</span></span>
+      <a href="../chapters/git-crashcourse.html" class="pagination-link" aria-label="Git crashcourse">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Git crashcourse</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../chapters/renv.html" class="pagination-link" aria-label="Robust Environments: `{renv}`">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Robust Environments: <code>{renv}</code></span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Robust Environments: <code>{renv}</code></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

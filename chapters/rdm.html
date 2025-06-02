@@ -84,7 +84,7 @@ div.csl-indent {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../chapters/good-coding-practices.html" rel="next">
+<link href="../chapters/git-crashcourse.html" rel="next">
 <link href="../chapters/project-structure.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -242,20 +242,26 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../chapters/git-crashcourse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Git crashcourse</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../chapters/good-coding-practices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/renv.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Robust Environments: <code>{renv}</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Robust Environments: <code>{renv}</code></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -609,7 +615,7 @@ Tidy data as additional modular data
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In <a href="good-coding-practices.html#sec-tidydata" class="quarto-xref"><span>Section 6.5</span></a>, we will introduce another data module, called <strong>tidy data</strong>. Tidy data reflect the <em>data as you analyze them</em>. Thus, separation between data preprocessing and data analyses is enforced.</p>
+<p>In <a href="good-coding-practices.html#sec-tidydata" class="quarto-xref"><span>Section 7.5</span></a>, we will introduce another data module, called <strong>tidy data</strong>. Tidy data reflect the <em>data as you analyze them</em>. Thus, separation between data preprocessing and data analyses is enforced.</p>
 </div>
 </div>
 <p>Benefits of modular data:</p>
@@ -922,7 +928,7 @@ Rules of rectangular data <span class="citation" data-cites="broman2018">(<a hre
 <li>Do not perform calculations in the raw data files.</li>
 <li>Do not use font color or highlighting as data.</li>
 <li>Make backups.</li>
-<li>Use data validation to avoid errors (see <a href="good-coding-practices.html#sec-assertr" class="quarto-xref"><span>Section 6.6.1</span></a>).</li>
+<li>Use data validation to avoid errors (see <a href="good-coding-practices.html#sec-assertr" class="quarto-xref"><span>Section 7.6.1</span></a>).</li>
 <li>Save the data in plain text files.</li>
 </ol>
 </div>
@@ -942,7 +948,7 @@ Rules of rectangular data <span class="citation" data-cites="broman2018">(<a hre
 </section>
 <section id="make-it-a-rectangle" class="level4" data-number="5.5.2.4">
 <h4 data-number="5.5.2.4" class="anchored" data-anchor-id="make-it-a-rectangle"><span class="header-section-number">5.5.2.4</span> Make it a rectangle</h4>
-<p>As your data usually resides in a two-dimensional spreadsheet, it is best to layout your data in a two-dimensional format as well. Use columns for variables and rows for subjects or observations. The first row should contain variable names. If some data do not fit into one dataset, create a set of rectangular datasets and save them in separate files. Do not use multiple header rows. You can further apply the concept of <code>tidy data</code> <span class="citation" data-cites="wickham2014">(<a href="../references.html#ref-wickham2014" role="doc-biblioref">Wickham 2014</a>)</span> to your rectangular dataset (see <a href="good-coding-practices.html#sec-tidydata" class="quarto-xref"><span>Section 6.5</span></a>).</p>
+<p>As your data usually resides in a two-dimensional spreadsheet, it is best to layout your data in a two-dimensional format as well. Use columns for variables and rows for subjects or observations. The first row should contain variable names. If some data do not fit into one dataset, create a set of rectangular datasets and save them in separate files. Do not use multiple header rows. You can further apply the concept of <code>tidy data</code> <span class="citation" data-cites="wickham2014">(<a href="../references.html#ref-wickham2014" role="doc-biblioref">Wickham 2014</a>)</span> to your rectangular dataset (see <a href="good-coding-practices.html#sec-tidydata" class="quarto-xref"><span>Section 7.5</span></a>).</p>
 <div class="callout callout-style-default callout-caution callout-titled" title="Example of multiple header rows">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1066,7 +1072,7 @@ Write-protecting your data
 </section>
 <section id="use-data-validation-to-avoid-errors" class="level4" data-number="5.5.2.8">
 <h4 data-number="5.5.2.8" class="anchored" data-anchor-id="use-data-validation-to-avoid-errors"><span class="header-section-number">5.5.2.8</span> Use Data Validation to Avoid Errors</h4>
-<p>Ensure that your entered data is error-free by applying data validation techniques. You can create validation rules using the R package <code>assertr</code> <span class="citation" data-cites="fischetti2023">(<a href="../references.html#ref-fischetti2023" role="doc-biblioref">Fischetti 2023</a>)</span> and its function <code>verify()</code> (see <a href="good-coding-practices.html#sec-assertr" class="quarto-xref"><span>Section 6.6.1</span></a>).</p>
+<p>Ensure that your entered data is error-free by applying data validation techniques. You can create validation rules using the R package <code>assertr</code> <span class="citation" data-cites="fischetti2023">(<a href="../references.html#ref-fischetti2023" role="doc-biblioref">Fischetti 2023</a>)</span> and its function <code>verify()</code> (see <a href="good-coding-practices.html#sec-assertr" class="quarto-xref"><span>Section 7.6.1</span></a>).</p>
 </section>
 <section id="save-data-in-plain-text-files" class="level4" data-number="5.5.2.9">
 <h4 data-number="5.5.2.9" class="anchored" data-anchor-id="save-data-in-plain-text-files"><span class="header-section-number">5.5.2.9</span> Save data in plain text files</h4>
@@ -1203,7 +1209,7 @@ How to work with <code>json</code> files in R
 </div>
 </div>
 <ol start="3" type="1">
-<li>Load the <code>json</code>-file to your R environment. Make sure that you specified the correct file path from your working or project directory (see <a href="good-coding-practices.html#sec-file-paths" class="quarto-xref"><span>Section 6.3</span></a>).</li>
+<li>Load the <code>json</code>-file to your R environment. Make sure that you specified the correct file path from your working or project directory (see <a href="good-coding-practices.html#sec-file-paths" class="quarto-xref"><span>Section 7.3</span></a>).</li>
 </ol>
 <div class="cell">
 <div class="code-with-filename">
@@ -1693,8 +1699,8 @@ Ziemann, M., Y. Eren, and A. El-Osta. 2016. <span>“Gene Name Erorrs Are Widesp
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../chapters/good-coding-practices.html" class="pagination-link" aria-label="Good Coding Practices">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Good Coding Practices</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/git-crashcourse.html" class="pagination-link" aria-label="Git crashcourse">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Git crashcourse</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
