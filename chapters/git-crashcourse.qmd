@@ -413,8 +413,30 @@ To do this, make sure you are on the branch you want to merge **into**, so add y
 
 ``` {bash filename="Code"}
 git merge <your branch>
-
 ```
+
+::: {.callout-warning title="Merge conflicts" collapse="true"}
+Sometimes, when you work on different branches and try to merge them, merge conflicts can occur.
+In this occasion, Git is unable to resolve differences between branches and requests you to specify how to handle these differences.
+When merge conflicts happen to you, do not be afraid.
+Take a good look at the [respective section](https://lennartwittkuhn.com/version-control-book/chapters/branches.html#merge-conflicts) in the Version Control Book [@wittkuhn2024].
+:::
+
+### Delete a branch
+
+After you have merged the branch, you can also delete the branch to keep your working environment clean.
+Again, there is no button in RStudio to do that for you.
+Thus, you will need to use the command line to do that.
+To delete a branch, you use the `git branch -d` command:
+
+```{bash filename="Code"}
+git branch -d <your branch>
+```
+
+::: {.callout-caution title="Do not delete the main branch"}
+Technically, you can delete your main branch like any other branch.
+However, we do not recommend it to avoid any confusion.
+:::
 
 ## Outlook: Remote repositories
 
