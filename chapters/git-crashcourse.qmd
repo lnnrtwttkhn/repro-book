@@ -45,9 +45,17 @@ Nevertheless, we might need to work with the command line for specific commands 
 ::: panel-tabset
 ## MacOS
 
-To open a command-line tool on a Mac, open the *Finder*, click on *Applications*, then on *Utilities*.
-In the folder *Utilities*, you will find the application **Terminal**.
+To open a command-line tool on a Mac there are multiple ways.
+Here we show you three ways: 
+
+1. Open **Finder**, click on **Applications**, then on **Utilities**.
+In the folder **Utilities**, you will find the application **Terminal**.
 Open it, and you can use the command line.
+
+1. Open **Finder**, go to the **GO** menu, then on **Utilities**.
+Then, open the **Terminal**.
+
+1. Open the **Launchpad**, hit **Terminal** into the *search bar*, and open it.
 
 ## Windows
 
