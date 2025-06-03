@@ -274,7 +274,7 @@ div.csl-indent {
   <li><a href="#first-steps" id="toc-first-steps" class="nav-link" data-scroll-target="#first-steps"><span class="header-section-number">6.2</span> First steps</a>
   <ul class="collapse">
   <li><a href="#sec-gitinstallation" id="toc-sec-gitinstallation" class="nav-link" data-scroll-target="#sec-gitinstallation"><span class="header-section-number">6.2.1</span> Installation</a></li>
-  <li><a href="#setting-up-git-in-.gitconfig" id="toc-setting-up-git-in-.gitconfig" class="nav-link" data-scroll-target="#setting-up-git-in-.gitconfig"><span class="header-section-number">6.2.2</span> Setting up Git in .gitconfig</a></li>
+  <li><a href="#setting-up-git-in-.gitconfig" id="toc-setting-up-git-in-.gitconfig" class="nav-link" data-scroll-target="#setting-up-git-in-.gitconfig"><span class="header-section-number">6.2.2</span> Setting up Git in <code>.gitconfig</code></a></li>
   <li><a href="#repository" id="toc-repository" class="nav-link" data-scroll-target="#repository"><span class="header-section-number">6.2.3</span> Repository</a></li>
   </ul></li>
   <li><a href="#using-git-in-rstudio" id="toc-using-git-in-rstudio" class="nav-link" data-scroll-target="#using-git-in-rstudio"><span class="header-section-number">6.3</span> Using Git in RStudio</a>
@@ -291,6 +291,7 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#create-a-branch" id="toc-create-a-branch" class="nav-link" data-scroll-target="#create-a-branch"><span class="header-section-number">6.5.1</span> Create a branch</a></li>
   <li><a href="#merging" id="toc-merging" class="nav-link" data-scroll-target="#merging"><span class="header-section-number">6.5.2</span> Merging</a></li>
+  <li><a href="#delete-a-branch" id="toc-delete-a-branch" class="nav-link" data-scroll-target="#delete-a-branch"><span class="header-section-number">6.5.3</span> Delete a branch</a></li>
   </ul></li>
   <li><a href="#outlook-remote-repositories" id="toc-outlook-remote-repositories" class="nav-link" data-scroll-target="#outlook-remote-repositories"><span class="header-section-number">6.6</span> Outlook: Remote repositories</a></li>
   <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments"><span class="header-section-number">6.7</span> Acknowledgments</a></li>
@@ -338,7 +339,7 @@ div.csl-indent {
 <h5 class="anchored">
 Learning Objectives
 </h5>
-<p><span class="emoji" data-emoji="bulb">💡</span> You understand what version control and Git are and why they’re useful.<br> <span class="emoji" data-emoji="bulb">💡</span> You can use Git in RStudio and apply it to your own research project.<br> <span class="emoji" data-emoji="bulb">💡</span> You can connect to a remote repository on GitHub.<br> <span class="emoji" data-emoji="bulb">💡</span> You can collaborate with others on a repository via GitHub.<br></p>
+<p><span class="emoji" data-emoji="bulb">💡</span> You understand what version control and Git are and why they’re useful.<br> <span class="emoji" data-emoji="bulb">💡</span> You can use Git in RStudio and apply it to your own research project.<br></p>
 </div>
 </div>
 </div>
@@ -363,7 +364,7 @@ Tip&nbsp;6.1: What is the command line?
 </div>
 </div>
 </div>
-<p>It is possible to work with Git completely through the command line. However, the command line might seem unintuitively for many people. Thus, we aim to use git as much as possible with GUIs as RStudio. Therefore, we aim to keep the chapter as user-friendly as possible. Nevertheless, we might need to work with the command line for specific commands that do not have a specific button in RStudio.</p>
+<p>It is possible to work with Git completely through the command line. However, the command line might seem unintuitively for many people. Thus, we aim to use git as much as possible with GUIs as RStudio. Therefore, we aim to keep the chapter as user-friendly as possible. Nevertheless, we might need to work with the command line for specific commands that do not have a respective button in RStudio.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="How to open the command line on your computer">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -380,7 +381,12 @@ How to open the command line on your computer
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">MacOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Windows</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>To open a command-line tool on a Mac, open the <em>Finder</em>, click on <em>Applications</em>, then on <em>Utilities</em>. In the folder <em>Utilities</em>, you will find the application <strong>Terminal</strong>. Open it, and you can use the command line.</p>
+<p>To open a command-line tool on a Mac there are multiple ways. Here we show you three ways:</p>
+<ol type="1">
+<li><p>Open <strong>Finder</strong>, click on <strong>Applications</strong>, then on <strong>Utilities</strong>. In the folder <strong>Utilities</strong>, you will find the application <strong>Terminal</strong>. Open it, and you can use the command line.</p></li>
+<li><p>Open <strong>Finder</strong>, go to the <strong>GO</strong> menu, then on <strong>Utilities</strong>. Then, open the <strong>Terminal</strong>.</p></li>
+<li><p>Open the <strong>Launchpad</strong>, hit <strong>Terminal</strong> into the <em>search bar</em>, and open it.</p></li>
+</ol>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p>Press the Windows-Button <i class="fa-brands fa-windows" aria-label="windows"></i> so that your search pane opens on the computer. Type <em>cmd</em> into the search field. Then, the command line should pop up. Hit <strong>Enter</strong> and you open the command line.</p>
@@ -431,11 +437,11 @@ Figure&nbsp;6.2: “<a href="https://phdcomics.com/comics/archive.php?comicid=15
 </section>
 <section id="git-and-reproducibility" class="level3" data-number="6.1.2">
 <h3 data-number="6.1.2" class="anchored" data-anchor-id="git-and-reproducibility"><span class="header-section-number">6.1.2</span> Git and reproducibility</h3>
-<p>Git as version control software is able to follow different versions of code and data. Thus, it provides information about code and data <strong>evolved</strong> over time. Hence, it becomes way easier to understand which code and data was used to create e.g.&nbsp;a particular figure. Further, Git saves a <strong>version history</strong> enabling us to understand the changes made, the purpose of analyses, even months or years later. Meanwhile, Git hides older versions which keeps your project structure organized. However, you can still access them if you need them <span class="citation" data-cites="community2022">(<a href="../references.html#ref-community2022" role="doc-biblioref">The Turing Way Community 2022</a>)</span>.</p>
+<p>Git as version control software is able to follow different versions of code and data. Thus, it provides information about code and data <strong>evolved</strong> over time. Hence, it becomes way easier to understand which code and data was used to create e.g.&nbsp;a particular figure. Further, Git saves a <strong>version history</strong> enabling us to understand the changes made, the purpose of analyses, even months or years later. Thus, we can remarkably reduce process-based reproducibility errors when using Git (<a href="intro.html#sec-repro-errors" class="quarto-xref"><span>Section 1.1.1</span></a>) Meanwhile, Git hides older versions which keeps your project structure organized. However, you can still access them if you need them <span class="citation" data-cites="community2022">(<a href="../references.html#ref-community2022" role="doc-biblioref">The Turing Way Community 2022</a>)</span>.</p>
 </section>
 <section id="some-limitations" class="level3" data-number="6.1.3">
 <h3 data-number="6.1.3" class="anchored" data-anchor-id="some-limitations"><span class="header-section-number">6.1.3</span> Some limitations</h3>
-<p>Git is not good at tracking very large files such as large data sets, which can slow it down quite a bit. It is also not very good at tracking binary files like videos, images or ‘.docx’ files. But if you want to track written work you can use ‘.md’ (Markdown) files instead.</p>
+<p>Git is not good at tracking very large files such as data sets, which can slow it down quite a bit. It is also not very good at tracking binary files like videos, images or ‘.docx’ files. But if you want to track written work you can use ‘.md’ (Markdown) files instead.</p>
 </section>
 </section>
 <section id="first-steps" class="level2" data-number="6.2">
@@ -456,19 +462,47 @@ How to install Git on your computer
 <div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">MacOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Windows</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"><i class="fa-brands fa-apple" aria-label="apple"></i> MacOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><i class="fa-brands fa-windows" aria-label="windows"></i> Windows</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>Git should come pre installed on MacOS. To make sure, head to your command-line/Terminal and enter the following command.</p>
+<p>On recent versions of MacOS (&gt; MacOS Sierra 10.12) Git should come pre- installed. To check whether Git is pre-installed, head to your command-line/Terminal and enter the following command.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
 </div>
-<p>This should return the version of Git that is already installed.</p>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>When Git is already installed, you should see an output similar to below.</p>
+<div class="cell" data-code-copy="false">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> version 2.39.2 <span class="op">(Apple Git-143)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>When Git is not installed, you will receive a prompt asking you if you want to install it along Xcode command line deleveloper tools. You will also be asked for your administrator password. Make sure that you have enough storage on your computer to install the Xcode command line developer tools.</p>
+<p>Maybe, you will receive an error message called <code>xcrun:error</code>. If so, check out the <a href="https://lennartwittkuhn.com/version-control-book/chapters/installation.html#option-1-terminal">Git installation instructions</a> in the version control book <span class="citation" data-cites="wittkuhn2024">(<a href="../references.html#ref-wittkuhn2024" role="doc-biblioref">Wittkuhn and Pagenstedt 2024</a>)</span>. The authors describe how to fix it.</p>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p>On <a href="https://gitforwindows.org/">Git for Windows</a> you can download Git and Bash in one go. The Bash shell is a commonly used command-line interface, which can be useful for more complex commands. On the website simply click on the <strong>Download</strong> button and after it has finished downloading, double-click on the installer to start the installation process. You can accept all the default settings if you have no special requirements such as a specific installation destination. After running through all the settings, click <strong>Install</strong>. Once done installing, the Bash shell will open automatically. To confirm everything worked correctly and Git is installed, run the following command, which should return the Git version.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="cell" data-code-copy="false">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> version 2.46.0.windows.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -478,12 +512,17 @@ How to install Git on your computer
 </div>
 </section>
 <section id="setting-up-git-in-.gitconfig" class="level3" data-number="6.2.2">
-<h3 data-number="6.2.2" class="anchored" data-anchor-id="setting-up-git-in-.gitconfig"><span class="header-section-number">6.2.2</span> Setting up Git in .gitconfig</h3>
-<p>When you first start using Git, there are some things you need to set up in the <strong>.gitconfig</strong> file. This file stores all your specific settings. Using the <a href="http://repro-book/chapters/git-crashcourse.html#introduction">command line</a>, you first need to let Git know who you are. Your username and email address will be associated with the changes you’re tracking with Git. This is useful, as it allows others to trace back who made which changes. As you will later use this email address to connect with GitHub, make sure you either use the same email as the one in your GitHub account or use an email address you would be happy to use for your GitHub profile as well!<br>
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="setting-up-git-in-.gitconfig"><span class="header-section-number">6.2.2</span> Setting up Git in <code>.gitconfig</code></h3>
+<p>When you first start using Git, there are some things you need to set up in the <code>.gitconfig</code> file. This file stores all your specific settings. Using the <a href="http://repro-book/chapters/git-crashcourse.html#introduction">command line</a>, you first need to let Git know who you are. Your username and email address will be associated with the changes you’re tracking with Git. This is useful, as it allows others to trace back who made which changes. As you will later use this email address to connect with GitHub, make sure you either use the same email as the one in your GitHub account or use an email address you would be happy to use for your GitHub profile as well!<br>
 To set this up, enter the command below in the command line, replacing ‘Your Name’ and ‘Your Email’ with your own.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Name"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email Your Email</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Name"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email Your Email</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled" title="Consider privacy concerns!">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
@@ -503,7 +542,12 @@ Consider privacy concerns!
 </div>
 <p>The next step is not strictly necessary for functionality but comes highly recommended. Some older versions of Git still use the terminology of “master” to define the most important branch (There will be more explanation on what branches are later on). To make the terminology of Git less offensive and more inclusive, there has been a shift to refer to “main” instead. To ensure your Git will refer to “main” instead of “master”, simply run this in your command line:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </section>
 <section id="repository" class="level3" data-number="6.2.3">
@@ -523,7 +567,7 @@ Consider privacy concerns!
 <figcaption>This screenshot shows where to find the version control feature in RStudio . Used under a <a href="https://creativecommons.org/licenses/by/4.0">CC-BY 4.0</a> license.</figcaption>
 </figure>
 </div>
-<p>Well done, now you should have a added tab for Git next to your environment pane, which is usually found in the upper right corner. It should look something like below.</p>
+<p>Well done, now you should have an additional tab for Git next to your environment pane, which is usually found in the upper right corner. It should look something like below.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../static/git-pane.jpg" class="img-fluid figure-img"></p>
@@ -532,13 +576,37 @@ Consider privacy concerns!
 </div>
 <p>Here you can see all of your projects file, which so far are not tracked by Git.</p>
 <section id="gitignore-file" class="level4" data-number="6.3.1.1">
-<h4 data-number="6.3.1.1" class="anchored" data-anchor-id="gitignore-file"><span class="header-section-number">6.3.1.1</span> .gitignore file</h4>
-<p>Now that you’ve added Git to your repository, a <strong>.gitignore</strong> file was automatically added to it. This file lists all the files that are <strong>not</strong> tracked aka ignored by Git. You can and should add files that you don’t want to be included in the version history in here.</p>
-<p>This is useful to:<br>
-1. Keep your repository <strong>free of unnecessary files</strong>, that would only clutter it. You should ignore files that can be recreated by using code from your repository, e.g., plots you created in your data analysis.<br>
-2. Keep <strong>private</strong> or sensitive information out of the version control history, which you might later share.<br>
-3. <strong>Not slow down</strong> working with your repository by adding big files, such as datasets to the .gitignore file. Additionally, you shouldn’t need to track changes when it’s reproducible from your raw data and code.</p>
-<p>To add files to .gitignore, just open the .gitignore file and <strong>list the files</strong> you don’t want to be tracked in it. There will already be some files listed there that are being ignored by default. Your .gitignore should look something like this.</p>
+<h4 data-number="6.3.1.1" class="anchored" data-anchor-id="gitignore-file"><span class="header-section-number">6.3.1.1</span> <code>.gitignore</code> file</h4>
+<p>Now that you’ve added Git to your repository, a <code>.gitignore</code> file was automatically added to it. This file lists all the files that are <strong>not</strong> tracked aka ignored by Git. You can and should add files that you don’t want to be included in the version history in here.</p>
+<p>This is useful to:</p>
+<ol type="1">
+<li><p>Keep your repository <strong>free of unnecessary files</strong>, that would only clutter it. You should ignore files that can be recreated by using code from your repository, e.g., plots you created in your data analysis.</p></li>
+<li><p>Keep <strong>private</strong> or sensitive information out of the version control history, which you might later share.</p></li>
+<li><p><strong>Not slow down</strong> working with your repository by adding big files, such as datasets to the .gitignore file. Additionally, you shouldn’t need to track changes when it’s reproducible from your raw data and code.</p></li>
+</ol>
+<p>To add files to .gitignore, just open the .gitignore file and <strong>list the files</strong> you don’t want to be tracked in it.</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Example .gitignore</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">*.pdf</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">misc</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="1" data-code-annotation="1">This entry makes Git ignore all <code>.pdf</code> files inside your repository.</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="2" data-code-annotation="2">This entry makes Git ignore the <code>misc</code> folder inside your repository.</span>
+</dd>
+</dl>
+</div>
+</div>
+<p>There will already be some files listed there that are being ignored by default. Your .gitignore should look something like this.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../static/git-gitignore.jpg" class="img-fluid figure-img"></p>
@@ -550,10 +618,14 @@ Consider privacy concerns!
 </section>
 <section id="general-workflow-with-git" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="general-workflow-with-git"><span class="header-section-number">6.4</span> General workflow with Git</h2>
-<p>When using Git, the most basic workflow is:<br>
-1. Make changes to your files and save them as usual<br>
-2. Stage files<br>
-3. Commit your changes</p>
+<p>When using Git, the most basic workflow is:</p>
+<ol type="1">
+<li>Make changes to your files and save them as usual<br>
+</li>
+<li>Stage files<br>
+</li>
+<li>Commit your changes</li>
+</ol>
 <section id="staging" class="level3" data-number="6.4.1">
 <h3 data-number="6.4.1" class="anchored" data-anchor-id="staging"><span class="header-section-number">6.4.1</span> Staging</h3>
 <p><strong>Staging</strong> is essentially telling Git which files and changes you want it to track in your next commit. It is like adding items to your shopping cart but not yet buying them. You have to do this before being able to create a commit. When staging files, keep in mind what changes and files to include in a single commit. This can be all the files that you’ve changed in order to fix a bug or to include a new feature, but could be divided up into smaller commits as well.</p>
@@ -658,7 +730,7 @@ You can see which changes were made in that commit. Navigate to the version you 
 </section>
 <section id="branches" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="branches"><span class="header-section-number">6.5</span> Branches</h2>
-<p>Branches allow you to work on your project in several versions at the same time. You can keep your main repo unchanged, whilst figuring out how to fix a bug or plot your analysis on a different branch. This let’s you keep your working code safe whilst you add or modify things in a separate branch. Once you’re happy with changes made you can move them from that branch to your actual main branch. A good example for research could be that you want to try out different visualizations of your results. Instead of fidgeting with the same plot to try out different styles and having to revert to old commits to get back to the previous version, you can have several branches to try out new styles and if you like your plot, add it to your main branch.</p>
+<p>Branches allow you to work on your project in several versions at the same time. You can keep your main repo unchanged, whilst figuring out how to fix a bug or plot your analysis on a different branch. This let’s you keep your working code safe whilst you add or modify things in a separate branch. Once you’re happy with changes made you can move them from that branch to your actual main branch. A good example for research could be that you want to try out different visualizations of your results. Instead of fidgeting with the same plot to try out different styles and having to revert to old commits to get back to the previous version, you can have several branches to try out new styles and if you like your plot, add it to your main branch. Another example might be that you write a research paper in a Git-friendly environment (see Chapter about Quarto). Branches are very helpful if you have different ideas of how to structure e.g.&nbsp;your theoretical background. You can work on different ideas simultaneously while keeping your project structure clean.</p>
 <p>The default branch in Git, where essentially your final results will land is called <strong>main</strong>. As touched on <a href="http://https://lennartwittkuhn.com/repro-book/chapters/git-crashcourse.html#setting-up-git-in-.gitconfig">previously</a> in older versions of Git this was referred to as “master”.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -706,12 +778,59 @@ Pay attention to create new branches from main
 <h3 data-number="6.5.2" class="anchored" data-anchor-id="merging"><span class="header-section-number">6.5.2</span> Merging</h3>
 <p>Once you are happy with your changes in a branch and want to add it to your main you have to <strong>merge</strong> them. Merging one branch into another refers to adding the changes you’ve made there to your other branch, often ‘main’. To do this, make sure you are on the branch you want to merge <strong>into</strong>, so add your changes to, which will often be main. To merge, go to your terminal in RStudio and run the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="op">&lt;</span>your branch<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="op">&lt;</span>your branch<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Merge conflicts">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Merge conflicts
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Sometimes, when you work on different branches and try to merge them, merge conflicts can occur. In this occasion, Git is unable to resolve differences between branches and requests you to specify how to handle these differences. When merge conflicts happen to you, do not be afraid. Take a good look at the <a href="https://lennartwittkuhn.com/version-control-book/chapters/branches.html#merge-conflicts">respective section</a> in the Version Control Book <span class="citation" data-cites="wittkuhn2024">(<a href="../references.html#ref-wittkuhn2024" role="doc-biblioref">Wittkuhn and Pagenstedt 2024</a>)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="delete-a-branch" class="level3" data-number="6.5.3">
+<h3 data-number="6.5.3" class="anchored" data-anchor-id="delete-a-branch"><span class="header-section-number">6.5.3</span> Delete a branch</h3>
+<p>After you have merged the branch, you can also delete the branch to keep your working environment clean. Again, there is no button in RStudio to do that for you. Thus, you will need to use the command line to do that. To delete a branch, you use the <code>git branch -d</code> command:</p>
+<div class="cell">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> <span class="op">&lt;</span>your branch<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Do not delete the main branch">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Do not delete the main branch
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Technically, you can delete your main branch like any other branch. However, we do not recommend it to avoid any confusion.</p>
+</div>
 </div>
 </section>
 </section>
 <section id="outlook-remote-repositories" class="level2" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="outlook-remote-repositories"><span class="header-section-number">6.6</span> Outlook: Remote repositories</h2>
+<p>This chapter introduced Git to you as software that makes it possible to track your changes of your research project, take snapshots of it, and go back to any given snapshot you want. However, Git is also very powerful when it comes to collaborative work. Think of <a href="#fig-final-doc-comic" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>. A researcher and a supervisor work collaboratively on a manuscript. Opposed to the time consuming way displayed in <a href="#fig-final-doc-comic" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>, remote repositories can make things easier. Thus, process-based reproducibility errors can also be reduced in collaborative settings.</p>
 <p>The possibility to make your repositories available remotely makes Git and online platforms such as GitHub very valuable for collaboration. GitHub is often referred to as it is the most popular platform and as a student you can get a free pro-account. This allows you to transfer your local repositories to online platforms, where not only you can make use of features to better structure your project and workflow but most importantly your collaborators can easily access the repository.</p>
 <p>Collaborators can simultaneously work on the same file in different or the same branches on their local repositories and once done, both can “upload”, or <strong>push</strong> their versions to the remote repository. On these online platforms such as GitHub, you can easily comment on the changes and merge them into other branches. Other collaborators can easily “download”, or <strong>pull</strong> these other versions to their own local repository.</p>
 <p>Another advantage is that you can easily make your repository accessible to others. In a publication, you can refer to your remote repository for easy access to not only your repository but also your version history. This can make it easier to follow your work and train of thought.</p>
