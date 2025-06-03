@@ -15,8 +15,6 @@ abstract: |
 
 :bulb: You understand what version control and Git are and why they're useful.<br>
 :bulb: You can use Git in RStudio and apply it to your own research project.<br>
-:bulb: You can connect to a remote repository on GitHub.<br>
-:bulb: You can collaborate with others on a repository via GitHub.<br>
 :::
 
 ## Introduction
@@ -40,16 +38,24 @@ It is possible to work with Git completely through the command line.
 However, the command line might seem unintuitively for many people.
 Thus, we aim to use git as much as possible with GUIs as RStudio.
 Therefore, we aim to keep the chapter as user-friendly as possible.
-Nevertheless, we might need to work with the command line for specific commands that do not have a specific button in RStudio.
+Nevertheless, we might need to work with the command line for specific commands that do not have a respective button in RStudio.
 
 ::: {.callout-tip title="How to open the command line on your computer" collapse="false"}
 
 ::: panel-tabset
 ## MacOS
 
-To open a command-line tool on a Mac, open the *Finder*, click on *Applications*, then on *Utilities*.
-In the folder *Utilities*, you will find the application **Terminal**.
+To open a command-line tool on a Mac there are multiple ways.
+Here we show you three ways: 
+
+1. Open **Finder**, click on **Applications**, then on **Utilities**.
+In the folder **Utilities**, you will find the application **Terminal**.
 Open it, and you can use the command line.
+
+1. Open **Finder**, go to the **GO** menu, then on **Utilities**.
+Then, open the **Terminal**.
+
+1. Open the **Launchpad**, hit **Terminal** into the *search bar*, and open it.
 
 ## Windows
 
@@ -80,6 +86,7 @@ You've likely come across the illustration below before in this book, but it hel
 #| results: asis
 #| eval: true
 #| echo: false
+#| label: final-doc-comic
 cat(make_figure("final-doc-comic"))
 ```
 
@@ -100,13 +107,14 @@ Git as version control software is able to follow different versions of code and
 Thus, it provides information about code and data **evolved** over time.
 Hence, it becomes way easier to understand which code and data was used to create e.g. a particular figure.
 Further, Git saves a **version history** enabling us to understand the changes made, the purpose of analyses, even months or years later.
+Thus, we can remarkably reduce process-based reproducibility errors when using Git (@sec-repro-errors)
 Meanwhile, Git hides older versions which keeps your project structure organized.
 However, you can still access them if you need them [@community2022].
 
 
 ### Some limitations
 
-Git is not good at tracking very large files such as large data sets, which can slow it down quite a bit.
+Git is not good at tracking very large files such as data sets, which can slow it down quite a bit.
 It is also not very good at tracking binary files like videos, images or '.docx' files. 
 But if you want to track written work you can use '.md' (Markdown) files instead.
 
@@ -118,18 +126,31 @@ Depending on your operating system, this will look different.
 ::: {.callout-tip title="How to install Git on your computer" collapse="false"}
 
 ::: panel-tabset
-## MacOS
+## {{< fa brands apple >}} MacOS
 
-Git should come pre installed on MacOS.
-To make sure, head to your command-line/Terminal and enter the following command.
+On recent versions of MacOS (> MacOS Sierra 10.12) Git should come pre- installed.
+To check whether Git is pre-installed, head to your command-line/Terminal and enter the following command.
 
-```{bash}
+```{zsh filename="Code"}
 git --version
 ```
 
-This should return the version of Git that is already installed.
+When Git is already installed, you should see an output similar to below.
 
-## Windows
+```{zsh filename="Output"}
+#| code-copy: false
+git version 2.39.2 (Apple Git-143)
+```
+
+When Git is not installed, you will receive a prompt asking you if you want to install it along Xcode command line deleveloper tools.
+You will also be asked for your administrator password.
+Make sure that you have enough storage on your computer to install the Xcode command line developer tools.
+
+Maybe, you will receive an error message called `xcrun:error`.
+If so, check out the [Git installation instructions](https://lennartwittkuhn.com/version-control-book/chapters/installation.html#option-1-terminal) in the version control book [@wittkuhn2024].
+The authors describe how to fix it.
+
+## {{< fa brands windows >}} Windows
 
 On [Git for Windows](https://gitforwindows.org/) you can download Git and Bash in one go.
 The Bash shell is a commonly used command-line interface, which can be useful for more complex commands.
@@ -139,15 +160,21 @@ After running through all the settings, click **Install**.
 Once done installing, the Bash shell will open automatically.
 To confirm everything worked correctly and Git is installed, run the following command, which should return the Git version.
 
-```{bash}
+```{bash filename="Code"}
 git --version
+```
+
+```{zsh filename="Output"}
+#| code-copy: false
+
+git version 2.46.0.windows.1
 ```
 :::
 :::
 
-### Setting up Git in .gitconfig
+### Setting up Git in `.gitconfig`
 
-When you first start using Git, there are some things you need to set up in the **.gitconfig** file.
+When you first start using Git, there are some things you need to set up in the `.gitconfig` file.
 This file stores all your specific settings.
 Using the [command line](http://repro-book/chapters/git-crashcourse.html#introduction), you first need to let Git know who you are.
 Your username and email address will be associated with the changes you're tracking with Git.
@@ -155,7 +182,7 @@ This is useful, as it allows others to trace back who made which changes.
 As you will later use this email address to connect with GitHub, make sure you either use the same email as the one in your GitHub account or use an email address you would be happy to use for your GitHub profile as well!  
 To set this up, enter the command below in the command line, replacing 'Your Name' and 'Your Email' with your own.
 
-```{bash}
+```{bash filename="Code"}
 git config --global user.name "Name"
 git config --global user.email Your Email
 ```
@@ -172,7 +199,7 @@ Some older versions of Git still use the terminology of "master" to define the m
 To make the terminology of Git less offensive and more inclusive, there has been a shift to refer to "main" instead.
 To ensure your Git will refer to "main" instead of "master", simply run this in your command line:
 
-```{bash}
+```{bash filename="Code"}
 git config --global init.defaultBranch main
 ```
 
@@ -196,27 +223,39 @@ Now, to set up Git, simply go to **Tools > Version Control > Project Setup...** 
 
 ![This screenshot shows where to find the version control feature in RStudio . Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-initialize.jpg)
 
-Well done, now you should have a added tab for Git next to your environment pane, which is usually found in the upper right corner.
+Well done, now you should have an additional tab for Git next to your environment pane, which is usually found in the upper right corner.
 It should look something like below.
 
 ![This screenshot shows where to find Git pane in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-pane.jpg)
 
 Here you can see all of your projects file, which so far are not tracked by Git.
 
-#### .gitignore file
+#### `.gitignore` file
 
-Now that you've added Git to your repository, a **.gitignore** file was automatically added to it.
+Now that you've added Git to your repository, a `.gitignore` file was automatically added to it.
 This file lists all the files that are **not** tracked aka ignored by Git.
 You can and should add files that you don't want to be included in the version history in here.
 
 This is useful to:  
+
 1. Keep your repository **free of unnecessary files**, that would only clutter it.
- You should ignore files that can be recreated by using code from your repository, e.g., plots you created in your data analysis.  
+You should ignore files that can be recreated by using code from your repository, e.g., plots you created in your data analysis.  
+
 2. Keep **private** or sensitive information out of the version control history, which you might later share.  
+
 3. **Not slow down** working with your repository by adding big files, such as datasets to the .gitignore file.
 Additionally, you shouldn't need to track changes when it's reproducible from your raw data and code.  
 
 To add files to .gitignore, just open the .gitignore file and **list the files** you don't want to be tracked in it.
+
+```{bash filename="Example .gitignore"}
+*.pdf # <1>
+misc # <2>
+```
+
+1. This entry makes Git ignore all `.pdf` files inside your repository.
+2. This entry makes Git ignore the `misc` folder inside your repository.
+
 There will already be some files listed there that are being ignored by default.
 Your .gitignore should look something like this.
 
@@ -225,6 +264,7 @@ Your .gitignore should look something like this.
 ## General workflow with Git
 
 When using Git, the most basic workflow is:  
+
 1. Make changes to your files and save them as usual  
 2. Stage files  
 3. Commit your changes  
@@ -330,6 +370,9 @@ This let's you keep your working code safe whilst you add or modify things in a 
 Once you're happy with changes made you can move them from that branch to your actual main branch.
 A good example for research could be that you want to try out different visualizations of your results.
 Instead of fidgeting with the same plot to try out different styles and having to revert to old commits to get back to the previous version, you can have several branches to try out new styles and if you like your plot, add it to your main branch.
+Another example might be that you write a research paper in a Git-friendly environment (see Chapter about Quarto).
+Branches are very helpful if you have different ideas of how to structure e.g. your theoretical background.
+You can work on different ideas simultaneously while keeping your project structure clean.
 
 The default branch in Git, where essentially your final results will land is called **main**. 
 As touched on [previously](http://https://lennartwittkuhn.com/repro-book/chapters/git-crashcourse.html#setting-up-git-in-.gitconfig) in older versions of Git this was referred to as "master".
@@ -369,12 +412,40 @@ Once you are happy with your changes in a branch and want to add it to your main
 Merging one branch into another refers to adding the changes you've made there to your other branch, often 'main'.
 To do this, make sure you are on the branch you want to merge **into**, so add your changes to, which will often be main. To merge, go to your terminal in RStudio and run the following command:
 
-``` {bash}
+``` {bash filename="Code"}
 git merge <your branch>
-
 ```
 
+::: {.callout-warning title="Merge conflicts" collapse="true"}
+Sometimes, when you work on different branches and try to merge them, merge conflicts can occur.
+In this occasion, Git is unable to resolve differences between branches and requests you to specify how to handle these differences.
+When merge conflicts happen to you, do not be afraid.
+Take a good look at the [respective section](https://lennartwittkuhn.com/version-control-book/chapters/branches.html#merge-conflicts) in the Version Control Book [@wittkuhn2024].
+:::
+
+### Delete a branch
+
+After you have merged the branch, you can also delete the branch to keep your working environment clean.
+Again, there is no button in RStudio to do that for you.
+Thus, you will need to use the command line to do that.
+To delete a branch, you use the `git branch -d` command:
+
+```{bash filename="Code"}
+git branch -d <your branch>
+```
+
+::: {.callout-caution title="Do not delete the main branch"}
+Technically, you can delete your main branch like any other branch.
+However, we do not recommend it to avoid any confusion.
+:::
+
 ## Outlook: Remote repositories
+
+This chapter introduced Git to you as software that makes it possible to track your changes of your research project, take snapshots of it, and go back to any given snapshot you want.
+However, Git is also very powerful when it comes to collaborative work.
+Think of @fig-final-doc-comic. A researcher and a supervisor work collaboratively on a manuscript.
+Opposed to the time consuming way displayed in @fig-final-doc-comic, remote repositories can make things easier.
+Thus, process-based reproducibility errors can also be reduced in collaborative settings.
 
 The possibility to make your repositories available remotely makes Git and online platforms such as GitHub very valuable for collaboration.
 GitHub is often referred to as it is the most popular platform and as a student you can get a free pro-account.
