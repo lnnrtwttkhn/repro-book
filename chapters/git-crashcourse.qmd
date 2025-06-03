@@ -125,18 +125,31 @@ Depending on your operating system, this will look different.
 ::: {.callout-tip title="How to install Git on your computer" collapse="false"}
 
 ::: panel-tabset
-## MacOS
+## {{< fa brands apple >}} MacOS
 
-Git should come pre installed on MacOS.
-To make sure, head to your command-line/Terminal and enter the following command.
+On recent versions of MacOS (> MacOS Sierra 10.12) Git should come pre- installed.
+To check whether Git is pre-installed, head to your command-line/Terminal and enter the following command.
 
-```{bash}
+```{zsh filename="Code"}
 git --version
 ```
 
-This should return the version of Git that is already installed.
+When Git is already installed, you should see an output similar to below.
 
-## Windows
+```{zsh filename="Output"}
+#| code-copy: false
+git version 2.39.2 (Apple Git-143)
+```
+
+When Git is not installed, you will receive a prompt asking you if you want to install it along Xcode command line deleveloper tools.
+You will also be asked for your administrator password.
+Make sure that you have enough storage on your computer to install the Xcode command line developer tools.
+
+Maybe, you will receive an error message called `xcrun:error`.
+If so, check out the [Git installation instructions](https://lennartwittkuhn.com/version-control-book/chapters/installation.html#option-1-terminal) in the version control book [@wittkuhn2024].
+The authors describe how to fix it.
+
+## {{< fa brands windows >}} Windows
 
 On [Git for Windows](https://gitforwindows.org/) you can download Git and Bash in one go.
 The Bash shell is a commonly used command-line interface, which can be useful for more complex commands.
