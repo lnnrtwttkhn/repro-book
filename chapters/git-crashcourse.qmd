@@ -159,8 +159,14 @@ After running through all the settings, click **Install**.
 Once done installing, the Bash shell will open automatically.
 To confirm everything worked correctly and Git is installed, run the following command, which should return the Git version.
 
-```{bash}
+```{bash filename="Code"}
 git --version
+```
+
+```{zsh filename="Output"}
+#| code-copy: false
+
+git version 2.46.0.windows.1
 ```
 :::
 :::
@@ -175,7 +181,7 @@ This is useful, as it allows others to trace back who made which changes.
 As you will later use this email address to connect with GitHub, make sure you either use the same email as the one in your GitHub account or use an email address you would be happy to use for your GitHub profile as well!  
 To set this up, enter the command below in the command line, replacing 'Your Name' and 'Your Email' with your own.
 
-```{bash}
+```{bash filename="Code"}
 git config --global user.name "Name"
 git config --global user.email Your Email
 ```
@@ -192,7 +198,7 @@ Some older versions of Git still use the terminology of "master" to define the m
 To make the terminology of Git less offensive and more inclusive, there has been a shift to refer to "main" instead.
 To ensure your Git will refer to "main" instead of "master", simply run this in your command line:
 
-```{bash}
+```{bash filename="Code"}
 git config --global init.defaultBranch main
 ```
 
@@ -389,7 +395,7 @@ Once you are happy with your changes in a branch and want to add it to your main
 Merging one branch into another refers to adding the changes you've made there to your other branch, often 'main'.
 To do this, make sure you are on the branch you want to merge **into**, so add your changes to, which will often be main. To merge, go to your terminal in RStudio and run the following command:
 
-``` {bash}
+``` {bash filename="Code"}
 git merge <your branch>
 
 ```
