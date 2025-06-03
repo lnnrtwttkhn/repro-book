@@ -172,9 +172,9 @@ git version 2.46.0.windows.1
 :::
 :::
 
-### Setting up Git in .gitconfig
+### Setting up Git in `.gitconfig`
 
-When you first start using Git, there are some things you need to set up in the **.gitconfig** file.
+When you first start using Git, there are some things you need to set up in the `.gitconfig` file.
 This file stores all your specific settings.
 Using the [command line](http://repro-book/chapters/git-crashcourse.html#introduction), you first need to let Git know who you are.
 Your username and email address will be associated with the changes you're tracking with Git.
