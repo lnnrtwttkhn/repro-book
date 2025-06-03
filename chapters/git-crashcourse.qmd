@@ -263,6 +263,7 @@ Your .gitignore should look something like this.
 ## General workflow with Git
 
 When using Git, the most basic workflow is:  
+
 1. Make changes to your files and save them as usual  
 2. Stage files  
 3. Commit your changes  
@@ -368,6 +369,9 @@ This let's you keep your working code safe whilst you add or modify things in a 
 Once you're happy with changes made you can move them from that branch to your actual main branch.
 A good example for research could be that you want to try out different visualizations of your results.
 Instead of fidgeting with the same plot to try out different styles and having to revert to old commits to get back to the previous version, you can have several branches to try out new styles and if you like your plot, add it to your main branch.
+Another example might be that you write a research paper in a Git-friendly environment (see Chapter about Quarto).
+Branches are very helpful if you have different ideas of how to structure e.g. your theoretical background.
+You can work on different ideas simultaneously while keeping your project structure clean.
 
 The default branch in Git, where essentially your final results will land is called **main**. 
 As touched on [previously](http://https://lennartwittkuhn.com/repro-book/chapters/git-crashcourse.html#setting-up-git-in-.gitconfig) in older versions of Git this was referred to as "master".
