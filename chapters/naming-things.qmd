@@ -8,7 +8,20 @@ execute:
 categories: [beginner, basics]
 abstract: |
   In this chapter you will learn how to name things.
+  You get to know different principles for naming files and folders and accompanying tips how to apply them.
 ---
+
+::: {.callout-tip appearance="minimal"}
+<h5>Learning Objectives</h5>
+
+:bulb: You know different principles to name things.<br>
+:bulb: You know what regular expressions and globbing are.<br>
+:bulb: You know what a file name should contain to be easily processed by a computer.<br>
+:bulb: You know what a file name should contain to be easily understood by a human being. <br>
+:bulb: You know how to consistently name files. <br>
+:bulb: You know how to use date formats and numbering. <br>
+:bulb: You know how to use hyphens and underscores when naming files.
+:::
 
 ## Examples
 
@@ -116,7 +129,7 @@ Caches are used to speed up access to frequently used data, but if the cache isn
 It is challenging for several reasons: first, determining the right moment to update the cache can be difficult, risking the delivery of outdated information.
 Additionally, many data pieces are interconnected, making it hard to track what needs updating when changes occur.
 Lastly, automatically updating caches can slow down systems, so finding a balance between performance and accuracy is tricky.
-These complexities make effective cache invalidation one of the more difficult problems in software development.
+These complexities make effective cache invalidation one of the most difficult problems in software development.
 :::
 
 ## Principles for (file) names
@@ -257,6 +270,20 @@ Excerpt of complete file listing:
 
 ::: {.panel-tabset}
 
+## {{< fa brands r-project >}}
+
+```{zsh filename="Code"}
+list.files(pattern = "emotional") |> head
+```
+
+```{r filename="Output"}
+#| code-copy: false
+[1] "2021-06-04_NEOFFI_emotional-stroop_msc-thesis_001.csv"
+[2] "2021-06-05_NEOFFI_emotional-stroop_msc-thesis_002.csv"
+[3] "2021-06-07_NEOFFI_emotional-stroop_msc-thesis_003.csv"
+[4] "2021-06-11_NEOFFI_emotional-stroop_msc-thesis_004.csv"
+```
+
 ## {{< fa terminal >}} Bash
 
 ```{zsh filename="Code"}
@@ -273,44 +300,13 @@ ls *emotional*
 
 ## {{< fa brands apple >}} macOS
 
-Put image of macOS screenshot here
-
-## {{< fa brands r-project >}}
-
-```{zsh filename="Code"}
-list.files(pattern = "emotional") |> head
-```
-
-```{r filename="Output"}
-#| code-copy: false
-[1] "2021-06-04_NEOFFI_emotional-stroop_msc-thesis_001.csv"
-[2] "2021-06-05_NEOFFI_emotional-stroop_msc-thesis_002.csv"
-[3] "2021-06-07_NEOFFI_emotional-stroop_msc-thesis_003.csv"
-[4] "2021-06-11_NEOFFI_emotional-stroop_msc-thesis_004.csv"
-```
+![This screenshot was made by Justus Reihs on a [MacBook](https://apple.com/). Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/globbing-example-mac-psychology.png)
 
 :::
 
 ## Biology
 
 ::: {.panel-tabset}
-
-## {{< fa terminal >}} Bash
-
-```{zsh filename="Code"}
-ls *Plasmid*
-```
-
-```{zsh filename="Output"}
-#| code-copy: false
-2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H01.csv
-2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H02.csv
-2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H03.csv
-```
-
-## {{< fa brands apple >}} macOS
-
-Put image of macOS screenshot here
 
 ## {{< fa brands r-project >}}
 
@@ -327,6 +323,23 @@ list.files(pattern = "Plasmid") |> head
 [5] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_B02.csv"
 [6] "2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_B03.csv"
 ```
+
+## {{< fa terminal >}} Bash
+
+```{zsh filename="Code"}
+ls *Plasmid*
+```
+
+```{zsh filename="Output"}
+#| code-copy: false
+2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H01.csv
+2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H02.csv
+2013-06-26_BRAFWTNEGASSAY_Plasmid-Cellline-100-1MutantFraction_H03.csv
+```
+
+## {{< fa brands apple >}} macOS
+
+![This screenshot was made by Justus Reihs on a [MacBook](https://apple.com/). Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/globbing-example-mac-biology.png)
 
 :::
 
@@ -684,7 +697,7 @@ helper04_extract-and-tidy.r
 
 #### Use the ISO 8601 standard for dates {#sec-date-format}
 
-In 1988, to avoid confusion, the International Organization for Standardization (ISO) set a global standard numeric date format, known as ISO 8601: `YYYY-MM-DD`, where `YYYY` stands for the year, e.g., `2024`, `MM` stands for the month, e.g., `11` and `DD` stands for the day, e.g., `06`.
+In 1988, to avoid confusion, the International Organization for Standardization (ISO) set a global standard numeric date format, known as ISO 8601: `YYYY-MM-DD`, where `YYYY` stands for the year, e.g., `2024`, `MM` stands for the month, e.g., `11`, and `DD` stands for the day, e.g., `06`.
 Using the ISO 8601 standard for dates (like `2023-11-06`) ensures consistency and avoids confusion.
 This format starts with the year, followed by the month, and then the day, which makes it easy to sort dates in the correct order.
 It works well across different cultures and software, helping everyone read and organize dates the same way.
@@ -814,4 +827,4 @@ We would like to express our gratitude to the following resources, which have be
 We recommend these references for further reading:
 
 The ideas provided in this chapter are mainly based on the [slides](https://speakerdeck.com/jennybc/how-to-name-files) from @bryan2015. 
-We are also thankful for the additional ideas of [Danielle Navarro](https://djnavarro.net/slides-project-structure/#1) and the [BERD Academy](https://berd-nfdi.github.io/BERD-reproducible-research-course/2-1-naming.html)
+We are also thankful for the additional ideas of [Danielle Navarro](https://djnavarro.net/slides-project-structure/#1) and the [BERD Academy](https://berd-nfdi.github.io/BERD-reproducible-research-course/2-1-naming.html).
