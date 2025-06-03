@@ -15,8 +15,6 @@ abstract: |
 
 :bulb: You understand what version control and Git are and why they're useful.<br>
 :bulb: You can use Git in RStudio and apply it to your own research project.<br>
-:bulb: You can connect to a remote repository on GitHub.<br>
-:bulb: You can collaborate with others on a repository via GitHub.<br>
 :::
 
 ## Introduction
@@ -40,7 +38,7 @@ It is possible to work with Git completely through the command line.
 However, the command line might seem unintuitively for many people.
 Thus, we aim to use git as much as possible with GUIs as RStudio.
 Therefore, we aim to keep the chapter as user-friendly as possible.
-Nevertheless, we might need to work with the command line for specific commands that do not have a specific button in RStudio.
+Nevertheless, we might need to work with the command line for specific commands that do not have a respective button in RStudio.
 
 ::: {.callout-tip title="How to open the command line on your computer" collapse="false"}
 
@@ -100,13 +98,14 @@ Git as version control software is able to follow different versions of code and
 Thus, it provides information about code and data **evolved** over time.
 Hence, it becomes way easier to understand which code and data was used to create e.g. a particular figure.
 Further, Git saves a **version history** enabling us to understand the changes made, the purpose of analyses, even months or years later.
+Thus, we can remarkably reduce process-based reproducibility errors when using Git (@sec-repro-errors)
 Meanwhile, Git hides older versions which keeps your project structure organized.
 However, you can still access them if you need them [@community2022].
 
 
 ### Some limitations
 
-Git is not good at tracking very large files such as large data sets, which can slow it down quite a bit.
+Git is not good at tracking very large files such as data sets, which can slow it down quite a bit.
 It is also not very good at tracking binary files like videos, images or '.docx' files. 
 But if you want to track written work you can use '.md' (Markdown) files instead.
 
@@ -196,7 +195,7 @@ Now, to set up Git, simply go to **Tools > Version Control > Project Setup...** 
 
 ![This screenshot shows where to find the version control feature in RStudio . Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-initialize.jpg)
 
-Well done, now you should have a added tab for Git next to your environment pane, which is usually found in the upper right corner.
+Well done, now you should have an additional tab for Git next to your environment pane, which is usually found in the upper right corner.
 It should look something like below.
 
 ![This screenshot shows where to find Git pane in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-pane.jpg)
