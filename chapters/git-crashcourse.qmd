@@ -86,6 +86,7 @@ You've likely come across the illustration below before in this book, but it hel
 #| results: asis
 #| eval: true
 #| echo: false
+#| label: final-doc-comic
 cat(make_figure("final-doc-comic"))
 ```
 
@@ -439,6 +440,12 @@ However, we do not recommend it to avoid any confusion.
 :::
 
 ## Outlook: Remote repositories
+
+This chapter introduced Git to you as software that makes it possible to track your changes of your research project, take snapshots of it, and go back to any given snapshot you want.
+However, Git is also very powerful when it comes to collaborative work.
+Think of @fig-final-doc-comic. A researcher and a supervisor work collaboratively on a manuscript.
+Opposed to the time consuming way displayed in @fig-final-doc-comic, remote repositories can make things easier.
+Thus, process-based reproducibility errors can also be reduced in collaborative settings.
 
 The possibility to make your repositories available remotely makes Git and online platforms such as GitHub very valuable for collaboration.
 GitHub is often referred to as it is the most popular platform and as a student you can get a free pro-account.
