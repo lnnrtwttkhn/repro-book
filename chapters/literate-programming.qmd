@@ -37,10 +37,11 @@ As an example, when you write an article in a document using literate programmin
 
 ## What is Quarto?
 
-Quarto is an open-source  **Publishing System**.
+Quarto is an open-source **Publishing System**.
 It allows you to do literate programming.
-It was created by the company Posit, which is responsible for RStudio.
-Quarto is integrated in RStudio, so no extra installation needed.
+It was created by the company Posit, which is responsible for RStudio and is based on RMarkdown.
+Quarto is well integrated in RStudio and comes already bundled with any version of RStudio from RStudio v2022.07.1 "Spotted Wakerobin" onward (https://docs.posit.co/ide/user/ide/guide/documents/quarto-project.html#installing-quarto).
+It is able to execute several different programming languages like Python and R.
 
 ![This illustration shows schematically that one can have input in different languages and Quarto will produce different output formats. Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022. Illustrated by Allison Horst. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/horst-quarto-schematic.jpg)
 
@@ -68,6 +69,30 @@ This is also where you can further customize some general features of your file,
 To get a preview of a Quarto file in RStudio, you can either use `quarto preview` in the command line or the **Render** button at the top of your document.
 This will show you how your rendered document will look like and if you check the **Render on Save** box at the top of the document, will update live as you save your changes.
 
+## Markdown
+
+In Quarto documents, **Markdown** is used as a syntax.
+In Markdown content and formatting are integrated with each other and not separate.
+This formatting is used in Quarto or on GitHub or on a smaller scale in WhatsApp or Reddit.  
+There are some advantage over more commonly known way of formatting in e.g., MS Word.
+Using an integrated approach to formatting and writing allows for faster writing, as there is no need to switch between the two.
+You just format as you type.
+Another advantage is compatibility between different text editors.
+Any program that uses Markdown will format a document written in it the exact same way. 
+Another advantage is that Git can track the changes made to text written with Markdown, allowing for version control of your written work the same way as of your code.  
+Disadvantages are that there are overall less formatting options as the intention is keep it simple and it can be difficult or unintuitive to insert tables and images.  
+
+Formatting can be done using either the `Source` or `Visual` mode in RStudio.
+In the `Source` mode you use Markdown syntax to format your written work and in the `Visual` mode you use a User-Interface similar to how you would use in e.g., MS Word.
+Switch between the two at any time.
+The changes made in the `Visual`mode will appear in the `Source` mode in Markdown as well.
+Take a look at the two different modes and the rendered version of the document below with some simple formatting options.
+
+![On the left is the Source mode of the .qmd file and on the right the Visual formatting mode. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-source-mode.jpg)
+
+Now, take a look at the rendered version of the document and how each of the formatting options plays out.
+
+![A screenshot of the rendered version of a document to showcase some formatting options. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-rendered-formatting.jpg)
 
 ### Resources
 
