@@ -26,7 +26,8 @@ abstract: |
 :bulb: Rewrite the report in quarto
 :::
 
-# What is literate programming?
+## What is literate programming?
+
 Literate programming is a form of programming in which text and source code are in one document.
 It is based on the idea that a code should be easy and enjoyable to read and aimed at being understood by humans, which was called *Literate Programming* by Donald Knuth (1984).
 Instead of writing code and later annotating it with comments, literate programming suggests to write a text in the order that a person would logically conceive it and include the code as it is explained in the text.
@@ -34,7 +35,7 @@ A well-known example are Jupyter Notebooks where normal text is interwoven with 
 Literate programming allows for creating **reproducible documents** instead of just reproducible script as well as making for a smoother workflow, as there is no need for switching out old and new outputs in your documents when the code changed.
 As an example, when you write an article in a document using literate programming and insert a code chunk that creates a plot, this code chunk's output -the plot- is part of your document and is always up to date with the script you're running.
 
-# What is Quarto?
+## What is Quarto?
 
 Quarto is an open-source  **Publishing System**.
 It allows you to do literate programming.
@@ -50,7 +51,7 @@ See the example of a Quarto document that contains human-readable text and a cod
 
 ![On the left is a Quarto document in RStudio, containing a code chunk that creates a simple plot. On the right is the rendered version of the document, showing the text and the plot. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-example-document-plot.jpg)
 
-## Resources
+## How to use Quarto
 
 - <https://quarto.org/>
 - <https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html>
