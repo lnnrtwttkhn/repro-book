@@ -2,6 +2,7 @@
 title: "Literate Programming"
 editor: source
 engine: knitr
+html-table-processing: none
 execute:
   eval: false
   warning: false
@@ -13,6 +14,16 @@ abstract: |
   You will learn how to write a paper in with Quarto and how to format it for a required output.
   You will learn how to use extension, specifically the apaquarto extension to write reproducible paper in APA-style.
 ---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(gt)
+source("functions.R")
+gt_font_size <- 30
+gt_table_width = 1000
+```
 
 ::: {.callout-tip appearance="minimal"}
 <h5>Learning Objectives</h5>
@@ -93,6 +104,137 @@ Take a look at the two different modes and the rendered version of the document 
 Now, take a look at the rendered version of the document and how each of the formatting options plays out.
 
 ![A screenshot of the rendered version of a document to showcase some formatting options. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-rendered-formatting.jpg)
+
+Now take a look at the different formatting options below:
+
+::: {.panel-tabset}
+## Text Formatting
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+make_table(name = "text_formatting") |>
+  gt() |>
+  fmt_markdown(columns = everything(), md_engine = "markdown") |>
+  tab_options(table.width = px(gt_table_width), table.font.size = gt_font_size) |>
+  gt_theme()
+```
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
+:::
+
+## Headings
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+make_table(name = "headings") |>
+  gt() |>
+  fmt_markdown(columns = everything(), md_engine = "markdown") %>%
+  tab_options(table.width = px(gt_table_width), table.font.size = gt_font_size) |>
+  gt_theme()
+```
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
+:::
+
+## Lists
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+make_table(name = "lists") |>
+  gt() |>
+  fmt_markdown(columns = everything(), md_engine = "markdown") %>%
+  tab_options(table.width = px(gt_table_width), table.font.size = gt_font_size) |>
+  gt_theme()
+```
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
+:::
+
+## Tables
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+make_table(name = "tables") |>
+  gt() |>
+  fmt_markdown(columns = everything(), md_engine = "markdown") %>%
+  tab_options(table.width = px(gt_table_width), table.font.size = gt_font_size) |>
+  gt_theme()
+```
+
+::: {.fragment}
+:bulb: Tip: Use a Markdown [table generator](https://www.tablesgenerator.com/markdown_tables)
+:::
+
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
+:::
+
+## Equations
+
++---------------------------+----------------+
+| Markdown Syntax           | Output         |
++===========================+================+
+| ```                       | $E=mc^{2}$     |
+| inline math: $E = mc^{2}$ |                |
+| ```                       |                |
++---------------------------+----------------+
+| ```                       | $$E = mc^{2}$$ |
+| display math:             |                |
+|                           |                |
+| $$E = mc^{2}$$            |                |
+| ```                       |                |
++---------------------------+----------------+
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
+:::
+
+## Blocks
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+make_table(name = "blocks") |>
+  gt() |>
+  fmt_markdown(columns = everything(), md_engine = "markdown") %>%
+  tab_options(table.width = px(gt_table_width), table.font.size = gt_font_size) |>
+  gt_theme()
+```
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
+:::
+
+## Links and images
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+make_table(name = "links") |>
+  gt() |>
+  fmt_markdown(columns = everything(), md_engine = "markdown") %>%
+  tab_options(table.width = px(gt_table_width), table.font.size = gt_font_size) |>
+  gt_theme()
+```
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
+:::
+:::
 
 ### Resources
 
