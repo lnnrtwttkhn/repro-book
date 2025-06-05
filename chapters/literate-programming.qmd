@@ -94,6 +94,191 @@ Now, take a look at the rendered version of the document and how each of the for
 
 ![A screenshot of the rendered version of a document to showcase some formatting options. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-rendered-formatting.jpg)
 
+Have a look at the different formatting options available.
+
+::: panel-tabset
+# Text formatting:
+
+| Input                          | Output                        |
+|--------------------------------|-------------------------------|
+| `*italics* and **bold**`       | *italics* and **bold**        |
+| `superscript^2 / subscript~2~` | superscript^2^ / subscript~2~ |
+| `~~strikethrough~~`            | ~~strikethrough~~             |
+| `` `verbatim code` ``          | `verbatim code`               |
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
+:::
+
+# Headings:
+
+<table>
+<thead>
+<tr class="header">
+<th><p>Input</p></th>
+<th><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code># Header 1</code></p></td>
+<td><h1>Header 1</h1></td>
+</tr>
+<tr class="even">
+<td><p><code>## Header 2</code></p></td>
+<td><h2>Header 2</h2></td>
+</tr>
+<tr class="odd">
+<td><p><code>### Header 3</code></p></td>
+<td><h3>Header 3</h3></td>
+</tr>
+<tr class="even">
+<td><p><code>#### Header 4</code></p></td>
+<td><h4>Header 4</h4></td>
+</tr>
+<tr class="odd">
+<td><p><code>##### Header 5</code></p></td>
+<td><h5>Header 5</h5></td>
+</tr>
+<tr class="even">
+<td><p><code>###### Header 6</code></p></td>
+<td><h6>Header 6</h6></td>
+</tr>
+</tbody>
+</table>
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
+:::
+
+# Lists:
+
+**Input**
+
+``` {markdown}
+#| code-copy: false
+*Unordered list*
+
+* unordered list
+        + sub-item 1
+        + sub-item 2
+
+*Ordered list: Standard numbering*
+  
+1. ordered list
+2. item 2
+  1. sub-item 1
+
+*Ordered list: All 1:*
+
+1. ordered list
+1. item 2
+1. item 3
+1. item 4
+
+*Tasklist*
+
+- [ ] Task 1
+- [ ] Task 2
+
+```
+
+**Output**
+
+* unordered list
+  + sub-item 1
+  + sub-item 2
+
+*Ordered list: Standard numbering*  
+
+1. ordered list  
+2. item 2  
+   1. sub-item 1  
+
+*Ordered list: All 1:*  
+
+1. ordered list  
+1. item 2  
+1. item 3  
+1. item 4
+
+*Tasklist*
+
+- [ ] Task 1
+- [ ] Task 2
+
+:bulb: The tasklist can be ticked off.
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
+:::
+
+# Tables:
+
+**Input**
+
+```{markdown}
+| Right | Left | Default | Center |
+|------:|:-----|---------|:------:|
+|   12  |  12  |    12   |    12  |
+|  123  |  123 |   123   |   123  |
+|    1  |    1 |     1   |     1  |
+```
+
+**Output**
+
+| Right | Left | Default | Center |
+|------:|:-----|---------|:------:|
+|   12  |  12  |    12   |    12  |
+|  123  |  123 |   123   |   123  |
+|    1  |    1 |     1   |     1  |
+
+:bulb: Tip: Use a [Markdown table generator](https://www.tablesgenerator.com/markdown_tables) or the visual mode in RStudio to generate tables.
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
+:::
+
+# Equations:
+
+| Input                       | Output                    |
+|-----------------------------|---------------------------|
+| `inline math: $E = mc^{2}$` | inline math: $E = mc^{2}$ |
+| `$$E = mc^{2}$$`            | $$E = mc^{2}$$            |
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
+:::
+
+# Blockquotes:
+
+**Input**
+
+`> Blockquote`
+
+**Output**
+
+> Blockquote
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
+:::
+
+# Links & Images:
+
+| Input | Output |
+|----------------------------------|--------------------------------------|
+| `<https://quarto.org/>` | <https://quarto.org/> |
+| `[Quarto](https://quarto.org/)` | [Quarto](https://quarto.org/) |
+| `![Caption](https://quarto.org/quarto.png)` | ![Caption](https://quarto.org/quarto.png) |
+| `[![Caption](https://quarto.org/quarto.png)](https://quarto.org)` | [![Caption](https://quarto.org/quarto.png)](https://quarto.org) |
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
+:::
+
+:::
+
 ### Resources
 
 -   <https://quarto.org/>
