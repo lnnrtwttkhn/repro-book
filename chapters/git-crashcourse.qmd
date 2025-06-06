@@ -230,7 +230,7 @@ It should look something like below.
 
 Here you can see all of your projects file, which so far are not tracked by Git.
 
-#### `.gitignore` file
+### The `.gitignore` file
 
 Now that you've added Git to your repository, a `.gitignore` file was automatically added to it.
 This file lists all the files that are **not** tracked aka ignored by Git.
@@ -249,6 +249,7 @@ Additionally, you shouldn't need to track changes when it's reproducible from yo
 To add files to .gitignore, just open the .gitignore file and **list the files** you don't want to be tracked in it.
 
 ```{bash filename="Example .gitignore"}
+#| label: "gitignore"
 *.pdf # <1>
 misc # <2>
 ```
@@ -257,9 +258,23 @@ misc # <2>
 2. This entry makes Git ignore the `misc` folder inside your repository.
 
 There will already be some files listed there that are being ignored by default.
-Your .gitignore should look something like this.
+Your `.gitignore` should look something like this.
 
 ![This screenshot shows how a .gitignore file looks like in RStudio . Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-gitignore.jpg)
+
+However, it is quite hard to add files and folders to the `.gitignore` file that have been tracked before.
+Consider you have a folder (e.g. `misc`) in your repository that you want to ignore but it was tracked before by git (see @gitignore).
+If you just add `misc` to the `.gitignore` file, what happens, is that git stop tracking changes for all **new** files and folders in that folder.
+However, the files and subfolders that were in the `misc` folder **before**, are **still tracked** by git.
+You have to use the command line to not track files and folders that have been tracked before.
+
+```{zsh filename="Code for the command line"}
+git rm --cache -r folder/path # <1> 
+git rm --cache  file/path/document-A.pdf # <2>
+```
+
+1. This command leads to Git not tracking the subfolder `path` in the folder `folder` anymore and all the files and folders in the subfolder of `path`.
+2. This command leads to Git not tracking the file `document-A.pdf` in the subfolder `path` of the folder `file` anymore.
 
 ## General workflow with Git
 
