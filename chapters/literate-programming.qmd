@@ -35,6 +35,9 @@ A well-known example are Jupyter Notebooks where normal text is interwoven with 
 Literate programming allows for creating **reproducible documents** instead of just reproducible script as well as making for a smoother workflow, as there is no need for switching out old and new outputs in your documents when the code changed.
 As an example, when you write an article in a document using literate programming and insert a code chunk that creates a plot, this code chunk's output -the plot- is part of your document and is always up to date with the script you're running.
 
+:::{.callout-note title="Literate programming benefits for reproducibility"}
+:::
+
 ## What is Quarto?
 
 Quarto is an open-source **Publishing System**.
@@ -279,7 +282,24 @@ Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-
 
 :::
 
-### Resources
+## References in Quarto
+
+:::{.callout-note title="The `references.bib` file" collapse=true}
+:::
+
+## The YAML header
+
+:::{.callout-tip title="Different YAML settings" collapse=true}
+:::
+
+:::{.callout-note title="This website's YAML file" collapse=true}
+:::
+
+## Quarto extensions
+
+### The APA-extension
+
+## Resources
 
 -   <https://quarto.org/>
 -   <https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html>
