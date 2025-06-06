@@ -297,7 +297,18 @@ Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-
 
 ## Quarto extensions
 
-### The APA-extension
+One nice feature of Quarto are it's [extensions](https://quarto.org/docs/extensions/).
+These extensions are created from Quarto users to extend the behavior and functionality of quarto.
+Since Quarto contributes to the movement of Open Science and Reproducibility, these extensions are freely available.
+
+### The `apaquarto` extension {.unnumbered}
+
+In this book, we will only deal with one extension - the `apaquarto` extension by William Joel Schneider.
+With this extension, we can shape the output of our rendered quarto file into the format of the [APA guidelines](https://apastyle.apa.org/)[^1].
+
+[^1]: Many journals and universities require submissions to be in the APA format.
+Thus, we think it is useful for many students and researchers to know about this extension.
+
 
 ## Resources
 
