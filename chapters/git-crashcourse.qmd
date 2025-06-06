@@ -308,9 +308,9 @@ Everything that you have previously **staged** will be included in the next comm
 
 In RStudio, after having staged your files you can simply make a commit by pressing the **Commit** button in the Git pane.
 Now you add a commit message.
-Below you can see how this would look like for the initial commit, including the commit message.
+@fig-git-initial-commit shows how this would look like for the initial commit, including the commit message.
 
-![This screenshot shows creating the initial commit in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-initial-commit.jpg)
+![This screenshot shows creating the initial commit in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-initial-commit.jpg){#fig-git-initial-commit}
 
 For the commit message, it's important to be concise and descriptive of what your changes did, as this is what you will later see listed in the commit history.
 If you do want to go back to a previous version later on, the commit messages need to be understandable enough for you and others to easily spot the correct one.
@@ -356,13 +356,22 @@ You can do this in the commit window, by first selecting your file and then sele
 If you want to stage most of the changes, you can first stage the whole file and then select **Unstage chunks** above the lines you don't want to stage.
 :::
 
+::: {.callout-tip title="View the changes you are about to commit" collapse="true"}
+As you can see in @fig-git-initial-commit, in the lower part of the window some lines are marked green.
+These are lines that have changed in that specific document compared to the last commit you made.
+In @fig-git-initial-commit, the first commit is shown.
+Thus, all lines are now added into that document.
+If you change your document and remove some lines of e.g. code, these lines are marked red (see @fig-git-history-love-message).
+Hence, Git shows you which document will change in which line.
+:::
+
 ### Retrieving previous versions
 
 One major advantages of version control is being able to retrieve previous versions of your documents.
 To do this, click the **History** button in the Git pane.
 This shows you a list of your previous commits, e.g., in the screenshot below, you can see the commit '63289c71' with the commit message "Add love message to version control".
 
-![This screenshot shows the commit history of a repository in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-history-love-message.jpg)
+![This screenshot shows the commit history of a repository in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-history-love-message.jpg){#fig-git-history-love-message}
 
 Here, you can already see, why descriptive commit messages are so valuable, especially when there will be more than just three commits.  
 You can see which changes were made in that commit.
