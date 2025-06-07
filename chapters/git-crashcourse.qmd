@@ -131,7 +131,7 @@ Depending on your operating system, this will look different.
 On recent versions of MacOS (> MacOS Sierra 10.12) Git should come pre- installed.
 To check whether Git is pre-installed, head to your command-line/Terminal and enter the following command.
 
-```{zsh filename="Code"}
+```{zsh filename="Terminal"}
 git --version
 ```
 
@@ -160,7 +160,7 @@ After running through all the settings, click **Install**.
 Once done installing, the Bash shell will open automatically.
 To confirm everything worked correctly and Git is installed, run the following command, which should return the Git version.
 
-```{bash filename="Code"}
+```{bash filename="Terminal"}
 git --version
 ```
 
@@ -182,7 +182,7 @@ This is useful, as it allows others to trace back who made which changes.
 As you will later use this email address to connect with GitHub, make sure you either use the same email as the one in your GitHub account or use an email address you would be happy to use for your GitHub profile as well!  
 To set this up, enter the command below in the command line, replacing 'Your Name' and 'Your Email' with your own.
 
-```{bash filename="Code"}
+```{bash filename="Terminal"}
 git config --global user.name "Name"
 git config --global user.email Your Email
 ```
@@ -199,7 +199,7 @@ Some older versions of Git still use the terminology of "master" to define the m
 To make the terminology of Git less offensive and more inclusive, there has been a shift to refer to "main" instead.
 To ensure your Git will refer to "main" instead of "master", simply run this in your command line:
 
-```{bash filename="Code"}
+```{bash filename="Terminal"}
 git config --global init.defaultBranch main
 ```
 
@@ -284,7 +284,7 @@ To do so, write the name of your folder in a new line of the `.gitignore` file
 2. You have to remove the folder from the cache specifying which documents Git is tracking.
 To do so, type the command below in to your command line.
 
-```{bash filename="Code"}
+```{bash filename="Terminal"}
 git rm --cache -r <folder-name> # <1>
 ```
 
@@ -302,7 +302,7 @@ Withdraw tracking from the folder `raw_data` that is a subfolder of the the `dat
 data/raw_data
 ```
 
-```{bash filename="Code"}
+```{bash filename="Terminal"}
 #| code-copy: false
 git rm --cache -r data/raw_data
 ```
@@ -317,7 +317,7 @@ To do so, write the name of your folder in a new line of the `.gitignore` file
 2. You have to remove the file from the cache specifying which documents Git is tracking.
 However, the command is slightly different in comparison to the one for folders.
 
-```{bash filename="Code"}
+```{bash filename="Terminal"}
 git rm --cache <file-name> # <1>
 ```
 
@@ -336,7 +336,7 @@ Withdraw tracking from the file `participant-003_feedback.pdf` that lies in the 
 misc/feedback/participant-003_feedback.pdf
 ```
 
-```{bash filename="Code"}
+```{bash filename="Terminal"}
 #| code-copy: false
 git rm --cache -r misc/feedback/participant-003_feedback.pdf
 ```
@@ -505,7 +505,7 @@ Once you are happy with your changes in a branch and want to add it to your main
 Merging one branch into another refers to adding the changes you've made there to your other branch, often 'main'.
 To do this, make sure you are on the branch you want to merge **into**, so add your changes to, which will often be main. To merge, go to your terminal in RStudio and run the following command:
 
-``` {bash filename="Code"}
+``` {bash filename="Terminal"}
 git merge <your branch>
 ```
 
@@ -523,7 +523,7 @@ Again, there is no button in RStudio to do that for you.
 Thus, you will need to use the command line to do that.
 To delete a branch, you use the `git branch -d` command:
 
-```{bash filename="Code"}
+```{bash filename="Terminal"}
 git branch -d <your branch>
 ```
 
