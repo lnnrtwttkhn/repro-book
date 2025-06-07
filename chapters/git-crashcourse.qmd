@@ -230,7 +230,7 @@ It should look something like below.
 
 Here you can see all of your projects file, which so far are not tracked by Git.
 
-### The `.gitignore` file
+### The `.gitignore` file {#sec-gitignore}
 
 Now that you've added Git to your repository, a `.gitignore` file was automatically added to it.
 This file lists all the files that are **not** tracked aka ignored by Git.
@@ -249,7 +249,6 @@ Additionally, you shouldn't need to track changes when it's reproducible from yo
 To add files to .gitignore, just open the .gitignore file and **list the files** you don't want to be tracked in it.
 
 ```{bash filename="Example .gitignore"}
-#| label: "gitignore"
 *.pdf # <1>
 misc # <2>
 ```
@@ -260,21 +259,91 @@ misc # <2>
 There will already be some files listed there that are being ignored by default.
 Your `.gitignore` should look something like this.
 
-![This screenshot shows how a .gitignore file looks like in RStudio . Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-gitignore.jpg)
+![This screenshot shows how a .gitignore file looks like in RStudio . Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-gitignore.jpg){#fig-git-gitignore}
 
-However, it is quite hard to add files and folders to the `.gitignore` file that have been tracked before.
-Consider you have a folder (e.g. `misc`) in your repository that you want to ignore but it was tracked before by git (see @gitignore).
+### Ignore previously tracked files and folders
+
+The simple addition to the `.gitignore` file of the desired files and folders (see @sec-gitignore) does only work conveniently, if they are added to the `.gitignore` file **before** the files and folders were created.
+However, it requires an extra step to add files and folders to the `.gitignore` file that have been tracked before.
+Consider you have a folder (e.g. `misc`) in your repository that you want to ignore but it was tracked before by git (see @fig-git-gitignore).
 If you just add `misc` to the `.gitignore` file, what happens, is that git stop tracking changes for all **new** files and folders in that folder.
 However, the files and subfolders that were in the `misc` folder **before**, are **still tracked** by git.
-You have to use the command line to not track files and folders that have been tracked before.
+You have to use the command line to not track files and folders that have been tracked before[^1].
 
-```{zsh filename="Code for the command line"}
-git rm --cache -r folder/path # <1> 
-git rm --cache  file/path/document-A.pdf # <2>
+[^1]: To the best of our knowledge, no graphical button exists for these cases.
+Thus, it requires the use of the command line.
+
+::: {.panel-tabset}
+## Ignore tracked folder
+
+To withdraw the tracking of a folder, you have to do two things:
+
+1. You have to add the folder in the `.gitignore` file.
+To do so, write the name of your folder in a new line of the `.gitignore` file
+
+2. You have to remove the folder from the cache specifying which documents Git is tracking.
+To do so, type the command below in to your command line.
+
+```{bash filename="Code"}
+git rm --cache -r <folder-name> # <1>
 ```
 
-1. This command leads to Git not tracking the subfolder `path` in the folder `folder` anymore and all the files and folders in the subfolder of `path`.
-2. This command leads to Git not tracking the file `document-A.pdf` in the subfolder `path` of the folder `file` anymore.
+1. Replace `<folder-name>` by the name of your folder
+
+The `-r` in that command stands for recursive and specifies that all subfolders in the target folder will be ignored, too.
+
+---
+
+##### Example {.unnumbered}
+
+Withdraw tracking from the folder `raw_data` that is a subfolder of the the `data` folder.
+
+```{bash filename=".gitignore"}
+data/raw_data
+```
+
+```{bash filename="Code"}
+#| code-copy: false
+git rm --cache -r data/raw_data
+```
+
+## Ignore tracked file
+
+To withdraw the tracking of a file, you also have to do two things:
+
+1. You have to add the folder in the `.gitignore` file.
+To do so, write the name of your folder in a new line of the `.gitignore` file
+
+2. You have to remove the file from the cache specifying which documents Git is tracking.
+However, the command is slightly different in comparison to the one for folders.
+
+```{bash filename="Code"}
+git rm --cache <file-name> # <1>
+```
+
+1. Replace `<file-name>` by the name of your file.
+Remember to put the file extension on the name.
+
+The `-r` is not required anymore, since a file cannot contain other subfolders and files.
+
+---
+
+##### Example {.unnumbered}
+
+Withdraw tracking from the file `participant-003_feedback.pdf` that lies in the folder `feedback` which, in turn, is a subfolder of `misc`.
+
+```{bash filename=".gitignore"}
+misc/feedback/participant-003_feedback.pdf
+```
+
+```{bash filename="Code"}
+#| code-copy: false
+git rm --cache -r misc/feedback/participant-003_feedback.pdf
+```
+:::
+
+As you should have figured out, it is useful to think about which files and folders you want or do not want to track before setting up your project.
+Nevertheless, changes might arise during your project and this helps you to keep your version control history clean, even when circumstances change.
 
 ## General workflow with Git
 
