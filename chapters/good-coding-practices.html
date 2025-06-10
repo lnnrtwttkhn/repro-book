@@ -95,7 +95,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e4fbaa5b9575d7f6de7c906568c40117.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-78208384aded7f702a01127c4c4d064f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1beacae4a812b77aec26940991cf2964.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -544,7 +544,7 @@ Example
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p><code>here()</code> function works regardless of the current working directory.</p>
+<p><code>here()</code> function works regardless of the current working directory. This example demonstrates that the <code>here</code> package uses the same path for running the script <code>script01.R</code> lying in the folder <code>scripts</code> which, in turn, constitutes a subfolder of <code>code</code>.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">No change in working directory</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Change in working directory</a></li></ul>
 <div class="tab-content">
@@ -558,7 +558,7 @@ Example
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"/Users/my-user-name/my-project"</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">here</span>()</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"/Users/my-user-name/my-project"</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"scripts"</span>, <span class="st">"script01.R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"code"</span>, <span class="st">"scripts"</span>, <span class="st">"script01.R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -570,9 +570,12 @@ Example
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"/Users/my-user-name/my-project"</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">here</span>()</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"/Users/my-user-name/my-project"</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"scripts"</span>, <span class="st">"script01.R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"code"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"/Users/my-user-name/my-project/code"</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">here</span>()</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"/Users/my-user-name/my-project"</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"code"</span>, <span class="st">"scripts"</span>, <span class="st">"script01.R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -971,7 +974,7 @@ Figure&nbsp;7.2: “<a href="https://r4ds.hadley.nz/images/tidy-1.png">Tidy Data
 <p>The journey from raw to tidy data can be long and frustrating. This book cannot provide a full overview of data wrangling and manipulation. However, if you are interested in learning functions for data manipulation, we recommend studying the <code>dplyr</code> package and its <a href="https://dplyr.tidyverse.org">documentation</a>, as well as the <code>tidyr</code> package and its <a href="https://tidyr.tidyverse.org">documentation</a>. From our experience, using and sharing code written in the tidyverse style fosters better understanding of the code, thereby enhancing computational reproducibility.</p>
 <section id="data-structures" class="level3" data-number="7.5.1">
 <h3 data-number="7.5.1" class="anchored" data-anchor-id="data-structures"><span class="header-section-number">7.5.1</span> Data structures</h3>
-<p>Data can be structured in different ways. When your data is tidy, you may still encounter <strong>wide</strong> or <strong>long</strong> formats. As a rule of thumb, you can remember this: Data structured in a <em>long format</em> usually contains <em>repetitive</em> values in the first column of the dataset. Data structured in a <em>wide format</em> usually contains <em>non-repetitive</em> values in the first column of the dataset.</p>
+<p>Data can be structured in different ways. When your data is tidy, you may still encounter <strong>wide</strong> or <strong>long</strong> formats. The long format is usually applied for data with repeated measurements (e.g.&nbsp;when you collect data over multiple sessions). As a rule of thumb, you can remember this: Data structured in a <em>long format</em> usually contains <em>repetitive</em> values in the first column of the dataset. Data structured in a <em>wide format</em> usually contains <em>non-repetitive</em> values in the first column of the dataset.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true"><i class="fa-solid fa-arrows-left-right" aria-label="arrows-left-right"></i> Wide format</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false"><i class="fa-solid fa-arrows-up-down" aria-label="arrows-up-down"></i> Long format</a></li></ul>
 <div class="tab-content">
