@@ -586,6 +586,7 @@ From our experience, using and sharing code written in the tidyverse style foste
 
 Data can be structured in different ways.
 When your data is tidy, you may still encounter **wide** or **long** formats.
+The long format is usually applied for data with repeated measurements (e.g. when you collect data over multiple sessions).
 As a rule of thumb, you can remember this:
 Data structured in a *long format* usually contains *repetitive* values in the first column of the dataset.
 Data structured in a *wide format* usually contains *non-repetitive* values in the first column of the dataset.
