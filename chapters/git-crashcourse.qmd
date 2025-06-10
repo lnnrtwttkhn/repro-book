@@ -425,7 +425,7 @@ You can do this in the commit window, by first selecting your file and then sele
 If you want to stage most of the changes, you can first stage the whole file and then select **Unstage chunks** above the lines you don't want to stage.
 :::
 
-::: {.callout-tip title="View the changes you are about to commit" collapse="true"}
+::: {#tip-track-changes .callout-tip title="View the changes you are about to commit" collapse="true"}
 As you can see in @fig-git-initial-commit, in the lower part of the window some lines are marked green.
 These are lines that have changed in that specific document compared to the last commit you made.
 In @fig-git-initial-commit, the first commit is shown.
@@ -454,6 +454,12 @@ Now as a last step, save, stage and commit the file again as you normally would,
 Now, you just travelled back in time and reset your file to a previous version.
 The versions of the file that you have changed in between the commit you went back to and the first time you made that commit are still there in your commit history.
 This way you could also return to them later on if you change your mind.
+
+:::{.callout-tip title="View changes of previous commits" collapse="true"}
+Just as you can view your current changes you are about to commit (see @tip-track-changes), you can view the changes of previous commits in the history tab of the git pane (see @fig-git-history-love-message).
+To do so, click on the respective commit and in the lower part of the window you can see the files with its changes in it.
+The changes you see are always relative to the previous commit.
+:::
 
 ## Branches
 
