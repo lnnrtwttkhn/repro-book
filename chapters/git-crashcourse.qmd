@@ -131,7 +131,7 @@ Depending on your operating system, this will look different.
 On recent versions of MacOS (> MacOS Sierra 10.12) Git should come pre- installed.
 To check whether Git is pre-installed, head to your command-line/Terminal and enter the following command.
 
-```{zsh filename="Code"}
+```{zsh filename="Terminal"}
 git --version
 ```
 
@@ -160,7 +160,7 @@ After running through all the settings, click **Install**.
 Once done installing, the Bash shell will open automatically.
 To confirm everything worked correctly and Git is installed, run the following command, which should return the Git version.
 
-```{bash filename="Code"}
+```{bash filename="Terminal"}
 git --version
 ```
 
@@ -182,7 +182,7 @@ This is useful, as it allows others to trace back who made which changes.
 As you will later use this email address to connect with GitHub, make sure you either use the same email as the one in your GitHub account or use an email address you would be happy to use for your GitHub profile as well!  
 To set this up, enter the command below in the command line, replacing 'Your Name' and 'Your Email' with your own.
 
-```{bash filename="Code"}
+```{bash filename="Terminal"}
 git config --global user.name "Name"
 git config --global user.email Your Email
 ```
@@ -199,7 +199,7 @@ Some older versions of Git still use the terminology of "master" to define the m
 To make the terminology of Git less offensive and more inclusive, there has been a shift to refer to "main" instead.
 To ensure your Git will refer to "main" instead of "master", simply run this in your command line:
 
-```{bash filename="Code"}
+```{bash filename="Terminal"}
 git config --global init.defaultBranch main
 ```
 
@@ -216,7 +216,7 @@ As long as you have Git installed on your computer, it is very easy to use it in
 Whilst originally Git is a command line based program, using the GUI of RStudio makes it more intuitive and can be faster for standard commands than typing them out.
 However, for some actions, using the command line is still necessary.
 
-### Setting up Git in an existing R project
+### Setting up Git in an existing R project {#sec-gitsetup}
 
 Before setting up Git in an existing R-project, make sure you are in your intended project in RStudio ^[:bulb: Tip: How to set up an R-project is explained in the [Good coding practices](https://lennartwittkuhn.com/repro-book/chapters/good-coding-practices.html#sec-rproject) chapter.].
 Now, to set up Git, simply go to **Tools > Version Control > Project Setup...** (see below) and choose Git as the version control system in the Pop-up window. Confirm both the initialization of a Git repository in your project, as well as the RStudio restart.
@@ -230,7 +230,7 @@ It should look something like below.
 
 Here you can see all of your projects file, which so far are not tracked by Git.
 
-#### `.gitignore` file
+### The `.gitignore` file {#sec-gitignore}
 
 Now that you've added Git to your repository, a `.gitignore` file was automatically added to it.
 This file lists all the files that are **not** tracked aka ignored by Git.
@@ -257,9 +257,93 @@ misc # <2>
 2. This entry makes Git ignore the `misc` folder inside your repository.
 
 There will already be some files listed there that are being ignored by default.
-Your .gitignore should look something like this.
+Your `.gitignore` should look something like this.
 
-![This screenshot shows how a .gitignore file looks like in RStudio . Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-gitignore.jpg)
+![This screenshot shows how a .gitignore file looks like in RStudio . Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-gitignore.jpg){#fig-git-gitignore}
+
+### Ignore previously tracked files and folders
+
+The simple addition to the `.gitignore` file of the desired files and folders (see @sec-gitignore) does only work conveniently, if they are added to the `.gitignore` file **before** the files and folders were created.
+However, it requires an extra step to add files and folders to the `.gitignore` file that have been tracked before.
+Consider you have a folder (e.g. `misc`) in your repository that you want to ignore but it was tracked before by git (see @fig-git-gitignore).
+If you just add `misc` to the `.gitignore` file, what happens, is that git stops tracking changes for all **new** files and folders in that folder.
+However, the files and subfolders that were in the `misc` folder **before**, are **still tracked** by git.
+You have to use the command line to not track files and folders that have been tracked before[^1].
+
+[^1]: To the best of our knowledge, no graphical button exists for these cases.
+Thus, it requires the use of the command line.
+
+::: {.panel-tabset}
+## Ignore tracked folder
+
+To withdraw the tracking of a folder, you have to do two things:
+
+1. You have to add the folder in the `.gitignore` file.
+To do so, write the name of your folder in a new line of the `.gitignore` file
+
+2. You have to remove the folder from the cache specifying which documents Git is tracking.
+To do so, type the command below in to your command line.
+
+```{bash filename="Terminal"}
+git rm --cache -r <folder-name> # <1>
+```
+
+1. Replace `<folder-name>` by the name of your folder
+
+The `-r` in that command stands for recursive and specifies that all subfolders and files in the target folder will be ignored, too.
+
+---
+
+##### Example {.unnumbered}
+
+Withdraw tracking from the folder `raw_data` that is a subfolder of the the `data` folder.
+
+```{bash filename=".gitignore"}
+data/raw_data
+```
+
+```{bash filename="Terminal"}
+#| code-copy: false
+git rm --cache data/raw_data
+```
+
+## Ignore tracked file
+
+To withdraw the tracking of a file, you also have to do two things:
+
+1. You have to add the folder in the `.gitignore` file.
+To do so, write the name of your folder in a new line of the `.gitignore` file
+
+2. You have to remove the file from the cache specifying which documents Git is tracking.
+However, the command is slightly different in comparison to the one for folders.
+
+```{bash filename="Terminal"}
+git rm --cache <file-name> # <1>
+```
+
+1. Replace `<file-name>` by the name of your file.
+Remember to put the file extension on the name.
+
+The `-r` is not required anymore, since a file cannot contain other subfolders and files.
+
+---
+
+##### Example {.unnumbered}
+
+Withdraw tracking from the file `participant-003_feedback.pdf` that lies in the folder `feedback` which, in turn, is a subfolder of `misc`.
+
+```{bash filename=".gitignore"}
+misc/feedback/participant-003_feedback.pdf
+```
+
+```{bash filename="Terminal"}
+#| code-copy: false
+git rm --cache -r misc/feedback/participant-003_feedback.pdf
+```
+:::
+
+As you should have figured out, it is useful to think about which files and folders you want or do not want to track before setting up your project.
+Nevertheless, changes might arise during your project and this helps you to keep your version control history clean, even when circumstances change.
 
 ## General workflow with Git
 
@@ -293,9 +377,9 @@ Everything that you have previously **staged** will be included in the next comm
 
 In RStudio, after having staged your files you can simply make a commit by pressing the **Commit** button in the Git pane.
 Now you add a commit message.
-Below you can see how this would look like for the initial commit, including the commit message.
+@fig-git-initial-commit shows how this would look like for the initial commit, including the commit message.
 
-![This screenshot shows creating the initial commit in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-initial-commit.jpg)
+![This screenshot shows creating the initial commit in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-initial-commit.jpg){#fig-git-initial-commit}
 
 For the commit message, it's important to be concise and descriptive of what your changes did, as this is what you will later see listed in the commit history.
 If you do want to go back to a previous version later on, the commit messages need to be understandable enough for you and others to easily spot the correct one.
@@ -341,13 +425,22 @@ You can do this in the commit window, by first selecting your file and then sele
 If you want to stage most of the changes, you can first stage the whole file and then select **Unstage chunks** above the lines you don't want to stage.
 :::
 
+::: {#tip-track-changes .callout-tip title="View the changes you are about to commit" collapse="true"}
+As you can see in @fig-git-initial-commit, in the lower part of the window some lines are marked green.
+These are lines that have changed in that specific document compared to the last commit you made.
+In @fig-git-initial-commit, the first commit is shown.
+Thus, all lines are now added into that document.
+If you change your document and remove some lines of e.g. code, these lines are marked red (see @fig-git-history-love-message).
+Hence, Git shows you which document will change in which line.
+:::
+
 ### Retrieving previous versions
 
 One major advantages of version control is being able to retrieve previous versions of your documents.
 To do this, click the **History** button in the Git pane.
 This shows you a list of your previous commits, e.g., in the screenshot below, you can see the commit '63289c71' with the commit message "Add love message to version control".
 
-![This screenshot shows the commit history of a repository in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-history-love-message.jpg)
+![This screenshot shows the commit history of a repository in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/git-history-love-message.jpg){#fig-git-history-love-message}
 
 Here, you can already see, why descriptive commit messages are so valuable, especially when there will be more than just three commits.  
 You can see which changes were made in that commit.
@@ -361,6 +454,12 @@ Now as a last step, save, stage and commit the file again as you normally would,
 Now, you just travelled back in time and reset your file to a previous version.
 The versions of the file that you have changed in between the commit you went back to and the first time you made that commit are still there in your commit history.
 This way you could also return to them later on if you change your mind.
+
+:::{.callout-tip title="View changes of previous commits" collapse="true"}
+Just as you can view your current changes you are about to commit (see @tip-track-changes), you can view the changes of previous commits in the history tab of the git pane (see @fig-git-history-love-message).
+To do so, click on the respective commit and in the lower part of the window you can see the files with its changes in it.
+The changes you see are always relative to the previous commit.
+:::
 
 ## Branches
 
@@ -412,7 +511,7 @@ Once you are happy with your changes in a branch and want to add it to your main
 Merging one branch into another refers to adding the changes you've made there to your other branch, often 'main'.
 To do this, make sure you are on the branch you want to merge **into**, so add your changes to, which will often be main. To merge, go to your terminal in RStudio and run the following command:
 
-``` {bash filename="Code"}
+``` {bash filename="Terminal"}
 git merge <your branch>
 ```
 
@@ -430,7 +529,7 @@ Again, there is no button in RStudio to do that for you.
 Thus, you will need to use the command line to do that.
 To delete a branch, you use the `git branch -d` command:
 
-```{bash filename="Code"}
+```{bash filename="Terminal"}
 git branch -d <your branch>
 ```
 
@@ -439,7 +538,41 @@ Technically, you can delete your main branch like any other branch.
 However, we do not recommend it to avoid any confusion.
 :::
 
-## Outlook: Remote repositories
+## Summary: Steps in a Git Workflow
+
+As all this new information can be overwhelming for people who are new to version control and Git, this section should help you to get to know the basic workflow with Git.
+We assume that you successfully installed Git on your operating system (@sec-gitinstallation) and set up your current project with version control (@sec-gitsetup).
+
+::: {#tip-git-workflow .callout-tip title="Recommended Git workflow"}
+
+1. Make sure to be in the **main branch** of your project / repository.
+
+2. Create a **new branch**, when you want to do some changes.
+
+3. Do and **save** the **changes** in your current repository.
+
+4. **Stage** and **commit** the changes in your repository in a meaningful way.
+
+Repeat steps 3 and 4 until you think you have finished your work on the topic you opened the branch for.
+
+5. Go back to your **main branch**
+
+6. **Merge** the branch you created in Step 2 **into** your **main branch**
+
+7. When your main branch is updated, **delete the branch** you created in Step 2.
+Thus, you keep your repository tidy and clean.
+
+You can work on different branches simultaneously for different topics.
+Thus, when you have not finished your work on a branch, but need the help of another person to do so, you can create another branch to start working on that branch on another topic.
+:::
+
+@tip-git-workflow shows you a nice workflow with git.
+This workflow emphasizes the work on different branches, while the main branch is only touched for creating and merging branches.
+This is why this workflow is called **branch-based workflow**.
+However, there is much more potential in working with Git when you work collaboratively on a project on a remote server as GitHub (@sec-outlook).
+When you are wondering how to apply a workflow with Git in the context of remote repositories, we recommend [this workflow](https://lennartwittkuhn.com/version-control-book/chapters/github-advanced.html#steps-in-github-flow) displayed in the version control book [@wittkuhn2024].
+
+## Outlook: Remote repositories {#sec-outlook}
 
 This chapter introduced Git to you as software that makes it possible to track your changes of your research project, take snapshots of it, and go back to any given snapshot you want.
 However, Git is also very powerful when it comes to collaborative work.
