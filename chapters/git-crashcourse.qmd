@@ -266,7 +266,7 @@ Your `.gitignore` should look something like this.
 The simple addition to the `.gitignore` file of the desired files and folders (see @sec-gitignore) does only work conveniently, if they are added to the `.gitignore` file **before** the files and folders were created.
 However, it requires an extra step to add files and folders to the `.gitignore` file that have been tracked before.
 Consider you have a folder (e.g. `misc`) in your repository that you want to ignore but it was tracked before by git (see @fig-git-gitignore).
-If you just add `misc` to the `.gitignore` file, what happens, is that git stop tracking changes for all **new** files and folders in that folder.
+If you just add `misc` to the `.gitignore` file, what happens, is that git stops tracking changes for all **new** files and folders in that folder.
 However, the files and subfolders that were in the `misc` folder **before**, are **still tracked** by git.
 You have to use the command line to not track files and folders that have been tracked before[^1].
 
@@ -290,7 +290,7 @@ git rm --cache -r <folder-name> # <1>
 
 1. Replace `<folder-name>` by the name of your folder
 
-The `-r` in that command stands for recursive and specifies that all subfolders in the target folder will be ignored, too.
+The `-r` in that command stands for recursive and specifies that all subfolders and files in the target folder will be ignored, too.
 
 ---
 
@@ -304,7 +304,7 @@ data/raw_data
 
 ```{bash filename="Terminal"}
 #| code-copy: false
-git rm --cache -r data/raw_data
+git rm --cache data/raw_data
 ```
 
 ## Ignore tracked file
