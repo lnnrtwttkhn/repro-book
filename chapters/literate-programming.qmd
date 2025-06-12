@@ -493,10 +493,74 @@ Since Quarto contributes to the movement of Open Science and Reproducibility, th
 ### The `apaquarto` extension {.unnumbered}
 
 In this book, we will only deal with one extension - the `apaquarto` extension by William Joel Schneider.
-With this extension, we can shape the output of our rendered quarto file into the format of the [APA guidelines](https://apastyle.apa.org/)[^1].
+With this extension, we can shape the output of our rendered quarto file into the format of the [APA guidelines](https://apastyle.apa.org/)[^1] without much effort.
 
 [^1]: Many journals and universities require submissions to be in the APA format.
 Thus, we think it is useful for many students and researchers to know about this extension.
+
+### Install apaquarto
+
+To install `apaquarto`, there are some prerequisites that you most likely already fulfil.
+
+1. Install Quarto
+
+1. Install a programming language (e.g {{< fa brands r-project >}})
+
+1. Install a programming environment (e.g. RStudio)
+
+After you have installed all things things, you can successfully install `apaquarto`.
+
+To install apaquarto, the installation guide offers multiple scenarios (see @tip-apaquarto-installation-guide).
+According to the guide, it is possible to install the extension from the Terminal and from the Console.
+However, in our experience, the console sometimes lead to errors, which is why we recommend to use the Terminal.
+
+Steps to install the apaquarto extension:
+
+1. Open your project folder in RStudio.
+In the folder you should write the Quarto document.
+
+1. Go to the terminal in RStudio
+
+1. Type the following command in the command line of the Terminal:
+
+```{zsh filename="Terminal"}
+quarto add wjschne/apaquarto
+```
+
+4. You will get an output like this:
+
+```{zsh filename="Output"}
+Quarto extensions may execute code when documents are rendered.
+If you do not trust the author of the extension,
+we recommend that you do not install or use the extension.
+? Do you trust the authors of this extention (Y/n) >
+```
+
+5. Type in **Y** and hit **Enter**.
+Then you will get another output like this:
+
+```{zsh filename="Output"}
+
+[:check:] Downloading
+[:check:] Unzipping
+          Found 1 extensions.
+          
+The following changes will be made:
+My Document in APA Style, Seventh Edition    [No change]    (formats)
+? Would you like to continue (Y/n) >
+```
+
+6. Again, type in **Y** and hit **Enter**
+
+::: {#tip-apaquarto-installation-guide .callout-tip title="View: The `apaquarto` installation guide by William Joel Schneider" collapse="true"}
+
+{{< fa display >}} <https://wjschne.github.io/apaquarto/installation.html>
+
+```{=html}
+<iframe width="100%" height="200%" src="https://wjschne.github.io/apaquarto/installation.html" title="Installation instructions for apaquarto extension"></iframe>
+```
+
+:::
 
 ### Resources
 
