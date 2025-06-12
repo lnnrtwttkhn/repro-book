@@ -282,32 +282,13 @@ Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-
 
 :::
 
-## References in Quarto
-
-:::{.callout-note title="The `references.bib` file" collapse=true}
-:::
-
 ## The YAML header
 
 :::{.callout-tip title="Different YAML settings" collapse=true}
 :::
 
-:::{.callout-note title="This website's YAML file" collapse=true}
+:::{.callout-note title="View: This chapter's YAML file" collapse=true}
 :::
-
-## Quarto extensions
-
-One nice feature of Quarto are it's [extensions](https://quarto.org/docs/extensions/).
-These extensions are created from Quarto users to extend the behavior and functionality of quarto.
-Since Quarto contributes to the movement of Open Science and Reproducibility, these extensions are freely available.
-
-### The `apaquarto` extension {.unnumbered}
-
-In this book, we will only deal with one extension - the `apaquarto` extension by William Joel Schneider.
-With this extension, we can shape the output of our rendered quarto file into the format of the [APA guidelines](https://apastyle.apa.org/)[^1].
-
-[^1]: Many journals and universities require submissions to be in the APA format.
-Thus, we think it is useful for many students and researchers to know about this extension.
 
 ## Features
 
@@ -321,8 +302,8 @@ There are some nice features that can be implemented in Quarto, such as includin
 -   You can also use *inline code*
 -   R code enclosed by: ```` ```{r} code ``` ````
 
-### Examples
-#### Input
+#### Examples
+##### Input
 ```{r}
 #| output: FALSE
 #| label: code-example
@@ -331,7 +312,7 @@ y <- c(2, 4, 1, 3, 5)
 plot(x, y, main = "Scatter Plot Example", xlab = "X-Axis", ylab = "Y-Axis")
 ```
 
-#### Output
+##### Output
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 #| echo: FALSE
@@ -342,12 +323,12 @@ y <- c(2, 4, 1, 3, 5)
 plot(x, y, main = "Scatter Plot Example", xlab = "X-Axis", ylab = "Y-Axis")
 ```
 
-## Inline code
+### Inline code
 
 ::::: {.columns}
 :::: {.column width="50%"}
 ::: {.fragment}
-### Input
+#### Input
 
 ```{markdown filename="Code"}
 Number of observations: `r 8*20`
@@ -356,7 +337,7 @@ Number of observations: `r 8*20`
 ::::
 :::: {.column width="50%"}
 ::: {.fragment}
-### Output
+#### Output
 
 Number of observations: `r 8*20`
 :::
@@ -367,7 +348,7 @@ Number of observations: `r 8*20`
 Code: you don't have to use it for a new entry book but its possible
 :::
 
-## Referencing
+### Referencing
 
 -   You can name and references objects like figures, tables etc.
 -   For example: @sec-citations (`@sec-citations`)
@@ -385,7 +366,7 @@ Code: you don't have to use it for a new entry book but its possible
 Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
 :::
 
-## Citations {#sec-citations}
+### Citations {#sec-citations}
 
 -   Citations can be added via **Insert** > **Citation**
 -   Citations can also be added directly with `@`
@@ -421,6 +402,23 @@ Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-
 Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
 :::
 
+:::{.callout-note title="The `references.bib` file" collapse=true}
+:::
+
+
+## Quarto extensions
+
+One nice feature of Quarto are it's [extensions](https://quarto.org/docs/extensions/).
+These extensions are created from Quarto users to extend the behavior and functionality of quarto.
+Since Quarto contributes to the movement of Open Science and Reproducibility, these extensions are freely available.
+
+### The `apaquarto` extension {.unnumbered}
+
+In this book, we will only deal with one extension - the `apaquarto` extension by William Joel Schneider.
+With this extension, we can shape the output of our rendered quarto file into the format of the [APA guidelines](https://apastyle.apa.org/)[^1].
+
+[^1]: Many journals and universities require submissions to be in the APA format.
+Thus, we think it is useful for many students and researchers to know about this extension.
 
 ### Resources
 
