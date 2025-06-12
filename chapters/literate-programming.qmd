@@ -53,14 +53,48 @@ However, there is a solution to this problem - and it is called **Literate Progr
 
 ## What is literate programming?
 
-Literate programming is a form of programming in which text and source code are in one document.
+Literate programming is a form of programming in which text and source code are in **one document**.
 It is based on the idea that a code should be easy and enjoyable to read and aimed at being understood by humans, which was called *Literate Programming* by @knuth84.
 Instead of writing code and later annotating it with comments, literate programming suggests to write a text in the order that a person would logically conceive it and include the code as it is explained in the text.
-A well-known example are Jupyter Notebooks where normal text is interwoven with code-chunks that are executable within the text.  
-Literate programming allows for creating **reproducible documents** instead of just reproducible script as well as making for a smoother workflow, as there is no need for switching out old and new outputs in your documents when the code changed.
-As an example, when you write an article in a document using literate programming and insert a code chunk that creates a plot, this code chunk's output -the plot- is part of your document and is always up to date with the script you're running.
+Thus, in literate programming, text is used to make code understandable.
+<!--A well-known example are Jupyter Notebooks where normal text is interwoven with code-chunks that are executable within the text.
+# I think that not many people can refer to Jupyter Notebooks (at least in the seminar)-->
+However, the concept of literate programming was extended to the idea that the text should not support the explanation for the code but rather the code can be an explanation of the document.
+Thus, one can write a whole paper and uses code directly in that document to support the claims made in that document.
+The code in these documents are stored in **chunks** (see later section) and are executable.
 
-:::{.callout-note title="Literate programming benefits for reproducibility"}
+Literate programming allows for creating **reproducible documents** instead of just reproducible script as well as making for a smoother workflow, as there is no need for switching out old and new outputs in your documents when the code changed.
+As an example, when you write an article in a document using literate programming and insert a code chunk that creates a plot, this code chunk's output (i.e. the plot) is part of your document and is always up to date with the script you're running.
+Hence, whenever you have to do some changes in your plot or your analyses, the changes are directly updated in your paper.
+Thus, the paper becomes [dynamic](@nte-dynamic-documents).
+Moreover, literate programming can heavily reduce outcome-based reproducibility errors (@sec-repro-errors).
+
+::: {#nte-dynamic-documents .callout-note title="Static vs. Dynamic documents" collapse="true"}
+One can discriminate static and dynamic documents.
+Most documents are static, since they do not refer to underlying data or content.
+They are typically generated once and do rarely need updates.
+
+On the other hand, dynamic documents are generated anew if some underlying data or content changes.
+They are often automatically recreated and use some kind of code to generate up-to-date content.
+Since research paper are often reviewed and many changes must be done, one can view paper as dynamic documents.
+
+**Examples**
+
+|Static documents|Dynamic documents|
+|:--------------|:------------------|
+|working agreement|research paper|
+|bills|dashboards|
+
+<!-- I am not happy about this discrimination. I have to look over it again--> 
+
+:::
+
+:::{.callout-tip title="Literate programming benefits for reproducibility"}
+
+1. Reduce outcome-based reproducibility errors
+1. Save time when updating your paper's results section
+1. Enhance transparency, traceability, and reproducibility of your results
+
 :::
 
 ## What is Quarto?
@@ -68,7 +102,7 @@ As an example, when you write an article in a document using literate programmin
 Quarto is an open-source **Publishing System**.
 It allows you to do literate programming.
 It was created by the company Posit, which is responsible for RStudio and is based on RMarkdown.
-Quarto is well integrated in RStudio and comes already bundled with any version of RStudio from RStudio v2022.07.1 "Spotted Wakerobin" onward (https://docs.posit.co/ide/user/ide/guide/documents/quarto-project.html#installing-quarto).
+Quarto is well integrated in RStudio and comes already bundled with any version of RStudio from RStudio v2022.07.1 "Spotted Wakerobin" onward (<https://docs.posit.co/ide/user/ide/guide/documents/quarto-project.html#installing-quarto>).
 It is able to execute several different programming languages like Python and R.
 
 ![This illustration shows schematically that one can have input in different languages and Quarto will produce different output formats. Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022. Illustrated by Allison Horst. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/horst-quarto-schematic.jpg)

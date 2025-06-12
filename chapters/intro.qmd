@@ -58,7 +58,7 @@ Within this book, we limit the term reproducibility to **computational** entitie
 Thus, we mainly focus on **data and code**.
 :::
 
-### Two errors of reproducibility
+### Two errors of reproducibility {#sec-repro-errors}
 
 As a researcher who wants to reproduce a result from a different research project, there are two main reasons why reproducibility might fail [@nosek2022].
 First, you may not be able to repeat the analysis that had been done before, because of data or code unavailability or the lack of information or software to recreate code.
