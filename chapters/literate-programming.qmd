@@ -164,7 +164,7 @@ Switch between the two at any time.
 The changes made in the `Visual` mode will appear in the `Source` mode in Markdown as well.
 Take a look at the two different modes and the rendered version of the document below with some simple formatting options.
 
-![On the left is the Source mode of the .qmd file and on the right the Visual formatting mode. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-source-mode.jpg)
+![On the left is the Source mode of the .qmd file and on the right the Visual formatting mode. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-source-mode.jpg){#fig-quarto-visual-source-mode}
 
 Now, take a look at the rendered version of the document and how each of the formatting options plays out.
 
@@ -357,7 +357,38 @@ Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-
 
 ## The YAML header {#sec-yaml-header}
 
+In Quarto, every document starts with a YAML header.
+The YAML header is indicated by three hyphens (`---`) at the beginning and at the end (e.g. @fig-quarto-example-document-plot or @fig-quarto-visual-source-mode).
+After the YAML header, the document's content begins.
+
+YAML stands for **Y**et **A**nother **M**arkup **L**anguage.
+In the YAML header, you specify settings that belong to the whole document you are writing.
+In case, you want to write a book or create a website with Quarto, you will find a separate YAML file in your project directory (`_quarto.yaml`).
+
+Do I need to learn another markup language?
+Good news is, YAML is really easy to learn.
+And in the context of Quarto, a [comprehensive guide](https://quarto.org/docs/guide/) explains to you, how you can set up a variety of options for your quarto document.
+Thus, you do not really must learn YAML.
+When you do not know something, look at the guide and follow its instructions.
+
+How is the setup of the YAML header?
+In general, the YAML header consists of so called `key: value` pairs.
+Thus, between the two lines with the three hyphens, you write (almost) everything in the style of a key that has a counterpart, called a value.
+key and value are separated by colon (`:`), while it comes directly after the key, but leaves one space open until the value starts.
+Each line only contains one `key: value` pair.
+When you use a string as a value, put quotation marks around the value (e.g. `author: "Justus Reihs"`)
+
+With the help of the `key: value` pairs, you can setup your whole Quarto document.
+You can specify the document's title, name, published date, etc.
+It would take too much time to give you a comprehensive overview of YAML specifications.
+Hence, we will provide you an overview that shows you a) the most important specifications for when you write a paper and b) the most important specifications to keep that paper easy to reproduce.
+
 :::{.callout-tip title="Different YAML settings" collapse=true}
+
+|YAML key|Example|Description|
+|:-|:-|:-|
+|`title`|`title: "The Repro Book"`|Name the title of your document|
+
 :::
 
 :::{.callout-note title="View: This chapter's YAML file" collapse=true}
