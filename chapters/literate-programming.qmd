@@ -101,37 +101,51 @@ Since research paper are often reviewed and many changes must be done, one can v
 
 Quarto is an open-source **Publishing System**.
 It allows you to do literate programming.
-It was created by the company Posit, which is responsible for RStudio and is based on RMarkdown.
+It was created by the company [Posit](https://posit.co), which is responsible for RStudio and is based on RMarkdown.
 Quarto is well integrated in RStudio and comes already bundled with any version of RStudio from RStudio v2022.07.1 "Spotted Wakerobin" onward (<https://docs.posit.co/ide/user/ide/guide/documents/quarto-project.html#installing-quarto>).
-It is able to execute several different programming languages like Python and R.
+What Quarto does is, it can interpret and handle many programming languages (e.g. R and Python) as well as plain text and transforms it into standard output formats (e.g., Word-, PDF-, and .html-files, see @fig-quarto-idea).
 
-![This illustration shows schematically that one can have input in different languages and Quarto will produce different output formats. Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022. Illustrated by Allison Horst. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/horst-quarto-schematic.jpg)
+![This illustration shows schematically that one can have input in different languages and Quarto will produce different output formats. Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022. Illustrated by Allison Horst. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/horst-quarto-schematic.jpg){#fig-quarto-idea}
 
-Quarto can be useful for creating websites, presentations, articles or books.
-Looking back at the article-plot example, Quarto will render the code chunk that is part of your document that creates the plot when creating an output like a pdf file and insert it automatically.
+With Quarto, one is able to create (scientific) papers, but also websites, presentations or books.
+In fact, this book is written with Quarto.
+To do so, Quarto has its own file extension (`.qmd`). `qmd` stands for **Q**uarto **M**ark**d**own.
+We will get to the Markdown language in a second (@sec-markdown).
+Everything you write in a Quarto file will then be **rendered** into a desired output file (e.g. .html, .pdf, .docx).
+As example, @fig-quarto-example-document-plot shows a Quarto document that contains human-readable text and a code chunk that will create a plot, as well as it's rendered version below.
 
-See the example of a Quarto document that contains human-readable text and a code chunk that will create a plot, as well as it's rendered version below.
-
-![On the left is a Quarto document in RStudio, containing a code chunk that creates a simple plot. On the right is the rendered version of the document, showing the text and the plot. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-example-document-plot.jpg)
+![On the left is a Quarto document in RStudio, containing a code chunk that creates a simple plot. On the right is the rendered version of the document, showing the text and the plot. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-example-document-plot.jpg){#fig-quarto-example-document-plot}
 
 ## How to use Quarto
 
-In this book, we will focus on using Quarto in RStudio, but Quarto can also be used with other editors such as VSCode or Jupyter.
-To start using Quarto and create Quarto documents, head to RStudio and in the upper left corner select **File \> New File \> Quarto Document...**.
-This will open a box that prompts you to give your document a title, which will appear at the top of your document's rendered version, as well as choosing the format that your output will be in.
+In this book, we will focus on using Quarto in RStudio, but Quarto can also be used with other editors such as [VSCode](https://code.visualstudio.com) or [Jupyter](https://jupyter.org).
+To start using Quarto, you must create a Quarto document.
+To do so, head to RStudio and in the upper left corner select **File \> New File \> Quarto Document...**.
+This will open a box (see @fig-quarto-box-create-document) that prompts you to give your document a title, which will appear at the top of your document's rendered version, as well as choosing the format that your output will be in.
 Either HTML, PDF or Word are possible by default.
-The standard output is HTML and for PDF or Word, LaTeX or MS Word are required.
+The standard output is HTML and you do not need to have anything else installed to create html documents.
+If you want to create PDF or Word Documents by Quarto, you need additional software. 
+For PDF-files, LaTeX[^1] is required and for Word-files, MS Word is required.
+
+[^1]: LaTeX is another markup language, such as markdown.
+To create PDF files from Quarto documents, you do not need to learn the markup language, but you need a LaTeX installation.
+To do so, follow the link displayed in @fig-quarto-box-create-document (<https://yihui.org/tinytex>).
+
 HTML files can also easily be turned into PDF files later on and the format is changeable. 
 Depending on your project, there are other available format options as well.
 The metadata of title and format is stored in the so called **YAML header** at the top of your page.
-This is also where you can further customize some general features of your file, such as the author, a subtitle, the date or the style of your document. 
+This is also where you can further customize some general features of your file, such as the author, a subtitle, the date or the style of your document (see @sec-yaml-header).
+To create the Quarto document, choose your preferred output format, type in at least the title of the document, and click on **Create** in the prompt box.
+
+![Prompt box that opens when intending to create a new Quarto document. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-box-create-document.png){#fig-quarto-box-create-document fig-align="center" width="70%" height="70%"}
 
 <!--Insert pullout box about what info can be put into the YAML -->
 
 To get a preview of a Quarto file in RStudio, you can either use `quarto preview` in the command line or the **Render** button at the top of your document.
 This will show you how your rendered document will look like and if you check the **Render on Save** box at the top of the document, will update live as you save your changes.
+For an example, see @fig-quarto-example-document-plot.
 
-## Markdown
+## Markdown {#sec-markdown}
 
 In Quarto documents, **Markdown** is used as a syntax.
 In Markdown content and formatting are integrated with each other and not separate.
@@ -147,7 +161,7 @@ Disadvantages are that there are overall less formatting options as the intentio
 Formatting can be done using either the `Source` or `Visual` mode in RStudio.
 In the `Source` mode you use Markdown syntax to format your written work and in the `Visual` mode you use a User-Interface similar to how you would use in e.g., MS Word.
 Switch between the two at any time.
-The changes made in the `Visual`mode will appear in the `Source` mode in Markdown as well.
+The changes made in the `Visual` mode will appear in the `Source` mode in Markdown as well.
 Take a look at the two different modes and the rendered version of the document below with some simple formatting options.
 
 ![On the left is the Source mode of the .qmd file and on the right the Visual formatting mode. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-source-mode.jpg)
@@ -341,7 +355,7 @@ Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-
 
 :::
 
-## The YAML header
+## The YAML header {#sec-yaml-header}
 
 :::{.callout-tip title="Different YAML settings" collapse=true}
 :::
@@ -493,9 +507,9 @@ Since Quarto contributes to the movement of Open Science and Reproducibility, th
 ### The `apaquarto` extension {.unnumbered}
 
 In this book, we will only deal with one extension - the `apaquarto` extension by William Joel Schneider.
-With this extension, we can shape the output of our rendered quarto file into the format of the [APA guidelines](https://apastyle.apa.org/)[^1] without much effort.
+With this extension, we can shape the output of our rendered quarto file into the format of the [APA guidelines](https://apastyle.apa.org/)[^2] without much effort.
 
-[^1]: Many journals and universities require submissions to be in the APA format.
+[^2]: Many journals and universities require submissions to be in the APA format.
 Thus, we think it is useful for many students and researchers to know about this extension.
 
 ### Install apaquarto
