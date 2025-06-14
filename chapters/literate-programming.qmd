@@ -612,7 +612,114 @@ We recommend not to change anything in this `_extensions` folder and all its sub
 
 :::
 
-### Resources
+### Implementing apaquarto in a quarto document
+
+You now have the apaquarto extension installed, but when you render your Quarto document, it does not look like a document in APA style.
+A last (and simple) step is to change the YAML header of your Quarto document.
+You need to specify the `format` to be in apaquarto style.
+To do so write the code below into your YAML header, save the changes, and re-render your Quarto document.
+
+```{zsh filename="YAML header"}
+format:
+  apaquarto-docx: default # <1>
+```
+
+1. This code renders your Quarto document to an APA styled Word Document.
+You can use `apaquarto-html` or `apaquarto-pdf` to render your `.qmd` file to a html or PDF file, respectively.
+
+Now, your rendered Quarto document should be in APA style.
+However, R would not be R and Quarto would not be Quarto if there is a small detail to consider.
+This only works, when the *Quarto document* is placed in the *same folder as the* `_extensions` *folder*.
+
+:::{.callout-caution title="Correct storage of your quarto file"}
+
+Make sure that your Quarto document (`.qmd`) is stored in the same folder as your `_extensions` folder!
+
+::: {.panel-tabset}
+
+## Correct placement
+
+Project Structure
+
+```
+.
+| my-project.Rproj
+| .gitignore
+| README.html
+| README.md
+| apa-styled-quarto-document.qmd
+| apa-styled-quarto-document.docx
+| _extensions
+  |-- wjschne
+    |-- apaquarto
+| code
+| data
+| renv
+```
+
+Above is displayed an excerpt of a project structure where the apaquarto extension works correctly.
+The `.qmd`-file is at the same folder as the `_extensions` folder.
+
+## Incorrect placement
+
+Project Structure
+
+```
+.
+| my-project.Rproj
+| .gitignore
+| README.html
+| README.md
+| apa-styled-quarto-document.qmd
+| _extensions
+  |-- wjschne
+    |-- apaquarto
+| code
+| data
+| report
+  |--apa-styled-quarto-document.qmd
+| renv
+```
+
+Above is displayed an excerpt of a project structure where the apaquarto extension does not work correctly.
+The `.qmd`-file is not at the same folder as the `_extensions` folder.
+Rather the `.qmd` file is located in the `reports` folder.
+Thus, the `.qmd` file is located on layer below the `_extensions` folder.
+Consequently, the apaquarto extension crushes when rerendering the Quarto document (which is why there is no .docx file in this project structure compared to the one that works correctly).
+
+:::
+
+:::
+
+### Deleting apaquarto
+
+In case you are not completely flashed by these features of `apaquarto` (or you just do not have to submit your work in APA style), you might not need the apaquarto extension in your project and want to remove it.
+Despite dropping some tears, just type in the command below into your Terminal.
+
+```{zsh filename="Terminal"}
+quarto remove wjschne/apaquarto
+```
+
+You will get an output like this:
+
+```{zsh filename="Output"}
+#| code-copy: false
+
+? Are you sure you'd like to remove My Document in APA Style, Seventh Edition? (Y/n) >
+```
+
+Type in **Y** and hit **Enter**.
+If you see the message below, you successfully deleted the extension form your project.
+
+```{zsh filename="Output"}
+#| code-copy: false
+
+Extension removed.
+
+```
+
+## Resources
 
 -   <https://quarto.org/>
 -   <https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html>
+-   <https://wjschne.github.io/apaquarto/>
