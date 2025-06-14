@@ -573,8 +573,8 @@ Then you will get another output like this:
 
 ```{zsh filename="Output"}
 
-[:check:] Downloading
-[:check:] Unzipping
+[✔] Downloading
+[✔] Unzipping
           Found 1 extensions.
           
 The following changes will be made:
@@ -582,7 +582,25 @@ My Document in APA Style, Seventh Edition    [No change]    (formats)
 ? Would you like to continue (Y/n) >
 ```
 
-6. Again, type in **Y** and hit **Enter**
+6. Again, type in **Y** and hit **Enter**.
+Your output should be like this:
+
+```{zsh filename="Output"}
+
+[✔] Copying
+[✔] Extension installation complete
+
+? View documentation using default browser? (Y/n) >
+```
+
+7. No the installation is finished.
+The Terminal asks you if you want to view the documentation online.
+It is the same we are referring to in @tip-apaquarto-installation-guide.
+No matter what you choose, you did successfully install the `apaquarto` extension.
+
+When you now look at your project directory, you can see that a new folder exists called `_extensions`.
+In that folder, there is a subfolder called `wjschne`, which, in turn, contains a subfolder `apaquarto`. In that `apaquarto` subfolder, there are many files that constitute the settings for the `apaquarto` extension.
+We recommend not to change anything in this `_extensions` folder and all its subfolders manually.
 
 ::: {#tip-apaquarto-installation-guide .callout-tip title="View: The `apaquarto` installation guide by William Joel Schneider" collapse="true"}
 
