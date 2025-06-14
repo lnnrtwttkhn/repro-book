@@ -509,6 +509,38 @@ To install `apaquarto`, there are some prerequisites that you most likely alread
 1. Install a programming environment (e.g. RStudio)
 
 After you have installed all things things, you can successfully install `apaquarto`.
+Most likely you have installed R and RStudio.
+To check whether Quarto is already installed, see @tip-quarto-check.
+
+::: {#tip-quarto-check .callout-tip title="How to check whether Quarto is already installed" collapse="true"}
+To check whether Quarto is already installed, open the Terminal at RStudio.
+It should be right next to the Console.
+If there is no Terminal, go to **Tools** > **Terminal** > **New Terminal**.
+Then, the Terminal pane will open.
+Write the following code into the Terminal:
+
+```{zsh filename="Terminal"}
+quarto --version
+```
+
+If you already have Quarto installed, the current version of Quarto should be displayed.
+
+```{zsh filename="Output"}
+#| code-copy: false
+
+1.4.551
+```
+
+If you have not installed Quarto yet, you might get a message like this:
+
+```{zsh filename="Output"}
+#| code-copy: false
+
+Command "quarto --version" not found.
+```
+
+To install quarto, go head and follow the installation instructions at [this website](https://quarto.org/docs/get-started/).
+:::
 
 To install apaquarto, the installation guide offers multiple scenarios (see @tip-apaquarto-installation-guide).
 According to the guide, it is possible to install the extension from the Terminal and from the Console.
