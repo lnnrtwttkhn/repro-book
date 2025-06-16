@@ -1,0 +1,242 @@
+---
+title: "Literate Programming"
+editor: source
+engine: knitr
+html-table-processing: none
+execute:
+  eval: false
+  warning: false
+  message: false
+code-annotations: hover
+categories: [intermediate]
+abstract: |
+  In this chapter you will learn how you can automatically integrate your reproducible results into a paper.
+  You will learn how to write a paper in with Quarto and how to format it for a required output.
+  You will learn how to use extension, specifically the apaquarto extension to write reproducible paper in APA-style.
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(gt)
+source("functions.R")
+gt_font_size <- 30
+gt_table_width = 1000
+```
+
+::: {.callout-tip appearance="minimal"}
+<h5>Learning Objectives</h5>
+
+:bulb: Learn the basics about the markdown syntax.<br>
+:bulb: Work on a new branch in your Git repository.<br>
+:bulb: Create a new report file using Quarto.<br>
+:bulb: Learn more advanced syntax: include a reference.bib file<br>
+:bulb: Learn more advanced syntax: the YAML header<br>
+:bulb: Learn more advanced syntax: add a quarto apa extension to the file (see wjschne/apaquarto)<br>
+:bulb: Rewrite the report in quarto
+:::
+
+## What is literate programming?
+
+Literate programming is a form of programming in which text and source code are in one document.
+It is based on the idea that a code should be easy and enjoyable to read and aimed at being understood by humans, which was called *Literate Programming* by Donald Knuth (1984).
+Instead of writing code and later annotating it with comments, literate programming suggests to write a text in the order that a person would logically conceive it and include the code as it is explained in the text.
+A well-known example are Jupyter Notebooks where normal text is interwoven with code-chunks that are executable within the text.  
+Literate programming allows for creating **reproducible documents** instead of just reproducible script as well as making for a smoother workflow, as there is no need for switching out old and new outputs in your documents when the code changed.
+As an example, when you write an article in a document using literate programming and insert a code chunk that creates a plot, this code chunk's output -the plot- is part of your document and is always up to date with the script you're running.
+
+## What is Quarto?
+
+Quarto is an open-source **Publishing System**.
+It allows you to do literate programming.
+It was created by the company Posit, which is responsible for RStudio and is based on RMarkdown.
+Quarto is well integrated in RStudio and comes already bundled with any version of RStudio from RStudio v2022.07.1 "Spotted Wakerobin" onward (https://docs.posit.co/ide/user/ide/guide/documents/quarto-project.html#installing-quarto).
+It is able to execute several different programming languages like Python and R.
+
+![This illustration shows schematically that one can have input in different languages and Quarto will produce different output formats. Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022. Illustrated by Allison Horst. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/horst-quarto-schematic.jpg)
+
+Quarto can be useful for creating websites, presentations, articles or books.
+Looking back at the article-plot example, Quarto will render the code chunk that is part of your document that creates the plot when creating an output like a pdf file and insert it automatically.
+
+See the example of a Quarto document that contains human-readable text and a code chunk that will create a plot, as well as it's rendered version below.
+
+![On the left is a Quarto document in RStudio, containing a code chunk that creates a simple plot. On the right is the rendered version of the document, showing the text and the plot. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-example-document-plot.jpg)
+
+## How to use Quarto
+
+In this book, we will focus on using Quarto in RStudio, but Quarto can also be used with other editors such as VSCode or Jupyter.
+To start using Quarto and create Quarto documents, head to RStudio and in the upper left corner select **File \> New File \> Quarto Document...**.
+This will open a box that prompts you to give your document a title, which will appear at the top of your document's rendered version, as well as choosing the format that your output will be in.
+Either HTML, PDF or Word are possible by default.
+The standard output is HTML and for PDF or Word, LaTeX or MS Word are required.
+HTML files can also easily be turned into PDF files later on and the format is changeable. 
+Depending on your project, there are other available format options as well.
+The metadata of title and format is stored in the so called **YAML header** at the top of your page.
+This is also where you can further customize some general features of your file, such as the author, a subtitle, the date or the style of your document. 
+
+<!--Insert pullout box about what info can be put into the YAML -->
+
+To get a preview of a Quarto file in RStudio, you can either use `quarto preview` in the command line or the **Render** button at the top of your document.
+This will show you how your rendered document will look like and if you check the **Render on Save** box at the top of the document, will update live as you save your changes.
+
+## Markdown
+
+In Quarto documents, **Markdown** is used as a syntax.
+In Markdown content and formatting are integrated with each other and not separate.
+This formatting is used in Quarto or on GitHub or on a smaller scale in WhatsApp or Reddit.  
+There are some advantage over more commonly known way of formatting in e.g., MS Word.
+Using an integrated approach to formatting and writing allows for faster writing, as there is no need to switch between the two.
+You just format as you type.
+Another advantage is compatibility between different text editors.
+Any program that uses Markdown will format a document written in it the exact same way. 
+Another advantage is that Git can track the changes made to text written with Markdown, allowing for version control of your written work the same way as of your code.  
+Disadvantages are that there are overall less formatting options as the intention is keep it simple and it can be difficult or unintuitive to insert tables and images.  
+
+Formatting can be done using either the `Source` or `Visual` mode in RStudio.
+In the `Source` mode you use Markdown syntax to format your written work and in the `Visual` mode you use a User-Interface similar to how you would use in e.g., MS Word.
+Switch between the two at any time.
+The changes made in the `Visual`mode will appear in the `Source` mode in Markdown as well.
+Take a look at the two different modes and the rendered version of the document below with some simple formatting options.
+
+![On the left is the Source mode of the .qmd file and on the right the Visual formatting mode. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-source-mode.jpg)
+
+Now, take a look at the rendered version of the document and how each of the formatting options plays out.
+
+![A screenshot of the rendered version of a document to showcase some formatting options. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-rendered-formatting.jpg)
+
+Now take a look at the different formatting options below:
+
+::: {.panel-tabset}
+## Text Formatting
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+make_table(name = "text_formatting") |>
+  gt() |>
+  fmt_markdown(columns = everything(), md_engine = "markdown") |>
+  tab_options(table.width = px(gt_table_width), table.font.size = gt_font_size) |>
+  gt_theme()
+```
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
+:::
+
+## Headings
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+make_table(name = "headings") |>
+  gt() |>
+  fmt_markdown(columns = everything(), md_engine = "markdown") %>%
+  tab_options(table.width = px(gt_table_width), table.font.size = gt_font_size) |>
+  gt_theme()
+```
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
+:::
+
+## Lists
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+make_table(name = "lists") |>
+  gt() |>
+  fmt_markdown(columns = everything(), md_engine = "markdown") %>%
+  tab_options(table.width = px(gt_table_width), table.font.size = gt_font_size) |>
+  gt_theme()
+```
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
+:::
+
+## Tables
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+make_table(name = "tables") |>
+  gt() |>
+  fmt_markdown(columns = everything(), md_engine = "markdown") %>%
+  tab_options(table.width = px(gt_table_width), table.font.size = gt_font_size) |>
+  gt_theme()
+```
+
+::: {.fragment}
+:bulb: Tip: Use a Markdown [table generator](https://www.tablesgenerator.com/markdown_tables)
+:::
+
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
+:::
+
+## Equations
+
++---------------------------+----------------+
+| Markdown Syntax           | Output         |
++===========================+================+
+| ```                       | $E=mc^{2}$     |
+| inline math: $E = mc^{2}$ |                |
+| ```                       |                |
++---------------------------+----------------+
+| ```                       | $$E = mc^{2}$$ |
+| display math:             |                |
+|                           |                |
+| $$E = mc^{2}$$            |                |
+| ```                       |                |
++---------------------------+----------------+
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
+:::
+
+## Blocks
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+make_table(name = "blocks") |>
+  gt() |>
+  fmt_markdown(columns = everything(), md_engine = "markdown") %>%
+  tab_options(table.width = px(gt_table_width), table.font.size = gt_font_size) |>
+  gt_theme()
+```
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
+:::
+
+## Links and images
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+make_table(name = "links") |>
+  gt() |>
+  fmt_markdown(columns = everything(), md_engine = "markdown") %>%
+  tab_options(table.width = px(gt_table_width), table.font.size = gt_font_size) |>
+  gt_theme()
+```
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
+:::
+:::
+
+### Resources
+
+-   <https://quarto.org/>
+-   <https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html>
