@@ -338,7 +338,7 @@ window.Quarto = {
 
 <section id="introduction" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">8.1</span> Introduction</h2>
-<p>Now a project is well-named including its files and folders. It is well-structured and follows a community standard as Psych-DS. It follows the FAIR principles. The code is written in the tidyverse-style. Is it reproducible? Well, it may be. Very likely, it is not. However, we have done a great job in organizing our research project. The previous chapters dealt with a possible architecture of a reproducible research project. But still, there are things to improve. The next chapters will deal with reproducible computational environments. For an introduction, read the example below:</p>
+<p>Now a project is well-named including its files and folders. It is well-structured and follows a community standard as Psych-DS. It follows the FAIR principles. The code is written in the tidyverse-style. Is it reproducible? Well, it may be. Very likely, it is not. However, we have done a great job in organizing our research project. The previous chapters dealt with a possible architecture of a reproducible research project. But still, there are things to improve. The next chapter will deal with reproducible computational environments. For an introduction, read the example below:</p>
 <p>Imagine you need to reproduce the results of a research article from 2019. The project structure is openly available at <a href="https://osf.io/">OSF</a> or at <a href="https://zenodo.org/">Zenodo</a>. You find a nice structure, run a script but then you get an error message in R like:</p>
 <div class="cell" data-code-copy="false">
 <div class="code-with-filename">
@@ -348,7 +348,7 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Error</span> in function_name<span class="op">(object[</span>[i<span class="op">]], ...)</span> : could not find function <span class="st">"function_name"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p>R is telling you that it cannot find a function called function_name. A similar problem can be that only arguments of a function are not found. However, the script runs correctly at the device of the researcher writing the script. Thus, you are facing a research project that is only reproducible on the same device it was written on. A possible reason is that your computational environment differs from the environment of the other researcher. You might have installed different versions of R packages or of <i class="fa-brands fa-r-project" aria-label="r-project"></i> itself.</p>
+<p>R is telling you that it cannot find a function called <code>function_name</code>. A similar problem can be that only arguments of a function are not found. However, the script runs correctly at the device of the researcher writing the script. Thus, you are facing a research project that is only reproducible on the <strong>same device</strong> it was written on. A possible reason is that your computational environment differs from the environment of the other researcher. You might have installed different versions of R packages or of <i class="fa-brands fa-r-project" aria-label="r-project"></i> itself.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Computational environments">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -361,8 +361,8 @@ Computational environments
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Computational environments include everything associated with technical infrastructure and software for conducting data analyses and reproducing scientific results. This comprises operating systems (Apple, Windows, Linux), software versions (R 4.3.1, 4.4.1, 4.4.2, etc.), and different versions of packages (dplyr 0.8.0, 1.1.4). It is important to consider your computational environment when it comes to computational reproducibility. The longer the time interval between creation and reproduction of your code is, the more the more likely reproducibility is not possible because of different computational environments. Software progresses over time, which is good in general. However, different versions of software include that some functions will not work in future versions or will do different things. Thus, it is important to keep track of the computational environment during creation of code and analyses.</p>
-<p>This done by so called <strong>Package Management Systems</strong>. Package Management Systems install and keep track of software and software versions, export files that specify these required software packages/versions and that can be shared with others <span class="citation" data-cites="community2022">(<a href="../references.html#ref-community2022" role="doc-biblioref">The Turing Way Community 2022</a>)</span>. Thus, environments can be replicated, either manually or via the Package Management System. In the next two chapters, we will introduce two Package Mangament Systems, namely <code>{renv}</code> and {docker}.</p>
+<p>Computational environments include everything associated with technical infrastructure and software for conducting data analyses and reproducing scientific results. This comprises operating systems (Apple, Windows, Linux), software versions (R 4.3.1, 4.4.1, 4.4.2, etc.), and different versions of packages (dplyr 0.8.0, 1.1.4). It is important to consider your computational environment when it comes to computational reproducibility. The longer the time interval between creation and reproduction of your code is, the more likely reproducibility is not possible because of different computational environments. Software progresses over time, which is good in general. However, different versions of software include that some functions will not work in future versions or will do different things. Thus, it is important to keep track of the computational environment during creation of code and analyses.</p>
+<p>This done by so called <strong>Package Management Systems</strong>. Package Management Systems install and keep track of software and software versions, export files that specify these required software packages/versions and that can be shared with others <span class="citation" data-cites="community2022">(<a href="../references.html#ref-community2022" role="doc-biblioref">The Turing Way Community 2022</a>)</span>. Thus, environments can be replicated, either manually or via the Package Management System. In this chapter, we will introduce the Package Mangament System <code>{renv}</code>.</p>
 </div>
 </div>
 </div>
@@ -405,7 +405,7 @@ How <code>renv</code> helps aligning computational environments
 </section>
 <section id="renv" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="renv"><span class="header-section-number">8.2</span> <code>renv</code></h2>
-<p><code>renv</code> is a package that cares about the different versions of your used packages. To use <code>renv</code> as package dependency manager, you only need to install it, as every other package in <i class="fa-brands fa-r-project" aria-label="r-project"></i>.</p>
+<p><code>renv</code> is a package that cares about the different versions of your used packages. To get the most out of this chapter, we encourage you to create a new <em>test project</em> in RStudio where you can try out the functions that you are about to learn. To use <code>renv</code> as package dependency manager, you only need to install it, as every other package in <i class="fa-brands fa-r-project" aria-label="r-project"></i>.</p>
 <div class="cell">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -439,7 +439,7 @@ Benefits of <code>renv</code>
 <ul>
 <li><p><code>.Rprofile</code> is a file that automatically runs every time you start your R-project. <code>renv</code> uses it to set up your project library. Thus, once you have turned on your project library, it remains active until you turn it off.</p></li>
 <li><p><code>renv/library</code> contains all the packages you are currently using. This is now your project library. With different libraries for different projects you have the benefit of <em>isolation</em>. When a package version changes in one project, it does not affect your other projects.</p></li>
-<li><p>The lockfile <code>renv.lock</code> contains all the metadata of your packages to reinstall it on a new machine. It serves as documentation about which package and which version of the packages you use. It also displays the R version used in your particular project.</p></li>
+<li><p>The lockfile <code>renv.lock</code> contains all the <strong>metadata</strong> of your packages to reinstall it on a new machine. It serves as documentation about which package and which version of the packages you use. It also displays the R version used in your particular project.</p></li>
 </ul>
 <details>
 <summary>
@@ -1284,6 +1284,7 @@ Click here to view the full <code>renv.lock</code> file of this project.
 </div>
 </div>
 </details>
+<p>In summary, we do not recommend to manually change the contents of the files and folders that belong to <code>renv</code>. Rather, the following R functions are good tools to manage your reproducible environments from the console.</p>
 </section>
 <section id="renvinstall" class="level4" data-number="8.2.1.2">
 <h4 data-number="8.2.1.2" class="anchored" data-anchor-id="renvinstall"><span class="header-section-number">8.2.1.2</span> <code>renv::install</code></h4>
@@ -1506,51 +1507,40 @@ What are dependencies?
 </div>
 </div>
 <p>Fortunately, the messages displayed by <code>renv</code> are very straightforward. It tells us to go to the helper page by running <code>?renv::status</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Section of the helping page for renv::status()">
+<div class="callout callout-style-default callout-tip callout-titled" title="Read the documentation of `renv::status()`">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Section of the helping page for renv::status()
+Read the documentation of <code>renv::status()</code>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>Missing packages</strong></p>
-<p><code>status()</code> first checks that all packages used by the project are installed. This must be done first because if any packages are missing we can’t tell for sure that a package isn’t used; it might be a dependency that we don’t know about. Once you have resolve any installation issues, you’ll need to run <code>status()</code> again to reveal the next set of potential problems.</p>
-<p>There are four possibilities for an uninstalled package:</p>
-<ul>
-<li><p>If it’s used and recorded, call <code>renv::restore()</code> to install the version specified in the lockfile.</p></li>
-<li><p>If it’s used and not recorded, call <code>renv::install()</code> to install it from CRAN or elsewhere.</p></li>
-<li><p>If it’s not used and recorded, call <code>renv::snapshot()</code> to remove it from the lockfile.</p></li>
-<li><p>If it’s not used and not recorded, there’s nothing to do. This the most common state because you only use a small fraction of all available packages in any one project.</p></li>
-<li><p>If you have multiple packages in an inconsistent state, we recommend <code>renv::restore()</code>, then <code>renv::install()</code>, then <code>renv::snapshot()</code>, but that also suggests you should be running status more frequently.</p></li>
-</ul>
-<p><strong>Lockfile vs <code>dependencies()</code></strong></p>
-<p>Next we need to ensure that packages are recorded in the lockfile if and only if they are used by the project. Fixing issues of this nature only requires calling <code>snapshot()</code> because there are four possibilities for a package:</p>
-<ul>
-<li><p>If it’s used and recorded, it’s ok.</p></li>
-<li><p>If it’s used and not recorded, call <code>renv::snapshot()</code> to add it to the lockfile.</p></li>
-<li><p>If it’s not used but is recorded, call <code>renv::snapshot()</code> to remove it from the lockfile.</p></li>
-<li><p>If it’s not used and not recorded, it’s also ok, as it may be a development dependency.</p></li>
-</ul>
+<p>You can just run <code>?renv::status()</code> in the Console to open the documentation of that function in the Help pane of RStudio. However, the documentation is also available at CRAN when you open the link below. Read the documentation carefully to extract the relevant information that applies to your case.</p>
+<p><i class="fa-solid fa-display" aria-label="display"></i> <a href="https://cran.r-project.org/web/packages/renv/renv.pdf#page=56" class="uri">https://cran.r-project.org/web/packages/renv/renv.pdf#page=56</a></p>
+<hr>
+<iframe width="100%" height="100%" src="https://cran.r-project.org/web/packages/renv/renv.pdf#page=56" title="renv documentation"></iframe>
 </div>
 </div>
 </div>
-<p>In the helping page our case is well-described. We can just run <code>renv::snapshot</code> to remove it from the lockfile. Thus, our lockfile does not contain the unused package <code>ellipsis</code>.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Video explaining basic `renv` functions">
-<div class="callout-header d-flex align-content-center">
+<p>In the helping page our case is well-described in the section <strong>Lockfile vs <code>dependencies()</code></strong>. We can just run <code>renv::snapshot</code> to remove it from the lockfile. Thus, our lockfile does not contain the unused package <code>ellipsis</code>.</p>
+<p>Now you got an overview of the most important functions of the package <code>{renv}</code>. The next section will provide you with information on how to use renv in a workflow. However, if you still want to get to know the functions better, we recommend the video in the box below (<a href="#tip-renv-rapp" class="quarto-xref">Tip&nbsp;<span>8.1</span></a>) by <span class="citation" data-cites="rapp2024">Rapp (<a href="../references.html#ref-rapp2024" role="doc-biblioref">2024</a>)</span>.</p>
+<div id="tip-renv-rapp" class="callout callout-style-default callout-tip callout-titled" title="Video explaining basic `renv` functions">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Video explaining basic <code>renv</code> functions
+Tip&nbsp;8.1: Video explaining basic <code>renv</code> functions
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>For further information, see this video to increase your understanding of <code>renv</code>.</p>
+<p>For further information, see this video to increase your understanding of <code>{renv}</code>.</p>
 <div id="vid-renv-rapp" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-renv-rapp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1560,6 +1550,7 @@ Video explaining basic <code>renv</code> functions
 Video&nbsp;8.1: <strong>“Robust R Code That Will Work Forever With {renv}”.</strong> The video by <span class="citation" data-cites="rapp2024">Rapp (<a href="../references.html#ref-rapp2024" role="doc-biblioref">2024</a>)</span> aims to display and explain common workflows when creating a reproducible environment using <code>{renv}</code>. License: not specified. Reused without modifications.
 </figcaption>
 </figure>
+</div>
 </div>
 </div>
 </div>
@@ -1621,7 +1612,7 @@ Step-by-step guide for <code>renv</code>
 </section>
 <section id="limitations-of-renv" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="limitations-of-renv"><span class="header-section-number">8.3</span> Limitations of <code>renv</code></h2>
-<p>As you can see in the lockfile, <code>renv</code> tracks not only the package versions but also the R version. However, <code>renv</code> cannot solve reproducibility issues when it comes to different R versions. It is possible to deal with this problem installing the specific R version used in the project you want to reproduce. Another way is using <em>docker</em> (see chapter about docker). However, it requires more time and work to make a project reproducible. Further, the benefits of separate projects comes with a constraint. Possible bug fixes that are included in later versions of a package are not implemented in the project libraries. Nevertheless, we recommend <code>renv</code> as a valuable tool for increasing a project’s reproducibility.</p>
+<p>As you can see in the lockfile, <code>renv</code> tracks not only the package versions but also the R version. However, <code>renv</code> cannot solve reproducibility issues when it comes to different R versions. It is possible to deal with this problem installing the specific R version used in the project you want to reproduce. Another way is using <em>docker</em>. However, it requires more time and work to make a project reproducible. Further, the benefits of separate projects comes with a constraint. Possible bug fixes that are included in later versions of a package are not implemented in the project libraries. Nevertheless, we recommend <code>renv</code> as a valuable tool for increasing a project’s reproducibility.</p>
 </section>
 <section id="references" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="references"><span class="header-section-number">8.4</span> References</h2>
