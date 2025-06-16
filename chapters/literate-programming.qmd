@@ -610,7 +610,7 @@ quarto add wjschne/apaquarto
 Quarto extensions may execute code when documents are rendered.
 If you do not trust the author of the extension,
 we recommend that you do not install or use the extension.
-? Do you trust the authors of this extention (Y/n) >
+? Do you trust the authors of this extension (Y/n) >
 ```
 
 5. Type in **Y** and hit **Enter**.
