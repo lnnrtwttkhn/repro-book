@@ -127,7 +127,7 @@ This is now your project library.
 With different libraries for different projects you have the benefit of *isolation*.
 When a package version changes in one project, it does not affect your other projects.
 
-- The lockfile `renv.lock` contains all the metadata of your packages to reinstall it on a new machine.
+- The lockfile `renv.lock` contains all the **metadata** of your packages to reinstall it on a new machine.
 It serves as documentation about which package and which version of the packages you use.
 It also displays the R version used in your particular project.
 
@@ -138,6 +138,9 @@ It also displays the R version used in your particular project.
 #| code-line-numbers: true
 ```
 </details>
+
+In summary, we do not recommend to manually change the contents of the files and folders that belong to `renv`.
+Rather, the following R functions are good tools to manage your reproducible environments from the console.
 
 #### `renv::install`
 
