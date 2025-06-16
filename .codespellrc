@@ -1,4 +1,4 @@
 [codespell]
 # reference: https://github.com/codespell-project/codespell#using-a-config-file
 skip = .git,*.pdf,*.svg,*.lock,.codespellrc,*.bib
-ignore-words-list = **J**ava**S**cript **O**bject **N**otation, **L**anguage
+ignore-words-list = **J**ava**S**cript **O**bject **N**otation, **Y**et **A**nother **M**arkup **L**anguage
