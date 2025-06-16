@@ -86,6 +86,7 @@ With `renv`...
 ## `renv`
 
 `renv` is a package that cares about the different versions of your used packages.
+To get the most out of this chapter, we encourage you to create a new *test project* in RStudio where you can try out the functions that you are about to learn.
 To use `renv` as package dependency manager, you only need to install it, as every other package in {{< fa brands r-project >}}.
 
 ```{zsh filename="Console"}
@@ -367,7 +368,7 @@ It tells us to go to the helper page by running `?renv::status`.
 
 ::: {.callout-tip title="Read the documentation of `renv::status()`" collapse="true"}
 
-You can just run ?renv::status() in the Console to open the documentation of that function in the Help pane of RStudio.
+You can just run `?renv::status()` in the Console to open the documentation of that function in the Help pane of RStudio.
 However, the documentation is also available at CRAN when you open the link below.
 Read the documentation carefully to extract the relevant information that applies to your case.
 
@@ -384,8 +385,12 @@ In the helping page our case is well-described in the section **Lockfile vs `dep
 We can just run `renv::snapshot` to remove it from the lockfile.
 Thus, our lockfile does not contain the unused package `ellipsis`.
 
-::: {.callout-tip title="Video explaining basic `renv` functions"}
-For further information, see this video to increase your understanding of `renv`.
+Now you got an overview of the most important functions of the package `{renv}`.
+The next section will provide you with information on how to use renv in a workflow.
+However, if you still want to get to know the functions better, we recommend the video in the box below (@tip-renv-rapp) by @rapp2024.
+
+::: {#tip-renv-rapp .callout-tip title="Video explaining basic `renv` functions" collapse=true}
+For further information, see this video to increase your understanding of `{renv}`.
 
 ::: {#vid-renv-rapp}
 
