@@ -448,7 +448,7 @@ You know the most important things now, but it sure can help to have a guideline
 As you can see in the lockfile, `renv` tracks not only the package versions but also the R version.
 However, `renv` cannot solve reproducibility issues when it comes to different R versions.
 It is possible to deal with this problem installing the specific R version used in the project you want to reproduce.
-Another way is using *docker*.
+Another way is using [*docker*](https://www.docker.com/).
 However, it requires more time and work to make a project reproducible.
 Further, the benefits of separate projects comes with a constraint.
 Possible bug fixes that are included in later versions of a package are not implemented in the project libraries.
@@ -457,6 +457,9 @@ Nevertheless, we recommend `renv` as a valuable tool for increasing a project's 
 
 ## References
 
-somehow include:
+We would like to express our gratitude to the following resources which have been essential in shaping this chapter. We recommend these references for further reading and watching.
 
-- https://rstudio.github.io/renv/articles/renv.html
+|Authors|Title|Website|License|Source|
+|:---|:---|:---|:---|:---|
+|@rapp2024|Robust R Code that will work forever with {renv}|[{{< fa display >}}](https://albert-rapp.de/)| Not specified| [{{< fa brands youtube >}}](https://www.youtube.com/watch?v=Oen9xhEh8PY)|
+|@ushey2024| renv: Project Environments | [{{< fa display >}}](https://rstudio.github.io/renv/articles/renv.html)| [MIT](https://mit-license.org/) | [{{< fa brands github >}}](https://github.com/rstudio/renv) | 
