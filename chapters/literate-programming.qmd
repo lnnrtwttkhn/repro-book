@@ -172,20 +172,47 @@ Now, take a look at the rendered version of the document and how each of the for
 
 Have a look at the different formatting options available.
 
-::: panel-tabset
-# Text formatting
+### Text formatting
 
-| Input                          | Output                        |
-|--------------------------------|-------------------------------|
-| `*italics* and **bold**`       | *italics* and **bold**        |
-| `superscript^2 / subscript~2~` | superscript^2^ / subscript~2~ |
-| `~~strikethrough~~`            | ~~strikethrough~~             |
-| `` `verbatim code` ``          | `verbatim code`               |
+::: panel-tabset
+
+#### Source Editor
+
+When you want to format your text in the source editor, the markdown syntax is quite straightforward.
+For example, if you want to write *italic* words, you put a `*` around the words of interest.
+@tbl-text-formatting displays how you can format your text in the most important styles.
+
+| Input                                         | Output                                      |
+|-----------------------------------------------|---------------------------------------------|
+| `*italics*, **bold**, ***bold and italics***` | *italics*, **bold**, ***bold and italics*** |
+| `[underlined text]{.underline}`               | [underlined text]{.underline}               |
+| `superscript^2 / subscript~2~`                | superscript^2^ / subscript~2~               |
+| `~~strikethrough~~`                           | ~~strikethrough~~                           |
+| `` `verbatim code` ``                         | `verbatim code`                             |
+
+: Different text formatting options in Markdown syntax.
+The *Input* column displays how to write the text in the source editor.
+The *Output* column displays how the text is then rendered.
+{#tbl-text-formatting}
 
 ::: footer
 Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
 :::
 
+#### Visual Editor
+
+When you want to format your written text while being in the Visual Editor, you can do it by click and select.
+You can see a menu line at the top of the document (compare to @fig-text-formatting).
+In that line, you can just click on **B** to make your text bold or *I* to make it italic.
+There is also a button *"Format"*.
+If you click on that button, then a variety of formatting options appear.
+When you hover over *"Text"*, you see all the formatting options we also covered for the source editor.
+
+![The red rectangle in the menu line covers the buttons for making the code **bold** or *italic*. The orange rectangle in the menu line indicates the *"format"* button to see a variety of text formatting options.](../static/markdown-text-formatting.png){#fig-text-formatting}
+
+:::
+
+::: panel-tabset
 # Headings
 
 <table>
