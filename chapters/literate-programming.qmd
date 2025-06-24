@@ -591,6 +591,49 @@ You can derive following rules from this example:
 ```
 </details>
 
+#### Citation syntax
+
+To refer to citations that have already been inserted in your `references.bib` file, there is no difference between the Source and the Visual Editor.
+All you have to do is indicating a citation with `@` and put the identifier (see @nte-references-bib) behind the `@`.
+Thus, if you want to cite the paper we added in @sec-add-citations, you can see in the `references.bib` file that we use the identifier `schuck2016`.
+Hence, the proper citation is `@schuck2016`.
+This citation is called an in-text citation.
+You can also use square brackets around the reference (`[@schuck2016]`).
+Another possibility is to use a `-` before the reference to let the authors disappear (`[-@schuck2016]`)
+Look at @tbl-citations to see how the different syntax plays out in the output.
+
++--------------------------------------------------+----------------------------------------------------------------------------+
+| Markdown Format                                  | Output (author-date format)                                                |
++==================================================+============================================================================+
+| ```                                              | Blip blop bloop [see @schuck2016, pp. 33-35; also @community2022, chap. 1] |
+| Blip blop bloop [see @schuck2016, pp. 1403-1405; |                                                                            |
+| also @community2022, chap. 1]                    |                                                                            |
+| ```                                              |                                                                            |
++--------------------------------------------------+----------------------------------------------------------------------------+
+| ```                                              | Blip blop bloop [@schuck2016, pp. 1403-1405, 1407-1408 and passim]         |
+| Blip blop bloop [@schuck2016, pp. 1403-1405,     |                                                                            |
+| 1407-1408 and passim]                            |                                                                            |
+| ```                                              |                                                                            |
++--------------------------------------------------+----------------------------------------------------------------------------+
+| ```                                              | Blip blop bloop [@schuck2016].                                             |
+| Blip blop bloop [@schuck2016].                   |                                                                            |
+| ```                                              |                                                                            |
++--------------------------------------------------+----------------------------------------------------------------------------+
+| ```                                              | They say blah [-@schuck2016]                                               |
+| They say blah [-@schuck2016]                     |                                                                            |
+| ```                                              |                                                                            |
++--------------------------------------------------+----------------------------------------------------------------------------+
+| ```                                              | @schuck2016 says bloop.                                                    |
+| @schuck2016 says bloop.                          |                                                                            |
+| ```                                              |                                                                            |
++--------------------------------------------------+----------------------------------------------------------------------------+
+| ```                                              | @schuck2016 [p.1403] says blah.                                            |
+| @schuck2016 [p.1403] says blah.                  |                                                                            |
+| ```                                              |                                                                            |
++--------------------------------------------------+----------------------------------------------------------------------------+
+
+: Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/), [Wittkuhn & Pagenstedt - Quarto Workshop](https://lennartwittkuhn.com/version-control-course-uhh-ws23/sessions/session07.html) {#tbl-citations}
+
 ## Quarto extensions
 
 One nice feature of Quarto are it's [extensions](https://quarto.org/docs/extensions/).
