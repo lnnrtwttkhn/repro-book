@@ -410,11 +410,14 @@ You can specify the document's title, name, published date, etc.
 It would take too much time to give you a comprehensive overview of YAML specifications.
 Hence, we will provide you an overview that shows you a) the most important specifications for when you write a paper and b) the most important specifications to keep that paper easy to reproduce.
 
-:::{.callout-tip title="Different YAML settings" collapse=true}
+:::{.callout-tip title="Different YAML settings" collapse=true #tip-yaml-settings}
 
 |YAML key|Example|Description|
 |:-|:-|:-|
-|`title`|`title: "The Repro Book"`|Name the title of your document|
+|`title`|`title: "The Repro Book - A Guide to Reproducible Research"`|Name the title of your document|
+|`shorttitle`|`shorttitle: "The Repro Book`|The short title of your document|
+|`csl`|`csl: apa.csl` | Set the citation style of your document|
+|`bibliography`|`bibliography: references.bib`| Refer to the citations you use in your document|
 
 :::
 
@@ -633,6 +636,25 @@ Look at @tbl-citations to see how the different syntax plays out in the output.
 +--------------------------------------------------+----------------------------------------------------------------------------+
 
 : Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/), [Wittkuhn & Pagenstedt - Quarto Workshop](https://lennartwittkuhn.com/version-control-course-uhh-ws23/sessions/session07.html) {#tbl-citations}
+
+#### Citation style {#sec-citation-style}
+
+By default, the citation style in Quarto Documents is the [Chicago Manual of Style](https://www.chicagomanualofstyle.org/home.html) author-date format.
+If you want to change the style, you can look up different resources to find `.csl` files.
+These `.csl` files specify how the citations will be styled.
+@nte-csl-resources shows you some resources where you can find these `.csl` files.
+
+To use the citation style language you downloaded with the `.csl` file, you have to make sure that the intended `.csl` file appears in the *root directory* of the project[^1].
+Additionally, make sure that you specified your YAML header by adding the key-value pair `csl: apa.csl` into the YAML header of your document (@tip-yaml-settings).
+
+[^1]: You can also put it in a subfolder of your project, but then you have to specify the path in the YAML header, too.
+
+:::{#nte-csl-resources .callout-note title="Resources for `.csl` files" collapse=false}
+|Resource|Link|
+|:------|:----|
+| Zotero's Style Repository | [{{< fa link >}}](https://www.zotero.org/styles) |
+| CSL Project | [{{< fa brands github >}}](https://github.com/citation-style-language/styles) |
+:::
 
 ## Quarto extensions
 
