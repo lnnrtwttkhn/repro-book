@@ -518,43 +518,78 @@ Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-
 
 ### Citations {#sec-citations}
 
--   Citations can be added via **Insert** > **Citation**
--   Citations can also be added directly with `@`
--   References are stored in [BibTeX](https://www.bibtex.org/) files in your project
+When you write a paper, you definitely must include citations.
+Quarto offers different ways of managing citations.
+We will give you an overview how to handle them.
 
-+----------------------------------------------+--------------------------------------------------------------+
-| Markdown Format                              | Output (author-date format)                                  |
-+==============================================+==============================================================+
-| ```                                          | Blip blop bloop [see @chacon2014, pp. 33-35; also , chap. 1] |
-| Blip blop bloop [see @chacon2014, pp. 33-35; |                                                              |
-| also @ggseg, chap. 1]                        |                                                              |
-| ```                                          |                                                              |
-+----------------------------------------------+--------------------------------------------------------------+
-| ```                                          | Blip blop bloop [@chacon2014, pp. 33-35, 38-39 and passim]   |
-| Blip blop bloop [@chacon2014, pp. 33-35,     |                                                              |
-| 38-39 and passim]                            |                                                              |
-| ```                                          |                                                              |
-+----------------------------------------------+--------------------------------------------------------------+
-| ```                                          | Blip blop bloop [@chacon2014].                               |
-| Blip blop bloop [@chacon2014].               |                                                              |
-| ```                                          |                                                              |
-+----------------------------------------------+--------------------------------------------------------------+
-| ```                                          | Lennart says blah [-@chacon2014]                             |
-| They say blah [-@chacon2014]                 |                                                              |
-| ```                                          |                                                              |
-+----------------------------------------------+--------------------------------------------------------------+
-| ```                                          | @chacon2014 says bloop.                                      |
-| @chacon2014 says bloop.                      |                                                              |
-| ```                                          |                                                              |
-+----------------------------------------------+--------------------------------------------------------------+
+When you use citations in Quarto, you will definitely need a **bibliography**.
+This bibliography contains all the relevant information of your citations and is usually a BibLaTeX (`.bib`) or BibTeX (`.bibtex`) file.
+What you might optionally want to include, is a file that specifies the [Citation Style Language](https://citationstyles.org). For more information on that, see @sec-citation-style.
 
-::: footer
-Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
+#### Add citations {#sec-add-citations}
+
+Adding citations is simple in the Visual Editor.
+Go to *Insert* in the menu line and click on *Citation...*.
+Then a box should pop up (see @fig-quarto-add-citation).
+In that box, you have different options how to add a citation.
+In our opinion, the interface *From DOI* is the most convenient one for adding new citations.
+To find your citation of interest, simply copy and paste the DOI of your research article into the bar and hit *Search*.
+Then, your citation should be popped up in the pane below (again, see @fig-quarto-add-citation).
+Simply hit *Insert* and your citation is in your document.
+At the same time (if it is your first citation), a `references.bib` file was automatically created in your project directory (see @nte-references-bib).
+Further, you can see, that your YAML header now contains one more line `bibliography: references.bib`.
+The Visual Editor does that automatically for you.
+If you use the Source editor, you have to set up the `references.bib` file on your own and manually add the bibliography key-value pair to your document's YAML header.
+When you add other new citations, they are automatically added to your `references.bib` file, when you follow the same steps from above again.
+
+![Screenshot of Pop-Up box when adding a new citation from a DOI in the Visual Editor.](../static/quarto-add-citation.png){#fig-quarto-add-citation}
+
+:::{#nte-references-bib .callout-note title="The `references.bib` file" collapse=true}
+
+The `reference.bib` file has a very specific setup.
+Lets look at an exemplary entry in the file to learn how it is built.
+
+```{filename="Example of `references.bib` file"}
+@article{nuijten2024,
+  author = {Michèle B. Nuijten and Jelte M. Wicherts},
+  title = {Implementing Statcheck During Peer Review Is Related to a Steep Decline in Statistical-Reporting Inconsistencies},
+  journal = {Advances in Methods and Practices in Psychological Science},
+  year = {2024},
+  volume = {7},
+  issue = {2},
+  doi = {10.1177/25152459241258945},
+  url = {https://doi.org/10.1177/25152459241258945}
+}
+```
+
+---
+
+You can derive following rules from this example:
+
+1. Each entry starts with an `@`
+1. After the `@` the resource type of the entry is specified (e.g. article, book, etc.)
+1. An opening curly bracket `{` marks the begin of where to write the content of the citation
+1. After the `{`, an identifier is written (by default, first author name and the year of publication)
+1. Separation by a comma `,`
+1. Then the body of the entry follows, indented by two spaces
+1. The body contains multiple key-value pairs (as in the YAML header).
+1. Contrary to the YAML header keys and values are separated by an equals sign.
+1. Contrary to the YAML header, the values are written in curly brackets.
+1. A `,` separates two key-value pairs
+1. Each key-value pair is written on it's own line
+1. The last key value pair does not need a `,` at the end
+1. Important keys for journal articles are author, title, journal, volume, issue, doi and url
+1. The body of the entry is closed with a non indented closing curly bracket `}` at a new line, closing the opening curly bracket from the first line of the entry.
 :::
 
-:::{.callout-note title="The `references.bib` file" collapse=true}
-:::
-
+<details>
+<summary>Click here to view the full `references.bib` of this book.</summary>
+```{bash, filename="references.bib"}
+#| eval: false
+#| file: references.bib
+#| code-line-numbers: true
+```
+</details>
 
 ## Quarto extensions
 
