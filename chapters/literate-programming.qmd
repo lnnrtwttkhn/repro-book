@@ -443,35 +443,57 @@ abstract: |
 ## Features
 
 There are some nice features that can be implemented in Quarto, such as including code chunks, as mentioned before with the example of a plot, inline code as well as referencing and citations.
+These are the features that can make your document reproducible.
+As explained in the introduction, when having to e.g. change your analysis, these features will update without you having to painstakingly change your results manually and likely introduce some errors in the process.
 
 ### Code chunks
 
--   **Executable code:** Quarto files support code execution during rendering
--   Code chunks can be interactive
--   **Customizable options:** Specify various options for code chunks
--   You can also use *inline code*
--   R code enclosed by: ```` ```{r} code ``` ````
+**Code chunks** are pieces of code that will be executed by Quarto during the rendering process, so when you're having Quarto create the intended output format of your .qmd file.
+remeber the earlier example of a plot within a report, which was done using a code chunk.
 
-#### Examples
-##### Input
-```{r}
-#| output: FALSE
-#| label: code-example
-x <- c(1, 2, 3, 4, 5)
-y <- c(2, 4, 1, 3, 5)
-plot(x, y, main = "Scatter Plot Example", xlab = "X-Axis", ylab = "Y-Axis")
+![On the left is a Quarto document in RStudio, containing a code chunk that creates a simple plot. On the right is the rendered version of the document, showing the text and the plot. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-example-document-plot.jpg)
+
+Any type of code can be inserted by using code chunks.
+
+To insert a code chunk either do so by using specific syntax in the **Source** mode or by going into the **Visual** mode and inserting it by clicking through the menu.
+
+To add a code chunk in the **Source** mode, simply add three back ticks around your code and specify the language within `{}`.
+For example in the language `R`, this would look just like this: ```` ```{r} Your code ``` ````.
+As this process is so simply and the thinking work lies in the code itself, it is recommended to do this in the Source mode, also because it is simply faster.
+
+To add a code chunk in the **Visual** mode, head to **Insert > Executable Cell > *Desired Language* ** , as can be seen below.
+
+![How to insert a code chunk into a Quarto document in the Visual mode in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-insert-codechunk.jpg)
+
+<!-- MOVE THIS TO A CALLOUTBOX AND ADD EXPLANATION ON EXTENSIONS NEEDED TO BE INSTALLED
+Code chunks can also be interactive and run in the rendered document, if specified.
+This is useful in teaching scenarios such as going through a coding process step-by-step.
+In that case the code chunk is not executed when rendered but instead needs to be prompted to run in the rendered document.
+Such a code chunk could look similar to the one below.
+Try running this code chunk below:
+```{webr}
+#| interactive: true
+#| echo: true
+1+1
 ```
+To implement such an interactive code chunk, you need to
+--> 
 
-##### Output
+Code chunks can be quite different in their functioning.
+There is some room for how you can customize them, for example you might like to have the code displayed as well as the output or (very likely) you have a lot of code but only want to showcase your results directly in the output document but in order to get there you need to run a lot of code beforehand.
+As your biggest goal is keeping your document reproducible, you still want to include it in your Quarto file.  
+To do this, you use different Chunk Options.
+In the previous examples one of them has been `#| echo: false`, which ensures that only the output, in that case the plot, and not the input, the code is shown.
+To include them, place them within your code chunk, after your specified coding language, just like in the code chunk in the plot example above. 
+The options are either specified `true`or ``false` and prefaced by `#|`.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-#| echo: FALSE
-#| message: FALSE
-#| warning: FALSE
-x <- c(1, 2, 3, 4, 5)
-y <- c(2, 4, 1, 3, 5)
-plot(x, y, main = "Scatter Plot Example", xlab = "X-Axis", ylab = "Y-Axis")
-```
+Some important options are:  
+- `#| echo: false`: When set to false, the code chunks results are shown but not the code itself.
+When set as true, the code is also shown.  
+- `#| include: false`: Neither the code nor the results appear in the output file, which is useful for code which's results you need for running other code later on but isn't relevant to the reader.  
+- `#| fig.cap = " Your caption"`: Include a caption in your figure. 
+This one is not set to true or false but rather just the caption is included. 
+
 
 ### Inline code
 
