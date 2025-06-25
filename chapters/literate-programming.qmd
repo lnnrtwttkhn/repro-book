@@ -212,8 +212,16 @@ When you hover over *"Text"*, you see all the formatting options we also covered
 
 :::
 
+### Headings
+
+Formatting headings in Markdown syntax is quite easy as well.
+Just put your heading in a new line, and put the number of `#` before that heading to indicate the heading level.
+You can also format your headings in the Visual Editor.
+However, it is faster in our experience to use the Source editor.
+
 ::: panel-tabset
-# Headings
+
+#### Source Editor
 
 <table>
 <thead>
@@ -253,6 +261,16 @@ When you hover over *"Text"*, you see all the formatting options we also covered
 ::: footer
 Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
 :::
+
+#### Visual Editor
+
+
+
+:::
+
+## Another heading
+
+::: panel-tabset
 
 # Lists
 
