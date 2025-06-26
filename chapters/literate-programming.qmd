@@ -468,7 +468,7 @@ Hence, we will provide you an overview that shows you a) the most important spec
 +:===============+:=============================================================+:=====================================================================+
 | `title`        | `title: "The Repro Book - A Guide to Reproducible Research"` | Name the title of your document                                      |
 +----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
-| `shorttitle`   | `shorttitle: "The Repro Book`                                | The short title of your document                                     |
+| `shorttitle`   | `shorttitle: "The Repro Book"`                               | The short title of your document                                     |
 +----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
 | `editor`       | ```                                                          | Set that each sentence is placed in a new line (@tip-line-wrapping)  |
 |                | editor:                                                      |                                                                      |
@@ -516,7 +516,7 @@ As explained in the introduction, when having to e.g. change your analysis, thes
 ### Code chunks
 
 **Code chunks** are pieces of code that will be executed by Quarto during the rendering process, so when you're having Quarto create the intended output format of your .qmd file.
-remeber the earlier example of a plot within a report, which was done using a code chunk.
+Remember the earlier example of a plot within a report, which was done using a code chunk.
 
 ![On the left is a Quarto document in RStudio, containing a code chunk that creates a simple plot. On the right is the rendered version of the document, showing the text and the plot. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-example-document-plot.jpg)
 
