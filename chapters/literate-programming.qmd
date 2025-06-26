@@ -145,6 +145,49 @@ To get a preview of a Quarto file in RStudio, you can either use `quarto preview
 This will show you how your rendered document will look like and if you check the **Render on Save** box at the top of the document, will update live as you save your changes.
 For an example, see @fig-quarto-example-document-plot.
 
+### Source and Visual Editor {#sec-editors}
+
+You can use either the `Source` or `Visual` mode in RStudio to write and format your work.
+In the `Source` mode you use [Markdown syntax](@sec-markdown) to format your written work and in the `Visual` mode you use a User-Interface similar to how you would use in e.g., MS Word.
+You can switch between the two at any time.
+The changes made in the `Visual` mode will appear in the `Source` mode in Markdown as well.
+However, we strongly recommend you to use the `Source` mode rather than the `Visual` mode.
+This is because most Markdown Syntax is easier and faster to write than to use a Graphical User Interface.
+Nevertheless, in the Section about Markdown Syntax we give you instructions how to format your text in both editors.
+Take a look at the two different modes and the rendered version of the document below with some simple formatting options.
+
+![On the left is the Source mode of the .qmd file and on the right the Visual formatting mode. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-source-mode.jpg){#fig-quarto-visual-source-mode}
+
+Now, take a look at the rendered version of the document and how each of the formatting options plays out.
+
+![A screenshot of the rendered version of a document to showcase some formatting options. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-rendered-formatting.jpg)
+
+::: {#tip-quarto-git-compability .callout-tip title="Enhance Quarto compability with Git" collapse=true}
+
+When you make changes in a Quarto document and you track it with Git, we recommend you to write each sentence in a new line when using the `Source` Editor.
+This enhances the readability of the changes in Git you made in the Quarto document but does not change the output of the document (see @fig-quarto-git-compability).
+
+![The upper left corner displays text. Lines 6 to 8 contain a paragraph where each sentence is written in a new line. Line 10 contains a paragraph where all sentences are written in one line. The lower left corner displays the rendered `html` version of the quarto document. The right half shows the popup window of Git to commit changes. As one can see, it is easier to understand the changes that were made in line 8 compared to line 10.](../static/quarto-git-compability.png){#fig-quarto-git-compability}
+
+:::
+
+::: {.callout-tip title="Avoid changes when switching between `Source` and `Visual` Editor" collapse=true}
+
+Assuming you follow @tip-quarto-git-compability, and you write each sentence in a new line.
+When you use the `Visual` Editor, you are cannot directly control whether the sentences are in separate lines or not (compare @fig-quarto-git-compability).
+However, you can specify that in the [YAML header](@sec-yaml-header) (see the code snippet below).
+
+```{zsh filename="YAML"}
+---
+editor:
+  markdown:
+    wrap: sentence
+---
+``` 
+
+
+:::
+
 ## Markdown {#sec-markdown}
 
 In Quarto documents, **Markdown** is used as a syntax.
@@ -157,18 +200,6 @@ Another advantage is compatibility between different text editors.
 Any program that uses Markdown will format a document written in it the exact same way. 
 Another advantage is that Git can track the changes made to text written with Markdown, allowing for version control of your written work the same way as of your code.  
 Disadvantages are that there are overall less formatting options as the intention is keep it simple and it can be difficult or unintuitive to insert tables and images.  
-
-Formatting can be done using either the `Source` or `Visual` mode in RStudio.
-In the `Source` mode you use Markdown syntax to format your written work and in the `Visual` mode you use a User-Interface similar to how you would use in e.g., MS Word.
-Switch between the two at any time.
-The changes made in the `Visual` mode will appear in the `Source` mode in Markdown as well.
-Take a look at the two different modes and the rendered version of the document below with some simple formatting options.
-
-![On the left is the Source mode of the .qmd file and on the right the Visual formatting mode. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-source-mode.jpg){#fig-quarto-visual-source-mode}
-
-Now, take a look at the rendered version of the document and how each of the formatting options plays out.
-
-![A screenshot of the rendered version of a document to showcase some formatting options. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-rendered-formatting.jpg)
 
 Have a look at the different formatting options available.
 
