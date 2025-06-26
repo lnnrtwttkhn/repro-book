@@ -39,7 +39,7 @@ Further, you inserted the figures that visualize your findings.
 It took a while, but finally everything is included in that Word document -- congratulations.
 
 Happily you ask some colleagues and your supervisor to review the paper.
-They make some comments about your theoretical background and also about - oh gosh -  your results.
+They make some comments about your theoretical background and also about - oh gosh - your results.
 You did forget to filter some cases in the beginning and now you have to rerun the analysis.
 No problem, you smoothly got the updated results, but then you realize that you have to insert the slightly different figures and results into your Word Document.
 All this effort of typing the results from your R code to Word has to be done again.
@@ -80,21 +80,18 @@ Since research paper are often reviewed and many changes must be done, one can v
 
 **Examples**
 
-|Static documents|Dynamic documents|
-|:--------------|:------------------|
-|working agreement|research paper|
-|bills|dashboards|
+| Static documents  | Dynamic documents |
+|:------------------|:------------------|
+| working agreement | research paper    |
+| bills             | dashboards        |
 
-<!-- I am not happy about this discrimination. I have to look over it again--> 
-
+<!-- I am not happy about this discrimination. I have to look over it again-->
 :::
 
-:::{.callout-tip title="Literate programming benefits for reproducibility"}
-
-1. Reduce outcome-based reproducibility errors
-1. Save time when updating your paper's results section
-1. Enhance transparency, traceability, and reproducibility of your results
-
+::: {.callout-tip title="Literate programming benefits for reproducibility"}
+1.  Reduce outcome-based reproducibility errors
+1.  Save time when updating your paper's results section
+1.  Enhance transparency, traceability, and reproducibility of your results
 :::
 
 ## What is Quarto?
@@ -109,7 +106,8 @@ What Quarto does is, it can interpret and handle many programming languages (e.g
 
 With Quarto, one is able to create (scientific) papers, but also websites, presentations or books.
 In fact, this book is written with Quarto.
-To do so, Quarto has its own file extension (`.qmd`). `qmd` stands for **Q**uarto **M**ark**d**own.
+To do so, Quarto has its own file extension (`.qmd`).
+`qmd` stands for **Q**uarto **M**ark**d**own.
 We will get to the Markdown language in a second (@sec-markdown).
 Everything you write in a Quarto file will then be **rendered** into a desired output file (e.g. .html, .pdf, .docx).
 As example, @fig-quarto-example-document-plot shows a Quarto document that contains human-readable text and a code chunk that will create a plot, as well as it's rendered version below.
@@ -171,7 +169,7 @@ This enhances the readability of the changes in Git you made in the Quarto docum
 
 :::
 
-::: {.callout-tip title="Avoid changes when switching between `Source` and `Visual` Editor" collapse=true}
+::: {#tip-line-wrapping .callout-tip title="Avoid changes when switching between `Source` and `Visual` Editor" collapse="true"}
 
 Assuming you follow @tip-quarto-git-compability, and you write each sentence in a new line.
 When you use the `Visual` Editor, you are cannot directly control whether the sentences are in separate lines or not (compare @fig-quarto-git-compability).
@@ -418,12 +416,17 @@ Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-
 
 # Links & Images
 
-| Input | Output |
-|----------------------------------|--------------------------------------|
-| `<https://quarto.org/>` | <https://quarto.org/> |
-| `[Quarto](https://quarto.org/)` | [Quarto](https://quarto.org/) |
-| `![Caption](https://quarto.org/quarto.png)` | ![Caption](https://quarto.org/quarto.png) |
++-------------------------------------------------------------------+-----------------------------------------------------------------+
+| Input                                                             | Output                                                          |
++===================================================================+=================================================================+
+| `<https://quarto.org/>`                                           | <https://quarto.org/>                                           |
++-------------------------------------------------------------------+-----------------------------------------------------------------+
+| `[Quarto](https://quarto.org/)`                                   | [Quarto](https://quarto.org/)                                   |
++-------------------------------------------------------------------+-----------------------------------------------------------------+
+| `![Caption](https://quarto.org/quarto.png)`                       | ![Caption](https://quarto.org/quarto.png)                       |
++-------------------------------------------------------------------+-----------------------------------------------------------------+
 | `[![Caption](https://quarto.org/quarto.png)](https://quarto.org)` | [![Caption](https://quarto.org/quarto.png)](https://quarto.org) |
++-------------------------------------------------------------------+-----------------------------------------------------------------+
 
 ::: footer
 Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
@@ -459,21 +462,33 @@ You can specify the document's title, name, published date, etc.
 It would take too much time to give you a comprehensive overview of YAML specifications.
 Hence, we will provide you an overview that shows you a) the most important specifications for when you write a paper and b) the most important specifications to keep that paper easy to reproduce.
 
-:::{.callout-tip title="Different YAML settings" collapse=true #tip-yaml-settings}
-
-|YAML key|Example|Description|
-|:-|:-|:-|
-|`title`|`title: "The Repro Book - A Guide to Reproducible Research"`|Name the title of your document|
-|`shorttitle`|`shorttitle: "The Repro Book`|The short title of your document|
-|`csl`|`csl: apa.csl` | Set the citation style of your document|
-|`bibliography`|`bibliography: references.bib`| Refer to the citations you use in your document|
-
+::: {#tip-yaml-settings .callout-tip title="Different YAML settings" collapse="true"}
++----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
+| YAML key       | Example                                                      | Description                                                          |
++:===============+:=============================================================+:=====================================================================+
+| `title`        | `title: "The Repro Book - A Guide to Reproducible Research"` | Name the title of your document                                      |
++----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
+| `shorttitle`   | `shorttitle: "The Repro Book`                                | The short title of your document                                     |
++----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
+| `editor`       | ```                                                          | Set that each sentence is placed in a new line (@tip-line-wrapping)  |
+|                | editor:                                                      |                                                                      |
+|                |   markdown:                                                  |                                                                      |
+|                |     wrap: sentence                                           |                                                                      |
+|                | ```                                                          |                                                                      |
++----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
+| `csl`          | `csl: apa.csl`                                               | Set the citation style of your document                              |
++----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
+| `bibliography` | `bibliography: references.bib`                               | Refer to the citations you use in your document                      |
++----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
 :::
 
-:::{.callout-note title="View: This chapter's YAML file" collapse=true}
+::: {.callout-note title="View: This chapter's YAML file" collapse="true"}
+```{=html}
 <!-- Note: The YAML header is only static.
 We can work on making it dynamic later. -->
 ```
+
+```         
 ---
 title: "Literate Programming"
 editor: source
@@ -720,11 +735,13 @@ Additionally, make sure that you specified your YAML header by adding the key-va
 
 [^1]: You can also put it in a subfolder of your project, but then you have to specify the path in the YAML header, too.
 
-:::{#nte-csl-resources .callout-note title="Resources for `.csl` files" collapse=false}
-|Resource|Link|
-|:------|:----|
-| Zotero's Style Repository | [{{< fa link >}}](https://www.zotero.org/styles) |
-| CSL Project | [{{< fa brands github >}}](https://github.com/citation-style-language/styles) |
+::: {#nte-csl-resources .callout-note title="Resources for `.csl` files" collapse="false"}
+
+| Resource                  | Link                                                                          |
+|:--------------------------|:-----------------------------------------------------------------------------:|
+| Zotero's Style Repository | [{{< fa link >}}](https://www.zotero.org/styles)                              |
+| CSL Project               | [{{< fa brands github >}}](https://github.com/citation-style-language/styles) |
+
 :::
 
 ## Quarto extensions
