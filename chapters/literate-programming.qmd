@@ -301,11 +301,14 @@ Simply choose between normal text or your desired header level.
 
 :::
 
-## Another heading
+### Lists
+
+There are many different types of lists available in Markdown and they are very easy to implement in Source Mode.
+Take a look below at the different options and how they change when rendered.
 
 ::: panel-tabset
 
-# Lists
+#### Source Editor
 
 **Input**
 
@@ -362,12 +365,22 @@ Simply choose between normal text or your desired header level.
 - [ ] Task 2
 
 :bulb: The tasklist can be ticked off.
+Try it.
 
 ::: footer
 Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
 :::
 
-# Tables
+#### Visual Editor
+
+You have access to the same tyoes of lists in the Visual as in the Source Editor.
+when wanting to create a list, head to the menu line under **Format > Bullets & Numbering**.
+Some of the options only become available once you've created a list and want to edit it, like `Tight List`or `Sink Item`.
+
+![This is where you can find the different list options in the Visual Editor.](../static/quarto-visual-lists.jpg){#fig-visual-lists}
+:::
+
+### Tables
 
 **Input**
 
@@ -436,7 +449,6 @@ Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-
 Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
 :::
 
-:::
 
 ## The YAML header {#sec-yaml-header}
 
