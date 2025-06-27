@@ -382,6 +382,19 @@ Some of the options only become available once you've created a list and want to
 
 ### Tables
 
+You can also create tables using Markdown.
+However, this is one case where using either the Visual Editor or even better a Markdown table creator is recommended.
+Doing this in the Source Editor is very tedious and in terms of speed will leave you hanging behind the Visual Editor.
+However, in case you want to give it a try or come across it in a Markdown document, take a look below at how to create a table in the Source Editor.
+
+::: panel-tabset
+
+#### Source Editor
+
+Each new line is also a new row in the table and the columns are created using `|` as separators.
+You can define the width of a column using `-` and define where the text should be centered using `:`.
+See below how to do this.
+
 **Input**
 
 ```{markdown}
@@ -406,7 +419,17 @@ Some of the options only become available once you've created a list and want to
 Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
 :::
 
-# Equations
+#### Visual Editor
+
+To create a table in the Visual Editor, head to the menu at the top again and go to **Table > Insert Table...**.
+This will open a prompt that asks you about the general dimensions of your table but you can still change these later on.
+You also have the option to include a caption at this point.
+Once you've created a table more options like centering or adding more rows will become available.
+
+![This is where you can find the different table options in the Visual Editor.](../static/quarto-visual-table.jpg){#fig-visual-table}
+
+:::
+
 
 | Input                       | Output                    |
 |-----------------------------|---------------------------|
