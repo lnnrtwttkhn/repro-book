@@ -564,28 +564,21 @@ This one is not set to true or false but rather just the caption is included.
 
 ### Inline code
 
-::::: {.columns}
-:::: {.column width="50%"}
-::: {.fragment}
-#### Input
+Inline code allows you to simply insert code as part of your other markdown syntax.
+This is especially useful for referencing analysis outputs.
+In keeping with reproducibility this ensures that if you chnage parts of your analysis, your results will update as well without you having to manually go into the text change them manually, risking that you might miss some.
+Furthermore, when writing your report, you don't have to go back and forth, checking what your specific results were but instead can just refer to them and move on with writing.  
+To add inline code, it's the same process as for inserting a code chunk but instead of three backticks, you just use one.  
+
+The **input** could look something like this:
 
 ```{markdown filename="Code"}
-Number of observations: `r 8*20`
+The number of observations is `r 8*20`.
 ```
-:::
-::::
-:::: {.column width="50%"}
-::: {.fragment}
-#### Output
 
-Number of observations: `r 8*20`
-:::
-::::
-:::::
+And will result in this **output**:
 
-::: {.notes}
-Code: you don't have to use it for a new entry book but its possible
-:::
+The number of observations is `r 8*20`.
 
 ### Referencing
 
