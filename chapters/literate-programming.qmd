@@ -245,6 +245,7 @@ When you hover over *"Text"*, you see all the formatting options we also covered
 
 Formatting headings in Markdown syntax is quite easy as well.
 Just put your heading in a new line, and put the number of `#` before that heading to indicate the heading level.
+The more `#`, the smaller the heading.
 You can also format your headings in the Visual Editor.
 However, it is faster in our experience to use the Source editor.
 
@@ -293,7 +294,10 @@ Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-
 
 #### Visual Editor
 
+You can also edit your headings in the menu line of the Visual Editor via click and select.
+Simply choose between normal text or your desired header level.
 
+![This is where you can find the different header options in the Visual Editor.](../static/markdown-visual-header.jpg){#fig-visual-header}
 
 :::
 
