@@ -430,14 +430,38 @@ Once you've created a table more options like centering or adding more rows will
 
 :::
 
+### Equations
 
-| Input                       | Output                    |
-|-----------------------------|---------------------------|
-| `inline math: $E = mc^{2}$` | inline math: $E = mc^{2}$ |
-| `$$E = mc^{2}$$`            | $$E = mc^{2}$$            |
+A very nice feature of Quarto is that it allows you to easily include equations.
 
-::: footer
-Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
+::: panel-tabset
+
+#### Source Editor
+
+To include an equation you need to frame it with dollarsigns `$`.
+One dollarsign for inline equations `$` and two for a standalone equation `$$`.
+
+As an example the **input** would like this:
+
+The most important equation remains `$E = mc^{2}$` up to this date.
+
+The following equation remains the most important up to this date.
+
+`$$E = mc^{2}$$`
+
+And the respective **outputs** would look like this:
+
+The most important equation remains $E = mc^{2}$ up to this date.
+
+The following equation remains the most important up to this date.
+
+$$E = mc^{2}$$
+
+#### Visual Editor
+
+You can also add equations using the Visual Editor by going to the menu line and selecting **Insert > LaTeX Math > Inline Math/Display Math**.
+
+![This is where you can find the two different options for equations in the Visual Editor.](../static/quarto-visual-equations.jpg){#fig-visual-equations}
 :::
 
 ### Blockquotes
