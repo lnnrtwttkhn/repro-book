@@ -440,18 +440,31 @@ Once you've created a table more options like centering or adding more rows will
 Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
 :::
 
-# Blockquotes
+### Blockquotes
 
-**Input**
+You can insert blockquotes in your Quarto documents.
+Whilst this is likely not syntax you will need a lot in scientific reports, it's very easy to do and might prove useful when taking notes or formatting a website you're creating.
 
-`> Blockquote`
+::: panel-tabset
 
-**Output**
+#### Source Editor
 
-> Blockquote
+To create a blockquote in the Source Editor, just add a `<´before it.
 
-::: footer
-Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
+For example you might want to insert a quote to emphasize your adoration for reproducibility and have this as your **input**.
+
+`> "Reproducibility is a major goal in all my research!"`
+
+This will result in the following **output** in your final document.
+
+> "Reproducibility is a major goal in all my research!"
+
+#### Visual Editor
+
+To do the same thing in the Visual Editor head once again to the menu line and select **Format > Blockquote**.
+
+![This is where you can find the blockquote option in the Visual Editor.](../static/quarto-visual-blockquote.jpg){#fig-visual-blockquote}
+
 :::
 
 # Links & Images
