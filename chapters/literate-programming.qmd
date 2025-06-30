@@ -718,8 +718,22 @@ The number of observations is `r 8*20`.
 
 ### Referencing
 
--   You can name and references objects like figures, tables etc.
--   For example: @sec-citations (`@sec-citations`)
+You can cross-reference objects like figures, tables or equations within your text.
+This is especially useful in reports when you need to refer to different figures.
+The references work as links to the objects and let you jump to them in the final document.
+
+For example: @sec-citations (`@sec-citations`) brings you to the section on citations in this book.
+
+To be able to cross-reference tables, sections of your text, equations or figures, they need to have a label.
+You need to add the label after the inserted object.
+The label is in curly brackets and start with a hash `#` like so `{#object-name}`.
+For example, for an image this looks like this: `![A fish](fish-image.jpg){#fig-fish}`.
+To reference it in the text you loose the curly brackets and replace the hash with an at-sign `@`, which looks like this `As displayed in @fig-fish, this a fish.`.
+
+Avoid using underscores `_`when creating your labels as this might cause problems when rendering to PDF. 
+There is a set of predefined prefixes you can and should use to refer to your objects.
+Then just follow this with a name of your choosing.
+
 
 | Type         | Label Prefix |
 |--------------|--------------|
@@ -729,10 +743,6 @@ The number of observations is `r 8*20`.
 | Sections     | sec-         |
 | Code listing | lst-         |
 | Theorem      | thm-         |
-
-::: footer
-Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/)
-:::
 
 ### Citations {#sec-citations}
 
