@@ -160,19 +160,19 @@ Now, take a look at the rendered version of the document and how each of the for
 
 ![A screenshot of the rendered version of a document to showcase some formatting options. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-rendered-formatting.jpg)
 
-::: {#tip-quarto-git-compability .callout-tip title="Enhance Quarto compability with Git" collapse=true}
+::: {#tip-quarto-git-compatibility .callout-tip title="Enhance Quarto compatibility with Git" collapse=true}
 
 When you make changes in a Quarto document and you track it with Git, we recommend you to write each sentence in a new line when using the `Source` Editor.
-This enhances the readability of the changes in Git you made in the Quarto document but does not change the output of the document (see @fig-quarto-git-compability).
+This enhances the readability of the changes in Git you made in the Quarto document but does not change the output of the document (see @fig-quarto-git-compatibility).
 
-![The upper left corner displays text. Lines 6 to 8 contain a paragraph where each sentence is written in a new line. Line 10 contains a paragraph where all sentences are written in one line. The lower left corner displays the rendered `html` version of the quarto document. The right half shows the popup window of Git to commit changes. As one can see, it is easier to understand the changes that were made in line 8 compared to line 10.](../static/quarto-git-compability.png){#fig-quarto-git-compability}
+![The upper left corner displays text. Lines 6 to 8 contain a paragraph where each sentence is written in a new line. Line 10 contains a paragraph where all sentences are written in one line. The lower left corner displays the rendered `html` version of the quarto document. The right half shows the popup window of Git to commit changes. As one can see, it is easier to understand the changes that were made in line 8 compared to line 10.](../static/quarto-git-compatibility.png){#fig-quarto-git-compatibility}
 
 :::
 
 ::: {#tip-line-wrapping .callout-tip title="Avoid changes when switching between `Source` and `Visual` Editor" collapse="true"}
 
-Assuming you follow @tip-quarto-git-compability, and you write each sentence in a new line.
-When you use the `Visual` Editor, you are cannot directly control whether the sentences are in separate lines or not (compare @fig-quarto-git-compability).
+Assuming you follow @tip-quarto-git-compatibility, and you write each sentence in a new line.
+When you use the `Visual` Editor, you are cannot directly control whether the sentences are in separate lines or not (compare @fig-quarto-git-compatibility).
 However, you can specify that in the [YAML header](@sec-yaml-header) (see the code snippet below).
 
 ```{zsh filename="YAML"}
@@ -373,7 +373,7 @@ Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-
 
 #### Visual Editor
 
-You have access to the same tyoes of lists in the Visual as in the Source Editor.
+You have access to the same types of lists in the Visual as in the Source Editor.
 when wanting to create a list, head to the menu line under **Format > Bullets & Numbering**.
 Some of the options only become available once you've created a list and want to edit it, like `Tight List`or `Sink Item`.
 
@@ -701,17 +701,18 @@ This one is not set to true or false but rather just the caption is included.
 
 Inline code allows you to simply insert code as part of your other markdown syntax.
 This is especially useful for referencing analysis outputs.
-In keeping with reproducibility this ensures that if you chnage parts of your analysis, your results will update as well without you having to manually go into the text change them manually, risking that you might miss some.
+In keeping with reproducibility this ensures that if you change parts of your analysis, your results will update as well without you having to manually go into the text change them manually, risking that you might miss some.
 Furthermore, when writing your report, you don't have to go back and forth, checking what your specific results were but instead can just refer to them and move on with writing.  
-To add inline code, it's the same process as for inserting a code chunk but instead of three backticks, you just use one.  
+To add inline code, it's the same process as for inserting a code chunk but instead of three backticks, you just use one.
+Remember to include the programming language in `{}`.
 
 The **input** could look something like this:
 
-```{markdown filename="Code"}
-The number of observations is `r 8*20`.
+```{Code}
+The number of observations is `{{r}} 8*20`.
 ```
 
-And will result in this **output**:
+The programming language used here is R and this code will result in the **output**:
 
 The number of observations is `r 8*20`.
 
