@@ -491,22 +491,81 @@ To do the same thing in the Visual Editor head once again to the menu line and s
 
 :::
 
-# Links & Images
+### Links & Images
 
-+-------------------------------------------------------------------+-----------------------------------------------------------------+
-| Input                                                             | Output                                                          |
-+===================================================================+=================================================================+
-| `<https://quarto.org/>`                                           | <https://quarto.org/>                                           |
-+-------------------------------------------------------------------+-----------------------------------------------------------------+
-| `[Quarto](https://quarto.org/)`                                   | [Quarto](https://quarto.org/)                                   |
-+-------------------------------------------------------------------+-----------------------------------------------------------------+
-| `![Caption](https://quarto.org/quarto.png)`                       | ![Caption](https://quarto.org/quarto.png)                       |
-+-------------------------------------------------------------------+-----------------------------------------------------------------+
-| `[![Caption](https://quarto.org/quarto.png)](https://quarto.org)` | [![Caption](https://quarto.org/quarto.png)](https://quarto.org) |
-+-------------------------------------------------------------------+-----------------------------------------------------------------+
+You can easily insert online links or images into your document.
+The process to do this is relatively similar, which is why the two actions are in the same section.
+
+::: panel-tabset
+
+#### Source Editor
+
+To insert a **link** to, for example a website, the most basic option is to just insert the link between angle brackets `<Link>`.
+
+For example when referring to the Quarto website the **input** looks like this: `<https://quarto.org/>`.  
+And this results in this **output**: <https://quarto.org/>.
+
+As this is maybe not the neatest way to insert a link, you can also "rename" the link by adding a custom name or description in square brackets `[Name]` and following this without a space in between with the link, this time in round brackets `[Name](Link)`.
+
+For our previous example, this looks like this as an **input**: `[Quarto](https://quarto.org/)`  
+And this is the resulting **output**: [Quarto](https://quarto.org/)
+
+Inserting an **image** works similarly.
+Let's say you want to insert an image that you've found online, in this case the Quarto logo.
+To do this, start off with an exclamation mark, followed by squared brackets, which can contain a caption for your image, but you can otherwise leave empty, followed by the link to the image in round brackets `![Optional caption](Image link)`.
+
+For inserting the Quarto logo, this is the **input**:  
+`![Quarto logo](https://quarto.org/quarto.png)`   
+Which will give you this **output**:  
+![Quarto logo](https://quarto.org/quarto.png)
+
+You can also add a link to your image. Staying with our Quarto example, here the Quarto logo will lead you to the Quarto website, but you could also use this process to link to your own website, a GitHub repository or your CV. The syntax for this is combining inserting an image and linking to something. Simply put the string used for inserting an image into squared brackets and follow this by the link in round brackets like so: `[![Optional caption](Image link)](Link)`.
+
+For our example, this is the necessary **input**: `[![Quarto](https://quarto.org/quarto.png)](https://quarto.org)`  
+Resulting in this **output** (notice how clicking on the image will bring you to the Quarto websit):  
+[![Quarto](https://quarto.org/quarto.png)](https://quarto.org)
+
+
+You can of course also link to images you've taken yourself or that aren't stored online by inserting a local image path instead of an online link.
+If the image is stored in the same subfolder as your document, you can refer to it directly, however it is recommended to create a designated image folder instead, to keep your project structure clear to others and your future self.
+
+Let's say your image `quarto_logo.png` is stored in the folder called `images` in a project structure like this:  
+
+```
+| my-project.Rproj
+| .gitignore
+| README.html
+| README.md
+| code
+| data
+| images
+  | quarto_logo.png
+| renv
+```
+To insert it, your **input** looks like this: `![Quarto](../images/quarto_logo.png)`.  
+Returning you this **output**:  
+![Quarto](https://quarto.org/quarto.png)
+
+::: {.callout-caution collapse="false"}
+## Keep reproducibility in mind
+
+When using images or figures in e.g., a report about an analysis you've done, to not use a fixed image of it. Rather use a [code chunk](#code-chunks), which you will learn about in a little bit, to create it and keep them reproducible.
+:::
 
 ::: footer
 Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
+:::
+
+#### Visual Editor
+
+To add a **link** in the Visual Editor, head to the the menu line **Insert > Link...**, which opens a window that prompts you to enter the URL, a Text, which is what will be displayed within the text and a Title/Tooltip, which pops up when you hover over the link.
+
+![This window lets you insert links in the Visual Editor in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-link.jpg)
+
+To insert **images** using the Visual Editor, select from the menu line **Insert > Figure/Image...**, which leads you to a pop-up window, in which you can either insert the link to an image or browse your stored images.
+In this window you can also add links to websites and a caption for your image.
+
+![This window lets you insert images in the Visual Editor in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-images.jpg)
 :::
 
 
