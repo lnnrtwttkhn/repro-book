@@ -10,15 +10,15 @@ code-annotations: hover
 categories: [intermediate]
 abstract: |
   In this chapter you will learn how you can automatically integrate your reproducible results into a paper.
-  You will learn how to write a paper in with Quarto and how to format it for a required output.
-  You will learn how to use extension, specifically the apaquarto extension to write reproducible paper in APA-style.
+  You will learn the basics of Markdown syntax, how to write a paper within Quarto, and how to format it for a required output.
+  You will learn how to use extensions, specifically the apaquarto extension to write a reproducible paper in APA-style.
 ---
 
 ::: {.callout-tip appearance="minimal"}
 <h5>Learning Objectives</h5>
 
+:bulb: Learn the advantages and disadvantages of literate programming.<br>
 :bulb: Learn the basics about the markdown syntax.<br>
-:bulb: Work on a new branch in your Git repository.<br>
 :bulb: Create a new report file using Quarto.<br>
 :bulb: Learn more advanced syntax: include a reference.bib file<br>
 :bulb: Learn more advanced syntax: the YAML header<br>
@@ -61,22 +61,26 @@ Thus, in literate programming, text is used to make code understandable.
 # I think that not many people can refer to Jupyter Notebooks (at least in the seminar)-->
 However, the concept of literate programming was extended to the idea that the text should not support the explanation for the code but rather the code can be an explanation of the document.
 Thus, one can write a whole paper and uses code directly in that document to support the claims made in that document.
-The code in these documents are stored in **chunks** (see later section) and are executable.
+The code in these documents are stored in **chunks** (see @sec-code-chunks) and are executable.
 
 Literate programming allows for creating **reproducible documents** instead of just reproducible script as well as making for a smoother workflow, as there is no need for switching out old and new outputs in your documents when the code changed.
 As an example, when you write an article in a document using literate programming and insert a code chunk that creates a plot, this code chunk's output (i.e. the plot) is part of your document and is always up to date with the script you're running.
 Hence, whenever you have to do some changes in your plot or your analyses, the changes are directly updated in your paper.
-Thus, the paper becomes [dynamic](@nte-dynamic-documents).
+Thus, the paper becomes dynamic (@nte-dynamic-doc).
 Moreover, literate programming can heavily reduce outcome-based reproducibility errors (@sec-repro-errors).
 
-::: {#nte-dynamic-documents .callout-note title="Static vs. Dynamic documents" collapse="true"}
+::: {#nte-dynamic-doc .callout-note title="Static vs. Dynamic documents" collapse="true"}
 One can discriminate static and dynamic documents.
 Most documents are static, since they do not refer to underlying data or content.
 They are typically generated once and do rarely need updates.
 
 On the other hand, dynamic documents are generated anew if some underlying data or content changes.
 They are often automatically recreated and use some kind of code to generate up-to-date content.
-Since research paper are often reviewed and many changes must be done, one can view paper as dynamic documents.
+A prominent example is the [dashboard](https://coronavirus.jhu.edu/us-map) of the [John Hopkins University](https://www.jhu.edu/) that displayed data referring to the Covid-19 Pandemic.
+The dashboard was updated every week with new data from all over the world.
+
+In a classical sense, research paper can be seen as static documents, since they will be rarely updated after they were published.
+However, since research paper are often reviewed and many changes must be done, one can view paper as dynamic documents before publication.
 
 **Examples**
 
@@ -85,7 +89,6 @@ Since research paper are often reviewed and many changes must be done, one can v
 | working agreement | research paper    |
 | bills             | dashboards        |
 
-<!-- I am not happy about this discrimination. I have to look over it again-->
 :::
 
 ::: {.callout-tip title="Literate programming benefits for reproducibility"}
@@ -191,8 +194,9 @@ editor:
 
 In Quarto documents, **Markdown** is used as a syntax.
 In Markdown content and formatting are integrated with each other and not separate.
-This formatting is used in Quarto or on GitHub or on a smaller scale in WhatsApp or Reddit.  
-There are some advantage over more commonly known way of formatting in e.g., MS Word.
+This formatting is used in Quarto or on GitHub or on a smaller scale in WhatsApp or Reddit.
+This formatting is different to the so-called **WYSIWYG** (*What you see is what you get*) editors, like Word.
+There are some advantage over these more commonly known editors.
 Using an integrated approach to formatting and writing allows for faster writing, as there is no need to switch between the two.
 You just format as you type.
 Another advantage is compatibility between different text editors.
@@ -343,6 +347,8 @@ Take a look below at the different options and how they change when rendered.
 
 **Output**
 
+*Unordered list*
+
 * unordered list
   + sub-item 1
   + sub-item 2
@@ -434,6 +440,8 @@ Once you've created a table more options like centering or adding more rows will
 ### Equations
 
 A very nice feature of Quarto is that it allows you to easily include equations.
+Regardless of which editor you use, you have to write the equations within LaTeX style.
+For a guide how to create sophisticated equations (including fractions, matrices, square roots, integrals, etc.), see the respective chapter in the [LaTeX Beginner's Guide](https://latexguide.org/book-contents/chapter-09-writing-math-formulas/).
 
 ::: panel-tabset
 
@@ -444,11 +452,13 @@ One dollarsign for inline equations `$` and two for a standalone equation `$$`.
 
 As an example the **input** would like this:
 
+```{markdown filename="Markdown"}
 The most important equation remains `$E = mc^{2}$` up to this date.
 
 The following equation remains the most important up to this date.
 
 `$$E = mc^{2}$$`
+```
 
 And the respective **outputs** would look like this:
 
@@ -649,7 +659,7 @@ There are some nice features that can be implemented in Quarto, such as includin
 These are the features that can make your document reproducible.
 As explained in the introduction, when having to e.g. change your analysis, these features will update without you having to painstakingly change your results manually and likely introduce some errors in the process.
 
-### Code chunks
+### Code chunks {#sec-code-chunks}
 
 **Code chunks** are pieces of code that will be executed by Quarto during the rendering process, so when you're having Quarto create the intended output format of your .qmd file.
 Remember the earlier example of a plot within a report, which was done using a code chunk.
@@ -871,10 +881,10 @@ If you want to change the style, you can look up different resources to find `.c
 These `.csl` files specify how the citations will be styled.
 @nte-csl-resources shows you some resources where you can find these `.csl` files.
 
-To use the citation style language you downloaded with the `.csl` file, you have to make sure that the intended `.csl` file appears in the *root directory* of the project[^1].
+To use the citation style language you downloaded with the `.csl` file, you have to make sure that the intended `.csl` file appears in the *root directory* of the project[^2].
 Additionally, make sure that you specified your YAML header by adding the key-value pair `csl: apa.csl` into the YAML header of your document (@tip-yaml-settings).
 
-[^1]: You can also put it in a subfolder of your project, but then you have to specify the path in the YAML header, too.
+[^2]: You can also put it in a subfolder of your project, but then you have to specify the path in the YAML header, too.
 
 ::: {#nte-csl-resources .callout-note title="Resources for `.csl` files" collapse="false"}
 
@@ -894,9 +904,9 @@ Since Quarto contributes to the movement of Open Science and Reproducibility, th
 ### The `apaquarto` extension {.unnumbered}
 
 In this book, we will only deal with one extension - the `apaquarto` extension by William Joel Schneider.
-With this extension, we can shape the output of our rendered quarto file into the format of the [APA guidelines](https://apastyle.apa.org/)[^2] without much effort.
+With this extension, we can shape the output of our rendered quarto file into the format of the [APA guidelines](https://apastyle.apa.org/)[^3] without much effort.
 
-[^2]: Many journals and universities require submissions to be in the APA format.
+[^3]: Many journals and universities require submissions to be in the APA format.
 Thus, we think it is useful for many students and researchers to know about this extension.
 
 ### Install apaquarto
