@@ -99,7 +99,8 @@ Since research paper are often reviewed and many changes must be done, one can v
 Quarto is an open-source **Publishing System**.
 It allows you to do literate programming.
 It was created by the company [Posit](https://posit.co), which is responsible for RStudio and is based on RMarkdown.
-Quarto is well integrated in RStudio and comes already bundled with any version of RStudio from RStudio v2022.07.1 "Spotted Wakerobin" onward (<https://docs.posit.co/ide/user/ide/guide/documents/quarto-project.html#installing-quarto>).
+Quarto is well integrated in RStudio and comes already bundled with any version of RStudio from RStudio v2022.07.1 "Spotted Wakerobin" onward.
+In case you're using an older version of RStudio, here are instructions on [how to install Quarto](https://docs.posit.co/ide/user/ide/guide/documents/quarto-project.html#installing-quarto).
 What Quarto does is, it can interpret and handle many programming languages (e.g. R and Python) as well as plain text and transforms it into standard output formats (e.g., Word-, PDF-, and .html-files, see @fig-quarto-idea).
 
 ![This illustration shows schematically that one can have input in different languages and Quarto will produce different output formats. Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022. Illustrated by Allison Horst. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/horst-quarto-schematic.jpg){#fig-quarto-idea}
@@ -644,7 +645,7 @@ abstract: |
 
 ## Features
 
-There are some nice features that can be implemented in Quarto, such as including code chunks, as mentioned before with the example of a plot, inline code as well as referencing and citations.
+There are some nice features that can be implemented in Quarto, such as including code chunks, as mentioned before with the example of a plot, inline code, as well as referencing and citations.
 These are the features that can make your document reproducible.
 As explained in the introduction, when having to e.g. change your analysis, these features will update without you having to painstakingly change your results manually and likely introduce some errors in the process.
 
@@ -693,9 +694,10 @@ Some important options are:
 - `#| echo: false`: When set to false, the code chunks results are shown but not the code itself.
 When set as true, the code is also shown.  
 - `#| include: false`: Neither the code nor the results appear in the output file, which is useful for code which's results you need for running other code later on but isn't relevant to the reader.  
+- `#| warning: false`: Don't include potential warnings in the output.
 - `#| fig.cap = " Your caption"`: Include a caption in your figure. 
 This one is not set to true or false but rather just the caption is included. 
-
+- `#| label:` You can give your code chunk a label to more easily identify the aim of this piece of code.
 
 ### Inline code
 
@@ -748,7 +750,7 @@ Then just follow this with a name of your choosing.
 
 When you write a paper, you definitely must include citations.
 Quarto offers different ways of managing citations.
-We will give you an overview how to handle them.
+We will give you an overview on how to handle them.
 
 When you use citations in Quarto, you will definitely need a **bibliography**.
 This bibliography contains all the relevant information of your citations and is usually a BibLaTeX (`.bib`) or BibTeX (`.bibtex`) file.
@@ -907,7 +909,7 @@ To install `apaquarto`, there are some prerequisites that you most likely alread
 
 1. Install a programming environment (e.g. RStudio)
 
-After you have installed all things things, you can successfully install `apaquarto`.
+After you have installed all things, you can successfully install `apaquarto`.
 Most likely you have installed R and RStudio.
 To check whether Quarto is already installed, see @tip-quarto-check.
 
