@@ -246,6 +246,21 @@ When you hover over *"Text"*, you see all the formatting options we also covered
 
 :::
 
+::: {.callout-tip title="How to start a new page" collapse=false}
+
+If you want to start a new page in your document at a specific spot, e.g., to have your references on their own page, you can add a pagebreak.
+Simply add it between your intended pages like below and a new page will start in the rendered document.
+
+```{markdown}
+#| eval: false
+page 1
+
+{{< pagebreak >}}
+
+page 2
+```
+:::
+
 ### Headings
 
 Formatting headings in Markdown syntax is quite easy as well.
@@ -579,7 +594,6 @@ In this window you can also add links to websites and a caption for your image.
 ![This window lets you insert images in the Visual Editor in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-images.jpg)
 :::
 
-
 ## The YAML header {#sec-yaml-header}
 
 In Quarto, every document starts with a YAML header.
@@ -704,9 +718,9 @@ Some important options are:
 - `#| echo: false`: When set to false, the code chunks results are shown but not the code itself.
 When set as true, the code is also shown.  
 - `#| include: false`: Neither the code nor the results appear in the output file, which is useful for code which's results you need for running other code later on but isn't relevant to the reader.  
-- `#| warning: false`: Don't include potential warnings in the output.
-- `#| fig.cap = " Your caption"`: Include a caption in your figure. 
-This one is not set to true or false but rather just the caption is included. 
+- `#| warning: false`: Don't include potential warnings in the output.  
+- `#| fig.cap = " Your caption"`: Include a caption in your figure.
+This one is not set to true or false but rather just the caption is included.  
 - `#| label:` You can give your code chunk a label to more easily identify the aim of this piece of code.
 
 ### Inline code
