@@ -9,7 +9,8 @@
       "/chapters/rdm.html",
       "/chapters/git-crashcourse.html",
       "/chapters/good-coding-practices.html",
-      "/chapters/renv.html"
+      "/chapters/renv.html",
+      "/chapters/literate-programming.html"
     ]
   }
 ]
