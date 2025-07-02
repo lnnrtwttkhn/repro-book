@@ -1,0 +1,1152 @@
+---
+title: "Literate Programming"
+editor: source
+engine: knitr
+execute:
+  eval: false
+  warning: false
+  message: false
+code-annotations: hover
+categories: [intermediate]
+abstract: |
+  In this chapter you will learn how you can automatically integrate your reproducible results into a paper.
+  You will learn the basics of Markdown syntax, how to write a paper within Quarto, and how to format it for a required output.
+  You will learn how to use extensions, specifically the apaquarto extension to write a reproducible paper in APA-style.
+---
+
+::: {.callout-tip appearance="minimal"}
+<h5>Learning Objectives</h5>
+
+:bulb: Learn the advantages and disadvantages of literate programming.<br>
+:bulb: Learn the basics about the markdown syntax.<br>
+:bulb: Create a new report file using Quarto.<br>
+:bulb: Learn more advanced syntax: include a reference.bib file<br>
+:bulb: Learn more advanced syntax: the YAML header<br>
+:bulb: Learn more advanced syntax: add a quarto  extension to your quarto document.<br>
+:bulb: Rewrite the report in quarto
+:::
+
+## Introduction
+
+Imagine you are writing a paper.
+You have learned a lot about reproducibility (even perhaps in this book), you like the idea, and you want to apply the standards that make your research more reproducible.
+You have a project structure according to your community standard, you use human and machine-readable names, you provide a lot of metadata, you track your analyses with Git, and you even set up a robust, reproducible environment for all the R packages you need for your analyses.
+You now want to start writing your paper, open e.g. MS Word, and start writing.
+At some point you write the *Results* section.
+Now you want to insert your results in your Word-Document.
+Some frustrating work begins, where you start to type the results of your analyses in Word.
+Further, you inserted the figures that visualize your findings.
+It took a while, but finally everything is included in that Word document -- congratulations.
+
+Happily you ask some colleagues and your supervisor to review the paper.
+They make some comments about your theoretical background and also about - oh gosh - your results.
+You did forget to filter some cases in the beginning and now you have to rerun the analysis.
+No problem, you smoothly got the updated results, but then you realize that you have to insert the slightly different figures and results into your Word Document.
+All this effort of typing the results from your R code to Word has to be done again.
+This can happen many times during your research process.
+Not only by colleagues and supervisors, but also when you found out an error by yourself.
+Another possibility are reviewers, when you submitted a preprint to a journal.
+During this process, it is very likely that you mix up some results, e.g. writing the *p* value of your first hypothesis to your second hypothesis.
+Thus, transferring results from your statistic program to a text program is an opportunity for reproducibility errors.
+Not because you are dumb, it is because you are human.
+However, there is a solution to this problem - and it is called **Literate Programming**.
+
+## What is literate programming?
+
+Literate programming is a form of programming in which text and source code are in **one document**.
+It is based on the idea that a code should be easy and enjoyable to read and aimed at being understood by humans, which was called *Literate Programming* by @knuth84.
+Instead of writing code and later annotating it with comments, literate programming suggests to write a text in the order that a person would logically conceive it and include the code as it is explained in the text.
+Thus, in literate programming, text is used to make code understandable.
+<!--A well-known example are Jupyter Notebooks where normal text is interwoven with code-chunks that are executable within the text.
+# I think that not many people can refer to Jupyter Notebooks (at least in the seminar)-->
+However, the concept of literate programming was extended to the idea that the text should not support the explanation for the code but rather the code can be an explanation of the document.
+Thus, one can write a whole paper and uses code directly in that document to support the claims made in that document.
+The code in these documents are stored in **chunks** (see @sec-code-chunks) and are executable.
+
+Literate programming allows for creating **reproducible documents** instead of just reproducible script as well as making for a smoother workflow, as there is no need for switching out old and new outputs in your documents when the code changed.
+As an example, when you write an article in a document using literate programming and insert a code chunk that creates a plot, this code chunk's output (i.e. the plot) is part of your document and is always up to date with the script you're running.
+Hence, whenever you have to do some changes in your plot or your analyses, the changes are directly updated in your paper.
+Thus, the paper becomes dynamic (@nte-dynamic-doc).
+Moreover, literate programming can heavily reduce outcome-based reproducibility errors (@sec-repro-errors).
+
+::: {#nte-dynamic-doc .callout-note title="Static vs. Dynamic documents" collapse="true"}
+One can discriminate static and dynamic documents.
+Most documents are static, since they do not refer to underlying data or content.
+They are typically generated once and do rarely need updates.
+
+On the other hand, dynamic documents are generated anew if some underlying data or content changes.
+They are often automatically recreated and use some kind of code to generate up-to-date content.
+A prominent example is the [dashboard](https://coronavirus.jhu.edu/us-map) of the [John Hopkins University](https://www.jhu.edu/) that displayed data referring to the Covid-19 Pandemic.
+The dashboard was updated every week with new data from all over the world.
+
+In a classical sense, research paper can be seen as static documents, since they will be rarely updated after they were published.
+However, since research paper are often reviewed and many changes must be done, one can view paper as dynamic documents before publication.
+
+**Examples**
+
+| Static documents  | Dynamic documents |
+|:------------------|:------------------|
+| working agreement | research paper    |
+| bills             | dashboards        |
+
+:::
+
+::: {.callout-tip title="Literate programming benefits for reproducibility"}
+1.  Reduce outcome-based reproducibility errors
+1.  Save time when updating your paper's results section
+1.  Enhance transparency, traceability, and reproducibility of your results
+:::
+
+## What is Quarto?
+
+Quarto is an open-source **Publishing System**.
+It allows you to do literate programming.
+It was created by the company [Posit](https://posit.co), which is responsible for RStudio and is based on RMarkdown.
+Quarto is well integrated in RStudio and comes already bundled with any version of RStudio from RStudio v2022.07.1 "Spotted Wakerobin" onward.
+In case you're using an older version of RStudio, here are instructions on [how to install Quarto](https://docs.posit.co/ide/user/ide/guide/documents/quarto-project.html#installing-quarto).
+What Quarto does is, it can interpret and handle many programming languages (e.g. R and Python) as well as plain text and transforms it into standard output formats (e.g., Word-, PDF-, and .html-files, see @fig-quarto-idea).
+
+![This illustration shows schematically that one can have input in different languages and Quarto will produce different output formats. Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022. Illustrated by Allison Horst. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/horst-quarto-schematic.jpg){#fig-quarto-idea}
+
+With Quarto, one is able to create (scientific) papers, but also websites, presentations or books.
+In fact, this book is written with Quarto.
+To do so, Quarto has its own file extension (`.qmd`).
+`qmd` stands for **Q**uarto **M**ark**d**own.
+We will get to the Markdown language in a second (@sec-markdown).
+Everything you write in a Quarto file will then be **rendered** into a desired output file (e.g. .html, .pdf, .docx).
+As example, @fig-quarto-example-document-plot shows a Quarto document that contains human-readable text and a code chunk that will create a plot, as well as it's rendered version below.
+
+![On the left is a Quarto document in RStudio, containing a code chunk that creates a simple plot. On the right is the rendered version of the document, showing the text and the plot. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-example-document-plot.jpg){#fig-quarto-example-document-plot}
+
+## How to use Quarto
+
+In this book, we will focus on using Quarto in RStudio, but Quarto can also be used with other editors such as [VSCode](https://code.visualstudio.com) or [Jupyter](https://jupyter.org).
+To start using Quarto, you must create a Quarto document.
+To do so, head to RStudio and in the upper left corner select **File \> New File \> Quarto Document...**.
+This will open a box (see @fig-quarto-box-create-document) that prompts you to give your document a title, which will appear at the top of your document's rendered version, as well as choosing the format that your output will be in.
+Either HTML, PDF or Word are possible by default.
+The standard output is HTML and you do not need to have anything else installed to create html documents.
+If you want to create PDF or Word Documents by Quarto, you need additional software. 
+For PDF-files, LaTeX[^1] is required and for Word-files, MS Word is required.
+
+[^1]: LaTeX is another markup language, such as markdown.
+To create PDF files from Quarto documents, you do not need to learn the markup language, but you need a LaTeX installation.
+To do so, follow the link displayed in @fig-quarto-box-create-document (<https://yihui.org/tinytex>).
+
+HTML files can also easily be turned into PDF files later on and the format is changeable. 
+Depending on your project, there are other available format options as well.
+The metadata of title and format is stored in the so called **YAML header** at the top of your page.
+This is also where you can further customize some general features of your file, such as the author, a subtitle, the date or the style of your document (see @sec-yaml-header).
+To create the Quarto document, choose your preferred output format, type in at least the title of the document, and click on **Create** in the prompt box.
+
+![Prompt box that opens when intending to create a new Quarto document. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-box-create-document.png){#fig-quarto-box-create-document fig-align="center" width="70%" height="70%"}
+
+<!--Insert pullout box about what info can be put into the YAML -->
+
+To get a preview of a Quarto file in RStudio, you can either use `quarto preview` in the command line or the **Render** button at the top of your document.
+This will show you how your rendered document will look like and if you check the **Render on Save** box at the top of the document, will update live as you save your changes.
+For an example, see @fig-quarto-example-document-plot.
+
+### Source and Visual Editor {#sec-editors}
+
+You can use either the `Source` or `Visual` mode in RStudio to write and format your work.
+In the `Source` mode you use [Markdown syntax](@sec-markdown) to format your written work and in the `Visual` mode you use a User-Interface similar to how you would use in e.g., MS Word.
+You can switch between the two at any time.
+The changes made in the `Visual` mode will appear in the `Source` mode in Markdown as well.
+However, we strongly recommend you to use the `Source` mode rather than the `Visual` mode.
+This is because most Markdown Syntax is easier and faster to write than to use a Graphical User Interface.
+Nevertheless, in the Section about Markdown Syntax we give you instructions how to format your text in both editors.
+Take a look at the two different modes and the rendered version of the document below with some simple formatting options.
+
+![On the left is the Source mode of the .qmd file and on the right the Visual formatting mode. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-source-mode.jpg){#fig-quarto-visual-source-mode}
+
+Now, take a look at the rendered version of the document and how each of the formatting options plays out.
+
+![A screenshot of the rendered version of a document to showcase some formatting options. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-rendered-formatting.jpg)
+
+::: {#tip-quarto-git-compatibility .callout-tip title="Enhance Quarto compatibility with Git" collapse=true}
+
+When you make changes in a Quarto document and you track it with Git, we recommend you to write each sentence in a new line when using the `Source` Editor.
+This enhances the readability of the changes in Git you made in the Quarto document but does not change the output of the document (see @fig-quarto-git-compatibility).
+
+![The upper left corner displays text. Lines 6 to 8 contain a paragraph where each sentence is written in a new line. Line 10 contains a paragraph where all sentences are written in one line. The lower left corner displays the rendered `html` version of the quarto document. The right half shows the popup window of Git to commit changes. As one can see, it is easier to understand the changes that were made in line 8 compared to line 10.](../static/quarto-git-compatibility.png){#fig-quarto-git-compatibility}
+
+:::
+
+::: {#tip-line-wrapping .callout-tip title="Avoid changes when switching between `Source` and `Visual` Editor" collapse="true"}
+
+Assuming you follow @tip-quarto-git-compatibility, and you write each sentence in a new line.
+When you use the `Visual` Editor, you are cannot directly control whether the sentences are in separate lines or not (compare @fig-quarto-git-compatibility).
+However, you can specify that in the [YAML header](@sec-yaml-header) (see the code snippet below).
+
+```{zsh filename="YAML"}
+---
+editor:
+  markdown:
+    wrap: sentence
+---
+``` 
+
+
+:::
+
+## Markdown {#sec-markdown}
+
+In Quarto documents, **Markdown** is used as a syntax.
+In Markdown content and formatting are integrated with each other and not separate.
+This formatting is used in Quarto or on GitHub or on a smaller scale in WhatsApp or Reddit.
+This formatting is different to the so-called **WYSIWYG** (*What you see is what you get*) editors, like Word.
+There are some advantage over these more commonly known editors.
+Using an integrated approach to formatting and writing allows for faster writing, as there is no need to switch between the two.
+You just format as you type.
+Another advantage is compatibility between different text editors.
+Any program that uses Markdown will format a document written in it the exact same way. 
+Another advantage is that Git can track the changes made to text written with Markdown, allowing for version control of your written work the same way as of your code.  
+Disadvantages are that there are overall less formatting options as the intention is keep it simple and it can be difficult or unintuitive to insert tables and images.  
+
+Have a look at the different formatting options available.
+
+### Text formatting
+
+::: panel-tabset
+
+#### Source Editor
+
+When you want to format your text in the source editor, the markdown syntax is quite straightforward.
+For example, if you want to write *italic* words, you put a `*` around the words of interest.
+@tbl-text-formatting displays how you can format your text in the most important styles.
+
+| Input                                         | Output                                      |
+|-----------------------------------------------|---------------------------------------------|
+| `*italics*, **bold**, ***bold and italics***` | *italics*, **bold**, ***bold and italics*** |
+| `[underlined text]{.underline}`               | [underlined text]{.underline}               |
+| `superscript^2 / subscript~2~`                | superscript^2^ / subscript~2~               |
+| `~~strikethrough~~`                           | ~~strikethrough~~                           |
+| `` `verbatim code` ``                         | `verbatim code`                             |
+
+: Different text formatting options in Markdown syntax.
+The *Input* column displays how to write the text in the source editor.
+The *Output* column displays how the text is then rendered.
+{#tbl-text-formatting}
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
+:::
+
+#### Visual Editor
+
+When you want to format your written text while being in the Visual Editor, you can do it by click and select.
+You can see a menu line at the top of the document (compare to @fig-text-formatting).
+In that line, you can just click on **B** to make your text bold or *I* to make it italic.
+There is also a button *"Format"*.
+If you click on that button, then a variety of formatting options appear.
+When you hover over *"Text"*, you see all the formatting options we also covered for the source editor.
+
+![The red rectangle in the menu line covers the buttons for making the code **bold** or *italic*. The orange rectangle in the menu line indicates the *"format"* button to see a variety of text formatting options.](../static/markdown-text-formatting.png){#fig-text-formatting}
+
+:::
+
+::: {.callout-tip title="How to start a new page in docx and pdf files" collapse=false}
+
+If you want to start a new page in your document at a specific spot, e.g., to have your references on their own page, you can add a pagebreak.
+The pagebreak option does only make sense when you render your document to `docx` or `pdf`, since these files consist of multiple pages.
+However, this does not apply to `html` files, because you can just scroll down the content.
+To add a pagebreak, simply add it between your intended pages like below and a new page will start in the rendered document.
+
+```{markdown}
+#| eval: false
+page 1
+
+{{< pagebreak >}}
+
+page 2
+```
+:::
+
+### Headings
+
+Formatting headings in Markdown syntax is quite easy as well.
+Just put your heading in a new line, and put the number of `#` before that heading to indicate the heading level.
+The more `#`, the smaller the heading.
+You can also format your headings in the Visual Editor.
+However, it is faster in our experience to use the Source editor.
+
+::: panel-tabset
+
+#### Source Editor
+
+<table>
+<thead>
+<tr class="header">
+<th><p>Input</p></th>
+<th><p>Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><code># Header 1</code></p></td>
+<td><h1>Header 1</h1></td>
+</tr>
+<tr class="even">
+<td><p><code>## Header 2</code></p></td>
+<td><h2>Header 2</h2></td>
+</tr>
+<tr class="odd">
+<td><p><code>### Header 3</code></p></td>
+<td><h3>Header 3</h3></td>
+</tr>
+<tr class="even">
+<td><p><code>#### Header 4</code></p></td>
+<td><h4>Header 4</h4></td>
+</tr>
+<tr class="odd">
+<td><p><code>##### Header 5</code></p></td>
+<td><h5>Header 5</h5></td>
+</tr>
+<tr class="even">
+<td><p><code>###### Header 6</code></p></td>
+<td><h6>Header 6</h6></td>
+</tr>
+</tbody>
+</table>
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
+:::
+
+#### Visual Editor
+
+You can also edit your headings in the menu line of the Visual Editor via click and select.
+Simply choose between normal text or your desired header level.
+
+![This is where you can find the different header options in the Visual Editor.](../static/markdown-visual-header.jpg){#fig-visual-header}
+
+:::
+
+### Lists
+
+There are many different types of lists available in Markdown and they are very easy to implement in Source Mode.
+Take a look below at the different options and how they change when rendered.
+
+::: panel-tabset
+
+#### Source Editor
+
+**Input**
+
+``` {markdown}
+#| code-copy: false
+*Unordered list*
+
+* unordered list
+        + sub-item 1
+        + sub-item 2
+
+*Ordered list: Standard numbering*
+  
+1. ordered list
+2. item 2
+  1. sub-item 1
+
+*Ordered list: All 1:*
+
+1. ordered list
+1. item 2
+1. item 3
+1. item 4
+
+*Tasklist*
+
+- [ ] Task 1
+- [ ] Task 2
+
+```
+
+**Output**
+
+*Unordered list*
+
+* unordered list
+  + sub-item 1
+  + sub-item 2
+
+*Ordered list: Standard numbering*  
+
+1. ordered list  
+2. item 2  
+   1. sub-item 1  
+
+*Ordered list: All 1:*  
+
+1. ordered list  
+1. item 2  
+1. item 3  
+1. item 4
+
+*Tasklist*
+
+- [ ] Task 1
+- [ ] Task 2
+
+:bulb: The tasklist can be ticked off.
+Try it.
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
+:::
+
+#### Visual Editor
+
+You have access to the same types of lists in the Visual as in the Source Editor.
+when wanting to create a list, head to the menu line under **Format > Bullets & Numbering**.
+Some of the options only become available once you've created a list and want to edit it, like `Tight List`or `Sink Item`.
+
+![This is where you can find the different list options in the Visual Editor.](../static/quarto-visual-lists.jpg){#fig-visual-lists}
+:::
+
+### Tables
+
+You can also create tables using Markdown.
+However, this is one case where using either the Visual Editor or even better a Markdown table creator is recommended.
+Doing this in the Source Editor is very tedious and in terms of speed will leave you hanging behind the Visual Editor.
+However, in case you want to give it a try or come across it in a Markdown document, take a look below at how to create a table in the Source Editor.
+
+::: panel-tabset
+
+#### Source Editor
+
+Each new line is also a new row in the table and the columns are created using `|` as separators.
+You can define the width of a column using `-` and define where the text should be centered using `:`.
+See below how to do this.
+
+**Input**
+
+```{markdown}
+| Right | Left | Default | Center |
+|------:|:-----|---------|:------:|
+|   12  |  12  |    12   |    12  |
+|  123  |  123 |   123   |   123  |
+|    1  |    1 |     1   |     1  |
+```
+
+**Output**
+
+| Right | Left | Default | Center |
+|------:|:-----|---------|:------:|
+|   12  |  12  |    12   |    12  |
+|  123  |  123 |   123   |   123  |
+|    1  |    1 |     1   |     1  |
+
+:bulb: Tip: Use a [Markdown table generator](https://www.tablesgenerator.com/markdown_tables) or the visual mode in RStudio to generate tables.
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
+:::
+
+#### Visual Editor
+
+To create a table in the Visual Editor, head to the menu at the top again and go to **Table > Insert Table...**.
+This will open a prompt that asks you about the general dimensions of your table but you can still change these later on.
+You also have the option to include a caption at this point.
+Once you've created a table more options like centering or adding more rows will become available.
+
+![This is where you can find the different table options in the Visual Editor.](../static/quarto-visual-table.jpg){#fig-visual-table}
+
+:::
+
+### Equations
+
+A very nice feature of Quarto is that it allows you to easily include equations.
+Regardless of which editor you use, you have to write the equations within LaTeX style.
+For a guide how to create sophisticated equations (including fractions, matrices, square roots, integrals, etc.), see the respective chapter in the [LaTeX Beginner's Guide](https://latexguide.org/book-contents/chapter-09-writing-math-formulas/).
+
+::: panel-tabset
+
+#### Source Editor
+
+To include an equation you need to frame it with dollarsigns `$`.
+One dollarsign for inline equations `$` and two for a standalone equation `$$`.
+
+As an example the **input** would like this:
+
+```{markdown filename="Markdown"}
+The most important equation remains `$E = mc^{2}$` up to this date.
+
+The following equation remains the most important up to this date.
+
+`$$E = mc^{2}$$`
+```
+
+And the respective **outputs** would look like this:
+
+The most important equation remains $E = mc^{2}$ up to this date.
+
+The following equation remains the most important up to this date.
+
+$$E = mc^{2}$$
+
+#### Visual Editor
+
+You can also add equations using the Visual Editor by going to the menu line and selecting **Insert > LaTeX Math > Inline Math/Display Math**.
+
+![This is where you can find the two different options for equations in the Visual Editor.](../static/quarto-visual-equations.jpg){#fig-visual-equations}
+:::
+
+### Blockquotes
+
+You can insert blockquotes in your Quarto documents.
+Whilst this is likely not syntax you will need a lot in scientific reports, it's very easy to do and might prove useful when taking notes or formatting a website you're creating.
+
+::: panel-tabset
+
+#### Source Editor
+
+To create a blockquote in the Source Editor, just add a `<´before it.
+
+For example you might want to insert a quote to emphasize your adoration for reproducibility and have this as your **input**.
+
+`> "Reproducibility is a major goal in all my research!"`
+
+This will result in the following **output** in your final document.
+
+> "Reproducibility is a major goal in all my research!"
+
+#### Visual Editor
+
+To do the same thing in the Visual Editor head once again to the menu line and select **Format > Blockquote**.
+
+![This is where you can find the blockquote option in the Visual Editor.](../static/quarto-visual-blockquote.jpg){#fig-visual-blockquote}
+
+:::
+
+### Links & Images
+
+You can easily insert online links or images into your document.
+The process to do this is relatively similar, which is why the two actions are in the same section.
+
+::: panel-tabset
+
+#### Source Editor
+
+To insert a **link** to, for example a website, the most basic option is to just insert the link between angle brackets `<Link>`.
+
+For example when referring to the Quarto website the **input** looks like this: `<https://quarto.org/>`.  
+And this results in this **output**: <https://quarto.org/>.
+
+As this is maybe not the neatest way to insert a link, you can also "rename" the link by adding a custom name or description in square brackets `[Name]` and following this without a space in between with the link, this time in round brackets `[Name](Link)`.
+
+For our previous example, this looks like this as an **input**: `[Quarto](https://quarto.org/)`  
+And this is the resulting **output**: [Quarto](https://quarto.org/)
+
+Inserting an **image** works similarly.
+Let's say you want to insert an image that you've found online, in this case the Quarto logo.
+To do this, start off with an exclamation mark, followed by squared brackets, which can contain a caption for your image, but you can otherwise leave empty, followed by the link to the image in round brackets `![Optional caption](Image link)`.
+
+For inserting the Quarto logo, this is the **input**:  
+`![Quarto logo](https://quarto.org/quarto.png)`   
+Which will give you this **output**:  
+![Quarto logo](https://quarto.org/quarto.png)
+
+You can also add a link to your image. Staying with our Quarto example, here the Quarto logo will lead you to the Quarto website, but you could also use this process to link to your own website, a GitHub repository or your CV. The syntax for this is combining inserting an image and linking to something. Simply put the string used for inserting an image into squared brackets and follow this by the link in round brackets like so: `[![Optional caption](Image link)](Link)`.
+
+For our example, this is the necessary **input**: `[![Quarto](https://quarto.org/quarto.png)](https://quarto.org)`  
+Resulting in this **output** (notice how clicking on the image will bring you to the Quarto websit):  
+[![Quarto](https://quarto.org/quarto.png)](https://quarto.org)
+
+
+You can of course also link to images you've taken yourself or that aren't stored online by inserting a local image path instead of an online link.
+If the image is stored in the same subfolder as your document, you can refer to it directly, however it is recommended to create a designated image folder instead, to keep your project structure clear to others and your future self.
+
+Let's say your image `quarto_logo.png` is stored in the folder called `images` in a project structure like this:  
+
+```
+| my-project.Rproj
+| .gitignore
+| README.html
+| README.md
+| code
+| data
+| images
+  | quarto_logo.png
+| renv
+```
+To insert it, your **input** looks like this: `![Quarto](../images/quarto_logo.png)`.  
+Returning you this **output**:  
+![Quarto](https://quarto.org/quarto.png)
+
+::: {.callout-caution collapse="false"}
+## Keep reproducibility in mind
+
+When using images or figures in e.g., a report about an analysis you've done, to not use a fixed image of it. Rather use a [code chunk](#code-chunks), which you will learn about in a little bit, to create it and keep them reproducible.
+:::
+
+::: footer
+Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/) and [Introduction to Quarto - Wittkuhn and Pagenstedt](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)
+:::
+
+#### Visual Editor
+
+To add a **link** in the Visual Editor, head to the the menu line **Insert > Link...**, which opens a window that prompts you to enter the URL, a Text, which is what will be displayed within the text and a Title/Tooltip, which pops up when you hover over the link.
+
+![This window lets you insert links in the Visual Editor in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-link.jpg)
+
+To insert **images** using the Visual Editor, select from the menu line **Insert > Figure/Image...**, which leads you to a pop-up window, in which you can either insert the link to an image or browse your stored images.
+In this window you can also add links to websites and a caption for your image.
+
+![This window lets you insert images in the Visual Editor in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-images.jpg)
+:::
+
+## The YAML header {#sec-yaml-header}
+
+In Quarto, every document starts with a YAML header.
+The YAML header is indicated by three hyphens (`---`) at the beginning and at the end (e.g. @fig-quarto-example-document-plot or @fig-quarto-visual-source-mode).
+After the YAML header, the document's content begins.
+
+YAML stands for **Y**et **A**nother **M**arkup **L**anguage.
+In the YAML header, you specify settings that belong to the whole document you are writing.
+In case, you want to write a book or create a website with Quarto, you will find a separate YAML file in your project directory (`_quarto.yaml`).
+
+Do I need to learn another markup language?
+Good news is, YAML is really easy to learn.
+And in the context of Quarto, a [comprehensive guide](https://quarto.org/docs/guide/) explains to you, how you can set up a variety of options for your quarto document.
+Thus, you do not really must learn YAML.
+When you do not know something, look at the guide and follow its instructions.
+
+How is the setup of the YAML header?
+In general, the YAML header consists of so called `key: value` pairs.
+Thus, between the two lines with the three hyphens, you write (almost) everything in the style of a key that has a counterpart, called a value.
+key and value are separated by colon (`:`), while it comes directly after the key, but leaves one space open until the value starts.
+Each line only contains one `key: value` pair.
+When you use a string as a value, put quotation marks around the value (e.g. `author: "Justus Reihs"`)
+
+With the help of the `key: value` pairs, you can setup your whole Quarto document.
+You can specify the document's title, name, published date, etc.
+It would take too much time to give you a comprehensive overview of YAML specifications.
+Hence, we will provide you an overview that shows you a) the most important specifications for when you write a paper and b) the most important specifications to keep that paper easy to reproduce.
+
+::: {#tip-yaml-settings .callout-tip title="Different YAML settings" collapse="true"}
++----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
+| YAML key       | Example                                                      | Description                                                          |
++:===============+:=============================================================+:=====================================================================+
+| `title`        | `title: "The Repro Book - A Guide to Reproducible Research"` | Name the title of your document                                      |
++----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
+| `shorttitle`   | `shorttitle: "The Repro Book"`                               | The short title of your document                                     |
++----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
+| `editor`       | ```                                                          | Set that each sentence is placed in a new line (@tip-line-wrapping)  |
+|                | editor:                                                      |                                                                      |
+|                |   markdown:                                                  |                                                                      |
+|                |     wrap: sentence                                           |                                                                      |
+|                | ```                                                          |                                                                      |
++----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
+| `csl`          | `csl: apa.csl`                                               | Set the citation style of your document                              |
++----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
+| `bibliography` | `bibliography: references.bib`                               | Refer to the citations you use in your document                      |
++----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
+:::
+
+::: {.callout-note title="View: This chapter's YAML file" collapse="true"}
+```{=html}
+<!-- Note: The YAML header is only static.
+We can work on making it dynamic later. -->
+```
+
+```         
+---
+title: "Literate Programming"
+editor: source
+engine: knitr
+execute:
+  eval: false
+  warning: false
+  message: false
+code-annotations: hover
+categories: [intermediate]
+abstract: |
+  In this chapter you will learn how you can automatically integrate your reproducible results into a paper.
+  You will learn how to write a paper in with Quarto and how to format it for a required output.
+  You will learn how to use extension, specifically the apaquarto extension to write reproducible paper in APA-style.
+---
+```
+:::
+
+## Features
+
+There are some nice features that can be implemented in Quarto, such as including code chunks, as mentioned before with the example of a plot, inline code, as well as referencing and citations.
+These are the features that can make your document reproducible.
+As explained in the introduction, when having to e.g. change your analysis, these features will update without you having to painstakingly change your results manually and likely introduce some errors in the process.
+
+### Code chunks {#sec-code-chunks}
+
+**Code chunks** are pieces of code that will be executed by Quarto during the rendering process, so when you're having Quarto create the intended output format of your .qmd file.
+Remember the earlier example of a plot within a report, which was done using a code chunk.
+
+![On the left is a Quarto document in RStudio, containing a code chunk that creates a simple plot. On the right is the rendered version of the document, showing the text and the plot. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-example-document-plot.jpg)
+
+Any type of code can be inserted by using code chunks.
+
+To insert a code chunk either do so by using specific syntax in the **Source** mode or by going into the **Visual** mode and inserting it by clicking through the menu.
+
+To add a code chunk in the **Source** mode, simply add three back ticks around your code and specify the language within `{}`.
+For example in the language `R`, this would look just like this: ```` ```{r} Your code ``` ````.
+As this process is so simply and the thinking work lies in the code itself, it is recommended to do this in the Source mode, also because it is simply faster.
+
+To add a code chunk in the **Visual** mode, head to **Insert > Executable Cell > *Desired Language* ** , as can be seen below.
+
+![How to insert a code chunk into a Quarto document in the Visual mode in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-insert-codechunk.jpg)
+
+<!-- MOVE THIS TO A CALLOUTBOX AND ADD EXPLANATION ON EXTENSIONS NEEDED TO BE INSTALLED
+Code chunks can also be interactive and run in the rendered document, if specified.
+This is useful in teaching scenarios such as going through a coding process step-by-step.
+In that case the code chunk is not executed when rendered but instead needs to be prompted to run in the rendered document.
+Such a code chunk could look similar to the one below.
+Try running this code chunk below:
+```{webr}
+#| interactive: true
+#| echo: true
+1+1
+```
+To implement such an interactive code chunk, you need to
+--> 
+
+Code chunks can be quite different in their functioning.
+There is some room for how you can customize them, for example you might like to have the code displayed as well as the output or (very likely) you have a lot of code but only want to showcase your results directly in the output document but in order to get there you need to run a lot of code beforehand.
+As your biggest goal is keeping your document reproducible, you still want to include it in your Quarto file.  
+To do this, you use different Chunk Options.
+In the previous examples one of them has been `#| echo: false`, which ensures that only the output, in that case the plot, and not the input, the code is shown.
+To include them, place them within your code chunk, after your specified coding language, just like in the code chunk in the plot example above. 
+The options are either specified `true`or ``false` and prefaced by `#|`.
+
+Some important options are:  
+- `#| echo: false`: When set to false, the code chunks results are shown but not the code itself.
+When set as true, the code is also shown.  
+- `#| include: false`: Neither the code nor the results appear in the output file, which is useful for code which's results you need for running other code later on but isn't relevant to the reader.  
+- `#| warning: false`: Don't include potential warnings in the output.  
+- `#| fig.cap = " Your caption"`: Include a caption in your figure.
+This one is not set to true or false but rather just the caption is included.  
+- `#| label:` You can give your code chunk a label to more easily identify the aim of this piece of code.
+
+### Inline code
+
+Inline code allows you to simply insert code as part of your other markdown syntax.
+This is especially useful for referencing analysis outputs.
+In keeping with reproducibility this ensures that if you change parts of your analysis, your results will update as well without you having to manually go into the text change them manually, risking that you might miss some.
+Furthermore, when writing your report, you don't have to go back and forth, checking what your specific results were but instead can just refer to them and move on with writing.  
+To add inline code, it's the same process as for inserting a code chunk but instead of three backticks, you just use one.
+Remember to include the programming language in `{}`.
+
+The **input** could look something like this:
+
+```{Code}
+The number of observations is `{{r}} 8*20`.
+```
+
+The programming language used here is R and this code will result in the **output**:
+
+The number of observations is `r 8*20`.
+
+### Referencing
+
+You can cross-reference objects like figures, tables or equations within your text.
+This is especially useful in reports when you need to refer to different figures.
+The references work as links to the objects and let you jump to them in the final document.
+
+For example: @sec-citations (`@sec-citations`) brings you to the section on citations in this book.
+
+To be able to cross-reference tables, sections of your text, equations or figures, they need to have a label.
+You need to add the label after the inserted object.
+The label is in curly brackets and start with a hash `#` like so `{#object-name}`.
+For example, for an image this looks like this: `![A fish](fish-image.jpg){#fig-fish}`.
+To reference it in the text you loose the curly brackets and replace the hash with an at-sign `@`, which looks like this `As displayed in @fig-fish, this a fish.`.
+
+Avoid using underscores `_`when creating your labels as this might cause problems when rendering to PDF. 
+There is a set of predefined prefixes you can and should use to refer to your objects.
+Then just follow this with a name of your choosing.
+
+
+| Type         | Label Prefix |
+|--------------|--------------|
+| Figures      | fig-         |
+| Tables       | tbl-         |
+| Equations    | eq-          |
+| Sections     | sec-         |
+| Code listing | lst-         |
+| Theorem      | thm-         |
+
+### Citations {#sec-citations}
+
+When you write a paper, you definitely must include citations.
+Quarto offers different ways of managing citations.
+We will give you an overview on how to handle them.
+
+When you use citations in Quarto, you will definitely need a **bibliography**.
+This bibliography contains all the relevant information of your citations and is usually a BibLaTeX (`.bib`) or BibTeX (`.bibtex`) file.
+What you might optionally want to include, is a file that specifies the [Citation Style Language](https://citationstyles.org). For more information on that, see @sec-citation-style.
+
+#### Add citations {#sec-add-citations}
+
+Adding citations is simple in the Visual Editor.
+Go to *Insert* in the menu line and click on *Citation...*.
+Then a box should pop up (see @fig-quarto-add-citation).
+In that box, you have different options how to add a citation.
+In our opinion, the interface *From DOI* is the most convenient one for adding new citations.
+To find your citation of interest, simply copy and paste the DOI of your research article into the bar and hit *Search*.
+Then, your citation should be popped up in the pane below (again, see @fig-quarto-add-citation).
+Simply hit *Insert* and your citation is in your document.
+At the same time (if it is your first citation), a `references.bib` file was automatically created in your project directory (see @nte-references-bib).
+Further, you can see, that your YAML header now contains one more line `bibliography: references.bib`.
+The Visual Editor does that automatically for you.
+If you use the Source editor, you have to set up the `references.bib` file on your own and manually add the bibliography key-value pair to your document's YAML header.
+When you add other new citations, they are automatically added to your `references.bib` file, when you follow the same steps from above again.
+
+![Screenshot of Pop-Up box when adding a new citation from a DOI in the Visual Editor.](../static/quarto-add-citation.png){#fig-quarto-add-citation}
+
+:::{#nte-references-bib .callout-note title="The `references.bib` file" collapse=true}
+
+The `reference.bib` file has a very specific setup.
+Lets look at an exemplary entry in the file to learn how it is built.
+
+```{filename="Example of `references.bib` file"}
+@article{nuijten2024,
+  author = {Michèle B. Nuijten and Jelte M. Wicherts},
+  title = {Implementing Statcheck During Peer Review Is Related to a Steep Decline in Statistical-Reporting Inconsistencies},
+  journal = {Advances in Methods and Practices in Psychological Science},
+  year = {2024},
+  volume = {7},
+  issue = {2},
+  doi = {10.1177/25152459241258945},
+  url = {https://doi.org/10.1177/25152459241258945}
+}
+```
+
+---
+
+You can derive following rules from this example:
+
+1. Each entry starts with an `@`
+1. After the `@` the resource type of the entry is specified (e.g. article, book, etc.)
+1. An opening curly bracket `{` marks the begin of where to write the content of the citation
+1. After the `{`, an identifier is written (by default, first author name and the year of publication)
+1. Separation by a comma `,`
+1. Then the body of the entry follows, indented by two spaces
+1. The body contains multiple key-value pairs (as in the YAML header).
+1. Contrary to the YAML header keys and values are separated by an equals sign.
+1. Contrary to the YAML header, the values are written in curly brackets.
+1. A `,` separates two key-value pairs
+1. Each key-value pair is written on it's own line
+1. The last key value pair does not need a `,` at the end
+1. Important keys for journal articles are author, title, journal, volume, issue, doi and url
+1. The body of the entry is closed with a non indented closing curly bracket `}` at a new line, closing the opening curly bracket from the first line of the entry.
+:::
+
+<details>
+<summary>Click here to view the full `references.bib` of this book.</summary>
+```{bash, filename="references.bib"}
+#| eval: false
+#| file: references.bib
+#| code-line-numbers: true
+```
+</details>
+
+#### Citation syntax
+
+To refer to citations that have already been inserted in your `references.bib` file, there is no difference between the Source and the Visual Editor.
+All you have to do is indicating a citation with `@` and put the identifier (see @nte-references-bib) behind the `@`.
+Thus, if you want to cite the paper we added in @sec-add-citations, you can see in the `references.bib` file that we use the identifier `schuck2016`.
+Hence, the proper citation is `@schuck2016`.
+This citation is called an in-text citation.
+You can also use square brackets around the reference (`[@schuck2016]`).
+Another possibility is to use a `-` before the reference to let the authors disappear (`[-@schuck2016]`)
+Look at @tbl-citations to see how the different syntax plays out in the output.
+
++--------------------------------------------------+----------------------------------------------------------------------------+
+| Markdown Format                                  | Output (author-date format)                                                |
++==================================================+============================================================================+
+| ```                                              | Blip blop bloop [see @schuck2016, pp. 33-35; also @community2022, chap. 1] |
+| Blip blop bloop [see @schuck2016, pp. 1403-1405; |                                                                            |
+| also @community2022, chap. 1]                    |                                                                            |
+| ```                                              |                                                                            |
++--------------------------------------------------+----------------------------------------------------------------------------+
+| ```                                              | Blip blop bloop [@schuck2016, pp. 1403-1405, 1407-1408 and passim]         |
+| Blip blop bloop [@schuck2016, pp. 1403-1405,     |                                                                            |
+| 1407-1408 and passim]                            |                                                                            |
+| ```                                              |                                                                            |
++--------------------------------------------------+----------------------------------------------------------------------------+
+| ```                                              | Blip blop bloop [@schuck2016].                                             |
+| Blip blop bloop [@schuck2016].                   |                                                                            |
+| ```                                              |                                                                            |
++--------------------------------------------------+----------------------------------------------------------------------------+
+| ```                                              | They say blah [-@schuck2016]                                               |
+| They say blah [-@schuck2016]                     |                                                                            |
+| ```                                              |                                                                            |
++--------------------------------------------------+----------------------------------------------------------------------------+
+| ```                                              | @schuck2016 says bloop.                                                    |
+| @schuck2016 says bloop.                          |                                                                            |
+| ```                                              |                                                                            |
++--------------------------------------------------+----------------------------------------------------------------------------+
+| ```                                              | @schuck2016 [p.1403] says blah.                                            |
+| @schuck2016 [p.1403] says blah.                  |                                                                            |
+| ```                                              |                                                                            |
++--------------------------------------------------+----------------------------------------------------------------------------+
+
+: Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-basics.html), [Dr. Monwinckel - Quartaki - 6 hour introduction to Quarto](https://drmowinckels.github.io/quartaki/), [Wittkuhn & Pagenstedt - Quarto Workshop](https://lennartwittkuhn.com/version-control-course-uhh-ws23/sessions/session07.html) {#tbl-citations}
+
+#### Citation style {#sec-citation-style}
+
+By default, the citation style in Quarto Documents is the [Chicago Manual of Style](https://www.chicagomanualofstyle.org/home.html) author-date format.
+If you want to change the style, you can look up different resources to find `.csl` files.
+These `.csl` files specify how the citations will be styled.
+@nte-csl-resources shows you some resources where you can find these `.csl` files.
+
+To use the citation style language you downloaded with the `.csl` file, you have to make sure that the intended `.csl` file appears in the *root directory* of the project[^2].
+Additionally, make sure that you specified your YAML header by adding the key-value pair `csl: apa.csl` into the YAML header of your document (@tip-yaml-settings).
+
+[^2]: You can also put it in a subfolder of your project, but then you have to specify the path in the YAML header, too.
+
+::: {#nte-csl-resources .callout-note title="Resources for `.csl` files" collapse="false"}
+
+| Resource                  | Link                                                                          |
+|:--------------------------|:-----------------------------------------------------------------------------:|
+| Zotero's Style Repository | [{{< fa link >}}](https://www.zotero.org/styles)                              |
+| CSL Project               | [{{< fa brands github >}}](https://github.com/citation-style-language/styles) |
+
+:::
+
+## Quarto extensions
+
+One nice feature of Quarto are it's [extensions](https://quarto.org/docs/extensions/).
+These extensions are created from Quarto users to extend the behavior and functionality of quarto.
+Since Quarto contributes to the movement of Open Science and Reproducibility, these extensions are freely available.
+
+### The `apaquarto` extension {.unnumbered}
+
+In this book, we will only deal with one extension - the `apaquarto` extension by William Joel Schneider.
+With this extension, we can shape the output of our rendered quarto file into the format of the [APA guidelines](https://apastyle.apa.org/)[^3] without much effort.
+
+[^3]: Many journals and universities require submissions to be in the APA format.
+Thus, we think it is useful for many students and researchers to know about this extension.
+
+### Install apaquarto
+
+To install `apaquarto`, there are some prerequisites that you most likely already fulfil.
+
+1. Install Quarto
+
+1. Install a programming language (e.g {{< fa brands r-project >}})
+
+1. Install a programming environment (e.g. RStudio)
+
+After you have installed all things, you can successfully install `apaquarto`.
+Most likely you have installed R and RStudio.
+To check whether Quarto is already installed, see @tip-quarto-check.
+
+::: {#tip-quarto-check .callout-tip title="How to check whether Quarto is already installed" collapse="true"}
+To check whether Quarto is already installed, open the Terminal at RStudio.
+It should be right next to the Console.
+If there is no Terminal, go to **Tools** > **Terminal** > **New Terminal**.
+Then, the Terminal pane will open.
+Write the following code into the Terminal:
+
+```{zsh filename="Terminal"}
+quarto --version
+```
+
+If you already have Quarto installed, the current version of Quarto should be displayed.
+
+```{zsh filename="Output"}
+#| code-copy: false
+
+1.4.551
+```
+
+If you have not installed Quarto yet, you might get a message like this:
+
+```{zsh filename="Output"}
+#| code-copy: false
+
+Command "quarto --version" not found.
+```
+
+To install quarto, go head and follow the installation instructions at [this website](https://quarto.org/docs/get-started/).
+:::
+
+To install apaquarto, the installation guide offers multiple scenarios (see @tip-apaquarto-installation-guide).
+According to the guide, it is possible to install the extension from the Terminal and from the Console.
+However, in our experience, the console sometimes lead to errors, which is why we recommend to use the Terminal.
+
+Steps to install the apaquarto extension:
+
+1. Open your project folder in RStudio.
+In the folder you should write the Quarto document.
+
+1. Go to the terminal in RStudio
+
+1. Type the following command in the command line of the Terminal:
+
+```{zsh filename="Terminal"}
+quarto add wjschne/apaquarto
+```
+
+4. You will get an output like this:
+
+```{zsh filename="Output"}
+Quarto extensions may execute code when documents are rendered.
+If you do not trust the author of the extension,
+we recommend that you do not install or use the extension.
+? Do you trust the authors of this extension (Y/n) >
+```
+
+5. Type in **Y** and hit **Enter**.
+Then you will get another output like this:
+
+```{zsh filename="Output"}
+
+[✔] Downloading
+[✔] Unzipping
+          Found 1 extensions.
+          
+The following changes will be made:
+My Document in APA Style, Seventh Edition    [No change]    (formats)
+? Would you like to continue (Y/n) >
+```
+
+6. Again, type in **Y** and hit **Enter**.
+Your output should be like this:
+
+```{zsh filename="Output"}
+
+[✔] Copying
+[✔] Extension installation complete
+
+? View documentation using default browser? (Y/n) >
+```
+
+7. No the installation is finished.
+The Terminal asks you if you want to view the documentation online.
+It is the same we are referring to in @tip-apaquarto-installation-guide.
+No matter what you choose, you did successfully install the `apaquarto` extension.
+
+When you now look at your project directory, you can see that a new folder exists called `_extensions`.
+In that folder, there is a subfolder called `wjschne`, which, in turn, contains a subfolder `apaquarto`. In that `apaquarto` subfolder, there are many files that constitute the settings for the `apaquarto` extension.
+We recommend not to change anything in this `_extensions` folder and all its subfolders manually.
+
+::: {#tip-apaquarto-installation-guide .callout-tip title="View: The `apaquarto` installation guide by William Joel Schneider" collapse="true"}
+
+{{< fa display >}} <https://wjschne.github.io/apaquarto/installation.html>
+
+```{=html}
+<iframe width="100%" height="200%" src="https://wjschne.github.io/apaquarto/installation.html" title="Installation instructions for apaquarto extension"></iframe>
+```
+
+:::
+
+### Implementing apaquarto in a quarto document
+
+You now have the apaquarto extension installed, but when you render your Quarto document, it does not look like a document in APA style.
+A last (and simple) step is to change the YAML header of your Quarto document.
+You need to specify the `format` to be in apaquarto style.
+To do so write the code below into your YAML header, save the changes, and re-render your Quarto document.
+
+```{zsh filename="YAML header"}
+format:
+  apaquarto-docx: default # <1>
+```
+
+1. This code renders your Quarto document to an APA styled Word Document.
+You can use `apaquarto-html` or `apaquarto-pdf` to render your `.qmd` file to a html or PDF file, respectively.
+
+Now, your rendered Quarto document should be in APA style.
+However, R would not be R and Quarto would not be Quarto if there is a small detail to consider.
+This only works, when the *Quarto document* is placed in the *same folder as the* `_extensions` *folder*.
+
+:::{.callout-caution title="Correct storage of your quarto file"}
+
+Make sure that your Quarto document (`.qmd`) is stored in the same folder as your `_extensions` folder!
+
+::: {.panel-tabset}
+
+## Correct placement
+
+Project Structure
+
+```
+.
+| my-project.Rproj
+| .gitignore
+| README.html
+| README.md
+| apa-styled-quarto-document.qmd
+| apa-styled-quarto-document.docx
+| _extensions
+  |-- wjschne
+    |-- apaquarto
+| code
+| data
+| renv
+```
+
+Above is displayed an excerpt of a project structure where the apaquarto extension works correctly.
+The `.qmd`-file is at the same folder as the `_extensions` folder.
+
+## Incorrect placement
+
+Project Structure
+
+```
+.
+| my-project.Rproj
+| .gitignore
+| README.html
+| README.md
+| apa-styled-quarto-document.qmd
+| _extensions
+  |-- wjschne
+    |-- apaquarto
+| code
+| data
+| report
+  |--apa-styled-quarto-document.qmd
+| renv
+```
+
+Above is displayed an excerpt of a project structure where the apaquarto extension does not work correctly.
+The `.qmd`-file is not at the same folder as the `_extensions` folder.
+Rather the `.qmd` file is located in the `reports` folder.
+Thus, the `.qmd` file is located on layer below the `_extensions` folder.
+Consequently, the apaquarto extension crushes when rerendering the Quarto document (which is why there is no .docx file in this project structure compared to the one that works correctly).
+
+:::
+
+:::
+
+### Deleting apaquarto
+
+In case you are not completely flashed by these features of `apaquarto` (or you just do not have to submit your work in APA style), you might not need the apaquarto extension in your project and want to remove it.
+Despite dropping some tears, just type in the command below into your Terminal.
+
+```{zsh filename="Terminal"}
+quarto remove wjschne/apaquarto
+```
+
+You will get an output like this:
+
+```{zsh filename="Output"}
+#| code-copy: false
+
+? Are you sure you'd like to remove My Document in APA Style, Seventh Edition? (Y/n) >
+```
+
+Type in **Y** and hit **Enter**.
+If you see the message below, you successfully deleted the extension form your project.
+
+```{zsh filename="Output"}
+#| code-copy: false
+
+Extension removed.
+
+```
+
+## Resources
+
+-   <https://quarto.org/>
+-   <https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html>
+-   <https://wjschne.github.io/apaquarto/>
