@@ -22,7 +22,7 @@ abstract: |
 :bulb: Create a new report file using Quarto.<br>
 :bulb: Learn more advanced syntax: include a reference.bib file<br>
 :bulb: Learn more advanced syntax: the YAML header<br>
-:bulb: Learn more advanced syntax: add a quarto apa extension to the file (see wjschne/apaquarto)<br>
+:bulb: Learn more advanced syntax: add a quarto  extension to your quarto document.<br>
 :bulb: Rewrite the report in quarto
 :::
 
@@ -246,10 +246,12 @@ When you hover over *"Text"*, you see all the formatting options we also covered
 
 :::
 
-::: {.callout-tip title="How to start a new page" collapse=false}
+::: {.callout-tip title="How to start a new page in docx and pdf files" collapse=false}
 
 If you want to start a new page in your document at a specific spot, e.g., to have your references on their own page, you can add a pagebreak.
-Simply add it between your intended pages like below and a new page will start in the rendered document.
+The pagebreak option does only make sense when you render your document to `docx` or `pdf`, since these files consist of multiple pages.
+However, this does not apply to `html` files, because you can just scroll down the content.
+To add a pagebreak, simply add it between your intended pages like below and a new page will start in the rendered document.
 
 ```{markdown}
 #| eval: false
