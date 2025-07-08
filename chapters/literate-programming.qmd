@@ -625,23 +625,45 @@ It would take too much time to give you a comprehensive overview of YAML specifi
 Hence, we will provide you an overview that shows you a) the most important specifications for when you write a paper and b) the most important specifications to keep that paper easy to reproduce.
 
 ::: {#tip-yaml-settings .callout-tip title="Different YAML settings" collapse="true"}
-+----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
-| YAML key       | Example                                                      | Description                                                          |
-+:===============+:=============================================================+:=====================================================================+
-| `title`        | `title: "The Repro Book - A Guide to Reproducible Research"` | Name the title of your document                                      |
-+----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
-| `shorttitle`   | `shorttitle: "The Repro Book"`                               | The short title of your document                                     |
-+----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
-| `editor`       | ```                                                          | Set that each sentence is placed in a new line (@tip-line-wrapping)  |
-|                | editor:                                                      |                                                                      |
-|                |   markdown:                                                  |                                                                      |
-|                |     wrap: sentence                                           |                                                                      |
-|                | ```                                                          |                                                                      |
-+----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
-| `csl`          | `csl: apa.csl`                                               | Set the citation style of your document                              |
-+----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
-| `bibliography` | `bibliography: references.bib`                               | Refer to the citations you use in your document                      |
-+----------------+--------------------------------------------------------------+----------------------------------------------------------------------+
++----------------+--------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
+| YAML key       | Example                                                      | Description                                                                                                   |
++:===============+:=============================================================+:==============================================================================================================+
+| `title`        | ``` {.markdown}                                              | Name the title of your document                                                                               |
+|                | title: "The Repro Book - A Guide to Reproducible Research"   |                                                                                                               |
+|                | ```                                                          |                                                                                                               |
++----------------+--------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
+| `shorttitle`   | ``` {.markdown}                                              | The short title of your document                                                                              |
+| `shorttitle`   | shorttitle: "The Repro Book"                                 |                                                                                                               |
+| `shorttitle`   | ```                                                          |                                                                                                               |
++----------------+--------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
+| `author:`      | ``` {.markdown}                                              | The author(s) of your document and their affiliation(s) and address.                                          |
+|                | author:                                                      |                                                                                                               |
+|                |   - name: Justus J. Reihs                                    | You can include as many or as little of these pieces of information in your author description as you desire. |
+|                |     email: justus.reihs@studium.uni-hamburg.de               |                                                                                                               |
+|                |     corresponding: true                                      |                                                                                                               |
+|                |     affiliations:                                            |                                                                                                               |
+|                |       - name: University of Hamburg                          |                                                                                                               |
+|                |         department: Institute of Psychology                  |                                                                                                               |
+|                |         address: Von-Melle-Park 5                            |                                                                                                               |
+|                |         city: Hamburg                                        |                                                                                                               |
+|                |         country: Germany                                     |                                                                                                               |
+|                |         postal-code: 20146                                   |                                                                                                               |
+|                | ```                                                          |                                                                                                               |
++----------------+--------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
+| `editor`       | ``` {.markdown}                                              | Set that each sentence is placed in a new line (@tip-line-wrapping)                                           |
+|                | editor:                                                      |                                                                                                               |
+|                |   markdown:                                                  |                                                                                                               |
+|                |     wrap: sentence                                           |                                                                                                               |
+|                | ```                                                          |                                                                                                               |
++----------------+--------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
+| `csl`          | ``` {.markdown}                                              | Set the citation style of your document                                                                       |
+|                | csl: apa.csl                                                 |                                                                                                               |
+|                | ```                                                          |                                                                                                               |
++----------------+--------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
+| `bibliography` | ``` {.markdown}                                              | Refer to the citations you use in your document                                                               |
+|                | `bibliography: references.bib`                               |                                                                                                               |
+| `              | ```                                                          |                                                                                                               |
++----------------+--------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 :::
 
 ::: {.callout-note title="View: This chapter's YAML file" collapse="true"}
