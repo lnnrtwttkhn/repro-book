@@ -628,9 +628,13 @@ Hence, we will provide you an overview that shows you a) the most important spec
 +----------------+--------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 | YAML key       | Example                                                      | Description                                                                                                   |
 +:===============+:=============================================================+:==============================================================================================================+
-| `title`        | `title: "The Repro Book - A Guide to Reproducible Research"` | Name the title of your document                                                                               |
+| `title`        | ``` {.markdown}                                              | Name the title of your document                                                                               |
+|                | title: "The Repro Book - A Guide to Reproducible Research"   |                                                                                                               |
+|                | ```                                                          |                                                                                                               |
 +----------------+--------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
-| `shorttitle`   | `shorttitle: "The Repro Book"`                               | The short title of your document                                                                              |
+| `shorttitle`   | ``` {.markdown}                                              | The short title of your document                                                                              |
+| `shorttitle`   | shorttitle: "The Repro Book"                                 |                                                                                                               |
+| `shorttitle`   | ```                                                          |                                                                                                               |
 +----------------+--------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 | `author:`      | ``` {.markdown}                                              | The author(s) of your document and their affiliation(s) and address.                                          |
 |                | author:                                                      |                                                                                                               |
@@ -646,15 +650,19 @@ Hence, we will provide you an overview that shows you a) the most important spec
 |                |         postal-code: 20146                                   |                                                                                                               |
 |                | ```                                                          |                                                                                                               |
 +----------------+--------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
-| `editor`       | ```                                                          | Set that each sentence is placed in a new line (@tip-line-wrapping)                                           |
+| `editor`       | ``` {.markdown}                                              | Set that each sentence is placed in a new line (@tip-line-wrapping)                                           |
 |                | editor:                                                      |                                                                                                               |
 |                |   markdown:                                                  |                                                                                                               |
 |                |     wrap: sentence                                           |                                                                                                               |
 |                | ```                                                          |                                                                                                               |
 +----------------+--------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
-| `csl`          | `csl: apa.csl`                                               | Set the citation style of your document                                                                       |
+| `csl`          | ``` {.markdown}                                              | Set the citation style of your document                                                                       |
+|                | csl: apa.csl                                                 |                                                                                                               |
+|                | ```                                                          |                                                                                                               |
 +----------------+--------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
-| `bibliography` | `bibliography: references.bib`                               | Refer to the citations you use in your document                                                               |
+| `bibliography` | ``` {.markdown}                                              | Refer to the citations you use in your document                                                               |
+|                | `bibliography: references.bib`                               |                                                                                                               |
+| `              | ```                                                          |                                                                                                               |
 +----------------+--------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+
 :::
 
