@@ -25,7 +25,7 @@ Very likely, it is not.
 However, we have done a great job in organizing our research project.
 The previous chapters dealt with a possible architecture of a reproducible research project.
 But still, there are things to improve.
-The next chapters will deal with reproducible computational environments.
+The next chapter will deal with reproducible computational environments.
 For an introduction, read the example below:
 
 Imagine you need to reproduce the results of a research article from 2019.
@@ -37,10 +37,10 @@ You find a nice structure, run a script but then you get an error message in R l
 Error in function_name(object[[i]], ...) : could not find function "function_name"
 ```
 
-R is telling you that it cannot find a function called function_name.
+R is telling you that it cannot find a function called `function_name`.
 A similar problem can be that only arguments of a function are not found.
 However, the script runs correctly at the device of the researcher writing the script.
-Thus, you are facing a research project that is only reproducible on the same device it was written on.
+Thus, you are facing a research project that is only reproducible on the **same device** it was written on.
 A possible reason is that your computational environment differs from the environment of the other researcher.
 You might have installed different versions of R packages or of {{< fa brands r-project >}} itself.
 
@@ -49,7 +49,7 @@ You might have installed different versions of R packages or of {{< fa brands r-
 Computational environments include everything associated with technical infrastructure and software for conducting data analyses and reproducing scientific results.
 This comprises operating systems (Apple, Windows, Linux), software versions (R 4.3.1, 4.4.1, 4.4.2, etc.), and different versions of packages (dplyr 0.8.0, 1.1.4).
 It is important to consider your computational environment when it comes to computational reproducibility.
-The longer the time interval between creation and reproduction of your code is, the more the more likely reproducibility is not possible because of different computational environments.
+The longer the time interval between creation and reproduction of your code is, the more likely reproducibility is not possible because of different computational environments.
 Software progresses over time, which is good in general.
 However, different versions of software include that some functions will not work in future versions or will do different things.
 Thus, it is important to keep track of the computational environment during creation of code and analyses.
@@ -57,7 +57,7 @@ Thus, it is important to keep track of the computational environment during crea
 This done by so called **Package Management Systems**.
 Package Management Systems install and keep track of software and software versions, export files that specify these required software packages/versions and that can be shared with others [@community2022].
 Thus, environments can be replicated, either manually or via the Package Management System.
-In the next two chapters, we will introduce two Package Mangament Systems, namely `{renv}` and {docker}.
+In this chapter, we will introduce the Package Mangament System `{renv}`.
 
 :::
 
@@ -86,6 +86,7 @@ With `renv`...
 ## `renv`
 
 `renv` is a package that cares about the different versions of your used packages.
+To get the most out of this chapter, we encourage you to create a new *test project* in RStudio where you can try out the functions that you are about to learn.
 To use `renv` as package dependency manager, you only need to install it, as every other package in {{< fa brands r-project >}}.
 
 ```{zsh filename="Console"}
@@ -127,7 +128,7 @@ This is now your project library.
 With different libraries for different projects you have the benefit of *isolation*.
 When a package version changes in one project, it does not affect your other projects.
 
-- The lockfile `renv.lock` contains all the metadata of your packages to reinstall it on a new machine.
+- The lockfile `renv.lock` contains all the **metadata** of your packages to reinstall it on a new machine.
 It serves as documentation about which package and which version of the packages you use.
 It also displays the R version used in your particular project.
 
@@ -138,6 +139,9 @@ It also displays the R version used in your particular project.
 #| code-line-numbers: true
 ```
 </details>
+
+In summary, we do not recommend to manually change the contents of the files and folders that belong to `renv`.
+Rather, the following R functions are good tools to manage your reproducible environments from the console.
 
 #### `renv::install`
 
@@ -361,44 +365,32 @@ See `?renv::status` for advice on resolving these issues.
 Fortunately, the messages displayed by `renv` are very straightforward.
 It tells us to go to the helper page by running `?renv::status`.
 
-::: {.callout-tip title="Section of the helping page for renv::status()" collapse="true"}
 
-**Missing packages**
+::: {.callout-tip title="Read the documentation of `renv::status()`" collapse="true"}
 
-`status()` first checks that all packages used by the project are installed. This must be done first because if any packages are missing we can't tell for sure that a package isn't used; it might be a dependency that we don't know about. Once you have resolve any installation issues, you'll need to run `status()` again to reveal the next set of potential problems.
+You can just run `?renv::status()` in the Console to open the documentation of that function in the Help pane of RStudio.
+However, the documentation is also available at CRAN when you open the link below.
+Read the documentation carefully to extract the relevant information that applies to your case.
 
-There are four possibilities for an uninstalled package:
+{{< fa display >}} <https://cran.r-project.org/web/packages/renv/renv.pdf#page=56>
 
-- If it's used and recorded, call `renv::restore()` to install the version specified in the lockfile.
+---
 
-- If it's used and not recorded, call `renv::install()` to install it from CRAN or elsewhere.
-
-- If it's not used and recorded, call `renv::snapshot()` to remove it from the lockfile.
-
-- If it's not used and not recorded, there's nothing to do.
-This the most common state because you only use a small fraction of all available packages in any one project.
-
-- If you have multiple packages in an inconsistent state, we recommend `renv::restore()`, then `renv::install()`, then `renv::snapshot()`, but that also suggests you should be running status more frequently.
-
-**Lockfile vs `dependencies()`**
-
-Next we need to ensure that packages are recorded in the lockfile if and only if they are used by the project. Fixing issues of this nature only requires calling `snapshot()` because there are four possibilities for a package:
-
-- If it's used and recorded, it's ok.
-
-- If it's used and not recorded, call `renv::snapshot()` to add it to the lockfile.
-
-- If it's not used but is recorded, call `renv::snapshot()` to remove it from the lockfile.
-
-- If it's not used and not recorded, it's also ok, as it may be a development dependency.
+```{=html}
+<iframe width="100%" height="100%" src="https://cran.r-project.org/web/packages/renv/renv.pdf#page=56" title="renv documentation"></iframe>
+```
 :::
 
-In the helping page our case is well-described.
+In the helping page our case is well-described in the section **Lockfile vs `dependencies()`**.
 We can just run `renv::snapshot` to remove it from the lockfile.
 Thus, our lockfile does not contain the unused package `ellipsis`.
 
-::: {.callout-tip title="Video explaining basic `renv` functions"}
-For further information, see this video to increase your understanding of `renv`.
+Now you got an overview of the most important functions of the package `{renv}`.
+The next section will provide you with information on how to use renv in a workflow.
+However, if you still want to get to know the functions better, we recommend the video in the box below (@tip-renv-rapp) by @rapp2024.
+
+::: {#tip-renv-rapp .callout-tip title="Video explaining basic `renv` functions" collapse=true}
+For further information, see this video to increase your understanding of `{renv}`.
 
 ::: {#vid-renv-rapp}
 
@@ -456,7 +448,7 @@ You know the most important things now, but it sure can help to have a guideline
 As you can see in the lockfile, `renv` tracks not only the package versions but also the R version.
 However, `renv` cannot solve reproducibility issues when it comes to different R versions.
 It is possible to deal with this problem installing the specific R version used in the project you want to reproduce.
-Another way is using *docker* (see chapter about docker).
+Another way is using [*docker*](https://www.docker.com/).
 However, it requires more time and work to make a project reproducible.
 Further, the benefits of separate projects comes with a constraint.
 Possible bug fixes that are included in later versions of a package are not implemented in the project libraries.
@@ -465,6 +457,9 @@ Nevertheless, we recommend `renv` as a valuable tool for increasing a project's 
 
 ## References
 
-somehow include:
+We would like to express our gratitude to the following resources which have been essential in shaping this chapter. We recommend these references for further reading and watching.
 
-- https://rstudio.github.io/renv/articles/renv.html
+|Authors|Title|Website|License|Source|
+|:---|:---|:---|:---|:---|
+|@rapp2024|Robust R Code that will work forever with {renv}|[{{< fa display >}}](https://albert-rapp.de/)| Not specified| [{{< fa brands youtube >}}](https://www.youtube.com/watch?v=Oen9xhEh8PY)|
+|@ushey2024| renv: Project Environments | [{{< fa display >}}](https://rstudio.github.io/renv/articles/renv.html)| [MIT](https://mit-license.org/) | [{{< fa brands github >}}](https://github.com/rstudio/renv) | 

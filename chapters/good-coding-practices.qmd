@@ -126,7 +126,7 @@ guiding them through unfamiliar concepts and helping them understand the underly
 
 :::
 
-## File paths
+## File paths {#sec-file-paths}
 
 Whenever you are conducting research, you need to analyze some form of data.
 This data is typically stored in one or more files.
@@ -219,6 +219,7 @@ Using `here()`, referencing file paths will always follow the same project struc
 ::: {.callout-tip title="Example" collapse="false"}
 
 `here()` function works regardless of the current working directory.
+This example demonstrates that the `here` package uses the same path for running the script `script01.R` lying in the folder `scripts` which, in turn, constitutes a subfolder of `code`.
 
 ::: panel-tabset
 ## No change in working directory
@@ -228,7 +229,7 @@ getwd()
 [1] "/Users/my-user-name/my-project"
 > here()
 [1] "/Users/my-user-name/my-project"
-> source(here("scripts", "script01.R"))
+> source(here("code", "scripts", "script01.R"))
 ```
 
 ## Change in working directory
@@ -236,9 +237,12 @@ getwd()
 ```{r filename="Console"}
 getwd()
 [1] "/Users/my-user-name/my-project"
+setwd("code")
+getwd()
+[1] "/Users/my-user-name/my-project/code"
 > here()
 [1] "/Users/my-user-name/my-project"
-> source(here("scripts", "script01.R"))
+> source(here("code", "scripts", "script01.R"))
 ```
 :::
 
@@ -582,6 +586,7 @@ From our experience, using and sharing code written in the tidyverse style foste
 
 Data can be structured in different ways.
 When your data is tidy, you may still encounter **wide** or **long** formats.
+The long format is usually applied for data with repeated measurements (e.g. when you collect data over multiple sessions).
 As a rule of thumb, you can remember this:
 Data structured in a *long format* usually contains *repetitive* values in the first column of the dataset.
 Data structured in a *wide format* usually contains *non-repetitive* values in the first column of the dataset.
