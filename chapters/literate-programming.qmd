@@ -2,6 +2,10 @@
 title: "Literate Programming"
 editor: source
 engine: knitr
+filters:
+  - webr
+webr:
+  show-history-button: false
 execute:
   eval: false
   warning: false
@@ -747,6 +751,11 @@ When set as true, the code is also shown.
 This one is not set to true or false but rather just the caption is included.  
 - `#| label:` You can give your code chunk a label to more easily identify the aim of this piece of code.
 
+:::{.callout-tip title="Make a code chunk interactive" collapse=false}
+You can make R code chunks interactive for your readers by installing an extension.
+This can be a very useful and fun feature in e.g., teaching scenarios.
+You can learn how to do this [later in this chapter](#sec-executable-code-chunk).
+:::
 ### Inline code
 
 Inline code allows you to simply insert code as part of your other markdown syntax.
@@ -941,8 +950,8 @@ Since Quarto contributes to the movement of Open Science and Reproducibility, th
 
 ### The `apaquarto` extension {.unnumbered}
 
-In this book, we will only deal with one extension - the `apaquarto` extension by William Joel Schneider.
-With this extension, we can shape the output of our rendered quarto file into the format of the [APA guidelines](https://apastyle.apa.org/)[^3] without much effort.
+In this book, we will only deal with two extensions - the `apaquarto` extension by William Joel Schneider and the `webR` extension for Quarto, which will get to later.
+With the `apaquarto` extension, we can shape the output of our rendered quarto file into the format of the [APA guidelines](https://apastyle.apa.org/)[^literate-programming-3] without much effort.
 
 [^3]: Many journals and universities require submissions to be in the APA format.
 Thus, we think it is useful for many students and researchers to know about this extension.
@@ -1167,8 +1176,97 @@ Extension removed.
 
 ```
 
+### The Quarto webR-extension and executable code chunks{#sec-executable-code-chunk}
+
+Another great extension is the [`webR`- extension for Quarto](https://quarto-webr.thecoatlessprofessor.com/), which allows you to include **executable code chunks** in your documents.
+This makes code chunks **interactive**.
+An executable code chunk is **not** already executed in the rendered document but instead needs to be prompted to run by the reader.
+Whilst this might sound a bit strange at first - Why would you make a reader execute a code chunk and not just have it be run already? - this can be a great tool in teaching or presentation scenarios.
+It allows your readers to see and better understand the order in which code needs to be run, what part of the code leads to what outcome, change parameters within and the code itself and see how this changes intermediate and final outputs.
+They can easily explore data and better understand mechanisms without having to leave the document or site that is explaining these mechanisms to them.
+
+See the executable code chunk below.
+You might recognize the code from our earlier example.
+Go ahead and run it by pressing the `> Run Code` button.  
+Take some time and **play around** with the code.
+Try and edit the code, e.g., change values, swap the color or title of the graph and run the code chunk again.
+
+```{webr-r}
+x <- 1:10
+y <- x^2
+
+plot(x, y, type = "b", col = "blue", main = "Basic Plot", xlab = "X values", ylab = "Y values")
+```
+
+##### Adding executable code chunks
+
+Beware that this feature is only available for **code in the programming language R** and for the Quarto output formats HTML, RevealJS (presentations), Websites, Blogs and Books (e.g., this site is a Quarto book).  
+To get started with adding executable code chunks to your documents, you'll need to complete a couple things first.
+
+**1. Install the Quarto webR-extension**.  
+Make sure you're in the directory that you'll later add the Quarto documents with the executable code chunks to.
+You'll have to add the extension seperately to each directory that you want to use it in!  
+Then, run the code chunk below in your terminal in RStudio.
+```{zsh filename="Terminal"}
+quarto add coatless/quarto-webr
+```
+
+Below you can see what your terminal will look like prompting you through the installation and you agreeing to the changes.
+Answer Yes/Y when asked to trust the author and to install the webR-extension, similar to when [installing the apaquarto extension](#install-apaquarto).
+Lastly, it will ask you if you would like to look at the documentation, which you can answer Yes/Y to, but really don't have to.
+```{zsh filename="Output"}
+Quarto extensions may execute code when documents are rendered. If you do not
+trust the authors of the extension, we recommend that you do not install or
+use the extension.
+? Do you trust the authors of this extension (Y/n) » Yes
+[>] Downloading
+[>] Unzipping
+    Found 1 extension.
+
+The following changes will be made:
+Embedded webr code cells   [Install]   0.4.3 (filter)
+? Would you like to continue (Y/n) » Yes
+
+[>] Copying
+[>] Extension installation complete
+
+? View documentation using default browser? (Y/n) » Yes
+```
+
+**2.** Open a **new .qmd document**, selecting e.g., HTML as the output.  
+**3.** **Change the document's [YAML-header](#sec-yaml-header)** to include the following:
+```{r}
+filters:
+  - webr
+```
+**4.** Now you can actually start to **add executable R code chunks**, by simply specifying `{webr-r}` instead of `{r}`at the top of a code chunk.
+As an example, a code chunk could look like this:
+
+```{{webr-r}}
+x <- 1:10
+y <- x^2
+
+plot(x, y, type = "b", col = "blue", main = "Basic Plot", xlab = "X values", ylab = "Y values")
+```
+
+**5. Render** your document as usual and see your newly added feature in action.
+```{webr-r}
+#| echo: false
+x <- 1:10
+y <- x^2
+
+plot(x, y, type = "b", col = "blue", main = "Basic Plot", xlab = "X values", ylab = "Y values")
+```
+
+:::{.callout-caution title="Install the *webR*-extension for each directory!" collapse=false}
+Unfortunately you need to go through the installation process for each directory that you want to use it in.
+You need to install the extension every time you want to use it in a project and are in a new directory.
+As the installation of the extension is pretty quick, this shouldn't prove to be too much trouble but just needs to be remembered and has to be done once per directory.
+:::
+
 ## Resources
 
 -   <https://quarto.org/>
 -   <https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html>
 -   <https://wjschne.github.io/apaquarto/>
+-   <https://quarto-webr.thecoatlessprofessor.com/>
