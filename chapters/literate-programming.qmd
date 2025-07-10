@@ -1205,7 +1205,7 @@ To get started with adding executable code chunks to your documents, you'll need
 
 **1. Install the Quarto webR-extension**.  
 Make sure you're in the directory that you'll later add the Quarto documents with the executable code chunks to.
-You'll have to add the extension seperately to each directory that you want to use it in!  
+You'll have to add the extension separately to each directory that you want to use it in!  
 Then, run the code chunk below in your terminal in RStudio.
 ```{zsh filename="Terminal"}
 quarto add coatless/quarto-webr
