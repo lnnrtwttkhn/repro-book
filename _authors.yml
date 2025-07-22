@@ -1,14 +1,4 @@
 authors:
-  - id: wittkuhn
-    name:
-      given: Lennart
-      family: Wittkuhn
-      literal: Lennart Wittkuhn
-    url: https://lennartwittkuhn.com/
-    email: lennart.wittkuhn@uni-hamburg.de
-    orcid: 0000-0003-2966-6888
-    affiliations:
-      - ref: uhh-psych
   - id: reihs
     name:
       given: Justus Johannes
@@ -23,5 +13,15 @@ authors:
       family: Kümmerle
       literal: Liese Kümmerle
     email: liese.kuemmerle@studium.uni-hamburg.de
+    affiliations:
+      - ref: uhh-psych
+  - id: wittkuhn
+    name:
+      given: Lennart
+      family: Wittkuhn
+      literal: Lennart Wittkuhn
+    url: https://lennartwittkuhn.com/
+    email: lennart.wittkuhn@uni-hamburg.de
+    orcid: 0000-0003-2966-6888
     affiliations:
       - ref: uhh-psych
