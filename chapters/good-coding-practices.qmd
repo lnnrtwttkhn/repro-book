@@ -912,6 +912,34 @@ To use the function, you just use the functions name together with the arguments
 squ_one(2)
 ``` 
 
+#### Basic considerations in functional programming
+
+When creating functions in your code, there are some things to keep in mind, that aren't strictly necessary but advisable to practice, to ensure your code will run smoothly later on.   
+
+1. Having **pure functions**: functions that return the same output when given the same input and don't change things outside the function.
+To better understand what this means, take a look at the function below, which is *not* pure.
+
+```{r}
+counter <- 0
+
+increment <- function(){
+  counter <<- counter + 1
+  return(counter)
+}
+
+```
+
+The function `increment` adds 1 to the object `counter` each time it is called.
+This means dependent on how many times the function has been called before, `counter` will be a completely different number and `increment` is thus not a pure function.
+This is why you should avoid creating functions that also make changes to objects outside the function itself, in the global environment, as it can mess with reproducibility and makes debugging quite difficult.
+
+2. Create a **new function** for a **new action**.  
+If you have a complicated action to perform, e.g., first cleaning data and then creating a histogram to see how it's distributed, you should consider splitting it into several functions.
+A single function should perform a single thing.
+Not only will it be easier to follow what exactly is happening, likely easier to debug but you'll also end up with more functions that can be reused down the line.  If you want to have a more complex action where you need to have several different actions combined with each other, you can create what's called a **functional**, that takes another function as an argument.
+This essentially allows you to stack actions on top of each other without violating the paradigm of having a new function for a new action.  
+You can learn more about functionals [here](https://adv-r.hadley.nz/functionals.html).
+
 ## Acknowledgements & further reading
 
 We would like to express our gratitude to the following resources, which have been essential in shaping this chapter.
