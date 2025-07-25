@@ -791,6 +791,73 @@ But even without reproducibility in mind, learning some basics in functional pro
 
 If you've previously been copy-pasting code when wanting to run the same code again whilst only changing e.g., the samples that you're applying it to, you can instead create a function, saving you from the tediousness and mistakes of copy-pasting, as well as making it very easy to change something in the code later on.
 
+::: {.callout-tip title="Code example of using functional vs non-functional programming" collapse=false}
+
+To better illustrate the use of implementing functional programming, let's take a look at this example using the **Big Five dataset** that comes with the {{< fa brands r-project >}} package `psych`.  
+The aim of both code chunks below is to create some **histograms** from the data set.
+Take a look at the code below to see how one could approach this without using functional programming first and then how it would look like with a function.
+
+```{r filename="Histograms without functional programming"}
+
+#load packages
+library(psych)
+library(ggplot2)
+
+# get data: bfi_data refers to the Big Five dataset
+bfi_data <- bfi
+
+# get histograms for three different variables in the bfi_data set, which each describe a different self-reported personality trait
+# the histograms are created using ggplot
+# trait A1: Am indifferent to the feelings of others
+# trait A2: Inquire about others' well-being
+# trait O5: Will not probe deeply into a subject
+
+# without using a function, we just copy-pasted the code for each histogram and manually changed the values for the x argument to the respective personality traits A1, A2 and O5
+
+ggplot(data = bfi_data, aes(x = A1)) +
+  geom_histogram(binwidth = 0.5, fill = "steelblue") +
+  labs(x = "A1") +
+  theme_classic()
+
+ggplot(data = bfi_data, aes(x = A2)) +
+  geom_histogram(binwidth = 0.5, fill = "steelblue") +
+  labs(x = "A2") +
+  theme_classic()
+
+ggplot(data = bfi_data, aes(x = O5)) +
+  geom_histogram(binwidth = 0.5, fill = "steelblue") +
+  labs(x = "O5") +
+  theme_classic()
+```
+
+This approach does give us three simple histograms of the three different personality traits.
+But now imagine you realize you want to do this for all 25 different iterations of these personality traits.
+It would be a lot of work to copy-paste the code and change the variables by hand and also means a high likelihood of typos.
+But even if you still do it, you might realize steelblue doesn't really show well in a presentation and you need to change all of the histograms color to black.  
+This will not only cost you nerves but also a lot of time, which you can very easily save by implementing a function instead, allowing you to easily reapply the same command and quickly change the color or any other feature for all iterations at once.
+
+The code below will produce the same three histograms, just in a more streamlined and neat way, by creating and using the function `gg_histogram`.  
+Take a look:
+
+```{r filename="Histograms using functional programming"}
+
+#creating a function for the histograms using the command function() and adding our previous code for the histograms
+gg_histogram <- function(data = bfi_data, x_axis){
+  ggplot(data = bfi_data, aes(x = bfi_data[[x_axis]])) +
+  geom_histogram(binwidth = 0.5, fill = "steelblue") +
+  labs(x = x_axis) +
+  theme_classic()
+}
+
+#the function is called gg_histogram and can now be used to create histograms by simply assigning variables to it
+gg_histogram(x_axis = "A1")
+gg_histogram(x_axis = "A2")
+gg_histogram(x_axis = "O5")
+```
+
+Implementing a function for the histograms let's us easily spot that it's the same action being performed three times and allows us to make changes quickly.
+:::
+
 Using functional programming also makes your code easier to understand for others.
 Instead of having to remember that you've seen this function used before, it's simply called the same, eliminating the need to remember and be able to compare the code chunk to figure out whether this action has been done before.
 ## Acknowledgements & further reading
