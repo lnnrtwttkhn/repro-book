@@ -1025,6 +1025,13 @@ lapply(names(bfi_data), trait_histogram)
 
 ```
 
+### Outlook
+
+There is much to learn about functional programming and we only covered some of the basics of functional programming so far.
+Here are some things that could be interesting to explore and we at least wanted to mention to peak your interest or provide starting points for your own research into them.  
+You can e.g., have functions that create other functions, so called function factories or there are considerations of when to use so called anonymous functions, a function, that isn't given a name, so can't be called, but works in the same way as any other function.  
+If you'd like to dive deeper into the topic, we can highly recommend the website [Advanced R](https://adv-r.hadley.nz/functions.html) by Hadley Wickham.
+
 ## Acknowledgements & further reading
 
 We would like to express our gratitude to the following resources, which have been essential in shaping this chapter.
