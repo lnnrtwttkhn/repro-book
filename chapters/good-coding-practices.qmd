@@ -779,6 +779,20 @@ It is rather prevalent in software development contexts validating functions and
 These thorough testing processes extends the scope of computational reproducibility in our opinion.
 Thus, we recommend `assertr::verify()` as a good starting point for defensive programming in the context of computational reproducibility.
 
+## Functional programming
+
+To start with the basics, a function in {{< fa brands r-project >}} is essentially just a chunk of reusable code that performs an action every time you run it.
+Even if you didn't know that these are called functions, you've likely used one before.
+E.g., `print()` is a function that comes with base R, as is `sum()`.  
+Functional programming is basically the idea of defining your code for repetitive actions in functions and using these instead of repeating your code line-by-line.  
+Functional programming is useful for making your code more reproducible as it allows for ease in reuse of functions and makes clearer where you performed the same actions.
+Another big factor is that when creating functions it's crucial to ensure that the same input will give the same output, essentially making you make functions more reproducible.
+But even without reproducibility in mind, learning some basics in functional programming is very worthwhile, as it'll make your coding process faster and the result less error-prone and easier to understand for yourself and others.
+
+If you've previously been copy-pasting code when wanting to run the same code again whilst only changing e.g., the samples that you're applying it to, you can instead create a function, saving you from the tediousness and mistakes of copy-pasting, as well as making it very easy to change something in the code later on.
+
+Using functional programming also makes your code easier to understand for others.
+Instead of having to remember that you've seen this function used before, it's simply called the same, eliminating the need to remember and be able to compare the code chunk to figure out whether this action has been done before.
 ## Acknowledgements & further reading
 
 We would like to express our gratitude to the following resources, which have been essential in shaping this chapter.
