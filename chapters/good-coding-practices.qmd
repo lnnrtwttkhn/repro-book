@@ -860,6 +860,58 @@ Implementing a function for the histograms let's us easily spot that it's the sa
 
 Using functional programming also makes your code easier to understand for others.
 Instead of having to remember that you've seen this function used before, it's simply called the same, eliminating the need to remember and be able to compare the code chunk to figure out whether this action has been done before.
+
+### Creating and using functions
+
+Creating a function is quite easy.
+To better understand how a function works and what you need to include in your functions, understanding and having the terminology for its components can be very helpful.  
+First of all, when you use a function and apply it to something, that is **calling** a function.  
+There are essentially three major parts to functions, the function name, the arguments and the body.  
+
+As an example, here is a very simple example of the function `squ_one`.
+```{r}
+# Creating the function
+squ_one <- function(x){
+  x^2 + 1
+}
+
+# Calling the function
+squ_one(2)
+```
+
+The **name** of the function can be chosen freely, but ideally helps you to remember what the function does.
+In the example, we chose `squ_one` as the name to indicate that it squares the input and adds one.
+Ideally your naming follows an internal logic and if you were to add a function that squares the input and adds two, you wouldn't name the function fish_soup.
+
+Next up are the **formals** of the function.
+They are defined in the rounded brackets of the function command.
+When setting up your function, these are decisive which **arguments** you will later need to define when calling your function.  
+In our example the formals are simply `x` and the argument when using it is `2`.
+Whilst in this example there is only one formal and argument, you can of course also have multiple of them.
+E.g., in the earlier more elaborate example with histograms, the formals are `data=bfi_data` and `x_axis`.
+
+The so called **body** of a function is the code within the function.
+It's what will run when you call the function.
+In our example, the body of the function is `{x^2 + 1}`.
+After having defined your function, you can see these by using the command `body(Name of your function)`.
+This is quite useful if you need to quickly recall what your function does exactly.
+
+Now to create a function, you essentially use the `function()` command to assign a code to a function name and assign the formals, following this format: `function_name <- function(formals){body}`.
+
+```{r}
+#| echo: true
+squ_one <- function(x){
+  x^2 + 1
+  }
+```
+
+To use the function, you just use the functions name together with the arguments and the code that you've defined in the body will be applied.
+
+```{r}
+#| echo: true
+squ_one(2)
+``` 
+
 ## Acknowledgements & further reading
 
 We would like to express our gratitude to the following resources, which have been essential in shaping this chapter.
