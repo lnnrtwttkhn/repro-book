@@ -940,6 +940,28 @@ Not only will it be easier to follow what exactly is happening, likely easier to
 This essentially allows you to stack actions on top of each other without violating the paradigm of having a new function for a new action.  
 You can learn more about functionals [here](https://adv-r.hadley.nz/functionals.html).
 
+### Sourcing your functions
+
+When creating functions, they are saved in your environment and thus each time you start a new R session, will have disappeared and need to be rerun to be usable again.
+You could either leave them in your code and rerun them each time you're using them or (the neater and more practical version) have them in a **separate file**.  
+If you are coding in {{< fa brands r-project >}}, by convention this file is called **functions.R**.
+Depending on your project structure, if you have a folder for code, this would be a good place to put it.  
+Each time you create a new function, you can now simply add it to this file, just as you would have added it to your regular document and then just directly reference it in your code.
+This is very beneficial as it let's you use the same functions across different documents within the same project without needing to redefine them.
+It also let's you reference your functions very easily and makes your code even neater as you can just directly call upon the functions without having to define them in the same document.
+It makes for a more structured and easier to read code and if someone is interested in a particular function, it is easy to find in the separate functions file.  
+
+When beginning a new R session, you need to get these functions back in your evironment.
+To do so, you can either run the code `source("FILE PATH e.g., code/functions.R")`, placed at the top of your document or, the much smoother and efficient approach, have a **.Rprofile** file.
+RStudio will run the code in your .Rprofile right when you open your R-project for a new session, without you having to remember to run it.
+Thus if you put the `source("FILE PATH e.g., code/functions.R")` code in there, it will run that code automatically in each new session and you have your functions always available.
+
+To set this up, follow these steps:  
+1. Add new file `functions.R` to your project  
+2. Add your functions directly to this file  
+3A. Add the code `source("FILE PATH e.g., code/functions.R")` to the top of your document  
+3B. (better) Add the file .Rprofile to your root directory and add `source("FILE PATH e.g., code/functions.R")` to it, to automatically run the sourcing process.   
+
 ## Acknowledgements & further reading
 
 We would like to express our gratitude to the following resources, which have been essential in shaping this chapter.
