@@ -962,6 +962,69 @@ To set this up, follow these steps:
 3A. Add the code `source("FILE PATH e.g., code/functions.R")` to the top of your document  
 3B. (better) Add the file .Rprofile to your root directory and add `source("FILE PATH e.g., code/functions.R")` to it, to automatically run the sourcing process.   
 
+### lapply()
+
+A useful group of commands when using functions are the different `apply()` functions.
+They are part of base {{< fa brands r-project >}} and allow you to perform the redundant action of applying a function to several elements of a data set.
+Instead of having to write a loop, or even worse changing out the arguments in a function by hand, you can use a function from the apply()-family.
+These will run your function for each element of e.g., a column or row of a data set.
+There are several different variations of `apply()`, dependent on your input format and the output you'd like.
+A very useful one is `lapply()`, which is the one we'll focus on here to keep it simpler and because it is commonly used when working with data sets.
+`lapply()` applies a function to each element of a list, vector or data frame.
+
+To use it, you simply structure it like so: `lapply(X, function)`.
+The function will be applied to each element of `X`.
+X is a vector from e.g., a list or data frame.
+
+To better illustrate this, let's say we have a data set `fish_data` where we'd like to create histograms for all four of our different types of fish.
+First we create this hypothetical data set, a list containing information on the lengths of these fish.
+Next, we create a function for the histograms, `fish_histogram` just as we did before, specifying `species_name` as the formal.
+Then we use `lapply()` to use this function for each of the fish and create a histogram for them.
+
+```{r}
+# fish_data: lengths of 10 fish from each species
+fish_data <- list(
+  Salmon = c(58, 60, 62, 59, 61, 63, 60, 62, 58, 64),
+  Trout  = c(35, 36, 34, 33, 35, 37, 36, 34, 35, 33),
+  Pike   = c(70, 72, 68, 69, 71, 73, 72, 70, 69, 74),
+  Bass   = c(40, 42, 43, 41, 40, 44, 42, 43, 41, 45)
+)
+
+# Create function for histogram for a species. 
+# The formal of the function is "species_name".
+# "species_name" is in [[]] so it is accessed as a vector.
+fish_histogram <- function(species_name) {
+  hist(fish_data[[species_name]],
+       main = paste("Histogram of", species_name),
+       xlab = "Length (cm)",
+       col = "steelblue")
+}
+
+# Make a histogram for each species, by using the function lapply() to run the function fish_histogram for the argument "names(fish_data)" which are the names of the list elements specified in fish_data.
+# names(fish_data) is the argument for the formal "species_name".
+lapply(names(fish_data), fish_histogram)
+
+```
+
+To give another example, we return to the `bfi_data` data set on the Big Five personality traits from the [earlier example](#functional-programming) and instead of only creating the histograms of three traits, we create histograms for all 28 variables in the data set, which includes age and gender. 
+
+```{r}
+# Create a function 
+trait_histogram <- function(trait_name) {
+  hist(bfi_data[[trait_name]],
+       main = paste("Histogram of", trait_name),
+       xlab = "Strength of self-assignment",
+       col = "darkgreen")
+}
+
+# Make a histogram for each trait, by using the function lapply() to run 
+# the function trait_histogram for the argument "names(bfi_data)" which are 
+# the names of the variables/traits specified in bfi_data.
+# names(bfi_data) is the argument for the formal "trait_name".
+lapply(names(bfi_data), trait_histogram)
+
+```
+
 ## Acknowledgements & further reading
 
 We would like to express our gratitude to the following resources, which have been essential in shaping this chapter.
