@@ -952,15 +952,15 @@ It also let's you reference your functions very easily and makes your code even 
 It makes for a more structured and easier to read code and if someone is interested in a particular function, it is easy to find in the separate functions file.  
 
 When beginning a new R session, you need to get these functions back in your evironment.
-To do so, you can either run the code `source("FILE PATH e.g., code/functions.R")`, placed at the top of your document or, the much smoother and efficient approach, have a **.Rprofile** file.
+To do so, you can either run the code `source("FILE PATH")` e.g., `source("code/functions.R")`, placed at the top of your document or, the much smoother and efficient approach, have a **.Rprofile** file.
 RStudio will run the code in your .Rprofile right when you open your R-project for a new session, without you having to remember to run it.
-Thus if you put the `source("FILE PATH e.g., code/functions.R")` code in there, it will run that code automatically in each new session and you have your functions always available.
+Thus if you put the `source("FILE PATH")` e.g., `source("code/functions.R")` code in there, it will run that code automatically in each new session and you have your functions always available.
 
 To set this up, follow these steps:  
 1. Add new file `functions.R` to your project  
 2. Add your functions directly to this file  
-3A. Add the code `source("FILE PATH e.g., code/functions.R")` to the top of your document  
-3B. (better) Add the file .Rprofile to your root directory and add `source("FILE PATH e.g., code/functions.R")` to it, to automatically run the sourcing process.   
+3A. Add the code `source("FILE PATH")` e.g., `source("code/functions.R")` to the top of your document  
+3B. (better) Add the file .Rprofile to your root directory and add `source("FILE PATH")` e.g., `source("code/functions.R")` to it, to automatically run the sourcing process.   
 
 ### lapply()
 
