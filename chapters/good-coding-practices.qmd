@@ -861,6 +861,17 @@ Implementing a function for the histograms let's us easily spot that it's the sa
 Using functional programming also makes your code easier to understand for others.
 Instead of having to remember that you've seen this function used before, it's simply called the same, eliminating the need to remember and be able to compare the code chunk to figure out whether this action has been done before.
 
+:::{.callout-tip collapse=false}
+### Summary of advantages of functional programming
+- Ease of reusing functions
+  - Faster coding
+  - Less error-prone
+- Neater code, improving readability
+- Easier debugging
+- Demands reproducibility of function itself whilst coding
+  - Aiding in overall reproducibility down the line
+:::
+
 :::{.callout-tip collapse=true #object-oriented}
 ### Functional vs object-oriented programming
 It can be helpful to explain **functional programming** in contrast to **object-oriented programming** to gain a better understanding of it's differences.
