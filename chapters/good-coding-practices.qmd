@@ -842,17 +842,17 @@ Take a look:
 ```{r filename="Histograms using functional programming"}
 
 #creating a function for the histograms using the command function() and adding our previous code for the histograms
-gg_histogram <- function(data = bfi_data, x_axis){
-  ggplot(data = bfi_data, aes(x = bfi_data[[x_axis]])) +
+gg_histogram <- function(data = bfi_data, item){
+  ggplot(data = bfi_data, aes(x = bfi_data[[item]])) +
   geom_histogram(binwidth = 0.5, fill = "steelblue") +
-  labs(x = x_axis) +
+  labs(x = item) +
   theme_classic()
 }
 
 #the function is called gg_histogram and can now be used to create histograms by simply assigning variables to it
-gg_histogram(x_axis = "A1")
-gg_histogram(x_axis = "A2")
-gg_histogram(x_axis = "O5")
+gg_histogram(item = "A1")
+gg_histogram(item = "A2")
+gg_histogram(item = "O5")
 ```
 
 Implementing a function for the histograms let's us easily spot that it's the same action being performed three times and allows us to make changes quickly.
@@ -888,7 +888,7 @@ They are defined in the rounded brackets of the function command.
 When setting up your function, these are decisive which **arguments** you will later need to define when calling your function.  
 In our example the formals are simply `x` and the argument when using it is `2`.
 Whilst in this example there is only one formal and argument, you can of course also have multiple of them.
-E.g., in the earlier more elaborate example with histograms, the formals are `data=bfi_data` and `x_axis`.
+E.g., in the earlier more elaborate example with histograms, the formals are `data=bfi_data` and `item`.
 
 The so called **body** of a function is the code within the function.
 It's what will run when you call the function.
