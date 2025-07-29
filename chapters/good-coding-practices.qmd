@@ -779,6 +779,279 @@ It is rather prevalent in software development contexts validating functions and
 These thorough testing processes extends the scope of computational reproducibility in our opinion.
 Thus, we recommend `assertr::verify()` as a good starting point for defensive programming in the context of computational reproducibility.
 
+## Functional programming
+
+To start with the basics, a function in {{< fa brands r-project >}} is essentially just a chunk of reusable code that performs an action every time you run it.
+Even if you didn't know that these are called functions, you've likely used one before.
+E.g., `print()` is a function that comes with base R, as is `sum()`.  
+Functional programming is basically the idea of defining your code for repetitive actions in functions and using these instead of repeating your code line-by-line. ^[:bulb: Also see [functional vs object-oriented programming](#object-oriented)] 
+Functional programming is useful for making your code more reproducible as it allows for ease in reuse of functions and makes clearer where you performed the same actions.
+Another big factor is that when creating functions it's crucial to ensure that the same input will give the same output, essentially making you make functions more reproducible.
+But even without reproducibility in mind, learning some basics in functional programming is very worthwhile, as it'll make your coding process faster and the result less error-prone and easier to understand for yourself and others.
+
+If you've previously been copy-pasting code when wanting to run the same code again whilst only changing e.g., the samples that you're applying it to, you can instead create a function, saving you from the tediousness and mistakes of copy-pasting, as well as making it very easy to change something in the code later on.
+
+::: {.callout-tip title="Code example of using functional vs non-functional programming" collapse=false}
+
+To better illustrate the use of implementing functional programming, let's take a look at this example using the **Big Five dataset** that comes with the {{< fa brands r-project >}} package `psych`.  
+The aim of both code chunks below is to create some **histograms** from the data set.
+Take a look at the code below to see how one could approach this without using functional programming first and then how it would look like with a function.
+
+```{r filename="Histograms without functional programming"}
+
+#load packages
+library(psych)
+library(ggplot2)
+
+# get data: bfi_data refers to the Big Five dataset
+bfi_data <- bfi
+
+# get histograms for three different variables in the bfi_data set, which each describe a different self-reported personality trait
+# the histograms are created using ggplot
+# trait A1: Am indifferent to the feelings of others
+# trait A2: Inquire about others' well-being
+# trait O5: Will not probe deeply into a subject
+
+# without using a function, we just copy-pasted the code for each histogram and manually changed the values for the x argument to the respective personality traits A1, A2 and O5
+
+ggplot(data = bfi_data, aes(x = A1)) +
+  geom_histogram(binwidth = 0.5, fill = "steelblue") +
+  labs(x = "A1") +
+  theme_classic()
+
+ggplot(data = bfi_data, aes(x = A2)) +
+  geom_histogram(binwidth = 0.5, fill = "steelblue") +
+  labs(x = "A2") +
+  theme_classic()
+
+ggplot(data = bfi_data, aes(x = O5)) +
+  geom_histogram(binwidth = 0.5, fill = "steelblue") +
+  labs(x = "O5") +
+  theme_classic()
+```
+
+This approach does give us three simple histograms of the three different personality traits.
+But now imagine you realize you want to do this for all 25 different iterations of these personality traits.
+It would be a lot of work to copy-paste the code and change the variables by hand and also means a high likelihood of typos.
+But even if you still do it, you might realize steelblue doesn't really show well in a presentation and you need to change all of the histograms color to black.  
+This will not only cost you nerves but also a lot of time, which you can very easily save by implementing a function instead, allowing you to easily reapply the same command and quickly change the color or any other feature for all iterations at once.
+
+The code below will produce the same three histograms, just in a more streamlined and neat way, by creating and using the function `gg_histogram`.  
+Take a look:
+
+```{r filename="Histograms using functional programming"}
+
+#creating a function for the histograms using the command function() and adding our previous code for the histograms
+gg_histogram <- function(data = bfi_data, item){
+  ggplot(data = bfi_data, aes(x = bfi_data[[item]])) +
+  geom_histogram(binwidth = 0.5, fill = "steelblue") +
+  labs(x = item) +
+  theme_classic()
+}
+
+#the function is called gg_histogram and can now be used to create histograms by simply assigning variables to it
+gg_histogram(item = "A1")
+gg_histogram(item = "A2")
+gg_histogram(item = "O5")
+```
+
+Implementing a function for the histograms let's us easily spot that it's the same action being performed three times and allows us to make changes quickly.
+:::
+
+Using functional programming also makes your code easier to understand for others.
+Instead of having to remember that you've seen this function used before, it's simply called the same, eliminating the need to remember and be able to compare the code chunk to figure out whether this action has been done before.
+
+:::{.callout-tip collapse=false}
+### Summary of advantages of functional programming
+- Ease of reusing functions
+  - Faster coding
+  - Less error-prone
+- Neater code, improving readability
+- Easier debugging
+- Demands reproducibility of function itself whilst coding
+  - Aiding in overall reproducibility down the line
+:::
+
+:::{.callout-tip collapse=true #object-oriented}
+### Functional vs object-oriented programming
+It can be helpful to explain **functional programming** in contrast to **object-oriented programming** to gain a better understanding of it's differences.
+In object-oriented programming actions and data^[:bulb: In this context data is understood as any piece of information/value.] are combined within objects.
+Thus these objects can change when an action is applied to it and are not immutable.
+In functional programming, actions(functions) and data are separate, enabling you to apply functions to a number of objects and ensuring this data stays the same.
+The state of the program does not change and instead of changing data, new data is created.
+:::
+
+### Creating and using functions
+
+Creating a function is quite easy.
+To better understand how a function works and what you need to include in your functions, understanding and having the terminology for its components can be very helpful.  
+First of all, when you use a function and apply it to something, that is **calling** a function.  
+There are essentially three major parts to functions, the function name, the arguments and the body.  
+
+As an example, here is a very simple example of the function `squ_one`.
+```{r}
+# Creating the function
+squ_one <- function(x){
+  x^2 + 1
+}
+
+# Calling the function
+squ_one(2)
+```
+
+The **name** of the function can be chosen freely, but ideally helps you to remember what the function does.
+In the example, we chose `squ_one` as the name to indicate that it squares the input and adds one.
+Ideally your naming follows an internal logic and if you were to add a function that squares the input and adds two, you wouldn't name the function fish_soup.
+
+Next up are the **formals** of the function.
+They are defined in the rounded brackets of the function command.
+When setting up your function, these are decisive which **arguments** you will later need to define when calling your function.  
+In our example the formals are simply `x` and the argument when using it is `2`.
+Whilst in this example there is only one formal and argument, you can of course also have multiple of them.
+E.g., in the earlier more elaborate example with histograms, the formals are `data=bfi_data` and `item`.
+
+The so called **body** of a function is the code within the function.
+It's what will run when you call the function.
+In our example, the body of the function is `{x^2 + 1}`.
+After having defined your function, you can see these by using the command `body(Name of your function)`.
+This is quite useful if you need to quickly recall what your function does exactly.
+
+Now to create a function, you essentially use the `function()` command to assign a code to a function name and assign the formals, following this format: `function_name <- function(formals){body}`.
+
+```{r}
+#| echo: true
+squ_one <- function(x){
+  x^2 + 1
+  }
+```
+
+To use the function, you just use the functions name together with the arguments and the code that you've defined in the body will be applied.
+
+```{r}
+#| echo: true
+squ_one(2)
+``` 
+
+#### Basic considerations in functional programming
+
+When creating functions in your code, there are some things to keep in mind, that aren't strictly necessary but advisable to practice, to ensure your code will run smoothly later on.   
+
+1. Having **pure functions**: functions that return the same output when given the same input and don't change things outside the function.
+To better understand what this means, take a look at the function below, which is *not* pure.
+
+```{r}
+counter <- 0
+
+increment <- function(){
+  counter <<- counter + 1
+  return(counter)
+}
+
+```
+
+The function `increment` adds 1 to the object `counter` each time it is called.
+This means dependent on how many times the function has been called before, `counter` will be a completely different number and `increment` is thus not a pure function.
+This is why you should avoid creating functions that also make changes to objects outside the function itself, in the global environment, as it can mess with reproducibility and makes debugging quite difficult.
+
+2. Create a **new function** for a **new action**.  
+If you have a complicated action to perform, e.g., first cleaning data and then creating a histogram to see how it's distributed, you should consider splitting it into several functions.
+A single function should perform a single thing.
+Not only will it be easier to follow what exactly is happening, likely easier to debug but you'll also end up with more functions that can be reused down the line.  If you want to have a more complex action where you need to have several different actions combined with each other, you can create what's called a **functional**, that takes another function as an argument.
+This essentially allows you to stack actions on top of each other without violating the paradigm of having a new function for a new action.  
+You can learn more about functionals [here](https://adv-r.hadley.nz/functionals.html).
+
+### Sourcing your functions
+
+When creating functions, they are saved in your environment and thus each time you start a new R session, will have disappeared and need to be rerun to be usable again.
+You could either leave them in your code and rerun them each time you're using them or (the neater and more practical version) have them in a **separate file**.  
+If you are coding in {{< fa brands r-project >}}, by convention this file is called **functions.R**.
+Depending on your project structure, if you have a folder for code, this would be a good place to put it.  
+Each time you create a new function, you can now simply add it to this file, just as you would have added it to your regular document and then just directly reference it in your code.
+This is very beneficial as it let's you use the same functions across different documents within the same project without needing to redefine them.
+It also let's you reference your functions very easily and makes your code even neater as you can just directly call upon the functions without having to define them in the same document.
+It makes for a more structured and easier to read code and if someone is interested in a particular function, it is easy to find in the separate functions file.  
+
+When beginning a new R session, you need to get these functions back in your evironment.
+To do so, you can either run the code `source("FILE PATH")` e.g., `source("code/functions.R")`, placed at the top of your document or, the much smoother and efficient approach, have a **.Rprofile** file.
+RStudio will run the code in your .Rprofile right when you open your R-project for a new session, without you having to remember to run it.
+Thus if you put the `source("FILE PATH")` e.g., `source("code/functions.R")` code in there, it will run that code automatically in each new session and you have your functions always available.
+
+To set this up, follow these steps:  
+1. Add new file `functions.R` to your project  
+2. Add your functions directly to this file  
+3A. Add the code `source("FILE PATH")` e.g., `source("code/functions.R")` to the top of your document  
+3B. (better) Add the file .Rprofile to your root directory and add `source("FILE PATH")` e.g., `source("code/functions.R")` to it, to automatically run the sourcing process.   
+
+### lapply()
+
+A useful group of commands when using functions are the different `apply()` functions.
+They are part of base {{< fa brands r-project >}} and allow you to perform the redundant action of applying a function to several elements of a data set.
+Instead of having to write a loop, or even worse changing out the arguments in a function by hand, you can use a function from the apply()-family.
+These will run your function for each element of e.g., a column or row of a data set.
+There are several different variations of `apply()`, dependent on your input format and the output you'd like.
+A very useful one is `lapply()`, which is the one we'll focus on here to keep it simpler and because it is commonly used when working with data sets.
+`lapply()` applies a function to each element of a list, vector or data frame.
+
+To use it, you simply structure it like so: `lapply(X, function)`.
+The function will be applied to each element of `X`.
+X is a vector from e.g., a list or data frame.
+
+To better illustrate this, let's say we have a data set `fish_data` where we'd like to create histograms for all four of our different types of fish.
+First we create this hypothetical data set, a list containing information on the lengths of these fish.
+Next, we create a function for the histograms, `fish_histogram` just as we did before, specifying `species_name` as the formal.
+Then we use `lapply()` to use this function for each of the fish and create a histogram for them.
+
+```{r}
+# fish_data: lengths of 10 fish from each species
+fish_data <- list(
+  Salmon = c(58, 60, 62, 59, 61, 63, 60, 62, 58, 64),
+  Trout  = c(35, 36, 34, 33, 35, 37, 36, 34, 35, 33),
+  Pike   = c(70, 72, 68, 69, 71, 73, 72, 70, 69, 74),
+  Bass   = c(40, 42, 43, 41, 40, 44, 42, 43, 41, 45)
+)
+
+# Create function for histogram for a species. 
+# The formal of the function is "species_name".
+# "species_name" is in [[]] so it is accessed as a vector.
+fish_histogram <- function(species_name) {
+  hist(fish_data[[species_name]],
+       main = paste("Histogram of", species_name),
+       xlab = "Length (cm)",
+       col = "steelblue")
+}
+
+# Make a histogram for each species, by using the function lapply() to run the function fish_histogram for the argument "names(fish_data)" which are the names of the list elements specified in fish_data.
+# names(fish_data) is the argument for the formal "species_name".
+lapply(names(fish_data), fish_histogram)
+
+```
+
+To give another example, we return to the `bfi_data` data set on the Big Five personality traits from the [earlier example](#functional-programming) and instead of only creating the histograms of three traits, we create histograms for all 28 variables in the data set, which includes age and gender. 
+
+```{r}
+# Create a function 
+trait_histogram <- function(trait_name) {
+  hist(bfi_data[[trait_name]],
+       main = paste("Histogram of", trait_name),
+       xlab = "Strength of self-assignment",
+       col = "darkgreen")
+}
+
+# Make a histogram for each trait, by using the function lapply() to run 
+# the function trait_histogram for the argument "names(bfi_data)" which are 
+# the names of the variables/traits specified in bfi_data.
+# names(bfi_data) is the argument for the formal "trait_name".
+lapply(names(bfi_data), trait_histogram)
+
+```
+
+### Outlook
+
+There is much to learn about functional programming and we only covered some of the basics of functional programming so far.
+Here are some things that could be interesting to explore and we at least wanted to mention to peak your interest or provide starting points for your own research into them.  
+You can e.g., have functions that create other functions, so called function factories or there are considerations of when to use so called anonymous functions, a function, that isn't given a name, so can't be called, but works in the same way as any other function.  
+If you'd like to dive deeper into the topic, we can highly recommend the website [Advanced R](https://adv-r.hadley.nz/functions.html) by Hadley Wickham.
+
 ## Acknowledgements & further reading
 
 We would like to express our gratitude to the following resources, which have been essential in shaping this chapter.
