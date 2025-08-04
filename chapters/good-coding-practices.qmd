@@ -782,8 +782,11 @@ Thus, we recommend `assertr::verify()` as a good starting point for defensive pr
 ## Functional programming
 
 To start with the basics, a function in {{< fa brands r-project >}} is essentially just a chunk of reusable code that performs an action every time you run it.
-Even if you didn't know that these are called functions, you've likely used one before.
+Even if you didn't know that these are called functions, you've most likely used one before.
 E.g., `print()` is a function that comes with base R, as is `sum()`.  
+Whilst {{< fa brands r-project >}} isn't a functional programming language by definition, when there are more complex actions to be performed, we often line up several predefined functions one after the other, step by step.
+When creating our own functions, we make this process more explicit and can create one function that takes us through all these steps at once.
+
 Functional programming is basically the idea of defining your code for repetitive actions in functions and using these instead of repeating your code line-by-line. ^[:bulb: Also see [functional vs object-oriented programming](#object-oriented)] 
 Functional programming is useful for making your code more reproducible as it allows for ease in reuse of functions and makes clearer where you performed the same actions.
 Another big factor is that when creating functions it's crucial to ensure that the same input will give the same output, essentially making you make functions more reproducible.
