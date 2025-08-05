@@ -169,18 +169,16 @@ cat(make_figure("repro-scale"))
 
 So let's get started to **improve your reproducibility**.
 
-## Resources
+## References
 
-If you want to dive deeper in the discussion of the value of reproducibility and Open Science and how to change behavior, here are some resources:
+We would like to express our gratitude to the following resources which have been essential in shaping this chapter. We recommend these references for further reading.
 
--   <https://talyarkoni.org/blog/2018/10/02/no-its-not-the-incentives-its-you/>
+|Authors|Title|Website|License|Source|
+|:---|:---|:---|:---|:---|
+|@yarkoni2018|No, it’s not The Incentives — it’s you|||[{{< fa display >}}](https://talyarkoni.org/blog/2018/10/02/no-its-not-the-incentives-its-you/)|
+|@poldrack2019| The Costs of Reproducibility|||[{{< fa display >}}](https://www.sciencedirect.com/science/article/pii/S0896627318310390)|
+|European Research Council| Open Science - Manage your Project |[{{< fa display >}}](https://erc.europa.eu/manage-your-project/open-science)|||
+|Top Factor|Transparency and Openness Promotion|[{{< fa display >}}](https://topfactor.org/)|||
+|@mckiernan2016|How open science helps researchers succeed|||[{{< fa display >}}](https://elifesciences.org/articles/16800)|
+|@schoenbrodt2024| From the Replicability Crisis to Credible Science||[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)|[{{< fa display >}}](https://osf.io/652qw)|
 
--   <https://www.sciencedirect.com/science/article/pii/S0896627318310390>
-
--   <https://erc.europa.eu/manage-your-project/open-science>
-
--   <https://topfactor.org/>
-
--   <https://elifesciences.org/articles/16800>
-
--   <https://osf.io/652qw>
