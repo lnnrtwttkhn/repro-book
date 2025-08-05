@@ -22,6 +22,15 @@ library(tibble)
 
 # Good Coding Practices
 
+::: {.callout-tip appearance="minimal"}
+<h5>Learning Objectives</h5>
+
+:bulb: You know how and why good coding practices help with making your work more reproducible.<br>
+:bulb: You learn about how to practice good coding style. <br>
+:bulb: You learn how to keep your data tidy.<br>
+:bulb: You know about the `assertr` package and the function `verify()` to help you avoid issues with your data.<br>
+:::
+
 ## R projects {#sec-rproject}
 
 As a researcher (and as a student), you work on different projects simultaneously.
