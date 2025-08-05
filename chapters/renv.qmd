@@ -12,6 +12,13 @@ abstract: |
   In this chapter you will learn how your reproducible research project becomes robust against different package versions.
   You will make it easy for you to and collaborators to use the same package versions in your joint project.
 ---
+::: {.callout-tip appearance="minimal"}
+<h5>Learning Objectives</h5>
+
+:bulb: You know why different software versions can be a threat to reproducibility.<br>
+:bulb: You can create a lockfile using the `{renv}` functions. <br>
+:bulb: You can reproduce a previous environment from a lockfile.<br>
+:::
 
 ## Introduction
 
