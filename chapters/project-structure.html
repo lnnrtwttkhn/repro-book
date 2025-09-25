@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -88,14 +88,15 @@ div.csl-indent {
 <link href="../chapters/naming-things.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-9f30c2c2d2429ed22c1cf9f617479b3b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-45e8e462cd760eca75dbd85b13f1b7a2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-156e99ea8b6cc823a4f03b0e7aa024c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c73ad759500404bce2aec962950045fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -152,7 +153,9 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">The Repro Book</a> 
         <div class="sidebar-tools-main tools-wide">
@@ -285,6 +288,7 @@ div.csl-indent {
   <li><a href="#requirements-of-journals" id="toc-requirements-of-journals" class="nav-link" data-scroll-target="#requirements-of-journals"><span class="header-section-number">5.5.1</span> Requirements of Journals</a></li>
   <li><a href="#current-application-of-open-science-practices" id="toc-current-application-of-open-science-practices" class="nav-link" data-scroll-target="#current-application-of-open-science-practices"><span class="header-section-number">5.5.2</span> Current application of open science practices</a></li>
   </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5.6</span> References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/project-structure.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/project-structure.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -333,7 +337,7 @@ Learning Objectives
 <section id="examples" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="examples"><span class="header-section-number">4.1</span> Examples</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">The Turing Way</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Heidi Seibold</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">analysistemplates</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">WORCS</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">The Turing Way</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Heidi Seibold</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">analysistemplates</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">WORCS</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
@@ -341,7 +345,7 @@ Learning Objectives
 <div class="code-with-filename-file">
 <pre><strong>Output</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode zsh code-annotation-code code-with-copy code-annotated"><code class="sourceCode zsh"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> LICENSE</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode zsh code-annotation-code code-with-copy code-annotated"><code class="sourceCode zsh"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> LICENSE</span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-2" class="code-annotation-target"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> README.md</span>
 <span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> CODE_OF_CONDUCT.md <span class="op">&lt;</span>- Guidelines for users and contributors of the project.</span>
 <span id="annotated-cell-1-4"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> CONTRIBUTING.md    <span class="op">&lt;</span>- Information on how to contribute to the project.</span>
@@ -374,7 +378,7 @@ Learning Objectives
 <span id="annotated-cell-1-31"><a href="#annotated-cell-1-31" aria-hidden="true" tabindex="-1"></a><span class="st">│   │</span></span>
 <span id="annotated-cell-1-32"><a href="#annotated-cell-1-32" aria-hidden="true" tabindex="-1"></a><span class="st">│   └── visualisation  &lt;- Scripts to create exploratory and results-oriented visualisations</span></span>
 <span id="annotated-cell-1-33"><a href="#annotated-cell-1-33" aria-hidden="true" tabindex="-1"></a><span class="st">│       └── visualise.py</span></span>
-<span id="annotated-cell-1-34"><a href="#annotated-cell-1-34" aria-hidden="true" tabindex="-1"></a><span class="st">└──</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="annotated-cell-1-34"><a href="#annotated-cell-1-34" aria-hidden="true" tabindex="-1"></a><span class="st">└──</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
@@ -517,7 +521,7 @@ Learning Objectives
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise: Take on different perspectives
+<span class="screen-reader-only">Caution</span>Exercise: Take on different perspectives
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -543,7 +547,7 @@ Exercise: Take on different perspectives
 </section>
 <section id="readme.md-file" class="level3" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored"><span class="header-section-number">4.2.2</span> <code>README.md</code>-file</h3>
-<p>A <code>README</code> is a text file that provides basic information about a project. It is typically a Markdown (<code>.md</code>) file, which means you can use <a href="https://www.markdownguide.org/">Markdown</a> syntax in it. Markdown allows you to easily format text, create lists, include links, and embed images. The exact content depends on your repository, but some general things that you might want to include are:</p>
+<p>A <code>README</code> is a text file that provides basic information about a project. It is typically a Markdown (<code>.md</code>) file, which means you can use <a href="https://www.markdownguide.org/">Markdown</a> syntax in it. Markdown allows you to easily format text, create lists, include links, and embed images. We’ll get into Markdown syntax in a <a href="../chapters/literate-programming.html#sec-markdown">later chapter</a>. The exact content depends on your repository, but some general things that you might want to include are:</p>
 <ul>
 <li><p><strong>Project description</strong>: What function does this repository serve and what are it’s key features?</p></li>
 <li><p><strong>Installation instructions</strong> (if applicable): Explain how to install and set up your project, including any dependencies or prerequisites. This is particularly relevant for repositories that contain programming code. Provide clear instructions to help users or contributors get started with your project quickly.</p></li>
@@ -552,12 +556,12 @@ Exercise: Take on different perspectives
 <li><p><strong>Contributing</strong>: If you welcome contributions, specify how others can contribute to your project. Here, you can also include guidelines for submitting bug reports, feature requests, or pull requests.</p></li>
 </ul>
 <div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Adding a <code>CONTRIBUTING.md</code> file to a repository
+<span class="screen-reader-only">Tip</span>Adding a <code>CONTRIBUTING.md</code> file to a repository
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -572,12 +576,12 @@ Adding a <code>CONTRIBUTING.md</code> file to a repository
 <li><p><strong>License</strong>: Choose a license that aligns with your project’s goals. You can use <a href="https://choosealicense.com">choosealicense.com</a> for guidance. The chosen license influences contributions to your project. Researchers are often insecure about which license to use. We will there cover the topic license in a separate chapter.</p></li>
 </ul>
 <div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Find out more: View the <code>README.md</code> file of this project.
+<span class="screen-reader-only">Tip</span>Find out more: View the <code>README.md</code> file of this project.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -689,12 +693,12 @@ Below the line, the actual content starts
 <h3 data-number="5.5.1" class="anchored" data-anchor-id="requirements-of-journals"><span class="header-section-number">5.5.1</span> Requirements of Journals</h3>
 <p>The <a href="https://www.cos.io/initiatives/top-guidelines">TOP Guidelines</a> by the Center of Open Science are a best practice formulation by journals, funders, and societies to implement better and more transparent research. The <a href="https://topfactor.org">TOP Factor</a> is a metric that reports the steps that a journal is taking to implement open science practices. Below you can see the TOP Factor evaluation of two psychological journals.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Learn more: What is the TOP-Factor?
+<span class="screen-reader-only">Tip</span>Learn more: What is the TOP-Factor?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -782,7 +786,7 @@ Learn more: What is the TOP-Factor?
 </div>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Frontiers</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">AMPPS</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Frontiers</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">AMPPS</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>TOP-Factor assessment of <em>Frontiers in Psychology</em></p>
@@ -966,7 +970,7 @@ Learn more: What is the TOP-Factor?
 <section id="current-application-of-open-science-practices" class="level3" data-number="5.5.2">
 <h3 data-number="5.5.2" class="anchored"><span class="header-section-number">5.5.2</span> Current application of open science practices</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Frontiers</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">AMPPS</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Frontiers</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">AMPPS</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <p>Below, you can find the structure of the reproducibility archive of a paper from <span class="citation" data-cites="laulie2023">Laulié, Briceño-Jiménez, and Henríquez-Gomez (<a href="../references.html#ref-laulie2023" role="doc-biblioref">2023</a>)</span>. The paper is placed in work and organizational psychology and postulates a relationship between the fulfillment of (implicit) expectation between employees and employers and the intention to leave the company for another job. The authors further assume that this relationship is mediated by emotional exhaustion and investigate whether emotional intelligence moderates the mediation effect of emotional exhaustion.</p>
@@ -975,10 +979,10 @@ Learn more: What is the TOP-Factor?
 <div class="code-with-filename-file">
 <pre><strong>Output</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> fpsyg-14-1090094.pdf                </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> fpsyg-14-1090094.pdf                </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> Materials <span class="at">-</span> DataBase.xlsx           </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> Materials <span class="at">-</span> Informed Consent.pdf    </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> Materials <span class="at">-</span> Instruments.pdf         </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> Materials <span class="at">-</span> Instruments.pdf         </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <p>Here, you can find the link to the archive of the paper: <a href="https://osf.io/csdk8/?view_only=">Reproducibility Archive</a></p>
@@ -986,12 +990,12 @@ Learn more: What is the TOP-Factor?
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <p>Below you can find the structure of an archive of a paper from <span class="citation" data-cites="nuijten2024">Nuijten and Wicherts (<a href="../references.html#ref-nuijten2024" role="doc-biblioref">2024</a>)</span>. The paper is placed in the methodological area of psychological science. The authors investigated whether inconsistencies in reporting statistical results could be reduced by implementing a software tool called <em>statcheck</em>.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Structure of the Repro Archive from @nuijten2024">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Structure of the Repro Archive from <span class="citation" data-cites="nuijten2024">Nuijten and Wicherts (<a href="../references.html#ref-nuijten2024" role="doc-biblioref">2024</a>)</span>
+<span class="screen-reader-only">Note</span>Structure of the Repro Archive from <span class="citation" data-cites="nuijten2024">Nuijten and Wicherts (<a href="../references.html#ref-nuijten2024" role="doc-biblioref">2024</a>)</span>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1343,7 +1347,7 @@ Structure of the Repro Archive from <span class="citation" data-cites="nuijten20
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Exercise: Study reproducibility archives
+<span class="screen-reader-only">Caution</span>Exercise: Study reproducibility archives
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1356,7 +1360,7 @@ Exercise: Study reproducibility archives
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Postscript
+<span class="screen-reader-only">Note</span>Postscript
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1364,6 +1368,52 @@ Postscript
 </div>
 </div>
 <p>Again, it should be noted that there is no perfectly organized reproducibility archive. However, we hope that the displayed examples show that open science, open data and reproducibility can be applied in many different ways.</p>
+</section>
+</section>
+<section id="references" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="references"><span class="header-section-number">5.6</span> References</h2>
+<p>We would like to express our gratitude to the following resources which have been essential in shaping this chapter. We recommend these references for further reading.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Authors</th>
+<th style="text-align: left;">Title</th>
+<th style="text-align: left;">Website</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">BIDS</td>
+<td style="text-align: left;">The Brain Imaging Data Structure</td>
+<td style="text-align: left;"><a href="https://bids.neuroimaging.io/"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+<td style="text-align: left;"><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></td>
+<td style="text-align: left;"><a href="https://github.com/bids-standard/bids-website/"><i class="fa-brands fa-github" aria-label="github"></i></a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">psych-DS</td>
+<td style="text-align: left;">Psych-DS Schema Model</td>
+<td style="text-align: left;"><a href="https://github.com/psych-DS/psych-DS"><i class="fa-brands fa-github" aria-label="github"></i></a></td>
+<td style="text-align: left;"><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></td>
+<td style="text-align: left;"><a href="https://github.com/psych-DS/psych-DS"><i class="fa-brands fa-github" aria-label="github"></i></a>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Top Factor</td>
+<td style="text-align: left;">Transparency and Openness Promotion</td>
+<td style="text-align: left;"><a href="https://topfactor.org/"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="citation" data-cites="community2022">The Turing Way Community (<a href="../references.html#ref-community2022" role="doc-biblioref">2022</a>)</span></td>
+<td style="text-align: left;">The Turing Way</td>
+<td style="text-align: left;"><a href="https://book.the-turing-way.org/"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+<td style="text-align: left;"><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></td>
+<td style="text-align: left;"><a href="https://book.the-turing-way.org/"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+</tr>
+</tbody>
+</table>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -1376,8 +1426,10 @@ Laulié, Lyonel, Gabriel Briceño-Jiménez, and Gisselle Henríquez-Gomez. 2023.
 <div id="ref-nuijten2024" class="csl-entry" role="listitem">
 Nuijten, Michèle B., and Jelte M. Wicherts. 2024. <span>“Implementing Statcheck During Peer Review Is Related to a Steep Decline in Statistical-Reporting Inconsistencies.”</span> <em>Advances in Methods and Practices in Psychological Science</em> 7. <a href="https://doi.org/10.1177/25152459241258945">https://doi.org/10.1177/25152459241258945</a>.
 </div>
+<div id="ref-community2022" class="csl-entry" role="listitem">
+The Turing Way Community. 2022. <em>The Turing Way: A Handbook for Reproducible, Ethical and Collaborative Research</em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.3233853">https://doi.org/10.5281/zenodo.3233853</a>.
 </div>
-</section>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1433,13 +1485,14 @@ Nuijten, Michèle B., and Jelte M. Wicherts. 2024. <span>“Implementing Statche
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

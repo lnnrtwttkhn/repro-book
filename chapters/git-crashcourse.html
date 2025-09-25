@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -88,14 +88,15 @@ div.csl-indent {
 <link href="../chapters/rdm.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-9f30c2c2d2429ed22c1cf9f617479b3b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-45e8e462cd760eca75dbd85b13f1b7a2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-156e99ea8b6cc823a4f03b0e7aa024c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c73ad759500404bce2aec962950045fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -152,7 +153,9 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">The Repro Book</a> 
         <div class="sidebar-tools-main tools-wide">
@@ -303,7 +306,7 @@ div.csl-indent {
   </ul></li>
   <li><a href="#summary-steps-in-a-git-workflow" id="toc-summary-steps-in-a-git-workflow" class="nav-link" data-scroll-target="#summary-steps-in-a-git-workflow"><span class="header-section-number">6.6</span> Summary: Steps in a Git Workflow</a></li>
   <li><a href="#sec-outlook" id="toc-sec-outlook" class="nav-link" data-scroll-target="#sec-outlook"><span class="header-section-number">6.7</span> Outlook: Remote repositories</a></li>
-  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments"><span class="header-section-number">6.8</span> Acknowledgments</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6.8</span> References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/git-crashcourse.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/git-crashcourse.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -380,14 +383,14 @@ Tip&nbsp;6.1: What is the command line?
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How to open the command line on your computer
+<span class="screen-reader-only">Tip</span>How to open the command line on your computer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">MacOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Windows</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">MacOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Windows</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>To open a command-line tool on a Mac there are multiple ways. Here we show you three ways:</p>
@@ -464,14 +467,14 @@ Figure&nbsp;6.2: “<a href="https://phdcomics.com/comics/archive.php?comicid=15
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How to install Git on your computer
+<span class="screen-reader-only">Tip</span>How to install Git on your computer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"><i class="fa-brands fa-apple" aria-label="apple"></i> MacOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><i class="fa-brands fa-windows" aria-label="windows"></i> Windows</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href=""><i class="fa-brands fa-apple" aria-label="apple"></i> MacOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href=""><i class="fa-brands fa-windows" aria-label="windows"></i> Windows</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>On recent versions of MacOS (&gt; MacOS Sierra 10.12) Git should come pre- installed. To check whether Git is pre-installed, head to your command-line/Terminal and enter the following command.</p>
@@ -480,7 +483,7 @@ How to install Git on your computer
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <p>When Git is already installed, you should see an output similar to below.</p>
@@ -489,7 +492,7 @@ How to install Git on your computer
 <div class="code-with-filename-file">
 <pre><strong>Output</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> version 2.39.2 <span class="op">(Apple Git-143)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> version 2.39.2 <span class="op">(Apple Git-143)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <p>When Git is not installed, you will receive a prompt asking you if you want to install it along Xcode command line deleveloper tools. You will also be asked for your administrator password. Make sure that you have enough storage on your computer to install the Xcode command line developer tools.</p>
@@ -502,7 +505,7 @@ How to install Git on your computer
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="cell" data-code-copy="false">
@@ -510,7 +513,7 @@ How to install Git on your computer
 <div class="code-with-filename-file">
 <pre><strong>Output</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> version 2.46.0.windows.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> version 2.46.0.windows.1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -529,8 +532,8 @@ To set this up, enter the command below in the command line, replacing ‘Your N
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Name"</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email Your Email</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Name"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email Your Email</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled" title="Consider privacy concerns!">
@@ -539,7 +542,7 @@ To set this up, enter the command below in the command line, replacing ‘Your N
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Consider privacy concerns!
+<span class="screen-reader-only">Important</span>Consider privacy concerns!
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -555,7 +558,7 @@ Consider privacy concerns!
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -600,8 +603,8 @@ Consider privacy concerns!
 <div class="code-with-filename-file">
 <pre><strong>Example .gitignore</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">*.pdf</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">misc</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">*.pdf</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">misc</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
@@ -632,7 +635,7 @@ Figure&nbsp;6.3: This screenshot shows how a .gitignore file looks like in RStud
 <h3 data-number="6.3.3" class="anchored" data-anchor-id="ignore-previously-tracked-files-and-folders"><span class="header-section-number">6.3.3</span> Ignore previously tracked files and folders</h3>
 <p>The simple addition to the <code>.gitignore</code> file of the desired files and folders (see <a href="#sec-gitignore" class="quarto-xref"><span>Section 6.3.2</span></a>) does only work conveniently, if they are added to the <code>.gitignore</code> file <strong>before</strong> the files and folders were created. However, it requires an extra step to add files and folders to the <code>.gitignore</code> file that have been tracked before. Consider you have a folder (e.g.&nbsp;<code>misc</code>) in your repository that you want to ignore but it was tracked before by git (see <a href="#fig-git-gitignore" class="quarto-xref">Figure&nbsp;<span>6.3</span></a>). If you just add <code>misc</code> to the <code>.gitignore</code> file, what happens, is that git stops tracking changes for all <strong>new</strong> files and folders in that folder. However, the files and subfolders that were in the <code>misc</code> folder <strong>before</strong>, are <strong>still tracked</strong> by git. You have to use the command line to not track files and folders that have been tracked before<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Ignore tracked folder</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Ignore tracked file</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Ignore tracked folder</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Ignore tracked file</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <p>To withdraw the tracking of a folder, you have to do two things:</p>
@@ -645,7 +648,7 @@ Figure&nbsp;6.3: This screenshot shows how a .gitignore file looks like in RStud
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="annotated-cell-16"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-16-1" class="code-annotation-target"><a href="#annotated-cell-16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cache</span> <span class="at">-r</span> <span class="op">&lt;</span>folder-name<span class="op">&gt;</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-16"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-16-1" class="code-annotation-target"><a href="#annotated-cell-16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cache</span> <span class="at">-r</span> <span class="op">&lt;</span>folder-name<span class="op">&gt;</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
@@ -666,7 +669,7 @@ Figure&nbsp;6.3: This screenshot shows how a .gitignore file looks like in RStud
 <div class="code-with-filename-file">
 <pre><strong>.gitignore</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">data/raw_data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">data/raw_data</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="cell" data-code-copy="false">
@@ -674,7 +677,7 @@ Figure&nbsp;6.3: This screenshot shows how a .gitignore file looks like in RStud
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cache</span> data/raw_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cache</span> data/raw_data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -690,7 +693,7 @@ Figure&nbsp;6.3: This screenshot shows how a .gitignore file looks like in RStud
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="annotated-cell-21"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-21" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-21-1" class="code-annotation-target"><a href="#annotated-cell-21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cache</span> <span class="op">&lt;</span>file-name<span class="op">&gt;</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-21"><pre class="sourceCode bash code-annotation-code code-with-copy code-annotated"><code class="sourceCode bash"><a class="code-annotation-anchor" data-target-cell="annotated-cell-21" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-21-1" class="code-annotation-target"><a href="#annotated-cell-21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cache</span> <span class="op">&lt;</span>file-name<span class="op">&gt;</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
@@ -711,7 +714,7 @@ Figure&nbsp;6.3: This screenshot shows how a .gitignore file looks like in RStud
 <div class="code-with-filename-file">
 <pre><strong>.gitignore</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">misc/feedback/participant-003_feedback.pdf</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">misc/feedback/participant-003_feedback.pdf</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="cell" data-code-copy="false">
@@ -719,7 +722,7 @@ Figure&nbsp;6.3: This screenshot shows how a .gitignore file looks like in RStud
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cache</span> <span class="at">-r</span> misc/feedback/participant-003_feedback.pdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">--cache</span> <span class="at">-r</span> misc/feedback/participant-003_feedback.pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -778,7 +781,7 @@ Figure&nbsp;6.4: This screenshot shows creating the initial commit in RStudio. U
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How to create better commit messages
+<span class="screen-reader-only">Tip</span>How to create better commit messages
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -792,12 +795,12 @@ Another great way to think about what to include in your commit message are your
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Amending a commit">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Amending a commit
+<span class="screen-reader-only">Tip</span>Amending a commit
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -813,7 +816,7 @@ Amending a commit
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Why are staging and committing separate actions?
+<span class="screen-reader-only">Tip</span>Why are staging and committing separate actions?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -824,7 +827,7 @@ Why are staging and committing separate actions?
 </div>
 </div>
 <div id="tip-track-changes" class="callout callout-style-default callout-tip callout-titled" title="View the changes you are about to commit">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -864,12 +867,12 @@ You can see which changes were made in that commit. Navigate to the version you 
 </div>
 <p>Simply save it as you are prompted to do. Now as a last step, save, stage and commit the file again as you normally would, to have Git track the change you just made. Now, you just travelled back in time and reset your file to a previous version. The versions of the file that you have changed in between the commit you went back to and the first time you made that commit are still there in your commit history. This way you could also return to them later on if you change your mind.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="View changes of previous commits">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-View changes of previous commits
+<span class="screen-reader-only">Tip</span>View changes of previous commits
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -911,12 +914,12 @@ If you work on a repo together with other people, you can each work on a differe
 </figure>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Pay attention to create new branches from main">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Pay attention to create new branches from main
+<span class="screen-reader-only">Warning</span>Pay attention to create new branches from main
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -935,16 +938,16 @@ Pay attention to create new branches from main
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="op">&lt;</span>your branch<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="op">&lt;</span>your branch<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled" title="Merge conflicts">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Merge conflicts
+<span class="screen-reader-only">Warning</span>Merge conflicts
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -963,7 +966,7 @@ Merge conflicts
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> <span class="op">&lt;</span>your branch<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> <span class="op">&lt;</span>your branch<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="callout callout-style-default callout-caution callout-titled" title="Do not delete the main branch">
@@ -972,7 +975,7 @@ Merge conflicts
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Do not delete the main branch
+<span class="screen-reader-only">Caution</span>Do not delete the main branch
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1112,9 +1115,36 @@ Simply add them in the repositories settings under access.
 They can then accept this collaborator role and 
 -->
 </section>
-<section id="acknowledgments" class="level2" data-number="6.8">
-<h2 data-number="6.8" class="anchored" data-anchor-id="acknowledgments"><span class="header-section-number">6.8</span> Acknowledgments</h2>
-<p>This chapter was heavily informed by <a href="https://lennartwittkuhn.com/version-control-book/">The Version Control Book</a> and <a href="https://book.the-turing-way.org/reproducible-research/vcs">The Turing Way</a>.</p>
+<section id="references" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="references"><span class="header-section-number">6.8</span> References</h2>
+<p>We would like to express our gratitude to the following resources which have been essential in shaping this chapter. We recommend these references for further reading.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Authors</th>
+<th style="text-align: left;">Title</th>
+<th style="text-align: left;">Website</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="citation" data-cites="community2022">The Turing Way Community (<a href="../references.html#ref-community2022" role="doc-biblioref">2022</a>)</span></td>
+<td style="text-align: left;">Version control</td>
+<td style="text-align: left;"><a href="https://book.the-turing-way.org/reproducible-research/vcs"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+<td style="text-align: left;"><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></td>
+<td style="text-align: left;"><a href="https://github.com/the-turing-way/the-turing-way"><i class="fa-brands fa-github" aria-label="github"></i></a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="citation" data-cites="wittkuhn2025">Wittkuhn, Pagenstedt, and Kümmerle (<a href="../references.html#ref-wittkuhn2025" role="doc-biblioref">2025</a>)</span></td>
+<td style="text-align: left;">Version Control Book</td>
+<td style="text-align: left;"><a href="https://lennartwittkuhn.com/version-control-book/"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+<td style="text-align: left;"><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC-BY-SA-4.0</a></td>
+<td style="text-align: left;"><a href="https://github.com/lnnrtwttkhn/version-control-book"><i class="fa-brands fa-github" aria-label="github"></i></a></td>
+</tr>
+</tbody>
+</table>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -1126,6 +1156,9 @@ The Turing Way Community. 2022. <em>The Turing Way: A Handbook for Reproducible,
 </div>
 <div id="ref-wittkuhn2024" class="csl-entry" role="listitem">
 Wittkuhn, Lennart, and Konrad Pagenstedt. 2024. <em>Version Control Book</em>. ZFDM Repository. <a href="https://doi.org/10.25592/uhhfdm.14149">https://doi.org/10.25592/uhhfdm.14149</a>.
+</div>
+<div id="ref-wittkuhn2025" class="csl-entry" role="listitem">
+Wittkuhn, Lennart, Konrad Pagenstedt, and Liese Kümmerle. 2025. <em>Version Control Book</em>. <a href="https://doi.org/10.5281/zenodo.10724424">https://doi.org/10.5281/zenodo.10724424</a>.
 </div>
 </div>
 </section>
@@ -1190,13 +1223,14 @@ Wittkuhn, Lennart, and Konrad Pagenstedt. 2024. <em>Version Control Book</em>. Z
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

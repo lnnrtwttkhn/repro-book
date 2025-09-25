@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -88,14 +88,15 @@ div.csl-indent {
 <link href="./references.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-9f30c2c2d2429ed22c1cf9f617479b3b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-45e8e462cd760eca75dbd85b13f1b7a2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-156e99ea8b6cc823a4f03b0e7aa024c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c73ad759500404bce2aec962950045fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -150,7 +151,9 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The Repro Book</a> 
         <div class="sidebar-tools-main tools-wide">
@@ -316,7 +319,7 @@ div.csl-indent {
 <div class="code-with-filename-file">
 <pre><strong>Code</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> images</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> images</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <details>
@@ -328,7 +331,7 @@ Click here to view the full <code>Makefile</code> of this project.
 <div class="code-with-filename-file">
 <pre><strong>Makefile</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource make number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>IMAGES_URL=https://cloud.uni-hamburg.de/s/pzEHT5DF3PzFdLH/download</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource make number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>IMAGES_URL=https://cloud.uni-hamburg.de/s/pzEHT5DF3PzFdLH/download</span>
 <span id="cb2-2"><a href="#cb2-2"></a>IMAGES_ARCHIVE=repro-book-images.zip</span>
 <span id="cb2-3"><a href="#cb2-3"></a>IMAGES_DIR=images/</span>
 <span id="cb2-4"><a href="#cb2-4"></a></span>
@@ -358,7 +361,7 @@ Click here to view the full <code>Makefile</code> of this project.
 <span id="cb2-28"><a href="#cb2-28"></a></span>
 <span id="cb2-29"><a href="#cb2-29"></a>.PHONY: clean</span>
 <span id="cb2-30"><a href="#cb2-30"></a>clean:</span>
-<span id="cb2-31"><a href="#cb2-31"></a>    rm -rf $(IMAGES_DIR)* _book/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-31"><a href="#cb2-31"></a>    rm -rf $(IMAGES_DIR)* _book/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </details>
@@ -436,13 +439,14 @@ Gorgolewski, Krzysztof J., Tibor Auer, Vince D. Calhoun, R. Cameron Craddock, Sa
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

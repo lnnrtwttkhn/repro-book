@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -88,14 +88,15 @@ div.csl-indent {
 <link href="../chapters/renv.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-9f30c2c2d2429ed22c1cf9f617479b3b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-45e8e462cd760eca75dbd85b13f1b7a2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-156e99ea8b6cc823a4f03b0e7aa024c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c73ad759500404bce2aec962950045fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -141,7 +142,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -181,7 +182,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">The Repro Book</a> 
         <div class="sidebar-tools-main tools-wide">
@@ -332,7 +335,7 @@ window.Quarto = {
   <li><a href="#implementing-apaquarto-in-a-quarto-document" id="toc-implementing-apaquarto-in-a-quarto-document" class="nav-link" data-scroll-target="#implementing-apaquarto-in-a-quarto-document"><span class="header-section-number">9.8.2</span> Implementing apaquarto in a quarto document</a></li>
   <li><a href="#deleting-apaquarto" id="toc-deleting-apaquarto" class="nav-link" data-scroll-target="#deleting-apaquarto"><span class="header-section-number">9.8.3</span> Deleting apaquarto</a></li>
   </ul></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources"><span class="header-section-number">9.9</span> Resources</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9.9</span> References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/literate-programming.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/literate-programming.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -391,7 +394,7 @@ Learning Objectives
 # I think that not many people can refer to Jupyter Notebooks (at least in the seminar)--> However, the concept of literate programming was extended to the idea that the text should not support the explanation for the code but rather the code can be an explanation of the document. Thus, one can write a whole paper and uses code directly in that document to support the claims made in that document. The code in these documents are stored in <strong>chunks</strong> (see <a href="#sec-code-chunks" class="quarto-xref"><span>Section 9.7.1</span></a>) and are executable.</p>
 <p>Literate programming allows for creating <strong>reproducible documents</strong> instead of just reproducible script as well as making for a smoother workflow, as there is no need for switching out old and new outputs in your documents when the code changed. As an example, when you write an article in a document using literate programming and insert a code chunk that creates a plot, this code chunk’s output (i.e.&nbsp;the plot) is part of your document and is always up to date with the script you’re running. Hence, whenever you have to do some changes in your plot or your analyses, the changes are directly updated in your paper. Thus, the paper becomes dynamic (<a href="#nte-dynamic-doc" class="quarto-xref">Note&nbsp;<span>9.1</span></a>). Moreover, literate programming can heavily reduce outcome-based reproducibility errors (<a href="intro.html#sec-repro-errors" class="quarto-xref"><span>Section 1.1.1</span></a>).</p>
 <div id="nte-dynamic-doc" class="callout callout-style-default callout-note callout-titled" title="Static vs. Dynamic documents">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -433,7 +436,7 @@ Note&nbsp;9.1: Static vs.&nbsp;Dynamic documents
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Literate programming benefits for reproducibility
+<span class="screen-reader-only">Tip</span>Literate programming benefits for reproducibility
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -507,7 +510,7 @@ Figure&nbsp;9.4: On the left is the Source mode of the .qmd file and on the righ
 </figure>
 </div>
 <div id="tip-quarto-git-compatibility" class="callout callout-style-default callout-tip callout-titled" title="Enhance Quarto compatibility with Git">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -533,7 +536,7 @@ Figure&nbsp;9.5: The upper left corner displays text. Lines 6 to 8 contain a par
 </div>
 </div>
 <div id="tip-line-wrapping" class="callout callout-style-default callout-tip callout-titled" title="Avoid changes when switching between `Source` and `Visual` Editor">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -550,11 +553,11 @@ Tip&nbsp;9.2: Avoid changes when switching between <code>Source</code> and <code
 <div class="code-with-filename-file">
 <pre><strong>YAML</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">editor:</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">markdown:</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">wrap:</span> sentence</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -570,7 +573,7 @@ Disadvantages are that there are overall less formatting options as the intentio
 <section id="text-formatting" class="level3" data-number="9.5.1">
 <h3 data-number="9.5.1" class="anchored" data-anchor-id="text-formatting"><span class="header-section-number">9.5.1</span> Text formatting</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Source Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Visual Editor</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Source Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Visual Editor</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p>When you want to format your text in the source editor, the markdown syntax is quite straightforward. For example, if you want to write <em>italic</em> words, you put a <code>*</code> around the words of interest. <a href="#tbl-text-formatting" class="quarto-xref">Table&nbsp;<span>9.1</span></a> displays how you can format your text in the most important styles.</p>
@@ -642,7 +645,7 @@ Figure&nbsp;9.6: The red rectangle in the menu line covers the buttons for makin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How to start a new page in docx and pdf files
+<span class="screen-reader-only">Tip</span>How to start a new page in docx and pdf files
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -650,11 +653,11 @@ How to start a new page in docx and pdf files
 <div class="callout-body-container callout-body">
 <p>If you want to start a new page in your document at a specific spot, e.g., to have your references on their own page, you can add a pagebreak. The pagebreak option does only make sense when you render your document to <code>docx</code> or <code>pdf</code>, since these files consist of multiple pages. However, this does not apply to <code>html</code> files, because you can just scroll down the content. To add a pagebreak, simply add it between your intended pages like below and a new page will start in the rendered document.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>page 1</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>page 1</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>{{&lt; pagebreak &gt;}}</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>page 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>page 2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -664,7 +667,7 @@ How to start a new page in docx and pdf files
 <h3 data-number="9.5.2" class="anchored"><span class="header-section-number">9.5.2</span> Headings</h3>
 <p>Formatting headings in Markdown syntax is quite easy as well. Just put your heading in a new line, and put the number of <code>#</code> before that heading to indicate the heading level. The more <code>#</code>, the smaller the heading. You can also format your headings in the Visual Editor. However, it is faster in our experience to use the Source editor.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Source Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Visual Editor</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Source Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Visual Editor</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <table class="table">
@@ -781,12 +784,12 @@ Figure&nbsp;9.7: This is where you can find the different header options in the 
 <h3 data-number="9.5.3" class="anchored" data-anchor-id="lists"><span class="header-section-number">9.5.3</span> Lists</h3>
 <p>There are many different types of lists available in Markdown and they are very easy to implement in Source Mode. Take a look below at the different options and how they change when rendered.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Source Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Visual Editor</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Source Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Visual Editor</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <p><strong>Input</strong></p>
 <div class="cell" data-code-copy="false">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>*Unordered list*</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>*Unordered list*</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>unordered list</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ss">        + </span>sub-item 1</span>
@@ -808,7 +811,7 @@ Figure&nbsp;9.7: This is where you can find the different header options in the 
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>*Tasklist*</span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Task 1</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Task 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> Task 2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Output</strong></p>
 <p><em>Unordered list</em></p>
@@ -868,17 +871,17 @@ Figure&nbsp;9.8: This is where you can find the different list options in the Vi
 <h3 data-number="9.5.4" class="anchored" data-anchor-id="tables"><span class="header-section-number">9.5.4</span> Tables</h3>
 <p>You can also create tables using Markdown. However, this is one case where using either the Visual Editor or even better a Markdown table creator is recommended. Doing this in the Source Editor is very tedious and in terms of speed will leave you hanging behind the Visual Editor. However, in case you want to give it a try or come across it in a Markdown document, take a look below at how to create a table in the Source Editor.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Source Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Visual Editor</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Source Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Visual Editor</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <p>Each new line is also a new row in the table and the columns are created using <code>|</code> as separators. You can define the width of a column using <code>-</code> and define where the text should be centered using <code>:</code>. See below how to do this.</p>
 <p><strong>Input</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Right <span class="pp">|</span> Left <span class="pp">|</span> Default <span class="pp">|</span> Center <span class="pp">|</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Right <span class="pp">|</span> Left <span class="pp">|</span> Default <span class="pp">|</span> Center <span class="pp">|</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="pp">|------:|:-----|---------|:------:|</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>   12  <span class="pp">|</span>  12  <span class="pp">|</span>    12   <span class="pp">|</span>    12  <span class="pp">|</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>  123  <span class="pp">|</span>  123 <span class="pp">|</span>   123   <span class="pp">|</span>   123  <span class="pp">|</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>    1  <span class="pp">|</span>    1 <span class="pp">|</span>     1   <span class="pp">|</span>     1  <span class="pp">|</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>    1  <span class="pp">|</span>    1 <span class="pp">|</span>     1   <span class="pp">|</span>     1  <span class="pp">|</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Output</strong></p>
 <table class="table">
@@ -936,7 +939,7 @@ Figure&nbsp;9.9: This is where you can find the different table options in the V
 <h3 data-number="9.5.5" class="anchored" data-anchor-id="equations"><span class="header-section-number">9.5.5</span> Equations</h3>
 <p>A very nice feature of Quarto is that it allows you to easily include equations. Regardless of which editor you use, you have to write the equations within LaTeX style. For a guide how to create sophisticated equations (including fractions, matrices, square roots, integrals, etc.), see the respective chapter in the <a href="https://latexguide.org/book-contents/chapter-09-writing-math-formulas/">LaTeX Beginner’s Guide</a>.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Source Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Visual Editor</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">Source Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">Visual Editor</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <p>To include an equation you need to frame it with dollarsigns <code>$</code>. One dollarsign for inline equations <code>$</code> and two for a standalone equation <code>$$</code>.</p>
@@ -946,11 +949,11 @@ Figure&nbsp;9.9: This is where you can find the different table options in the V
 <div class="code-with-filename-file">
 <pre><strong>Markdown</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>The most important equation remains <span class="in">`$E = mc^{2}$`</span> up to this date.</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>The most important equation remains <span class="in">`$E = mc^{2}$`</span> up to this date.</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>The following equation remains the most important up to this date.</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="in">`$$E = mc^{2}$$`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="in">`$$E = mc^{2}$$`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <p>And the respective <strong>outputs</strong> would look like this:</p>
@@ -978,7 +981,7 @@ Figure&nbsp;9.10: This is where you can find the two different options for equat
 <h3 data-number="9.5.6" class="anchored" data-anchor-id="blockquotes"><span class="header-section-number">9.5.6</span> Blockquotes</h3>
 <p>You can insert blockquotes in your Quarto documents. Whilst this is likely not syntax you will need a lot in scientific reports, it’s very easy to do and might prove useful when taking notes or formatting a website you’re creating.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Source Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Visual Editor</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">Source Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href="">Visual Editor</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
 <p>To create a blockquote in the Source Editor, just add a `&lt;´before it.</p>
@@ -1009,7 +1012,7 @@ Figure&nbsp;9.11: This is where you can find the blockquote option in the Visual
 <h3 data-number="9.5.7" class="anchored" data-anchor-id="links-images"><span class="header-section-number">9.5.7</span> Links &amp; Images</h3>
 <p>You can easily insert online links or images into your document. The process to do this is relatively similar, which is why the two actions are in the same section.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Source Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Visual Editor</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true" href="">Source Editor</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false" href="">Visual Editor</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
 <p>To insert a <strong>link</strong> to, for example a website, the most basic option is to just insert the link between angle brackets <code>&lt;Link&gt;</code>.</p>
@@ -1047,7 +1050,7 @@ Returning you this <strong>output</strong>:<br>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Keep reproducibility in mind
+<span class="screen-reader-only">Caution</span>Keep reproducibility in mind
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1089,7 +1092,7 @@ Keep reproducibility in mind
 <p>How is the setup of the YAML header? In general, the YAML header consists of so called <code>key: value</code> pairs. Thus, between the two lines with the three hyphens, you write (almost) everything in the style of a key that has a counterpart, called a value. key and value are separated by colon (<code>:</code>), while it comes directly after the key, but leaves one space open until the value starts. Each line only contains one <code>key: value</code> pair. When you use a string as a value, put quotation marks around the value (e.g.&nbsp;<code>author: "Justus Reihs"</code>)</p>
 <p>With the help of the <code>key: value</code> pairs, you can setup your whole Quarto document. You can specify the document’s title, name, published date, etc. It would take too much time to give you a comprehensive overview of YAML specifications. Hence, we will provide you an overview that shows you a) the most important specifications for when you write a paper and b) the most important specifications to keep that paper easy to reproduce.</p>
 <div id="tip-yaml-settings" class="callout callout-style-default callout-tip callout-titled" title="Different YAML settings">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1116,17 +1119,17 @@ Tip&nbsp;9.3: Different YAML settings
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><code>title</code></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "The Repro Book - A Guide to Reproducible Research"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td style="text-align: left;"><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "The Repro Book - A Guide to Reproducible Research"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></td>
 <td style="text-align: left;">Name the title of your document</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>shorttitle</code> <code>shorttitle</code> <code>shorttitle</code></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="an">shorttitle:</span><span class="co"> "The Repro Book"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td style="text-align: left;"><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="an">shorttitle:</span><span class="co"> "The Repro Book"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></td>
 <td style="text-align: left;">The short title of your document</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>author:</code></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
+<td style="text-align: left;"><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>name: Justus J. Reihs</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    email: justus.reihs@studium.uni-hamburg.de</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    corresponding: true</span>
@@ -1136,26 +1139,26 @@ Tip&nbsp;9.3: Different YAML settings
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        address: Von-Melle-Park 5</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        city: Hamburg</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        country: Germany</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        postal-code: 20146</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        postal-code: 20146</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></td>
 <td style="text-align: left;"><p>The author(s) of your document and their affiliation(s) and address.</p>
 <p>You can include as many or as little of these pieces of information in your author description as you desire.</p></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>editor</code></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span></span>
+<td style="text-align: left;"><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  markdown:</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    wrap: sentence</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    wrap: sentence</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></td>
 <td style="text-align: left;">Set that each sentence is placed in a new line (<a href="#tip-line-wrapping" class="quarto-xref">Tip&nbsp;<span>9.2</span></a>)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>csl</code></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> apa.csl</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td style="text-align: left;"><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> apa.csl</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></td>
 <td style="text-align: left;">Set the citation style of your document</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><p><code>bibliography</code></p>
 <p>`</p></td>
-<td style="text-align: left;"><div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="in">`bibliography: references.bib`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td style="text-align: left;"><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="in">`bibliography: references.bib`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></td>
 <td style="text-align: left;">Refer to the citations you use in your document</td>
 </tr>
 </tbody>
@@ -1164,12 +1167,12 @@ Tip&nbsp;9.3: Different YAML settings
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="View: This chapter's YAML file">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-View: This chapter’s YAML file
+<span class="screen-reader-only">Note</span>View: This chapter’s YAML file
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1313,7 +1316,7 @@ Figure&nbsp;9.12: Screenshot of Pop-Up box when adding a new citation from a DOI
 </figure>
 </div>
 <div id="nte-references-bib" class="callout callout-style-default callout-note callout-titled" title="The `references.bib` file">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1370,7 +1373,7 @@ Click here to view the full <code>references.bib</code> of this book.
 <div class="code-with-filename-file">
 <pre><strong>references.bib</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="ex">@article{knuth84,</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="ex">@article{knuth84,</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>  <span class="ex">author</span> = {Knuth, Donald E.},</span>
 <span id="cb16-3"><a href="#cb16-3"></a>  <span class="ex">title</span> = {Literate Programming},</span>
 <span id="cb16-4"><a href="#cb16-4"></a>  <span class="ex">year</span> = {1984},</span>
@@ -1641,288 +1644,344 @@ Click here to view the full <code>references.bib</code> of this book.
 <span id="cb16-269"><a href="#cb16-269"></a>  <span class="ex">url</span> = {https://doi.org/10.25592/uhhfdm.14149}</span>
 <span id="cb16-270"><a href="#cb16-270"></a><span class="er">}</span></span>
 <span id="cb16-271"><a href="#cb16-271"></a></span>
-<span id="cb16-272"><a href="#cb16-272"></a><span class="ex">@article{barker2022,</span></span>
-<span id="cb16-273"><a href="#cb16-273"></a>  <span class="ex">author</span> = {Barker, Michelle and Chue Hong, Neil P. and Katz, Daniel S. and Lamprecht, Anna-Lena and Martinez-Ortiz, Carlos and Psomopoulos, Fotis and Harrow, Jennifer and Castro, Leyla Jael and Gruenpeter, Morane and Martinez, Paula Andrea and Honeyman, Tom},</span>
-<span id="cb16-274"><a href="#cb16-274"></a>  <span class="ex">title</span> = {Introducing the FAIR Principles for research software},</span>
-<span id="cb16-275"><a href="#cb16-275"></a>  <span class="ex">year</span> = {2022},</span>
-<span id="cb16-276"><a href="#cb16-276"></a>  <span class="ex">journal</span> = {Scientific Data},</span>
-<span id="cb16-277"><a href="#cb16-277"></a>  <span class="ex">volume</span> = {9},</span>
-<span id="cb16-278"><a href="#cb16-278"></a>  <span class="ex">pages</span> = {622},</span>
-<span id="cb16-279"><a href="#cb16-279"></a>  <span class="ex">doi</span> = {10.1038/s41597-022-01710-x},</span>
-<span id="cb16-280"><a href="#cb16-280"></a>  <span class="ex">url</span> = {https://doi.org/10.1038/s41597-022-01710-x}</span>
-<span id="cb16-281"><a href="#cb16-281"></a>  </span>
-<span id="cb16-282"><a href="#cb16-282"></a><span class="er">}</span></span>
-<span id="cb16-283"><a href="#cb16-283"></a></span>
-<span id="cb16-284"><a href="#cb16-284"></a><span class="ex">@book{wickham2023,</span></span>
-<span id="cb16-285"><a href="#cb16-285"></a>    <span class="ex">title</span> = {R for Data science: Import, Tidy, Transform, Visualize, and Model Data},</span>
-<span id="cb16-286"><a href="#cb16-286"></a>    <span class="ex">author</span> = {Wickham, H. and Çetinkaya-Rundel, M. and Grolemund, G.},</span>
-<span id="cb16-287"><a href="#cb16-287"></a>    <span class="ex">year</span> = {2023},</span>
-<span id="cb16-288"><a href="#cb16-288"></a>    <span class="ex">data</span> = {2023},</span>
-<span id="cb16-289"><a href="#cb16-289"></a>    <span class="ex">publisher</span> = {O<span class="st">'Reilly Media},</span></span>
-<span id="cb16-290"><a href="#cb16-290"></a><span class="st">    url = {https://r4ds.hadley.nz},</span></span>
-<span id="cb16-291"><a href="#cb16-291"></a><span class="st">    note = {License: CC BY-NC-ND 3.0 US}</span></span>
-<span id="cb16-292"><a href="#cb16-292"></a><span class="st">}</span></span>
-<span id="cb16-293"><a href="#cb16-293"></a></span>
-<span id="cb16-294"><a href="#cb16-294"></a><span class="st">@Manual{hester2024,</span></span>
-<span id="cb16-295"><a href="#cb16-295"></a><span class="st">    title = {lintr: A '</span>Linter<span class="st">' for R Code},</span></span>
-<span id="cb16-296"><a href="#cb16-296"></a><span class="st">    author = {Jim Hester and Florent Angly and Russ Hyde and Michael Chirico and Kun Ren and Alexander Rosenstock and Indrajeet Patil},</span></span>
-<span id="cb16-297"><a href="#cb16-297"></a><span class="st">    year = {2024},</span></span>
-<span id="cb16-298"><a href="#cb16-298"></a><span class="st">    note = {R package version 3.1.2},</span></span>
-<span id="cb16-299"><a href="#cb16-299"></a><span class="st">    url = {https://CRAN.R-project.org/package=lintr},</span></span>
-<span id="cb16-300"><a href="#cb16-300"></a><span class="st">}</span></span>
-<span id="cb16-301"><a href="#cb16-301"></a></span>
-<span id="cb16-302"><a href="#cb16-302"></a><span class="st">@Manual{mueller2020,</span></span>
-<span id="cb16-303"><a href="#cb16-303"></a><span class="st">    title = {here: A Simpler Way to Find Your Files},</span></span>
-<span id="cb16-304"><a href="#cb16-304"></a><span class="st">    author = {Kirill Müller},</span></span>
-<span id="cb16-305"><a href="#cb16-305"></a><span class="st">    year = {2020},</span></span>
-<span id="cb16-306"><a href="#cb16-306"></a><span class="st">    note = {R package version 1.0.1, https://github.com/r-lib/here},</span></span>
-<span id="cb16-307"><a href="#cb16-307"></a><span class="st">    url = {https://here.r-lib.org/},</span></span>
-<span id="cb16-308"><a href="#cb16-308"></a><span class="st">  }</span></span>
-<span id="cb16-309"><a href="#cb16-309"></a><span class="st">  </span></span>
-<span id="cb16-310"><a href="#cb16-310"></a><span class="st">@misc{rennie2024,</span></span>
-<span id="cb16-311"><a href="#cb16-311"></a><span class="st">  author       = {Nicola Rennie},</span></span>
-<span id="cb16-312"><a href="#cb16-312"></a><span class="st">  title        = {Writing Better R Code},</span></span>
-<span id="cb16-313"><a href="#cb16-313"></a><span class="st">  year         = {2024},</span></span>
-<span id="cb16-314"><a href="#cb16-314"></a><span class="st">  url          = {https://nrennie.rbind.io/training-better-r-code/},</span></span>
-<span id="cb16-315"><a href="#cb16-315"></a><span class="st">  note         = {Accessed on 2024-11-19}</span></span>
-<span id="cb16-316"><a href="#cb16-316"></a><span class="st">}</span></span>
-<span id="cb16-317"><a href="#cb16-317"></a></span>
-<span id="cb16-318"><a href="#cb16-318"></a><span class="st">@article{haslbeck2022,</span></span>
-<span id="cb16-319"><a href="#cb16-319"></a><span class="st">  author = {Jonas M. Haslbeck and Oisín Ryan and Donald J. Robinaugh and Lourens J. Waldorp and Denny Borsboom},</span></span>
-<span id="cb16-320"><a href="#cb16-320"></a><span class="st">  title = {Modeling Psychopathology: From Data Models to Formal Theories},</span></span>
-<span id="cb16-321"><a href="#cb16-321"></a><span class="st">  year = {2022},</span></span>
-<span id="cb16-322"><a href="#cb16-322"></a><span class="st">  journal = {Psychological Methods},</span></span>
-<span id="cb16-323"><a href="#cb16-323"></a><span class="st">  volume = {27},</span></span>
-<span id="cb16-324"><a href="#cb16-324"></a><span class="st">  issue = {6},</span></span>
-<span id="cb16-325"><a href="#cb16-325"></a><span class="st">  pages = {930-957},</span></span>
-<span id="cb16-326"><a href="#cb16-326"></a><span class="st">  doi = {10.1037/met0000303},</span></span>
-<span id="cb16-327"><a href="#cb16-327"></a><span class="st">  url = {https://doi.org/10.1037/met0000303}</span></span>
-<span id="cb16-328"><a href="#cb16-328"></a><span class="st">}</span></span>
-<span id="cb16-329"><a href="#cb16-329"></a></span>
-<span id="cb16-330"><a href="#cb16-330"></a><span class="st">@Manual{ushey2024,</span></span>
-<span id="cb16-331"><a href="#cb16-331"></a><span class="st">  title = {renv: Project Environments},</span></span>
-<span id="cb16-332"><a href="#cb16-332"></a><span class="st">  author = {Kevin Ushey and Hadley Wickham},</span></span>
-<span id="cb16-333"><a href="#cb16-333"></a><span class="st">  year = {2024},</span></span>
-<span id="cb16-334"><a href="#cb16-334"></a><span class="st">  note = {R package version 1.0.11, https://github.com/rstudio/renv},</span></span>
-<span id="cb16-335"><a href="#cb16-335"></a><span class="st">  url = {https://rstudio.github.io/renv/},</span></span>
-<span id="cb16-336"><a href="#cb16-336"></a><span class="st">}</span></span>
-<span id="cb16-337"><a href="#cb16-337"></a></span>
-<span id="cb16-338"><a href="#cb16-338"></a><span class="st">@misc{rapp2024,</span></span>
-<span id="cb16-339"><a href="#cb16-339"></a><span class="st">  title = {Robust R Code That Will Work Forever With {renv}},</span></span>
-<span id="cb16-340"><a href="#cb16-340"></a><span class="st">  url = {https://www.youtube.com/watch?v=Oen9xhEh8PY},</span></span>
-<span id="cb16-341"><a href="#cb16-341"></a><span class="st">  journal = {YouTube},</span></span>
-<span id="cb16-342"><a href="#cb16-342"></a><span class="st">  author = {Albert Rapp},</span></span>
-<span id="cb16-343"><a href="#cb16-343"></a><span class="st">  year = {2024},</span></span>
-<span id="cb16-344"><a href="#cb16-344"></a><span class="st">  month = {11},</span></span>
+<span id="cb16-272"><a href="#cb16-272"></a><span class="ex">@book{wittkuhn2025,</span></span>
+<span id="cb16-273"><a href="#cb16-273"></a>  <span class="ex">author</span> = {Lennart Wittkuhn and Konrad Pagenstedt and Liese Kümmerle},</span>
+<span id="cb16-274"><a href="#cb16-274"></a>  <span class="ex">title</span> = {Version Control Book},</span>
+<span id="cb16-275"><a href="#cb16-275"></a>  <span class="ex">year</span> = {2025},</span>
+<span id="cb16-276"><a href="#cb16-276"></a>  <span class="ex">month</span> = {07},</span>
+<span id="cb16-277"><a href="#cb16-277"></a>  <span class="ex">doi</span> = {10.5281/zenodo.10724424},</span>
+<span id="cb16-278"><a href="#cb16-278"></a>  <span class="ex">url</span> = {https://lennartwittkuhn.com/version-control-book/}</span>
+<span id="cb16-279"><a href="#cb16-279"></a><span class="er">}</span></span>
+<span id="cb16-280"><a href="#cb16-280"></a></span>
+<span id="cb16-281"><a href="#cb16-281"></a><span class="ex">@article{barker2022,</span></span>
+<span id="cb16-282"><a href="#cb16-282"></a>  <span class="ex">author</span> = {Barker, Michelle and Chue Hong, Neil P. and Katz, Daniel S. and Lamprecht, Anna-Lena and Martinez-Ortiz, Carlos and Psomopoulos, Fotis and Harrow, Jennifer and Castro, Leyla Jael and Gruenpeter, Morane and Martinez, Paula Andrea and Honeyman, Tom},</span>
+<span id="cb16-283"><a href="#cb16-283"></a>  <span class="ex">title</span> = {Introducing the FAIR Principles for research software},</span>
+<span id="cb16-284"><a href="#cb16-284"></a>  <span class="ex">year</span> = {2022},</span>
+<span id="cb16-285"><a href="#cb16-285"></a>  <span class="ex">journal</span> = {Scientific Data},</span>
+<span id="cb16-286"><a href="#cb16-286"></a>  <span class="ex">volume</span> = {9},</span>
+<span id="cb16-287"><a href="#cb16-287"></a>  <span class="ex">pages</span> = {622},</span>
+<span id="cb16-288"><a href="#cb16-288"></a>  <span class="ex">doi</span> = {10.1038/s41597-022-01710-x},</span>
+<span id="cb16-289"><a href="#cb16-289"></a>  <span class="ex">url</span> = {https://doi.org/10.1038/s41597-022-01710-x}</span>
+<span id="cb16-290"><a href="#cb16-290"></a>  </span>
+<span id="cb16-291"><a href="#cb16-291"></a><span class="er">}</span></span>
+<span id="cb16-292"><a href="#cb16-292"></a></span>
+<span id="cb16-293"><a href="#cb16-293"></a><span class="ex">@book{wickham2023,</span></span>
+<span id="cb16-294"><a href="#cb16-294"></a>    <span class="ex">title</span> = {R for Data science: Import, Tidy, Transform, Visualize, and Model Data},</span>
+<span id="cb16-295"><a href="#cb16-295"></a>    <span class="ex">author</span> = {Wickham, H. and Çetinkaya-Rundel, M. and Grolemund, G.},</span>
+<span id="cb16-296"><a href="#cb16-296"></a>    <span class="ex">year</span> = {2023},</span>
+<span id="cb16-297"><a href="#cb16-297"></a>    <span class="ex">data</span> = {2023},</span>
+<span id="cb16-298"><a href="#cb16-298"></a>    <span class="ex">publisher</span> = {O<span class="st">'Reilly Media},</span></span>
+<span id="cb16-299"><a href="#cb16-299"></a><span class="st">    url = {https://r4ds.hadley.nz},</span></span>
+<span id="cb16-300"><a href="#cb16-300"></a><span class="st">    note = {License: CC BY-NC-ND 3.0 US}</span></span>
+<span id="cb16-301"><a href="#cb16-301"></a><span class="st">}</span></span>
+<span id="cb16-302"><a href="#cb16-302"></a></span>
+<span id="cb16-303"><a href="#cb16-303"></a><span class="st">@Manual{hester2024,</span></span>
+<span id="cb16-304"><a href="#cb16-304"></a><span class="st">    title = {lintr: A '</span>Linter<span class="st">' for R Code},</span></span>
+<span id="cb16-305"><a href="#cb16-305"></a><span class="st">    author = {Jim Hester and Florent Angly and Russ Hyde and Michael Chirico and Kun Ren and Alexander Rosenstock and Indrajeet Patil},</span></span>
+<span id="cb16-306"><a href="#cb16-306"></a><span class="st">    year = {2024},</span></span>
+<span id="cb16-307"><a href="#cb16-307"></a><span class="st">    note = {R package version 3.1.2},</span></span>
+<span id="cb16-308"><a href="#cb16-308"></a><span class="st">    url = {https://CRAN.R-project.org/package=lintr},</span></span>
+<span id="cb16-309"><a href="#cb16-309"></a><span class="st">}</span></span>
+<span id="cb16-310"><a href="#cb16-310"></a></span>
+<span id="cb16-311"><a href="#cb16-311"></a><span class="st">@Manual{mueller2020,</span></span>
+<span id="cb16-312"><a href="#cb16-312"></a><span class="st">    title = {here: A Simpler Way to Find Your Files},</span></span>
+<span id="cb16-313"><a href="#cb16-313"></a><span class="st">    author = {Kirill Müller},</span></span>
+<span id="cb16-314"><a href="#cb16-314"></a><span class="st">    year = {2020},</span></span>
+<span id="cb16-315"><a href="#cb16-315"></a><span class="st">    note = {R package version 1.0.1, https://github.com/r-lib/here},</span></span>
+<span id="cb16-316"><a href="#cb16-316"></a><span class="st">    url = {https://here.r-lib.org/},</span></span>
+<span id="cb16-317"><a href="#cb16-317"></a><span class="st">  }</span></span>
+<span id="cb16-318"><a href="#cb16-318"></a><span class="st">  </span></span>
+<span id="cb16-319"><a href="#cb16-319"></a><span class="st">@misc{rennie2024,</span></span>
+<span id="cb16-320"><a href="#cb16-320"></a><span class="st">  author       = {Nicola Rennie},</span></span>
+<span id="cb16-321"><a href="#cb16-321"></a><span class="st">  title        = {Writing Better R Code},</span></span>
+<span id="cb16-322"><a href="#cb16-322"></a><span class="st">  year         = {2024},</span></span>
+<span id="cb16-323"><a href="#cb16-323"></a><span class="st">  url          = {https://nrennie.rbind.io/training-better-r-code/},</span></span>
+<span id="cb16-324"><a href="#cb16-324"></a><span class="st">  note         = {Accessed on 2024-11-19}</span></span>
+<span id="cb16-325"><a href="#cb16-325"></a><span class="st">}</span></span>
+<span id="cb16-326"><a href="#cb16-326"></a></span>
+<span id="cb16-327"><a href="#cb16-327"></a><span class="st">@article{haslbeck2022,</span></span>
+<span id="cb16-328"><a href="#cb16-328"></a><span class="st">  author = {Jonas M. Haslbeck and Oisín Ryan and Donald J. Robinaugh and Lourens J. Waldorp and Denny Borsboom},</span></span>
+<span id="cb16-329"><a href="#cb16-329"></a><span class="st">  title = {Modeling Psychopathology: From Data Models to Formal Theories},</span></span>
+<span id="cb16-330"><a href="#cb16-330"></a><span class="st">  year = {2022},</span></span>
+<span id="cb16-331"><a href="#cb16-331"></a><span class="st">  journal = {Psychological Methods},</span></span>
+<span id="cb16-332"><a href="#cb16-332"></a><span class="st">  volume = {27},</span></span>
+<span id="cb16-333"><a href="#cb16-333"></a><span class="st">  issue = {6},</span></span>
+<span id="cb16-334"><a href="#cb16-334"></a><span class="st">  pages = {930-957},</span></span>
+<span id="cb16-335"><a href="#cb16-335"></a><span class="st">  doi = {10.1037/met0000303},</span></span>
+<span id="cb16-336"><a href="#cb16-336"></a><span class="st">  url = {https://doi.org/10.1037/met0000303}</span></span>
+<span id="cb16-337"><a href="#cb16-337"></a><span class="st">}</span></span>
+<span id="cb16-338"><a href="#cb16-338"></a></span>
+<span id="cb16-339"><a href="#cb16-339"></a><span class="st">@Manual{ushey2024,</span></span>
+<span id="cb16-340"><a href="#cb16-340"></a><span class="st">  title = {renv: Project Environments},</span></span>
+<span id="cb16-341"><a href="#cb16-341"></a><span class="st">  author = {Kevin Ushey and Hadley Wickham},</span></span>
+<span id="cb16-342"><a href="#cb16-342"></a><span class="st">  year = {2024},</span></span>
+<span id="cb16-343"><a href="#cb16-343"></a><span class="st">  note = {R package version 1.0.11, https://github.com/rstudio/renv},</span></span>
+<span id="cb16-344"><a href="#cb16-344"></a><span class="st">  url = {https://rstudio.github.io/renv/},</span></span>
 <span id="cb16-345"><a href="#cb16-345"></a><span class="st">}</span></span>
 <span id="cb16-346"><a href="#cb16-346"></a></span>
-<span id="cb16-347"><a href="#cb16-347"></a><span class="st">@book{community2022,</span></span>
-<span id="cb16-348"><a href="#cb16-348"></a><span class="st">    title = {The Turing Way: A handbook for reproducible, ethical and collaborative research},</span></span>
-<span id="cb16-349"><a href="#cb16-349"></a><span class="st">    author = {{The Turing Way Community}},</span></span>
-<span id="cb16-350"><a href="#cb16-350"></a><span class="st">    year = {2022},</span></span>
-<span id="cb16-351"><a href="#cb16-351"></a><span class="st">    month = {07},</span></span>
-<span id="cb16-352"><a href="#cb16-352"></a><span class="st">    date = {2022-07-27},</span></span>
-<span id="cb16-353"><a href="#cb16-353"></a><span class="st">    publisher = {Zenodo},</span></span>
-<span id="cb16-354"><a href="#cb16-354"></a><span class="st">    doi = {10.5281/zenodo.3233853},</span></span>
-<span id="cb16-355"><a href="#cb16-355"></a><span class="st">    url = {https://zenodo.org/record/3233853},</span></span>
-<span id="cb16-356"><a href="#cb16-356"></a><span class="st">    note = {License: \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}. Source: \url{https://github.com/the-turing-way/the-turing-way}. Website: \url{https://the-turing-way.netlify.app/}}</span></span>
-<span id="cb16-357"><a href="#cb16-357"></a><span class="st">}</span></span>
-<span id="cb16-358"><a href="#cb16-358"></a></span>
-<span id="cb16-359"><a href="#cb16-359"></a><span class="st">@misc{wikipedia2025,</span></span>
-<span id="cb16-360"><a href="#cb16-360"></a><span class="st">  title = {Modularity},</span></span>
-<span id="cb16-361"><a href="#cb16-361"></a><span class="st">  url = {https://en.wikipedia.org/wiki/Modularity},</span></span>
-<span id="cb16-362"><a href="#cb16-362"></a><span class="st">  author = {Wikipedia Contributors,},</span></span>
-<span id="cb16-363"><a href="#cb16-363"></a><span class="st">  year = {2025},</span></span>
-<span id="cb16-364"><a href="#cb16-364"></a><span class="st">  month = {02},</span></span>
-<span id="cb16-365"><a href="#cb16-365"></a><span class="st">  day = {10}</span></span>
+<span id="cb16-347"><a href="#cb16-347"></a><span class="st">@misc{rapp2024,</span></span>
+<span id="cb16-348"><a href="#cb16-348"></a><span class="st">  title = {Robust R Code That Will Work Forever With {renv}},</span></span>
+<span id="cb16-349"><a href="#cb16-349"></a><span class="st">  url = {https://www.youtube.com/watch?v=Oen9xhEh8PY},</span></span>
+<span id="cb16-350"><a href="#cb16-350"></a><span class="st">  journal = {YouTube},</span></span>
+<span id="cb16-351"><a href="#cb16-351"></a><span class="st">  author = {Albert Rapp},</span></span>
+<span id="cb16-352"><a href="#cb16-352"></a><span class="st">  year = {2024},</span></span>
+<span id="cb16-353"><a href="#cb16-353"></a><span class="st">  month = {11},</span></span>
+<span id="cb16-354"><a href="#cb16-354"></a><span class="st">}</span></span>
+<span id="cb16-355"><a href="#cb16-355"></a></span>
+<span id="cb16-356"><a href="#cb16-356"></a><span class="st">@book{community2022,</span></span>
+<span id="cb16-357"><a href="#cb16-357"></a><span class="st">    title = {The Turing Way: A handbook for reproducible, ethical and collaborative research},</span></span>
+<span id="cb16-358"><a href="#cb16-358"></a><span class="st">    author = {{The Turing Way Community}},</span></span>
+<span id="cb16-359"><a href="#cb16-359"></a><span class="st">    year = {2022},</span></span>
+<span id="cb16-360"><a href="#cb16-360"></a><span class="st">    month = {07},</span></span>
+<span id="cb16-361"><a href="#cb16-361"></a><span class="st">    date = {2022-07-27},</span></span>
+<span id="cb16-362"><a href="#cb16-362"></a><span class="st">    publisher = {Zenodo},</span></span>
+<span id="cb16-363"><a href="#cb16-363"></a><span class="st">    doi = {10.5281/zenodo.3233853},</span></span>
+<span id="cb16-364"><a href="#cb16-364"></a><span class="st">    url = {https://zenodo.org/record/3233853},</span></span>
+<span id="cb16-365"><a href="#cb16-365"></a><span class="st">    note = {License: \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}. Source: \url{https://github.com/the-turing-way/the-turing-way}. Website: \url{https://the-turing-way.netlify.app/}}</span></span>
 <span id="cb16-366"><a href="#cb16-366"></a><span class="st">}</span></span>
 <span id="cb16-367"><a href="#cb16-367"></a></span>
-<span id="cb16-368"><a href="#cb16-368"></a><span class="st">@article{artner2021,</span></span>
-<span id="cb16-369"><a href="#cb16-369"></a><span class="st">  title = {The Reproducibility of Statistical Results in Psychological Research: An Investigation Using Unpublished Raw Data},</span></span>
-<span id="cb16-370"><a href="#cb16-370"></a><span class="st">  author = {Richard Artner and Thomas Verliefde and Sara Steegen and Sara Gomes and Frits Traets and Francis Tuerlinckx and Wolf Vanpaemel},</span></span>
-<span id="cb16-371"><a href="#cb16-371"></a><span class="st">  year = {2021},</span></span>
-<span id="cb16-372"><a href="#cb16-372"></a><span class="st">  journal = {Psychological Methods},</span></span>
-<span id="cb16-373"><a href="#cb16-373"></a><span class="st">  volume = {26},</span></span>
-<span id="cb16-374"><a href="#cb16-374"></a><span class="st">  issue = {5},</span></span>
-<span id="cb16-375"><a href="#cb16-375"></a><span class="st">  pages = {527-546},</span></span>
-<span id="cb16-376"><a href="#cb16-376"></a><span class="st">  doi = {10.1037/met0000365},</span></span>
-<span id="cb16-377"><a href="#cb16-377"></a><span class="st">  url = {https://doi.org/10.1037/met0000365}</span></span>
-<span id="cb16-378"><a href="#cb16-378"></a><span class="st">}</span></span>
-<span id="cb16-379"><a href="#cb16-379"></a></span>
-<span id="cb16-380"><a href="#cb16-380"></a><span class="st">@article{crüwell2023,</span></span>
-<span id="cb16-381"><a href="#cb16-381"></a><span class="st">  title = {What’s in a Badge? A Computational Reproducibility Investigation of the Open Data Badge Policy in One Issue of Psychological Science},</span></span>
-<span id="cb16-382"><a href="#cb16-382"></a><span class="st">  author = {Sophia Crüwell and Deborah Apthorp and Bradley J. Baker and Lincoln Colling and Malte Elson and Sandra J. Geiger and Sebastian Lobentanzer and Jean Monéger and Alex Patterson and D. Samuel Schwarzkopf and Mirela Zaneva and Nicholas J. L. Brown},</span></span>
-<span id="cb16-383"><a href="#cb16-383"></a><span class="st">  year = {2023},</span></span>
-<span id="cb16-384"><a href="#cb16-384"></a><span class="st">  journal = {Psychological Science},</span></span>
-<span id="cb16-385"><a href="#cb16-385"></a><span class="st">  volume = {34},</span></span>
-<span id="cb16-386"><a href="#cb16-386"></a><span class="st">  issue = {4},</span></span>
-<span id="cb16-387"><a href="#cb16-387"></a><span class="st">  pages = {513-522},</span></span>
-<span id="cb16-388"><a href="#cb16-388"></a><span class="st">  doi = {10.1177/09567976221140828},</span></span>
-<span id="cb16-389"><a href="#cb16-389"></a><span class="st">  url = {https://doi.org/10.1177/09567976221140828}</span></span>
-<span id="cb16-390"><a href="#cb16-390"></a><span class="st">}</span></span>
-<span id="cb16-391"><a href="#cb16-391"></a></span>
-<span id="cb16-392"><a href="#cb16-392"></a><span class="st">@article{hardwicke2021,</span></span>
-<span id="cb16-393"><a href="#cb16-393"></a><span class="st">  title = {Analytic reproducibility in articles receiving open data badges at the Journal *Psychological Science*: an observational study},</span></span>
-<span id="cb16-394"><a href="#cb16-394"></a><span class="st">  author = {Tom E. Hardwicke and Manuel Bohn and Kyle MacDonald and Emily Hembacher and Michéle B. Nuijten and Benjamin N. Peloquin and Benjamin E. deMayo and Bria Long and Erica J. Yoon and Michael C. Frank},</span></span>
-<span id="cb16-395"><a href="#cb16-395"></a><span class="st">  year = {2021},</span></span>
-<span id="cb16-396"><a href="#cb16-396"></a><span class="st">  journal = {Royal Society Open Science},</span></span>
-<span id="cb16-397"><a href="#cb16-397"></a><span class="st">  volume = {8},</span></span>
-<span id="cb16-398"><a href="#cb16-398"></a><span class="st">  pages = {201494},</span></span>
-<span id="cb16-399"><a href="#cb16-399"></a><span class="st">  doi = {10.1098/rsos.201494},</span></span>
-<span id="cb16-400"><a href="#cb16-400"></a><span class="st">  url = {https://doi.org/10.1098/rsos.201494}</span></span>
-<span id="cb16-401"><a href="#cb16-401"></a><span class="st">}</span></span>
-<span id="cb16-402"><a href="#cb16-402"></a></span>
-<span id="cb16-403"><a href="#cb16-403"></a><span class="st">@article{obels2020,</span></span>
-<span id="cb16-404"><a href="#cb16-404"></a><span class="st">  title = {Analysis of Open Data and Computational Reproducibility in Registered Reports in Psychology},</span></span>
-<span id="cb16-405"><a href="#cb16-405"></a><span class="st">  author = {Pepijn Obels and Daniël Lakens and Nicholas A. Coles and Jaroslav Gottfried and Seth A. Green},</span></span>
-<span id="cb16-406"><a href="#cb16-406"></a><span class="st">  year = {2020},</span></span>
-<span id="cb16-407"><a href="#cb16-407"></a><span class="st">  journal = {Advances in Methods and Practices in Psychological Science},</span></span>
-<span id="cb16-408"><a href="#cb16-408"></a><span class="st">  volume = {3},</span></span>
-<span id="cb16-409"><a href="#cb16-409"></a><span class="st">  issue = {2},</span></span>
-<span id="cb16-410"><a href="#cb16-410"></a><span class="st">  pages = {229-237},</span></span>
-<span id="cb16-411"><a href="#cb16-411"></a><span class="st">  doi = {10.1177/2515245920918872},</span></span>
-<span id="cb16-412"><a href="#cb16-412"></a><span class="st">  url = {https://doi.org/10.1177/2515245920918872}</span></span>
-<span id="cb16-413"><a href="#cb16-413"></a><span class="st">}</span></span>
-<span id="cb16-414"><a href="#cb16-414"></a></span>
-<span id="cb16-415"><a href="#cb16-415"></a><span class="st">@article{lakomy2019,</span></span>
-<span id="cb16-416"><a href="#cb16-416"></a><span class="st">  title = {Open Science and the Science-Society Relationship},</span></span>
-<span id="cb16-417"><a href="#cb16-417"></a><span class="st">  author = {Martin Lakomý and Renata Hlavová and Hana Machackova},</span></span>
-<span id="cb16-418"><a href="#cb16-418"></a><span class="st">  year = {2019},</span></span>
-<span id="cb16-419"><a href="#cb16-419"></a><span class="st">  journal = {Society},</span></span>
-<span id="cb16-420"><a href="#cb16-420"></a><span class="st">  volume = {56},</span></span>
-<span id="cb16-421"><a href="#cb16-421"></a><span class="st">  pages = {246-255},</span></span>
-<span id="cb16-422"><a href="#cb16-422"></a><span class="st">  doi = {10.1007/s12115-019-00361-w},</span></span>
-<span id="cb16-423"><a href="#cb16-423"></a><span class="st">  url = {https://doi.org/10.1007/s12115-019-00361-w}</span></span>
-<span id="cb16-424"><a href="#cb16-424"></a><span class="st">}</span></span>
-<span id="cb16-425"><a href="#cb16-425"></a></span>
-<span id="cb16-426"><a href="#cb16-426"></a><span class="st">@book {cribb2010,</span></span>
-<span id="cb16-427"><a href="#cb16-427"></a><span class="st">    author = {Julian Cribb and Tjempaka Sari},</span></span>
-<span id="cb16-428"><a href="#cb16-428"></a><span class="st">    title = {Open Science: Sharing Knowledge in the Global Century},</span></span>
-<span id="cb16-429"><a href="#cb16-429"></a><span class="st">    pages = {230},</span></span>
-<span id="cb16-430"><a href="#cb16-430"></a><span class="st">    year = {2010},</span></span>
-<span id="cb16-431"><a href="#cb16-431"></a><span class="st">    doi = {10.1071/9780643097643},</span></span>
-<span id="cb16-432"><a href="#cb16-432"></a><span class="st">    publisher = {CSIRO Publishing},</span></span>
-<span id="cb16-433"><a href="#cb16-433"></a><span class="st">    isbn = {978-0-643-10183-8},</span></span>
-<span id="cb16-434"><a href="#cb16-434"></a><span class="st">    URL = {https://doi.org/10.1071/9780643097643}</span></span>
-<span id="cb16-435"><a href="#cb16-435"></a><span class="st">}</span></span>
-<span id="cb16-436"><a href="#cb16-436"></a></span>
-<span id="cb16-437"><a href="#cb16-437"></a><span class="st">@article{opensciencecollaboration2015,</span></span>
-<span id="cb16-438"><a href="#cb16-438"></a><span class="st">  title = {Estimating the reproducibility of psychological science},</span></span>
-<span id="cb16-439"><a href="#cb16-439"></a><span class="st">  author = {Open Science Collaboration,},</span></span>
-<span id="cb16-440"><a href="#cb16-440"></a><span class="st">  year = {2015},</span></span>
-<span id="cb16-441"><a href="#cb16-441"></a><span class="st">  month = {august},</span></span>
-<span id="cb16-442"><a href="#cb16-442"></a><span class="st">  date = {2015-08-28},</span></span>
-<span id="cb16-443"><a href="#cb16-443"></a><span class="st">  journal = {Science},</span></span>
-<span id="cb16-444"><a href="#cb16-444"></a><span class="st">  volume = {349},</span></span>
-<span id="cb16-445"><a href="#cb16-445"></a><span class="st">  pages = {aac4716},</span></span>
-<span id="cb16-446"><a href="#cb16-446"></a><span class="st">  doi = {10.1126/science.aac4716},</span></span>
-<span id="cb16-447"><a href="#cb16-447"></a><span class="st">  url = {https://doi.org/10.1126/science.aac4716}</span></span>
-<span id="cb16-448"><a href="#cb16-448"></a><span class="st">}</span></span>
-<span id="cb16-449"><a href="#cb16-449"></a></span>
-<span id="cb16-450"><a href="#cb16-450"></a><span class="st">@article{begley2012,</span></span>
-<span id="cb16-451"><a href="#cb16-451"></a><span class="st">  title = {Raise standards for preclinical cancer research},</span></span>
-<span id="cb16-452"><a href="#cb16-452"></a><span class="st">  author = {C. Glenn Begley and Lee M. Ellis},</span></span>
-<span id="cb16-453"><a href="#cb16-453"></a><span class="st">  year = {2012},</span></span>
-<span id="cb16-454"><a href="#cb16-454"></a><span class="st">  journal = {nature},</span></span>
-<span id="cb16-455"><a href="#cb16-455"></a><span class="st">  volume = {483},</span></span>
-<span id="cb16-456"><a href="#cb16-456"></a><span class="st">  pages = {531-533},</span></span>
-<span id="cb16-457"><a href="#cb16-457"></a><span class="st">  doi = {10.1038/483531a},</span></span>
-<span id="cb16-458"><a href="#cb16-458"></a><span class="st">  url = {https://doi.org/10.1038/483531a}</span></span>
-<span id="cb16-459"><a href="#cb16-459"></a><span class="st">}</span></span>
-<span id="cb16-460"><a href="#cb16-460"></a></span>
-<span id="cb16-461"><a href="#cb16-461"></a><span class="st">@article{stroop1935,</span></span>
-<span id="cb16-462"><a href="#cb16-462"></a><span class="st">  title = {Studies of interference in serial verbal reactions},</span></span>
-<span id="cb16-463"><a href="#cb16-463"></a><span class="st">  author = {Stroop, J. R.},</span></span>
-<span id="cb16-464"><a href="#cb16-464"></a><span class="st">  year = {1935},</span></span>
-<span id="cb16-465"><a href="#cb16-465"></a><span class="st">  journal = {Journal of Experimental Psychology},</span></span>
-<span id="cb16-466"><a href="#cb16-466"></a><span class="st">  volume = {18},</span></span>
-<span id="cb16-467"><a href="#cb16-467"></a><span class="st">  issue = {6},</span></span>
-<span id="cb16-468"><a href="#cb16-468"></a><span class="st">  pages = {643-662},</span></span>
-<span id="cb16-469"><a href="#cb16-469"></a><span class="st">  doi = {10.1037/h0054651},</span></span>
-<span id="cb16-470"><a href="#cb16-470"></a><span class="st">  url = {https://doi.org/10.1037/h0054651}</span></span>
-<span id="cb16-471"><a href="#cb16-471"></a><span class="st">}</span></span>
-<span id="cb16-472"><a href="#cb16-472"></a></span>
-<span id="cb16-473"><a href="#cb16-473"></a><span class="st">@article{williams1996,</span></span>
-<span id="cb16-474"><a href="#cb16-474"></a><span class="st">  title = {The emotional Stroop task and psychopathology},</span></span>
-<span id="cb16-475"><a href="#cb16-475"></a><span class="st">  author = {Williams, J. M. G. and Mathews, A. and MacLeod, C.},</span></span>
-<span id="cb16-476"><a href="#cb16-476"></a><span class="st">  year = {1996},</span></span>
-<span id="cb16-477"><a href="#cb16-477"></a><span class="st">  journal = {Psychological Bulletin},</span></span>
-<span id="cb16-478"><a href="#cb16-478"></a><span class="st">  volume = {120},</span></span>
-<span id="cb16-479"><a href="#cb16-479"></a><span class="st">  issue = {1},</span></span>
-<span id="cb16-480"><a href="#cb16-480"></a><span class="st">  pages = {3-24},</span></span>
-<span id="cb16-481"><a href="#cb16-481"></a><span class="st">  doi = {10.1037/0033-2909.120.1.3},</span></span>
-<span id="cb16-482"><a href="#cb16-482"></a><span class="st">  url = {https://doi.org/10.1037/0033-2909.120.1.3}</span></span>
-<span id="cb16-483"><a href="#cb16-483"></a><span class="st">}</span></span>
-<span id="cb16-484"><a href="#cb16-484"></a></span>
-<span id="cb16-485"><a href="#cb16-485"></a><span class="st">@article{poldrack2019,</span></span>
-<span id="cb16-486"><a href="#cb16-486"></a><span class="st">  title = {The Costs of Reproducibility},</span></span>
-<span id="cb16-487"><a href="#cb16-487"></a><span class="st">  journal = {Neuron},</span></span>
-<span id="cb16-488"><a href="#cb16-488"></a><span class="st">  volume = {101},</span></span>
-<span id="cb16-489"><a href="#cb16-489"></a><span class="st">  number = {1},</span></span>
-<span id="cb16-490"><a href="#cb16-490"></a><span class="st">  pages = {11-14},</span></span>
-<span id="cb16-491"><a href="#cb16-491"></a><span class="st">  year = {2019},</span></span>
-<span id="cb16-492"><a href="#cb16-492"></a><span class="st">  issn = {0896-6273},</span></span>
-<span id="cb16-493"><a href="#cb16-493"></a><span class="st">  doi = {https://doi.org/10.1016/j.neuron.2018.11.030},</span></span>
-<span id="cb16-494"><a href="#cb16-494"></a><span class="st">  url = {https://www.sciencedirect.com/science/article/pii/S0896627318310390},</span></span>
-<span id="cb16-495"><a href="#cb16-495"></a><span class="st">  author = {Russell A. Poldrack},</span></span>
-<span id="cb16-496"><a href="#cb16-496"></a><span class="st">  abstract = {Improving the reproducibility of neuroscience research is of great concern, especially to early-career researchers (ECRs). Here I outline the potential costs for ECRs in adopting practices to improve reproducibility. I highlight the ways in which ECRs can achieve their career goals while doing better science and the need for established researchers to support them in these efforts.}</span></span>
-<span id="cb16-497"><a href="#cb16-497"></a><span class="st">}</span></span>
-<span id="cb16-498"><a href="#cb16-498"></a></span>
-<span id="cb16-499"><a href="#cb16-499"></a><span class="st">@misc{yarkoni2018,</span></span>
-<span id="cb16-500"><a href="#cb16-500"></a><span class="st">  title = {No, it’s not The Incentives — it’s you},</span></span>
-<span id="cb16-501"><a href="#cb16-501"></a><span class="st">  author = {Tal Yarkoni},</span></span>
-<span id="cb16-502"><a href="#cb16-502"></a><span class="st">  url = {https://talyarkoni.org/blog/2018/10/02/no-its-not-the-incentives-its-you/},</span></span>
-<span id="cb16-503"><a href="#cb16-503"></a><span class="st">  year = {2018},</span></span>
-<span id="cb16-504"><a href="#cb16-504"></a><span class="st">  month = {October},</span></span>
-<span id="cb16-505"><a href="#cb16-505"></a><span class="st">  day = {2},</span></span>
-<span id="cb16-506"><a href="#cb16-506"></a><span class="st">  note = {Accessed: 2025-04-04}</span></span>
-<span id="cb16-507"><a href="#cb16-507"></a><span class="st">}</span></span>
-<span id="cb16-508"><a href="#cb16-508"></a></span>
-<span id="cb16-509"><a href="#cb16-509"></a><span class="st">@book{wagner2021,</span></span>
-<span id="cb16-510"><a href="#cb16-510"></a><span class="st">  title        = {The DataLad Handbook},</span></span>
-<span id="cb16-511"><a href="#cb16-511"></a><span class="st">  author       = {DataLad Community},</span></span>
-<span id="cb16-512"><a href="#cb16-512"></a><span class="st">  year         = {2021},</span></span>
-<span id="cb16-513"><a href="#cb16-513"></a><span class="st">  publisher    = {DataLad},</span></span>
-<span id="cb16-514"><a href="#cb16-514"></a><span class="st">  url          = {https://handbook.datalad.org/},</span></span>
-<span id="cb16-515"><a href="#cb16-515"></a><span class="st">  doi          = {https://doi.org/10.5281/zenodo.3608611},</span></span>
-<span id="cb16-516"><a href="#cb16-516"></a><span class="st">  note = {License: \href{https://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0}. Source: \url{https://github.com/datalad-handbook/book?tab=License-1-ov-file}}</span></span>
-<span id="cb16-517"><a href="#cb16-517"></a><span class="st">}</span></span>
-<span id="cb16-518"><a href="#cb16-518"></a></span>
-<span id="cb16-519"><a href="#cb16-519"></a><span class="st">@article{laulie2023,</span></span>
-<span id="cb16-520"><a href="#cb16-520"></a><span class="st">  title = {Exploring self-regulation theory as a mechanism of the effects of psychological contract fulfillment: The role of emotional intelligence},</span></span>
-<span id="cb16-521"><a href="#cb16-521"></a><span class="st">  author = {Lyonel Laulié and Gabriel Briceño-Jiménez and Gisselle Henríquez-Gomez},</span></span>
-<span id="cb16-522"><a href="#cb16-522"></a><span class="st">  year = {2023},</span></span>
-<span id="cb16-523"><a href="#cb16-523"></a><span class="st">  journal = {Frontiers in Psychology},</span></span>
-<span id="cb16-524"><a href="#cb16-524"></a><span class="st">  volume = {14},</span></span>
-<span id="cb16-525"><a href="#cb16-525"></a><span class="st">  url = {https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1090094},</span></span>
-<span id="cb16-526"><a href="#cb16-526"></a><span class="st">  doi = {10.3389/fpsyg.2023.1090094}</span></span>
-<span id="cb16-527"><a href="#cb16-527"></a><span class="st">}</span></span>
-<span id="cb16-528"><a href="#cb16-528"></a></span>
-<span id="cb16-529"><a href="#cb16-529"></a><span class="st">@article{nuijten2024,</span></span>
-<span id="cb16-530"><a href="#cb16-530"></a><span class="st">  author = {Michèle B. Nuijten and Jelte M. Wicherts},</span></span>
-<span id="cb16-531"><a href="#cb16-531"></a><span class="st">  title = {Implementing Statcheck During Peer Review Is Related to a Steep Decline in Statistical-Reporting Inconsistencies},</span></span>
-<span id="cb16-532"><a href="#cb16-532"></a><span class="st">  journal = {Advances in Methods and Practices in Psychological Science},</span></span>
-<span id="cb16-533"><a href="#cb16-533"></a><span class="st">  year = {2024},</span></span>
-<span id="cb16-534"><a href="#cb16-534"></a><span class="st">  volume = {7},</span></span>
-<span id="cb16-535"><a href="#cb16-535"></a><span class="st">  issue = {2},</span></span>
-<span id="cb16-536"><a href="#cb16-536"></a><span class="st">  doi = {10.1177/25152459241258945},</span></span>
-<span id="cb16-537"><a href="#cb16-537"></a><span class="st">  url = {https://doi.org/10.1177/25152459241258945}</span></span>
-<span id="cb16-538"><a href="#cb16-538"></a><span class="st">}</span></span>
-<span id="cb16-539"><a href="#cb16-539"></a></span>
-<span id="cb16-540"><a href="#cb16-540"></a><span class="st">@article{schuck2016,</span></span>
-<span id="cb16-541"><a href="#cb16-541"></a><span class="st">    title = {Human Orbitofrontal Cortex Represents a Cognitive Map of State Space},</span></span>
-<span id="cb16-542"><a href="#cb16-542"></a><span class="st">    author = {Schuck, {Nicolas&nbsp;W.} and Cai, {Ming&nbsp;Bo} and Wilson, {Robert&nbsp;C.} and Niv, Yael},</span></span>
-<span id="cb16-543"><a href="#cb16-543"></a><span class="st">    year = {2016},</span></span>
-<span id="cb16-544"><a href="#cb16-544"></a><span class="st">    month = {09},</span></span>
-<span id="cb16-545"><a href="#cb16-545"></a><span class="st">    date = {2016-09},</span></span>
-<span id="cb16-546"><a href="#cb16-546"></a><span class="st">    journal = {Neuron},</span></span>
-<span id="cb16-547"><a href="#cb16-547"></a><span class="st">    pages = {1402--1412},</span></span>
-<span id="cb16-548"><a href="#cb16-548"></a><span class="st">    volume = {91},</span></span>
-<span id="cb16-549"><a href="#cb16-549"></a><span class="st">    number = {6},</span></span>
-<span id="cb16-550"><a href="#cb16-550"></a><span class="st">    doi = {10.1016/j.neuron.2016.08.019},</span></span>
-<span id="cb16-551"><a href="#cb16-551"></a><span class="st">    url = {http://dx.doi.org/10.1016/j.neuron.2016.08.019},</span></span>
-<span id="cb16-552"><a href="#cb16-552"></a><span class="st">    langid = {en}</span></span>
-<span id="cb16-553"><a href="#cb16-553"></a><span class="st">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-368"><a href="#cb16-368"></a><span class="st">@misc{wikipedia2025,</span></span>
+<span id="cb16-369"><a href="#cb16-369"></a><span class="st">  title = {Modularity},</span></span>
+<span id="cb16-370"><a href="#cb16-370"></a><span class="st">  url = {https://en.wikipedia.org/wiki/Modularity},</span></span>
+<span id="cb16-371"><a href="#cb16-371"></a><span class="st">  author = {Wikipedia Contributors,},</span></span>
+<span id="cb16-372"><a href="#cb16-372"></a><span class="st">  year = {2025},</span></span>
+<span id="cb16-373"><a href="#cb16-373"></a><span class="st">  month = {02},</span></span>
+<span id="cb16-374"><a href="#cb16-374"></a><span class="st">  day = {10}</span></span>
+<span id="cb16-375"><a href="#cb16-375"></a><span class="st">}</span></span>
+<span id="cb16-376"><a href="#cb16-376"></a></span>
+<span id="cb16-377"><a href="#cb16-377"></a><span class="st">@article{artner2021,</span></span>
+<span id="cb16-378"><a href="#cb16-378"></a><span class="st">  title = {The Reproducibility of Statistical Results in Psychological Research: An Investigation Using Unpublished Raw Data},</span></span>
+<span id="cb16-379"><a href="#cb16-379"></a><span class="st">  author = {Richard Artner and Thomas Verliefde and Sara Steegen and Sara Gomes and Frits Traets and Francis Tuerlinckx and Wolf Vanpaemel},</span></span>
+<span id="cb16-380"><a href="#cb16-380"></a><span class="st">  year = {2021},</span></span>
+<span id="cb16-381"><a href="#cb16-381"></a><span class="st">  journal = {Psychological Methods},</span></span>
+<span id="cb16-382"><a href="#cb16-382"></a><span class="st">  volume = {26},</span></span>
+<span id="cb16-383"><a href="#cb16-383"></a><span class="st">  issue = {5},</span></span>
+<span id="cb16-384"><a href="#cb16-384"></a><span class="st">  pages = {527-546},</span></span>
+<span id="cb16-385"><a href="#cb16-385"></a><span class="st">  doi = {10.1037/met0000365},</span></span>
+<span id="cb16-386"><a href="#cb16-386"></a><span class="st">  url = {https://doi.org/10.1037/met0000365}</span></span>
+<span id="cb16-387"><a href="#cb16-387"></a><span class="st">}</span></span>
+<span id="cb16-388"><a href="#cb16-388"></a></span>
+<span id="cb16-389"><a href="#cb16-389"></a><span class="st">@article{crüwell2023,</span></span>
+<span id="cb16-390"><a href="#cb16-390"></a><span class="st">  title = {What’s in a Badge? A Computational Reproducibility Investigation of the Open Data Badge Policy in One Issue of Psychological Science},</span></span>
+<span id="cb16-391"><a href="#cb16-391"></a><span class="st">  author = {Sophia Crüwell and Deborah Apthorp and Bradley J. Baker and Lincoln Colling and Malte Elson and Sandra J. Geiger and Sebastian Lobentanzer and Jean Monéger and Alex Patterson and D. Samuel Schwarzkopf and Mirela Zaneva and Nicholas J. L. Brown},</span></span>
+<span id="cb16-392"><a href="#cb16-392"></a><span class="st">  year = {2023},</span></span>
+<span id="cb16-393"><a href="#cb16-393"></a><span class="st">  journal = {Psychological Science},</span></span>
+<span id="cb16-394"><a href="#cb16-394"></a><span class="st">  volume = {34},</span></span>
+<span id="cb16-395"><a href="#cb16-395"></a><span class="st">  issue = {4},</span></span>
+<span id="cb16-396"><a href="#cb16-396"></a><span class="st">  pages = {513-522},</span></span>
+<span id="cb16-397"><a href="#cb16-397"></a><span class="st">  doi = {10.1177/09567976221140828},</span></span>
+<span id="cb16-398"><a href="#cb16-398"></a><span class="st">  url = {https://doi.org/10.1177/09567976221140828}</span></span>
+<span id="cb16-399"><a href="#cb16-399"></a><span class="st">}</span></span>
+<span id="cb16-400"><a href="#cb16-400"></a></span>
+<span id="cb16-401"><a href="#cb16-401"></a><span class="st">@article{hardwicke2021,</span></span>
+<span id="cb16-402"><a href="#cb16-402"></a><span class="st">  title = {Analytic reproducibility in articles receiving open data badges at the Journal *Psychological Science*: an observational study},</span></span>
+<span id="cb16-403"><a href="#cb16-403"></a><span class="st">  author = {Tom E. Hardwicke and Manuel Bohn and Kyle MacDonald and Emily Hembacher and Michéle B. Nuijten and Benjamin N. Peloquin and Benjamin E. deMayo and Bria Long and Erica J. Yoon and Michael C. Frank},</span></span>
+<span id="cb16-404"><a href="#cb16-404"></a><span class="st">  year = {2021},</span></span>
+<span id="cb16-405"><a href="#cb16-405"></a><span class="st">  journal = {Royal Society Open Science},</span></span>
+<span id="cb16-406"><a href="#cb16-406"></a><span class="st">  volume = {8},</span></span>
+<span id="cb16-407"><a href="#cb16-407"></a><span class="st">  pages = {201494},</span></span>
+<span id="cb16-408"><a href="#cb16-408"></a><span class="st">  doi = {10.1098/rsos.201494},</span></span>
+<span id="cb16-409"><a href="#cb16-409"></a><span class="st">  url = {https://doi.org/10.1098/rsos.201494}</span></span>
+<span id="cb16-410"><a href="#cb16-410"></a><span class="st">}</span></span>
+<span id="cb16-411"><a href="#cb16-411"></a></span>
+<span id="cb16-412"><a href="#cb16-412"></a><span class="st">@article{obels2020,</span></span>
+<span id="cb16-413"><a href="#cb16-413"></a><span class="st">  title = {Analysis of Open Data and Computational Reproducibility in Registered Reports in Psychology},</span></span>
+<span id="cb16-414"><a href="#cb16-414"></a><span class="st">  author = {Pepijn Obels and Daniël Lakens and Nicholas A. Coles and Jaroslav Gottfried and Seth A. Green},</span></span>
+<span id="cb16-415"><a href="#cb16-415"></a><span class="st">  year = {2020},</span></span>
+<span id="cb16-416"><a href="#cb16-416"></a><span class="st">  journal = {Advances in Methods and Practices in Psychological Science},</span></span>
+<span id="cb16-417"><a href="#cb16-417"></a><span class="st">  volume = {3},</span></span>
+<span id="cb16-418"><a href="#cb16-418"></a><span class="st">  issue = {2},</span></span>
+<span id="cb16-419"><a href="#cb16-419"></a><span class="st">  pages = {229-237},</span></span>
+<span id="cb16-420"><a href="#cb16-420"></a><span class="st">  doi = {10.1177/2515245920918872},</span></span>
+<span id="cb16-421"><a href="#cb16-421"></a><span class="st">  url = {https://doi.org/10.1177/2515245920918872}</span></span>
+<span id="cb16-422"><a href="#cb16-422"></a><span class="st">}</span></span>
+<span id="cb16-423"><a href="#cb16-423"></a></span>
+<span id="cb16-424"><a href="#cb16-424"></a><span class="st">@article{lakomy2019,</span></span>
+<span id="cb16-425"><a href="#cb16-425"></a><span class="st">  title = {Open Science and the Science-Society Relationship},</span></span>
+<span id="cb16-426"><a href="#cb16-426"></a><span class="st">  author = {Martin Lakomý and Renata Hlavová and Hana Machackova},</span></span>
+<span id="cb16-427"><a href="#cb16-427"></a><span class="st">  year = {2019},</span></span>
+<span id="cb16-428"><a href="#cb16-428"></a><span class="st">  journal = {Society},</span></span>
+<span id="cb16-429"><a href="#cb16-429"></a><span class="st">  volume = {56},</span></span>
+<span id="cb16-430"><a href="#cb16-430"></a><span class="st">  pages = {246-255},</span></span>
+<span id="cb16-431"><a href="#cb16-431"></a><span class="st">  doi = {10.1007/s12115-019-00361-w},</span></span>
+<span id="cb16-432"><a href="#cb16-432"></a><span class="st">  url = {https://doi.org/10.1007/s12115-019-00361-w}</span></span>
+<span id="cb16-433"><a href="#cb16-433"></a><span class="st">}</span></span>
+<span id="cb16-434"><a href="#cb16-434"></a></span>
+<span id="cb16-435"><a href="#cb16-435"></a><span class="st">@book {cribb2010,</span></span>
+<span id="cb16-436"><a href="#cb16-436"></a><span class="st">    author = {Julian Cribb and Tjempaka Sari},</span></span>
+<span id="cb16-437"><a href="#cb16-437"></a><span class="st">    title = {Open Science: Sharing Knowledge in the Global Century},</span></span>
+<span id="cb16-438"><a href="#cb16-438"></a><span class="st">    pages = {230},</span></span>
+<span id="cb16-439"><a href="#cb16-439"></a><span class="st">    year = {2010},</span></span>
+<span id="cb16-440"><a href="#cb16-440"></a><span class="st">    doi = {10.1071/9780643097643},</span></span>
+<span id="cb16-441"><a href="#cb16-441"></a><span class="st">    publisher = {CSIRO Publishing},</span></span>
+<span id="cb16-442"><a href="#cb16-442"></a><span class="st">    isbn = {978-0-643-10183-8},</span></span>
+<span id="cb16-443"><a href="#cb16-443"></a><span class="st">    URL = {https://doi.org/10.1071/9780643097643}</span></span>
+<span id="cb16-444"><a href="#cb16-444"></a><span class="st">}</span></span>
+<span id="cb16-445"><a href="#cb16-445"></a></span>
+<span id="cb16-446"><a href="#cb16-446"></a><span class="st">@article{opensciencecollaboration2015,</span></span>
+<span id="cb16-447"><a href="#cb16-447"></a><span class="st">  title = {Estimating the reproducibility of psychological science},</span></span>
+<span id="cb16-448"><a href="#cb16-448"></a><span class="st">  author = {Open Science Collaboration,},</span></span>
+<span id="cb16-449"><a href="#cb16-449"></a><span class="st">  year = {2015},</span></span>
+<span id="cb16-450"><a href="#cb16-450"></a><span class="st">  month = {august},</span></span>
+<span id="cb16-451"><a href="#cb16-451"></a><span class="st">  date = {2015-08-28},</span></span>
+<span id="cb16-452"><a href="#cb16-452"></a><span class="st">  journal = {Science},</span></span>
+<span id="cb16-453"><a href="#cb16-453"></a><span class="st">  volume = {349},</span></span>
+<span id="cb16-454"><a href="#cb16-454"></a><span class="st">  pages = {aac4716},</span></span>
+<span id="cb16-455"><a href="#cb16-455"></a><span class="st">  doi = {10.1126/science.aac4716},</span></span>
+<span id="cb16-456"><a href="#cb16-456"></a><span class="st">  url = {https://doi.org/10.1126/science.aac4716}</span></span>
+<span id="cb16-457"><a href="#cb16-457"></a><span class="st">}</span></span>
+<span id="cb16-458"><a href="#cb16-458"></a></span>
+<span id="cb16-459"><a href="#cb16-459"></a><span class="st">@article{begley2012,</span></span>
+<span id="cb16-460"><a href="#cb16-460"></a><span class="st">  title = {Raise standards for preclinical cancer research},</span></span>
+<span id="cb16-461"><a href="#cb16-461"></a><span class="st">  author = {C. Glenn Begley and Lee M. Ellis},</span></span>
+<span id="cb16-462"><a href="#cb16-462"></a><span class="st">  year = {2012},</span></span>
+<span id="cb16-463"><a href="#cb16-463"></a><span class="st">  journal = {nature},</span></span>
+<span id="cb16-464"><a href="#cb16-464"></a><span class="st">  volume = {483},</span></span>
+<span id="cb16-465"><a href="#cb16-465"></a><span class="st">  pages = {531-533},</span></span>
+<span id="cb16-466"><a href="#cb16-466"></a><span class="st">  doi = {10.1038/483531a},</span></span>
+<span id="cb16-467"><a href="#cb16-467"></a><span class="st">  url = {https://doi.org/10.1038/483531a}</span></span>
+<span id="cb16-468"><a href="#cb16-468"></a><span class="st">}</span></span>
+<span id="cb16-469"><a href="#cb16-469"></a></span>
+<span id="cb16-470"><a href="#cb16-470"></a><span class="st">@article{stroop1935,</span></span>
+<span id="cb16-471"><a href="#cb16-471"></a><span class="st">  title = {Studies of interference in serial verbal reactions},</span></span>
+<span id="cb16-472"><a href="#cb16-472"></a><span class="st">  author = {Stroop, J. R.},</span></span>
+<span id="cb16-473"><a href="#cb16-473"></a><span class="st">  year = {1935},</span></span>
+<span id="cb16-474"><a href="#cb16-474"></a><span class="st">  journal = {Journal of Experimental Psychology},</span></span>
+<span id="cb16-475"><a href="#cb16-475"></a><span class="st">  volume = {18},</span></span>
+<span id="cb16-476"><a href="#cb16-476"></a><span class="st">  issue = {6},</span></span>
+<span id="cb16-477"><a href="#cb16-477"></a><span class="st">  pages = {643-662},</span></span>
+<span id="cb16-478"><a href="#cb16-478"></a><span class="st">  doi = {10.1037/h0054651},</span></span>
+<span id="cb16-479"><a href="#cb16-479"></a><span class="st">  url = {https://doi.org/10.1037/h0054651}</span></span>
+<span id="cb16-480"><a href="#cb16-480"></a><span class="st">}</span></span>
+<span id="cb16-481"><a href="#cb16-481"></a></span>
+<span id="cb16-482"><a href="#cb16-482"></a><span class="st">@article{williams1996,</span></span>
+<span id="cb16-483"><a href="#cb16-483"></a><span class="st">  title = {The emotional Stroop task and psychopathology},</span></span>
+<span id="cb16-484"><a href="#cb16-484"></a><span class="st">  author = {Williams, J. M. G. and Mathews, A. and MacLeod, C.},</span></span>
+<span id="cb16-485"><a href="#cb16-485"></a><span class="st">  year = {1996},</span></span>
+<span id="cb16-486"><a href="#cb16-486"></a><span class="st">  journal = {Psychological Bulletin},</span></span>
+<span id="cb16-487"><a href="#cb16-487"></a><span class="st">  volume = {120},</span></span>
+<span id="cb16-488"><a href="#cb16-488"></a><span class="st">  issue = {1},</span></span>
+<span id="cb16-489"><a href="#cb16-489"></a><span class="st">  pages = {3-24},</span></span>
+<span id="cb16-490"><a href="#cb16-490"></a><span class="st">  doi = {10.1037/0033-2909.120.1.3},</span></span>
+<span id="cb16-491"><a href="#cb16-491"></a><span class="st">  url = {https://doi.org/10.1037/0033-2909.120.1.3}</span></span>
+<span id="cb16-492"><a href="#cb16-492"></a><span class="st">}</span></span>
+<span id="cb16-493"><a href="#cb16-493"></a></span>
+<span id="cb16-494"><a href="#cb16-494"></a><span class="st">@article{poldrack2019,</span></span>
+<span id="cb16-495"><a href="#cb16-495"></a><span class="st">  title = {The Costs of Reproducibility},</span></span>
+<span id="cb16-496"><a href="#cb16-496"></a><span class="st">  journal = {Neuron},</span></span>
+<span id="cb16-497"><a href="#cb16-497"></a><span class="st">  volume = {101},</span></span>
+<span id="cb16-498"><a href="#cb16-498"></a><span class="st">  number = {1},</span></span>
+<span id="cb16-499"><a href="#cb16-499"></a><span class="st">  pages = {11-14},</span></span>
+<span id="cb16-500"><a href="#cb16-500"></a><span class="st">  year = {2019},</span></span>
+<span id="cb16-501"><a href="#cb16-501"></a><span class="st">  issn = {0896-6273},</span></span>
+<span id="cb16-502"><a href="#cb16-502"></a><span class="st">  doi = {https://doi.org/10.1016/j.neuron.2018.11.030},</span></span>
+<span id="cb16-503"><a href="#cb16-503"></a><span class="st">  url = {https://www.sciencedirect.com/science/article/pii/S0896627318310390},</span></span>
+<span id="cb16-504"><a href="#cb16-504"></a><span class="st">  author = {Russell A. Poldrack},</span></span>
+<span id="cb16-505"><a href="#cb16-505"></a><span class="st">  abstract = {Improving the reproducibility of neuroscience research is of great concern, especially to early-career researchers (ECRs). Here I outline the potential costs for ECRs in adopting practices to improve reproducibility. I highlight the ways in which ECRs can achieve their career goals while doing better science and the need for established researchers to support them in these efforts.}</span></span>
+<span id="cb16-506"><a href="#cb16-506"></a><span class="st">}</span></span>
+<span id="cb16-507"><a href="#cb16-507"></a></span>
+<span id="cb16-508"><a href="#cb16-508"></a><span class="st">@misc{yarkoni2018,</span></span>
+<span id="cb16-509"><a href="#cb16-509"></a><span class="st">  title = {No, it’s not The Incentives — it’s you},</span></span>
+<span id="cb16-510"><a href="#cb16-510"></a><span class="st">  author = {Tal Yarkoni},</span></span>
+<span id="cb16-511"><a href="#cb16-511"></a><span class="st">  url = {https://talyarkoni.org/blog/2018/10/02/no-its-not-the-incentives-its-you/},</span></span>
+<span id="cb16-512"><a href="#cb16-512"></a><span class="st">  year = {2018},</span></span>
+<span id="cb16-513"><a href="#cb16-513"></a><span class="st">  month = {October},</span></span>
+<span id="cb16-514"><a href="#cb16-514"></a><span class="st">  day = {2},</span></span>
+<span id="cb16-515"><a href="#cb16-515"></a><span class="st">  note = {Accessed: 2025-04-04}</span></span>
+<span id="cb16-516"><a href="#cb16-516"></a><span class="st">}</span></span>
+<span id="cb16-517"><a href="#cb16-517"></a></span>
+<span id="cb16-518"><a href="#cb16-518"></a><span class="st">@book{wagner2021,</span></span>
+<span id="cb16-519"><a href="#cb16-519"></a><span class="st">  title        = {The DataLad Handbook},</span></span>
+<span id="cb16-520"><a href="#cb16-520"></a><span class="st">  author       = {DataLad Community},</span></span>
+<span id="cb16-521"><a href="#cb16-521"></a><span class="st">  year         = {2021},</span></span>
+<span id="cb16-522"><a href="#cb16-522"></a><span class="st">  publisher    = {DataLad},</span></span>
+<span id="cb16-523"><a href="#cb16-523"></a><span class="st">  url          = {https://handbook.datalad.org/},</span></span>
+<span id="cb16-524"><a href="#cb16-524"></a><span class="st">  doi          = {https://doi.org/10.5281/zenodo.3608611},</span></span>
+<span id="cb16-525"><a href="#cb16-525"></a><span class="st">  note = {License: \href{https://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0}. Source: \url{https://github.com/datalad-handbook/book?tab=License-1-ov-file}}</span></span>
+<span id="cb16-526"><a href="#cb16-526"></a><span class="st">}</span></span>
+<span id="cb16-527"><a href="#cb16-527"></a></span>
+<span id="cb16-528"><a href="#cb16-528"></a><span class="st">@article{laulie2023,</span></span>
+<span id="cb16-529"><a href="#cb16-529"></a><span class="st">  title = {Exploring self-regulation theory as a mechanism of the effects of psychological contract fulfillment: The role of emotional intelligence},</span></span>
+<span id="cb16-530"><a href="#cb16-530"></a><span class="st">  author = {Lyonel Laulié and Gabriel Briceño-Jiménez and Gisselle Henríquez-Gomez},</span></span>
+<span id="cb16-531"><a href="#cb16-531"></a><span class="st">  year = {2023},</span></span>
+<span id="cb16-532"><a href="#cb16-532"></a><span class="st">  journal = {Frontiers in Psychology},</span></span>
+<span id="cb16-533"><a href="#cb16-533"></a><span class="st">  volume = {14},</span></span>
+<span id="cb16-534"><a href="#cb16-534"></a><span class="st">  url = {https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1090094},</span></span>
+<span id="cb16-535"><a href="#cb16-535"></a><span class="st">  doi = {10.3389/fpsyg.2023.1090094}</span></span>
+<span id="cb16-536"><a href="#cb16-536"></a><span class="st">}</span></span>
+<span id="cb16-537"><a href="#cb16-537"></a></span>
+<span id="cb16-538"><a href="#cb16-538"></a><span class="st">@article{nuijten2024,</span></span>
+<span id="cb16-539"><a href="#cb16-539"></a><span class="st">  author = {Michèle B. Nuijten and Jelte M. Wicherts},</span></span>
+<span id="cb16-540"><a href="#cb16-540"></a><span class="st">  title = {Implementing Statcheck During Peer Review Is Related to a Steep Decline in Statistical-Reporting Inconsistencies},</span></span>
+<span id="cb16-541"><a href="#cb16-541"></a><span class="st">  journal = {Advances in Methods and Practices in Psychological Science},</span></span>
+<span id="cb16-542"><a href="#cb16-542"></a><span class="st">  year = {2024},</span></span>
+<span id="cb16-543"><a href="#cb16-543"></a><span class="st">  volume = {7},</span></span>
+<span id="cb16-544"><a href="#cb16-544"></a><span class="st">  issue = {2},</span></span>
+<span id="cb16-545"><a href="#cb16-545"></a><span class="st">  doi = {10.1177/25152459241258945},</span></span>
+<span id="cb16-546"><a href="#cb16-546"></a><span class="st">  url = {https://doi.org/10.1177/25152459241258945}</span></span>
+<span id="cb16-547"><a href="#cb16-547"></a><span class="st">}</span></span>
+<span id="cb16-548"><a href="#cb16-548"></a></span>
+<span id="cb16-549"><a href="#cb16-549"></a><span class="st">@article{schuck2016,</span></span>
+<span id="cb16-550"><a href="#cb16-550"></a><span class="st">    title = {Human Orbitofrontal Cortex Represents a Cognitive Map of State Space},</span></span>
+<span id="cb16-551"><a href="#cb16-551"></a><span class="st">    author = {Schuck, {Nicolas&nbsp;W.} and Cai, {Ming&nbsp;Bo} and Wilson, {Robert&nbsp;C.} and Niv, Yael},</span></span>
+<span id="cb16-552"><a href="#cb16-552"></a><span class="st">    year = {2016},</span></span>
+<span id="cb16-553"><a href="#cb16-553"></a><span class="st">    month = {09},</span></span>
+<span id="cb16-554"><a href="#cb16-554"></a><span class="st">    date = {2016-09},</span></span>
+<span id="cb16-555"><a href="#cb16-555"></a><span class="st">    journal = {Neuron},</span></span>
+<span id="cb16-556"><a href="#cb16-556"></a><span class="st">    pages = {1402--1412},</span></span>
+<span id="cb16-557"><a href="#cb16-557"></a><span class="st">    volume = {91},</span></span>
+<span id="cb16-558"><a href="#cb16-558"></a><span class="st">    number = {6},</span></span>
+<span id="cb16-559"><a href="#cb16-559"></a><span class="st">    doi = {10.1016/j.neuron.2016.08.019},</span></span>
+<span id="cb16-560"><a href="#cb16-560"></a><span class="st">    url = {http://dx.doi.org/10.1016/j.neuron.2016.08.019},</span></span>
+<span id="cb16-561"><a href="#cb16-561"></a><span class="st">    langid = {en}</span></span>
+<span id="cb16-562"><a href="#cb16-562"></a><span class="st">}</span></span>
+<span id="cb16-563"><a href="#cb16-563"></a></span>
+<span id="cb16-564"><a href="#cb16-564"></a><span class="st">@misc{schoenbrodt2024,</span></span>
+<span id="cb16-565"><a href="#cb16-565"></a><span class="st">  author = {Felix Schoenbrodt},</span></span>
+<span id="cb16-566"><a href="#cb16-566"></a><span class="st">  title = {From the Replicability Crisis to Credible Science},</span></span>
+<span id="cb16-567"><a href="#cb16-567"></a><span class="st">  year = {2024},</span></span>
+<span id="cb16-568"><a href="#cb16-568"></a><span class="st">  url = {https://osf.io/652qw}</span></span>
+<span id="cb16-569"><a href="#cb16-569"></a><span class="st">}</span></span>
+<span id="cb16-570"><a href="#cb16-570"></a></span>
+<span id="cb16-571"><a href="#cb16-571"></a><span class="st">@misc{navarro,</span></span>
+<span id="cb16-572"><a href="#cb16-572"></a><span class="st">  author ={Danielle Navarro},</span></span>
+<span id="cb16-573"><a href="#cb16-573"></a><span class="st">  title = {Project Structure},</span></span>
+<span id="cb16-574"><a href="#cb16-574"></a><span class="st">  url ={https://djnavarro.net/slides-project-structure/#1}</span></span>
+<span id="cb16-575"><a href="#cb16-575"></a><span class="st">}</span></span>
+<span id="cb16-576"><a href="#cb16-576"></a></span>
+<span id="cb16-577"><a href="#cb16-577"></a><span class="st">@misc{berd2023,</span></span>
+<span id="cb16-578"><a href="#cb16-578"></a><span class="st">  author ={Academy, BERD},</span></span>
+<span id="cb16-579"><a href="#cb16-579"></a><span class="st">  title = {BERD Course Booklet: Make Your Research Reproducible},</span></span>
+<span id="cb16-580"><a href="#cb16-580"></a><span class="st">  year = {2023},</span></span>
+<span id="cb16-581"><a href="#cb16-581"></a><span class="st">  url ={https://djnavarro.net/slides-project-structure/#1}</span></span>
+<span id="cb16-582"><a href="#cb16-582"></a><span class="st">}</span></span>
+<span id="cb16-583"><a href="#cb16-583"></a></span>
+<span id="cb16-584"><a href="#cb16-584"></a><span class="st">@software{quarto2025,</span></span>
+<span id="cb16-585"><a href="#cb16-585"></a><span class="st">  author = {Allaire, J.J. and Teague, Charles and Scheidegger, Carlos and Xie, Yihui and Dervieux, Christophe and Woodhull, Gordon},</span></span>
+<span id="cb16-586"><a href="#cb16-586"></a><span class="st">  month = apr,</span></span>
+<span id="cb16-587"><a href="#cb16-587"></a><span class="st">  title = {Quarto},</span></span>
+<span id="cb16-588"><a href="#cb16-588"></a><span class="st">  doi = {10.5281/zenodo.5960048},</span></span>
+<span id="cb16-589"><a href="#cb16-589"></a><span class="st">  url = {https://github.com/quarto-dev/quarto-cli},</span></span>
+<span id="cb16-590"><a href="#cb16-590"></a><span class="st">  version = {1.7},</span></span>
+<span id="cb16-591"><a href="#cb16-591"></a><span class="st">  year = {2025}</span></span>
+<span id="cb16-592"><a href="#cb16-592"></a><span class="st">}</span></span>
+<span id="cb16-593"><a href="#cb16-593"></a></span>
+<span id="cb16-594"><a href="#cb16-594"></a><span class="st">@misc{wittkuhn2023,</span></span>
+<span id="cb16-595"><a href="#cb16-595"></a><span class="st">  author = {Wittkuhn, Lennart},</span></span>
+<span id="cb16-596"><a href="#cb16-596"></a><span class="st">  title = {Introduction to Quarto},</span></span>
+<span id="cb16-597"><a href="#cb16-597"></a><span class="st">  license = {CC-BY-4.0},</span></span>
+<span id="cb16-598"><a href="#cb16-598"></a><span class="st">  url = {https://github.com/lnnrtwttkhn/quarto-presentation/},</span></span>
+<span id="cb16-599"><a href="#cb16-599"></a><span class="st">  version = {1.0},</span></span>
+<span id="cb16-600"><a href="#cb16-600"></a><span class="st">  year = {2023}</span></span>
+<span id="cb16-601"><a href="#cb16-601"></a><span class="st">}</span></span>
+<span id="cb16-602"><a href="#cb16-602"></a></span>
+<span id="cb16-603"><a href="#cb16-603"></a><span class="st">@software{schneider2025,</span></span>
+<span id="cb16-604"><a href="#cb16-604"></a><span class="st">  author = {Schneider, William Joel},</span></span>
+<span id="cb16-605"><a href="#cb16-605"></a><span class="st">  title = {apaquarto},</span></span>
+<span id="cb16-606"><a href="#cb16-606"></a><span class="st">  license = {CC0-1.0},</span></span>
+<span id="cb16-607"><a href="#cb16-607"></a><span class="st">  year = {2025},</span></span>
+<span id="cb16-608"><a href="#cb16-608"></a><span class="st">  url = {https://github.com/wjschne/apaquarto}</span></span>
+<span id="cb16-609"><a href="#cb16-609"></a><span class="st">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </details>
@@ -2037,7 +2096,7 @@ Note&nbsp;9.3: Resources for <code>.csl</code> files
 </ol>
 <p>After you have installed all things, you can successfully install <code>apaquarto</code>. Most likely you have installed R and RStudio. To check whether Quarto is already installed, see <a href="#tip-quarto-check" class="quarto-xref">Tip&nbsp;<span>9.4</span></a>.</p>
 <div id="tip-quarto-check" class="callout callout-style-default callout-tip callout-titled" title="How to check whether Quarto is already installed">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2054,7 +2113,7 @@ Tip&nbsp;9.4: How to check whether Quarto is already installed
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <p>If you already have Quarto installed, the current version of Quarto should be displayed.</p>
@@ -2063,7 +2122,7 @@ Tip&nbsp;9.4: How to check whether Quarto is already installed
 <div class="code-with-filename-file">
 <pre><strong>Output</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1.4.551</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">1.4.551</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <p>If you have not installed Quarto yet, you might get a message like this:</p>
@@ -2072,7 +2131,7 @@ Tip&nbsp;9.4: How to check whether Quarto is already installed
 <div class="code-with-filename-file">
 <pre><strong>Output</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Command</span> <span class="st">"quarto --version"</span> not found.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Command</span> <span class="st">"quarto --version"</span> not found.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <p>To install quarto, go head and follow the installation instructions at <a href="https://quarto.org/docs/get-started/">this website</a>.</p>
@@ -2091,7 +2150,7 @@ Tip&nbsp;9.4: How to check whether Quarto is already installed
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add wjschne/apaquarto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add wjschne/apaquarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <ol start="4" type="1">
@@ -2102,10 +2161,10 @@ Tip&nbsp;9.4: How to check whether Quarto is already installed
 <div class="code-with-filename-file">
 <pre><strong>Output</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Quarto</span> extensions may execute code when documents are rendered.</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Quarto</span> extensions may execute code when documents are rendered.</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="ex">If</span> you do not trust the author of the extension,</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="ex">we</span> recommend that you do not install or use the extension.</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> Do you trust the authors of this extension <span class="op">(Y/n)</span> <span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> Do you trust the authors of this extension <span class="op">(Y/n)</span> <span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <ol start="5" type="1">
@@ -2116,14 +2175,14 @@ Tip&nbsp;9.4: How to check whether Quarto is already installed
 <div class="code-with-filename-file">
 <pre><strong>Output</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[✔]</span> Downloading</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[✔]</span> Unzipping</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>          <span class="ex">Found</span> 1 extensions.</span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>          </span>
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> following changes will be made:</span>
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="ex">My</span> Document in APA Style, Seventh Edition    <span class="pp">[</span><span class="st">No change</span><span class="pp">]</span>    <span class="op">(fo</span>rmats)</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>? Would you like to continue (Y/n) &gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>? Would you like to continue (Y/n) &gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <ol start="6" type="1">
@@ -2134,11 +2193,11 @@ Tip&nbsp;9.4: How to check whether Quarto is already installed
 <div class="code-with-filename-file">
 <pre><strong>Output</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[✔]</span> Copying</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[✔]</span> Extension installation complete</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> View documentation using default browser<span class="pp">?</span> <span class="op">(Y/n)</span> <span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> View documentation using default browser<span class="pp">?</span> <span class="op">(Y/n)</span> <span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <ol start="7" type="1">
@@ -2146,7 +2205,7 @@ Tip&nbsp;9.4: How to check whether Quarto is already installed
 </ol>
 <p>When you now look at your project directory, you can see that a new folder exists called <code>_extensions</code>. In that folder, there is a subfolder called <code>wjschne</code>, which, in turn, contains a subfolder <code>apaquarto</code>. In that <code>apaquarto</code> subfolder, there are many files that constitute the settings for the <code>apaquarto</code> extension. We recommend not to change anything in this <code>_extensions</code> folder and all its subfolders manually.</p>
 <div id="tip-apaquarto-installation-guide" class="callout callout-style-default callout-tip callout-titled" title="View: The `apaquarto` installation guide by William Joel Schneider">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2171,8 +2230,8 @@ Tip&nbsp;9.5: View: The <code>apaquarto</code> installation guide by William Joe
 <div class="code-with-filename-file">
 <pre><strong>YAML header</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode zsh code-annotation-code code-with-copy code-annotated"><code class="sourceCode zsh"><span id="annotated-cell-7-1"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">format:</span></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1">1</button><span id="annotated-cell-7-2" class="code-annotation-target"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">apaquarto-docx:</span> default</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode zsh code-annotation-code code-with-copy code-annotated"><code class="sourceCode zsh"><span id="annotated-cell-7-1"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">format:</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1">1</button><span id="annotated-cell-7-2" class="code-annotation-target"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">apaquarto-docx:</span> default</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
@@ -2190,13 +2249,13 @@ Tip&nbsp;9.5: View: The <code>apaquarto</code> installation guide by William Joe
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Correct storage of your quarto file
+<span class="screen-reader-only">Caution</span>Correct storage of your quarto file
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Make sure that your Quarto document (<code>.qmd</code>) is stored in the same folder as your <code>_extensions</code> folder!</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">Correct placement</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">Incorrect placement</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true" href="">Correct placement</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false" href="">Incorrect placement</a></li></ul>
 <div class="tab-content">
 <div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
 <p>Project Structure</p>
@@ -2246,7 +2305,7 @@ Correct storage of your quarto file
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> remove wjschne/apaquarto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> remove wjschne/apaquarto</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <p>You will get an output like this:</p>
@@ -2255,7 +2314,7 @@ Correct storage of your quarto file
 <div class="code-with-filename-file">
 <pre><strong>Output</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> Are you sure you<span class="st">'d like to remove My Document in APA Style, Seventh Edition? (Y/n) &gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">?</span> Are you sure you<span class="st">'d like to remove My Document in APA Style, Seventh Edition? (Y/n) &gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <p>Type in <strong>Y</strong> and hit <strong>Enter</strong>. If you see the message below, you successfully deleted the extension form your project.</p>
@@ -2264,32 +2323,71 @@ Correct storage of your quarto file
 <div class="code-with-filename-file">
 <pre><strong>Output</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Extension</span> removed.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Extension</span> removed.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
 </section>
-<section id="resources" class="level2" data-number="9.9">
-<h2 data-number="9.9" class="anchored" data-anchor-id="resources"><span class="header-section-number">9.9</span> Resources</h2>
-<ul>
-<li><a href="https://quarto.org/" class="uri">https://quarto.org/</a></li>
-<li><a href="https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html" class="uri">https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html</a></li>
-<li><a href="https://wjschne.github.io/apaquarto/" class="uri">https://wjschne.github.io/apaquarto/</a></li>
-</ul>
+<section id="references" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="references"><span class="header-section-number">9.9</span> References</h2>
+<p>We would like to express our gratitude to the following resources which have been essential in shaping this chapter. We recommend these references for further reading.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Authors</th>
+<th style="text-align: left;">Title</th>
+<th style="text-align: left;">Website</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="citation" data-cites="quarto2025">Allaire et al. (<a href="../references.html#ref-quarto2025" role="doc-biblioref">2025</a>)</span></td>
+<td style="text-align: left;">Quarto</td>
+<td style="text-align: left;"><a href="https://quarto.org/"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+<td style="text-align: left;"><a href="An open-source scientific and technical publishing system">MIT</a></td>
+<td style="text-align: left;"><a href="https://github.com/quarto-dev/quarto-web"><i class="fa-brands fa-github" aria-label="github"></i></a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="citation" data-cites="wittkuhn2023">Wittkuhn (<a href="../references.html#ref-wittkuhn2023" role="doc-biblioref">2023</a>)</span></td>
+<td style="text-align: left;">Introduction to Quarto</td>
+<td style="text-align: left;"><a href="https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+<td style="text-align: left;"><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></td>
+<td style="text-align: left;"><a href="https://github.com/lnnrtwttkhn/quarto-workshop/"><i class="fa-brands fa-github" aria-label="github"></i></a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="citation" data-cites="schneider2025">Schneider (<a href="../references.html#ref-schneider2025" role="doc-biblioref">2025</a>)</span></td>
+<td style="text-align: left;">Introduction to apaquarto</td>
+<td style="text-align: left;"><a href="https://wjschne.github.io/apaquarto/"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+<td style="text-align: left;"><a href="https://creativecommons.org/publicdomain/zero/1.0/deed.de">CCO-1.0</a></td>
+<td style="text-align: left;"><a href="https://github.com/wjschne/apaquarto"><i class="fa-brands fa-github" aria-label="github"></i></a></td>
+</tr>
+</tbody>
+</table>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-quarto2025" class="csl-entry" role="listitem">
+Allaire, J. J., Charles Teague, Carlos Scheidegger, Yihui Xie, Christophe Dervieux, and Gordon Woodhull. 2025. <span>“Quarto.”</span> <a href="https://doi.org/10.5281/zenodo.5960048">https://doi.org/10.5281/zenodo.5960048</a>.
+</div>
 <div id="ref-gorgolewski2016" class="csl-entry" role="listitem">
 Gorgolewski, Krzysztof J., Tibor Auer, Vince D. Calhoun, R. Cameron Craddock, Samir Das, Eugene P. Duff, Guillaume Flandin, et al. 2016. <span>“The Brain Imaging Data Structure, a Format for Organizing and Describing Outputs of Neuroimaging Experiments.”</span> <em>Scientific Data</em> 3 (1). <a href="https://doi.org/10.1038/sdata.2016.44">https://doi.org/10.1038/sdata.2016.44</a>.
 </div>
 <div id="ref-knuth84" class="csl-entry" role="listitem">
 Knuth, Donald E. 1984. <span>“Literate Programming.”</span> <em>Comput. J.</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
 </div>
+<div id="ref-schneider2025" class="csl-entry" role="listitem">
+Schneider, William Joel. 2025. <span>“Apaquarto.”</span> <a href="https://github.com/wjschne/apaquarto">https://github.com/wjschne/apaquarto</a>.
+</div>
 <div id="ref-schuck2016" class="csl-entry" role="listitem">
 Schuck, Nicolas&nbsp;W., Ming&nbsp;Bo Cai, Robert&nbsp;C. Wilson, and Yael Niv. 2016. <span>“Human Orbitofrontal Cortex Represents a Cognitive Map of State Space.”</span> <em>Neuron</em> 91 (6): 1402–12. <a href="https://doi.org/10.1016/j.neuron.2016.08.019">https://doi.org/10.1016/j.neuron.2016.08.019</a>.
 </div>
 <div id="ref-community2022" class="csl-entry" role="listitem">
 The Turing Way Community. 2022. <em>The Turing Way: A Handbook for Reproducible, Ethical and Collaborative Research</em>. Zenodo. <a href="https://doi.org/10.5281/zenodo.3233853">https://doi.org/10.5281/zenodo.3233853</a>.
+</div>
+<div id="ref-wittkuhn2023" class="csl-entry" role="listitem">
+Wittkuhn, Lennart. 2023. <span>“Introduction to Quarto.”</span> <a href="https://github.com/lnnrtwttkhn/quarto-presentation/">https://github.com/lnnrtwttkhn/quarto-presentation/</a>.
 </div>
 </div>
 </section>
@@ -2355,13 +2453,14 @@ The Turing Way Community. 2022. <em>The Turing Way: A Handbook for Reproducible,
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -53,14 +53,17 @@ div.csl-indent {
 <link href="../chapters/intro.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-9f30c2c2d2429ed22c1cf9f617479b3b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-45e8e462cd760eca75dbd85b13f1b7a2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-156e99ea8b6cc823a4f03b0e7aa024c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c73ad759500404bce2aec962950045fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -115,7 +118,9 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">The Repro Book</a> 
         <div class="sidebar-tools-main tools-wide">
@@ -238,7 +243,7 @@ div.csl-indent {
   <li><a href="#reproducibility-hard-and-worth-it" id="toc-reproducibility-hard-and-worth-it" class="nav-link" data-scroll-target="#reproducibility-hard-and-worth-it"><span class="header-section-number">2.2</span> Reproducibility: Hard and worth-it</a></li>
   <li><a href="#reproducibility-pays-off-in-the-long-run" id="toc-reproducibility-pays-off-in-the-long-run" class="nav-link" data-scroll-target="#reproducibility-pays-off-in-the-long-run"><span class="header-section-number">2.3</span> Reproducibility pays off in the long run</a></li>
   <li><a href="#extent-of-reproducibility" id="toc-extent-of-reproducibility" class="nav-link" data-scroll-target="#extent-of-reproducibility"><span class="header-section-number">2.4</span> Extent of reproducibility</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources"><span class="header-section-number">2.5</span> Resources</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2.5</span> References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/motivation-for-reproducibility.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/motivation-for-reproducibility.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -313,7 +318,7 @@ Note&nbsp;2.1: Evaluation of selection criteria in appointment procedures in psy
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Arguments against Open Science practices
+<span class="screen-reader-only">Warning</span>Arguments against Open Science practices
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -345,12 +350,12 @@ Figure&nbsp;2.1: “<a href="https://xkcd.com/2899/">Goodharts Law</a>” by <a 
 </div>
 <p>Let’s take another perspective. First of all, ask yourself: What is your primary goal as a researcher? Is it climbing the career ladder by publishing in high impact factor journals or conducting high quality research or something else? The focus on performing well on measures that quantify research quality (like <em>Impact-Factor</em> and <em>h</em>-index) can lead to a loss of the original objective for which these measures were constructed, the quality of research itself (see <a href="#fig-xkcd-goodharts-law" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>). Does one of them exclude the other? Why do you think so?</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="A short anecdote on believing in most citations = best">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-A short anecdote on believing in most citations = best
+<span class="screen-reader-only">Tip</span>A short anecdote on believing in most citations = best
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -387,7 +392,7 @@ Note
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Arguments for Open Science practices
+<span class="screen-reader-only">Tip</span>Arguments for Open Science practices
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -426,17 +431,64 @@ Figure&nbsp;2.2: “<a href="https://berd-nfdi.github.io/BERD-reproducible-resea
 </div>
 <p>So let’s get started to <strong>improve your reproducibility</strong>.</p>
 </section>
-<section id="resources" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="resources"><span class="header-section-number">2.5</span> Resources</h2>
-<p>If you want to dive deeper in the discussion of the value of reproducibility and Open Science and how to change behavior, here are some resources:</p>
-<ul>
-<li><p><a href="https://talyarkoni.org/blog/2018/10/02/no-its-not-the-incentives-its-you/" class="uri">https://talyarkoni.org/blog/2018/10/02/no-its-not-the-incentives-its-you/</a></p></li>
-<li><p><a href="https://www.sciencedirect.com/science/article/pii/S0896627318310390" class="uri">https://www.sciencedirect.com/science/article/pii/S0896627318310390</a></p></li>
-<li><p><a href="https://erc.europa.eu/manage-your-project/open-science" class="uri">https://erc.europa.eu/manage-your-project/open-science</a></p></li>
-<li><p><a href="https://topfactor.org/" class="uri">https://topfactor.org/</a></p></li>
-<li><p><a href="https://elifesciences.org/articles/16800" class="uri">https://elifesciences.org/articles/16800</a></p></li>
-<li><p><a href="https://osf.io/652qw" class="uri">https://osf.io/652qw</a></p></li>
-</ul>
+<section id="references" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="references"><span class="header-section-number">2.5</span> References</h2>
+<p>We would like to express our gratitude to the following resources which have been essential in shaping this chapter. We recommend these references for further reading.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Authors</th>
+<th style="text-align: left;">Title</th>
+<th style="text-align: left;">Website</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="citation" data-cites="yarkoni2018">Yarkoni (<a href="../references.html#ref-yarkoni2018" role="doc-biblioref">2018</a>)</span></td>
+<td style="text-align: left;">No, it’s not The Incentives — it’s you</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="https://talyarkoni.org/blog/2018/10/02/no-its-not-the-incentives-its-you/"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="citation" data-cites="poldrack2019">Poldrack (<a href="../references.html#ref-poldrack2019" role="doc-biblioref">2019</a>)</span></td>
+<td style="text-align: left;">The Costs of Reproducibility</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="https://www.sciencedirect.com/science/article/pii/S0896627318310390"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">European Research Council</td>
+<td style="text-align: left;">Open Science - Manage your Project</td>
+<td style="text-align: left;"><a href="https://erc.europa.eu/manage-your-project/open-science"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Top Factor</td>
+<td style="text-align: left;">Transparency and Openness Promotion</td>
+<td style="text-align: left;"><a href="https://topfactor.org/"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="citation" data-cites="mckiernan2016">McKiernan et al. (<a href="../references.html#ref-mckiernan2016" role="doc-biblioref">2016</a>)</span></td>
+<td style="text-align: left;">How open science helps researchers succeed</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="https://elifesciences.org/articles/16800"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="citation" data-cites="schoenbrodt2024">Schoenbrodt (<a href="../references.html#ref-schoenbrodt2024" role="doc-biblioref">2024</a>)</span></td>
+<td style="text-align: left;">From the Replicability Crisis to Credible Science</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></td>
+<td style="text-align: left;"><a href="https://osf.io/652qw"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+</tr>
+</tbody>
+</table>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -457,6 +509,9 @@ McKiernan, Erin C, Philip E Bourne, C Titus Brown, Stuart Buck, Amye Kenall, Jen
 </div>
 <div id="ref-poldrack2019" class="csl-entry" role="listitem">
 Poldrack, Russell A. 2019. <span>“The Costs of Reproducibility.”</span> <em>Neuron</em> 101 (1): 11–14. https://doi.org/<a href="https://doi.org/10.1016/j.neuron.2018.11.030">https://doi.org/10.1016/j.neuron.2018.11.030</a>.
+</div>
+<div id="ref-schoenbrodt2024" class="csl-entry" role="listitem">
+Schoenbrodt, Felix. 2024. <span>“From the Replicability Crisis to Credible Science.”</span> <a href="https://osf.io/652qw">https://osf.io/652qw</a>.
 </div>
 <div id="ref-stroop1935" class="csl-entry" role="listitem">
 Stroop, J. R. 1935. <span>“Studies of Interference in Serial Verbal Reactions.”</span> <em>Journal of Experimental Psychology</em> 18: 643–62. <a href="https://doi.org/10.1037/h0054651">https://doi.org/10.1037/h0054651</a>.
@@ -526,13 +581,14 @@ Yarkoni, Tal. 2018. <span>“No, It’s Not the Incentives — It’s You.”</s
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

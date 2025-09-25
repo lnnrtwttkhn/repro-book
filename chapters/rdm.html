@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -88,14 +88,15 @@ div.csl-indent {
 <link href="../chapters/project-structure.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-9f30c2c2d2429ed22c1cf9f617479b3b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-45e8e462cd760eca75dbd85b13f1b7a2.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-156e99ea8b6cc823a4f03b0e7aa024c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c73ad759500404bce2aec962950045fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -141,7 +142,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -181,7 +182,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">The Repro Book</a> 
         <div class="sidebar-tools-main tools-wide">
@@ -310,7 +313,7 @@ window.Quarto = {
   <li><a href="#rectangular-data" id="toc-rectangular-data" class="nav-link" data-scroll-target="#rectangular-data"><span class="header-section-number">5.5.2</span> Rectangular Data</a></li>
   </ul></li>
   <li><a href="#sec-dictionary" id="toc-sec-dictionary" class="nav-link" data-scroll-target="#sec-dictionary"><span class="header-section-number">5.6</span> Data dictionaries</a></li>
-  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements"><span class="header-section-number">5.7</span> Acknowledgements</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5.7</span> References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/repro-book/edit/main/chapters/rdm.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/lnnrtwttkhn/repro-book/blob/main/chapters/rdm.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -401,7 +404,7 @@ Video&nbsp;5.1: <strong>“Data Sharing and Management Snafu in 3 Short Acts”.
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-The <a href="https://www.bbc.com/news/magazine-22223190">story</a> of Reinhart &amp; Rogoff
+<span class="screen-reader-only">Note</span>The <a href="https://www.bbc.com/news/magazine-22223190">story</a> of Reinhart &amp; Rogoff
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -439,7 +442,7 @@ Tip&nbsp;5.1: Excel exercise
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-More problems when using Excel …
+<span class="screen-reader-only">Note</span>More problems when using Excel …
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -463,7 +466,7 @@ Figure&nbsp;5.1: “<a href="https://duet-cdn.vox-cdn.com/thumbor/0x0:500x345/19
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Why is Excel still widely used?
+<span class="screen-reader-only">Caution</span>Why is Excel still widely used?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -586,7 +589,7 @@ Tip
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Questions helping to manage research data
+<span class="screen-reader-only">Tip</span>Questions helping to manage research data
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -617,7 +620,7 @@ Note
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tidy data as additional modular data
+<span class="screen-reader-only">Tip</span>Tidy data as additional modular data
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -640,7 +643,7 @@ Tidy data as additional modular data
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-What is a file-dependency file?
+<span class="screen-reader-only">Note</span>What is a file-dependency file?
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -664,12 +667,12 @@ Figure&nbsp;5.7: “<a href="https://www.nlm.nih.gov/oet/ed/cde/tutorial/02-200.
 <p>The FAIR data principles were originally introduced to enhance the machine readability of data. As a side effect, human readability also increased. However, enhancing reproducibility was not a primary goal when implementing FAIR principles.</p>
 <p>Thus, we will only address two concepts we believe are relevant for computational reproducibility: persistent identifiers, such as <strong>Digital Object Identifiers</strong> (DOIs), and <strong>metadata</strong>. DOIs make your scientific output (e.g., articles, datasets, code) findable, thereby enhancing the possibility of other researchers reproducing your scientific output.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="What is a Digital Object Identifier (DOI)?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-What is a Digital Object Identifier (DOI)?
+<span class="screen-reader-only">Tip</span>What is a Digital Object Identifier (DOI)?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -689,12 +692,12 @@ What is a Digital Object Identifier (DOI)?
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="How to set up a persistent identifier with **OSF**?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How to set up a persistent identifier with <strong>OSF</strong>?
+<span class="screen-reader-only">Note</span>How to set up a persistent identifier with <strong>OSF</strong>?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -716,12 +719,12 @@ How to set up a persistent identifier with <strong>OSF</strong>?
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="How to set up a persistent identifier with **Zenodo**?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How to set up a persistent identifier with <strong>Zenodo</strong>?
+<span class="screen-reader-only">Note</span>How to set up a persistent identifier with <strong>Zenodo</strong>?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -732,12 +735,12 @@ How to set up a persistent identifier with <strong>Zenodo</strong>?
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="What is metadata?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-What is metadata?
+<span class="screen-reader-only">Tip</span>What is metadata?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -797,7 +800,7 @@ Figure&nbsp;5.9: “<a href="https://www.nature.com/articles/sdata201644/figures
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Steps to create a BIDS compatible dataset
+<span class="screen-reader-only">Note</span>Steps to create a BIDS compatible dataset
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -821,7 +824,7 @@ Steps to create a BIDS compatible dataset
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Benefits of BIDS
+<span class="screen-reader-only">Tip</span>Benefits of BIDS
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -841,7 +844,7 @@ Previously, preprocessing fMRI data was a time-consuming task for PhD students a
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Minimum requirements of a Psych-DS congruent project
+<span class="screen-reader-only">Note</span>Minimum requirements of a Psych-DS congruent project
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -862,7 +865,7 @@ Minimum requirements of a Psych-DS congruent project
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Metadata requirements
+<span class="screen-reader-only">Tip</span>Metadata requirements
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -879,7 +882,7 @@ Metadata requirements
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example of a Psych-DS sample folder
+<span class="screen-reader-only">Note</span>Example of a Psych-DS sample folder
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -919,7 +922,7 @@ Example of a Psych-DS sample folder
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Rules of rectangular data <span class="citation" data-cites="broman2018">(<a href="../references.html#ref-broman2018" role="doc-biblioref">Broman and Woo 2018</a>)</span>
+<span class="screen-reader-only">Tip</span>Rules of rectangular data <span class="citation" data-cites="broman2018">(<a href="../references.html#ref-broman2018" role="doc-biblioref">Broman and Woo 2018</a>)</span>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -956,12 +959,12 @@ Rules of rectangular data <span class="citation" data-cites="broman2018">(<a hre
 <h4 data-number="5.5.2.4" class="anchored" data-anchor-id="make-it-a-rectangle"><span class="header-section-number">5.5.2.4</span> Make it a rectangle</h4>
 <p>As your data usually resides in a two-dimensional spreadsheet, it is best to layout your data in a two-dimensional format as well. Use columns for variables and rows for subjects or observations. The first row should contain variable names. If some data do not fit into one dataset, create a set of rectangular datasets and save them in separate files. Do not use multiple header rows. You can further apply the concept of <code>tidy data</code> <span class="citation" data-cites="wickham2014">(<a href="../references.html#ref-wickham2014" role="doc-biblioref">Wickham 2014</a>)</span> to your rectangular dataset (see <a href="good-coding-practices.html#sec-tidydata" class="quarto-xref"><span>Section 7.5</span></a>).</p>
 <div class="callout callout-style-default callout-caution callout-titled" title="Example of multiple header rows">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example of multiple header rows
+<span class="screen-reader-only">Caution</span>Example of multiple header rows
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1032,19 +1035,19 @@ Example of multiple header rows
 <h4 data-number="5.5.2.7" class="anchored" data-anchor-id="make-backups"><span class="header-section-number">5.5.2.7</span> Make Backups</h4>
 <p>Back up your data regularly in multiple locations. Consider using a version control system like Git (see <a href="https://lennartwittkuhn.com/version-control-book/">Version Control Book</a>). When you have finished entering data, <em>write-protect</em> your data file. This ensures that you do not accidentally make changes to your dataset.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Write-protecting your data">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Write-protecting your data
+<span class="screen-reader-only">Tip</span>Write-protecting your data
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><i class="fa-brands fa-apple" aria-label="apple"></i> Mac</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><i class="fa-brands fa-windows" aria-label="windows"></i> Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><i class="fa-brands fa-linux" aria-label="linux"></i> Linux</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href=""><i class="fa-brands fa-apple" aria-label="apple"></i> Mac</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href=""><i class="fa-brands fa-windows" aria-label="windows"></i> Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href=""><i class="fa-brands fa-linux" aria-label="linux"></i> Linux</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <ol type="1">
@@ -1111,12 +1114,12 @@ Write-protecting your data
 </ol>
 <p>Ideally, your data dictionary should also be stored in a <strong>rectangular format</strong>. Another option is to use a <code>.json</code> file. This offers more flexibility but also presents a new challenge in organizing the data.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Learn more: What is a `json` file?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Learn more: What is a <code>json</code> file?
+<span class="screen-reader-only">Tip</span>Learn more: What is a <code>json</code> file?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1128,7 +1131,7 @@ Learn more: What is a <code>json</code> file?
 <div class="code-with-filename-file">
 <pre><strong>json Code</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"agr1"</span><span class="fu">,</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"item_wording"</span><span class="fu">:</span> <span class="st">"I make people feel at ease."</span><span class="fu">,</span></span>
@@ -1145,7 +1148,7 @@ Learn more: What is a <code>json</code> file?
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"min_value"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"max_value"</span><span class="fu">:</span> <span class="dv">5</span></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1157,7 +1160,7 @@ Learn more: What is a <code>json</code> file?
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Benefits of a <code>json</code>-file
+<span class="screen-reader-only">Note</span>Benefits of a <code>json</code>-file
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1170,19 +1173,19 @@ Benefits of a <code>json</code>-file
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="How to work with `json` files in R">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How to work with <code>json</code> files in R
+<span class="screen-reader-only">Note</span>How to work with <code>json</code> files in R
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Create a <code>json</code> file</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Read <code>json</code>-file into R</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Create a <code>json</code> file</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Read <code>json</code>-file into R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <ol type="1">
@@ -1200,7 +1203,7 @@ How to work with <code>json</code> files in R
 <div class="code-with-filename-file">
 <pre><strong>Code</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"jsonlite"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"jsonlite"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <ol start="2" type="1">
@@ -1211,7 +1214,7 @@ How to work with <code>json</code> files in R
 <div class="code-with-filename-file">
 <pre><strong>Code</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <ol start="3" type="1">
@@ -1222,7 +1225,7 @@ How to work with <code>json</code> files in R
 <div class="code-with-filename-file">
 <pre><strong>Code</strong></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>codebook <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(<span class="st">"path/to/your-json-file.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>codebook <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(<span class="st">"path/to/your-json-file.json"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <ol start="4" type="1">
@@ -1235,9 +1238,36 @@ How to work with <code>json</code> files in R
 </div>
 </div>
 </section>
-<section id="acknowledgements" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="acknowledgements"><span class="header-section-number">5.7</span> Acknowledgements</h2>
-<p><a href="https://orcid.org/0000-0002-9388-5535">Dr.&nbsp;Maike Kleemeyer</a> and the Research Data Management and Open Science working group at the <a href="{{< links.mpib >}}">Max Planck Institute for Human Development, Berlin</a>.</p>
+<section id="references" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="references"><span class="header-section-number">5.7</span> References</h2>
+<p>We would like to express our gratitude to <a href="https://orcid.org/0000-0002-9388-5535">Dr.&nbsp;Maike Kleemeyer</a> and the Research Data Management and Open Science working group at the <a href="{{< links.mpib >}}">Max Planck Institute for Human Development, Berlin</a>, as well as the following references, which have been essential in shaping this chapter. We also recommend these references for further reading.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Authors</th>
+<th style="text-align: left;">Title</th>
+<th style="text-align: left;">Website</th>
+<th style="text-align: left;">License</th>
+<th style="text-align: left;">Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="citation" data-cites="yarkoni2018">Yarkoni (<a href="../references.html#ref-yarkoni2018" role="doc-biblioref">2018</a>)</span></td>
+<td style="text-align: left;">No, it’s not The Incentives — it’s you</td>
+<td style="text-align: left;"><a href="https://talyarkoni.org/blog/2018/10/02/no-its-not-the-incentives-its-you/"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="citation" data-cites="poldrack2019">Poldrack (<a href="../references.html#ref-poldrack2019" role="doc-biblioref">2019</a>)</span></td>
+<td style="text-align: left;">The Costs of Reproducibility</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="https://www.sciencedirect.com/science/article/pii/S0896627318310390"><i class="fa-solid fa-display" aria-label="display"></i></a></td>
+</tr>
+</tbody>
+</table>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -1262,6 +1292,9 @@ Hanson, Karen, Alisa Surkis, and Karen Yacobucci. 2019. <span>“Data Sharing an
 <div id="ref-herndon2014" class="csl-entry" role="listitem">
 Herndon, Thomas, Michael Ash, and Robert Pollin. 2014. <span>“Does High Public Debt Consistently Stifle Economic Growth? A Critique of Reinhart and Rogoff.”</span> <em>Cambridge Journal of Economics</em> 38 (2): 257–79. <a href="https://doi.org/10.1093/cje/bet075">https://doi.org/10.1093/cje/bet075</a>.
 </div>
+<div id="ref-poldrack2019" class="csl-entry" role="listitem">
+Poldrack, Russell A. 2019. <span>“The Costs of Reproducibility.”</span> <em>Neuron</em> 101 (1): 11–14. https://doi.org/<a href="https://doi.org/10.1016/j.neuron.2018.11.030">https://doi.org/10.1016/j.neuron.2018.11.030</a>.
+</div>
 <div id="ref-reinhart2010" class="csl-entry" role="listitem">
 Reinhart, Carmen M., and Kenneth S. Rogoff. 2010. <span>“Growth in a Time of Debt.”</span> <em>American Economic Review</em> 100 (2): 573–78. <a href="https://doi.org/10.1257/aer.100.2.573">https://doi.org/10.1257/aer.100.2.573</a>.
 </div>
@@ -1279,6 +1312,9 @@ Wilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Applet
 </div>
 <div id="ref-wittkuhn2024" class="csl-entry" role="listitem">
 Wittkuhn, Lennart, and Konrad Pagenstedt. 2024. <em>Version Control Book</em>. ZFDM Repository. <a href="https://doi.org/10.25592/uhhfdm.14149">https://doi.org/10.25592/uhhfdm.14149</a>.
+</div>
+<div id="ref-yarkoni2018" class="csl-entry" role="listitem">
+Yarkoni, Tal. 2018. <span>“No, It’s Not the Incentives — It’s You.”</span> <a href="https://talyarkoni.org/blog/2018/10/02/no-its-not-the-incentives-its-you/">https://talyarkoni.org/blog/2018/10/02/no-its-not-the-incentives-its-you/</a>.
 </div>
 <div id="ref-ziemann2016" class="csl-entry" role="listitem">
 Ziemann, M., Y. Eren, and A. El-Osta. 2016. <span>“Gene Name Erorrs Are Widespread in the Scientific Literature.”</span> <em>Genome Biology</em> 17 (August). <a href="https://doi.org/10.1186/s13059-016-1044-7">https://doi.org/10.1186/s13059-016-1044-7</a>.
@@ -1345,13 +1381,14 @@ Ziemann, M., Y. Eren, and A. El-Osta. 2016. <span>“Gene Name Erorrs Are Widesp
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
