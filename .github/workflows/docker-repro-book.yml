@@ -1,0 +1,45 @@
+name: Build and Push Docker Image for Repro Book
+
+on:
+  push:
+    paths:
+      - 'renv.lock'
+      - '.docker/repro-book/Dockerfile'
+      - '.github/workflows/docker-repro-book.yml'
+  workflow_dispatch: # allows manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    env:
+      IMAGE_NAME: lnnrtwttkhn/repro-book
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Ensure the full history is fetched so the commit hash is available
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Get short commit hash
+        id: vars
+        run: echo "hash=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Build Docker image
+        run: |
+          docker build -f .docker/repro-book/Dockerfile -t $IMAGE_NAME:${{ steps.vars.outputs.hash }} .
+
+      - name: Push Docker image
+        run: |
+          docker push $IMAGE_NAME:${{ steps.vars.outputs.hash }}
+          docker tag $IMAGE_NAME:${{ steps.vars.outputs.hash }} $IMAGE_NAME:latest
+          docker push $IMAGE_NAME:latest
