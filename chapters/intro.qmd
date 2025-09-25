@@ -238,3 +238,15 @@ You will not learn anything new on purpose about a programming language.
 However, you will learn concepts derived from programming that benefits your research.
 Thus, some parts of the book seem quite technical.
 Nevertheless, these technical parts aim to make your research more robust and less error-prone regarding reproducibility.
+
+## References
+
+We would like to express our gratitude to the following resources which have been essential in shaping this chapter. We recommend these references for further reading.
+
+|Authors|Title|Website|License|Source|
+|:---|:---|:---|:---|:---|
+|@john2012|Measuring the Prevalence of Questionable Research Practices With Incentives for Truth Telling|||[{{< fa display >}}](https://journals.sagepub.com/doi/10.1177/0956797611430953)|
+|@lakomy2019| Open Science and the Science-Society Relationship|||[{{< fa display >}}](https://link.springer.com/article/10.1007/s12115-019-00361-w)|
+|@nosek2022| Replicability, Robustness, and Reproducibility in Psychological Science |||[{{< fa display >}}](https://www.annualreviews.org/content/journals/10.1146/annurev-psych-020821-114157)|
+|@community2022|Chapter on [Reproducibility](https://the-turing-way.netlify.app/reproducible-research/overview/)|[{{< fa display >}}](https://book.the-turing-way.org/)| [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)|[{{< fa display >}}](https://the-turing-way.netlify.app/reproducible-research/overview/)|
+

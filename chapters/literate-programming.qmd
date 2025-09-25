@@ -1167,8 +1167,12 @@ Extension removed.
 
 ```
 
-## Resources
+## References
 
--   <https://quarto.org/>
--   <https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html>
--   <https://wjschne.github.io/apaquarto/>
+We would like to express our gratitude to the following resources which have been essential in shaping this chapter. We recommend these references for further reading.
+
+|Authors|Title|Website|License|Source|
+|:---|:---|:---|:---|:---|
+|@quarto2025|Quarto|[{{< fa display >}}](https://quarto.org/)|[MIT](An open-source scientific and technical publishing system)|[{{< fa brands github >}}](https://github.com/quarto-dev/quarto-web)|
+|@wittkuhn2023| Introduction to Quarto |[{{< fa display >}}](https://lennartwittkuhn.com/training/2023-12-01-training-quarto-uhh.html)|[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)|[{{< fa brands github >}}](https://github.com/lnnrtwttkhn/quarto-workshop/)|
+|@schneider2025|Introduction to apaquarto|[{{< fa display >}}](https://wjschne.github.io/apaquarto/)|[CCO-1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.de)|[{{< fa brands github >}}](https://github.com/wjschne/apaquarto)|

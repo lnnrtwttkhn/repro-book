@@ -688,7 +688,11 @@ Simply add them in the repositories settings under access.
 They can then accept this collaborator role and 
 -->
 
-## Acknowledgments
+## References
 
-This chapter was heavily informed by [The Version Control Book](https://lennartwittkuhn.com/version-control-book/) and [The Turing Way](https://book.the-turing-way.org/reproducible-research/vcs).
+We would like to express our gratitude to the following resources which have been essential in shaping this chapter. We recommend these references for further reading.
 
+|Authors|Title|Website|License|Source|
+|:---|:---|:---|:---|:---|
+|@community2022|Version control|[{{< fa display >}}](https://book.the-turing-way.org/reproducible-research/vcs)| [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)|[{{< fa brands github >}}](https://github.com/the-turing-way/the-turing-way)|
+|@wittkuhn2025|Version Control Book|[{{< fa display >}}](https://lennartwittkuhn.com/version-control-book/)|[CC-BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en)|[{{< fa brands github >}}](https://github.com/lnnrtwttkhn/version-control-book)|

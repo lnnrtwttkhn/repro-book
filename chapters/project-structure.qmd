@@ -206,7 +206,8 @@ Since, we dedicated a whole chapter to this topic, we move on to the next basic 
 
 A `README` is a text file that provides basic information about a project.
 It is typically a Markdown (`.md`) file, which means you can use [Markdown]({{< var links.markdown >}}) syntax in it.
-Markdown allows you to easily format text, create lists, include links, and embed images.
+Markdown allows you to easily format text, create lists, include links, and embed images. 
+We'll get into Markdown syntax in a [later chapter](literate-programming.qmd#sec-markdown).
 The exact content depends on your repository, but some general things that you might want to include are:
 
 -   **Project description**: What function does this repository serve and what are it's key features?
@@ -538,3 +539,14 @@ Rather, the paper were chosen from the respective journal websites on a random b
 
 Again, it should be noted that there is no perfectly organized reproducibility archive.
 However, we hope that the displayed examples show that open science, open data and reproducibility can be applied in many different ways.
+
+## References
+
+We would like to express our gratitude to the following resources which have been essential in shaping this chapter. We recommend these references for further reading.
+
+|Authors|Title|Website|License|Source|
+|:---|:---|:---|:---|:---|
+|BIDS|The Brain Imaging Data Structure|[{{< fa display >}}](https://bids.neuroimaging.io/)|[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)|[{{< fa brands github >}}](https://github.com/bids-standard/bids-website/)|
+|psych-DS|Psych-DS Schema Model|[{{< fa brands github >}}](https://github.com/psych-DS/psych-DS)|[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)|[{{< fa brands github >}}](https://github.com/psych-DS/psych-DS).
+|Top Factor|Transparency and Openness Promotion|[{{< fa display >}}](https://topfactor.org/)||||
+|@community2022|The Turing Way|[{{< fa display >}}](https://book.the-turing-way.org/)| [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)|[{{< fa display >}}](https://book.the-turing-way.org/)|

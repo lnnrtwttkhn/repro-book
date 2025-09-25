@@ -22,6 +22,15 @@ library(tibble)
 
 # Good Coding Practices
 
+::: {.callout-tip appearance="minimal"}
+<h5>Learning Objectives</h5>
+
+:bulb: You know how and why good coding practices help with making your work more reproducible.<br>
+:bulb: You learn about how to practice good coding style. <br>
+:bulb: You learn how to keep your data tidy.<br>
+:bulb: You know about the `assertr` package and the function `verify()` to help you avoid issues with your data.<br>
+:::
+
 ## R projects {#sec-rproject}
 
 As a researcher (and as a student), you work on different projects simultaneously.
@@ -779,12 +788,11 @@ It is rather prevalent in software development contexts validating functions and
 These thorough testing processes extends the scope of computational reproducibility in our opinion.
 Thus, we recommend `assertr::verify()` as a good starting point for defensive programming in the context of computational reproducibility.
 
-## Acknowledgements & further reading
+## References
 
-We would like to express our gratitude to the following resources, which have been essential in shaping this chapter.
-We recommend these references for further reading:
+We would like to express our gratitude to the following resources which have been essential in shaping this chapter. We recommend these references for further reading.
 
-| Resources |
-|------------------------------------------------------------------------|
-| [@rennie2024] |
-| [@wickham2023]|
+|Authors|Title|Website|License|Source|
+|:---|:---|:---|:---|:---|
+|@rennie2024|Writing Better R Code|[{{< fa display >}}](https://nrennie.rbind.io/training-better-r-code/)| [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)||
+|@wickham2023|R for Data science: Import, Tidy, Transform, Visualize, and Model Data|[{{< fa display >}}](https://r4ds.hadley.nz)|[CC BY-NC-ND 3.0 US](https://creativecommons.org/licenses/by-nc-nd/3.0/us/deed.en)|[{{< fa brands github >}}](https://github.com/hadley/r4ds)|
