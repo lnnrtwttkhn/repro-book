@@ -106,7 +106,13 @@ Quarto is well integrated in RStudio and comes already bundled with any version 
 In case you're using an older version of RStudio, here are instructions on [how to install Quarto](https://docs.posit.co/ide/user/ide/guide/documents/quarto-project.html#installing-quarto).
 What Quarto does is, it can interpret and handle many programming languages (e.g. R and Python) as well as plain text and transforms it into standard output formats (e.g., Word-, PDF-, and .html-files, see @fig-quarto-idea).
 
-![This illustration shows schematically that one can have input in different languages and Quarto will produce different output formats. Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022. Illustrated by Allison Horst. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/horst-quarto-schematic.jpg){#fig-quarto-idea}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+#| label: quarto-idea
+cat(make_figure("horst-quarto-schematic"))
+```
 
 With Quarto, one is able to create (scientific) papers, but also websites, presentations or books.
 In fact, this book is written with Quarto.
@@ -116,7 +122,13 @@ We will get to the Markdown language in a second (@sec-markdown).
 Everything you write in a Quarto file will then be **rendered** into a desired output file (e.g. .html, .pdf, .docx).
 As example, @fig-quarto-example-document-plot shows a Quarto document that contains human-readable text and a code chunk that will create a plot, as well as it's rendered version below.
 
-![On the left is a Quarto document in RStudio, containing a code chunk that creates a simple plot. On the right is the rendered version of the document, showing the text and the plot. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-example-document-plot.jpg){#fig-quarto-example-document-plot}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+#| label: quarto-example-document-plot
+cat(make_figure("quarto-example-document-plot"))
+```
 
 ## How to use Quarto
 
@@ -139,7 +151,13 @@ The metadata of title and format is stored in the so called **YAML header** at t
 This is also where you can further customize some general features of your file, such as the author, a subtitle, the date or the style of your document (see @sec-yaml-header).
 To create the Quarto document, choose your preferred output format, type in at least the title of the document, and click on **Create** in the prompt box.
 
-![Prompt box that opens when intending to create a new Quarto document. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-box-create-document.png){#fig-quarto-box-create-document fig-align="center" width="70%" height="70%"}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+#| label: quarto-box-create-document
+cat(make_figure("quarto-box-create-document"))
+```
 
 <!--Insert pullout box about what info can be put into the YAML -->
 
@@ -158,18 +176,34 @@ This is because most Markdown Syntax is easier and faster to write than to use a
 Nevertheless, in the Section about Markdown Syntax we give you instructions how to format your text in both editors.
 Take a look at the two different modes and the rendered version of the document below with some simple formatting options.
 
-![On the left is the Source mode of the .qmd file and on the right the Visual formatting mode. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-source-mode.jpg){#fig-quarto-visual-source-mode}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+#| label: quarto-visual-source-mode
+cat(make_figure("quarto-visual-source-mode"))
+```
 
 Now, take a look at the rendered version of the document and how each of the formatting options plays out.
 
-![A screenshot of the rendered version of a document to showcase some formatting options. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-rendered-formatting.jpg)
-
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("quarto-rendered-formatting"))
+```
 ::: {#tip-quarto-git-compatibility .callout-tip title="Enhance Quarto compatibility with Git" collapse=true}
 
 When you make changes in a Quarto document and you track it with Git, we recommend you to write each sentence in a new line when using the `Source` Editor.
 This enhances the readability of the changes in Git you made in the Quarto document but does not change the output of the document (see @fig-quarto-git-compatibility).
 
-![The upper left corner displays text. Lines 6 to 8 contain a paragraph where each sentence is written in a new line. Line 10 contains a paragraph where all sentences are written in one line. The lower left corner displays the rendered `html` version of the quarto document. The right half shows the popup window of Git to commit changes. As one can see, it is easier to understand the changes that were made in line 8 compared to line 10.](../static/quarto-git-compatibility.png){#fig-quarto-git-compatibility}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+#| label: quarto-git-compatibility
+cat(make_figure("quarto-git-compatibility"))
+```
 
 :::
 
@@ -242,7 +276,13 @@ There is also a button *"Format"*.
 If you click on that button, then a variety of formatting options appear.
 When you hover over *"Text"*, you see all the formatting options we also covered for the source editor.
 
-![The red rectangle in the menu line covers the buttons for making the code **bold** or *italic*. The orange rectangle in the menu line indicates the *"format"* button to see a variety of text formatting options.](../static/markdown-text-formatting.png){#fig-text-formatting}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+#| label: markdown-text-formatting
+cat(make_figure("markdown-text-formatting"))
+```
 
 :::
 
@@ -319,7 +359,13 @@ Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-
 You can also edit your headings in the menu line of the Visual Editor via click and select.
 Simply choose between normal text or your desired header level.
 
-![This is where you can find the different header options in the Visual Editor.](../static/markdown-visual-header.jpg){#fig-visual-header}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+#| label: visual-header
+cat(make_figure("markdown-visual-header"))
+```
 
 :::
 
@@ -401,7 +447,13 @@ You have access to the same types of lists in the Visual as in the Source Editor
 when wanting to create a list, head to the menu line under **Format > Bullets & Numbering**.
 Some of the options only become available once you've created a list and want to edit it, like `Tight List`or `Sink Item`.
 
-![This is where you can find the different list options in the Visual Editor.](../static/quarto-visual-lists.jpg){#fig-visual-lists}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+#| label: visual-lists
+cat(make_figure("quarto-visual-lists"))
+```
 :::
 
 ### Tables
@@ -450,7 +502,12 @@ This will open a prompt that asks you about the general dimensions of your table
 You also have the option to include a caption at this point.
 Once you've created a table more options like centering or adding more rows will become available.
 
-![This is where you can find the different table options in the Visual Editor.](../static/quarto-visual-table.jpg){#fig-visual-table}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("quarto-visual-table"))
+```
 
 :::
 
@@ -489,7 +546,12 @@ $$E = mc^{2}$$
 
 You can also add equations using the Visual Editor by going to the menu line and selecting **Insert > LaTeX Math > Inline Math/Display Math**.
 
-![This is where you can find the two different options for equations in the Visual Editor.](../static/quarto-visual-equations.jpg){#fig-visual-equations}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("quarto-visual-equations"))
+```
 :::
 
 ### Blockquotes
@@ -515,7 +577,12 @@ This will result in the following **output** in your final document.
 
 To do the same thing in the Visual Editor head once again to the menu line and select **Format > Blockquote**.
 
-![This is where you can find the blockquote option in the Visual Editor.](../static/quarto-visual-blockquote.jpg){#fig-visual-blockquote}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("quarto-visual-blockquote"))
+```
 
 :::
 
@@ -588,12 +655,22 @@ Sources: [RStudio - Markdown basics](https://quarto.org/docs/authoring/markdown-
 
 To add a **link** in the Visual Editor, head to the the menu line **Insert > Link...**, which opens a window that prompts you to enter the URL, a Text, which is what will be displayed within the text and a Title/Tooltip, which pops up when you hover over the link.
 
-![This window lets you insert links in the Visual Editor in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-link.jpg)
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("quarto-visual-link"))
+```
 
 To insert **images** using the Visual Editor, select from the menu line **Insert > Figure/Image...**, which leads you to a pop-up window, in which you can either insert the link to an image or browse your stored images.
 In this window you can also add links to websites and a caption for your image.
 
-![This window lets you insert images in the Visual Editor in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-visual-images.jpg)
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("quarto-visual-images"))
+```
 :::
 
 ## The YAML header {#sec-yaml-header}
@@ -702,7 +779,12 @@ As explained in the introduction, when having to e.g. change your analysis, thes
 **Code chunks** are pieces of code that will be executed by Quarto during the rendering process, so when you're having Quarto create the intended output format of your .qmd file.
 Remember the earlier example of a plot within a report, which was done using a code chunk.
 
-![On the left is a Quarto document in RStudio, containing a code chunk that creates a simple plot. On the right is the rendered version of the document, showing the text and the plot. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-example-document-plot.jpg)
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("quarto-example-document-plot"))
+```
 
 Any type of code can be inserted by using code chunks.
 
@@ -714,8 +796,12 @@ As this process is so simply and the thinking work lies in the code itself, it i
 
 To add a code chunk in the **Visual** mode, head to **Insert > Executable Cell > *Desired Language* ** , as can be seen below.
 
-![How to insert a code chunk into a Quarto document in the Visual mode in RStudio. Used under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0) license.](../static/quarto-insert-codechunk.jpg)
-
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+cat(make_figure("quarto-insert-codechunk"))
+```
 <!-- MOVE THIS TO A CALLOUTBOX AND ADD EXPLANATION ON EXTENSIONS NEEDED TO BE INSTALLED
 Code chunks can also be interactive and run in the rendered document, if specified.
 This is useful in teaching scenarios such as going through a coding process step-by-step.
@@ -820,7 +906,13 @@ The Visual Editor does that automatically for you.
 If you use the Source editor, you have to set up the `references.bib` file on your own and manually add the bibliography key-value pair to your document's YAML header.
 When you add other new citations, they are automatically added to your `references.bib` file, when you follow the same steps from above again.
 
-![Screenshot of Pop-Up box when adding a new citation from a DOI in the Visual Editor.](../static/quarto-add-citation.png){#fig-quarto-add-citation}
+```{r}
+#| results: asis
+#| eval: true
+#| echo: false
+#| label: quarto-add-citation
+cat(make_figure("quarto-add-citation"))
+```
 
 :::{#nte-references-bib .callout-note title="The `references.bib` file" collapse=true}
 
